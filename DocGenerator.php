@@ -266,11 +266,11 @@ class DocGenerator
         $constants = [];
         foreach ($class->getConstants() as $constantName => $constantValue) {
             $isDefinedHere = true;
-            if ($parentClassName !== '' && defined($parentClassName . '::' . $constantName) !== false) {
+            if ($parentClassName !== '' && defined($parentClassName . '::' . $constantName) !== false && constant($parentClassName . '::' . $constantName) === $constantValue) {
                 $isDefinedHere = false;
             } else {
                 foreach ($interfaces as $interface) {
-                    if (defined($interface . '::' . $constantName) !== false) {
+                    if (defined($interface . '::' . $constantName) !== false && constant($interface . '::' . $constantName) === $constantValue) {
                         $isDefinedHere = false;
                         break;
                     }
