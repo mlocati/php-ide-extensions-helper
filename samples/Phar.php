@@ -14,29 +14,17 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     const BZ2 = 8192;
     const COMPRESSED = 61440;
-    const CURRENT_AS_FILEINFO = 0;
-    const CURRENT_AS_PATHNAME = 32;
-    const CURRENT_AS_SELF = 16;
-    const CURRENT_MODE_MASK = 240;
-    const FOLLOW_SYMLINKS = 512;
     const GZ = 4096;
-    const KEY_AS_FILENAME = 256;
-    const KEY_AS_PATHNAME = 0;
-    const KEY_MODE_MASK = 3840;
     const MD5 = 1;
-    const NEW_CURRENT_AND_KEY = 256;
     const NONE = 0;
     const OPENSSL = 16;
-    const OTHER_MODE_MASK = 12288;
     const PHAR = 1;
     const PHP = 0;
     const PHPS = 1;
     const SHA1 = 2;
     const SHA256 = 3;
     const SHA512 = 4;
-    const SKIP_DOTS = 4096;
     const TAR = 2;
-    const UNIX_PATHS = 8192;
     const ZIP = 3;
     final public static function apiVersion()
     {
@@ -209,18 +197,6 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 }
 class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
-    const CURRENT_AS_FILEINFO = 0;
-    const CURRENT_AS_PATHNAME = 32;
-    const CURRENT_AS_SELF = 16;
-    const CURRENT_MODE_MASK = 240;
-    const FOLLOW_SYMLINKS = 512;
-    const KEY_AS_FILENAME = 256;
-    const KEY_AS_PATHNAME = 0;
-    const KEY_MODE_MASK = 3840;
-    const NEW_CURRENT_AND_KEY = 256;
-    const OTHER_MODE_MASK = 12288;
-    const SKIP_DOTS = 4096;
-    const UNIX_PATHS = 8192;
     final public static function apiVersion()
     {
     }

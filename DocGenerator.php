@@ -212,12 +212,21 @@ class DocGenerator
             $header .= 'interface ' . $class->getShortName();
             switch (count($interfaces)) {
                 case 0:
+                    $parentClassName = '';
                     break;
                 case 1:
-                    $header .= ' extends ' . $interfaces[0];
+                    $parentClassName = $interfaces[0];
+                    $parentClass = new ReflectionClass($parentClassName);
+                    if ($parentClass->getNamespaceName() !== $class->getNamespaceName()) {
+                        $parentClassName = '\\' . lrtrim($parentClassName, '\\');
+                    }
+                    $interfaces = [];
                     break;
                 default:
                     throw new Exception("An interface can't extend more that one interface");
+            }
+            if ($parentClassName !== '') {
+                $header .= ' extends ' . $parentClassName;
             }
         } else {
             $parentClass = $class->getParentClass();
@@ -254,12 +263,28 @@ class DocGenerator
         }
         $result[] = $header;
         $result[] .= '{';
-        $constants = $class->getConstants();
+        $constants = [];
+        foreach ($class->getConstants() as $constantName => $constantValue) {
+            $isDefinedHere = true;
+            if ($parentClassName !== '' && defined($parentClassName . '::' . $constantName) !== false) {
+                $isDefinedHere = false;
+            } else {
+                foreach ($interfaces as $interface) {
+                    if (defined($interface . '::' . $constantName) !== false) {
+                        $isDefinedHere = false;
+                        break;
+                    }
+                }
+            }
+            if ($isDefinedHere === true) {
+                $constants[$constantName] = $constantValue;
+            }
+        }
         if (count($constants) > 0) {
             ksort($constants);
             $constantLines = [];
-            foreach ($constants as $name => $value) {
-                $constantLines[] .= "const {$name} = " . $this->serializeValue($value) . ';';
+            foreach ($constants as $constantName => $constantValue) {
+                $constantLines[] .= "const {$constantName} = " . $this->serializeValue($constantValue) . ';';
             }
             $result = array_merge($result, $this->indent($constantLines));
         }

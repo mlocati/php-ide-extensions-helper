@@ -411,18 +411,6 @@ abstract class FilterIterator extends IteratorIterator
 }
 class GlobIterator extends FilesystemIterator implements Countable
 {
-    const CURRENT_AS_FILEINFO = 0;
-    const CURRENT_AS_PATHNAME = 32;
-    const CURRENT_AS_SELF = 16;
-    const CURRENT_MODE_MASK = 240;
-    const FOLLOW_SYMLINKS = 512;
-    const KEY_AS_FILENAME = 256;
-    const KEY_AS_PATHNAME = 0;
-    const KEY_MODE_MASK = 3840;
-    const NEW_CURRENT_AND_KEY = 256;
-    const OTHER_MODE_MASK = 12288;
-    const SKIP_DOTS = 4096;
-    const UNIX_PATHS = 8192;
     public function __construct($path, $flags = null)
     {
     }
@@ -602,12 +590,6 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 }
 class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator
 {
-    const CALL_TOSTRING = 1;
-    const CATCH_GET_CHILD = 16;
-    const FULL_CACHE = 256;
-    const TOSTRING_USE_CURRENT = 4;
-    const TOSTRING_USE_INNER = 8;
-    const TOSTRING_USE_KEY = 2;
     public function __construct(Iterator $iterator, $flags = null)
     {
     }
@@ -632,18 +614,6 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
 }
 class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator
 {
-    const CURRENT_AS_FILEINFO = 0;
-    const CURRENT_AS_PATHNAME = 32;
-    const CURRENT_AS_SELF = 16;
-    const CURRENT_MODE_MASK = 240;
-    const FOLLOW_SYMLINKS = 512;
-    const KEY_AS_FILENAME = 256;
-    const KEY_AS_PATHNAME = 0;
-    const KEY_MODE_MASK = 3840;
-    const NEW_CURRENT_AND_KEY = 256;
-    const OTHER_MODE_MASK = 12288;
-    const SKIP_DOTS = 4096;
-    const UNIX_PATHS = 8192;
     public function __construct($path, $flags = null)
     {
     }
@@ -735,13 +705,6 @@ class RecursiveIteratorIterator implements OuterIterator
 }
 class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 {
-    const ALL_MATCHES = 2;
-    const GET_MATCH = 1;
-    const INVERT_MATCH = 2;
-    const MATCH = 0;
-    const REPLACE = 4;
-    const SPLIT = 3;
-    const USE_KEY = 1;
     public function __construct(RecursiveIterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
@@ -759,16 +722,12 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     const BYPASS_CURRENT = 4;
     const BYPASS_KEY = 8;
-    const CATCH_GET_CHILD = 16;
-    const CHILD_FIRST = 2;
-    const LEAVES_ONLY = 0;
     const PREFIX_END_HAS_NEXT = 3;
     const PREFIX_END_LAST = 4;
     const PREFIX_LEFT = 0;
     const PREFIX_MID_HAS_NEXT = 1;
     const PREFIX_MID_LAST = 2;
     const PREFIX_RIGHT = 5;
-    const SELF_FIRST = 1;
     public function __construct(Traversable $iterator, $flags = null, $caching_it_flags = null, $mode = null)
     {
     }
@@ -1362,10 +1321,6 @@ class SplPriorityQueue implements Countable, Iterator
 }
 class SplQueue extends SplDoublyLinkedList
 {
-    const IT_MODE_DELETE = 1;
-    const IT_MODE_FIFO = 0;
-    const IT_MODE_KEEP = 0;
-    const IT_MODE_LIFO = 2;
     public function dequeue()
     {
     }
@@ -1375,17 +1330,9 @@ class SplQueue extends SplDoublyLinkedList
 }
 class SplStack extends SplDoublyLinkedList
 {
-    const IT_MODE_DELETE = 1;
-    const IT_MODE_FIFO = 0;
-    const IT_MODE_KEEP = 0;
-    const IT_MODE_LIFO = 2;
 }
 class SplTempFileObject extends SplFileObject
 {
-    const DROP_NEW_LINE = 1;
-    const READ_AHEAD = 2;
-    const READ_CSV = 8;
-    const SKIP_EMPTY = 4;
     public function __construct($max_memory = null)
     {
     }

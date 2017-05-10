@@ -483,9 +483,6 @@ class ReflectionNamedType extends ReflectionType
 }
 class ReflectionObject extends ReflectionClass
 {
-    const IS_EXPLICIT_ABSTRACT = 32;
-    const IS_FINAL = 4;
-    const IS_IMPLICIT_ABSTRACT = 16;
     public static function export($argument, $return = null)
     {
     }
