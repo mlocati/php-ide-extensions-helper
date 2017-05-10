@@ -340,43 +340,7 @@ class mysqli_result implements Traversable
 final class mysqli_sql_exception extends RuntimeException
 {
     protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
     protected $sqlstate = '00000';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class mysqli_stmt
 {

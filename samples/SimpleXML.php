@@ -52,43 +52,10 @@ class SimpleXMLElement implements Traversable
 }
 class SimpleXMLIterator extends SimpleXMLElement implements Traversable, RecursiveIterator, Iterator, Countable
 {
-    final public function __construct($data, $options = null, $data_is_url = null, $ns = null, $is_prefix = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function addAttribute($name, $value = null, $ns = null)
-    {
-    }
-    public function addChild($name, $value = null, $ns = null)
-    {
-    }
-    public function asXML($filename = null)
-    {
-    }
-    public function attributes($ns = null, $is_prefix = null)
-    {
-    }
-    public function children($ns = null, $is_prefix = null)
-    {
-    }
-    public function count()
-    {
-    }
     public function current()
     {
     }
     public function getChildren()
-    {
-    }
-    public function getDocNamespaces($recursve = null, $from_root = null)
-    {
-    }
-    public function getName()
-    {
-    }
-    public function getNamespaces($recursve = null)
     {
     }
     public function hasChildren()
@@ -100,19 +67,10 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
     public function next()
     {
     }
-    public function registerXPathNamespace($prefix, $ns)
-    {
-    }
     public function rewind()
     {
     }
-    public function saveXML($filename = null)
-    {
-    }
     public function valid()
-    {
-    }
-    public function xpath($path)
     {
     }
 }

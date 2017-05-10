@@ -221,123 +221,12 @@ interface Traversable
 }
 class ArgumentCountError extends TypeError
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class ArithmeticError extends Error
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class ClosedGeneratorException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 final class Closure
 {
@@ -359,43 +248,6 @@ final class Closure
 }
 class DivisionByZeroError extends ArithmeticError
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class Error implements Throwable
 {
@@ -442,45 +294,11 @@ class Error implements Throwable
 }
 class ErrorException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
     protected $severity = 1;
-    public function __toString()
-    {
-    }
-    final private function __clone()
-    {
-    }
     public function __construct($message = null, $code = null, $severity = null, $filename = null, $lineno = null, $previous = null)
     {
     }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
     final public function getSeverity()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
     {
     }
 }
@@ -559,86 +377,12 @@ final class Generator implements Iterator, Traversable
 }
 class ParseError extends Error
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class stdClass
 {
 }
 class TypeError extends Error
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 function zend_version()
 {

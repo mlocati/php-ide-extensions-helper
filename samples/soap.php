@@ -139,41 +139,7 @@ class SoapClient
 }
 class SoapFault extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    final private function __clone()
-    {
-    }
     public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
     {
     }
     public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null)

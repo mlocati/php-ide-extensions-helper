@@ -228,43 +228,6 @@ class ReflectionClassConstant implements Reflector
 }
 class ReflectionException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class ReflectionExtension implements Reflector
 {
@@ -331,99 +294,19 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
     public function getClosure()
     {
     }
-    public function getClosureScopeClass()
-    {
-    }
-    final private function __clone()
-    {
-    }
-    public function getClosureThis()
-    {
-    }
-    public function getDocComment()
-    {
-    }
-    public function getEndLine()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getExtensionName()
-    {
-    }
-    public function getFileName()
-    {
-    }
-    public function getName()
-    {
-    }
-    public function getNamespaceName()
-    {
-    }
-    public function getNumberOfParameters()
-    {
-    }
-    public function getNumberOfRequiredParameters()
-    {
-    }
-    public function getParameters()
-    {
-    }
-    public function getReturnType()
-    {
-    }
-    public function getShortName()
-    {
-    }
-    public function getStartLine()
-    {
-    }
-    public function getStaticVariables()
-    {
-    }
-    public function hasReturnType()
-    {
-    }
-    public function inNamespace()
-    {
-    }
     public function invoke($args = null)
     {
     }
     public function invokeArgs(array $args)
     {
     }
-    public function isClosure()
-    {
-    }
-    public function isDeprecated()
-    {
-    }
     public function isDisabled()
-    {
-    }
-    public function isGenerator()
-    {
-    }
-    public function isInternal()
-    {
-    }
-    public function isUserDefined()
-    {
-    }
-    public function isVariadic()
-    {
-    }
-    public function returnsReference()
     {
     }
 }
 abstract class ReflectionFunctionAbstract implements Reflector
 {
     public $name = '';
-    public static abstract function export();
-    public abstract function __toString();
     public function getClosureScopeClass()
     {
     }
@@ -466,6 +349,9 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function getShortName()
     {
     }
+    final private function __clone()
+    {
+    }
     public function getStartLine()
     {
     }
@@ -493,13 +379,10 @@ abstract class ReflectionFunctionAbstract implements Reflector
     public function isUserDefined()
     {
     }
-    public function returnsReference()
-    {
-    }
-    final private function __clone()
-    {
-    }
     public function isVariadic()
+    {
+    }
+    public function returnsReference()
     {
     }
 }
@@ -549,70 +432,13 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
     public function getClosure($object)
     {
     }
-    public function getClosureScopeClass()
-    {
-    }
-    public function getClosureThis()
-    {
-    }
     public function getDeclaringClass()
-    {
-    }
-    final private function __clone()
-    {
-    }
-    public function getDocComment()
-    {
-    }
-    public function getEndLine()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getExtensionName()
-    {
-    }
-    public function getFileName()
     {
     }
     public function getModifiers()
     {
     }
-    public function getName()
-    {
-    }
-    public function getNamespaceName()
-    {
-    }
-    public function getNumberOfParameters()
-    {
-    }
-    public function getNumberOfRequiredParameters()
-    {
-    }
-    public function getParameters()
-    {
-    }
     public function getPrototype()
-    {
-    }
-    public function getReturnType()
-    {
-    }
-    public function getShortName()
-    {
-    }
-    public function getStartLine()
-    {
-    }
-    public function getStaticVariables()
-    {
-    }
-    public function hasReturnType()
-    {
-    }
-    public function inNamespace()
     {
     }
     public function invoke($object, $args)
@@ -624,25 +450,13 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
     public function isAbstract()
     {
     }
-    public function isClosure()
-    {
-    }
     public function isConstructor()
-    {
-    }
-    public function isDeprecated()
     {
     }
     public function isDestructor()
     {
     }
     public function isFinal()
-    {
-    }
-    public function isGenerator()
-    {
-    }
-    public function isInternal()
     {
     }
     public function isPrivate()
@@ -657,34 +471,13 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
     public function isStatic()
     {
     }
-    public function isUserDefined()
-    {
-    }
-    public function isVariadic()
-    {
-    }
-    public function returnsReference()
-    {
-    }
     public function setAccessible($value)
     {
     }
 }
 class ReflectionNamedType extends ReflectionType
 {
-    public function __toString()
-    {
-    }
-    final private function __clone()
-    {
-    }
-    public function allowsNull()
-    {
-    }
     public function getName()
-    {
-    }
-    public function isBuiltin()
     {
     }
 }
@@ -693,164 +486,10 @@ class ReflectionObject extends ReflectionClass implements Reflector
     const IS_EXPLICIT_ABSTRACT = 32;
     const IS_FINAL = 4;
     const IS_IMPLICIT_ABSTRACT = 16;
-    public $name = '';
     public static function export($argument, $return = null)
     {
     }
     public function __construct($argument)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function getConstant($name)
-    {
-    }
-    public function getConstants()
-    {
-    }
-    final private function __clone()
-    {
-    }
-    public function getConstructor()
-    {
-    }
-    public function getDefaultProperties()
-    {
-    }
-    public function getDocComment()
-    {
-    }
-    public function getEndLine()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getExtensionName()
-    {
-    }
-    public function getFileName()
-    {
-    }
-    public function getInterfaceNames()
-    {
-    }
-    public function getInterfaces()
-    {
-    }
-    public function getMethod($name)
-    {
-    }
-    public function getMethods($filter = null)
-    {
-    }
-    public function getModifiers()
-    {
-    }
-    public function getName()
-    {
-    }
-    public function getNamespaceName()
-    {
-    }
-    public function getParentClass()
-    {
-    }
-    public function getProperties($filter = null)
-    {
-    }
-    public function getProperty($name)
-    {
-    }
-    public function getReflectionConstant($name)
-    {
-    }
-    public function getReflectionConstants()
-    {
-    }
-    public function getShortName()
-    {
-    }
-    public function getStartLine()
-    {
-    }
-    public function getStaticProperties()
-    {
-    }
-    public function getStaticPropertyValue($name, $default = null)
-    {
-    }
-    public function getTraitAliases()
-    {
-    }
-    public function getTraitNames()
-    {
-    }
-    public function getTraits()
-    {
-    }
-    public function hasConstant($name)
-    {
-    }
-    public function hasMethod($name)
-    {
-    }
-    public function hasProperty($name)
-    {
-    }
-    public function implementsInterface($interface)
-    {
-    }
-    public function inNamespace()
-    {
-    }
-    public function isAbstract()
-    {
-    }
-    public function isAnonymous()
-    {
-    }
-    public function isCloneable()
-    {
-    }
-    public function isFinal()
-    {
-    }
-    public function isInstance($object)
-    {
-    }
-    public function isInstantiable()
-    {
-    }
-    public function isInterface()
-    {
-    }
-    public function isInternal()
-    {
-    }
-    public function isIterateable()
-    {
-    }
-    public function isSubclassOf($class)
-    {
-    }
-    public function isTrait()
-    {
-    }
-    public function isUserDefined()
-    {
-    }
-    public function newInstance($args)
-    {
-    }
-    public function newInstanceArgs(array $args = null)
-    {
-    }
-    public function newInstanceWithoutConstructor()
-    {
-    }
-    public function setStaticPropertyValue($name, $value)
     {
     }
 }

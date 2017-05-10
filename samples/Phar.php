@@ -89,12 +89,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function __destruct()
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
     public function addEmptyDir($dirname = null)
     {
     }
@@ -128,9 +122,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function count()
     {
     }
-    public function current()
-    {
-    }
     public function decompress($file_ext = null)
     {
     }
@@ -149,88 +140,22 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function getAlias()
     {
     }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
-    public function getChildren()
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
     public function getMetadata()
     {
     }
     public function getModified()
     {
     }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
     public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
     {
     }
     public function getSignature()
     {
     }
-    public function getSize()
-    {
-    }
     public function getStub()
     {
     }
-    public function getSubPath()
-    {
-    }
-    public function getSubPathname()
-    {
-    }
-    public function getType()
-    {
-    }
     public function getVersion()
-    {
-    }
-    public function hasChildren($allow_links = null)
     {
     }
     public function hasMetadata()
@@ -242,34 +167,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function isCompressed()
     {
     }
-    public function isDir()
-    {
-    }
-    public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
     public function isFileFormat($fileformat)
     {
     }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
     public function isWritable()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
     {
     }
     public function offsetExists($entry)
@@ -284,28 +185,10 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     public function offsetUnset($entry)
     {
     }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($position)
-    {
-    }
     public function setAlias($alias)
     {
     }
     public function setDefaultStub($index = null, $webindex = null)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setFlags($flags = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
     {
     }
     public function setMetadata($metadata)
@@ -321,9 +204,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     {
     }
     public function stopBuffering()
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -392,12 +272,6 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function __destruct()
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
     public function addEmptyDir($dirname = null)
     {
     }
@@ -431,9 +305,6 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function count()
     {
     }
-    public function current()
-    {
-    }
     public function decompress($file_ext = null)
     {
     }
@@ -452,88 +323,22 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function getAlias()
     {
     }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
-    public function getChildren()
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
     public function getMetadata()
     {
     }
     public function getModified()
     {
     }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
     public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
     {
     }
     public function getSignature()
     {
     }
-    public function getSize()
-    {
-    }
     public function getStub()
     {
     }
-    public function getSubPath()
-    {
-    }
-    public function getSubPathname()
-    {
-    }
-    public function getType()
-    {
-    }
     public function getVersion()
-    {
-    }
-    public function hasChildren($allow_links = null)
     {
     }
     public function hasMetadata()
@@ -545,34 +350,10 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function isCompressed()
     {
     }
-    public function isDir()
-    {
-    }
-    public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
     public function isFileFormat($fileformat)
     {
     }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
     public function isWritable()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
     {
     }
     public function offsetExists($entry)
@@ -587,28 +368,10 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function offsetUnset($entry)
     {
     }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($position)
-    {
-    }
     public function setAlias($alias)
     {
     }
     public function setDefaultStub($index = null, $webindex = null)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setFlags($flags = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
     {
     }
     public function setMetadata($metadata)
@@ -626,49 +389,9 @@ class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, 
     public function stopBuffering()
     {
     }
-    public function valid()
-    {
-    }
 }
 class PharException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class PharFileInfo extends SplFileInfo
 {
@@ -676,12 +399,6 @@ class PharFileInfo extends SplFileInfo
     {
     }
     public function __destruct()
-    {
-    }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
     {
     }
     public function chmod($perms)
@@ -696,12 +413,6 @@ class PharFileInfo extends SplFileInfo
     public function delMetadata()
     {
     }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
     public function getCompressedSize()
     {
     }
@@ -711,58 +422,10 @@ class PharFileInfo extends SplFileInfo
     public function getCRC32()
     {
     }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
     public function getMetadata()
     {
     }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
     public function getPharFlags()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
     {
     }
     public function hasMetadata()
@@ -772,33 +435,6 @@ class PharFileInfo extends SplFileInfo
     {
     }
     public function isCRCChecked()
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
-    {
-    }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
     {
     }
     public function setMetadata($metadata)

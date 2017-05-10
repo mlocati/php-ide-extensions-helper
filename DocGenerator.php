@@ -225,7 +225,13 @@ class DocGenerator
             }
             $result = array_merge($result, $this->indent($constantLines));
         }
-        $properties = $class->getProperties();
+        $properties = array_filter(
+            $class->getProperties(),
+            function (ReflectionProperty $property) use ($class) {
+                return $property->getDeclaringClass()->getName() === $class->getName();
+            }
+        );
+        /* @var ReflectionProperty[] $properties */
         if (count($properties) > 0) {
             usort($properties, function (ReflectionProperty $a, ReflectionProperty $b) {
                 if ($a->isStatic() != $b->isStatic()) {
@@ -247,7 +253,13 @@ class DocGenerator
             }
             $result = array_merge($result, $this->indent($propertyLines));
         }
-        $methods = $class->getMethods();
+        $methods = array_filter(
+            $class->getMethods(),
+            function (ReflectionMethod $method) use ($class) {
+                return $method->getDeclaringClass()->getName() === $class->getName();
+            }
+        );
+        /* @var ReflectionMethod[] $methods */
         if (count($methods) > 0) {
             usort($methods, function (ReflectionMethod $a, ReflectionMethod $b) {
                 if ($a->isStatic() != $b->isStatic()) {

@@ -11,31 +11,16 @@ interface Countable
 }
 interface OuterIterator extends Iterator, Traversable
 {
-    public function current();
     public function getInnerIterator();
-    public function key();
-    public function next();
-    public function rewind();
-    public function valid();
 }
 interface RecursiveIterator extends Iterator, Traversable
 {
-    public function current();
     public function getChildren();
     public function hasChildren();
-    public function key();
-    public function next();
-    public function rewind();
-    public function valid();
 }
 interface SeekableIterator extends Iterator, Traversable
 {
-    public function current();
-    public function key();
-    public function next();
-    public function rewind();
     public function seek($position);
-    public function valid();
 }
 interface SplObserver
 {
@@ -230,83 +215,9 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
 }
 class BadFunctionCallException extends LogicException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class BadMethodCallException extends BadFunctionCallException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class CachingIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator, ArrayAccess, Countable
 {
@@ -376,24 +287,6 @@ class CallbackFilterIterator extends FilterIterator implements Iterator, Travers
     public function accept()
     {
     }
-    public function current()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
-    {
-    }
 }
 class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, SeekableIterator
 {
@@ -403,85 +296,19 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
     public function __toString()
     {
     }
-    final public function _bad_state_ex()
-    {
-    }
     public function current()
-    {
-    }
-    public function getATime()
     {
     }
     public function getBasename($suffix = null)
     {
     }
-    public function getCTime()
-    {
-    }
     public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
     {
     }
     public function getFilename()
     {
     }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
-    {
-    }
-    public function isDir()
-    {
-    }
     public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
     {
     }
     public function key()
@@ -490,19 +317,10 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
     public function next()
     {
     }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
     public function rewind()
     {
     }
     public function seek($position)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
     {
     }
     public function valid()
@@ -511,43 +329,6 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
 }
 class DomainException extends LogicException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class EmptyIterator implements Iterator, Traversable
 {
@@ -584,91 +365,10 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
     public function __construct($path, $flags = null)
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
     public function current()
     {
     }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
     public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
     {
     }
     public function key()
@@ -677,25 +377,10 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
     public function next()
     {
     }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
     public function rewind()
     {
     }
-    public function seek($position)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
     public function setFlags($flags = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -741,121 +426,7 @@ class GlobIterator extends FilesystemIterator implements Iterator, Traversable, 
     public function __construct($path, $flags = null)
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
     public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($position)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setFlags($flags = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -864,64 +435,12 @@ class InfiniteIterator extends IteratorIterator implements OuterIterator, Traver
     public function __construct(Iterator $iterator)
     {
     }
-    public function current()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
-    public function key()
-    {
-    }
     public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
     {
     }
 }
 class InvalidArgumentException extends LogicException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class IteratorIterator implements Iterator, Traversable, OuterIterator
 {
@@ -949,43 +468,6 @@ class IteratorIterator implements Iterator, Traversable, OuterIterator
 }
 class LengthException extends LogicException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class LimitIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
 {
@@ -1019,43 +501,6 @@ class LimitIterator extends IteratorIterator implements OuterIterator, Traversab
 }
 class LogicException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class MultipleIterator implements Iterator, Traversable
 {
@@ -1126,123 +571,12 @@ class NoRewindIterator extends IteratorIterator implements OuterIterator, Traver
 }
 class OutOfBoundsException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class OutOfRangeException extends LogicException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class OverflowException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator, OuterIterator, Traversable, Iterator
 {
@@ -1252,150 +586,17 @@ class ParentIterator extends RecursiveFilterIterator implements RecursiveIterato
     public function accept()
     {
     }
-    public function current()
-    {
-    }
-    public function getChildren()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
-    public function hasChildren()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
-    {
-    }
 }
 class RangeException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class RecursiveArrayIterator extends ArrayIterator implements Countable, Serializable, SeekableIterator, ArrayAccess, Traversable, Iterator, RecursiveIterator
 {
     const CHILD_ARRAYS_ONLY = 4;
-    public function __construct($array = null, $ar_flags = null, $iterator_class = null)
-    {
-    }
-    public function append($value)
-    {
-    }
-    public function asort()
-    {
-    }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function getArrayCopy()
-    {
-    }
     public function getChildren()
     {
     }
-    public function getFlags()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function key()
-    {
-    }
-    public function ksort()
-    {
-    }
-    public function natcasesort()
-    {
-    }
-    public function natsort()
-    {
-    }
-    public function next()
-    {
-    }
-    public function offsetExists($index)
-    {
-    }
-    public function offsetGet($index)
-    {
-    }
-    public function offsetSet($index, $newval)
-    {
-    }
-    public function offsetUnset($index)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($position)
-    {
-    }
-    public function serialize()
-    {
-    }
-    public function setFlags($flags)
-    {
-    }
-    public function uasort($cmp_function)
-    {
-    }
-    public function uksort($cmp_function)
-    {
-    }
-    public function unserialize($serialized)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1410,58 +611,10 @@ class RecursiveCachingIterator extends CachingIterator implements Countable, Arr
     public function __construct(Iterator $iterator, $flags = null)
     {
     }
-    public function __toString()
-    {
-    }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function getCache()
-    {
-    }
     public function getChildren()
     {
     }
-    public function getFlags()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function hasNext()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function offsetExists($index)
-    {
-    }
-    public function offsetGet($index)
-    {
-    }
-    public function offsetSet($index, $newval)
-    {
-    }
-    public function offsetUnset($index)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function setFlags($flags)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1470,31 +623,10 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     public function __construct(RecursiveIterator $iterator, $callback)
     {
     }
-    public function accept()
-    {
-    }
-    public function current()
-    {
-    }
     public function getChildren()
     {
     }
-    public function getInnerIterator()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1515,70 +647,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator,
     public function __construct($path, $flags = null)
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
-    public function current()
-    {
-    }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
     public function getChildren()
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
     {
     }
     public function getSubPath()
@@ -1587,58 +656,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator,
     public function getSubPathname()
     {
     }
-    public function getType()
-    {
-    }
     public function hasChildren($allow_links = null)
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isDot()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($position)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setFlags($flags = null)
-    {
-    }
-    public function setInfoClass($class_name = null)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1647,29 +665,10 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Iterato
     public function __construct(RecursiveIterator $iterator)
     {
     }
-    public abstract function accept();
-    public function current()
-    {
-    }
     public function getChildren()
     {
     }
-    public function getInnerIterator()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1743,56 +742,16 @@ class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Tra
     const REPLACE = 4;
     const SPLIT = 3;
     const USE_KEY = 1;
-    public $replacement;
     public function __construct(RecursiveIterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
     public function accept()
     {
     }
-    public function current()
-    {
-    }
     public function getChildren()
     {
     }
-    public function getFlags()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
-    public function getMode()
-    {
-    }
-    public function getPregFlags()
-    {
-    }
-    public function getRegex()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function setFlags($flags)
-    {
-    }
-    public function setMode($mode)
-    {
-    }
-    public function setPregFlags($preg_flags)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1834,25 +793,13 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
     public function endIteration()
     {
     }
-    public function getDepth()
-    {
-    }
     public function getEntry()
-    {
-    }
-    public function getInnerIterator()
-    {
-    }
-    public function getMaxDepth()
     {
     }
     public function getPostfix()
     {
     }
     public function getPrefix()
-    {
-    }
-    public function getSubIterator($level = null)
     {
     }
     public function key()
@@ -1865,9 +812,6 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
     {
     }
     public function rewind()
-    {
-    }
-    public function setMaxDepth($max_depth = null)
     {
     }
     public function setPostfix()
@@ -1896,13 +840,7 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
     public function accept()
     {
     }
-    public function current()
-    {
-    }
     public function getFlags()
-    {
-    }
-    public function getInnerIterator()
     {
     }
     public function getMode()
@@ -1914,15 +852,6 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
     public function getRegex()
     {
     }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
     public function setFlags($flags)
     {
     }
@@ -1932,49 +861,9 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
     public function setPregFlags($preg_flags)
     {
     }
-    public function valid()
-    {
-    }
 }
 class RuntimeException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAccess, Serializable
 {
@@ -2157,9 +1046,6 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
     public function __toString()
     {
     }
-    final public function _bad_state_ex()
-    {
-    }
     public function current()
     {
     }
@@ -2211,103 +1097,28 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
     public function fwrite($str, $length = null)
     {
     }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
     public function getChildren()
     {
     }
     public function getCsvControl()
     {
     }
-    public function getCTime()
-    {
-    }
     public function getCurrentLine()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
     {
     }
     public function getFlags()
     {
     }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
     public function getMaxLineLen()
     {
     }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
-    {
-    }
     public function hasChildren()
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
     {
     }
     public function key()
     {
     }
     public function next()
-    {
-    }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
     {
     }
     public function rewind()
@@ -2319,13 +1130,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
     public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
     {
     }
-    public function setFileClass($class_name = null)
-    {
-    }
     public function setFlags($flags)
-    {
-    }
-    public function setInfoClass($class_name = null)
     {
     }
     public function setMaxLineLen($max_len)
@@ -2431,82 +1236,10 @@ class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator
     protected function compare($a, $b)
     {
     }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function extract()
-    {
-    }
-    public function insert($value)
-    {
-    }
-    public function isCorrupted()
-    {
-    }
-    public function isEmpty()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function recoverFromCorruption()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function top()
-    {
-    }
-    public function valid()
-    {
-    }
 }
 class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator
 {
     protected function compare($a, $b)
-    {
-    }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function extract()
-    {
-    }
-    public function insert($value)
-    {
-    }
-    public function isCorrupted()
-    {
-    }
-    public function isEmpty()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function recoverFromCorruption()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function top()
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -2633,79 +1366,10 @@ class SplQueue extends SplDoublyLinkedList implements Serializable, ArrayAccess,
     const IT_MODE_FIFO = 0;
     const IT_MODE_KEEP = 0;
     const IT_MODE_LIFO = 2;
-    public function add($index, $newval)
-    {
-    }
-    public function bottom()
-    {
-    }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
     public function dequeue()
     {
     }
     public function enqueue($value)
-    {
-    }
-    public function getIteratorMode()
-    {
-    }
-    public function isEmpty()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function offsetExists($index)
-    {
-    }
-    public function offsetGet($index)
-    {
-    }
-    public function offsetSet($index, $newval)
-    {
-    }
-    public function offsetUnset($index)
-    {
-    }
-    public function pop()
-    {
-    }
-    public function prev()
-    {
-    }
-    public function push($value)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function serialize()
-    {
-    }
-    public function setIteratorMode($flags)
-    {
-    }
-    public function shift()
-    {
-    }
-    public function top()
-    {
-    }
-    public function unserialize($serialized)
-    {
-    }
-    public function unshift($value)
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -2715,75 +1379,6 @@ class SplStack extends SplDoublyLinkedList implements Serializable, ArrayAccess,
     const IT_MODE_FIFO = 0;
     const IT_MODE_KEEP = 0;
     const IT_MODE_LIFO = 2;
-    public function add($index, $newval)
-    {
-    }
-    public function bottom()
-    {
-    }
-    public function count()
-    {
-    }
-    public function current()
-    {
-    }
-    public function getIteratorMode()
-    {
-    }
-    public function isEmpty()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function offsetExists($index)
-    {
-    }
-    public function offsetGet($index)
-    {
-    }
-    public function offsetSet($index, $newval)
-    {
-    }
-    public function offsetUnset($index)
-    {
-    }
-    public function pop()
-    {
-    }
-    public function prev()
-    {
-    }
-    public function push($value)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function serialize()
-    {
-    }
-    public function setIteratorMode($flags)
-    {
-    }
-    public function shift()
-    {
-    }
-    public function top()
-    {
-    }
-    public function unserialize($serialized)
-    {
-    }
-    public function unshift($value)
-    {
-    }
-    public function valid()
-    {
-    }
 }
 class SplTempFileObject extends SplFileObject implements SeekableIterator, Iterator, Traversable, RecursiveIterator
 {
@@ -2794,266 +1389,12 @@ class SplTempFileObject extends SplFileObject implements SeekableIterator, Itera
     public function __construct($max_memory = null)
     {
     }
-    public function __toString()
-    {
-    }
-    final public function _bad_state_ex()
-    {
-    }
-    public function current()
-    {
-    }
-    public function eof()
-    {
-    }
-    public function fflush()
-    {
-    }
-    public function fgetc()
-    {
-    }
-    public function fgetcsv($delimiter = null, $enclosure = null, $escape = null)
-    {
-    }
-    public function fgets()
-    {
-    }
-    public function fgetss($allowable_tags = null)
-    {
-    }
-    public function flock($operation, &$wouldblock = null)
-    {
-    }
-    public function fpassthru()
-    {
-    }
-    public function fputcsv($fields, $delimiter = null, $enclosure = null, $escape = null)
-    {
-    }
-    public function fread($length)
-    {
-    }
-    public function fscanf($format, ...&$vars)
-    {
-    }
-    public function fseek($pos, $whence = null)
-    {
-    }
-    public function fstat()
-    {
-    }
-    public function ftell()
-    {
-    }
-    public function ftruncate($size)
-    {
-    }
-    public function fwrite($str, $length = null)
-    {
-    }
-    public function getATime()
-    {
-    }
-    public function getBasename($suffix = null)
-    {
-    }
-    public function getChildren()
-    {
-    }
-    public function getCsvControl()
-    {
-    }
-    public function getCTime()
-    {
-    }
-    public function getCurrentLine()
-    {
-    }
-    public function getExtension()
-    {
-    }
-    public function getFileInfo($class_name = null)
-    {
-    }
-    public function getFilename()
-    {
-    }
-    public function getFlags()
-    {
-    }
-    public function getGroup()
-    {
-    }
-    public function getInode()
-    {
-    }
-    public function getLinkTarget()
-    {
-    }
-    public function getMaxLineLen()
-    {
-    }
-    public function getMTime()
-    {
-    }
-    public function getOwner()
-    {
-    }
-    public function getPath()
-    {
-    }
-    public function getPathInfo($class_name = null)
-    {
-    }
-    public function getPathname()
-    {
-    }
-    public function getPerms()
-    {
-    }
-    public function getRealPath()
-    {
-    }
-    public function getSize()
-    {
-    }
-    public function getType()
-    {
-    }
-    public function hasChildren()
-    {
-    }
-    public function isDir()
-    {
-    }
-    public function isExecutable()
-    {
-    }
-    public function isFile()
-    {
-    }
-    public function isLink()
-    {
-    }
-    public function isReadable()
-    {
-    }
-    public function isWritable()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function seek($line_pos)
-    {
-    }
-    public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
-    {
-    }
-    public function setFileClass($class_name = null)
-    {
-    }
-    public function setFlags($flags)
-    {
-    }
-    public function setInfoClass($class_name = null)
-    {
-    }
-    public function setMaxLineLen($max_len)
-    {
-    }
-    public function valid()
-    {
-    }
 }
 class UnderflowException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class UnexpectedValueException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 function spl_classes()
 {

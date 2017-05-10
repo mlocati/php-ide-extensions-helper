@@ -54,73 +54,7 @@ class DOMAttr extends DOMNode
     public function __construct($name, $value = null)
     {
     }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
     public function isId()
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
     {
     }
 }
@@ -129,178 +63,19 @@ class DOMCdataSection extends DOMText
     public function __construct($value)
     {
     }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function appendData($arg)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function deleteData($offset, $count)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function insertData($offset, $arg)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isElementContentWhitespace()
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function isWhitespaceInElementContent()
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function replaceData($offset, $count, $arg)
-    {
-    }
-    public function replaceWholeText($content)
-    {
-    }
-    public function setUserData($key, $data, $handler)
-    {
-    }
-    public function splitText($offset)
-    {
-    }
-    public function substringData($offset, $count)
-    {
-    }
 }
 class DOMCharacterData extends DOMNode
 {
-    public function appendChild(DOMNode $newChild)
-    {
-    }
     public function appendData($arg)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
     {
     }
     public function deleteData($offset, $count)
     {
     }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
     public function insertData($offset, $arg)
     {
     }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
     public function replaceData($offset, $count, $arg)
-    {
-    }
-    public function setUserData($key, $data, $handler)
     {
     }
     public function substringData($offset, $count)
@@ -310,87 +85,6 @@ class DOMCharacterData extends DOMNode
 class DOMComment extends DOMCharacterData
 {
     public function __construct($value = null)
-    {
-    }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function appendData($arg)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function deleteData($offset, $count)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function insertData($offset, $arg)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function replaceData($offset, $count, $arg)
-    {
-    }
-    public function setUserData($key, $data, $handler)
-    {
-    }
-    public function substringData($offset, $count)
     {
     }
 }
@@ -412,21 +106,6 @@ class DOMDocument extends DOMNode
     {
     }
     public function adoptNode(DOMNode $source)
-    {
-    }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
     {
     }
     public function createAttribute($name)
@@ -468,40 +147,7 @@ class DOMDocument extends DOMNode
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
     public function importNode(DOMNode $importedNode, $deep)
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
     {
     }
     public function load($source, $options = null)
@@ -516,15 +162,6 @@ class DOMDocument extends DOMNode
     public function loadXML($source, $options = null)
     {
     }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
     public function normalizeDocument()
     {
     }
@@ -537,13 +174,7 @@ class DOMDocument extends DOMNode
     public function relaxNGValidateSource($source)
     {
     }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
     public function renameNode(DOMNode $node, $namespaceURI, $qualifiedName)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
     {
     }
     public function save($file)
@@ -564,9 +195,6 @@ class DOMDocument extends DOMNode
     public function schemaValidateSource($source)
     {
     }
-    public function setUserData($key, $data, $handler)
-    {
-    }
     public function validate()
     {
     }
@@ -579,144 +207,12 @@ class DOMDocumentFragment extends DOMNode
     public function __construct()
     {
     }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
     public function appendXML($data)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
     {
     }
 }
 class DOMDocumentType extends DOMNode
 {
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
-    {
-    }
 }
 class DOMDomError
 {
@@ -724,21 +220,6 @@ class DOMDomError
 class DOMElement extends DOMNode
 {
     public function __construct($name, $value = null, $uri = null)
-    {
-    }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
     {
     }
     public function getAttribute($name)
@@ -759,52 +240,10 @@ class DOMElement extends DOMNode
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
     public function hasAttribute($name)
     {
     }
     public function hasAttributeNS($namespaceURI, $localName)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
     {
     }
     public function removeAttribute($name)
@@ -814,12 +253,6 @@ class DOMElement extends DOMNode
     {
     }
     public function removeAttributeNS($namespaceURI, $localName)
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
     {
     }
     public function setAttribute($name, $value)
@@ -843,148 +276,13 @@ class DOMElement extends DOMNode
     public function setIdAttributeNS($namespaceURI, $localName, $isId)
     {
     }
-    public function setUserData($key, $data, $handler)
-    {
-    }
 }
 class DOMEntity extends DOMNode
 {
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
-    {
-    }
 }
 class DOMEntityReference extends DOMNode
 {
     public function __construct($name)
-    {
-    }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
     {
     }
 }
@@ -996,43 +294,7 @@ class DOMErrorHandler
 }
 final class DOMException extends Exception
 {
-    protected $file;
-    protected $line;
-    protected $message = '';
     public $code = 0;
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class DOMImplementation
 {
@@ -1180,142 +442,10 @@ class DOMNodeList implements Traversable
 }
 class DOMNotation extends DOMNode
 {
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
-    {
-    }
 }
 class DOMProcessingInstruction extends DOMNode
 {
     public function __construct($name, $value = null)
-    {
-    }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
-    {
-    }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function setUserData($key, $data, $handler)
     {
     }
 }
@@ -1339,97 +469,16 @@ class DOMText extends DOMCharacterData
     public function __construct($value = null)
     {
     }
-    public function appendChild(DOMNode $newChild)
-    {
-    }
-    public function appendData($arg)
-    {
-    }
-    public function C14N($exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, array $xpath = null, array $ns_prefixes = null)
-    {
-    }
-    public function cloneNode($deep)
-    {
-    }
-    public function compareDocumentPosition(DOMNode $other)
-    {
-    }
-    public function deleteData($offset, $count)
-    {
-    }
-    public function getFeature($feature, $version)
-    {
-    }
-    public function getLineNo()
-    {
-    }
-    public function getNodePath()
-    {
-    }
-    public function getUserData($key)
-    {
-    }
-    public function hasAttributes()
-    {
-    }
-    public function hasChildNodes()
-    {
-    }
-    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
-    {
-    }
-    public function insertData($offset, $arg)
-    {
-    }
-    public function isDefaultNamespace($namespaceURI)
-    {
-    }
     public function isElementContentWhitespace()
-    {
-    }
-    public function isEqualNode(DOMNode $arg)
-    {
-    }
-    public function isSameNode(DOMNode $other)
-    {
-    }
-    public function isSupported($feature, $version)
     {
     }
     public function isWhitespaceInElementContent()
     {
     }
-    public function lookupNamespaceUri($prefix)
-    {
-    }
-    public function lookupPrefix($namespaceURI)
-    {
-    }
-    public function normalize()
-    {
-    }
-    public function removeChild(DOMNode $oldChild)
-    {
-    }
-    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
-    {
-    }
-    public function replaceData($offset, $count, $arg)
-    {
-    }
     public function replaceWholeText($content)
     {
     }
-    public function setUserData($key, $data, $handler)
-    {
-    }
     public function splitText($offset)
-    {
-    }
-    public function substringData($offset, $count)
     {
     }
 }

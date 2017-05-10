@@ -1378,70 +1378,7 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
     const WORD_NONE_LIMIT = 100;
     const WORD_NUMBER = 100;
     const WORD_NUMBER_LIMIT = 200;
-    public static function createCharacterInstance($locale = null)
-    {
-    }
-    public static function createCodePointInstance()
-    {
-    }
-    public static function createLineInstance($locale = null)
-    {
-    }
-    public static function createSentenceInstance($locale = null)
-    {
-    }
-    public static function createTitleInstance($locale = null)
-    {
-    }
-    public static function createWordInstance($locale = null)
-    {
-    }
-    private function __construct()
-    {
-    }
-    public function current()
-    {
-    }
-    public function first()
-    {
-    }
-    public function following($offset)
-    {
-    }
-    public function getErrorCode()
-    {
-    }
-    public function getErrorMessage()
-    {
-    }
     public function getLastCodePoint()
-    {
-    }
-    public function getLocale($locale_type)
-    {
-    }
-    public function getPartsIterator($key_type = null)
-    {
-    }
-    public function getText()
-    {
-    }
-    public function isBoundary($offset)
-    {
-    }
-    public function last()
-    {
-    }
-    public function next($offset = null)
-    {
-    }
-    public function preceding($offset)
-    {
-    }
-    public function previous()
-    {
-    }
-    public function setText($text)
     {
     }
 }
@@ -1520,191 +1457,19 @@ class IntlDateFormatter
 }
 class IntlException extends Exception
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 class IntlGregorianCalendar extends IntlCalendar
 {
-    public static function createInstance($timeZone = null, $locale = null)
-    {
-    }
-    public static function fromDateTime($dateTime)
-    {
-    }
-    public static function getAvailableLocales()
-    {
-    }
-    public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed)
-    {
-    }
-    public static function getNow()
-    {
-    }
     public function __construct($timeZoneOrYear = null, $localeOrMonth = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
-    {
-    }
-    public function add($field, $amount)
-    {
-    }
-    public function after(IntlCalendar $calendar)
-    {
-    }
-    public function before(IntlCalendar $calendar)
-    {
-    }
-    public function clear($field = null)
-    {
-    }
-    public function equals(IntlCalendar $calendar)
-    {
-    }
-    public function fieldDifference($when, $field)
-    {
-    }
-    public function get($field)
-    {
-    }
-    public function getActualMaximum($field)
-    {
-    }
-    public function getActualMinimum($field)
-    {
-    }
-    public function getDayOfWeekType($dayOfWeek)
-    {
-    }
-    public function getErrorCode()
-    {
-    }
-    public function getErrorMessage()
-    {
-    }
-    public function getFirstDayOfWeek()
-    {
-    }
-    public function getGreatestMinimum($field)
     {
     }
     public function getGregorianChange()
     {
     }
-    public function getLeastMaximum($field)
-    {
-    }
-    public function getLocale($localeType)
-    {
-    }
-    public function getMaximum($field)
-    {
-    }
-    public function getMinimalDaysInFirstWeek()
-    {
-    }
-    public function getMinimum($field)
-    {
-    }
-    public function getRepeatedWallTimeOption()
-    {
-    }
-    public function getSkippedWallTimeOption()
-    {
-    }
-    public function getTime()
-    {
-    }
-    public function getTimeZone()
-    {
-    }
-    public function getType()
-    {
-    }
-    public function getWeekendTransition($dayOfWeek)
-    {
-    }
-    public function inDaylightTime()
-    {
-    }
-    public function isEquivalentTo(IntlCalendar $calendar)
-    {
-    }
     public function isLeapYear($year)
     {
     }
-    public function isLenient()
-    {
-    }
-    public function isSet($field)
-    {
-    }
-    public function isWeekend($date = null)
-    {
-    }
-    public function roll($field, $amountOrUpOrDown)
-    {
-    }
-    public function set($fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
-    {
-    }
-    public function setFirstDayOfWeek($dayOfWeek)
-    {
-    }
     public function setGregorianChange($date)
-    {
-    }
-    public function setLenient($isLenient)
-    {
-    }
-    public function setMinimalDaysInFirstWeek($numberOfDays)
-    {
-    }
-    public function setRepeatedWallTimeOption($wallTimeOption)
-    {
-    }
-    public function setSkippedWallTimeOption($wallTimeOption)
-    {
-    }
-    public function setTime($date)
-    {
-    }
-    public function setTimeZone($timeZone)
-    {
-    }
-    public function toDateTime()
     {
     }
 }
@@ -1731,22 +1496,7 @@ class IntlPartsIterator extends IntlIterator implements Traversable, Iterator
     const KEY_LEFT = 1;
     const KEY_RIGHT = 2;
     const KEY_SEQUENTIAL = 0;
-    public function current()
-    {
-    }
     public function getBreakIterator()
-    {
-    }
-    public function key()
-    {
-    }
-    public function next()
-    {
-    }
-    public function rewind()
-    {
-    }
-    public function valid()
     {
     }
 }
@@ -1771,49 +1521,10 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     const WORD_NONE_LIMIT = 100;
     const WORD_NUMBER = 100;
     const WORD_NUMBER_LIMIT = 200;
-    public static function createCharacterInstance($locale = null)
-    {
-    }
-    public static function createCodePointInstance()
-    {
-    }
-    public static function createLineInstance($locale = null)
-    {
-    }
-    public static function createSentenceInstance($locale = null)
-    {
-    }
-    public static function createTitleInstance($locale = null)
-    {
-    }
-    public static function createWordInstance($locale = null)
-    {
-    }
     public function __construct($rules, $areCompiled = null)
     {
     }
-    public function current()
-    {
-    }
-    public function first()
-    {
-    }
-    public function following($offset)
-    {
-    }
     public function getBinaryRules()
-    {
-    }
-    public function getErrorCode()
-    {
-    }
-    public function getErrorMessage()
-    {
-    }
-    public function getLocale($locale_type)
-    {
-    }
-    public function getPartsIterator($key_type = null)
     {
     }
     public function getRules()
@@ -1823,27 +1534,6 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     {
     }
     public function getRuleStatusVec()
-    {
-    }
-    public function getText()
-    {
-    }
-    public function isBoundary($offset)
-    {
-    }
-    public function last()
-    {
-    }
-    public function next($offset = null)
-    {
-    }
-    public function preceding($offset)
-    {
-    }
-    public function previous()
-    {
-    }
-    public function setText($text)
     {
     }
 }

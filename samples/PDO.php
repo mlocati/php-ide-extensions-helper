@@ -158,44 +158,7 @@ class PDO
 }
 class PDOException extends RuntimeException
 {
-    protected $code = 0;
-    protected $file;
-    protected $line;
-    protected $message = '';
     public $errorInfo;
-    public function __construct($message = null, $code = null, $previous = null)
-    {
-    }
-    public function __toString()
-    {
-    }
-    public function __wakeup()
-    {
-    }
-    final public function getCode()
-    {
-    }
-    final public function getFile()
-    {
-    }
-    final public function getLine()
-    {
-    }
-    final public function getMessage()
-    {
-    }
-    final public function getPrevious()
-    {
-    }
-    final public function getTrace()
-    {
-    }
-    final public function getTraceAsString()
-    {
-    }
-    final private function __clone()
-    {
-    }
 }
 final class PDORow
 {
