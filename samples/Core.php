@@ -345,7 +345,7 @@ class Exception implements Throwable
     {
     }
 }
-final class Generator implements Iterator, Traversable
+final class Generator implements Iterator
 {
     public function __wakeup()
     {

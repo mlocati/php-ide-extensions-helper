@@ -192,9 +192,52 @@ class DocGenerator
         $result = [];
         $modifiers = $class->getModifiers();
         $header = '';
+        $interfaces = [];
+        $allInterfaces = $class->getInterfaceNames();
+        foreach ($allInterfaces as $interface) {
+            $inherited = false;
+            foreach ($allInterfaces as $otherInterface) {
+                if ($otherInterface !== $interface && in_array($interface, class_implements($otherInterface)) === true) {
+                    $inherited = true;
+                    break;
+                }
+            }
+            if ($inherited === false) {
+                $interfaces[] = $interface;
+            }
+        }
+        usort($interfaces, 'strnatcasecmp');
+        /* @var string[] $interfaces */
         if ($class->isInterface()) {
             $header .= 'interface ' . $class->getShortName();
+            switch (count($interfaces)) {
+                case 0:
+                    break;
+                case 1:
+                    $header .= ' extends ' . $interfaces[0];
+                    break;
+                default:
+                    throw new Exception("An interface can't extend more that one interface");
+            }
         } else {
+            $parentClass = $class->getParentClass();
+            if ($parentClass) {
+                $parentClassName = $parentClass->getName();
+                if ($parentClass->getNamespaceName() !== $class->getNamespaceName()) {
+                    $parentClassName = '\\' . lrtrim($parentClassName, '\\');
+                }
+                $parentInterfaces = $parentClass->getInterfaceNames();
+                if (!empty($parentInterfaces)) {
+                    $interfaces = array_filter(
+                        $interfaces,
+                        function ($interface) use ($parentInterfaces) {
+                            return in_array($interface, $parentInterfaces) === false;
+                        }
+                    );
+                }
+            } else {
+                $parentClassName = '';
+            }
             if (($modifiers & (ReflectionClass::IS_EXPLICIT_ABSTRACT | ReflectionClass::IS_IMPLICIT_ABSTRACT)) !== 0) {
                 $header .= 'abstract ';
             }
@@ -202,17 +245,12 @@ class DocGenerator
                 $header .= 'final ';
             }
             $header .= 'class ' . $class->getShortName();
-            $parentClass = $class->getParentClass();
-            if ($parentClass) {
-                $header .= ' extends ' . $parentClass->getName();
+            if ($parentClassName !== '') {
+                $header .= ' extends ' . $parentClassName;
             }
-        }
-        $interfaces = $class->getInterfaceNames();
-        if (is_subclass_of($class->getName(), 'Exception', true) || is_subclass_of($class->getName(), 'Error', true)) {
-            $interfaces = array_diff($interfaces, ['Throwable']);
-        }
-        if (count($interfaces) > 0) {
-            $header .= ' ' . ($class->isInterface() ? 'extends' : 'implements') . ' ' . implode(', ', $interfaces);
+            if (count($interfaces) > 0) {
+                $header .= ' implements ' . implode(', ', $interfaces);
+            }
         }
         $result[] = $header;
         $result[] .= '{';

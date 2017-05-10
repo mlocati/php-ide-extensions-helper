@@ -50,7 +50,7 @@ class SimpleXMLElement implements Traversable
     {
     }
 }
-class SimpleXMLIterator extends SimpleXMLElement implements Traversable, RecursiveIterator, Iterator, Countable
+class SimpleXMLIterator extends SimpleXMLElement implements Countable, RecursiveIterator
 {
     public function current()
     {

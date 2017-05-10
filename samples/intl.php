@@ -1357,7 +1357,7 @@ class IntlChar
     {
     }
 }
-class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable
+class IntlCodePointBreakIterator extends IntlBreakIterator
 {
     const DONE = -1;
     const LINE_HARD = 100;
@@ -1473,7 +1473,7 @@ class IntlGregorianCalendar extends IntlCalendar
     {
     }
 }
-class IntlIterator implements Iterator, Traversable
+class IntlIterator implements Iterator
 {
     public function current()
     {
@@ -1491,7 +1491,7 @@ class IntlIterator implements Iterator, Traversable
     {
     }
 }
-class IntlPartsIterator extends IntlIterator implements Traversable, Iterator
+class IntlPartsIterator extends IntlIterator
 {
     const KEY_LEFT = 1;
     const KEY_RIGHT = 2;
@@ -1500,7 +1500,7 @@ class IntlPartsIterator extends IntlIterator implements Traversable, Iterator
     {
     }
 }
-class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable
+class IntlRuleBasedBreakIterator extends IntlBreakIterator
 {
     const DONE = -1;
     const LINE_HARD = 100;

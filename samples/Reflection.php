@@ -278,7 +278,7 @@ class ReflectionExtension implements Reflector
     {
     }
 }
-class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
+class ReflectionFunction extends ReflectionFunctionAbstract
 {
     const IS_DEPRECATED = 262144;
     public $name = '';
@@ -410,7 +410,7 @@ class ReflectionGenerator
     {
     }
 }
-class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
+class ReflectionMethod extends ReflectionFunctionAbstract
 {
     const IS_ABSTRACT = 2;
     const IS_FINAL = 4;
@@ -481,7 +481,7 @@ class ReflectionNamedType extends ReflectionType
     {
     }
 }
-class ReflectionObject extends ReflectionClass implements Reflector
+class ReflectionObject extends ReflectionClass
 {
     const IS_EXPLICIT_ABSTRACT = 32;
     const IS_FINAL = 4;

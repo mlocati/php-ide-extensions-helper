@@ -9,16 +9,16 @@ interface Countable
 {
     public function count();
 }
-interface OuterIterator extends Iterator, Traversable
+interface OuterIterator extends Iterator
 {
     public function getInnerIterator();
 }
-interface RecursiveIterator extends Iterator, Traversable
+interface RecursiveIterator extends Iterator
 {
     public function getChildren();
     public function hasChildren();
 }
-interface SeekableIterator extends Iterator, Traversable
+interface SeekableIterator extends Iterator
 {
     public function seek($position);
 }
@@ -32,7 +32,7 @@ interface SplSubject
     public function detach(SplObserver $SplObserver);
     public function notify();
 }
-class AppendIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
+class AppendIterator extends IteratorIterator
 {
     public function __construct()
     {
@@ -65,7 +65,7 @@ class AppendIterator extends IteratorIterator implements OuterIterator, Traversa
     {
     }
 }
-class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableIterator, Serializable, Countable
+class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Serializable
 {
     const ARRAY_AS_PROPS = 2;
     const STD_PROP_LIST = 1;
@@ -142,7 +142,7 @@ class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableItera
     {
     }
 }
-class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serializable, Countable
+class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializable
 {
     const ARRAY_AS_PROPS = 2;
     const STD_PROP_LIST = 1;
@@ -219,7 +219,7 @@ class BadFunctionCallException extends LogicException
 class BadMethodCallException extends BadFunctionCallException
 {
 }
-class CachingIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator, ArrayAccess, Countable
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
     const CALL_TOSTRING = 1;
     const CATCH_GET_CHILD = 16;
@@ -279,7 +279,7 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
     {
     }
 }
-class CallbackFilterIterator extends FilterIterator implements Iterator, Traversable, OuterIterator
+class CallbackFilterIterator extends FilterIterator
 {
     public function __construct(Iterator $iterator, $callback)
     {
@@ -288,7 +288,7 @@ class CallbackFilterIterator extends FilterIterator implements Iterator, Travers
     {
     }
 }
-class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, SeekableIterator
+class DirectoryIterator extends SplFileInfo implements SeekableIterator
 {
     public function __construct($path)
     {
@@ -330,7 +330,7 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
 class DomainException extends LogicException
 {
 }
-class EmptyIterator implements Iterator, Traversable
+class EmptyIterator implements Iterator
 {
     public function current()
     {
@@ -348,7 +348,7 @@ class EmptyIterator implements Iterator, Traversable
     {
     }
 }
-class FilesystemIterator extends DirectoryIterator implements SeekableIterator, Traversable, Iterator
+class FilesystemIterator extends DirectoryIterator
 {
     const CURRENT_AS_FILEINFO = 0;
     const CURRENT_AS_PATHNAME = 32;
@@ -384,7 +384,7 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
     {
     }
 }
-abstract class FilterIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
+abstract class FilterIterator extends IteratorIterator
 {
     public function __construct(Iterator $iterator)
     {
@@ -409,7 +409,7 @@ abstract class FilterIterator extends IteratorIterator implements OuterIterator,
     {
     }
 }
-class GlobIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, Countable
+class GlobIterator extends FilesystemIterator implements Countable
 {
     const CURRENT_AS_FILEINFO = 0;
     const CURRENT_AS_PATHNAME = 32;
@@ -430,7 +430,7 @@ class GlobIterator extends FilesystemIterator implements Iterator, Traversable, 
     {
     }
 }
-class InfiniteIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
+class InfiniteIterator extends IteratorIterator
 {
     public function __construct(Iterator $iterator)
     {
@@ -442,7 +442,7 @@ class InfiniteIterator extends IteratorIterator implements OuterIterator, Traver
 class InvalidArgumentException extends LogicException
 {
 }
-class IteratorIterator implements Iterator, Traversable, OuterIterator
+class IteratorIterator implements OuterIterator
 {
     public function __construct(Traversable $iterator)
     {
@@ -469,7 +469,7 @@ class IteratorIterator implements Iterator, Traversable, OuterIterator
 class LengthException extends LogicException
 {
 }
-class LimitIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
+class LimitIterator extends IteratorIterator
 {
     public function __construct(Iterator $iterator, $offset = null, $count = null)
     {
@@ -502,7 +502,7 @@ class LimitIterator extends IteratorIterator implements OuterIterator, Traversab
 class LogicException extends Exception
 {
 }
-class MultipleIterator implements Iterator, Traversable
+class MultipleIterator implements Iterator
 {
     const MIT_KEYS_ASSOC = 2;
     const MIT_KEYS_NUMERIC = 0;
@@ -545,7 +545,7 @@ class MultipleIterator implements Iterator, Traversable
     {
     }
 }
-class NoRewindIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator
+class NoRewindIterator extends IteratorIterator
 {
     public function __construct(Iterator $iterator)
     {
@@ -578,7 +578,7 @@ class OutOfRangeException extends LogicException
 class OverflowException extends RuntimeException
 {
 }
-class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator, OuterIterator, Traversable, Iterator
+class ParentIterator extends RecursiveFilterIterator
 {
     public function __construct(RecursiveIterator $iterator)
     {
@@ -590,7 +590,7 @@ class ParentIterator extends RecursiveFilterIterator implements RecursiveIterato
 class RangeException extends RuntimeException
 {
 }
-class RecursiveArrayIterator extends ArrayIterator implements Countable, Serializable, SeekableIterator, ArrayAccess, Traversable, Iterator, RecursiveIterator
+class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 {
     const CHILD_ARRAYS_ONLY = 4;
     public function getChildren()
@@ -600,7 +600,7 @@ class RecursiveArrayIterator extends ArrayIterator implements Countable, Seriali
     {
     }
 }
-class RecursiveCachingIterator extends CachingIterator implements Countable, ArrayAccess, Iterator, Traversable, OuterIterator, RecursiveIterator
+class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator
 {
     const CALL_TOSTRING = 1;
     const CATCH_GET_CHILD = 16;
@@ -618,7 +618,7 @@ class RecursiveCachingIterator extends CachingIterator implements Countable, Arr
     {
     }
 }
-class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements OuterIterator, Traversable, Iterator, RecursiveIterator
+class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator
 {
     public function __construct(RecursiveIterator $iterator, $callback)
     {
@@ -630,7 +630,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     {
     }
 }
-class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, RecursiveIterator
+class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator
 {
     const CURRENT_AS_FILEINFO = 0;
     const CURRENT_AS_PATHNAME = 32;
@@ -660,7 +660,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator,
     {
     }
 }
-abstract class RecursiveFilterIterator extends FilterIterator implements Iterator, Traversable, OuterIterator, RecursiveIterator
+abstract class RecursiveFilterIterator extends FilterIterator implements RecursiveIterator
 {
     public function __construct(RecursiveIterator $iterator)
     {
@@ -672,7 +672,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Iterato
     {
     }
 }
-class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator
+class RecursiveIteratorIterator implements OuterIterator
 {
     const CATCH_GET_CHILD = 16;
     const CHILD_FIRST = 2;
@@ -733,7 +733,7 @@ class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator
     {
     }
 }
-class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Traversable, Iterator, RecursiveIterator
+class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 {
     const ALL_MATCHES = 2;
     const GET_MATCH = 1;
@@ -755,7 +755,7 @@ class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Tra
     {
     }
 }
-class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIterator, Traversable, Iterator
+class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     const BYPASS_CURRENT = 4;
     const BYPASS_KEY = 8;
@@ -824,7 +824,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
     {
     }
 }
-class RegexIterator extends FilterIterator implements Iterator, Traversable, OuterIterator
+class RegexIterator extends FilterIterator
 {
     const ALL_MATCHES = 2;
     const GET_MATCH = 1;
@@ -865,7 +865,7 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
 class RuntimeException extends Exception
 {
 }
-class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAccess, Serializable
+class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializable
 {
     const IT_MODE_DELETE = 1;
     const IT_MODE_FIFO = 0;
@@ -1034,7 +1034,7 @@ class SplFileInfo
     {
     }
 }
-class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversable, Iterator, SeekableIterator
+class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator
 {
     const DROP_NEW_LINE = 1;
     const READ_AHEAD = 2;
@@ -1140,7 +1140,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
     {
     }
 }
-class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable
+class SplFixedArray implements ArrayAccess, Countable, Iterator
 {
     public static function fromArray($data, $save_indexes = null)
     {
@@ -1191,7 +1191,7 @@ class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable
     {
     }
 }
-abstract class SplHeap implements Iterator, Traversable, Countable
+abstract class SplHeap implements Countable, Iterator
 {
     protected abstract function compare();
     public function count()
@@ -1231,19 +1231,19 @@ abstract class SplHeap implements Iterator, Traversable, Countable
     {
     }
 }
-class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator
+class SplMaxHeap extends SplHeap
 {
     protected function compare($a, $b)
     {
     }
 }
-class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator
+class SplMinHeap extends SplHeap
 {
     protected function compare($a, $b)
     {
     }
 }
-class SplObjectStorage implements Countable, Iterator, Traversable, Serializable, ArrayAccess
+class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 {
     public function addAll($object)
     {
@@ -1309,7 +1309,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
     {
     }
 }
-class SplPriorityQueue implements Iterator, Traversable, Countable
+class SplPriorityQueue implements Countable, Iterator
 {
     const EXTR_BOTH = 3;
     const EXTR_DATA = 1;
@@ -1360,7 +1360,7 @@ class SplPriorityQueue implements Iterator, Traversable, Countable
     {
     }
 }
-class SplQueue extends SplDoublyLinkedList implements Serializable, ArrayAccess, Countable, Traversable, Iterator
+class SplQueue extends SplDoublyLinkedList
 {
     const IT_MODE_DELETE = 1;
     const IT_MODE_FIFO = 0;
@@ -1373,14 +1373,14 @@ class SplQueue extends SplDoublyLinkedList implements Serializable, ArrayAccess,
     {
     }
 }
-class SplStack extends SplDoublyLinkedList implements Serializable, ArrayAccess, Countable, Traversable, Iterator
+class SplStack extends SplDoublyLinkedList
 {
     const IT_MODE_DELETE = 1;
     const IT_MODE_FIFO = 0;
     const IT_MODE_KEEP = 0;
     const IT_MODE_LIFO = 2;
 }
-class SplTempFileObject extends SplFileObject implements SeekableIterator, Iterator, Traversable, RecursiveIterator
+class SplTempFileObject extends SplFileObject
 {
     const DROP_NEW_LINE = 1;
     const READ_AHEAD = 2;

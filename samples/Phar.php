@@ -10,7 +10,7 @@ return;
  * phar.cache_list = ''
  */
 // No constants defined
-class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Traversable, Iterator, Countable, ArrayAccess
+class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     const BZ2 = 8192;
     const COMPRESSED = 61440;
@@ -207,7 +207,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
     {
     }
 }
-class PharData extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Traversable, Iterator, Countable, ArrayAccess
+class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     const CURRENT_AS_FILEINFO = 0;
     const CURRENT_AS_PATHNAME = 32;
