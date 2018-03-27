@@ -1,0 +1,8 @@
+FROM php:7.0-apache
+
+RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf && \
+	echo '<?php require_once "/app/bin/extract";' > /var/www/html/index.php && \
+	echo 'output_buffering=65536' >> /usr/local/etc/php/conf.d/php.ini
+
+ENV PHP_IDER_EXTENSIONS_HELPER_ISWEB=YesSir \
+	PHP_IDER_EXTENSIONS_HELPER_STARTWEB='/etc/init.d/apache2 start >/dev/null'

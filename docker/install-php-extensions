@@ -1,0 +1,314 @@
+#!/bin/sh
+
+# This script wraps docker-php-ext-install, properly configuring the system.
+#
+# Copyright (c) Michele Locati, 2018
+#
+# MIT license
+
+# Let's set a sane environment
+set -o errexit
+set -o nounset
+
+# Reset the Internal Field Separator
+resetIFS () {
+	IFS='	 
+'
+}
+
+# Get the PHP Major-Minor version as an integer value, in format MMmm (example: 506 for PHP 5.6.15)
+#
+# Output:
+#   The PHP numeric Major-Minor version
+getPHPMajorMinor () {
+	php -r '$v = explode(".", PHP_VERSION); echo $v[0] * 100 + $v[1];'
+}
+
+# Get the normalized list of already installed PHP modules
+#
+# Output:
+#   Space-separated list of module handles
+getPHPInstalledModules () {
+	getPHPInstalledModules_result=''
+	IFS='
+'
+	for getPHPInstalledModules_module in $(php -m)
+	do
+		getPHPInstalledModules_moduleNormalized=''
+		case "${getPHPInstalledModules_module}" in
+			\[PHP\ Modules\])
+				;;
+			\[Zend\ Modules\])
+				break
+				;;
+			Core|PDO|PDO_*|Phar|Reflection|SimpleXML|SPL|SQLite|Xdebug)
+				getPHPInstalledModules_moduleNormalized=$(LC_CTYPE=C printf '%s' "${getPHPInstalledModules_module}" | tr '[:upper:]' '[:lower:]')
+				;;
+			Zend\ OPcache)
+				getPHPInstalledModules_moduleNormalized='opcache'
+				;;
+			*\ *|A*|*B*|*C*|*D*|*E*|*F*|*G*|*H*|*I*|*J*|*K*|*L*|*M*|*N*|*O*|*P*|*Q*|*R*|*S*|*T*|*U*|*V*|*W*|*X*|*Y*|*Z*)
+				printf '### WARNING Unrecognized module name: %s ###\n' "${getPHPInstalledModules_module}" >&2
+				;;
+			*)
+				getPHPInstalledModules_moduleNormalized="${getPHPInstalledModules_module}"
+				;;
+		esac
+		if test -n "${getPHPInstalledModules_moduleNormalized}"
+		then
+			if ! stringInList "${getPHPInstalledModules_moduleNormalized}" "${getPHPInstalledModules_result}"
+			then
+				getPHPInstalledModules_result="${getPHPInstalledModules_result} ${getPHPInstalledModules_moduleNormalized} "
+			fi
+		fi
+	done
+	resetIFS
+	printf '%s' "${getPHPInstalledModules_result}"
+}
+
+# Get the handles of the modules to be installed
+#
+# Arguments:
+#   $@: all module handles
+# Output:
+#   Space-separated list of module handles
+getModulesToInstall () {
+	getModulesToInstall_alreadyInstalled="$(getPHPInstalledModules)"
+	getModulesToInstall_result=''
+	while :
+	do
+		if test $# -lt 1
+		then
+			break
+		fi
+		if stringInList "${1}" "${getModulesToInstall_result}"
+		then
+			printf '### WARNING Duplicated module name specified: %s ###\n' "${1}" >&2
+		elif stringInList "${1}" "${getModulesToInstall_alreadyInstalled}"
+		then
+			printf '### WARNING Module already installed: %s ###\n' "${1}" >&2
+		else
+			getModulesToInstall_result="${getModulesToInstall_result} ${1} "
+		fi
+		shift
+	done
+	printf '%s' "${getModulesToInstall_result}"
+}
+
+# Get the required APT packages for a specific PHP version and for the list of module handles
+#
+# Arguments:
+#   $1: the numeric PHP Major-Minor version
+#   $@: the PHP module handles
+#
+# Output:
+#   Space-separated list of APT packages
+getRequiredAptPackages () {
+	getRequiredAptPackages_result=''
+	getRequiredAptPackages_phpv=${1}
+	while :
+	do
+		if test $# -lt 2
+		then
+			break
+		fi
+		shift
+		case "${1}" in
+			bz2)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libbz2-dev "
+				;;
+			enchant)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libenchant-dev "
+				;;
+			gd)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpng-dev "
+				;;
+			gmp)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libgmp-dev "
+				;;
+			imap)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libc-client-dev libkrb5-dev "
+				;;
+			interbase|pdo_firebird)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} firebird-dev libib-util "
+				;;
+			intl)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libicu-dev "
+				;;
+			ldap)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libldap2-dev "
+				;;
+			mcrypt)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libmcrypt-dev "
+				;;
+			mssql|pdo_dblib|sybase_ct)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev "
+				;;
+			odbc|pdo_odbc)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev "
+				;;
+			pdo_pgsql|pgsql)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpq-dev "
+				;;
+			pspell)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpspell-dev "
+				;;
+			recode)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} librecode-dev "
+				;;
+			snmp)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} snmp libsnmp-dev "
+				;;
+			soap|wddx|xmlrpc)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxml2-dev "
+				;;
+			tidy)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libtidy-dev "
+				;;
+			xsl)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxslt-dev "
+				;;
+			zip)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} zlib1g-dev "
+				;;
+		esac
+	done
+	printf '%s' "${getRequiredAptPackages_result}"
+}
+
+# Install a bundled PHP module given its handle
+#
+# Arguments:
+#   $1: the numeric PHP Major-Minor version
+#   $2: the handle of the PHP module
+installBundledModule () {
+	printf '### INSTALLING BUNDLED MODULE %s ###\n' "${2}"
+	case "${2}" in
+		gmp)
+			case "$1" in
+				506)
+					if ! test -f /usr/include/gmp.h
+					then
+						ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
+					fi
+					;;
+			esac
+			;;
+		imap)
+			docker-php-ext-configure imap --with-kerberos --with-imap-ssl
+			;;
+		ldap)
+			docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu
+			;;
+		mssql|pdo_dblib)
+			case "$1" in
+				506|700|701|702)
+					if ! test -f /usr/lib/libsybdb.so
+					then
+						ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.so
+					fi
+					;;
+			esac
+			;;
+		odbc)
+			case "$1" in
+				506|700|701|702)
+					docker-php-source extract
+					cd /usr/src/php/ext/odbc
+					phpize
+					sed -ri 's@^ *test +"\$PHP_.*" *= *"no" *&& *PHP_.*=yes *$@#&@g' configure
+					./configure --with-unixODBC=shared,/usr
+					cd -
+					;;
+			esac
+			;;
+		pdo_odbc)
+			docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr
+			;;
+		sybase_ct)
+			docker-php-ext-configure sybase_ct --with-sybase-ct=/usr
+			;;
+	esac
+	docker-php-ext-install "${2}"
+}
+
+# Install a PECL PHP module given its handle
+#
+# Arguments:
+#   $1: the numeric PHP Major-Minor version
+#   $2: the handle of the PHP module
+installPECLModule () {
+	printf '### INSTALLING PECL MODULE %s ###\n' "${2}"
+	installPECLModule_actual="${2}"
+	case "${2}" in
+		xdebug)
+			if test $1 -lt 501
+			then
+				installPECLModule_actual="${2}-2.0.5"
+			elif test $1 -lt 504
+			then
+				installPECLModule_actual="${2}-2.2.7"
+			elif test $1 -lt 505
+			then
+				installPECLModule_actual="${2}-2.4.1"
+			elif test $1 -lt 700
+			then
+				installPECLModule_actual="${2}-2.5.5"
+			fi
+			;;
+	esac
+	pecl install "${installPECLModule_actual}"
+	docker-php-ext-enable "${2}"
+}
+
+# Check if a string is in a list of space-separated string
+#
+# Arguments:
+#   $1: the string to be checked
+#   $2: the string list
+#
+# Return:
+#   0 (true): if the string is in the list
+#   1 (false): if the string is not in the list
+stringInList () {
+	for stringInList_listItem in ${2}
+	do
+		if test "${1}" = "${stringInList_listItem}"
+		then
+			return 0
+		fi
+	done
+	return 1
+}
+
+resetIFS
+PHP_MAJMIN_VERSION=$(getPHPMajorMinor)
+case "${PHP_MAJMIN_VERSION}" in
+	506|700|701|702)
+		;;
+	*)
+		printf "### ERROR: Unsupported PHP version: %s.%s ###\n" $(( PHP_MAJMIN_VERSION / 100 )) $(( PHP_MAJMIN_VERSION % 100 ))
+esac
+PHP_MODULES_TO_INSTALL=$(getModulesToInstall "$@")
+if test -n "${PHP_MODULES_TO_INSTALL}"
+then
+	REQUIRED_APT_PACKAEGS=$(getRequiredAptPackages ${PHP_MAJMIN_VERSION} ${PHP_MODULES_TO_INSTALL})
+	if test -n "${REQUIRED_APT_PACKAEGS}"
+	then
+		printf '### INSTALLING REQUIRED APT PACKAGES ###\n'
+		DEBIAN_FRONTEND=noninteractive apt-get update -y
+		DEBIAN_FRONTEND=noninteractive apt-get install -y ${REQUIRED_APT_PACKAEGS}
+	fi
+	docker-php-source extract
+	BUNDLED_MODULES="$(find /usr/src/php/ext -mindepth 2 -maxdepth 2 -type f -name 'config.m4' | xargs -n1 dirname | xargs -n1 basename | xargs)"
+	for PHP_MODULE_TO_INSTALL in ${PHP_MODULES_TO_INSTALL}
+	do
+		if stringInList "${PHP_MODULE_TO_INSTALL}" "${BUNDLED_MODULES}"
+		then
+			installBundledModule ${PHP_MAJMIN_VERSION} "${PHP_MODULE_TO_INSTALL}"
+		else
+			installPECLModule ${PHP_MAJMIN_VERSION} "${PHP_MODULE_TO_INSTALL}"
+		fi
+	done
+fi
+docker-php-source delete

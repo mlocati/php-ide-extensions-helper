@@ -1,0 +1,1257 @@
+#!/usr/bin/env php
+<?php
+
+function writeError($msg, $exitCode = null)
+{
+    $msg = (string) $msg;
+    if ($msg !== '') {
+        if (defined('STDERR')) {
+            fprintf(STDERR, $msg);
+        } else {
+            echo $msg;
+        }
+    }
+    if ($exitCode !== null) {
+        $exitCode = (int) $exitCode;
+        if ($exitCode !== 0) {
+            if (function_exists('header') && ! headers_sent()) {
+                @header('HTTP/1.0 500 Internal Server Error');
+            }
+        }
+        exit($exitCode);
+    }
+}
+set_error_handler(function ($errno, $errstr, $errfile = '', $errline = null) {
+    writeError(trim($errstr) . "\nLine: " . $errline . "\n", 1);
+});
+
+try {
+    if (isset($_GET['webcall']) && $_GET['webcall'] === 'Sure!') {
+        $arguments = $_GET['arguments'];
+        @ob_clean();
+    } elseif (getenv('PHP_IDER_EXTENSIONS_HELPER_ISWEB') === 'YesSir') {
+        echo "Performing web request\n";
+        $url = 'http://127.0.0.1';
+        $port = getenv('PHP_IDER_EXTENSIONS_HELPER_WEB_PORT');
+        if ($port) {
+            $url .= ':' . $port;
+        }
+        $url .= '/index.php?webcall=' . rawurlencode('Sure!');
+        foreach ($_SERVER['argv'] as $argument) {
+            $url .= '&arguments[]=' . rawurlencode($argument);
+        }
+        $startWebCommand = getenv('PHP_IDER_EXTENSIONS_HELPER_STARTWEB');
+        if ($startWebCommand) {
+            passthru($startWebCommand);
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        $output = curl_exec($ch);
+        $statusCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($statusCode !== 200) {
+            writeError($output . "\nWeb request failed!\n", 1);
+        }
+        echo $output;
+        exit(0);
+    } else {
+        $arguments = $_SERVER['argv'];
+    }
+    $extractor = new Extractor($arguments);
+    echo 'Processing for ', $extractor->getPHPVersionMajorMinor(), "\n";
+    foreach (get_loaded_extensions(false) as $extensionName) {
+        echo '  - extension: ', $extensionName, "\n";
+        $extractor->parseExtension($extensionName);
+    }
+    echo "  - saving\n";
+    $extractor->save();
+    echo "  - done\n";
+} catch (Exception $x) {
+    writeError($x->getMessage() . "\nLine: " . $x->getLine() . "\n", 1);
+}
+
+class Extractor
+{
+
+    /**
+     * The namespace of the generated XML file.
+     *
+     * @var string
+     */
+    const XML_NAMESPACE = 'http://mlocati.github.io/PIdeExtHelp';
+
+    /**
+     * An URI where the XML Schema can be found.
+     *
+     * @var string
+     */
+    const XML_SCHEMALOCATION = 'https://raw.githubusercontent.com/mlocati/php-ide-extensions-helper/master/reference/schema.xsd';
+
+    /**
+     * The POSIX OS-specific tag.
+     *
+     * @var string
+     */
+    const OSTAG_POSIX = 'posix';
+
+    /**
+     * The Windows OS-specific tag.
+     *
+     * @var string
+     */
+    const OSTAG_WINDOWS = 'windows';
+
+    /**
+     * The OS-specific tag.
+     *
+     * @var string
+     *
+     * @example One of the Extractor::OSTAG_... constants
+     */
+    private $osTag;
+
+    /**
+     * The path of the file to be created/updated.
+     *
+     * @var string
+     */
+    private $outputFile;
+
+    /**
+     * The path of the XSD schema file.
+     *
+     * @var string
+     */
+    private $schemaFile;
+
+    /**
+     * The XML document to be updated.
+     *
+     * @var DOMDocument
+     */
+    private $xml;
+
+    /**
+     * The root <extension> elements currently processed.
+     *
+     * @var DOMElement[]
+     */
+    private $extensionElements = array();
+
+    /**
+     * The full PHP version.
+     *
+     * @var string
+     *
+     * @example '7.2.3'
+     */
+    private $phpVersionFull;
+
+    /**
+     * The major-minor PHP version.
+     *
+     * @var string
+     *
+     * @example '7.2'
+     */
+    private $phpVersionMajorMinor;
+
+    /**
+     * Should we validate the generated XML when loading/saving it?
+     *
+     * @var bool
+     */
+    private $validateXml;
+
+    /**
+     * Initialize the class instance.
+     *
+     * @param array $argv
+     *            The arguments to be parsed.
+     *            
+     * @throws Exception
+     */
+    public function __construct(array $argv)
+    {
+        $this->osTag = DIRECTORY_SEPARATOR === '\\' ? self::OSTAG_WINDOWS : self::OSTAG_POSIX;
+        $m = null;
+        preg_match('/^\d+\.\d+\.\d+/', PHP_VERSION, $m);
+        $this->phpVersionFull = $m[0];
+        preg_match('/^\d+\.\d+/', $this->phpVersionFull, $m);
+        $this->phpVersionMajorMinor = $m[0];
+        $stopOptions = false;
+        $this->validateXml = true;
+        array_shift($argv);
+        for (;;) {
+            $arg = array_shift($argv);
+            if ($arg === null) {
+                break;
+            }
+            if ($stopOptions === false) {
+                switch (strtolower($arg)) {
+                    case '--':
+                        $stopOptions = true;
+                        continue 2;
+                    case '-h':
+                    case '--help':
+                        self::exitWithHelp(0);
+                        break;
+                    case '--no-validate':
+                        $this->validateXml = false;
+                        break;
+                    case '--schema':
+                        $this->schemaFile = array_shift($argv);
+                        if ($this->schemaFile === null) {
+                            self::exitWithHelp(1);
+                        }
+                        if (! is_file($this->schemaFile)) {
+                            writeError("Unable to find the specified XSD schema file {$this->schemaFile}", 1);
+                        }
+                        continue 2;
+                }
+            }
+            if ($this->outputFile === null) {
+                $this->outputFile = $arg;
+            } else {
+                self::exitWithHelp(1);
+            }
+        }
+        if ($this->outputFile === null) {
+            $this->outputFile = self::getDefaultOutputFile();
+        }
+        $loadFlags = 0;
+        if (defined('LIBXML_BIGLINES')) {
+            $loadFlags |= LIBXML_BIGLINES;
+        }
+        $this->xml = new DOMDocument('1.0', 'UTF-8');
+        $this->xml->formatOutput = true;
+        $this->xml->preserveWhiteSpace = false;
+        if (is_file($this->outputFile)) {
+            libxml_clear_errors();
+            $prev = libxml_use_internal_errors(true);
+            if (! $this->xml->load($this->outputFile, $loadFlags)) {
+                $msg = "Failed to load {$this->outputFile}";
+                foreach (libxml_get_errors() as $err) {
+                    $err = trim($err);
+                    if ($err !== '') {
+                        $msg .= "\n" . $err;
+                    }
+                }
+                throw new Exception($msg);
+            }
+            libxml_use_internal_errors($prev);
+        } else {
+            $namespace = self::XML_NAMESPACE;
+            $schemaLocation = self::XML_SCHEMALOCATION;
+            $this->xml->loadXML(<<<EOT
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	xmlns="{$namespace}"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="{$namespace} {$schemaLocation}"
+    phpVersion="{$this->phpVersionMajorMinor}"
+/>
+EOT
+);
+        }
+        if ($this->validateXml) {
+            $this->validate($this->xml);
+        }
+        $xpath = new DOMXPath($this->xml);
+        $xpath->registerNamespace('ns', self::XML_NAMESPACE);
+        $xmlSchema = $xpath->query('/ns:schema');
+        if ($xmlSchema->length !== 1) {
+            throw new Exception("Invalid XML definition in {$this->outputFile}");
+        }
+        $xmlSchema = $xmlSchema->item(0);
+        $xmlPhpVersion = $xmlSchema->getAttribute('phpVersion');
+        if ($xmlPhpVersion !== $this->phpVersionMajorMinor) {
+            throw new Exception(realpath($this->outputFile) . "\nis for {$xmlPhpVersion} and not for {$this->phpVersionMajorMinor}");
+        }
+    }
+
+    /**
+     * Get the major-minor PHP version.
+     *
+     * @return string
+     *
+     * @example '7.2'
+     */
+    public function getPhpVersionMajorMinor()
+    {
+        return $this->phpVersionMajorMinor;
+    }
+
+    /**
+     * Get the default path of the XSD schema file to be used to validate the generated XML.
+     *
+     * @return string
+     */
+    public static function getDefaultSchemaFile()
+    {
+        return str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__))) . '/reference/schema.xsd';
+    }
+
+    /**
+     * Get the default path of the file to be created/updated.
+     *
+     * @return string
+     */
+    public static function getDefaultOutputFile()
+    {
+        $m = null;
+        preg_match('/^\d+\.\d+/', PHP_VERSION, $m);
+
+        return str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__))) . '/xml/php' . $m[0] . '.xml';
+    }
+
+    /**
+     * Process a loaded PHP extension given its name.
+     *
+     * @param string $extensionName
+     *            The name of the PHP extension.
+     *            
+     * @throws Exception
+     *
+     */
+    public function parseExtension($extensionName)
+    {
+        $extension = new ReflectionExtension($extensionName);
+        $extensionElement = $this->getExtensionElement($extension);
+        foreach ($extension->getINIEntries() as $name => $value) {
+            $this->saveIniEntry($extensionElement, $name, $value);
+        }
+        foreach ($extension->getConstants() as $name => $value) {
+            $this->saveGlobalConstant($extensionElement, $name, $value);
+        }
+        foreach ($extension->getClasses() as $reflectionClass) {
+            $this->saveReflectionClass($extensionElement, $reflectionClass);
+        }
+        foreach ($extension->getFunctions() as $reflectionFunction) {
+            $this->saveReflectionFunction($extensionElement, $reflectionFunction);
+        }
+    }
+
+    /**
+     * Save the XML file.
+     *
+     * @throws Exception
+     */
+    public function save()
+    {
+        if ($this->validateXml) {
+            $this->validate($this->xml);
+        }
+        if (! file_put_contents($this->outputFile, $this->xml->saveXML())) {
+            throw new Exception("Failed to save XML to {$this->outputFile}");
+        }
+    }
+
+    /**
+     * Terminates the execution, showing the usage message.
+     *
+     * @param int $exitCode
+     *            The process return code.
+     */
+    private static function exitWithHelp($exitCode)
+    {
+        if (isset($_GET['webcall']) && $_GET['webcall'] === 'Sure!') {
+            $argv = $_GET['arguments'];
+        } else {
+            $argv = $_SERVER['argv'];
+        }
+        $scriptName = $argv[0];
+        $defaultSchemaFile = str_replace('/', DIRECTORY_SEPARATOR, self::getDefaultSchemaFile());
+        $defaultOutputFile = str_replace('/', DIRECTORY_SEPARATOR, self::getDefaultOutputFile());
+        echo <<<EOF
+USAGE: {$scriptName} [-h | --help] [--no-validate] [--schema <xsdFile>] [--] [<outputFile>]
+
+Where:
+  --help        Show this help.
+  --no-validate Do not validate the generated XML before saving it.
+  --schema      Specify the path to the XSD schema to be used to validate the XML. If not specified we'll use
+                {$defaultSchemaFile}
+  <outputFile>  The path to the output XML file to generate/update. If not specified we'll use
+                {$defaultOutputFile}
+
+EOF
+;
+        if (! $exitCode) {
+            exit(0);
+        }
+        writeError('', $exitCode);
+    }
+
+    /**
+     * Escape a string so that in can be safely represented in the XML file.
+     *
+     * @param string $s
+     *            The string to be escaped.
+     *            
+     * @return string
+     */
+    private static function escapeXML($s)
+    {
+        return defined('ENT_XML1') ? htmlspecialchars($s, ENT_XML1, 'UTF-8') : strtr($s, array(
+            "&" => "&amp;",
+            '"' => '&quot;',
+            "<" => "&lt;",
+            ">" => "&gt;"
+        ));
+    }
+
+    /**
+     * Get the <extension> XML element corresponding to a ReflectionExtension instance.
+     * If the XML element does not exist, it will be created.
+     *
+     * @param ReflectionExtension $extension
+     *            The ReflectionExtension instance for which you want the XML element.
+     *            
+     * @throws Exception
+     *
+     * @return DOMElement
+     */
+    private function getExtensionElement(ReflectionExtension $extension)
+    {
+        $extensionName = $extension->getName();
+        if (! isset($this->extensionElements[$extensionName])) {
+            $found = null;
+            $addBefore = null;
+            foreach ($this->xml->firstChild->childNodes as $ee) {
+                if (! $ee instanceof DOMElement) {
+                    continue;
+                }
+                if ($ee->tagName !== 'extension') {
+                    continue;
+                }
+                $eeName = $ee->getAttribute('name');
+                $cmp = strcasecmp($extensionName, $eeName);
+                if ($cmp === 0) {
+                    $found = $ee;
+                    break;
+                }
+                if ($cmp < 0 && ($addBefore === null || strcasecmp($eeName, $addBefore[0]) < 0)) {
+                    $addBefore = array(
+                        $eeName,
+                        $ee
+                    );
+                }
+            }
+            if ($found === null) {
+                $new = $this->xml->createElement('extension');
+                $new->setAttribute('name', $extensionName);
+                if ($addBefore === null) {
+                    $this->xml->childNodes->item(0)->appendChild($new);
+                } else {
+                    $addBefore[1]->parentNode->insertBefore($new, $addBefore[1]);
+                }
+                $extensionElement = $new;
+            } else {
+                $extensionElement = $found;
+            }
+            $extensionElement->setAttribute('parsedwith-' . $this->osTag, $extension->getVersion() . '@' . $this->phpVersionFull);
+            $dependencies = array(
+                'require' => explode(',', $extensionElement->getAttribute('require')),
+                'suggest' => explode(',', $extensionElement->getAttribute('suggest')),
+                'conflict' => explode(',', $extensionElement->getAttribute('conflict'))
+            );
+            $map = array(
+                'Required' => 'require',
+                'Optional' => 'suggest',
+                'Conflicts' => 'conflict'
+            );
+            foreach ($extension->getDependencies() as $depExtension => $depValue) {
+                if (isset($map[$depValue])) {
+                    $depKey = $map[$depValue];
+                    if (! in_array($depExtension, $dependencies[$depKey], true)) {
+                        $dependencies[$depKey][] = $depExtension;
+                    }
+                }
+            }
+            foreach ($dependencies as $depKey => $depList) {
+                $depList = array_filter($depList);
+                natcasesort($depList);
+                $extensionElement->setAttribute($depKey, implode(',', $depList));
+            }
+
+            $this->sortElementAttributes($extensionElement, false);
+            $this->extensionElements[$extensionName] = $extensionElement;
+        }
+        return $this->extensionElements[$extensionName];
+    }
+
+    /**
+     * Search an XML element that's the child of an <extension> element.
+     *
+     * @param DOMElement $extensionElement
+     *            The <extension> XML element.
+     * @param string $tagName
+     *            The tag of the node to look for.
+     * @param string $nameAttributeValue
+     *            The value of the "name" attribute of the tag.
+     * @param string|null $namespaceAttributeValue
+     *            The value of the "namespace" attribute of the tag (set it to NULL if the tag will never have a "namespace").
+     *            
+     * @throws Exception
+     *
+     * @return SearchElementResult
+     */
+    private function searchExtensionChildElement(DOMElement $extensionElement, $tagName, $nameAttributeValue, $namespaceAttributeValue = null)
+    {
+        $allTagNames = array(
+            'iniEntry',
+            'constant',
+            'trait',
+            'interface',
+            'class',
+            'function'
+        );
+        $tagNameIndex = array_search($tagName, $allTagNames);
+        if ($tagNameIndex === false) {
+            throw new Exception("Invalid tag name: {$tagName}");
+        }
+        $beforeTagNames = $tagNameIndex === 0 ? array() : array_slice($allTagNames, 0, $tagNameIndex);
+        $afterTagNames = $tagNameIndex === count($allTagNames) - 1 ? array() : array_slice($allTagNames, $tagNameIndex + 1);
+        $addBeforeName = null;
+        $result = new SearchElementResult();
+        foreach ($extensionElement->childNodes as $childNode) {
+            if (! $childNode instanceof DOMElement) {
+                continue;
+            }
+            if (in_array($childNode->tagName, $beforeTagNames)) {
+                continue;
+            }
+            if (in_array($childNode->tagName, $afterTagNames)) {
+                if ($result->addBefore === null) {
+                    $result->addBefore = $childNode;
+                }
+                break;
+            }
+            if ($childNode->tagName !== $tagName) {
+                throw new Exception("Invalid tag name found in the XML file : {$childNode->tagName}");
+            }
+            $cmpFull = '';
+            if ($namespaceAttributeValue === null) {
+                $cmp = 0;
+                $cmpFull = '';
+            } else {
+                $cmp = strcasecmp($namespaceAttributeValue, $childNode->getAttribute('namespace'));
+                $cmpFull = $childNode->getAttribute('namespace');
+            }
+            $cmpFull .= '\\' . $childNode->getAttribute('name');
+            if ($cmp === 0) {
+                $cmp = strcasecmp($nameAttributeValue, $childNode->getAttribute('name'));
+                if ($cmp === 0) {
+                    $result->found = $childNode;
+                    break;
+                }
+            }
+            if ($cmp < 0 && ($result->addBefore === null || strcasecmp($cmpFull, $addBeforeName) < 0)) {
+                $addBeforeName = $cmpFull;
+                $result->addBefore = $childNode;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * Search an XML element that's the child of a <class> element.
+     *
+     * @param DOMElement $classElement
+     *            The <class> XML element.
+     * @param string $tagName
+     *            The tag of the node to look for.
+     * @param string $nameAttributeValue
+     *            The value of the "name" attribute of the tag.
+     *            
+     * @throws Exception
+     *
+     * @return SearchElementResult
+     */
+    private function searchClassChildElement(DOMElement $classElement, $tagName, $nameAttributeValue)
+    {
+        $allTagNames = array(
+            'property',
+            'method',
+            'constant',
+            'implements'
+        );
+        $tagNameIndex = array_search($tagName, $allTagNames);
+        if ($tagNameIndex === false) {
+            throw new Exception("Invalid tag name: {$tagName}");
+        }
+        $beforeTagNames = $tagNameIndex === 0 ? array() : array_slice($allTagNames, 0, $tagNameIndex);
+        $afterTagNames = $tagNameIndex === count($allTagNames) - 1 ? array() : array_slice($allTagNames, $tagNameIndex + 1);
+        $addBeforeName = null;
+        $result = new SearchElementResult();
+        foreach ($classElement->childNodes as $childNode) {
+            if (! $childNode instanceof DOMElement) {
+                continue;
+            }
+            if (in_array($childNode->tagName, $beforeTagNames)) {
+                continue;
+            }
+            if (in_array($childNode->tagName, $afterTagNames)) {
+                if ($result->addBefore === null) {
+                    $result->addBefore = $childNode;
+                }
+                break;
+            }
+            if ($childNode->tagName !== $tagName) {
+                throw new Exception("Invalid tag name found in the XML file : {$childNode->tagName}");
+            }
+            $childNodeName = $childNode->getAttribute('name');
+            $cmp = strcasecmp($nameAttributeValue, $childNodeName);
+            if ($cmp === 0) {
+                $result->found = $childNode;
+                break;
+            }
+            if ($cmp < 0 && ($result->addBefore === null || strcasecmp($childNodeName, $addBeforeName) < 0)) {
+                $addBeforeName = $childNodeName;
+                $result->addBefore = $childNode;
+                break;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * Create and insert into the document an XML element with the "posix" and "windows" attributes set.
+     *
+     * @param DOMElement $parentElement
+     *            The XML element parent of the element to be created.
+     * @param string $tagName
+     *            The name of the XML element to be created.
+     * @param DOMElement|null $addBefore
+     *            If NULL, the new XML element will be the last child of $parentElement; if not NULL the new XML element will be inserted before $addBefore.
+     *            
+     * @return DOMElement
+     */
+    private function createOSTypeElement(DOMElement $parentElement, $tagName, DOMElement $addBefore = null)
+    {
+        $result = $this->xml->createElement($tagName);
+        foreach (array(
+            self::OSTAG_POSIX,
+            self::OSTAG_WINDOWS
+        ) as $osTag) {
+            $result->setAttribute($osTag, $this->osTag === $osTag ? 'true' : 'false');
+        }
+        if ($addBefore === null) {
+            $parentElement->appendChild($result);
+        } else {
+            $addBefore->parentNode->insertBefore($result, $addBefore);
+        }
+        return $result;
+    }
+
+    /**
+     * Save or update an INI entry.
+     *
+     * @param DOMElement $extensionElement
+     *            The <extension> XML element corresponding to the extension associated to the INI entry.
+     * @param string $name
+     *            The name of the INI entry.
+     * @param mixed $value
+     *            The value of the INI entry.
+     *            
+     * @throws Exception
+     */
+    private function saveIniEntry(DOMElement $extensionElement, $name, $value)
+    {
+        $search = $this->searchExtensionChildElement($extensionElement, 'iniEntry', $name);
+        if ($search->found === null) {
+            $search = $this->searchExtensionChildElement($extensionElement, 'iniEntry', $name);
+            $new = $this->createOSTypeElement($extensionElement, 'iniEntry', $search->addBefore);
+            $new->setAttribute('name', $name);
+            $new->setAttribute('value', self::serializeValue($value));
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+                if ($this->osTag === self::OSTAG_POSIX) {
+                    $search->found->setAttribute('value', self::serializeValue($value));
+                }
+            }
+        }
+    }
+
+    /**
+     * Save or update a global constant.
+     *
+     *
+     * @param DOMElement $extensionElement
+     *            The <extension> XML element corresponding to the extension associated to the global constant.
+     * @param string $name
+     *            The name of the global constant.
+     * @param mixed $value
+     *            The value of the global constant.
+     *            
+     * @throws Exception
+     */
+    private function saveGlobalConstant(DOMElement $extensionElement, $name, $value)
+    {
+        $search = $this->searchExtensionChildElement($extensionElement, 'constant', $name);
+        if ($search->found === null) {
+            $new = $this->createOSTypeElement($extensionElement, 'constant', $search->addBefore);
+            $new->setAttribute('name', $name);
+            $new->setAttribute('value', self::serializeValue($value));
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+                if ($this->osTag === self::OSTAG_POSIX) {
+                    $search->found->setAttribute('value', self::serializeValue($value));
+                }
+            }
+        }
+    }
+
+    /**
+     * Save or update a ReflectionClass instance representing a trait, an interface or a class.
+     *
+     * @param DOMElement $extensionElement
+     *            The <extension> XML element corresponding to the extension associated to the trait/interface/class.
+     * @param ReflectionClass $reflectionClass
+     *            The ReflectionClass instance representing the object to be saved/updated.
+     *            
+     * @throws Exception
+     */
+    private function saveReflectionClass(DOMElement $extensionElement, ReflectionClass $reflectionClass)
+    {
+        if (method_exists($reflectionClass, 'isTrait') && $reflectionClass->isTrait()) {
+            $type = 'trait';
+        } elseif ($reflectionClass->isInterface()) {
+            $type = 'interface';
+        } else {
+            $type = 'class';
+        }
+        $search = $this->searchExtensionChildElement($extensionElement, $type, $reflectionClass->getName(), $reflectionClass->getNamespaceName());
+        if ($search->found === null) {
+            $new = $this->createOSTypeElement($extensionElement, $type, $search->addBefore);
+            $new->setAttribute('name', $reflectionClass->getShortName());
+            if ((string) $reflectionClass->getNamespaceName() !== '') {
+                $new->setAttribute('namespace', $reflectionClass->getNamespaceName());
+            }
+            switch ($type) {
+                case 'interface':
+                    $interfaces = $this->getActualInterfaces($reflectionClass);
+                    switch (count($interfaces)) {
+                        case 0:
+                            $new->setAttribute('extends', '');
+                            break;
+                        case 1:
+                            $extends = $interfaces[0];
+                            $parentInterface = new ReflectionClass($interfaces[0]);
+                            if ($parentInterface->getNamespaceName() !== $reflectionClass->getNamespaceName()) {
+                                $extends = '\\' . lrtrim($extends, '\\');
+                            }
+                            $new->setAttribute('extends', $extends);
+                            break;
+                        default:
+                            throw new Exception("An interface can't extend more that one interface");
+                    }
+                    break;
+                case 'class':
+                    $new->setAttribute('final', $reflectionClass->isFinal() ? 'true' : 'false');
+                    $new->setAttribute('abstract', $reflectionClass->isAbstract() ? 'true' : 'false');
+                    $parentClass = $reflectionClass->getParentClass();
+                    $interfaces = $this->getActualInterfaces($reflectionClass);
+                    if ($parentClass) {
+                        $parentClassName = $parentClass->getName();
+                        if ($parentClass->getNamespaceName() !== $reflectionClass->getNamespaceName()) {
+                            $parentClassName = '\\' . lrtrim($parentClassName, '\\');
+                        }
+                        $parentInterfaces = $parentClass->getInterfaceNames();
+                        $interfaces = array_filter($interfaces, function ($interface) use ($parentInterfaces) {
+                            return in_array($interface, $parentInterfaces) === false;
+                        });
+                    } else {
+                        $parentClassName = '';
+                    }
+                    $new->setAttribute('extends', $parentClassName);
+                    foreach ($interfaces as $interface) {
+                        $interfaceElement = $this->xml->createElement('implements');
+                        $interfaceElement->setAttribute('name', $interface);
+                        $new->appendChild($interfaceElement);
+                    }
+                    break;
+            }
+            $this->sortElementAttributes($new, true);
+            $classElement = $new;
+        } else {
+            $classElement = $search->found;
+            if ($classElement->getAttribute($this->osTag) !== 'true') {
+                $classElement->setAttribute($this->osTag, 'true');
+            }
+        }
+        $propertyDefaultValues = $reflectionClass->getDefaultProperties();
+        foreach ($this->getActualClassProperties($reflectionClass) as $reflectionProperty) {
+            $this->saveReflectionClassProperty($classElement, $reflectionProperty, isset($propertyDefaultValues[$reflectionProperty->getName()]) ? $propertyDefaultValues[$reflectionProperty->getName()] : null);
+        }
+        foreach ($this->getActualClassMethods($reflectionClass) as $reflectionMethod) {
+            $this->saveReflectionClassMethod($classElement, $reflectionMethod);
+        }
+        if ($type === 'interface' || $type === 'class') {
+            foreach ($this->getActualClassConstants($reflectionClass) as $constantName => $constantValue) {
+                $this->saveReflectionClassConstant($classElement, $reflectionClass, $constantName, $constantValue);
+            }
+        }
+    }
+
+    /**
+     * Save or update a ReflectionClass instance representing a global function.
+     *
+     * @param DOMElement $extensionElement
+     *            The <extension> XML element corresponding to the extension associated to the global function.
+     * @param ReflectionFunction $reflectionFunction
+     *            The ReflectionFunction instance representing the function to be saved/updated.
+     *            
+     * @throws Exception
+     */
+    private function saveReflectionFunction(DOMElement $extensionElement, ReflectionFunction $reflectionFunction)
+    {
+        $search = $this->searchExtensionChildElement($extensionElement, 'function', $reflectionFunction->getName(), $reflectionFunction->getNamespaceName());
+        if ($search->found === null) {
+            $new = $this->createReflectionFunctionAbstract($reflectionFunction, $extensionElement, 'function', $search->addBefore);
+            if ((string) $reflectionFunction->getNamespaceName() !== '') {
+                $new->setAttribute('namespace', $reflectionFunction->getNamespaceName());
+            }
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+            }
+        }
+    }
+
+    /**
+     * Save or update a ReflectionProperty instance representing a trait/interface/class property.
+     *
+     * @param DOMElement $classElement
+     *            The <class> XML element.
+     * @param ReflectionProperty $reflectionProperty
+     *            The ReflectionProperty instance representing the property to be saved/updated.
+     * @param mixed $defaultValue
+     *            The default value of the property.
+     *            
+     * @throws Exception
+     */
+    private function saveReflectionClassProperty(DOMElement $classElement, ReflectionProperty $reflectionProperty, $defaultValue)
+    {
+        $search = $this->searchClassChildElement($classElement, 'property', $reflectionProperty->getName());
+        if ($search->found === null) {
+            $new = $this->createOSTypeElement($classElement, 'property', $search->addBefore);
+            $new->setAttribute('name', $reflectionProperty->getName());
+            $new->setAttribute('static', $reflectionProperty->isStatic() ? 'true' : 'false');
+            if ($reflectionProperty->isPrivate()) {
+                $new->setAttribute('visibility', 'private');
+            } elseif ($reflectionProperty->isProtected()) {
+                $new->setAttribute('visibility', 'protected');
+            } else {
+                $new->setAttribute('visibility', 'public');
+            }
+            $new->setAttribute('defaultValue', self::serializeValue($defaultValue));
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+            }
+        }
+    }
+
+    /**
+     * Save or update a ReflectionMethod instance representing a trait/interface/class method.
+     *
+     * @param DOMElement $classElement
+     *            The <class> XML element.
+     * @param ReflectionMethod $reflectionMethod
+     *            The ReflectionMethod instance representing the method to be saved/updated.
+     *            
+     * @throws Exception
+     */
+    private function saveReflectionClassMethod(DOMElement $classElement, ReflectionMethod $reflectionMethod)
+    {
+        $search = $this->searchClassChildElement($classElement, 'method', $reflectionMethod->getName());
+        if ($search->found === null) {
+            $new = $this->createReflectionFunctionAbstract($reflectionMethod, $classElement, 'method', $search->addBefore);
+            $new->setAttribute('final', $reflectionMethod->isFinal() ? 'true' : 'false');
+            $new->setAttribute('abstract', $reflectionMethod->isAbstract() ? 'true' : 'false');
+            $new->setAttribute('static', $reflectionMethod->isStatic() ? 'true' : 'false');
+            if ($reflectionMethod->isPrivate()) {
+                $new->setAttribute('visibility', 'private');
+            } elseif ($reflectionMethod->isProtected()) {
+                $new->setAttribute('visibility', 'protected');
+            } else {
+                $new->setAttribute('visibility', 'public');
+            }
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+            }
+        }
+    }
+
+    /**
+     * Save or update a class constant.
+     *
+     * @param DOMElement $classElement
+     *            The <class> XML element.
+     * @param ReflectionClass $reflectionClass
+     *            The ReflectionClass instance representing the class.
+     * @param string $constantName
+     *            The name of the constant.
+     * @param mixed $constantValue
+     *            The value of the constant.
+     *            
+     * @throws Exception
+     */
+    private function saveReflectionClassConstant(DOMElement $classElement, ReflectionClass $reflectionClass, $constantName, $constantValue)
+    {
+        $search = $this->searchClassChildElement($classElement, 'constant', $constantName);
+        if ($search->found === null) {
+            $new = $this->createOSTypeElement($classElement, 'constant', $search->addBefore);
+            $new->setAttribute('name', $constantName);
+            $new->setAttribute('value', self::serializeValue($constantValue));
+            $refl = method_exists($reflectionClass, 'getReflectionConstant') ? $reflectionClass->getReflectionConstant($constantName) : null;
+            if ($refl !== null && $refl->isPrivate()) {
+                $new->setAttribute('visibility', 'private');
+            } elseif ($refl !== null && $refl->isProtected()) {
+                $new->setAttribute('visibility', 'protected');
+            } else {
+                $new->setAttribute('visibility', 'public');
+            }
+            $this->sortElementAttributes($new, true);
+        } else {
+            if ($search->found->getAttribute($this->osTag) !== 'true') {
+                $search->found->setAttribute($this->osTag, 'true');
+                if ($this->osTag === self::OSTAG_POSIX) {
+                    $search->found->setAttribute('value', self::serializeValue($constantValue));
+                }
+            }
+        }
+    }
+
+    /**
+     * Save a ReflectionFunctionAbstract instance representing a global function or a class method.
+     *
+     * @param ReflectionFunctionAbstract $function
+     *            The ReflectionFunctionAbstract instance to be saved.
+     * @param DOMElement $parentElement
+     *            The parent XML element.
+     * @param string $tagName
+     *            The name of the tag to be created.
+     * @param DOMElement|null $addBefore
+     *            If NULL, the new XML element will be the last child of $parentElement; if not NULL the new XML element will be inserted before $addBefore.
+     *            
+     * @throws Exception
+     *
+     * @return DOMElement
+     */
+    private function createReflectionFunctionAbstract(ReflectionFunctionAbstract $function, DOMElement $parentElement, $tagName, DOMElement $addBefore = null)
+    {
+        $new = $this->createOSTypeElement($parentElement, $tagName, $addBefore);
+        $new->setAttribute('name', $function->getShortName());
+        $new->setAttribute('returnsReference', $function->returnsReference() ? 'true' : 'false');
+        $returnType = method_exists($function, 'hasReturnType') && $function->hasReturnType() ? $function->getReturnType() : null;
+        if ($returnType !== null) {
+            $new->setAttribute('returnType', (string) $returnType);
+            $new->setAttribute('returnTypeAllowsNull', $returnType->allowsNull() ? 'true' : 'false');
+        } else {
+            $new->setAttribute('returnType', '');
+            $new->setAttribute('returnTypeAllowsNull', '');
+        }
+        $new->setAttribute('deprecated', $function->isDeprecated() ? 'true' : 'false');
+        foreach ($function->getParameters() as $parameter) {
+            $parameterElement = $this->xml->createElement('parameter');
+            $parameterElement->setAttribute('name', $parameter->getName());
+            $type = '';
+            $allowsNull = $parameter->allowsNull();
+            $parameterType = method_exists($parameter, 'hasType') && $parameter->hasType() ? $parameter->getType() : null;
+            if ($parameterType !== null) {
+                $type = (string) $parameterType;
+                $allowsNull = $allowsNull || $parameterType->allowsNull();
+            } else {
+                try {
+                    $type = $parameter->getClass() ? $parameter->getClass()->getName() : '';
+                } catch (Exception $exception) {
+                    $m = null;
+                    if (! preg_match('/Class ([\w\\\\]+) does not exist/', $exception->getMessage(), $m)) {
+                        throw $exception;
+                    }
+                    $type = $m[1];
+                }
+            }
+            if ($type === '' && method_exists($parameter, 'isCallable') && $parameter->isCallable()) {
+                $type = 'callable';
+            }
+            if ($parameter->isArray()) {
+                if ($type === '') {
+                    $type = 'array';
+                } else {
+                    $type .= '[]';
+                }
+            }
+            $parameterElement->setAttribute('type', $type);
+            $parameterElement->setAttribute('allowsNull', $allowsNull ? 'true' : 'false');
+            $parameterElement->setAttribute('byReference', $parameter->isPassedByReference() ? 'true' : 'false');
+            $parameterElement->setAttribute('variadic', method_exists($parameter, 'isVariadic') && $parameter->isVariadic() ? 'true' : 'false');
+            $parameterElement->setAttribute('optional', $parameter->isOptional() ? 'true' : 'false');
+            if ($parameter->isOptional()) {
+                /*
+                 * This code does not work ("Cannot determine default value for internal functions")
+                 * $parameterElement->setAttribute('defaultValue', self::serializeValue($parameter->getDefaultValue()));
+                 * $d = $parameter->getDefaultValueConstantName();
+                 * if ($d !== null) {
+                 * $parameterElement->setAttribute('defaultValueConstant', $d);
+                 * }
+                 */
+            }
+            $new->appendChild($parameterElement);
+        }
+        return $new;
+    }
+
+    /**
+     * Get the actual properties of a class (that is, excluding the inherited ones).
+     *
+     * @param ReflectionClass $reflectionClass
+     *            The class for which you want the properties.
+     *            
+     * @return ReflectionProperty[]
+     */
+    private function getActualClassProperties(ReflectionClass $reflectionClass)
+    {
+        return array_filter($reflectionClass->getProperties(), function (ReflectionProperty $property) use ($reflectionClass) {
+            return $property->getDeclaringClass()->getName() === $reflectionClass->getName();
+        });
+    }
+
+    /**
+     * Get the actual methods of a class (that is, excluding the inherited ones).
+     *
+     * @param ReflectionClass $reflectionClass
+     *            The class for which you want the methods.
+     *            
+     * @return ReflectionMethod[]
+     */
+    private function getActualClassMethods(ReflectionClass $reflectionClass)
+    {
+        return array_filter($reflectionClass->getMethods(), function (ReflectionMethod $method) use ($reflectionClass) {
+            return $method->getDeclaringClass()->getName() === $reflectionClass->getName();
+        });
+    }
+
+    /**
+     * Get the actual constants of a class (that is, excluding the inherited ones).
+     *
+     * @param ReflectionClass $reflectionClass
+     *            The class for which you want the constants.
+     *            
+     * @return array Array keys are the constant names, array values are the constant values.
+     */
+    private function getActualClassConstants(ReflectionClass $reflectionClass)
+    {
+        $constants = $reflectionClass->getConstants();
+        $parentClasses = $reflectionClass->getInterfaces();
+        $parentClass = $reflectionClass->getParentClass();
+        if ($parentClass) {
+            $parentClasses[] = $parentClass;
+        }
+        foreach ($parentClasses as $parentClass) {
+            $parentClassConstants = $parentClass->getConstants();
+            $commonConstantNames = array_intersect(array_keys($constants), array_keys($parentClassConstants));
+            foreach ($commonConstantNames as $commonConstantName) {
+                if ($parentClass->getConstant($commonConstantName) === $constants[$commonConstantName]) {
+                    unset($constants[$commonConstantName]);
+                }
+            }
+        }
+        return $constants;
+    }
+
+    /**
+     * Get the names of the actual interfaces of a class (that is, excluding the inherited ones).
+     *
+     * @param ReflectionClass $reflectionClass
+     *            The class for which you want the interfaces.
+     *            
+     * @return ReflectionMethod[]
+     *
+     * @return string[]
+     */
+    private function getActualInterfaces(ReflectionClass $reflectionClass)
+    {
+        $result = array();
+        $allInterfaces = $reflectionClass->getInterfaceNames();
+        foreach ($allInterfaces as $interface) {
+            $isInherited = false;
+            foreach ($allInterfaces as $otherInterface) {
+                if ($otherInterface !== $interface && in_array($interface, class_implements($otherInterface)) === true) {
+                    $isInherited = true;
+                    break;
+                }
+            }
+            if ($isInherited === false) {
+                $result[] = $interface;
+            }
+        }
+        usort($result, 'strnatcasecmp');
+        return $result;
+    }
+
+    /**
+     * Sort the attributes of an XML element.
+     *
+     * @param DOMElement $element
+     *            The XML element for which you want to sort the attributes.
+     * @param bool $recursive
+     *            Should the child elements of $element be sorted too?
+     */
+    private function sortElementAttributes(DOMElement $element, $recursive)
+    {
+        $map = array();
+        foreach ($element->attributes as $attribute) {
+            $map[$attribute->nodeName] = $attribute->nodeValue;
+        }
+        $attributeNames = array_keys($map);
+        $prefixes = array(
+            'namespace' => '00_',
+            'name' => '00_',
+            self::OSTAG_POSIX => '98_',
+            'parsedwith-' . self::OSTAG_POSIX => '98_',
+            self::OSTAG_WINDOWS => '99_',
+            'parsedwith-' . self::OSTAG_WINDOWS => '99_'
+        );
+        usort($attributeNames, function ($a, $b) use ($prefixes) {
+            $a = (isset($prefixes[$a]) ? $prefixes[$a] : '50_') . $a;
+            $b = (isset($prefixes[$b]) ? $prefixes[$b] : '50_') . $b;
+            return strnatcasecmp($a, $b);
+        });
+        foreach ($attributeNames as $attributeName) {
+            $element->removeAttribute($attributeName);
+        }
+        foreach ($attributeNames as $attributeName) {
+            $element->setAttribute($attributeName, $map[$attributeName]);
+        }
+        if ($recursive) {
+            foreach ($element->childNodes as $childNode) {
+                if ($childNode instanceof DOMElement) {
+                    $this->sortElementAttributes($childNode, true);
+                }
+            }
+        }
+    }
+
+    /**
+     * Check if an XML document is valid.
+     *
+     * @param DOMDocument $document
+     *            The document to be checked.
+     *            
+     * @throws Exception
+     */
+    public function validate(DOMDocument $document)
+    {
+        $schemaFile = $this->schemaFile;
+        if ($schemaFile === null) {
+            $schemaFile = self::getDefaultSchemaFile();
+        }
+        if (! is_file($schemaFile)) {
+            throw new Exception("Unable to find the XSD schema file {$schemaFile}");
+        }
+        $xml = $document->saveXML();
+        $newDocument = new DOMDocument('1.0', 'UTF-8');
+        $newDocument->loadXML($xml);
+        libxml_clear_errors();
+        $prev = libxml_use_internal_errors(true);
+        libxml_clear_errors();
+        if (! $newDocument->schemaValidate($schemaFile)) {
+            $msg = "The file does not conform the XML schema";
+            foreach (libxml_get_errors() as $x) {
+                $msg .= "\n" . $x->message . ' (line: ' . $x->line . ')';
+            }
+            throw new Exception($msg);
+        }
+        libxml_use_internal_errors($prev);
+    }
+
+    /**
+     * Get the PHP representation of a value.
+     *
+     * @param mixed $value
+     *            The value to be serialized.
+     *            
+     * @throws Exception
+     *
+     * @return string
+     */
+    private static function serializeValue($value)
+    {
+        $type = gettype($value);
+        switch ($type) {
+            case 'boolean':
+                return $value ? 'true' : 'false';
+            case 'integer':
+            case 'double':
+                return (string) $value;
+            case 'NULL':
+                return 'null';
+            case 'string':
+                $escape = PHP_VERSION_ID >= 50404 ? "\n\r\t\v\f\e" : "\n\r\t\v\f";
+                if (strpbrk($value, $escape) !== false) {
+                    return '"' . addcslashes($value, $escape . "\\") . '"';
+                } else {
+                    return "'" . str_replace("'", "\\'", str_replace('\\', '\\\\', $value)) . "'";
+                }
+            case 'array':
+                if (PHP_VERSION_ID >= 50400) {
+                    $open = '[';
+                    $close = ']';
+                } else {
+                    $open = 'array(';
+                    $close = ')';
+                }
+                $count = count($value);
+                if ($count === 0 || array_keys($value) === range(0, $count - 1)) {
+                    $values = array();
+                    for ($i = 0; $i < $count; $i ++) {
+                        $values[] = self::serializeValue($value[$i]);
+                    }
+                    return $open . implode($values, ', ') . $close;
+                }
+                $values = array();
+                foreach ($value as $k => $v) {
+                    $values[] = self::serializeValue($k) . ' => ' . self::serializeValue($v);
+                }
+                return $open . implode($values, ', ') . $close;
+            case 'resource':
+                return self::serializeValue((string) $value);
+            default:
+                throw new Exception("Unable to serialize type $type");
+        }
+    }
+}
+
+/**
+ * Represent the result of a search for an XML element
+ */
+class SearchElementResult
+{
+
+    /**
+     * The found element (NULL if not found).
+     *
+     * @var DOMElement|null
+     */
+    public $found;
+
+    /**
+     * If $found is NULL, the element that will be created should be places before this element (or should be the last one if $addBefore is NULL).
+     *
+     * @var DOMElement|null
+     */
+    public $addBefore;
+}

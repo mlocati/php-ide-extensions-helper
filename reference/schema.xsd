@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://mlocati.github.io/PIdeExtHelp"
+	xmlns:tns="http://mlocati.github.io/PIdeExtHelp"
+	elementFormDefault="qualified">
+
+	<element name="schema" type="tns:schemaType" />
+
+	<complexType name="schemaType">
+		<sequence>
+			<element name="extension" type="tns:extensionType" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="phpVersion" use="required">
+			<simpleType>
+				<restriction base="string">
+					<pattern value="\d+\.\d+" />
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+	<complexType name="extensionType">
+		<sequence>
+			<element name="iniEntry" type="tns:iniEntryType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="constant" type="tns:globalConstantType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="trait" type="tns:traitType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="interface" type="tns:interfaceType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="class" type="tns:classType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="function" type="tns:functionType" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="name" type="tns:nonEmptyString" use="required" />
+		<attribute name="require" type="string" use="required" />
+		<attribute name="suggest" type="string" use="required" />
+		<attribute name="conflict" type="string" use="required" />
+		<attribute name="parsedwith-posix" type="tns:extensionVersion" use="optional" />
+		<attribute name="parsedwith-windows" type="tns:extensionVersion" use="optional" />
+	</complexType>
+
+	<complexType name="iniEntryType">
+		<complexContent>
+			<extension base="tns:osType">
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="value" type="tns:nonEmptyString" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="globalConstantType">
+		<complexContent>
+			<extension base="tns:osType">
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="value" type="tns:nonEmptyString" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="traitType">
+		<complexContent>
+			<extension base="tns:traitInterfaceClassType">
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="interfaceType">
+		<complexContent>
+			<extension base="tns:interfaceClassType">
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="classType">
+		<complexContent>
+			<extension base="tns:interfaceClassType">
+				<sequence>
+					<element name="implements" type="tns:implementsType" minOccurs="0" maxOccurs="unbounded" />
+				</sequence>
+				<attribute name="final" type="boolean" use="required" />
+				<attribute name="abstract" type="boolean" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="traitInterfaceClassType" abstract="true">
+		<complexContent>
+			<extension base="tns:osType">
+				<sequence>
+					<element name="property" type="tns:propertyType" minOccurs="0" maxOccurs="unbounded" />
+					<element name="method" type="tns:methodType" minOccurs="0" maxOccurs="unbounded" />
+				</sequence>
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="namespace" type="tns:nonEmptyString" use="optional" />
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="interfaceClassType" abstract="true">
+		<complexContent>
+			<extension base="tns:traitInterfaceClassType">
+				<sequence>
+					<element name="constant" type="tns:childConstantType" minOccurs="0" maxOccurs="unbounded" />
+				</sequence>
+				<attribute name="extends" type="string" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+	
+
+	<complexType name="childConstantType">
+		<complexContent>
+			<extension base="tns:osType">
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="value" type="tns:nonEmptyString" use="required" />
+				<attribute name="visibility" use="required" type="tns:visibilityType" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="implementsType">
+		<complexContent>
+			<extension base="tns:osType">
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="propertyType">
+		<complexContent>
+			<extension base="tns:osType">
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="static" use="required" type="boolean" />
+				<attribute name="visibility" use="required" type="tns:visibilityType" />
+				<attribute name="defaultValue" use="required" type="tns:nonEmptyString" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="abstractFunctionType" abstract="true">
+		<complexContent>
+			<extension base="tns:osType">
+				<sequence>
+					<element name="parameter" minOccurs="0" maxOccurs="unbounded" type="tns:parameterType" />
+				</sequence>
+				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="returnsReference" type="boolean" use="required" />
+				<attribute name="returnType" type="string" use="required" />
+				<attribute name="returnTypeAllowsNull" type="tns:nullableBoolean" use="required" />
+				<attribute name="deprecated" type="boolean" use="required" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="parameterType">
+		<attribute name="name" type="tns:nonEmptyString" use="required" />
+		<attribute name="type" type="string" use="required" />
+		<attribute name="allowsNull" type="boolean" use="required" />
+		<attribute name="byReference" type="boolean" use="required" />
+		<attribute name="variadic" type="boolean" use="required" />
+		<attribute name="optional" type="boolean" use="required" />
+	</complexType>
+
+	<complexType name="functionType">
+		<complexContent>
+			<extension base="tns:abstractFunctionType">
+				<attribute name="namespace" type="tns:nonEmptyString" use="optional" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="methodType">
+		<complexContent>
+			<extension base="tns:abstractFunctionType">
+				<attribute name="final" use="required" type="boolean" />
+				<attribute name="abstract" use="required" type="boolean" />
+				<attribute name="static" use="required" type="boolean" />
+				<attribute name="visibility" use="required" type="tns:visibilityType" />
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<simpleType name="nonEmptyString">
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="nullableBoolean">
+		<restriction base="string">
+			<enumeration value="" />
+			<enumeration value="true" />
+			<enumeration value="false" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="extensionVersion">
+		<restriction base="string">
+			<pattern value=".*@\d+.\d+.\d+"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="visibilityType">
+		<restriction base="string">
+			<enumeration value="private" />
+			<enumeration value="protected" />
+			<enumeration value="public" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="osType" abstract="true">
+		<attribute name="posix" use="optional" type="boolean" />
+		<attribute name="windows" use="optional" type="boolean" />
+	</complexType>
+</schema>

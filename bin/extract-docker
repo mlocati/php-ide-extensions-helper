@@ -1,0 +1,167 @@
+#!/usr/bin/env php
+<?php
+set_error_handler(function ($errno, $errstr, $errfile = '', $errline = null) {
+    fprintf(STDERR, trim($errstr) . "\n");
+    fprintf(STDERR, 'Line: ' . $errline . "\n");
+    exit(1);
+});
+
+$argv = $_SERVER['argv'];
+array_shift($argv);
+
+$rebuild = false;
+$phpVersion = null;
+$rootDir = str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__)));
+$dockerDir = $rootDir . '/docker';
+for (;;) {
+    $arg = array_shift($argv);
+    if ($arg === null) {
+        showHelp(1, $dockerDir);
+    }
+    switch (strtolower($arg)) {
+        case '-h':
+        case '--help':
+            showHelp(0, $dockerDir);
+            break;
+        case '--rebuild':
+            $rebuild = true;
+            break;
+        default:
+            $phpVersion = $arg;
+            break 2;
+    }
+}
+if ($phpVersion === null) {
+    showHelp(1, $dockerDir);
+}
+
+$dockerFile = $dockerDir . '/' . $phpVersion;
+if (! is_file($dockerFile)) {
+    fprintf(STDERR, "Invalid PHP version: {$phpVersion}\nValid versions are:\n");
+    foreach (getDockerImages($dockerDir) as $item) {
+        fprintf(STDERR, "  {$item}\n");
+    }
+    exit(1);
+}
+$dockerReference = 'php-ide-extensions-helper:' . $phpVersion;
+
+$currentDockerImageId = getDockerImageId($dockerReference);
+if ($currentDockerImageId === '') {
+    $build = true;
+} elseif ($rebuild === true) {
+    $rc = - 1;
+    passthru('docker rmi --force ' . $currentDockerImageId, $rc);
+    if ($rc !== 0) {
+        exit($rc);
+    }
+    $build = true;
+} else {
+    $build = false;
+}
+if ($build === true) {
+    $rc = - 1;
+    passthru('docker build --file ' . escapeshellarg($dockerFile) . ' --tag ' . escapeshellarg($dockerReference) . ' --rm ' . escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $rootDir)), $rc);
+    if ($rc !== 0) {
+        exit($rc);
+    }
+    $currentDockerImageId = getDockerImageId($dockerReference);
+}
+
+$commandChunks = array(
+    'docker'
+);
+$commandChunks[] = 'run';
+$commandChunks[] = '--interactive';
+$commandChunks[] = '--tty';
+$commandChunks[] = '--rm';
+$commandChunks[] = '--volume ' . escapeshellarg(str_replace(DIRECTORY_SEPARATOR, '/', $rootDir) . ':/app');
+$commandChunks[] = '--workdir /app';
+$commandChunks[] = $currentDockerImageId;
+$commandChunks[] = './bin/extract';
+foreach ($argv as $arg) {
+    $commandChunks[] = escapeshellarg($arg);
+}
+$command = implode(' ', $commandChunks);
+$rc = - 1;
+passthru($command, $rc);
+if ($rc !== 0) {
+    exit($rc);
+}
+
+function showHelp($exitCode, $dockerDir)
+{
+    $scriptName = $_SERVER['argv'][0];
+    echo <<<EOF
+USAGE: {$scriptName} [-h | --help] [--rebuild] <docker-image> [arguments for extract]
+
+Where:
+  --help       Show this help.
+  --rebuild    Rebuild the docker container.
+  <phpVersion> The PHP version to be used.
+
+Valid values of <docker-image> are:
+
+EOF
+;
+    if ($dockerDir !== null) {
+        foreach (getDockerImages($dockerDir) as $item) {
+            echo "  {$item}\n";
+        }
+    }
+    exit($exitCode);
+}
+
+function getDockerImageId($dockerReference)
+{
+    $output = array();
+    $rc = - 1;
+    @exec('docker images --all --filter=reference=' . $dockerReference . ' --format "{{.ID}}" 2>&1', $output, $rc);
+    if ($rc !== 0) {
+        fprintf(STDERR, implode("\n", $output));
+        exit($rc);
+    }
+    $output = array_filter($output);
+    switch (count($output)) {
+        case 0:
+            $result = '';
+            break;
+        case 1:
+            if (! preg_match('/^[a-f0-9]{12,}$/', $output[0])) {
+                fprintf(STDERR, implode("\n", $output));
+                exit(1);
+            }
+            $result = $output[0];
+            break;
+        default:
+            fprintf(STDERR, implode("\n", $output));
+            exit(1);
+    }
+    return $result;
+}
+
+function getDockerImages($dockerDir)
+{
+    $result = array();
+    $hDir = opendir($dockerDir);
+    if ($hDir) {
+        for (;;) {
+            $item = readdir($hDir);
+            if ($item === false) {
+                break;
+            }
+            if (is_file($dockerDir . '/' . $item)) {
+                switch ($item) {
+                    case 'install-php-extensions':
+                        break;
+                    default:
+                        $result[] = $item;
+                        break;
+                }
+            }
+        }
+        closedir($hDir);
+    }
+    natcasesort($result);
+
+    return array_values($result);
+}
