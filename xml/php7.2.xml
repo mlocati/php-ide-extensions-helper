@@ -3109,7 +3109,7 @@
     <function name="imagecreatefromgif" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagecreatefromjpeg" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagecreatefromjpeg" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
     <function name="imagecreatefrompng" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
@@ -3121,13 +3121,13 @@
     <function name="imagecreatefromwbmp" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagecreatefromwebp" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagecreatefromwebp" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
     <function name="imagecreatefromxbm" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagecreatefromxpm" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagecreatefromxpm" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
     <function name="imagecreatetruecolor" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
@@ -3227,14 +3227,14 @@
     <function name="imagefontwidth" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="font" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imageftbbox" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imageftbbox" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="size" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="angle" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="font_file" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="text" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="extrainfo" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="imagefttext" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagefttext" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="im" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="size" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="angle" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
@@ -3279,7 +3279,7 @@
     <function name="imageistruecolor" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="im" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagejpeg" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagejpeg" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="im" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="to" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       <parameter name="quality" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
@@ -3413,13 +3413,13 @@
       <parameter name="ditherFlag" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="colorsWanted" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagettfbbox" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagettfbbox" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="size" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="angle" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="font_file" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="text" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="imagettftext" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagettftext" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="im" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="size" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="angle" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
@@ -3435,7 +3435,7 @@
       <parameter name="to" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       <parameter name="foreground" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="imagewebp" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="imagewebp" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="im" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="to" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       <parameter name="quality" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
@@ -3445,7 +3445,7 @@
       <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="foreground" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="jpeg2wbmp" deprecated="true" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="false" windows="true">
+    <function name="jpeg2wbmp" deprecated="true" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="f_org" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="f_dest" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="d_height" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
