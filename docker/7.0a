@@ -1,0 +1,5 @@
+FROM php:7.0-zts
+
+COPY docker/install-php-extensions /usr/local/bin/
+
+RUN install-php-extensions pthreads

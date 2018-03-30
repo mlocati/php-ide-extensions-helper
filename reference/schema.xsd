@@ -68,7 +68,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="classType">
 		<complexContent>
 			<extension base="tns:interfaceClassType">
@@ -93,7 +93,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="interfaceClassType" abstract="true">
 		<complexContent>
 			<extension base="tns:traitInterfaceClassType">
@@ -104,7 +104,6 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
 
 	<complexType name="childConstantType">
 		<complexContent>
@@ -183,7 +182,7 @@
 			<minLength value="1" />
 		</restriction>
 	</simpleType>
-	
+
 	<simpleType name="nullableBoolean">
 		<restriction base="string">
 			<enumeration value="" />
@@ -191,7 +190,7 @@
 			<enumeration value="false" />
 		</restriction>
 	</simpleType>
-	
+
 	<simpleType name="extensionVersion">
 		<restriction base="string">
 			<pattern value=".*@\d+.\d+.\d+"/>

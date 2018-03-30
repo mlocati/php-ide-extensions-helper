@@ -170,7 +170,7 @@ class Extractor
      *
      * @param array $argv
      *            The arguments to be parsed.
-     *            
+     *
      * @throws Exception
      */
     public function __construct(array $argv)
@@ -312,7 +312,7 @@ EOT
      *
      * @param string $extensionName
      *            The name of the PHP extension.
-     *            
+     *
      * @throws Exception
      *
      */
@@ -389,7 +389,7 @@ EOF
      *
      * @param string $s
      *            The string to be escaped.
-     *            
+     *
      * @return string
      */
     private static function escapeXML($s)
@@ -408,7 +408,7 @@ EOF
      *
      * @param ReflectionExtension $extension
      *            The ReflectionExtension instance for which you want the XML element.
-     *            
+     *
      * @throws Exception
      *
      * @return DOMElement
@@ -493,7 +493,7 @@ EOF
      *            The value of the "name" attribute of the tag.
      * @param string|null $namespaceAttributeValue
      *            The value of the "namespace" attribute of the tag (set it to NULL if the tag will never have a "namespace").
-     *            
+     *
      * @throws Exception
      *
      * @return SearchElementResult
@@ -565,7 +565,7 @@ EOF
      *            The tag of the node to look for.
      * @param string $nameAttributeValue
      *            The value of the "name" attribute of the tag.
-     *            
+     *
      * @throws Exception
      *
      * @return SearchElementResult
@@ -626,7 +626,7 @@ EOF
      *            The name of the XML element to be created.
      * @param DOMElement|null $addBefore
      *            If NULL, the new XML element will be the last child of $parentElement; if not NULL the new XML element will be inserted before $addBefore.
-     *            
+     *
      * @return DOMElement
      */
     private function createOSTypeElement(DOMElement $parentElement, $tagName, DOMElement $addBefore = null)
@@ -655,7 +655,7 @@ EOF
      *            The name of the INI entry.
      * @param mixed $value
      *            The value of the INI entry.
-     *            
+     *
      * @throws Exception
      */
     private function saveIniEntry(DOMElement $extensionElement, $name, $value)
@@ -687,7 +687,7 @@ EOF
      *            The name of the global constant.
      * @param mixed $value
      *            The value of the global constant.
-     *            
+     *
      * @throws Exception
      */
     private function saveGlobalConstant(DOMElement $extensionElement, $name, $value)
@@ -715,7 +715,7 @@ EOF
      *            The <extension> XML element corresponding to the extension associated to the trait/interface/class.
      * @param ReflectionClass $reflectionClass
      *            The ReflectionClass instance representing the object to be saved/updated.
-     *            
+     *
      * @throws Exception
      */
     private function saveReflectionClass(DOMElement $extensionElement, ReflectionClass $reflectionClass)
@@ -807,7 +807,7 @@ EOF
      *            The <extension> XML element corresponding to the extension associated to the global function.
      * @param ReflectionFunction $reflectionFunction
      *            The ReflectionFunction instance representing the function to be saved/updated.
-     *            
+     *
      * @throws Exception
      */
     private function saveReflectionFunction(DOMElement $extensionElement, ReflectionFunction $reflectionFunction)
@@ -835,7 +835,7 @@ EOF
      *            The ReflectionProperty instance representing the property to be saved/updated.
      * @param mixed $defaultValue
      *            The default value of the property.
-     *            
+     *
      * @throws Exception
      */
     private function saveReflectionClassProperty(DOMElement $classElement, ReflectionProperty $reflectionProperty, $defaultValue)
@@ -868,7 +868,7 @@ EOF
      *            The <class> XML element.
      * @param ReflectionMethod $reflectionMethod
      *            The ReflectionMethod instance representing the method to be saved/updated.
-     *            
+     *
      * @throws Exception
      */
     private function saveReflectionClassMethod(DOMElement $classElement, ReflectionMethod $reflectionMethod)
@@ -905,7 +905,7 @@ EOF
      *            The name of the constant.
      * @param mixed $constantValue
      *            The value of the constant.
-     *            
+     *
      * @throws Exception
      */
     private function saveReflectionClassConstant(DOMElement $classElement, ReflectionClass $reflectionClass, $constantName, $constantValue)
@@ -945,7 +945,7 @@ EOF
      *            The name of the tag to be created.
      * @param DOMElement|null $addBefore
      *            If NULL, the new XML element will be the last child of $parentElement; if not NULL the new XML element will be inserted before $addBefore.
-     *            
+     *
      * @throws Exception
      *
      * @return DOMElement
@@ -1030,7 +1030,7 @@ EOF
      *
      * @param ReflectionClass $reflectionClass
      *            The class for which you want the properties.
-     *            
+     *
      * @return ReflectionProperty[]
      */
     private function getActualClassProperties(ReflectionClass $reflectionClass)
@@ -1045,7 +1045,7 @@ EOF
      *
      * @param ReflectionClass $reflectionClass
      *            The class for which you want the methods.
-     *            
+     *
      * @return ReflectionMethod[]
      */
     private function getActualClassMethods(ReflectionClass $reflectionClass)
@@ -1060,7 +1060,7 @@ EOF
      *
      * @param ReflectionClass $reflectionClass
      *            The class for which you want the constants.
-     *            
+     *
      * @return array Array keys are the constant names, array values are the constant values.
      */
     private function getActualClassConstants(ReflectionClass $reflectionClass)
@@ -1088,7 +1088,7 @@ EOF
      *
      * @param ReflectionClass $reflectionClass
      *            The class for which you want the interfaces.
-     *            
+     *
      * @return ReflectionMethod[]
      *
      * @return string[]
@@ -1161,7 +1161,7 @@ EOF
      *
      * @param DOMDocument $document
      *            The document to be checked.
-     *            
+     *
      * @throws Exception
      */
     public function validate(DOMDocument $document)
@@ -1194,7 +1194,7 @@ EOF
      *
      * @param mixed $value
      *            The value to be serialized.
-     *            
+     *
      * @throws Exception
      *
      * @return string

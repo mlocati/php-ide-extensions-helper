@@ -173,6 +173,9 @@ getRequiredAptPackages () {
 			pdo_odbc)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev"
 				;;
+			pdo_sqlsrv)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev"
+				;;
 			pgsql)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpq-dev"
 				;;
@@ -183,7 +186,7 @@ getRequiredAptPackages () {
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} librecode-dev"
 				;;
 			ssh2)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result}libssh2-1-dev"
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libssh2-1-dev"
 				;;
 			snmp)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} snmp libsnmp-dev"
@@ -193,6 +196,9 @@ getRequiredAptPackages () {
 				;;
 			solr)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} libcurl4-gnutls-dev libxml2-dev"
+				;;
+			sqlsrv)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev"
 				;;
 			sybase_ct)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev"
@@ -309,6 +315,12 @@ installPECLModule () {
 			if test $1 -lt 700
 			then
 				installPECLModule_actual="${2}-2.0.10"
+			fi
+			;;
+		ssh2)
+			if test $1 -ge 700
+			then
+				installPECLModule_actual="${2}-1.1.2"
 			fi
 			;;
 		xdebug)

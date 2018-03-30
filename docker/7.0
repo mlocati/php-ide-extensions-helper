@@ -72,5 +72,16 @@ RUN install-php-extensions \
 		xsl \
 		zip \
 #		PECL extensions
+		apcu \
+		imagick \
+		memcached \
+		pdo_sqlsrv \
+		redis \
+		ssh2 \
+		solr \
+		sqlsrv \
+		timezonedb \
+		uuid \
 		xdebug \
+		yaml \
 	&& true
