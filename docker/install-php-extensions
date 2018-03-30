@@ -58,7 +58,7 @@ getPHPInstalledModules () {
 		then
 			if ! stringInList "${getPHPInstalledModules_moduleNormalized}" "${getPHPInstalledModules_result}"
 			then
-				getPHPInstalledModules_result="${getPHPInstalledModules_result} ${getPHPInstalledModules_moduleNormalized} "
+				getPHPInstalledModules_result="${getPHPInstalledModules_result} ${getPHPInstalledModules_moduleNormalized}"
 			fi
 		fi
 	done
@@ -88,7 +88,7 @@ getModulesToInstall () {
 		then
 			printf '### WARNING Module already installed: %s ###\n' "${1}" >&2
 		else
-			getModulesToInstall_result="${getModulesToInstall_result} ${1} "
+			getModulesToInstall_result="${getModulesToInstall_result} ${1}"
 		fi
 		shift
 	done
@@ -115,10 +115,10 @@ getRequiredAptPackages () {
 		shift
 		case "${1}" in
 			bz2)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libbz2-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libbz2-dev"
 				;;
 			enchant)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libenchant-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libenchant-dev"
 				;;
 			gd)
 				if test $getRequiredAptPackages_phpv -lt 700
@@ -129,52 +129,94 @@ getRequiredAptPackages () {
 				fi
 				;;
 			gmp)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libgmp-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libgmp-dev"
 				;;
 			imap)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libc-client-dev libkrb5-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libc-client-dev libkrb5-dev"
 				;;
-			interbase|pdo_firebird)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} firebird-dev libib-util "
+			interbase)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} firebird-dev libib-util"
+				;;
+			imagick)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libmagickwand-dev"
 				;;
 			intl)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libicu-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libicu-dev"
 				;;
 			ldap)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libldap2-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libldap2-dev"
+				;;
+			memcache)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} zlib1g-dev"
+				;;
+			memcached)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libmemcached-dev zlib1g-dev"
 				;;
 			mcrypt)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libmcrypt-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libmcrypt-dev"
 				;;
-			mssql|pdo_dblib|sybase_ct)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev "
+			mssql)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev"
 				;;
-			odbc|pdo_odbc)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev "
+			odbc)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev"
 				;;
-			pdo_pgsql|pgsql)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpq-dev "
+			pdo_dblib)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev"
+				;;
+			pdo_firebird)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} firebird-dev libib-util"
+				;;
+			pdo_pgsql)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpq-dev"
+				;;
+			pdo_odbc)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} unixodbc-dev"
+				;;
+			pgsql)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpq-dev"
 				;;
 			pspell)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpspell-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libpspell-dev"
 				;;
 			recode)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} librecode-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} librecode-dev"
+				;;
+			ssh2)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result}libssh2-1-dev"
 				;;
 			snmp)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} snmp libsnmp-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} snmp libsnmp-dev"
 				;;
-			soap|wddx|xmlrpc)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxml2-dev "
+			soap)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxml2-dev"
+				;;
+			solr)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libcurl4-gnutls-dev libxml2-dev"
+				;;
+			sybase_ct)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} freetds-dev"
 				;;
 			tidy)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libtidy-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libtidy-dev"
+				;;
+			uuid)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} uuid-dev"
+				;;
+			wddx)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxml2-dev"
+				;;
+			xmlrpc)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxml2-dev"
 				;;
 			xsl)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxslt-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libxslt-dev"
+				;;
+			yaml)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} libyaml-dev"
 				;;
 			zip)
-				getRequiredAptPackages_result="${getRequiredAptPackages_result} zlib1g-dev "
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} zlib1g-dev"
 				;;
 		esac
 	done
@@ -257,6 +299,18 @@ installPECLModule () {
 	printf '### INSTALLING PECL MODULE %s ###\n' "${2}"
 	installPECLModule_actual="${2}"
 	case "${2}" in
+		memcached)
+			if test $1 -lt 700
+			then
+				installPECLModule_actual="${2}-2.2.0"
+			fi
+			;;
+		pthreads)
+			if test $1 -lt 700
+			then
+				installPECLModule_actual="${2}-2.0.10"
+			fi
+			;;
 		xdebug)
 			if test $1 -lt 501
 			then
@@ -272,7 +326,17 @@ installPECLModule () {
 				installPECLModule_actual="${2}-2.5.5"
 			fi
 			;;
+		yaml)
+			if test $1 -lt 700
+			then
+				installPECLModule_actual="${2}-1.3.1"
+			fi
+			;;
 	esac
+	if test "${2}" != "${installPECLModule_actual}"
+	then
+		printf '  (installing version %s)\n' "${installPECLModule_actual}"
+	fi
 	pecl install "${installPECLModule_actual}"
 	docker-php-ext-enable "${2}"
 }

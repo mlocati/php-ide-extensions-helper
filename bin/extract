@@ -964,9 +964,20 @@ EOF
             $new->setAttribute('returnTypeAllowsNull', '');
         }
         $new->setAttribute('deprecated', $function->isDeprecated() ? 'true' : 'false');
+        $usedParameterNames = array();
         foreach ($function->getParameters() as $parameter) {
             $parameterElement = $this->xml->createElement('parameter');
-            $parameterElement->setAttribute('name', $parameter->getName());
+            $parameterName = (string) $parameter->getName();
+            if ($parameterName === '') {
+                for ($i = 1;; $i++) {
+                    $parameterName = 'foo' . $i;
+                    if (!in_array($parameterName, $usedParameterNames)) {
+                        break;
+                    }
+                }
+            }
+            $usedParameterNames[] = $parameterName;
+            $parameterElement->setAttribute('name', $parameterName);
             $type = '';
             $allowsNull = $parameter->allowsNull();
             $parameterType = method_exists($parameter, 'hasType') && $parameter->hasType() ? $parameter->getType() : null;
