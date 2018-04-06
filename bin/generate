@@ -2322,7 +2322,7 @@ class PHPManualMergedFunctionParameter
      */
     public function renderAsPHPDoc()
     {
-        $result = ($this->type === '' ? 'mixed' : $this->type);
+        $result = '@param ' . ($this->type === '' ? 'mixed' : $this->type);
         if ($this->defaultValue === 'null') {
             $result .= '|null';
         }
@@ -2731,5 +2731,3 @@ if ($error !== null) {
     exit(1);
 }
 exit(0);
-
-$a = new APCuIteratorXX();
