@@ -28,11 +28,4 @@ Use the `--help` option to get help.
 
 ### Windows
 
-```bat
-rem Generate the XML data files
-bin\extract
-# Generate the XML data files using the 7.2 Docker image
-bin\extract-docker 7.2
-rem Generate the PHP fake files
-bin\generate
-```
+Simply replace forward slashes(`/`) with the backward slashes(`\`) 😉 
