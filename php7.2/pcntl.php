@@ -830,7 +830,7 @@ const WUNTRACED = 2;
 /**
  * Set an alarm clock for delivery of a signal
  *
- * mixed $seconds
+ * @param mixed $seconds
  *
  * @return int
  *
@@ -845,7 +845,7 @@ function pcntl_alarm($seconds): int
 /**
  * Enable/disable asynchronous signal handling or return the old setting
  *
- * mixed $on
+ * @param mixed $on
  *
  * @return bool
  *
@@ -871,9 +871,9 @@ function pcntl_errno()
 /**
  * Executes specified program in current process space
  *
- * mixed $path
- * mixed|null $args
- * mixed|null $envs
+ * @param mixed $path
+ * @param mixed|null $args
+ * @param mixed|null $envs
  *
  * @return void
  *
@@ -914,8 +914,8 @@ function pcntl_get_last_error(): int
 /**
  * Get the priority of any process
  *
- * mixed|null $pid
- * mixed|null $process_identifier
+ * @param mixed|null $pid
+ * @param mixed|null $process_identifier
  *
  * @return int
  *
@@ -930,9 +930,9 @@ function pcntl_getpriority($pid = null, $process_identifier = null): int
 /**
  * Change the priority of any process
  *
- * mixed $priority
- * mixed|null $pid
- * mixed|null $process_identifier
+ * @param mixed $priority
+ * @param mixed|null $pid
+ * @param mixed|null $process_identifier
  *
  * @return bool
  *
@@ -947,9 +947,9 @@ function pcntl_setpriority($priority, $pid = null, $process_identifier = null): 
 /**
  * Installs a signal handler
  *
- * mixed $signo
- * mixed $handler
- * mixed|null $restart_syscalls
+ * @param mixed $signo
+ * @param mixed $handler
+ * @param mixed|null $restart_syscalls
  *
  * @return bool
  *
@@ -977,7 +977,7 @@ function pcntl_signal_dispatch(): bool
 /**
  * Get the current handler for specified signal
  *
- * mixed $signo
+ * @param mixed $signo
  *
  * @return mixed
  *
@@ -992,9 +992,9 @@ function pcntl_signal_get_handler($signo)
 /**
  * Sets and retrieves blocked signals
  *
- * mixed $how
- * mixed $set
- * mixed|null $oldset
+ * @param mixed $how
+ * @param mixed $set
+ * @param mixed|null $oldset
  *
  * @return bool
  *
@@ -1009,10 +1009,10 @@ function pcntl_sigprocmask($how, $set, &$oldset = null): bool
 /**
  * Waits for signals, with a timeout
  *
- * mixed $set
- * mixed|null $info
- * mixed|null $seconds
- * mixed|null $nanoseconds
+ * @param mixed $set
+ * @param mixed|null $info
+ * @param mixed|null $seconds
+ * @param mixed|null $nanoseconds
  *
  * @return int
  *
@@ -1027,8 +1027,8 @@ function pcntl_sigtimedwait($set, &$info = null, $seconds = null, $nanoseconds =
 /**
  * Waits for signals
  *
- * mixed $set
- * mixed|null $info
+ * @param mixed $set
+ * @param mixed|null $info
  *
  * @return int
  *
@@ -1043,7 +1043,7 @@ function pcntl_sigwaitinfo($set, &$info = null): int
 /**
  * Retrieve the system error message associated with the given errno
  *
- * mixed $errno
+ * @param mixed $errno
  *
  * @return string
  *
@@ -1058,9 +1058,9 @@ function pcntl_strerror($errno): string
 /**
  * Waits on or returns the status of a forked child
  *
- * mixed $status
- * mixed|null $options
- * mixed|null $rusage
+ * @param mixed $status
+ * @param mixed|null $options
+ * @param mixed|null $rusage
  *
  * @return int
  *
@@ -1075,10 +1075,10 @@ function pcntl_wait(&$status, $options = null, &$rusage = null): int
 /**
  * Waits on or returns the status of a forked child
  *
- * mixed $pid
- * mixed $status
- * mixed|null $options
- * mixed|null $rusage
+ * @param mixed $pid
+ * @param mixed $status
+ * @param mixed|null $options
+ * @param mixed|null $rusage
  *
  * @return int
  *
@@ -1093,7 +1093,7 @@ function pcntl_waitpid($pid, &$status, $options = null, &$rusage = null): int
 /**
  * Returns the return code of a terminated child
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return int
  *
@@ -1106,7 +1106,7 @@ function pcntl_wexitstatus($status): int
 }
 
 /**
- * mixed $status
+ * @param mixed $status
  */
 function pcntl_wifcontinued($status)
 {
@@ -1115,7 +1115,7 @@ function pcntl_wifcontinued($status)
 /**
  * Checks if status code represents a normal exit
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return bool
  *
@@ -1130,7 +1130,7 @@ function pcntl_wifexited($status): bool
 /**
  * Checks whether the status code represents a termination due to a signal
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return bool
  *
@@ -1145,7 +1145,7 @@ function pcntl_wifsignaled($status): bool
 /**
  * Checks whether the child process is currently stopped
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return bool
  *
@@ -1160,7 +1160,7 @@ function pcntl_wifstopped($status): bool
 /**
  * Returns the signal which caused the child to stop
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return int
  *
@@ -1175,7 +1175,7 @@ function pcntl_wstopsig($status): int
 /**
  * Returns the signal which caused the child to terminate
  *
- * mixed $status
+ * @param mixed $status
  *
  * @return int
  *

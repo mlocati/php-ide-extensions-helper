@@ -42,9 +42,9 @@ const ICONV_VERSION = '2.19';
 /**
  * Convert string to requested character encoding
  *
- * mixed $in_charset
- * mixed $out_charset
- * mixed $str
+ * @param mixed $in_charset
+ * @param mixed $out_charset
+ * @param mixed $str
  *
  * @return string
  *
@@ -59,7 +59,7 @@ function iconv($in_charset, $out_charset, $str)
 /**
  * Retrieve internal configuration variables of iconv extension
  *
- * mixed|null $type
+ * @param mixed|null $type
  *
  * @return mixed
  *
@@ -74,9 +74,9 @@ function iconv_get_encoding($type = null)
 /**
  * Decodes a <code>MIME</code> header field
  *
- * mixed $encoded_string
- * mixed|null $mode
- * mixed|null $charset
+ * @param mixed $encoded_string
+ * @param mixed|null $mode
+ * @param mixed|null $charset
  *
  * @return string
  *
@@ -91,9 +91,9 @@ function iconv_mime_decode($encoded_string, $mode = null, $charset = null)
 /**
  * Decodes multiple <code>MIME</code> header fields at once
  *
- * mixed $headers
- * mixed|null $mode
- * mixed|null $charset
+ * @param mixed $headers
+ * @param mixed|null $mode
+ * @param mixed|null $charset
  *
  * @return array
  *
@@ -108,9 +108,9 @@ function iconv_mime_decode_headers($headers, $mode = null, $charset = null): arr
 /**
  * Composes a <code>MIME</code> header field
  *
- * mixed $field_name
- * mixed $field_value
- * mixed|null $preference
+ * @param mixed $field_name
+ * @param mixed $field_value
+ * @param mixed|null $preference
  *
  * @return string
  *
@@ -125,8 +125,8 @@ function iconv_mime_encode($field_name, $field_value, $preference = null)
 /**
  * Set current setting for character encoding conversion
  *
- * mixed $type
- * mixed $charset
+ * @param mixed $type
+ * @param mixed $charset
  *
  * @return bool
  *
@@ -141,8 +141,8 @@ function iconv_set_encoding($type, $charset)
 /**
  * Returns the character count of string
  *
- * mixed $str
- * mixed|null $charset
+ * @param mixed $str
+ * @param mixed|null $charset
  *
  * @return int
  *
@@ -157,10 +157,10 @@ function iconv_strlen($str, $charset = null)
 /**
  * Finds position of first occurrence of a needle within a haystack
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $charset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $charset
  *
  * @return int
  *
@@ -175,9 +175,9 @@ function iconv_strpos($haystack, $needle, $offset = null, $charset = null)
 /**
  * Finds the last occurrence of a needle within a haystack
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $charset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $charset
  *
  * @return int
  *
@@ -192,10 +192,10 @@ function iconv_strrpos($haystack, $needle, $charset = null)
 /**
  * Cut out part of a string
  *
- * mixed $str
- * mixed $offset
- * mixed|null $length
- * mixed|null $charset
+ * @param mixed $str
+ * @param mixed $offset
+ * @param mixed|null $length
+ * @param mixed|null $charset
  *
  * @return string
  *

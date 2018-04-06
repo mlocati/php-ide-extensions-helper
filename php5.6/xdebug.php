@@ -48,28 +48,28 @@ function xdebug_break()
 }
 
 /**
- * mixed|null $depth
+ * @param mixed|null $depth
  */
 function xdebug_call_class($depth = null)
 {
 }
 
 /**
- * mixed|null $depth
+ * @param mixed|null $depth
  */
 function xdebug_call_file($depth = null)
 {
 }
 
 /**
- * mixed|null $depth
+ * @param mixed|null $depth
  */
 function xdebug_call_function($depth = null)
 {
 }
 
 /**
- * mixed|null $depth
+ * @param mixed|null $depth
  */
 function xdebug_call_line($depth = null)
 {
@@ -84,14 +84,14 @@ function xdebug_code_coverage_started()
 }
 
 /**
- * mixed $var
+ * @param mixed $var
  */
 function xdebug_debug_zval($var)
 {
 }
 
 /**
- * mixed $var
+ * @param mixed $var
  */
 function xdebug_debug_zval_stdout($var)
 {
@@ -102,7 +102,7 @@ function xdebug_disable()
 }
 
 /**
- * mixed|null $prefix
+ * @param mixed|null $prefix
  */
 function xdebug_dump_aggr_profiling_data($prefix = null)
 {
@@ -121,7 +121,7 @@ function xdebug_get_code_coverage()
 }
 
 /**
- * mixed|null $clear
+ * @param mixed|null $clear
  */
 function xdebug_get_collected_errors($clear = null)
 {
@@ -148,7 +148,7 @@ function xdebug_get_headers()
 }
 
 /**
- * mixed|null $clear
+ * @param mixed|null $clear
  */
 function xdebug_get_monitored_functions($clear = null)
 {
@@ -179,15 +179,15 @@ function xdebug_peak_memory_usage()
 }
 
 /**
- * mixed|null $message
- * mixed|null $options
+ * @param mixed|null $message
+ * @param mixed|null $options
  */
 function xdebug_print_function_stack($message = null, $options = null)
 {
 }
 
 /**
- * mixed|null $options
+ * @param mixed|null $options
  */
 function xdebug_start_code_coverage($options = null)
 {
@@ -198,22 +198,22 @@ function xdebug_start_error_collection()
 }
 
 /**
- * mixed $functions_to_monitor
+ * @param mixed $functions_to_monitor
  */
 function xdebug_start_function_monitor($functions_to_monitor)
 {
 }
 
 /**
- * mixed|null $fname
- * mixed|null $options
+ * @param mixed|null $fname
+ * @param mixed|null $options
  */
 function xdebug_start_trace($fname = null, $options = null)
 {
 }
 
 /**
- * mixed|null $cleanup
+ * @param mixed|null $cleanup
  */
 function xdebug_stop_code_coverage($cleanup = null)
 {
@@ -236,7 +236,7 @@ function xdebug_time_index()
 }
 
 /**
- * mixed $var
+ * @param mixed $var
  */
 function xdebug_var_dump($var)
 {

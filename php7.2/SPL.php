@@ -41,7 +41,7 @@ interface RecursiveIterator extends Iterator
 interface SeekableIterator extends Iterator
 {
     /**
-     * mixed $position
+     * @param mixed $position
      */
     public function seek($position);
 }
@@ -57,7 +57,7 @@ interface SeekableIterator extends Iterator
 interface SplObserver
 {
     /**
-     * SplSubject $SplSubject
+     * @param SplSubject $SplSubject
      */
     public function update($SplSubject);
 }
@@ -73,12 +73,12 @@ interface SplObserver
 interface SplSubject
 {
     /**
-     * SplObserver $SplObserver
+     * @param SplObserver $SplObserver
      */
     public function attach($SplObserver);
 
     /**
-     * SplObserver $SplObserver
+     * @param SplObserver $SplObserver
      */
     public function detach($SplObserver);
 
@@ -99,7 +99,7 @@ class AppendIterator extends IteratorIterator
     }
 
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function append($iterator)
     {
@@ -185,15 +185,15 @@ class AppendIterator extends IteratorIterator
 class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Serializable
 {
     /**
-     * mixed|null $array
-     * mixed|null $ar_flags
+     * @param mixed|null $array
+     * @param mixed|null $ar_flags
      */
     public function __construct($array = null, $ar_flags = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function append($value)
     {
@@ -312,29 +312,29 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetExists($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetGet($index)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetUnset($index)
     {
@@ -354,7 +354,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     }
 
     /**
-     * mixed $position
+     * @param mixed $position
      */
     public function seek($position)
     {
@@ -374,7 +374,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
@@ -383,7 +383,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort an array with a user-defined comparison function and maintain index association
      *
-     * mixed $cmp_function
+     * @param mixed $cmp_function
      *
      * @return bool
      *
@@ -398,7 +398,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort an array by keys using a user-defined comparison function
      *
-     * mixed $cmp_function
+     * @param mixed $cmp_function
      *
      * @return bool
      *
@@ -413,7 +413,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -440,16 +440,16 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
 class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializable
 {
     /**
-     * mixed|null $array
-     * mixed|null $ar_flags
-     * mixed|null $iterator_class
+     * @param mixed|null $array
+     * @param mixed|null $ar_flags
+     * @param mixed|null $iterator_class
      */
     public function __construct($array = null, $ar_flags = null, $iterator_class = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function append($value)
     {
@@ -482,7 +482,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     }
 
     /**
-     * mixed $array
+     * @param mixed $array
      */
     public function exchangeArray($array)
     {
@@ -544,29 +544,29 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetExists($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetGet($index)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetUnset($index)
     {
@@ -586,14 +586,14 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
     }
 
     /**
-     * mixed $iteratorClass
+     * @param mixed $iteratorClass
      */
     public function setIteratorClass($iteratorClass)
     {
@@ -602,7 +602,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort an array with a user-defined comparison function and maintain index association
      *
-     * mixed $cmp_function
+     * @param mixed $cmp_function
      *
      * @return bool
      *
@@ -617,7 +617,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort an array by keys using a user-defined comparison function
      *
-     * mixed $cmp_function
+     * @param mixed $cmp_function
      *
      * @return bool
      *
@@ -632,7 +632,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -679,8 +679,8 @@ class BadMethodCallException extends BadFunctionCallException
 class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
     /**
-     * Iterator $iterator
-     * mixed|null $flags
+     * @param Iterator $iterator
+     * @param mixed|null $flags
      */
     public function __construct($iterator, $flags = null)
     {
@@ -759,29 +759,29 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetExists($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetGet($index)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetUnset($index)
     {
@@ -801,7 +801,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
@@ -823,8 +823,8 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 class CallbackFilterIterator extends FilterIterator
 {
     /**
-     * Iterator $iterator
-     * mixed $callback
+     * @param Iterator $iterator
+     * @param mixed $callback
      */
     public function __construct($iterator, $callback)
     {
@@ -846,7 +846,7 @@ class CallbackFilterIterator extends FilterIterator
 class DirectoryIterator extends SplFileInfo implements SeekableIterator
 {
     /**
-     * mixed $path
+     * @param mixed $path
      */
     public function __construct($path)
     {
@@ -870,7 +870,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     }
 
     /**
-     * mixed|null $suffix
+     * @param mixed|null $suffix
      */
     public function getBasename($suffix = null)
     {
@@ -928,7 +928,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     }
 
     /**
-     * mixed $position
+     * @param mixed $position
      */
     public function seek($position)
     {
@@ -1026,8 +1026,8 @@ class EmptyIterator implements Iterator
 class FilesystemIterator extends DirectoryIterator
 {
     /**
-     * mixed $path
-     * mixed|null $flags
+     * @param mixed $path
+     * @param mixed|null $flags
      */
     public function __construct($path, $flags = null)
     {
@@ -1090,7 +1090,7 @@ class FilesystemIterator extends DirectoryIterator
     }
 
     /**
-     * mixed|null $flags
+     * @param mixed|null $flags
      */
     public function setFlags($flags = null)
     {
@@ -1109,7 +1109,7 @@ class FilesystemIterator extends DirectoryIterator
 abstract class FilterIterator extends IteratorIterator
 {
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function __construct($iterator)
     {
@@ -1189,8 +1189,8 @@ abstract class FilterIterator extends IteratorIterator
 class GlobIterator extends FilesystemIterator implements Countable
 {
     /**
-     * mixed $path
-     * mixed|null $flags
+     * @param mixed $path
+     * @param mixed|null $flags
      */
     public function __construct($path, $flags = null)
     {
@@ -1222,7 +1222,7 @@ class GlobIterator extends FilesystemIterator implements Countable
 class InfiniteIterator extends IteratorIterator
 {
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function __construct($iterator)
     {
@@ -1268,7 +1268,7 @@ class InvalidArgumentException extends LogicException
 class IteratorIterator implements OuterIterator
 {
     /**
-     * Traversable $iterator
+     * @param Traversable $iterator
      */
     public function __construct($iterator)
     {
@@ -1357,9 +1357,9 @@ class LengthException extends LogicException
 class LimitIterator extends IteratorIterator
 {
     /**
-     * Iterator $iterator
-     * mixed|null $offset
-     * mixed|null $count
+     * @param Iterator $iterator
+     * @param mixed|null $offset
+     * @param mixed|null $count
      */
     public function __construct($iterator, $offset = null, $count = null)
     {
@@ -1426,7 +1426,7 @@ class LimitIterator extends IteratorIterator
     }
 
     /**
-     * mixed $position
+     * @param mixed $position
      */
     public function seek($position)
     {
@@ -1459,22 +1459,22 @@ class LogicException extends Exception
 class MultipleIterator implements Iterator
 {
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function __construct($flags)
     {
     }
 
     /**
-     * Iterator $iterator
-     * mixed|null $infos
+     * @param Iterator $iterator
+     * @param mixed|null $infos
      */
     public function attachIterator($iterator, $infos = null)
     {
     }
 
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function containsIterator($iterator)
     {
@@ -1498,7 +1498,7 @@ class MultipleIterator implements Iterator
     }
 
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function detachIterator($iterator)
     {
@@ -1548,7 +1548,7 @@ class MultipleIterator implements Iterator
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
@@ -1569,7 +1569,7 @@ class MultipleIterator implements Iterator
 class NoRewindIterator extends IteratorIterator
 {
     /**
-     * Iterator $iterator
+     * @param Iterator $iterator
      */
     public function __construct($iterator)
     {
@@ -1683,7 +1683,7 @@ class OverflowException extends RuntimeException
 class ParentIterator extends RecursiveFilterIterator
 {
     /**
-     * RecursiveIterator $iterator
+     * @param RecursiveIterator $iterator
      */
     public function __construct($iterator)
     {
@@ -1738,8 +1738,8 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator
 {
     /**
-     * Iterator $iterator
-     * mixed|null $flags
+     * @param Iterator $iterator
+     * @param mixed|null $flags
      */
     public function __construct($iterator, $flags = null)
     {
@@ -1765,8 +1765,8 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
 class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator
 {
     /**
-     * RecursiveIterator $iterator
-     * mixed $callback
+     * @param RecursiveIterator $iterator
+     * @param mixed $callback
      */
     public function __construct($iterator, $callback)
     {
@@ -1792,8 +1792,8 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
 class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator
 {
     /**
-     * mixed $path
-     * mixed|null $flags
+     * @param mixed $path
+     * @param mixed|null $flags
      */
     public function __construct($path, $flags = null)
     {
@@ -1812,7 +1812,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     }
 
     /**
-     * mixed|null $allow_links
+     * @param mixed|null $allow_links
      */
     public function hasChildren($allow_links = null)
     {
@@ -1831,7 +1831,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
 abstract class RecursiveFilterIterator extends FilterIterator implements RecursiveIterator
 {
     /**
-     * RecursiveIterator $iterator
+     * @param RecursiveIterator $iterator
      */
     public function __construct($iterator)
     {
@@ -1856,9 +1856,9 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
 class RecursiveIteratorIterator implements OuterIterator
 {
     /**
-     * Traversable $iterator
-     * mixed|null $mode
-     * mixed|null $flags
+     * @param Traversable $iterator
+     * @param mixed|null $mode
+     * @param mixed|null $flags
      */
     public function __construct($iterator, $mode = null, $flags = null)
     {
@@ -1914,7 +1914,7 @@ class RecursiveIteratorIterator implements OuterIterator
     }
 
     /**
-     * mixed|null $level
+     * @param mixed|null $level
      */
     public function getSubIterator($level = null)
     {
@@ -1964,7 +1964,7 @@ class RecursiveIteratorIterator implements OuterIterator
     }
 
     /**
-     * mixed|null $max_depth
+     * @param mixed|null $max_depth
      */
     public function setMaxDepth($max_depth = null)
     {
@@ -1985,11 +1985,11 @@ class RecursiveIteratorIterator implements OuterIterator
 class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 {
     /**
-     * RecursiveIterator $iterator
-     * mixed $regex
-     * mixed|null $mode
-     * mixed|null $flags
-     * mixed|null $preg_flags
+     * @param RecursiveIterator $iterator
+     * @param mixed $regex
+     * @param mixed|null $mode
+     * @param mixed|null $flags
+     * @param mixed|null $preg_flags
      */
     public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
@@ -2018,10 +2018,10 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     /**
-     * Traversable $iterator
-     * mixed|null $flags
-     * mixed|null $caching_it_flags
-     * mixed|null $mode
+     * @param Traversable $iterator
+     * @param mixed|null $flags
+     * @param mixed|null $caching_it_flags
+     * @param mixed|null $mode
      */
     public function __construct($iterator, $flags = null, $caching_it_flags = null, $mode = null)
     {
@@ -2124,8 +2124,8 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     }
 
     /**
-     * mixed $part
-     * mixed $value
+     * @param mixed $part
+     * @param mixed $value
      */
     public function setPrefixPart($part, $value)
     {
@@ -2146,11 +2146,11 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 class RegexIterator extends FilterIterator
 {
     /**
-     * Iterator $iterator
-     * mixed $regex
-     * mixed|null $mode
-     * mixed|null $flags
-     * mixed|null $preg_flags
+     * @param Iterator $iterator
+     * @param mixed $regex
+     * @param mixed|null $mode
+     * @param mixed|null $flags
+     * @param mixed|null $preg_flags
      */
     public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
@@ -2177,21 +2177,21 @@ class RegexIterator extends FilterIterator
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
     }
 
     /**
-     * mixed $mode
+     * @param mixed $mode
      */
     public function setMode($mode)
     {
     }
 
     /**
-     * mixed $preg_flags
+     * @param mixed $preg_flags
      */
     public function setPregFlags($preg_flags)
     {
@@ -2219,8 +2219,8 @@ class RuntimeException extends Exception
 class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializable
 {
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function add($index, $newval)
     {
@@ -2291,29 +2291,29 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetExists($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetGet($index)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetUnset($index)
     {
@@ -2337,7 +2337,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function push($value)
     {
@@ -2370,7 +2370,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setIteratorMode($flags)
     {
@@ -2387,7 +2387,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -2400,7 +2400,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function unshift($value)
     {
@@ -2422,7 +2422,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
 class SplFileInfo
 {
     /**
-     * mixed $file_name
+     * @param mixed $file_name
      */
     public function __construct($file_name)
     {
@@ -2441,7 +2441,7 @@ class SplFileInfo
     }
 
     /**
-     * mixed|null $suffix
+     * @param mixed|null $suffix
      */
     public function getBasename($suffix = null)
     {
@@ -2456,7 +2456,7 @@ class SplFileInfo
     }
 
     /**
-     * mixed|null $class_name
+     * @param mixed|null $class_name
      */
     public function getFileInfo($class_name = null)
     {
@@ -2491,7 +2491,7 @@ class SplFileInfo
     }
 
     /**
-     * mixed|null $class_name
+     * @param mixed|null $class_name
      */
     public function getPathInfo($class_name = null)
     {
@@ -2551,23 +2551,23 @@ class SplFileInfo
     }
 
     /**
-     * mixed|null $open_mode
-     * mixed|null $use_include_path
-     * mixed|null $context
+     * @param mixed|null $open_mode
+     * @param mixed|null $use_include_path
+     * @param mixed|null $context
      */
     public function openFile($open_mode = null, $use_include_path = null, $context = null)
     {
     }
 
     /**
-     * mixed|null $class_name
+     * @param mixed|null $class_name
      */
     public function setFileClass($class_name = null)
     {
     }
 
     /**
-     * mixed|null $class_name
+     * @param mixed|null $class_name
      */
     public function setInfoClass($class_name = null)
     {
@@ -2584,10 +2584,10 @@ class SplFileInfo
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator
 {
     /**
-     * mixed $file_name
-     * mixed|null $open_mode
-     * mixed|null $use_include_path
-     * mixed|null $context
+     * @param mixed $file_name
+     * @param mixed|null $open_mode
+     * @param mixed|null $use_include_path
+     * @param mixed|null $context
      */
     public function __construct($file_name, $open_mode = null, $use_include_path = null, $context = null)
     {
@@ -2643,9 +2643,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets line from file pointer and parse for CSV fields
      *
-     * mixed|null $delimiter
-     * mixed|null $enclosure
-     * mixed|null $escape
+     * @param mixed|null $delimiter
+     * @param mixed|null $enclosure
+     * @param mixed|null $escape
      *
      * @return array
      *
@@ -2673,7 +2673,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets line from file pointer and strip HTML tags
      *
-     * mixed|null $allowable_tags
+     * @param mixed|null $allowable_tags
      *
      * @return string
      *
@@ -2688,8 +2688,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Portable advisory file locking
      *
-     * mixed $operation
-     * mixed|null $wouldblock
+     * @param mixed $operation
+     * @param mixed|null $wouldblock
      *
      * @return bool
      *
@@ -2717,10 +2717,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Format line as CSV and write to file pointer
      *
-     * mixed $fields
-     * mixed|null $delimiter
-     * mixed|null $enclosure
-     * mixed|null $escape
+     * @param mixed $fields
+     * @param mixed|null $delimiter
+     * @param mixed|null $enclosure
+     * @param mixed|null $escape
      *
      * @return int
      *
@@ -2735,7 +2735,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Binary-safe file read
      *
-     * mixed $length
+     * @param mixed $length
      *
      * @return string
      *
@@ -2750,8 +2750,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Parses input from a file according to a format
      *
-     * mixed $format
-     * mixed $vars
+     * @param mixed $format
+     * @param mixed $vars
      *
      * @return mixed
      *
@@ -2766,8 +2766,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Seeks on a file pointer
      *
-     * mixed $pos
-     * mixed|null $whence
+     * @param mixed $pos
+     * @param mixed|null $whence
      *
      * @return int
      *
@@ -2808,7 +2808,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Truncates a file to a given length
      *
-     * mixed $size
+     * @param mixed $size
      *
      * @return bool
      *
@@ -2823,8 +2823,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Binary-safe file write
      *
-     * mixed $str
-     * mixed|null $length
+     * @param mixed $str
+     * @param mixed|null $length
      *
      * @return int
      *
@@ -2900,30 +2900,30 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     }
 
     /**
-     * mixed $line_pos
+     * @param mixed $line_pos
      */
     public function seek($line_pos)
     {
     }
 
     /**
-     * mixed|null $delimiter
-     * mixed|null $enclosure
-     * mixed|null $escape
+     * @param mixed|null $delimiter
+     * @param mixed|null $enclosure
+     * @param mixed|null $escape
      */
     public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
     {
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setFlags($flags)
     {
     }
 
     /**
-     * mixed $max_len
+     * @param mixed $max_len
      */
     public function setMaxLineLen($max_len)
     {
@@ -2948,7 +2948,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 class SplFixedArray implements ArrayAccess, Countable, Iterator
 {
     /**
-     * mixed|null $size
+     * @param mixed|null $size
      */
     public function __construct($size = null)
     {
@@ -2985,8 +2985,8 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     }
 
     /**
-     * mixed $data
-     * mixed|null $save_indexes
+     * @param mixed $data
+     * @param mixed|null $save_indexes
      */
     public static function fromArray($data, $save_indexes = null)
     {
@@ -3023,29 +3023,29 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetExists($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetGet($index)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $newval
+     * @param mixed $index
+     * @param mixed $newval
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function offsetUnset($index)
     {
@@ -3065,7 +3065,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function setSize($value)
     {
@@ -3131,7 +3131,7 @@ abstract class SplHeap implements Countable, Iterator
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function insert($value)
     {
@@ -3207,8 +3207,8 @@ abstract class SplHeap implements Countable, Iterator
 class SplMaxHeap extends SplHeap
 {
     /**
-     * mixed $a
-     * mixed $b
+     * @param mixed $a
+     * @param mixed $b
      */
     protected function compare($a, $b)
     {
@@ -3225,8 +3225,8 @@ class SplMaxHeap extends SplHeap
 class SplMinHeap extends SplHeap
 {
     /**
-     * mixed $a
-     * mixed $b
+     * @param mixed $a
+     * @param mixed $b
      */
     protected function compare($a, $b)
     {
@@ -3245,22 +3245,22 @@ class SplMinHeap extends SplHeap
 class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 {
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function addAll($object)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $inf
+     * @param mixed $object
+     * @param mixed|null $inf
      */
     public function attach($object, $inf = null)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function contains($object)
     {
@@ -3293,14 +3293,14 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function detach($object)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function getHash($object)
     {
@@ -3337,43 +3337,43 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function offsetExists($object)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function offsetGet($object)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $inf
+     * @param mixed $object
+     * @param mixed|null $inf
      */
     public function offsetSet($object, $inf = null)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function offsetUnset($object)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function removeAll($object)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function removeAllExcept($object)
     {
@@ -3406,7 +3406,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     }
 
     /**
-     * mixed $info
+     * @param mixed $info
      */
     public function setInfo($info)
     {
@@ -3415,7 +3415,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -3443,8 +3443,8 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 class SplPriorityQueue implements Countable, Iterator
 {
     /**
-     * mixed $a
-     * mixed $b
+     * @param mixed $a
+     * @param mixed $b
      */
     public function compare($a, $b)
     {
@@ -3494,8 +3494,8 @@ class SplPriorityQueue implements Countable, Iterator
     }
 
     /**
-     * mixed $value
-     * mixed $priority
+     * @param mixed $value
+     * @param mixed $priority
      */
     public function insert($value, $priority)
     {
@@ -3553,7 +3553,7 @@ class SplPriorityQueue implements Countable, Iterator
     }
 
     /**
-     * mixed $flags
+     * @param mixed $flags
      */
     public function setExtractFlags($flags)
     {
@@ -3582,7 +3582,7 @@ class SplQueue extends SplDoublyLinkedList
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function enqueue($value)
     {
@@ -3610,7 +3610,7 @@ class SplStack extends SplDoublyLinkedList
 class SplTempFileObject extends SplFileObject
 {
     /**
-     * mixed|null $max_memory
+     * @param mixed|null $max_memory
      */
     public function __construct($max_memory = null)
     {
@@ -3646,8 +3646,8 @@ class UnexpectedValueException extends RuntimeException
 /**
  * Return the interfaces which are implemented by the given class or interface
  *
- * mixed $what
- * mixed|null $autoload
+ * @param mixed $what
+ * @param mixed|null $autoload
  *
  * @return array
  *
@@ -3662,8 +3662,8 @@ function class_implements($what, $autoload = null): array
 /**
  * Return the parent classes of the given class
  *
- * mixed $instance
- * mixed|null $autoload
+ * @param mixed $instance
+ * @param mixed|null $autoload
  *
  * @return array
  *
@@ -3678,8 +3678,8 @@ function class_parents($instance, $autoload = null): array
 /**
  * Return the traits used by the given class
  *
- * mixed $what
- * mixed|null $autoload
+ * @param mixed $what
+ * @param mixed|null $autoload
  *
  * @return array
  *
@@ -3694,9 +3694,9 @@ function class_uses($what, $autoload = null): array
 /**
  * Call a function for every element in an iterator
  *
- * Traversable $iterator
- * mixed $function
- * array[]|null $args
+ * @param Traversable $iterator
+ * @param mixed $function
+ * @param array[]|null $args
  *
  * @return int
  *
@@ -3711,7 +3711,7 @@ function iterator_apply($iterator, $function, $args = null): int
 /**
  * Count the elements in an iterator
  *
- * Traversable $iterator
+ * @param Traversable $iterator
  *
  * @return int
  *
@@ -3726,8 +3726,8 @@ function iterator_count($iterator): int
 /**
  * Copy the iterator into an array
  *
- * Traversable $iterator
- * mixed|null $use_keys
+ * @param Traversable $iterator
+ * @param mixed|null $use_keys
  *
  * @return array
  *
@@ -3742,8 +3742,8 @@ function iterator_to_array($iterator, $use_keys = null): array
 /**
  * Default implementation for __autoload()
  *
- * mixed $class_name
- * mixed|null $file_extensions
+ * @param mixed $class_name
+ * @param mixed|null $file_extensions
  *
  * @return void
  *
@@ -3758,7 +3758,7 @@ function spl_autoload($class_name, $file_extensions = null)
 /**
  * Try all registered __autoload() functions to load the requested class
  *
- * mixed $class_name
+ * @param mixed $class_name
  *
  * @return void
  *
@@ -3773,7 +3773,7 @@ function spl_autoload_call($class_name)
 /**
  * Register and return default file extensions for spl_autoload
  *
- * mixed|null $file_extensions
+ * @param mixed|null $file_extensions
  *
  * @return string
  *
@@ -3801,9 +3801,9 @@ function spl_autoload_functions(): array
 /**
  * Register given function as __autoload() implementation
  *
- * mixed|null $autoload_function
- * mixed|null $throw
- * mixed|null $prepend
+ * @param mixed|null $autoload_function
+ * @param mixed|null $throw
+ * @param mixed|null $prepend
  *
  * @return bool
  *
@@ -3818,7 +3818,7 @@ function spl_autoload_register($autoload_function = null, $throw = null, $prepen
 /**
  * Unregister given function as __autoload() implementation
  *
- * mixed $autoload_function
+ * @param mixed $autoload_function
  *
  * @return bool
  *
@@ -3846,7 +3846,7 @@ function spl_classes(): array
 /**
  * Return hash id for given object
  *
- * mixed $obj
+ * @param mixed $obj
  *
  * @return string
  *
@@ -3861,7 +3861,7 @@ function spl_object_hash($obj): string
 /**
  * Return the integer object handle for given object
  *
- * mixed $obj
+ * @param mixed $obj
  *
  * @return int
  *

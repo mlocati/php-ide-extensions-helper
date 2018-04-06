@@ -27,7 +27,7 @@ const ENCHANT_MYSPELL = 1;
 /**
  * Enumerates the Enchant providers
  *
- * mixed $broker
+ * @param mixed $broker
  *
  * @return array
  *
@@ -42,8 +42,8 @@ function enchant_broker_describe($broker): array
 /**
  * Whether a dictionary exists or not. Using non-empty tag
  *
- * mixed $broker
- * mixed $tag
+ * @param mixed $broker
+ * @param mixed $tag
  *
  * @return bool
  *
@@ -58,7 +58,7 @@ function enchant_broker_dict_exists($broker, $tag)
 /**
  * Free the broker resource and its dictionnaries
  *
- * mixed $broker
+ * @param mixed $broker
  *
  * @return bool
  *
@@ -73,7 +73,7 @@ function enchant_broker_free($broker)
 /**
  * Free a dictionary resource
  *
- * mixed $dict
+ * @param mixed $dict
  *
  * @return bool
  *
@@ -88,8 +88,8 @@ function enchant_broker_free_dict($dict)
 /**
  * Get the directory path for a given backend
  *
- * mixed $broker
- * mixed $name
+ * @param mixed $broker
+ * @param mixed $name
  *
  * @return bool
  *
@@ -104,7 +104,7 @@ function enchant_broker_get_dict_path($broker, $name)
 /**
  * Returns the last error of the broker
  *
- * mixed $broker
+ * @param mixed $broker
  *
  * @return string
  *
@@ -132,7 +132,7 @@ function enchant_broker_init()
 /**
  * Returns a list of available dictionaries
  *
- * mixed $broker
+ * @param mixed $broker
  *
  * @return mixed
  *
@@ -147,8 +147,8 @@ function enchant_broker_list_dicts($broker)
 /**
  * Create a new dictionary using a tag
  *
- * mixed $broker
- * mixed $tag
+ * @param mixed $broker
+ * @param mixed $tag
  *
  * @return resource
  *
@@ -163,8 +163,8 @@ function enchant_broker_request_dict($broker, $tag)
 /**
  * Creates a dictionary using a PWL file
  *
- * mixed $broker
- * mixed $filename
+ * @param mixed $broker
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -179,9 +179,9 @@ function enchant_broker_request_pwl_dict($broker, $filename)
 /**
  * Set the directory path for a given backend
  *
- * mixed $broker
- * mixed $name
- * mixed $value
+ * @param mixed $broker
+ * @param mixed $name
+ * @param mixed $value
  *
  * @return bool
  *
@@ -196,9 +196,9 @@ function enchant_broker_set_dict_path($broker, $name, $value)
 /**
  * Declares a preference of dictionaries to use for the language
  *
- * mixed $broker
- * mixed $tag
- * mixed $ordering
+ * @param mixed $broker
+ * @param mixed $tag
+ * @param mixed $ordering
  *
  * @return bool
  *
@@ -213,8 +213,8 @@ function enchant_broker_set_ordering($broker, $tag, $ordering)
 /**
  * Add a word to personal word list
  *
- * mixed $dict
- * mixed $word
+ * @param mixed $dict
+ * @param mixed $word
  *
  * @return void
  *
@@ -229,8 +229,8 @@ function enchant_dict_add_to_personal($dict, $word)
 /**
  * Add 'word' to this spell-checking session
  *
- * mixed $dict
- * mixed $word
+ * @param mixed $dict
+ * @param mixed $word
  *
  * @return void
  *
@@ -245,8 +245,8 @@ function enchant_dict_add_to_session($dict, $word)
 /**
  * Check whether a word is correctly spelled or not
  *
- * mixed $dict
- * mixed $word
+ * @param mixed $dict
+ * @param mixed $word
  *
  * @return bool
  *
@@ -261,7 +261,7 @@ function enchant_dict_check($dict, $word)
 /**
  * Describes an individual dictionary
  *
- * mixed $dict
+ * @param mixed $dict
  *
  * @return mixed
  *
@@ -276,7 +276,7 @@ function enchant_dict_describe($dict)
 /**
  * Returns the last error of the current spelling-session
  *
- * mixed $dict
+ * @param mixed $dict
  *
  * @return string
  *
@@ -291,8 +291,8 @@ function enchant_dict_get_error($dict)
 /**
  * Whether or not 'word' exists in this spelling-session
  *
- * mixed $dict
- * mixed $word
+ * @param mixed $dict
+ * @param mixed $word
  *
  * @return bool
  *
@@ -307,9 +307,9 @@ function enchant_dict_is_in_session($dict, $word)
 /**
  * Check the word is correctly spelled and provide suggestions
  *
- * mixed $dict
- * mixed $word
- * mixed|null $suggestions
+ * @param mixed $dict
+ * @param mixed $word
+ * @param mixed|null $suggestions
  *
  * @return bool
  *
@@ -324,9 +324,9 @@ function enchant_dict_quick_check($dict, $word, &$suggestions = null)
 /**
  * Add a correction for a word
  *
- * mixed $dict
- * mixed $mis
- * mixed $cor
+ * @param mixed $dict
+ * @param mixed $mis
+ * @param mixed $cor
  *
  * @return void
  *
@@ -341,8 +341,8 @@ function enchant_dict_store_replacement($dict, $mis, $cor)
 /**
  * Will return a list of values if any of those pre-conditions are not met
  *
- * mixed $dict
- * mixed $word
+ * @param mixed $dict
+ * @param mixed $word
  *
  * @return array
  *

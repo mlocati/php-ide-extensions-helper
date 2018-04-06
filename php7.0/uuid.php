@@ -53,71 +53,71 @@ const UUID_VARIANT_MICROSOFT = 2;
 const UUID_VARIANT_OTHER = 3;
 
 /**
- * mixed $uuid1
- * mixed $uuid2
+ * @param mixed $uuid1
+ * @param mixed $uuid2
  */
 function uuid_compare($uuid1, $uuid2)
 {
 }
 
 /**
- * mixed|null $uuid_type
+ * @param mixed|null $uuid_type
  */
 function uuid_create($uuid_type = null)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_is_null($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_is_valid($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_mac($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_parse($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_time($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_type($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_unparse($uuid)
 {
 }
 
 /**
- * mixed $uuid
+ * @param mixed $uuid
  */
 function uuid_variant($uuid)
 {

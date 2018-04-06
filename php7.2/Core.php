@@ -868,23 +868,23 @@ const ZEND_THREAD_SAFE = false;
 interface ArrayAccess
 {
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function offsetExists($offset);
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function offsetGet($offset);
 
     /**
-     * mixed $offset
-     * mixed $value
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function offsetSet($offset, $value);
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function offsetUnset($offset);
 }
@@ -1003,7 +1003,7 @@ interface Serializable
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -1103,32 +1103,32 @@ final class Closure
     }
 
     /**
-     * mixed $closure
-     * mixed $newthis
-     * mixed|null $newscope
+     * @param mixed $closure
+     * @param mixed $newthis
+     * @param mixed|null $newscope
      */
     public static function bind($closure, $newthis, $newscope = null)
     {
     }
 
     /**
-     * mixed $newthis
-     * mixed|null $newscope
+     * @param mixed $newthis
+     * @param mixed|null $newscope
      */
     public function bindTo($newthis, $newscope = null)
     {
     }
 
     /**
-     * mixed $newthis
-     * mixed $parameters
+     * @param mixed $newthis
+     * @param mixed $parameters
      */
     public function call($newthis, ...$parameters)
     {
     }
 
     /**
-     * mixed $callable
+     * @param mixed $callable
      */
     public static function fromCallable($callable)
     {
@@ -1166,9 +1166,9 @@ class Error implements Throwable
     }
 
     /**
-     * mixed|null $message
-     * mixed|null $code
-     * mixed|null $previous
+     * @param mixed|null $message
+     * @param mixed|null $code
+     * @param mixed|null $previous
      */
     public function __construct($message = null, $code = null, $previous = null)
     {
@@ -1221,12 +1221,12 @@ class Error implements Throwable
 class ErrorException extends Exception
 {
     /**
-     * mixed|null $message
-     * mixed|null $code
-     * mixed|null $severity
-     * mixed|null $filename
-     * mixed|null $lineno
-     * mixed|null $previous
+     * @param mixed|null $message
+     * @param mixed|null $code
+     * @param mixed|null $severity
+     * @param mixed|null $filename
+     * @param mixed|null $lineno
+     * @param mixed|null $previous
      */
     public function __construct($message = null, $code = null, $severity = null, $filename = null, $lineno = null, $previous = null)
     {
@@ -1255,9 +1255,9 @@ class Exception implements Throwable
     }
 
     /**
-     * mixed|null $message
-     * mixed|null $code
-     * mixed|null $previous
+     * @param mixed|null $message
+     * @param mixed|null $code
+     * @param mixed|null $previous
      */
     public function __construct($message = null, $code = null, $previous = null)
     {
@@ -1370,14 +1370,14 @@ final class Generator implements Iterator
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function send($value)
     {
     }
 
     /**
-     * mixed $exception
+     * @param mixed $exception
      */
     public function throw($exception)
     {
@@ -1429,9 +1429,9 @@ class TypeError extends Error
 /**
  * Creates an alias for a class
  *
- * mixed $user_class_name
- * mixed $alias_name
- * mixed|null $autoload
+ * @param mixed $user_class_name
+ * @param mixed $alias_name
+ * @param mixed|null $autoload
  *
  * @return bool
  *
@@ -1446,8 +1446,8 @@ function class_alias($user_class_name, $alias_name, $autoload = null): bool
 /**
  * Checks if the class has been defined
  *
- * mixed $classname
- * mixed|null $autoload
+ * @param mixed $classname
+ * @param mixed|null $autoload
  *
  * @return bool
  *
@@ -1462,8 +1462,8 @@ function class_exists($classname, $autoload = null): bool
 /**
  * Create an anonymous (lambda-style) function
  *
- * mixed $args
- * mixed $code
+ * @param mixed $args
+ * @param mixed $code
  *
  * @return string
  *
@@ -1480,8 +1480,8 @@ function create_function($args, $code): string
 /**
  * Generates a backtrace
  *
- * mixed|null $options
- * mixed|null $limit
+ * @param mixed|null $options
+ * @param mixed|null $limit
  *
  * @return array
  *
@@ -1496,8 +1496,8 @@ function debug_backtrace($options = null, $limit = null): array
 /**
  * Prints a backtrace
  *
- * mixed|null $options
- * mixed|null $limit
+ * @param mixed|null $options
+ * @param mixed|null $limit
  *
  * @return void
  *
@@ -1512,9 +1512,9 @@ function debug_print_backtrace($options = null, $limit = null)
 /**
  * Defines a named constant
  *
- * mixed $constant_name
- * mixed $value
- * mixed|null $case_insensitive
+ * @param mixed $constant_name
+ * @param mixed $value
+ * @param mixed|null $case_insensitive
  *
  * @return bool
  *
@@ -1529,7 +1529,7 @@ function define($constant_name, $value, $case_insensitive = null): bool
 /**
  * Checks whether a given named constant exists
  *
- * mixed $constant_name
+ * @param mixed $constant_name
  *
  * @return bool
  *
@@ -1544,7 +1544,7 @@ function defined($constant_name): bool
 /**
  * Return the current key and value pair from an array and advance the array cursor
  *
- * mixed $arr
+ * @param mixed $arr
  *
  * @return array
  *
@@ -1561,7 +1561,7 @@ function each(&$arr): array
 /**
  * Sets which PHP errors are reported
  *
- * mixed|null $new_error_level
+ * @param mixed|null $new_error_level
  *
  * @return int
  *
@@ -1576,7 +1576,7 @@ function error_reporting($new_error_level = null): int
 /**
  * Find out whether an extension is loaded
  *
- * mixed $extension_name
+ * @param mixed $extension_name
  *
  * @return bool
  *
@@ -1591,7 +1591,7 @@ function extension_loaded($extension_name): bool
 /**
  * Return an item from the argument list
  *
- * mixed $arg_num
+ * @param mixed $arg_num
  *
  * @return mixed
  *
@@ -1632,7 +1632,7 @@ function func_num_args(): int
 /**
  * Return <code>TRUE</code> if the given function has been defined
  *
- * mixed $function_name
+ * @param mixed $function_name
  *
  * @return bool
  *
@@ -1725,7 +1725,7 @@ function get_called_class(): string
 /**
  * Returns the name of the class of an object
  *
- * mixed|null $object
+ * @param mixed|null $object
  *
  * @return string
  *
@@ -1740,7 +1740,7 @@ function get_class($object = null): string
 /**
  * Gets the class methods' names
  *
- * mixed $class
+ * @param mixed $class
  *
  * @return array
  *
@@ -1755,7 +1755,7 @@ function get_class_methods($class): array
 /**
  * Get the default properties of the class
  *
- * mixed $class_name
+ * @param mixed $class_name
  *
  * @return array
  *
@@ -1809,7 +1809,7 @@ function get_declared_traits(): array
 /**
  * Returns an associative array with the names of all the constants and their values
  *
- * mixed|null $categorize
+ * @param mixed|null $categorize
  *
  * @return array
  *
@@ -1824,7 +1824,7 @@ function get_defined_constants($categorize = null): array
 /**
  * Returns an array of all defined functions
  *
- * mixed|null $exclude_disabled
+ * @param mixed|null $exclude_disabled
  *
  * @return array
  *
@@ -1852,7 +1852,7 @@ function get_defined_vars(): array
 /**
  * Returns an array with the names of the functions of a module
  *
- * mixed $extension_name
+ * @param mixed $extension_name
  *
  * @return array
  *
@@ -1880,7 +1880,7 @@ function get_included_files(): array
 /**
  * Returns an array with the names of all modules compiled and loaded
  *
- * mixed|null $zend_extensions
+ * @param mixed|null $zend_extensions
  *
  * @return array
  *
@@ -1895,7 +1895,7 @@ function get_loaded_extensions($zend_extensions = null): array
 /**
  * Gets the properties of the given object
  *
- * mixed $obj
+ * @param mixed $obj
  *
  * @return array
  *
@@ -1910,7 +1910,7 @@ function get_object_vars($obj): array
 /**
  * Retrieves the parent class name for object or class
  *
- * mixed|null $object
+ * @param mixed|null $object
  *
  * @return string
  *
@@ -1936,7 +1936,7 @@ function get_required_files()
 /**
  * Returns the resource type
  *
- * mixed $res
+ * @param mixed $res
  *
  * @return string
  *
@@ -1951,7 +1951,7 @@ function get_resource_type($res): string
 /**
  * Returns active resources
  *
- * mixed|null $type
+ * @param mixed|null $type
  *
  * @return array
  *
@@ -1966,8 +1966,8 @@ function get_resources($type = null): array
 /**
  * Checks if the interface has been defined
  *
- * mixed $classname
- * mixed|null $autoload
+ * @param mixed $classname
+ * @param mixed|null $autoload
  *
  * @return bool
  *
@@ -1982,9 +1982,9 @@ function interface_exists($classname, $autoload = null): bool
 /**
  * Checks if the object is of this class or has this class as one of its parents
  *
- * mixed $object
- * mixed $class_name
- * mixed|null $allow_string
+ * @param mixed $object
+ * @param mixed $class_name
+ * @param mixed|null $allow_string
  *
  * @return bool
  *
@@ -1999,9 +1999,9 @@ function is_a($object, $class_name, $allow_string = null): bool
 /**
  * Checks if the object has this class as one of its parents or implements it
  *
- * mixed $object
- * mixed $class_name
- * mixed|null $allow_string
+ * @param mixed $object
+ * @param mixed $class_name
+ * @param mixed|null $allow_string
  *
  * @return bool
  *
@@ -2016,8 +2016,8 @@ function is_subclass_of($object, $class_name, $allow_string = null): bool
 /**
  * Checks if the class method exists
  *
- * mixed $object
- * mixed $method
+ * @param mixed $object
+ * @param mixed $method
  *
  * @return bool
  *
@@ -2032,8 +2032,8 @@ function method_exists($object, $method): bool
 /**
  * Checks if the object or class has a property
  *
- * mixed $object_or_class
- * mixed $property_name
+ * @param mixed $object_or_class
+ * @param mixed $property_name
  *
  * @return bool
  *
@@ -2074,8 +2074,8 @@ function restore_exception_handler(): bool
 /**
  * Sets a user-defined error handler function
  *
- * mixed $error_handler
- * mixed|null $error_types
+ * @param mixed $error_handler
+ * @param mixed|null $error_types
  *
  * @return mixed
  *
@@ -2090,7 +2090,7 @@ function set_error_handler($error_handler, $error_types = null)
 /**
  * Sets a user-defined exception handler function
  *
- * mixed $exception_handler
+ * @param mixed $exception_handler
  *
  * @return callable
  *
@@ -2105,8 +2105,8 @@ function set_exception_handler($exception_handler): callable
 /**
  * Binary safe case-insensitive string comparison
  *
- * mixed $str1
- * mixed $str2
+ * @param mixed $str1
+ * @param mixed $str2
  *
  * @return int
  *
@@ -2121,8 +2121,8 @@ function strcasecmp($str1, $str2): int
 /**
  * Binary safe string comparison
  *
- * mixed $str1
- * mixed $str2
+ * @param mixed $str1
+ * @param mixed $str2
  *
  * @return int
  *
@@ -2137,7 +2137,7 @@ function strcmp($str1, $str2): int
 /**
  * Get string length
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return int
  *
@@ -2152,9 +2152,9 @@ function strlen($str): int
 /**
  * Binary safe case-insensitive string comparison of the first n characters
  *
- * mixed $str1
- * mixed $str2
- * mixed $len
+ * @param mixed $str1
+ * @param mixed $str2
+ * @param mixed $len
  *
  * @return int
  *
@@ -2169,9 +2169,9 @@ function strncasecmp($str1, $str2, $len): int
 /**
  * Binary safe string comparison of the first n characters
  *
- * mixed $str1
- * mixed $str2
- * mixed $len
+ * @param mixed $str1
+ * @param mixed $str2
+ * @param mixed $len
  *
  * @return int
  *
@@ -2186,8 +2186,8 @@ function strncmp($str1, $str2, $len): int
 /**
  * Checks if the trait exists
  *
- * mixed $traitname
- * mixed|null $autoload
+ * @param mixed $traitname
+ * @param mixed|null $autoload
  *
  * @return bool
  *
@@ -2202,8 +2202,8 @@ function trait_exists($traitname, $autoload = null): bool
 /**
  * Generates a user-level error/warning/notice message
  *
- * mixed $message
- * mixed|null $error_type
+ * @param mixed $message
+ * @param mixed|null $error_type
  *
  * @return bool
  *
@@ -2218,8 +2218,8 @@ function trigger_error($message, $error_type = null): bool
 /**
  * Alias of <code>trigger_error</code>
  *
- * mixed $message
- * mixed|null $error_type
+ * @param mixed $message
+ * @param mixed|null $error_type
  *
  * @since PHP 4, PHP 5, PHP 7
  *

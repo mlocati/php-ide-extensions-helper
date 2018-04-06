@@ -451,162 +451,162 @@ const IBASE_WAIT = 128;
 const IBASE_WRITE = 1;
 
 /**
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  */
 function fbird_add_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  */
 function fbird_affected_rows($link_identifier = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $source_db
- * mixed $dest_file
- * mixed|null $options
- * mixed|null $verbose
+ * @param mixed $service_handle
+ * @param mixed $source_db
+ * @param mixed $dest_file
+ * @param mixed|null $options
+ * @param mixed|null $verbose
  */
 function fbird_backup($service_handle, $source_db, $dest_file, $options = null, $verbose = null)
 {
 }
 
 /**
- * mixed $blob_handle
- * mixed $data
+ * @param mixed $blob_handle
+ * @param mixed $data
  */
 function fbird_blob_add($blob_handle, $data)
 {
 }
 
 /**
- * mixed $blob_handle
+ * @param mixed $blob_handle
  */
 function fbird_blob_cancel($blob_handle)
 {
 }
 
 /**
- * mixed $blob_handle
+ * @param mixed $blob_handle
  */
 function fbird_blob_close($blob_handle)
 {
 }
 
 /**
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  */
 function fbird_blob_create($link_identifier = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  */
 function fbird_blob_echo($link_identifier = null, $blob_id = null)
 {
 }
 
 /**
- * mixed $blob_handle
- * mixed $len
+ * @param mixed $blob_handle
+ * @param mixed $len
  */
 function fbird_blob_get($blob_handle, $len)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $file
+ * @param mixed|null $link_identifier
+ * @param mixed|null $file
  */
 function fbird_blob_import($link_identifier = null, $file = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  */
 function fbird_blob_info($link_identifier = null, $blob_id = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  */
 function fbird_blob_open($link_identifier = null, $blob_id = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  */
 function fbird_close($link_identifier = null)
 {
 }
 
 /**
- * mixed $link_identifier
+ * @param mixed $link_identifier
  */
 function fbird_commit($link_identifier)
 {
 }
 
 /**
- * mixed $link_identifier
+ * @param mixed $link_identifier
  */
 function fbird_commit_ret($link_identifier)
 {
 }
 
 /**
- * mixed $database
- * mixed|null $username
- * mixed|null $password
- * mixed|null $charset
- * mixed|null $buffers
- * mixed|null $dialect
- * mixed|null $role
+ * @param mixed $database
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $charset
+ * @param mixed|null $buffers
+ * @param mixed|null $dialect
+ * @param mixed|null $role
  */
 function fbird_connect($database, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $db
- * mixed $action
- * mixed|null $argument
+ * @param mixed $service_handle
+ * @param mixed $db
+ * @param mixed $action
+ * @param mixed|null $argument
  */
 function fbird_db_info($service_handle, $db, $action, $argument = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  */
 function fbird_delete_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  */
 function fbird_drop_db($link_identifier = null)
 {
@@ -621,233 +621,233 @@ function fbird_errmsg()
 }
 
 /**
- * mixed $query
- * mixed|null $bind_arg
- * mixed|null $bind_arg
+ * @param mixed $query
+ * @param mixed|null $bind_arg
+ * @param mixed|null $bind_arg
  */
 function fbird_execute($query, $bind_arg = null, $bind_arg = null)
 {
 }
 
 /**
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  */
 function fbird_fetch_assoc($result, $fetch_flags = null)
 {
 }
 
 /**
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  */
 function fbird_fetch_object($result, $fetch_flags = null)
 {
 }
 
 /**
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  */
 function fbird_fetch_row($result, $fetch_flags = null)
 {
 }
 
 /**
- * mixed $query_result
- * mixed $field_number
+ * @param mixed $query_result
+ * @param mixed $field_number
  */
 function fbird_field_info($query_result, $field_number)
 {
 }
 
 /**
- * mixed $event
+ * @param mixed $event
  */
 function fbird_free_event_handler($event)
 {
 }
 
 /**
- * mixed $query
+ * @param mixed $query
  */
 function fbird_free_query($query)
 {
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  */
 function fbird_free_result($result)
 {
 }
 
 /**
- * mixed $generator
- * mixed|null $increment
- * mixed|null $link_identifier
+ * @param mixed $generator
+ * @param mixed|null $increment
+ * @param mixed|null $link_identifier
  */
 function fbird_gen_id($generator, $increment = null, $link_identifier = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $db
- * mixed $action
- * mixed|null $argument
+ * @param mixed $service_handle
+ * @param mixed $db
+ * @param mixed $action
+ * @param mixed|null $argument
  */
 function fbird_maintain_db($service_handle, $db, $action, $argument = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  */
 function fbird_modify_user($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null)
 {
 }
 
 /**
- * mixed $result
- * mixed $name
+ * @param mixed $result
+ * @param mixed $name
  */
 function fbird_name_result($result, $name)
 {
 }
 
 /**
- * mixed $query_result
+ * @param mixed $query_result
  */
 function fbird_num_fields($query_result)
 {
 }
 
 /**
- * mixed $query
+ * @param mixed $query
  */
 function fbird_num_params($query)
 {
 }
 
 /**
- * mixed $query
- * mixed $field_number
+ * @param mixed $query
+ * @param mixed $field_number
  */
 function fbird_param_info($query, $field_number)
 {
 }
 
 /**
- * mixed $database
- * mixed|null $username
- * mixed|null $password
- * mixed|null $charset
- * mixed|null $buffers
- * mixed|null $dialect
- * mixed|null $role
+ * @param mixed $database
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $charset
+ * @param mixed|null $buffers
+ * @param mixed|null $dialect
+ * @param mixed|null $role
  */
 function fbird_pconnect($database, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $query
+ * @param mixed|null $link_identifier
+ * @param mixed|null $query
  */
 function fbird_prepare($link_identifier = null, $query = null)
 {
 }
 
 /**
- * mixed|null $link_identifier
- * mixed|null $link_identifier
- * mixed|null $query
- * mixed|null $bind_arg
- * mixed|null $bind_arg
+ * @param mixed|null $link_identifier
+ * @param mixed|null $link_identifier
+ * @param mixed|null $query
+ * @param mixed|null $bind_arg
+ * @param mixed|null $bind_arg
  */
 function fbird_query($link_identifier = null, $link_identifier = null, $query = null, $bind_arg = null, $bind_arg = null)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $source_file
- * mixed $dest_db
- * mixed|null $options
- * mixed|null $verbose
+ * @param mixed $service_handle
+ * @param mixed $source_file
+ * @param mixed $dest_db
+ * @param mixed|null $options
+ * @param mixed|null $verbose
  */
 function fbird_restore($service_handle, $source_file, $dest_db, $options = null, $verbose = null)
 {
 }
 
 /**
- * mixed $link_identifier
+ * @param mixed $link_identifier
  */
 function fbird_rollback($link_identifier)
 {
 }
 
 /**
- * mixed $link_identifier
+ * @param mixed $link_identifier
  */
 function fbird_rollback_ret($link_identifier)
 {
 }
 
 /**
- * mixed $service_handle
- * mixed $action
+ * @param mixed $service_handle
+ * @param mixed $action
  */
 function fbird_server_info($service_handle, $action)
 {
 }
 
 /**
- * mixed $host
- * mixed $dba_username
- * mixed $dba_password
+ * @param mixed $host
+ * @param mixed $dba_username
+ * @param mixed $dba_password
  */
 function fbird_service_attach($host, $dba_username, $dba_password)
 {
 }
 
 /**
- * mixed $service_handle
+ * @param mixed $service_handle
  */
 function fbird_service_detach($service_handle)
 {
 }
 
 /**
- * mixed $link_identifier
- * mixed $handler
- * mixed|null $event
- * mixed|null $event2
+ * @param mixed $link_identifier
+ * @param mixed $handler
+ * @param mixed|null $event
+ * @param mixed|null $event2
  */
 function fbird_set_event_handler($link_identifier, $handler, $event = null, $event2 = null)
 {
 }
 
 /**
- * mixed|null $trans_args
- * mixed|null $link_identifier
- * mixed|null $trans_args
- * mixed|null $link_identifier
+ * @param mixed|null $trans_args
+ * @param mixed|null $link_identifier
+ * @param mixed|null $trans_args
+ * @param mixed|null $link_identifier
  */
 function fbird_trans($trans_args = null, $link_identifier = null, $trans_args = null, $link_identifier = null)
 {
 }
 
 /**
- * mixed $link_identifier
- * mixed|null $event
- * mixed|null $event2
+ * @param mixed $link_identifier
+ * @param mixed|null $event
+ * @param mixed|null $event2
  */
 function fbird_wait_event($link_identifier, $event = null, $event2 = null)
 {
@@ -856,12 +856,12 @@ function fbird_wait_event($link_identifier, $event = null, $event2 = null)
 /**
  * Add a user to a security database
  *
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  *
  * @return bool
  *
@@ -876,7 +876,7 @@ function ibase_add_user($service_handle, $user_name, $password, $first_name = nu
 /**
  * Return the number of rows that were affected by the previous query
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -891,11 +891,11 @@ function ibase_affected_rows($link_identifier = null)
 /**
  * Initiates a backup task in the service manager and returns immediately
  *
- * mixed $service_handle
- * mixed $source_db
- * mixed $dest_file
- * mixed|null $options
- * mixed|null $verbose
+ * @param mixed $service_handle
+ * @param mixed $source_db
+ * @param mixed $dest_file
+ * @param mixed|null $options
+ * @param mixed|null $verbose
  *
  * @return mixed
  *
@@ -910,8 +910,8 @@ function ibase_backup($service_handle, $source_db, $dest_file, $options = null, 
 /**
  * Add data into a newly created blob
  *
- * mixed $blob_handle
- * mixed $data
+ * @param mixed $blob_handle
+ * @param mixed $data
  *
  * @return void
  *
@@ -926,7 +926,7 @@ function ibase_blob_add($blob_handle, $data)
 /**
  * Cancel creating blob
  *
- * mixed $blob_handle
+ * @param mixed $blob_handle
  *
  * @return bool
  *
@@ -941,7 +941,7 @@ function ibase_blob_cancel($blob_handle)
 /**
  * Close blob
  *
- * mixed $blob_handle
+ * @param mixed $blob_handle
  *
  * @return mixed
  *
@@ -956,7 +956,7 @@ function ibase_blob_close($blob_handle)
 /**
  * Create a new blob for adding data
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -971,8 +971,8 @@ function ibase_blob_create($link_identifier = null)
 /**
  * Output blob contents to browser
  *
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  *
  * @return bool
  *
@@ -987,8 +987,8 @@ function ibase_blob_echo($link_identifier = null, $blob_id = null)
 /**
  * Get len bytes data from open blob
  *
- * mixed $blob_handle
- * mixed $len
+ * @param mixed $blob_handle
+ * @param mixed $len
  *
  * @return string
  *
@@ -1003,8 +1003,8 @@ function ibase_blob_get($blob_handle, $len)
 /**
  * Create blob, copy file in it, and close it
  *
- * mixed|null $link_identifier
- * mixed|null $file
+ * @param mixed|null $link_identifier
+ * @param mixed|null $file
  *
  * @return string
  *
@@ -1019,8 +1019,8 @@ function ibase_blob_import($link_identifier = null, $file = null)
 /**
  * Return blob length and other useful info
  *
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  *
  * @return array
  *
@@ -1035,8 +1035,8 @@ function ibase_blob_info($link_identifier = null, $blob_id = null): array
 /**
  * Open blob for retrieving data parts
  *
- * mixed|null $link_identifier
- * mixed|null $blob_id
+ * @param mixed|null $link_identifier
+ * @param mixed|null $blob_id
  *
  * @return resource
  *
@@ -1051,7 +1051,7 @@ function ibase_blob_open($link_identifier = null, $blob_id = null)
 /**
  * Close a connection to an InterBase database
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -1066,7 +1066,7 @@ function ibase_close($link_identifier = null)
 /**
  * Commit a transaction
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -1081,7 +1081,7 @@ function ibase_commit($link_identifier)
 /**
  * Commit a transaction without closing it
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -1096,13 +1096,13 @@ function ibase_commit_ret($link_identifier)
 /**
  * Open a connection to a database
  *
- * mixed $database
- * mixed|null $username
- * mixed|null $password
- * mixed|null $charset
- * mixed|null $buffers
- * mixed|null $dialect
- * mixed|null $role
+ * @param mixed $database
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $charset
+ * @param mixed|null $buffers
+ * @param mixed|null $dialect
+ * @param mixed|null $role
  *
  * @return resource
  *
@@ -1117,10 +1117,10 @@ function ibase_connect($database, $username = null, $password = null, $charset =
 /**
  * Request statistics about a database
  *
- * mixed $service_handle
- * mixed $db
- * mixed $action
- * mixed|null $argument
+ * @param mixed $service_handle
+ * @param mixed $db
+ * @param mixed $action
+ * @param mixed|null $argument
  *
  * @return string
  *
@@ -1135,12 +1135,12 @@ function ibase_db_info($service_handle, $db, $action, $argument = null)
 /**
  * Delete a user from a security database
  *
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  *
  * @return bool
  *
@@ -1155,7 +1155,7 @@ function ibase_delete_user($service_handle, $user_name, $password, $first_name =
 /**
  * Drops a database
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -1196,9 +1196,9 @@ function ibase_errmsg()
 /**
  * Execute a previously prepared query
  *
- * mixed $query
- * mixed|null $bind_arg
- * mixed|null $bind_arg
+ * @param mixed $query
+ * @param mixed|null $bind_arg
+ * @param mixed|null $bind_arg
  *
  * @return resource
  *
@@ -1213,8 +1213,8 @@ function ibase_execute($query, $bind_arg = null, $bind_arg = null)
 /**
  * Fetch a result row from a query as an associative array
  *
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  *
  * @return array
  *
@@ -1229,8 +1229,8 @@ function ibase_fetch_assoc($result, $fetch_flags = null): array
 /**
  * Get an object from a InterBase database
  *
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  *
  * @return object
  *
@@ -1245,8 +1245,8 @@ function ibase_fetch_object($result, $fetch_flags = null)
 /**
  * Fetch a row from an InterBase database
  *
- * mixed $result
- * mixed|null $fetch_flags
+ * @param mixed $result
+ * @param mixed|null $fetch_flags
  *
  * @return array
  *
@@ -1261,8 +1261,8 @@ function ibase_fetch_row($result, $fetch_flags = null): array
 /**
  * Get information about a field
  *
- * mixed $query_result
- * mixed $field_number
+ * @param mixed $query_result
+ * @param mixed $field_number
  *
  * @return array
  *
@@ -1277,7 +1277,7 @@ function ibase_field_info($query_result, $field_number): array
 /**
  * Cancels a registered event handler
  *
- * mixed $event
+ * @param mixed $event
  *
  * @return bool
  *
@@ -1292,7 +1292,7 @@ function ibase_free_event_handler($event)
 /**
  * Free memory allocated by a prepared query
  *
- * mixed $query
+ * @param mixed $query
  *
  * @return bool
  *
@@ -1307,7 +1307,7 @@ function ibase_free_query($query)
 /**
  * Free a result set
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return bool
  *
@@ -1322,9 +1322,9 @@ function ibase_free_result($result)
 /**
  * Increments the named generator and returns its new value
  *
- * mixed $generator
- * mixed|null $increment
- * mixed|null $link_identifier
+ * @param mixed $generator
+ * @param mixed|null $increment
+ * @param mixed|null $link_identifier
  *
  * @return mixed
  *
@@ -1339,10 +1339,10 @@ function ibase_gen_id($generator, $increment = null, $link_identifier = null)
 /**
  * Execute a maintenance command on the database server
  *
- * mixed $service_handle
- * mixed $db
- * mixed $action
- * mixed|null $argument
+ * @param mixed $service_handle
+ * @param mixed $db
+ * @param mixed $action
+ * @param mixed|null $argument
  *
  * @return bool
  *
@@ -1357,12 +1357,12 @@ function ibase_maintain_db($service_handle, $db, $action, $argument = null)
 /**
  * Modify a user to a security database
  *
- * mixed $service_handle
- * mixed $user_name
- * mixed $password
- * mixed|null $first_name
- * mixed|null $middle_name
- * mixed|null $last_name
+ * @param mixed $service_handle
+ * @param mixed $user_name
+ * @param mixed $password
+ * @param mixed|null $first_name
+ * @param mixed|null $middle_name
+ * @param mixed|null $last_name
  *
  * @return bool
  *
@@ -1377,8 +1377,8 @@ function ibase_modify_user($service_handle, $user_name, $password, $first_name =
 /**
  * Assigns a name to a result set
  *
- * mixed $result
- * mixed $name
+ * @param mixed $result
+ * @param mixed $name
  *
  * @return bool
  *
@@ -1393,7 +1393,7 @@ function ibase_name_result($result, $name)
 /**
  * Get the number of fields in a result set
  *
- * mixed $query_result
+ * @param mixed $query_result
  *
  * @return int
  *
@@ -1408,7 +1408,7 @@ function ibase_num_fields($query_result)
 /**
  * Return the number of parameters in a prepared query
  *
- * mixed $query
+ * @param mixed $query
  *
  * @return int
  *
@@ -1423,8 +1423,8 @@ function ibase_num_params($query)
 /**
  * Return information about a parameter in a prepared query
  *
- * mixed $query
- * mixed $field_number
+ * @param mixed $query
+ * @param mixed $field_number
  *
  * @return array
  *
@@ -1439,13 +1439,13 @@ function ibase_param_info($query, $field_number): array
 /**
  * Open a persistent connection to an InterBase database
  *
- * mixed $database
- * mixed|null $username
- * mixed|null $password
- * mixed|null $charset
- * mixed|null $buffers
- * mixed|null $dialect
- * mixed|null $role
+ * @param mixed $database
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $charset
+ * @param mixed|null $buffers
+ * @param mixed|null $dialect
+ * @param mixed|null $role
  *
  * @return resource
  *
@@ -1460,8 +1460,8 @@ function ibase_pconnect($database, $username = null, $password = null, $charset 
 /**
  * Prepare a query for later binding of parameter placeholders and execution
  *
- * mixed|null $link_identifier
- * mixed|null $query
+ * @param mixed|null $link_identifier
+ * @param mixed|null $query
  *
  * @return resource
  *
@@ -1476,11 +1476,11 @@ function ibase_prepare($link_identifier = null, $query = null)
 /**
  * Execute a query on an InterBase database
  *
- * mixed|null $link_identifier
- * mixed|null $link_identifier
- * mixed|null $query
- * mixed|null $bind_arg
- * mixed|null $bind_arg
+ * @param mixed|null $link_identifier
+ * @param mixed|null $link_identifier
+ * @param mixed|null $query
+ * @param mixed|null $bind_arg
+ * @param mixed|null $bind_arg
  *
  * @return resource
  *
@@ -1495,11 +1495,11 @@ function ibase_query($link_identifier = null, $link_identifier = null, $query = 
 /**
  * Initiates a restore task in the service manager and returns immediately
  *
- * mixed $service_handle
- * mixed $source_file
- * mixed $dest_db
- * mixed|null $options
- * mixed|null $verbose
+ * @param mixed $service_handle
+ * @param mixed $source_file
+ * @param mixed $dest_db
+ * @param mixed|null $options
+ * @param mixed|null $verbose
  *
  * @return mixed
  *
@@ -1514,7 +1514,7 @@ function ibase_restore($service_handle, $source_file, $dest_db, $options = null,
 /**
  * Roll back a transaction
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -1529,7 +1529,7 @@ function ibase_rollback($link_identifier)
 /**
  * Roll back a transaction without closing it
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -1544,8 +1544,8 @@ function ibase_rollback_ret($link_identifier)
 /**
  * Request information about a database server
  *
- * mixed $service_handle
- * mixed $action
+ * @param mixed $service_handle
+ * @param mixed $action
  *
  * @return string
  *
@@ -1560,9 +1560,9 @@ function ibase_server_info($service_handle, $action)
 /**
  * Connect to the service manager
  *
- * mixed $host
- * mixed $dba_username
- * mixed $dba_password
+ * @param mixed $host
+ * @param mixed $dba_username
+ * @param mixed $dba_password
  *
  * @return resource
  *
@@ -1577,7 +1577,7 @@ function ibase_service_attach($host, $dba_username, $dba_password)
 /**
  * Disconnect from the service manager
  *
- * mixed $service_handle
+ * @param mixed $service_handle
  *
  * @return bool
  *
@@ -1592,10 +1592,10 @@ function ibase_service_detach($service_handle)
 /**
  * Register a callback function to be called when events are posted
  *
- * mixed $link_identifier
- * mixed $handler
- * mixed|null $event
- * mixed|null $event2
+ * @param mixed $link_identifier
+ * @param mixed $handler
+ * @param mixed|null $event
+ * @param mixed|null $event2
  *
  * @return resource
  *
@@ -1610,10 +1610,10 @@ function ibase_set_event_handler($link_identifier, $handler, $event = null, $eve
 /**
  * Begin a transaction
  *
- * mixed|null $trans_args
- * mixed|null $link_identifier
- * mixed|null $trans_args
- * mixed|null $link_identifier
+ * @param mixed|null $trans_args
+ * @param mixed|null $link_identifier
+ * @param mixed|null $trans_args
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -1628,9 +1628,9 @@ function ibase_trans($trans_args = null, $link_identifier = null, $trans_args = 
 /**
  * Wait for an event to be posted by the database
  *
- * mixed $link_identifier
- * mixed|null $event
- * mixed|null $event2
+ * @param mixed $link_identifier
+ * @param mixed|null $event
+ * @param mixed|null $event2
  *
  * @return string
  *

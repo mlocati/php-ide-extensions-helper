@@ -210,10 +210,10 @@ const YAML_UTF8_ENCODING = 1;
 /**
  * Returns the YAML representation of a value
  *
- * mixed $data
- * mixed|null $encoding
- * mixed|null $linebreak
- * array[]|null $callbacks
+ * @param mixed $data
+ * @param mixed|null $encoding
+ * @param mixed|null $linebreak
+ * @param array[]|null $callbacks
  *
  * @return string
  *
@@ -228,11 +228,11 @@ function yaml_emit($data, $encoding = null, $linebreak = null, $callbacks = null
 /**
  * Send the YAML representation of a value to a file
  *
- * mixed $filename
- * mixed $data
- * mixed|null $encoding
- * mixed|null $linebreak
- * array[]|null $callbacks
+ * @param mixed $filename
+ * @param mixed $data
+ * @param mixed|null $encoding
+ * @param mixed|null $linebreak
+ * @param array[]|null $callbacks
  *
  * @return bool
  *
@@ -247,10 +247,10 @@ function yaml_emit_file($filename, $data, $encoding = null, $linebreak = null, $
 /**
  * Parse a YAML stream
  *
- * mixed $input
- * mixed|null $pos
- * mixed|null $ndocs
- * array[]|null $callbacks
+ * @param mixed $input
+ * @param mixed|null $pos
+ * @param mixed|null $ndocs
+ * @param array[]|null $callbacks
  *
  * @return mixed
  *
@@ -265,10 +265,10 @@ function yaml_parse($input, $pos = null, &$ndocs = null, $callbacks = null)
 /**
  * Parse a YAML stream from a file
  *
- * mixed $filename
- * mixed|null $pos
- * mixed|null $ndocs
- * array[]|null $callbacks
+ * @param mixed $filename
+ * @param mixed|null $pos
+ * @param mixed|null $ndocs
+ * @param array[]|null $callbacks
  *
  * @return mixed
  *
@@ -283,10 +283,10 @@ function yaml_parse_file($filename, $pos = null, &$ndocs = null, $callbacks = nu
 /**
  * Parse a Yaml stream from a URL
  *
- * mixed $url
- * mixed|null $pos
- * mixed|null $ndocs
- * array[]|null $callbacks
+ * @param mixed $url
+ * @param mixed|null $pos
+ * @param mixed|null $ndocs
+ * @param array[]|null $callbacks
  *
  * @return mixed
  *

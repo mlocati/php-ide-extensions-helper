@@ -28,15 +28,15 @@ interface Reflector
 class Reflection
 {
     /**
-     * Reflector $reflector
-     * mixed|null $return
+     * @param Reflector $reflector
+     * @param mixed|null $return
      */
     public static function export($reflector, $return = null)
     {
     }
 
     /**
-     * mixed $modifiers
+     * @param mixed $modifiers
      */
     public static function getModifierNames($modifiers)
     {
@@ -58,7 +58,7 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $argument
+     * @param mixed $argument
      */
     public function __construct($argument)
     {
@@ -69,15 +69,15 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $argument
-     * mixed|null $return
+     * @param mixed $argument
+     * @param mixed|null $return
      */
     public static function export($argument, $return = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getConstant($name)
     {
@@ -124,14 +124,14 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getMethod($name)
     {
     }
 
     /**
-     * mixed|null $filter
+     * @param mixed|null $filter
      */
     public function getMethods($filter = null)
     {
@@ -154,14 +154,14 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed|null $filter
+     * @param mixed|null $filter
      */
     public function getProperties($filter = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getProperty($name)
     {
@@ -180,8 +180,8 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $name
-     * mixed|null $default
+     * @param mixed $name
+     * @param mixed|null $default
      */
     public function getStaticPropertyValue($name, $default = null)
     {
@@ -200,28 +200,28 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function hasConstant($name)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function hasMethod($name)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function hasProperty($name)
     {
     }
 
     /**
-     * mixed $interface
+     * @param mixed $interface
      */
     public function implementsInterface($interface)
     {
@@ -248,7 +248,7 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function isInstance($object)
     {
@@ -271,7 +271,7 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $class
+     * @param mixed $class
      */
     public function isSubclassOf($class)
     {
@@ -286,14 +286,14 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $args
+     * @param mixed $args
      */
     public function newInstance($args)
     {
     }
 
     /**
-     * array[]|null $args
+     * @param array[]|null $args
      */
     public function newInstanceArgs($args = null)
     {
@@ -304,8 +304,8 @@ class ReflectionClass implements Reflector
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function setStaticPropertyValue($name, $value)
     {
@@ -338,7 +338,7 @@ class ReflectionExtension implements Reflector
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function __construct($name)
     {
@@ -349,8 +349,8 @@ class ReflectionExtension implements Reflector
     }
 
     /**
-     * mixed $name
-     * mixed|null $return
+     * @param mixed $name
+     * @param mixed|null $return
      */
     public static function export($name, $return = null)
     {
@@ -412,7 +412,7 @@ class ReflectionExtension implements Reflector
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function __construct($name)
     {
@@ -423,8 +423,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     }
 
     /**
-     * mixed $name
-     * mixed|null $return
+     * @param mixed $name
+     * @param mixed|null $return
      */
     public static function export($name, $return = null)
     {
@@ -435,14 +435,14 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     }
 
     /**
-     * mixed|null $args
+     * @param mixed|null $args
      */
     public function invoke($args = null)
     {
     }
 
     /**
-     * array[] $args
+     * @param array[] $args
      */
     public function invokeArgs($args)
     {
@@ -579,7 +579,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
 class ReflectionGenerator
 {
     /**
-     * mixed $generator
+     * @param mixed $generator
      */
     public function __construct($generator)
     {
@@ -606,7 +606,7 @@ class ReflectionGenerator
     }
 
     /**
-     * mixed|null $options
+     * @param mixed|null $options
      */
     public function getTrace($options = null)
     {
@@ -624,8 +624,8 @@ class ReflectionGenerator
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
-     * mixed $class_or_method
-     * mixed|null $name
+     * @param mixed $class_or_method
+     * @param mixed|null $name
      */
     public function __construct($class_or_method, $name = null)
     {
@@ -636,16 +636,16 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     }
 
     /**
-     * mixed $class
-     * mixed $name
-     * mixed|null $return
+     * @param mixed $class
+     * @param mixed $name
+     * @param mixed|null $return
      */
     public static function export($class, $name, $return = null)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function getClosure($object)
     {
@@ -664,16 +664,16 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     }
 
     /**
-     * mixed $object
-     * mixed $args
+     * @param mixed $object
+     * @param mixed $args
      */
     public function invoke($object, $args)
     {
     }
 
     /**
-     * mixed $object
-     * array[] $args
+     * @param mixed $object
+     * @param array[] $args
      */
     public function invokeArgs($object, $args)
     {
@@ -712,7 +712,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function setAccessible($value)
     {
@@ -730,15 +730,15 @@ class ReflectionMethod extends ReflectionFunctionAbstract
 class ReflectionObject extends ReflectionClass
 {
     /**
-     * mixed $argument
+     * @param mixed $argument
      */
     public function __construct($argument)
     {
     }
 
     /**
-     * mixed $argument
-     * mixed|null $return
+     * @param mixed $argument
+     * @param mixed|null $return
      */
     public static function export($argument, $return = null)
     {
@@ -760,8 +760,8 @@ class ReflectionParameter implements Reflector
     }
 
     /**
-     * mixed $function
-     * mixed $parameter
+     * @param mixed $function
+     * @param mixed $parameter
      */
     public function __construct($function, $parameter)
     {
@@ -780,9 +780,9 @@ class ReflectionParameter implements Reflector
     }
 
     /**
-     * mixed $function
-     * mixed $parameter
-     * mixed|null $return
+     * @param mixed $function
+     * @param mixed $parameter
+     * @param mixed|null $return
      */
     public static function export($function, $parameter, $return = null)
     {
@@ -877,8 +877,8 @@ class ReflectionProperty implements Reflector
     }
 
     /**
-     * mixed $class
-     * mixed $name
+     * @param mixed $class
+     * @param mixed $name
      */
     public function __construct($class, $name)
     {
@@ -889,9 +889,9 @@ class ReflectionProperty implements Reflector
     }
 
     /**
-     * mixed $class
-     * mixed $name
-     * mixed|null $return
+     * @param mixed $class
+     * @param mixed $name
+     * @param mixed|null $return
      */
     public static function export($class, $name, $return = null)
     {
@@ -914,7 +914,7 @@ class ReflectionProperty implements Reflector
     }
 
     /**
-     * mixed|null $object
+     * @param mixed|null $object
      */
     public function getValue($object = null)
     {
@@ -941,15 +941,15 @@ class ReflectionProperty implements Reflector
     }
 
     /**
-     * mixed $visible
+     * @param mixed $visible
      */
     public function setAccessible($visible)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $value
+     * @param mixed $object
+     * @param mixed|null $value
      */
     public function setValue($object, $value = null)
     {
@@ -995,7 +995,7 @@ class ReflectionZendExtension implements Reflector
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function __construct($name)
     {
@@ -1006,8 +1006,8 @@ class ReflectionZendExtension implements Reflector
     }
 
     /**
-     * mixed $name
-     * mixed|null $return
+     * @param mixed $name
+     * @param mixed|null $return
      */
     public static function export($name, $return = null)
     {

@@ -48,8 +48,8 @@ const MB_OVERLOAD_STRING = 2;
 /**
  * Check if the string is valid for the specified encoding
  *
- * mixed|null $var
- * mixed|null $encoding
+ * @param mixed|null $var
+ * @param mixed|null $encoding
  *
  * @return bool
  *
@@ -64,9 +64,9 @@ function mb_check_encoding($var = null, $encoding = null)
 /**
  * Perform case folding on a string
  *
- * mixed $sourcestring
- * mixed $mode
- * mixed|null $encoding
+ * @param mixed $sourcestring
+ * @param mixed $mode
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -81,9 +81,9 @@ function mb_convert_case($sourcestring, $mode, $encoding = null)
 /**
  * Convert character encoding
  *
- * mixed $str
- * mixed $to
- * mixed|null $from
+ * @param mixed $str
+ * @param mixed $to
+ * @param mixed|null $from
  *
  * @return string
  *
@@ -98,9 +98,9 @@ function mb_convert_encoding($str, $to, $from = null)
 /**
  * Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
  *
- * mixed $str
- * mixed|null $option
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed|null $option
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -115,9 +115,9 @@ function mb_convert_kana($str, $option = null, $encoding = null)
 /**
  * Convert character code in variable(s)
  *
- * mixed $to
- * mixed $from
- * mixed $vars
+ * @param mixed $to
+ * @param mixed $from
+ * @param mixed $vars
  *
  * @return string
  *
@@ -132,7 +132,7 @@ function mb_convert_variables($to, $from, &...$vars)
 /**
  * Decode string in MIME header field
  *
- * mixed $string
+ * @param mixed $string
  *
  * @return string
  *
@@ -147,9 +147,9 @@ function mb_decode_mimeheader($string)
 /**
  * Decode HTML numeric string reference to character
  *
- * mixed $string
- * mixed $convmap
- * mixed|null $encoding
+ * @param mixed $string
+ * @param mixed $convmap
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -164,9 +164,9 @@ function mb_decode_numericentity($string, $convmap, $encoding = null)
 /**
  * Detect character encoding
  *
- * mixed $str
- * mixed|null $encoding_list
- * mixed|null $strict
+ * @param mixed $str
+ * @param mixed|null $encoding_list
+ * @param mixed|null $strict
  *
  * @return string
  *
@@ -181,7 +181,7 @@ function mb_detect_encoding($str, $encoding_list = null, $strict = null)
 /**
  * Set/Get character encoding detection order
  *
- * mixed|null $encoding
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -196,11 +196,11 @@ function mb_detect_order($encoding = null)
 /**
  * Encode string for MIME header
  *
- * mixed $str
- * mixed|null $charset
- * mixed|null $transfer
- * mixed|null $linefeed
- * mixed|null $indent
+ * @param mixed $str
+ * @param mixed|null $charset
+ * @param mixed|null $transfer
+ * @param mixed|null $linefeed
+ * @param mixed|null $indent
  *
  * @return string
  *
@@ -215,10 +215,10 @@ function mb_encode_mimeheader($str, $charset = null, $transfer = null, $linefeed
 /**
  * Encode character to HTML numeric string reference
  *
- * mixed $string
- * mixed $convmap
- * mixed|null $encoding
- * mixed|null $is_hex
+ * @param mixed $string
+ * @param mixed $convmap
+ * @param mixed|null $encoding
+ * @param mixed|null $is_hex
  *
  * @return string
  *
@@ -233,7 +233,7 @@ function mb_encode_numericentity($string, $convmap, $encoding = null, $is_hex = 
 /**
  * Get aliases of a known encoding type
  *
- * mixed $encoding
+ * @param mixed $encoding
  *
  * @return array
  *
@@ -248,9 +248,9 @@ function mb_encoding_aliases($encoding): array
 /**
  * Regular expression match with multibyte support
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  *
  * @return int
  *
@@ -265,9 +265,9 @@ function mb_ereg($pattern, $string, &$registers = null)
 /**
  * Regular expression match for multibyte string
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $option
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $option
  *
  * @return bool
  *
@@ -282,10 +282,10 @@ function mb_ereg_match($pattern, $string, $option = null)
 /**
  * Replace regular expression with multibyte support
  *
- * mixed $pattern
- * mixed $replacement
- * mixed $string
- * mixed|null $option
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
+ * @param mixed|null $option
  *
  * @return string
  *
@@ -300,10 +300,10 @@ function mb_ereg_replace($pattern, $replacement, $string, $option = null)
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
  *
- * mixed $pattern
- * mixed $callback
- * mixed $string
- * mixed|null $option
+ * @param mixed $pattern
+ * @param mixed $callback
+ * @param mixed $string
+ * @param mixed|null $option
  *
  * @return string
  *
@@ -318,8 +318,8 @@ function mb_ereg_replace_callback($pattern, $callback, $string, $option = null)
 /**
  * Multibyte regular expression match for predefined multibyte string
  *
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  *
  * @return bool
  *
@@ -360,9 +360,9 @@ function mb_ereg_search_getregs(): array
 /**
  * Setup string and regular expression for a multibyte regular expression match
  *
- * mixed $string
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed $string
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  *
  * @return bool
  *
@@ -377,8 +377,8 @@ function mb_ereg_search_init($string, $pattern = null, $option = null)
 /**
  * Returns position and length of a matched part of the multibyte regular expression for a predefined multibyte string
  *
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  *
  * @return array
  *
@@ -393,8 +393,8 @@ function mb_ereg_search_pos($pattern = null, $option = null): array
 /**
  * Returns the matched part of a multibyte regular expression
  *
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  *
  * @return array
  *
@@ -409,7 +409,7 @@ function mb_ereg_search_regs($pattern = null, $option = null): array
 /**
  * Set start point of next regular expression match
  *
- * mixed $position
+ * @param mixed $position
  *
  * @return bool
  *
@@ -424,9 +424,9 @@ function mb_ereg_search_setpos($position)
 /**
  * Regular expression match ignoring case with multibyte support
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  *
  * @return int
  *
@@ -441,9 +441,9 @@ function mb_eregi($pattern, $string, &$registers = null)
 /**
  * Replace regular expression with multibyte support ignoring case
  *
- * mixed $pattern
- * mixed $replacement
- * mixed $string
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
  *
  * @return string
  *
@@ -458,7 +458,7 @@ function mb_eregi_replace($pattern, $replacement, $string)
 /**
  * Get internal settings of mbstring
  *
- * mixed|null $type
+ * @param mixed|null $type
  *
  * @return mixed
  *
@@ -473,7 +473,7 @@ function mb_get_info($type = null)
 /**
  * Detect HTTP input character encoding
  *
- * mixed|null $type
+ * @param mixed|null $type
  *
  * @return mixed
  *
@@ -488,7 +488,7 @@ function mb_http_input($type = null)
 /**
  * Set/Get HTTP output character encoding
  *
- * mixed|null $encoding
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -503,7 +503,7 @@ function mb_http_output($encoding = null)
 /**
  * Set/Get internal character encoding
  *
- * mixed|null $encoding
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -518,7 +518,7 @@ function mb_internal_encoding($encoding = null)
 /**
  * Set/Get current language
  *
- * mixed|null $language
+ * @param mixed|null $language
  *
  * @return mixed
  *
@@ -546,8 +546,8 @@ function mb_list_encodings(): array
 /**
  * Callback function converts character encoding in output buffer
  *
- * mixed $contents
- * mixed $status
+ * @param mixed $contents
+ * @param mixed $status
  *
  * @return string
  *
@@ -562,8 +562,8 @@ function mb_output_handler($contents, $status)
 /**
  * Parse GET/POST/COOKIE data and set global variable
  *
- * mixed $encoded_string
- * mixed|null $result
+ * @param mixed $encoded_string
+ * @param mixed|null $result
  *
  * @return bool
  *
@@ -578,7 +578,7 @@ function mb_parse_str($encoded_string, &$result = null)
 /**
  * Get MIME charset string
  *
- * mixed $encoding
+ * @param mixed $encoding
  *
  * @return string
  *
@@ -593,7 +593,7 @@ function mb_preferred_mime_name($encoding)
 /**
  * Set/Get character encoding for multibyte regex
  *
- * mixed|null $encoding
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -608,7 +608,7 @@ function mb_regex_encoding($encoding = null)
 /**
  * Set/Get the default options for mbregex functions
  *
- * mixed|null $options
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -623,11 +623,11 @@ function mb_regex_set_options($options = null)
 /**
  * Send encoded mail
  *
- * mixed $to
- * mixed $subject
- * mixed $message
- * mixed|null $additional_headers
- * mixed|null $additional_parameters
+ * @param mixed $to
+ * @param mixed $subject
+ * @param mixed $message
+ * @param mixed|null $additional_headers
+ * @param mixed|null $additional_parameters
  *
  * @return bool
  *
@@ -642,9 +642,9 @@ function mb_send_mail($to, $subject, $message, $additional_headers = null, $addi
 /**
  * Split multibyte string using regular expression
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $limit
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $limit
  *
  * @return array
  *
@@ -659,10 +659,10 @@ function mb_split($pattern, $string, $limit = null): array
 /**
  * Get part of string
  *
- * mixed $str
- * mixed $start
- * mixed|null $length
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed $start
+ * @param mixed|null $length
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -677,11 +677,11 @@ function mb_strcut($str, $start, $length = null, $encoding = null)
 /**
  * Get truncated string with specified width
  *
- * mixed $str
- * mixed $start
- * mixed $width
- * mixed|null $trimmarker
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed $start
+ * @param mixed $width
+ * @param mixed|null $trimmarker
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -696,10 +696,10 @@ function mb_strimwidth($str, $start, $width, $trimmarker = null, $encoding = nul
 /**
  * Finds position of first occurrence of a string within another, case insensitive
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -714,10 +714,10 @@ function mb_stripos($haystack, $needle, $offset = null, $encoding = null)
 /**
  * Finds first occurrence of a string within another, case insensitive
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -732,8 +732,8 @@ function mb_stristr($haystack, $needle, $part = null, $encoding = null)
 /**
  * Get string length
  *
- * mixed $str
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -748,10 +748,10 @@ function mb_strlen($str, $encoding = null)
 /**
  * Find position of first occurrence of string in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -766,10 +766,10 @@ function mb_strpos($haystack, $needle, $offset = null, $encoding = null)
 /**
  * Finds the last occurrence of a character in a string within another
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -784,10 +784,10 @@ function mb_strrchr($haystack, $needle, $part = null, $encoding = null)
 /**
  * Finds the last occurrence of a character in a string within another, case insensitive
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -802,10 +802,10 @@ function mb_strrichr($haystack, $needle, $part = null, $encoding = null)
 /**
  * Finds position of last occurrence of a string within another, case insensitive
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -820,10 +820,10 @@ function mb_strripos($haystack, $needle, $offset = null, $encoding = null)
 /**
  * Find position of last occurrence of a string in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -838,10 +838,10 @@ function mb_strrpos($haystack, $needle, $offset = null, $encoding = null)
 /**
  * Finds first occurrence of a string within another
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -856,8 +856,8 @@ function mb_strstr($haystack, $needle, $part = null, $encoding = null)
 /**
  * Make a string lowercase
  *
- * mixed $sourcestring
- * mixed|null $encoding
+ * @param mixed $sourcestring
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -872,8 +872,8 @@ function mb_strtolower($sourcestring, $encoding = null)
 /**
  * Make a string uppercase
  *
- * mixed $sourcestring
- * mixed|null $encoding
+ * @param mixed $sourcestring
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -888,8 +888,8 @@ function mb_strtoupper($sourcestring, $encoding = null)
 /**
  * Return width of string
  *
- * mixed $str
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -904,7 +904,7 @@ function mb_strwidth($str, $encoding = null)
 /**
  * Set/Get substitution character
  *
- * mixed|null $substchar
+ * @param mixed|null $substchar
  *
  * @return mixed
  *
@@ -919,10 +919,10 @@ function mb_substitute_character($substchar = null)
 /**
  * Get part of string
  *
- * mixed $str
- * mixed $start
- * mixed|null $length
- * mixed|null $encoding
+ * @param mixed $str
+ * @param mixed $start
+ * @param mixed|null $length
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -937,9 +937,9 @@ function mb_substr($str, $start, $length = null, $encoding = null)
 /**
  * Count the number of substring occurrences
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $encoding
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -952,36 +952,36 @@ function mb_substr_count($haystack, $needle, $encoding = null)
 }
 
 /**
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  */
 function mbereg($pattern, $string, &$registers = null)
 {
 }
 
 /**
- * mixed $pattern
- * mixed $string
- * mixed|null $option
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $option
  */
 function mbereg_match($pattern, $string, $option = null)
 {
 }
 
 /**
- * mixed $pattern
- * mixed $replacement
- * mixed $string
- * mixed|null $option
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
+ * @param mixed|null $option
  */
 function mbereg_replace($pattern, $replacement, $string, $option = null)
 {
 }
 
 /**
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  */
 function mbereg_search($pattern = null, $option = null)
 {
@@ -996,66 +996,66 @@ function mbereg_search_getregs()
 }
 
 /**
- * mixed $string
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed $string
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  */
 function mbereg_search_init($string, $pattern = null, $option = null)
 {
 }
 
 /**
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  */
 function mbereg_search_pos($pattern = null, $option = null)
 {
 }
 
 /**
- * mixed|null $pattern
- * mixed|null $option
+ * @param mixed|null $pattern
+ * @param mixed|null $option
  */
 function mbereg_search_regs($pattern = null, $option = null)
 {
 }
 
 /**
- * mixed $position
+ * @param mixed $position
  */
 function mbereg_search_setpos($position)
 {
 }
 
 /**
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  */
 function mberegi($pattern, $string, &$registers = null)
 {
 }
 
 /**
- * mixed $pattern
- * mixed $replacement
- * mixed $string
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
  */
 function mberegi_replace($pattern, $replacement, $string)
 {
 }
 
 /**
- * mixed|null $encoding
+ * @param mixed|null $encoding
  */
 function mbregex_encoding($encoding = null)
 {
 }
 
 /**
- * mixed $pattern
- * mixed $string
- * mixed|null $limit
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $limit
  */
 function mbsplit($pattern, $string, $limit = null)
 {

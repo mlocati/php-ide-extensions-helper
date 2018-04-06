@@ -5,9 +5,9 @@
 /**
  * Creates or open a shared memory segment
  *
- * mixed $key
- * mixed|null $memsize
- * mixed|null $perm
+ * @param mixed $key
+ * @param mixed|null $memsize
+ * @param mixed|null $perm
  *
  * @return resource
  *
@@ -22,7 +22,7 @@ function shm_attach($key, $memsize = null, $perm = null)
 /**
  * Disconnects from shared memory segment
  *
- * mixed $shm_identifier
+ * @param mixed $shm_identifier
  *
  * @return bool
  *
@@ -37,8 +37,8 @@ function shm_detach($shm_identifier): bool
 /**
  * Returns a variable from shared memory
  *
- * mixed $id
- * mixed $variable_key
+ * @param mixed $id
+ * @param mixed $variable_key
  *
  * @return mixed
  *
@@ -53,8 +53,8 @@ function shm_get_var($id, $variable_key)
 /**
  * Check whether a specific entry exists
  *
- * mixed $id
- * mixed $variable_key
+ * @param mixed $id
+ * @param mixed $variable_key
  *
  * @return bool
  *
@@ -69,9 +69,9 @@ function shm_has_var($id, $variable_key): bool
 /**
  * Inserts or updates a variable in shared memory
  *
- * mixed $shm_identifier
- * mixed $variable_key
- * mixed $variable
+ * @param mixed $shm_identifier
+ * @param mixed $variable_key
+ * @param mixed $variable
  *
  * @return bool
  *
@@ -86,7 +86,7 @@ function shm_put_var($shm_identifier, $variable_key, $variable): bool
 /**
  * Removes shared memory from Unix systems
  *
- * mixed $shm_identifier
+ * @param mixed $shm_identifier
  *
  * @return bool
  *
@@ -101,8 +101,8 @@ function shm_remove($shm_identifier): bool
 /**
  * Removes a variable from shared memory
  *
- * mixed $id
- * mixed $variable_key
+ * @param mixed $id
+ * @param mixed $variable_key
  *
  * @return bool
  *

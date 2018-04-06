@@ -3,7 +3,7 @@
 // - parsed on POSIX with PHP 5.6.34
 
 /**
- * mixed $msgid
+ * @param mixed $msgid
  */
 function _($msgid)
 {
@@ -12,8 +12,8 @@ function _($msgid)
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
  *
- * mixed $domain
- * mixed $codeset
+ * @param mixed $domain
+ * @param mixed $codeset
  *
  * @return string
  *
@@ -28,8 +28,8 @@ function bind_textdomain_codeset($domain, $codeset)
 /**
  * Sets the path for a domain
  *
- * mixed $domain_name
- * mixed $dir
+ * @param mixed $domain_name
+ * @param mixed $dir
  *
  * @return string
  *
@@ -44,9 +44,9 @@ function bindtextdomain($domain_name, $dir)
 /**
  * Overrides the domain for a single lookup
  *
- * mixed $domain_name
- * mixed $msgid
- * mixed $category
+ * @param mixed $domain_name
+ * @param mixed $msgid
+ * @param mixed $category
  *
  * @return string
  *
@@ -61,11 +61,11 @@ function dcgettext($domain_name, $msgid, $category)
 /**
  * Plural version of dcgettext
  *
- * mixed $domain
- * mixed $msgid1
- * mixed $msgid2
- * mixed $count
- * mixed $category
+ * @param mixed $domain
+ * @param mixed $msgid1
+ * @param mixed $msgid2
+ * @param mixed $count
+ * @param mixed $category
  *
  * @return string
  *
@@ -80,8 +80,8 @@ function dcngettext($domain, $msgid1, $msgid2, $count, $category)
 /**
  * Override the current domain
  *
- * mixed $domain_name
- * mixed $msgid
+ * @param mixed $domain_name
+ * @param mixed $msgid
  *
  * @return string
  *
@@ -96,10 +96,10 @@ function dgettext($domain_name, $msgid)
 /**
  * Plural version of dgettext
  *
- * mixed $domain
- * mixed $msgid1
- * mixed $msgid2
- * mixed $count
+ * @param mixed $domain
+ * @param mixed $msgid1
+ * @param mixed $msgid2
+ * @param mixed $count
  *
  * @return string
  *
@@ -114,7 +114,7 @@ function dngettext($domain, $msgid1, $msgid2, $count)
 /**
  * Lookup a message in the current domain
  *
- * mixed $msgid
+ * @param mixed $msgid
  *
  * @return string
  *
@@ -129,9 +129,9 @@ function gettext($msgid)
 /**
  * Plural version of gettext
  *
- * mixed $msgid1
- * mixed $msgid2
- * mixed $count
+ * @param mixed $msgid1
+ * @param mixed $msgid2
+ * @param mixed $count
  *
  * @return string
  *
@@ -146,7 +146,7 @@ function ngettext($msgid1, $msgid2, $count)
 /**
  * Sets the default domain
  *
- * mixed $domain
+ * @param mixed $domain
  *
  * @return string
  *

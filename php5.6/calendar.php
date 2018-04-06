@@ -216,9 +216,9 @@ const CAL_NUM_CALS = 4;
 /**
  * Return the number of days in a month for a given year and calendar
  *
- * mixed $calendar
- * mixed $month
- * mixed $year
+ * @param mixed $calendar
+ * @param mixed $month
+ * @param mixed $year
  *
  * @return int
  *
@@ -233,8 +233,8 @@ function cal_days_in_month($calendar, $month, $year)
 /**
  * Converts from Julian Day Count to a supported calendar
  *
- * mixed $jd
- * mixed $calendar
+ * @param mixed $jd
+ * @param mixed $calendar
  *
  * @return array
  *
@@ -249,7 +249,7 @@ function cal_from_jd($jd, $calendar): array
 /**
  * Returns information about a particular calendar
  *
- * mixed|null $calendar
+ * @param mixed|null $calendar
  *
  * @return array
  *
@@ -264,10 +264,10 @@ function cal_info($calendar = null): array
 /**
  * Converts from a supported calendar to Julian Day Count
  *
- * mixed $calendar
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $calendar
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return int
  *
@@ -282,7 +282,7 @@ function cal_to_jd($calendar, $month, $day, $year)
 /**
  * Get Unix timestamp for midnight on Easter of a given year
  *
- * mixed|null $year
+ * @param mixed|null $year
  *
  * @return int
  *
@@ -297,8 +297,8 @@ function easter_date($year = null)
 /**
  * Get number of days after March 21 on which Easter falls for a given year
  *
- * mixed|null $year
- * mixed|null $method
+ * @param mixed|null $year
+ * @param mixed|null $method
  *
  * @return int
  *
@@ -313,9 +313,9 @@ function easter_days($year = null, $method = null)
 /**
  * Converts a date from the French Republican Calendar to a Julian Day Count
  *
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return int
  *
@@ -330,9 +330,9 @@ function frenchtojd($month, $day, $year)
 /**
  * Converts a Gregorian date to Julian Day Count
  *
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return int
  *
@@ -347,8 +347,8 @@ function gregoriantojd($month, $day, $year)
 /**
  * Returns the day of the week
  *
- * mixed $juliandaycount
- * mixed|null $mode
+ * @param mixed $juliandaycount
+ * @param mixed|null $mode
  *
  * @return mixed
  *
@@ -363,8 +363,8 @@ function jddayofweek($juliandaycount, $mode = null)
 /**
  * Returns a month name
  *
- * mixed $juliandaycount
- * mixed $mode
+ * @param mixed $juliandaycount
+ * @param mixed $mode
  *
  * @return string
  *
@@ -379,7 +379,7 @@ function jdmonthname($juliandaycount, $mode)
 /**
  * Converts a Julian Day Count to the French Republican Calendar
  *
- * mixed $juliandaycount
+ * @param mixed $juliandaycount
  *
  * @return string
  *
@@ -394,7 +394,7 @@ function jdtofrench($juliandaycount)
 /**
  * Converts Julian Day Count to Gregorian date
  *
- * mixed $juliandaycount
+ * @param mixed $juliandaycount
  *
  * @return string
  *
@@ -409,9 +409,9 @@ function jdtogregorian($juliandaycount)
 /**
  * Converts a Julian day count to a Jewish calendar date
  *
- * mixed $juliandaycount
- * mixed|null $hebrew
- * mixed|null $fl
+ * @param mixed $juliandaycount
+ * @param mixed|null $hebrew
+ * @param mixed|null $fl
  *
  * @return string
  *
@@ -426,7 +426,7 @@ function jdtojewish($juliandaycount, $hebrew = null, $fl = null)
 /**
  * Converts a Julian Day Count to a Julian Calendar Date
  *
- * mixed $juliandaycount
+ * @param mixed $juliandaycount
  *
  * @return string
  *
@@ -441,7 +441,7 @@ function jdtojulian($juliandaycount)
 /**
  * Convert Julian Day to Unix timestamp
  *
- * mixed $jday
+ * @param mixed $jday
  *
  * @return int
  *
@@ -456,9 +456,9 @@ function jdtounix($jday)
 /**
  * Converts a date in the Jewish Calendar to Julian Day Count
  *
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return int
  *
@@ -473,9 +473,9 @@ function jewishtojd($month, $day, $year)
 /**
  * Converts a Julian Calendar date to Julian Day Count
  *
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return int
  *
@@ -490,7 +490,7 @@ function juliantojd($month, $day, $year)
 /**
  * Convert Unix timestamp to Julian Day
  *
- * mixed|null $timestamp
+ * @param mixed|null $timestamp
  *
  * @return int
  *

@@ -135,13 +135,13 @@ const SQLVARCHAR = 39;
 /**
  * Adds a parameter to a stored procedure or a remote stored procedure
  *
- * mixed $stmt
- * mixed $param_name
- * mixed $var
- * mixed $type
- * mixed|null $is_output
- * mixed|null $is_null
- * mixed|null $maxlen
+ * @param mixed $stmt
+ * @param mixed $param_name
+ * @param mixed $var
+ * @param mixed $type
+ * @param mixed|null $is_output
+ * @param mixed|null $is_null
+ * @param mixed|null $maxlen
  *
  * @return bool
  *
@@ -156,7 +156,7 @@ function mssql_bind($stmt, $param_name, &$var, $type, $is_output = null, $is_nul
 /**
  * Close MS SQL Server connection
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -171,10 +171,10 @@ function mssql_close($link_identifier = null)
 /**
  * Open MS SQL server connection
  *
- * mixed|null $servername
- * mixed|null $username
- * mixed|null $password
- * mixed|null $newlink
+ * @param mixed|null $servername
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $newlink
  *
  * @return resource
  *
@@ -189,8 +189,8 @@ function mssql_connect($servername = null, $username = null, $password = null, $
 /**
  * Moves internal row pointer
  *
- * mixed $result_identifier
- * mixed $row_number
+ * @param mixed $result_identifier
+ * @param mixed $row_number
  *
  * @return bool
  *
@@ -205,8 +205,8 @@ function mssql_data_seek($result_identifier, $row_number)
 /**
  * Executes a stored procedure on a MS SQL server database
  *
- * mixed $stmt
- * mixed|null $skip_results
+ * @param mixed $stmt
+ * @param mixed|null $skip_results
  *
  * @return mixed
  *
@@ -221,8 +221,8 @@ function mssql_execute($stmt, $skip_results = null)
 /**
  * Fetch a result row as an associative array, a numeric array, or both
  *
- * mixed $result
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $result_type
  *
  * @return array
  *
@@ -237,7 +237,7 @@ function mssql_fetch_array($result, $result_type = null): array
 /**
  * Returns an associative array of the current row in the result
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return array
  *
@@ -252,7 +252,7 @@ function mssql_fetch_assoc($result_id): array
 /**
  * Returns the next batch of records
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -267,8 +267,8 @@ function mssql_fetch_batch($result)
 /**
  * Get field information
  *
- * mixed $result
- * mixed|null $field_offset
+ * @param mixed $result
+ * @param mixed|null $field_offset
  *
  * @return object
  *
@@ -283,7 +283,7 @@ function mssql_fetch_field($result, $field_offset = null)
 /**
  * Fetch row as object
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return object
  *
@@ -298,7 +298,7 @@ function mssql_fetch_object($result)
 /**
  * Get row as enumerated array
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -313,8 +313,8 @@ function mssql_fetch_row($result): array
 /**
  * Get the length of a field
  *
- * mixed $result
- * mixed|null $offset
+ * @param mixed $result
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -329,8 +329,8 @@ function mssql_field_length($result, $offset = null)
 /**
  * Get the name of a field
  *
- * mixed $result
- * mixed|null $offset
+ * @param mixed $result
+ * @param mixed|null $offset
  *
  * @return string
  *
@@ -345,8 +345,8 @@ function mssql_field_name($result, $offset = null)
 /**
  * Seeks to the specified field offset
  *
- * mixed $result
- * mixed|null $field_offset
+ * @param mixed $result
+ * @param mixed|null $field_offset
  *
  * @return bool
  *
@@ -361,8 +361,8 @@ function mssql_field_seek($result, $field_offset = null)
 /**
  * Gets the type of a field
  *
- * mixed $result
- * mixed|null $offset
+ * @param mixed $result
+ * @param mixed|null $offset
  *
  * @return string
  *
@@ -377,7 +377,7 @@ function mssql_field_type($result, $offset = null)
 /**
  * Free result memory
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return bool
  *
@@ -392,7 +392,7 @@ function mssql_free_result($result)
 /**
  * Free statement memory
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -420,8 +420,8 @@ function mssql_get_last_message()
 /**
  * Converts a 16 byte binary GUID to a string
  *
- * mixed $binary
- * mixed|null $short_format
+ * @param mixed $binary
+ * @param mixed|null $short_format
  *
  * @return string
  *
@@ -436,8 +436,8 @@ function mssql_guid_string($binary, $short_format = null)
 /**
  * Initializes a stored procedure or a remote stored procedure
  *
- * mixed $sp_name
- * mixed|null $link_identifier
+ * @param mixed $sp_name
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -452,7 +452,7 @@ function mssql_init($sp_name, $link_identifier = null)
 /**
  * Sets the minimum error severity
  *
- * mixed $severity
+ * @param mixed $severity
  *
  * @return void
  *
@@ -467,7 +467,7 @@ function mssql_min_error_severity($severity)
 /**
  * Sets the minimum message severity
  *
- * mixed $severity
+ * @param mixed $severity
  *
  * @return void
  *
@@ -482,7 +482,7 @@ function mssql_min_message_severity($severity)
 /**
  * Move the internal result pointer to the next result
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return bool
  *
@@ -497,7 +497,7 @@ function mssql_next_result($result_id)
 /**
  * Gets the number of fields in result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -512,7 +512,7 @@ function mssql_num_fields($result)
 /**
  * Gets the number of rows in result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -527,10 +527,10 @@ function mssql_num_rows($result)
 /**
  * Open persistent MS SQL connection
  *
- * mixed|null $servername
- * mixed|null $username
- * mixed|null $password
- * mixed|null $newlink
+ * @param mixed|null $servername
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $newlink
  *
  * @return resource
  *
@@ -545,9 +545,9 @@ function mssql_pconnect($servername = null, $username = null, $password = null, 
 /**
  * Send MS SQL query
  *
- * mixed $query
- * mixed|null $link_identifier
- * mixed|null $batch_size
+ * @param mixed $query
+ * @param mixed|null $link_identifier
+ * @param mixed|null $batch_size
  *
  * @return mixed
  *
@@ -562,9 +562,9 @@ function mssql_query($query, $link_identifier = null, $batch_size = null)
 /**
  * Get result data
  *
- * mixed $result
- * mixed $row
- * mixed $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed $field
  *
  * @return string
  *
@@ -579,7 +579,7 @@ function mssql_result($result, $row, $field)
 /**
  * Returns the number of records affected by the query
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return int
  *
@@ -594,8 +594,8 @@ function mssql_rows_affected($link_identifier)
 /**
  * Select MS SQL database
  *
- * mixed $database_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *

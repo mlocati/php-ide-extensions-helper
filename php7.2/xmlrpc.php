@@ -5,8 +5,8 @@
 /**
  * Decodes XML into native PHP types
  *
- * mixed $value
- * mixed|null $encoding
+ * @param mixed $value
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -21,9 +21,9 @@ function xmlrpc_decode($value, $encoding = null)
 /**
  * Decodes XML into native PHP types
  *
- * mixed $xml
- * mixed $method
- * mixed|null $encoding
+ * @param mixed $xml
+ * @param mixed $method
+ * @param mixed|null $encoding
  *
  * @return mixed
  *
@@ -38,7 +38,7 @@ function xmlrpc_decode_request($xml, &$method, $encoding = null)
 /**
  * Generates XML for a PHP value
  *
- * mixed $value
+ * @param mixed $value
  *
  * @return string
  *
@@ -53,9 +53,9 @@ function xmlrpc_encode($value): string
 /**
  * Generates XML for a method request
  *
- * mixed $method
- * mixed $params
- * mixed|null $output_options
+ * @param mixed $method
+ * @param mixed $params
+ * @param mixed|null $output_options
  *
  * @return string
  *
@@ -70,7 +70,7 @@ function xmlrpc_encode_request($method, $params, $output_options = null): string
 /**
  * Gets xmlrpc type for a PHP value
  *
- * mixed $value
+ * @param mixed $value
  *
  * @return string
  *
@@ -85,7 +85,7 @@ function xmlrpc_get_type($value): string
 /**
  * Determines if an array value represents an XMLRPC fault
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return bool
  *
@@ -100,7 +100,7 @@ function xmlrpc_is_fault($arg): bool
 /**
  * Decodes XML into a list of method descriptions
  *
- * mixed $xml
+ * @param mixed $xml
  *
  * @return array
  *
@@ -115,8 +115,8 @@ function xmlrpc_parse_method_descriptions($xml): array
 /**
  * Adds introspection documentation
  *
- * mixed $server
- * mixed $desc
+ * @param mixed $server
+ * @param mixed $desc
  *
  * @return int
  *
@@ -131,10 +131,10 @@ function xmlrpc_server_add_introspection_data($server, $desc): int
 /**
  * Parses XML requests and call methods
  *
- * mixed $server
- * mixed $xml
- * mixed $user_data
- * mixed|null $output_options
+ * @param mixed $server
+ * @param mixed $xml
+ * @param mixed $user_data
+ * @param mixed|null $output_options
  *
  * @return string
  *
@@ -162,7 +162,7 @@ function xmlrpc_server_create()
 /**
  * Destroys server resources
  *
- * mixed $server
+ * @param mixed $server
  *
  * @return bool
  *
@@ -177,8 +177,8 @@ function xmlrpc_server_destroy($server): bool
 /**
  * Register a PHP function to generate documentation
  *
- * mixed $server
- * mixed $function
+ * @param mixed $server
+ * @param mixed $function
  *
  * @return bool
  *
@@ -193,9 +193,9 @@ function xmlrpc_server_register_introspection_callback($server, $function): bool
 /**
  * Register a PHP function to resource method matching method_name
  *
- * mixed $server
- * mixed $method_name
- * mixed $function
+ * @param mixed $server
+ * @param mixed $method_name
+ * @param mixed $function
  *
  * @return bool
  *
@@ -210,8 +210,8 @@ function xmlrpc_server_register_method($server, $method_name, $function): bool
 /**
  * Sets xmlrpc type, base64 or datetime, for a PHP string value
  *
- * mixed $value
- * mixed $type
+ * @param mixed $value
+ * @param mixed $type
  *
  * @return bool
  *

@@ -18,7 +18,7 @@
 class Imagick implements Countable, Iterator
 {
     /**
-     * mixed|null $files
+     * @param mixed|null $files
      */
     public function __construct($files = null)
     {
@@ -29,98 +29,98 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed|null $CHANNEL
      */
     public function adaptiveblurimage($radius, $sigma, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
-     * mixed|null $bestfit
-     * mixed|null $legacy
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed|null $bestfit
+     * @param mixed|null $legacy
      */
     public function adaptiveresizeimage($columns, $rows, $bestfit = null, $legacy = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed|null $CHANNEL
      */
     public function adaptivesharpenimage($radius, $sigma, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $offset
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $offset
      */
     public function adaptivethresholdimage($width, $height, $offset)
     {
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function addimage($Imagick)
     {
     }
 
     /**
-     * mixed $NOISE
-     * mixed|null $CHANNEL
+     * @param mixed $NOISE
+     * @param mixed|null $CHANNEL
      */
     public function addnoiseimage($NOISE, $CHANNEL = null)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
+     * @param ImagickDraw $ImagickDraw
      */
     public function affinetransformimage($ImagickDraw)
     {
     }
 
     /**
-     * mixed $server_name
+     * @param mixed $server_name
      */
     public function animateimages($server_name)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
-     * mixed $x
-     * mixed $y
-     * mixed $angle
-     * mixed $text
+     * @param ImagickDraw $ImagickDraw
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $angle
+     * @param mixed $text
      */
     public function annotateimage($ImagickDraw, $x, $y, $angle, $text)
     {
     }
 
     /**
-     * mixed $stack
+     * @param mixed $stack
      */
     public function appendimages($stack)
     {
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function autogammaimage($CHANNEL)
     {
     }
 
     /**
-     * mixed|null $CHANNEL
+     * @param mixed|null $CHANNEL
      */
     public function autolevelimage($CHANNEL = null)
     {
@@ -131,77 +131,77 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function blackthresholdimage($color)
     {
     }
 
     /**
-     * mixed|null $factor
+     * @param mixed|null $factor
      */
     public function blueshiftimage($factor = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed|null $CHANNELTYPE
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed|null $CHANNELTYPE
      */
     public function blurimage($radius, $sigma, $CHANNELTYPE = null)
     {
     }
 
     /**
-     * mixed $color
-     * mixed $width
-     * mixed $height
+     * @param mixed $color
+     * @param mixed $width
+     * @param mixed $height
      */
     public function borderimage($color, $width, $height)
     {
     }
 
     /**
-     * mixed $brightness
-     * mixed $contrast
-     * mixed|null $CHANNEL
+     * @param mixed $brightness
+     * @param mixed $contrast
+     * @param mixed|null $CHANNEL
      */
     public function brightnesscontrastimage($brightness, $contrast, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $orig_width
-     * mixed $orig_height
-     * mixed $desired_width
-     * mixed $desired_height
-     * mixed|null $legacy
+     * @param mixed $orig_width
+     * @param mixed $orig_height
+     * @param mixed $desired_width
+     * @param mixed $desired_height
+     * @param mixed|null $legacy
      */
     public static function calculatecrop($orig_width, $orig_height, $desired_width, $desired_height, $legacy = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
+     * @param mixed $radius
+     * @param mixed $sigma
      */
     public function charcoalimage($radius, $sigma)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function chopimage($width, $height, $x, $y)
     {
     }
 
     /**
-     * mixed|null $CHANNEL
+     * @param mixed|null $CHANNEL
      */
     public function clampimage($CHANNEL = null)
     {
@@ -216,16 +216,16 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $pathname
-     * mixed $inside
+     * @param mixed $pathname
+     * @param mixed $inside
      */
     public function clipimagepath($pathname, $inside)
     {
     }
 
     /**
-     * mixed $pathname
-     * mixed $inside
+     * @param mixed $pathname
+     * @param mixed $inside
      */
     public function clippathimage($pathname, $inside)
     {
@@ -236,8 +236,8 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * Imagick $Imagick
-     * mixed|null $CHANNELTYPE
+     * @param Imagick $Imagick
+     * @param mixed|null $CHANNELTYPE
      */
     public function clutimage($Imagick, $CHANNELTYPE = null)
     {
@@ -248,34 +248,34 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $antialias
+     * @param mixed $antialias
      */
     public function colordecisionlistimage($antialias)
     {
     }
 
     /**
-     * mixed $fill_color
-     * mixed $fuzz
-     * mixed $border_color
-     * mixed $y
-     * mixed $x
+     * @param mixed $fill_color
+     * @param mixed $fuzz
+     * @param mixed $border_color
+     * @param mixed $y
+     * @param mixed $x
      */
     public function colorfloodfillimage($fill_color, $fuzz, $border_color, $y, $x)
     {
     }
 
     /**
-     * mixed $colorize_color
-     * mixed $opacity
-     * mixed|null $legacy
+     * @param mixed $colorize_color
+     * @param mixed $opacity
+     * @param mixed|null $legacy
      */
     public function colorizeimage($colorize_color, $opacity, $legacy = null)
     {
     }
 
     /**
-     * mixed $color_matrix
+     * @param mixed $color_matrix
      */
     public function colormatriximage($color_matrix)
     {
@@ -286,66 +286,66 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $comment
+     * @param mixed $comment
      */
     public function commentimage($comment)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $CHANNEL
-     * mixed $METRIC
+     * @param Imagick $Imagick
+     * @param mixed $CHANNEL
+     * @param mixed $METRIC
      */
     public function compareimagechannels($Imagick, $CHANNEL, $METRIC)
     {
     }
 
     /**
-     * mixed $LAYER
+     * @param mixed $LAYER
      */
     public function compareimagelayers($LAYER)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $METRIC
+     * @param Imagick $Imagick
+     * @param mixed $METRIC
      */
     public function compareimages($Imagick, $METRIC)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $COMPOSITE
-     * mixed $x
-     * mixed $y
-     * mixed|null $CHANNELTYPE
+     * @param Imagick $Imagick
+     * @param mixed $COMPOSITE
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed|null $CHANNELTYPE
      */
     public function compositeimage($Imagick, $COMPOSITE, $x, $y, $CHANNELTYPE = null)
     {
     }
 
     /**
-     * mixed $sharpen
+     * @param mixed $sharpen
      */
     public function contrastimage($sharpen)
     {
     }
 
     /**
-     * mixed $blackPoint
-     * mixed $whitePoint
-     * mixed|null $CHANNEL
+     * @param mixed $blackPoint
+     * @param mixed $whitePoint
+     * @param mixed|null $CHANNEL
      */
     public function contraststretchimage($blackPoint, $whitePoint, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $kernel
-     * mixed|null $CHANNEL
+     * @param mixed $kernel
+     * @param mixed|null $CHANNEL
      */
     public function convolveimage($kernel, $CHANNEL = null)
     {
@@ -354,7 +354,7 @@ class Imagick implements Countable, Iterator
     /**
      * Count all elements in an array, or something in an object
      *
-     * mixed|null $mode
+     * @param mixed|null $mode
      *
      * @return int
      *
@@ -367,19 +367,19 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function cropimage($width, $height, $x, $y)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed|null $legacy
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed|null $legacy
      */
     public function cropthumbnailimage($width, $height, $legacy = null)
     {
@@ -399,14 +399,14 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $displace
+     * @param mixed $displace
      */
     public function cyclecolormapimage($displace)
     {
     }
 
     /**
-     * mixed $passphrase
+     * @param mixed $passphrase
      */
     public function decipherimage($passphrase)
     {
@@ -417,21 +417,21 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $artifact
+     * @param mixed $artifact
      */
     public function deleteimageartifact($artifact)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function deleteimageproperty($name)
     {
     }
 
     /**
-     * mixed $threshold
+     * @param mixed $threshold
      */
     public function deskewimage($threshold)
     {
@@ -446,52 +446,52 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $serverName
+     * @param mixed $serverName
      */
     public function displayimage($serverName)
     {
     }
 
     /**
-     * mixed $serverName
+     * @param mixed $serverName
      */
     public function displayimages($serverName)
     {
     }
 
     /**
-     * mixed $method
-     * mixed $arguments
-     * mixed $bestfit
+     * @param mixed $method
+     * @param mixed $arguments
+     * @param mixed $bestfit
      */
     public function distortimage($method, $arguments, $bestfit)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
+     * @param ImagickDraw $ImagickDraw
      */
     public function drawimage($ImagickDraw)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function edgeimage($radius)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
+     * @param mixed $radius
+     * @param mixed $sigma
      */
     public function embossimage($radius, $sigma)
     {
     }
 
     /**
-     * mixed $passphrase
+     * @param mixed $passphrase
      */
     public function encipherimage($passphrase)
     {
@@ -506,46 +506,46 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $EVALUATE
-     * mixed $constant
-     * mixed|null $CHANNEL
+     * @param mixed $EVALUATE
+     * @param mixed $constant
+     * @param mixed|null $CHANNEL
      */
     public function evaluateimage($EVALUATE, $constant, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $EVALUATE
+     * @param mixed $EVALUATE
      */
     public function evaluateimages($EVALUATE)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $width
-     * mixed $height
-     * mixed $map
-     * mixed $STORAGE
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $map
+     * @param mixed $STORAGE
      */
     public function exportimagepixels($x, $y, $width, $height, $map, $STORAGE)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function extentimage($width, $height, $x, $y)
     {
     }
 
     /**
-     * ImagickKernel $ImagickKernel
-     * mixed|null $CHANNEL
+     * @param ImagickKernel $ImagickKernel
+     * @param mixed|null $CHANNEL
      */
     public function filter($ImagickKernel, $CHANNEL = null)
     {
@@ -560,13 +560,13 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $fill
-     * mixed $fuzz
-     * mixed $bordercolor
-     * mixed $x
-     * mixed $y
-     * mixed $invert
-     * mixed|null $CHANNEL
+     * @param mixed $fill
+     * @param mixed $fuzz
+     * @param mixed $bordercolor
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $invert
+     * @param mixed|null $CHANNEL
      */
     public function floodfillpaintimage($fill, $fuzz, $bordercolor, $x, $y, $invert, $CHANNEL = null)
     {
@@ -577,51 +577,51 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $magnitude
+     * @param mixed $magnitude
      */
     public function forwardfouriertransformimage($magnitude)
     {
     }
 
     /**
-     * mixed $color
-     * mixed $width
-     * mixed $height
-     * mixed $innerBevel
-     * mixed $outerBevel
+     * @param mixed $color
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $innerBevel
+     * @param mixed $outerBevel
      */
     public function frameimage($color, $width, $height, $innerBevel, $outerBevel)
     {
     }
 
     /**
-     * mixed $FUNCTION
-     * mixed $arguments
+     * @param mixed $FUNCTION
+     * @param mixed $arguments
      */
     public function functionimage($FUNCTION, $arguments)
     {
     }
 
     /**
-     * mixed $expression
-     * mixed|null $CHANNEL
+     * @param mixed $expression
+     * @param mixed|null $CHANNEL
      */
     public function fximage($expression, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $gamma
-     * mixed|null $CHANNEL
+     * @param mixed $gamma
+     * @param mixed|null $CHANNEL
      */
     public function gammaimage($gamma, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed|null $CHANNEL
      */
     public function gaussianblurimage($radius, $sigma, $CHANNEL = null)
     {
@@ -644,7 +644,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed|null $pattern
+     * @param mixed|null $pattern
      */
     public static function getconfigureoptions($pattern = null)
     {
@@ -691,14 +691,14 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $artifact
+     * @param mixed $artifact
      */
     public function getimageartifact($artifact)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function getimageattribute($key)
     {
@@ -721,53 +721,53 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function getimagechanneldepth($CHANNEL)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $CHANNEL
-     * mixed $METRIC
+     * @param Imagick $Imagick
+     * @param mixed $CHANNEL
+     * @param mixed $METRIC
      */
     public function getimagechanneldistortion($Imagick, $CHANNEL, $METRIC)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed|null $METRICTYPE
-     * mixed|null $CHANNEL
+     * @param Imagick $Imagick
+     * @param mixed|null $METRICTYPE
+     * @param mixed|null $CHANNEL
      */
     public function getimagechanneldistortions($Imagick, $METRICTYPE = null, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function getimagechannelextrema($CHANNEL)
     {
     }
 
     /**
-     * mixed|null $CHANNEL
+     * @param mixed|null $CHANNEL
      */
     public function getimagechannelkurtosis($CHANNEL = null)
     {
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function getimagechannelmean($CHANNEL)
     {
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function getimagechannelrange($CHANNEL)
     {
@@ -782,7 +782,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function getimagecolormapcolor($index)
     {
@@ -821,8 +821,8 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $METRIC
+     * @param Imagick $Imagick
+     * @param mixed $METRIC
      */
     public function getimagedistortion($Imagick, $METRIC)
     {
@@ -905,38 +905,38 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function getimagepixelcolor($x, $y)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getimageprofile($name)
     {
     }
 
     /**
-     * mixed|null $pattern
-     * mixed|null $values
+     * @param mixed|null $pattern
+     * @param mixed|null $values
      */
     public function getimageprofiles($pattern = null, $values = null)
     {
     }
 
     /**
-     * mixed|null $pattern
-     * mixed|null $values
+     * @param mixed|null $pattern
+     * @param mixed|null $values
      */
     public function getimageproperties($pattern = null, $values = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getimageproperty($name)
     {
@@ -947,10 +947,10 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function getimageregion($width, $height, $x, $y)
     {
@@ -1030,7 +1030,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function getoption($key)
     {
@@ -1049,11 +1049,11 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $columns
-     * mixed $rows
-     * mixed $modify
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed $modify
      */
     public function getpixelregioniterator($x, $y, $columns, $rows, $modify)
     {
@@ -1076,7 +1076,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public static function getregistry($key)
     {
@@ -1087,14 +1087,14 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $resource_type
+     * @param mixed $resource_type
      */
     public static function getresource($resource_type)
     {
     }
 
     /**
-     * mixed $resource_type
+     * @param mixed $resource_type
      */
     public static function getresourcelimit($resource_type)
     {
@@ -1117,8 +1117,8 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * Imagick $Imagick
-     * mixed|null $CHANNEL
+     * @param Imagick $Imagick
+     * @param mixed|null $CHANNEL
      */
     public function haldclutimage($Imagick, $CHANNEL = null)
     {
@@ -1133,42 +1133,42 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $embedText
+     * @param mixed $embedText
      */
     public function identifyformat($embedText)
     {
     }
 
     /**
-     * mixed|null $appendRawOutput
+     * @param mixed|null $appendRawOutput
      */
     public function identifyimage($appendRawOutput = null)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function implodeimage($radius)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $width
-     * mixed $height
-     * mixed $map
-     * mixed $storage
-     * mixed $PIXEL
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $map
+     * @param mixed $storage
+     * @param mixed $PIXEL
      */
     public function importimagepixels($x, $y, $width, $height, $map, $storage, $PIXEL)
     {
     }
 
     /**
-     * mixed $complement
-     * mixed $magnitude
+     * @param mixed $complement
+     * @param mixed $magnitude
      */
     public function inversefouriertransformimage($complement, $magnitude)
     {
@@ -1188,35 +1188,35 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $label
+     * @param mixed $label
      */
     public function labelimage($label)
     {
     }
 
     /**
-     * mixed $blackPoint
-     * mixed $gamma
-     * mixed $whitePoint
-     * mixed|null $CHANNEL
+     * @param mixed $blackPoint
+     * @param mixed $gamma
+     * @param mixed $whitePoint
+     * @param mixed|null $CHANNEL
      */
     public function levelimage($blackPoint, $gamma, $whitePoint, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $blackPoint
-     * mixed $whitePoint
+     * @param mixed $blackPoint
+     * @param mixed $whitePoint
      */
     public function linearstretchimage($blackPoint, $whitePoint)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
-     * mixed $delta_x
-     * mixed $rigidity
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed $delta_x
+     * @param mixed $rigidity
      */
     public function liquidrescaleimage($columns, $rows, $delta_x, $rigidity)
     {
@@ -1231,33 +1231,33 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $dither
+     * @param Imagick $Imagick
+     * @param mixed $dither
      */
     public function mapimage($Imagick, $dither)
     {
     }
 
     /**
-     * mixed $alpha
-     * mixed $fuzz
-     * mixed $color
-     * mixed $x
-     * mixed $y
+     * @param mixed $alpha
+     * @param mixed $fuzz
+     * @param mixed $color
+     * @param mixed $x
+     * @param mixed $y
      */
     public function mattefloodfillimage($alpha, $fuzz, $color, $x, $y)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function medianfilterimage($radius)
     {
     }
 
     /**
-     * mixed $LAYERMETHOD
+     * @param mixed $LAYERMETHOD
      */
     public function mergeimagelayers($LAYERMETHOD)
     {
@@ -1268,37 +1268,37 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $brightness
-     * mixed $saturation
-     * mixed $hue
+     * @param mixed $brightness
+     * @param mixed $saturation
+     * @param mixed $hue
      */
     public function modulateimage($brightness, $saturation, $hue)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
-     * mixed $tileGeometry
-     * mixed $thumbnailGeometry
-     * mixed $MONTAGEMODE
-     * mixed $frame
+     * @param ImagickDraw $ImagickDraw
+     * @param mixed $tileGeometry
+     * @param mixed $thumbnailGeometry
+     * @param mixed $MONTAGEMODE
+     * @param mixed $frame
      */
     public function montageimage($ImagickDraw, $tileGeometry, $thumbnailGeometry, $MONTAGEMODE, $frame)
     {
     }
 
     /**
-     * mixed $frames
+     * @param mixed $frames
      */
     public function morphimages($frames)
     {
     }
 
     /**
-     * mixed $morphologyMethod
-     * mixed $iterations
-     * ImagickKernel $ImagickKernel
-     * mixed|null $CHANNEL
+     * @param mixed $morphologyMethod
+     * @param mixed $iterations
+     * @param ImagickKernel $ImagickKernel
+     * @param mixed|null $CHANNEL
      */
     public function morphology($morphologyMethod, $iterations, $ImagickKernel, $CHANNEL = null)
     {
@@ -1309,37 +1309,37 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed $angle
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed $angle
+     * @param mixed|null $CHANNEL
      */
     public function motionblurimage($radius, $sigma, $angle, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $gray
-     * mixed|null $CHANNEL
+     * @param mixed $gray
+     * @param mixed|null $CHANNEL
      */
     public function negateimage($gray, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
-     * mixed $background_color
-     * mixed|null $format
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed $background_color
+     * @param mixed|null $format
      */
     public function newimage($columns, $rows, $background_color, $format = null)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
-     * mixed $pseudoString
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed $pseudoString
      */
     public function newpseudoimage($columns, $rows, $pseudoString)
     {
@@ -1363,25 +1363,25 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed|null $CHANNEL
+     * @param mixed|null $CHANNEL
      */
     public function normalizeimage($CHANNEL = null)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function oilpaintimage($radius)
     {
     }
 
     /**
-     * mixed $target
-     * mixed $fill
-     * mixed $fuzz
-     * mixed $invert
-     * mixed|null $CHANNEL
+     * @param mixed $target
+     * @param mixed $fill
+     * @param mixed $fuzz
+     * @param mixed $invert
+     * @param mixed|null $CHANNEL
      */
     public function opaquepaintimage($target, $fill, $fuzz, $invert, $CHANNEL = null)
     {
@@ -1392,83 +1392,83 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $threshold_map
-     * mixed|null $CHANNEL
+     * @param mixed $threshold_map
+     * @param mixed|null $CHANNEL
      */
     public function orderedposterizeimage($threshold_map, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $CHANNEL
-     * mixed $fill
-     * mixed $fuzz
-     * mixed $bordercolor
-     * mixed $x
-     * mixed $y
+     * @param mixed $CHANNEL
+     * @param mixed $fill
+     * @param mixed $fuzz
+     * @param mixed $bordercolor
+     * @param mixed $x
+     * @param mixed $y
      */
     public function paintfloodfillimage($CHANNEL, $fill, $fuzz, $bordercolor, $x, $y)
     {
     }
 
     /**
-     * mixed $target_color
-     * mixed $fill_color
-     * mixed $fuzz
-     * mixed|null $CHANNEL
+     * @param mixed $target_color
+     * @param mixed $fill_color
+     * @param mixed $fuzz
+     * @param mixed|null $CHANNEL
      */
     public function paintopaqueimage($target_color, $fill_color, $fuzz, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $target_color
-     * mixed $alpha
-     * mixed $fuzz
+     * @param mixed $target_color
+     * @param mixed $alpha
+     * @param mixed $fuzz
      */
     public function painttransparentimage($target_color, $alpha, $fuzz)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function pingimage($filename)
     {
     }
 
     /**
-     * mixed $imageContents
+     * @param mixed $imageContents
      */
     public function pingimageblob($imageContents)
     {
     }
 
     /**
-     * mixed $fp
+     * @param mixed $fp
      */
     public function pingimagefile($fp)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
-     * mixed $angle
+     * @param ImagickDraw $ImagickDraw
+     * @param mixed $angle
      */
     public function polaroidimage($ImagickDraw, $angle)
     {
     }
 
     /**
-     * mixed $levels
-     * mixed $dither
+     * @param mixed $levels
+     * @param mixed $dither
      */
     public function posterizeimage($levels, $dither)
     {
     }
 
     /**
-     * mixed $PREVIEW
+     * @param mixed $PREVIEW
      */
     public function previewimages($PREVIEW)
     {
@@ -1479,132 +1479,132 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $name
-     * mixed $profile
+     * @param mixed $name
+     * @param mixed $profile
      */
     public function profileimage($name, $profile)
     {
     }
 
     /**
-     * mixed $numColors
-     * mixed $COLORSPACE
-     * mixed $treeDepth
-     * mixed $dither
-     * mixed $measureError
+     * @param mixed $numColors
+     * @param mixed $COLORSPACE
+     * @param mixed $treeDepth
+     * @param mixed $dither
+     * @param mixed $measureError
      */
     public function quantizeimage($numColors, $COLORSPACE, $treeDepth, $dither, $measureError)
     {
     }
 
     /**
-     * mixed $numColors
-     * mixed $COLORSPACE
-     * mixed $treeDepth
-     * mixed $dither
-     * mixed $measureError
+     * @param mixed $numColors
+     * @param mixed $COLORSPACE
+     * @param mixed $treeDepth
+     * @param mixed $dither
+     * @param mixed $measureError
      */
     public function quantizeimages($numColors, $COLORSPACE, $treeDepth, $dither, $measureError)
     {
     }
 
     /**
-     * ImagickDraw $ImagickDraw
-     * mixed $text
-     * mixed|null $multiline
+     * @param ImagickDraw $ImagickDraw
+     * @param mixed $text
+     * @param mixed|null $multiline
      */
     public function queryfontmetrics($ImagickDraw, $text, $multiline = null)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public static function queryfonts($pattern)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public static function queryformats($pattern)
     {
     }
 
     /**
-     * mixed $angle
-     * mixed|null $CHANNEL
+     * @param mixed $angle
+     * @param mixed|null $CHANNEL
      */
     public function radialblurimage($angle, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
-     * mixed $raise
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $raise
      */
     public function raiseimage($width, $height, $x, $y, $raise)
     {
     }
 
     /**
-     * mixed $low
-     * mixed $high
-     * mixed|null $CHANNELTYPE
+     * @param mixed $low
+     * @param mixed $high
+     * @param mixed|null $CHANNELTYPE
      */
     public function randomthresholdimage($low, $high, $CHANNELTYPE = null)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function readimage($filename)
     {
     }
 
     /**
-     * mixed $imageContents
-     * mixed|null $filename
+     * @param mixed $imageContents
+     * @param mixed|null $filename
      */
     public function readimageblob($imageContents, $filename = null)
     {
     }
 
     /**
-     * mixed $fp
+     * @param mixed $fp
      */
     public function readimagefile($fp)
     {
     }
 
     /**
-     * mixed $filenames
+     * @param mixed $filenames
      */
     public function readimages($filenames)
     {
     }
 
     /**
-     * mixed $matrix
+     * @param mixed $matrix
      */
     public function recolorimage($matrix)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function reducenoiseimage($radius)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $DITHER
+     * @param Imagick $Imagick
+     * @param mixed $DITHER
      */
     public function remapimage($Imagick, $DITHER)
     {
@@ -1615,24 +1615,24 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function removeimageprofile($name)
     {
     }
 
     /**
-     * mixed $xResolution
-     * mixed $yResolution
-     * mixed $FILTER
-     * mixed $blur
+     * @param mixed $xResolution
+     * @param mixed $yResolution
+     * @param mixed $FILTER
+     * @param mixed $blur
      */
     public function resampleimage($xResolution, $yResolution, $FILTER, $blur)
     {
     }
 
     /**
-     * mixed $page
+     * @param mixed $page
      */
     public function resetimagepage($page)
     {
@@ -1643,12 +1643,12 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed|null $filter
-     * mixed|null $blur
-     * mixed|null $bestfit
-     * mixed|null $legacy
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed|null $filter
+     * @param mixed|null $blur
+     * @param mixed|null $bestfit
+     * @param mixed|null $legacy
      */
     public function resizeimage($x, $y, $filter = null, $blur = null, $bestfit = null, $legacy = null)
     {
@@ -1668,140 +1668,140 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function rollimage($x, $y)
     {
     }
 
     /**
-     * mixed $color
-     * mixed $degrees
+     * @param mixed $color
+     * @param mixed $degrees
      */
     public function rotateimage($color, $degrees)
     {
     }
 
     /**
-     * mixed $angle
-     * mixed|null $CHANNEL
+     * @param mixed $angle
+     * @param mixed|null $CHANNEL
      */
     public function rotationalblurimage($angle, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $xRounding
-     * mixed $yRounding
-     * mixed|null $strokeWidth
-     * mixed|null $displace
-     * mixed|null $sizeCorrection
+     * @param mixed $xRounding
+     * @param mixed $yRounding
+     * @param mixed|null $strokeWidth
+     * @param mixed|null $displace
+     * @param mixed|null $sizeCorrection
      */
     public function roundcorners($xRounding, $yRounding, $strokeWidth = null, $displace = null, $sizeCorrection = null)
     {
     }
 
     /**
-     * mixed $xRounding
-     * mixed $yRounding
-     * mixed|null $strokeWidth
-     * mixed|null $displace
-     * mixed|null $sizeCorrection
+     * @param mixed $xRounding
+     * @param mixed $yRounding
+     * @param mixed|null $strokeWidth
+     * @param mixed|null $displace
+     * @param mixed|null $sizeCorrection
      */
     public function roundcornersimage($xRounding, $yRounding, $strokeWidth = null, $displace = null, $sizeCorrection = null)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
+     * @param mixed $columns
+     * @param mixed $rows
      */
     public function sampleimage($columns, $rows)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed|null $bestfit
-     * mixed|null $legacy
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed|null $bestfit
+     * @param mixed|null $legacy
      */
     public function scaleimage($width, $height, $bestfit = null, $legacy = null)
     {
     }
 
     /**
-     * mixed $COLORSPACE
-     * mixed $cluster_threshold
-     * mixed $smooth_threshold
-     * mixed|null $verbose
+     * @param mixed $COLORSPACE
+     * @param mixed $cluster_threshold
+     * @param mixed $smooth_threshold
+     * @param mixed|null $verbose
      */
     public function segmentimage($COLORSPACE, $cluster_threshold, $smooth_threshold, $verbose = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed $threshold
-     * mixed $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed $threshold
+     * @param mixed $CHANNEL
      */
     public function selectiveblurimage($radius, $sigma, $threshold, $CHANNEL)
     {
     }
 
     /**
-     * mixed $CHANNEL
+     * @param mixed $CHANNEL
      */
     public function separateimagechannel($CHANNEL)
     {
     }
 
     /**
-     * mixed $threshold
+     * @param mixed $threshold
      */
     public function sepiatoneimage($threshold)
     {
     }
 
     /**
-     * mixed $antialias
+     * @param mixed $antialias
      */
     public function setantialias($antialias)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setbackgroundcolor($color)
     {
     }
 
     /**
-     * mixed $COLORSPACE
+     * @param mixed $COLORSPACE
      */
     public function setcolorspace($COLORSPACE)
     {
     }
 
     /**
-     * mixed $compression
+     * @param mixed $compression
      */
     public function setcompression($compression)
     {
     }
 
     /**
-     * mixed $compressionquality
+     * @param mixed $compressionquality
      */
     public function setcompressionquality($compressionquality)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setfilename($filename)
     {
@@ -1812,372 +1812,372 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $font
+     * @param mixed $font
      */
     public function setfont($font)
     {
     }
 
     /**
-     * mixed $format
+     * @param mixed $format
      */
     public function setformat($format)
     {
     }
 
     /**
-     * mixed $GRAVITY
+     * @param mixed $GRAVITY
      */
     public function setgravity($GRAVITY)
     {
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function setimage($Imagick)
     {
     }
 
     /**
-     * mixed $ALPHACHANNELTYPE
+     * @param mixed $ALPHACHANNELTYPE
      */
     public function setimagealphachannel($ALPHACHANNELTYPE)
     {
     }
 
     /**
-     * mixed $artifact
-     * mixed $value
+     * @param mixed $artifact
+     * @param mixed $value
      */
     public function setimageartifact($artifact, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function setimageattribute($key, $value)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setimagebackgroundcolor($color)
     {
     }
 
     /**
-     * mixed $bias
+     * @param mixed $bias
      */
     public function setimagebias($bias)
     {
     }
 
     /**
-     * mixed $bias
+     * @param mixed $bias
      */
     public function setimagebiasquantum($bias)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setimageblueprimary($x, $y)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setimagebordercolor($color)
     {
     }
 
     /**
-     * mixed $CHANNEL
-     * mixed $depth
+     * @param mixed $CHANNEL
+     * @param mixed $depth
      */
     public function setimagechanneldepth($CHANNEL, $depth)
     {
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function setimageclipmask($Imagick)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $color
+     * @param mixed $index
+     * @param mixed $color
      */
     public function setimagecolormapcolor($index, $color)
     {
     }
 
     /**
-     * mixed $COLORSPACE
+     * @param mixed $COLORSPACE
      */
     public function setimagecolorspace($COLORSPACE)
     {
     }
 
     /**
-     * mixed $COMPOSITE
+     * @param mixed $COMPOSITE
      */
     public function setimagecompose($COMPOSITE)
     {
     }
 
     /**
-     * mixed $COMPRESSION
+     * @param mixed $COMPRESSION
      */
     public function setimagecompression($COMPRESSION)
     {
     }
 
     /**
-     * mixed $quality
+     * @param mixed $quality
      */
     public function setimagecompressionquality($quality)
     {
     }
 
     /**
-     * mixed $delay
+     * @param mixed $delay
      */
     public function setimagedelay($delay)
     {
     }
 
     /**
-     * mixed $depth
+     * @param mixed $depth
      */
     public function setimagedepth($depth)
     {
     }
 
     /**
-     * mixed $DISPOSETYPE
+     * @param mixed $DISPOSETYPE
      */
     public function setimagedispose($DISPOSETYPE)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
+     * @param mixed $columns
+     * @param mixed $rows
      */
     public function setimageextent($columns, $rows)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setimagefilename($filename)
     {
     }
 
     /**
-     * mixed $imageFormat
+     * @param mixed $imageFormat
      */
     public function setimageformat($imageFormat)
     {
     }
 
     /**
-     * mixed $gamma
+     * @param mixed $gamma
      */
     public function setimagegamma($gamma)
     {
     }
 
     /**
-     * mixed $GRAVITY
+     * @param mixed $GRAVITY
      */
     public function setimagegravity($GRAVITY)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setimagegreenprimary($x, $y)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function setimageindex($index)
     {
     }
 
     /**
-     * mixed $INTERLACE
+     * @param mixed $INTERLACE
      */
     public function setimageinterlacescheme($INTERLACE)
     {
     }
 
     /**
-     * mixed $INTERPOLATE
+     * @param mixed $INTERPOLATE
      */
     public function setimageinterpolatemethod($INTERPOLATE)
     {
     }
 
     /**
-     * mixed $iterations
+     * @param mixed $iterations
      */
     public function setimageiterations($iterations)
     {
     }
 
     /**
-     * mixed $enable
+     * @param mixed $enable
      */
     public function setimagematte($enable)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setimagemattecolor($color)
     {
     }
 
     /**
-     * mixed $opacity
+     * @param mixed $opacity
      */
     public function setimageopacity($opacity)
     {
     }
 
     /**
-     * mixed $ORIENTATION
+     * @param mixed $ORIENTATION
      */
     public function setimageorientation($ORIENTATION)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setimagepage($width, $height, $x, $y)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $profile
+     * @param mixed $name
+     * @param mixed $profile
      */
     public function setimageprofile($name, $profile)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setimageprogressmonitor($filename)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function setimageproperty($name, $value)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setimageredprimary($x, $y)
     {
     }
 
     /**
-     * mixed $RENDERINGINTENT
+     * @param mixed $RENDERINGINTENT
      */
     public function setimagerenderingintent($RENDERINGINTENT)
     {
     }
 
     /**
-     * mixed $xResolution
-     * mixed $yResolution
+     * @param mixed $xResolution
+     * @param mixed $yResolution
      */
     public function setimageresolution($xResolution, $yResolution)
     {
     }
 
     /**
-     * mixed $scene
+     * @param mixed $scene
      */
     public function setimagescene($scene)
     {
     }
 
     /**
-     * mixed $ticksPerSecond
+     * @param mixed $ticksPerSecond
      */
     public function setimagetickspersecond($ticksPerSecond)
     {
     }
 
     /**
-     * mixed $IMGTYPE
+     * @param mixed $IMGTYPE
      */
     public function setimagetype($IMGTYPE)
     {
     }
 
     /**
-     * mixed $RESOLUTION
+     * @param mixed $RESOLUTION
      */
     public function setimageunits($RESOLUTION)
     {
     }
 
     /**
-     * mixed $VIRTUALPIXELMETHOD
+     * @param mixed $VIRTUALPIXELMETHOD
      */
     public function setimagevirtualpixelmethod($VIRTUALPIXELMETHOD)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setimagewhitepoint($x, $y)
     {
     }
 
     /**
-     * mixed $INTERLACE
+     * @param mixed $INTERLACE
      */
     public function setinterlacescheme($INTERLACE)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function setiteratorindex($index)
     {
@@ -2188,80 +2188,80 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function setoption($key, $value)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setpage($width, $height, $x, $y)
     {
     }
 
     /**
-     * mixed $pointsize
+     * @param mixed $pointsize
      */
     public function setpointsize($pointsize)
     {
     }
 
     /**
-     * mixed $callback
+     * @param mixed $callback
      */
     public function setprogressmonitor($callback)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public static function setregistry($key, $value)
     {
     }
 
     /**
-     * mixed $xResolution
-     * mixed $yResolution
+     * @param mixed $xResolution
+     * @param mixed $yResolution
      */
     public function setresolution($xResolution, $yResolution)
     {
     }
 
     /**
-     * mixed $RESOURCETYPE
-     * mixed $limit
+     * @param mixed $RESOURCETYPE
+     * @param mixed $limit
      */
     public static function setresourcelimit($RESOURCETYPE, $limit)
     {
     }
 
     /**
-     * mixed $factors
+     * @param mixed $factors
      */
     public function setsamplingfactors($factors)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
+     * @param mixed $columns
+     * @param mixed $rows
      */
     public function setsize($columns, $rows)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
-     * mixed $offset
+     * @param mixed $columns
+     * @param mixed $rows
+     * @param mixed $offset
      */
     public function setsizeoffset($columns, $rows, $offset)
     {
@@ -2270,7 +2270,7 @@ class Imagick implements Countable, Iterator
     /**
      * Set the type of a variable
      *
-     * mixed $IMGTYPE
+     * @param mixed $IMGTYPE
      *
      * @return bool
      *
@@ -2283,141 +2283,141 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $gray
-     * mixed $azimuth
-     * mixed $elevation
+     * @param mixed $gray
+     * @param mixed $azimuth
+     * @param mixed $elevation
      */
     public function shadeimage($gray, $azimuth, $elevation)
     {
     }
 
     /**
-     * mixed $opacity
-     * mixed $sigma
-     * mixed $x
-     * mixed $y
+     * @param mixed $opacity
+     * @param mixed $sigma
+     * @param mixed $x
+     * @param mixed $y
      */
     public function shadowimage($opacity, $sigma, $x, $y)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed|null $CHANNEL
      */
     public function sharpenimage($radius, $sigma, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $columns
-     * mixed $rows
+     * @param mixed $columns
+     * @param mixed $rows
      */
     public function shaveimage($columns, $rows)
     {
     }
 
     /**
-     * mixed $color
-     * mixed $xShear
-     * mixed $yShear
+     * @param mixed $color
+     * @param mixed $xShear
+     * @param mixed $yShear
      */
     public function shearimage($color, $xShear, $yShear)
     {
     }
 
     /**
-     * mixed $sharpen
-     * mixed $contrast
-     * mixed $midpoint
-     * mixed|null $CHANNEL
+     * @param mixed $sharpen
+     * @param mixed $contrast
+     * @param mixed $midpoint
+     * @param mixed|null $CHANNEL
      */
     public function sigmoidalcontrastimage($sharpen, $contrast, $midpoint, $CHANNEL = null)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed|null $offset
-     * mixed|null $similarity
-     * mixed|null $similarity_threshold
-     * mixed|null $metric
+     * @param Imagick $Imagick
+     * @param mixed|null $offset
+     * @param mixed|null $similarity
+     * @param mixed|null $similarity_threshold
+     * @param mixed|null $metric
      */
     public function similarityimage($Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed $angle
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed $angle
      */
     public function sketchimage($radius, $sigma, $angle)
     {
     }
 
     /**
-     * mixed $stack
-     * mixed $offset
+     * @param mixed $stack
+     * @param mixed $offset
      */
     public function smushimages($stack, $offset)
     {
     }
 
     /**
-     * mixed $threshold
+     * @param mixed $threshold
      */
     public function solarizeimage($threshold)
     {
     }
 
     /**
-     * mixed $SPARSE_METHOD
-     * mixed $arguments
-     * mixed|null $CHANNEL
+     * @param mixed $SPARSE_METHOD
+     * @param mixed $arguments
+     * @param mixed|null $CHANNEL
      */
     public function sparsecolorimage($SPARSE_METHOD, $arguments, $CHANNEL = null)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed $x
-     * mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $x
+     * @param mixed $y
      */
     public function spliceimage($width, $height, $x, $y)
     {
     }
 
     /**
-     * mixed $radius
+     * @param mixed $radius
      */
     public function spreadimage($radius)
     {
     }
 
     /**
-     * mixed $type
-     * mixed $width
-     * mixed $height
-     * mixed|null $CHANNEL
+     * @param mixed $type
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed|null $CHANNEL
      */
     public function statisticimage($type, $width, $height, $CHANNEL = null)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $offset
+     * @param Imagick $Imagick
+     * @param mixed $offset
      */
     public function steganoimage($Imagick, $offset)
     {
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function stereoimage($Imagick)
     {
@@ -2428,78 +2428,78 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * Imagick $Imagick
-     * mixed|null $offset
-     * mixed|null $similarity
-     * mixed|null $similarity_threshold
-     * mixed|null $metric
+     * @param Imagick $Imagick
+     * @param mixed|null $offset
+     * @param mixed|null $similarity
+     * @param mixed|null $similarity_threshold
+     * @param mixed|null $metric
      */
     public function subimagematch($Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
     }
 
     /**
-     * mixed $degrees
+     * @param mixed $degrees
      */
     public function swirlimage($degrees)
     {
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function textureimage($Imagick)
     {
     }
 
     /**
-     * mixed $threshold
-     * mixed|null $CHANNELTYPE
+     * @param mixed $threshold
+     * @param mixed|null $CHANNELTYPE
      */
     public function thresholdimage($threshold, $CHANNELTYPE = null)
     {
     }
 
     /**
-     * mixed $width
-     * mixed $height
-     * mixed|null $bestfit
-     * mixed|null $fill
-     * mixed|null $legacy
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed|null $bestfit
+     * @param mixed|null $fill
+     * @param mixed|null $legacy
      */
     public function thumbnailimage($width, $height, $bestfit = null, $fill = null, $legacy = null)
     {
     }
 
     /**
-     * mixed $tint_color
-     * mixed $opacity
-     * mixed|null $legacy
+     * @param mixed $tint_color
+     * @param mixed $opacity
+     * @param mixed|null $legacy
      */
     public function tintimage($tint_color, $opacity, $legacy = null)
     {
     }
 
     /**
-     * mixed $crop
-     * mixed $geometry
+     * @param mixed $crop
+     * @param mixed $geometry
      */
     public function transformimage($crop, $geometry)
     {
     }
 
     /**
-     * mixed $COLORSPACE
+     * @param mixed $COLORSPACE
      */
     public function transformimagecolorspace($COLORSPACE)
     {
     }
 
     /**
-     * mixed $target
-     * mixed $alpha
-     * mixed $fuzz
-     * mixed $invert
+     * @param mixed $target
+     * @param mixed $alpha
+     * @param mixed $fuzz
+     * @param mixed $invert
      */
     public function transparentpaintimage($target, $alpha, $fuzz, $invert)
     {
@@ -2514,7 +2514,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $fuzz
+     * @param mixed $fuzz
      */
     public function trimimage($fuzz)
     {
@@ -2525,11 +2525,11 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $radius
-     * mixed $sigma
-     * mixed $amount
-     * mixed $threshold
-     * mixed|null $CHANNEL
+     * @param mixed $radius
+     * @param mixed $sigma
+     * @param mixed $amount
+     * @param mixed $threshold
+     * @param mixed|null $CHANNEL
      */
     public function unsharpmaskimage($radius, $sigma, $amount, $threshold, $CHANNEL = null)
     {
@@ -2540,56 +2540,56 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * mixed $blackPoint
-     * mixed $whitePoint
-     * mixed $x
-     * mixed $y
+     * @param mixed $blackPoint
+     * @param mixed $whitePoint
+     * @param mixed $x
+     * @param mixed $y
      */
     public function vignetteimage($blackPoint, $whitePoint, $x, $y)
     {
     }
 
     /**
-     * mixed $amplitude
-     * mixed $waveLenght
+     * @param mixed $amplitude
+     * @param mixed $waveLenght
      */
     public function waveimage($amplitude, $waveLenght)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function whitethresholdimage($color)
     {
     }
 
     /**
-     * mixed|null $filename
+     * @param mixed|null $filename
      */
     public function writeimage($filename = null)
     {
     }
 
     /**
-     * mixed $handle
-     * mixed|null $format
+     * @param mixed $handle
+     * @param mixed|null $format
      */
     public function writeimagefile($handle, $format = null)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed $adjoin
+     * @param mixed $filename
+     * @param mixed $adjoin
      */
     public function writeimages($filename, $adjoin)
     {
     }
 
     /**
-     * mixed $handle
-     * mixed|null $format
+     * @param mixed $handle
+     * @param mixed|null $format
      */
     public function writeimagesfile($handle, $format = null)
     {
@@ -2608,45 +2608,45 @@ class ImagickDraw
     }
 
     /**
-     * mixed $affineMatrix
+     * @param mixed $affineMatrix
      */
     public function affine($affineMatrix)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $text
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $text
      */
     public function annotation($x, $y, $text)
     {
     }
 
     /**
-     * mixed $sx
-     * mixed $sy
-     * mixed $ex
-     * mixed $ey
-     * mixed $sd
-     * mixed $ed
+     * @param mixed $sx
+     * @param mixed $sy
+     * @param mixed $ex
+     * @param mixed $ey
+     * @param mixed $sd
+     * @param mixed $ed
      */
     public function arc($sx, $sy, $ex, $ey, $sd, $ed)
     {
     }
 
     /**
-     * mixed $coordinateArray
+     * @param mixed $coordinateArray
      */
     public function bezier($coordinateArray)
     {
     }
 
     /**
-     * mixed $ox
-     * mixed $oy
-     * mixed $px
-     * mixed $py
+     * @param mixed $ox
+     * @param mixed $oy
+     * @param mixed $px
+     * @param mixed $py
      */
     public function circle($ox, $oy, $px, $py)
     {
@@ -2661,28 +2661,28 @@ class ImagickDraw
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $PAINTMETHOD
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $PAINTMETHOD
      */
     public function color($x, $y, $PAINTMETHOD)
     {
     }
 
     /**
-     * mixed $comment
+     * @param mixed $comment
      */
     public function comment($comment)
     {
     }
 
     /**
-     * mixed $COMPOSE
-     * mixed $x
-     * mixed $y
-     * mixed $width
-     * mixed $height
-     * Imagick $Imagick
+     * @param mixed $COMPOSE
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $width
+     * @param mixed $height
+     * @param Imagick $Imagick
      */
     public function composite($COMPOSE, $x, $y, $width, $height, $Imagick)
     {
@@ -2693,12 +2693,12 @@ class ImagickDraw
     }
 
     /**
-     * mixed $ox
-     * mixed $oy
-     * mixed $px
-     * mixed $py
-     * mixed $start
-     * mixed $end
+     * @param mixed $ox
+     * @param mixed $oy
+     * @param mixed $px
+     * @param mixed $py
+     * @param mixed $start
+     * @param mixed $end
      */
     public function ellipse($ox, $oy, $px, $py, $start, $end)
     {
@@ -2837,19 +2837,19 @@ class ImagickDraw
     }
 
     /**
-     * mixed $sx
-     * mixed $sy
-     * mixed $ex
-     * mixed $ey
+     * @param mixed $sx
+     * @param mixed $sy
+     * @param mixed $ex
+     * @param mixed $ey
      */
     public function line($sx, $sy, $ex, $ey)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
-     * mixed $METHOD
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $METHOD
      */
     public function matte($x, $y, $METHOD)
     {
@@ -2860,106 +2860,106 @@ class ImagickDraw
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x2
-     * mixed $y2
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x2
+     * @param mixed $y2
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetoabsolute($x1, $y1, $x2, $y2, $x, $y)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetoquadraticbezierabsolute($x1, $y1, $x, $y)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetoquadraticbezierrelative($x1, $y1, $x, $y)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetoquadraticbeziersmoothabsolute($x, $y)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetoquadraticbeziersmoothrelative($x, $y)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x2
-     * mixed $y2
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x2
+     * @param mixed $y2
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetorelative($x1, $y1, $x2, $y2, $x, $y)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetosmoothabsolute($x1, $y1, $x, $y)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x
-     * mixed $y
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathcurvetosmoothrelative($x1, $y1, $x, $y)
     {
     }
 
     /**
-     * mixed $rx
-     * mixed $ry
-     * mixed $xAxisRotation
-     * mixed $largeArc
-     * mixed $sweep
-     * mixed $x
-     * mixed $y
+     * @param mixed $rx
+     * @param mixed $ry
+     * @param mixed $xAxisRotation
+     * @param mixed $largeArc
+     * @param mixed $sweep
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathellipticarcabsolute($rx, $ry, $xAxisRotation, $largeArc, $sweep, $x, $y)
     {
     }
 
     /**
-     * mixed $rx
-     * mixed $ry
-     * mixed $xAxisRotation
-     * mixed $largeArc
-     * mixed $sweep
-     * mixed $x
-     * mixed $y
+     * @param mixed $rx
+     * @param mixed $ry
+     * @param mixed $xAxisRotation
+     * @param mixed $largeArc
+     * @param mixed $sweep
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathellipticarcrelative($rx, $ry, $xAxisRotation, $largeArc, $sweep, $x, $y)
     {
@@ -2970,60 +2970,60 @@ class ImagickDraw
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathlinetoabsolute($x, $y)
     {
     }
 
     /**
-     * mixed $y
+     * @param mixed $y
      */
     public function pathlinetohorizontalabsolute($y)
     {
     }
 
     /**
-     * mixed $x
+     * @param mixed $x
      */
     public function pathlinetohorizontalrelative($x)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathlinetorelative($x, $y)
     {
     }
 
     /**
-     * mixed $y
+     * @param mixed $y
      */
     public function pathlinetoverticalabsolute($y)
     {
     }
 
     /**
-     * mixed $x
+     * @param mixed $x
      */
     public function pathlinetoverticalrelative($x)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathmovetoabsolute($x, $y)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function pathmovetorelative($x, $y)
     {
@@ -3034,22 +3034,22 @@ class ImagickDraw
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function point($x, $y)
     {
     }
 
     /**
-     * mixed $coordinates
+     * @param mixed $coordinates
      */
     public function polygon($coordinates)
     {
     }
 
     /**
-     * mixed $coordinateArray
+     * @param mixed $coordinateArray
      */
     public function polyline($coordinateArray)
     {
@@ -3076,7 +3076,7 @@ class ImagickDraw
     }
 
     /**
-     * mixed $clipMask
+     * @param mixed $clipMask
      */
     public function pushclippath($clipMask)
     {
@@ -3087,21 +3087,21 @@ class ImagickDraw
     }
 
     /**
-     * mixed $pattern_id
-     * mixed $x
-     * mixed $y
-     * mixed $width
-     * mixed $height
+     * @param mixed $pattern_id
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $width
+     * @param mixed $height
      */
     public function pushpattern($pattern_id, $x, $y, $width, $height)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x2
-     * mixed $y2
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x2
+     * @param mixed $y2
      */
     public function rectangle($x1, $y1, $x2, $y2)
     {
@@ -3116,327 +3116,327 @@ class ImagickDraw
     }
 
     /**
-     * mixed $degrees
+     * @param mixed $degrees
      */
     public function rotate($degrees)
     {
     }
 
     /**
-     * mixed $x1
-     * mixed $y1
-     * mixed $x2
-     * mixed $y2
-     * mixed $rx
-     * mixed $ry
+     * @param mixed $x1
+     * @param mixed $y1
+     * @param mixed $x2
+     * @param mixed $y2
+     * @param mixed $rx
+     * @param mixed $ry
      */
     public function roundrectangle($x1, $y1, $x2, $y2, $rx, $ry)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function scale($x, $y)
     {
     }
 
     /**
-     * mixed $bordercolor
+     * @param mixed $bordercolor
      */
     public function setbordercolor($bordercolor)
     {
     }
 
     /**
-     * mixed $clipMask
+     * @param mixed $clipMask
      */
     public function setclippath($clipMask)
     {
     }
 
     /**
-     * mixed $FILLRULE
+     * @param mixed $FILLRULE
      */
     public function setcliprule($FILLRULE)
     {
     }
 
     /**
-     * mixed $PATHUNITS
+     * @param mixed $PATHUNITS
      */
     public function setclipunits($PATHUNITS)
     {
     }
 
     /**
-     * mixed $alpha
+     * @param mixed $alpha
      */
     public function setfillalpha($alpha)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setfillcolor($color)
     {
     }
 
     /**
-     * mixed $fillOpacity
+     * @param mixed $fillOpacity
      */
     public function setfillopacity($fillOpacity)
     {
     }
 
     /**
-     * mixed $url
+     * @param mixed $url
      */
     public function setfillpatternurl($url)
     {
     }
 
     /**
-     * mixed $FILLRULE
+     * @param mixed $FILLRULE
      */
     public function setfillrule($FILLRULE)
     {
     }
 
     /**
-     * mixed $font
+     * @param mixed $font
      */
     public function setfont($font)
     {
     }
 
     /**
-     * mixed $fontfamily
+     * @param mixed $fontfamily
      */
     public function setfontfamily($fontfamily)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function setfontresolution($x, $y)
     {
     }
 
     /**
-     * mixed $pointsize
+     * @param mixed $pointsize
      */
     public function setfontsize($pointsize)
     {
     }
 
     /**
-     * mixed $STRETCH
+     * @param mixed $STRETCH
      */
     public function setfontstretch($STRETCH)
     {
     }
 
     /**
-     * mixed $STYLE
+     * @param mixed $STYLE
      */
     public function setfontstyle($STYLE)
     {
     }
 
     /**
-     * mixed $weight
+     * @param mixed $weight
      */
     public function setfontweight($weight)
     {
     }
 
     /**
-     * mixed $GRAVITY
+     * @param mixed $GRAVITY
      */
     public function setgravity($GRAVITY)
     {
     }
 
     /**
-     * mixed $x_resolution
-     * mixed $y_resolution
+     * @param mixed $x_resolution
+     * @param mixed $y_resolution
      */
     public function setresolution($x_resolution, $y_resolution)
     {
     }
 
     /**
-     * mixed $alpha
+     * @param mixed $alpha
      */
     public function setstrokealpha($alpha)
     {
     }
 
     /**
-     * mixed $antialias
+     * @param mixed $antialias
      */
     public function setstrokeantialias($antialias)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setstrokecolor($color)
     {
     }
 
     /**
-     * mixed $dashArray
+     * @param mixed $dashArray
      */
     public function setstrokedasharray($dashArray)
     {
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function setstrokedashoffset($offset)
     {
     }
 
     /**
-     * mixed $LINECAP
+     * @param mixed $LINECAP
      */
     public function setstrokelinecap($LINECAP)
     {
     }
 
     /**
-     * mixed $LINEJOIN
+     * @param mixed $LINEJOIN
      */
     public function setstrokelinejoin($LINEJOIN)
     {
     }
 
     /**
-     * mixed $miterLimit
+     * @param mixed $miterLimit
      */
     public function setstrokemiterlimit($miterLimit)
     {
     }
 
     /**
-     * mixed $strokeOpacity
+     * @param mixed $strokeOpacity
      */
     public function setstrokeopacity($strokeOpacity)
     {
     }
 
     /**
-     * mixed $url
+     * @param mixed $url
      */
     public function setstrokepatternurl($url)
     {
     }
 
     /**
-     * mixed $width
+     * @param mixed $width
      */
     public function setstrokewidth($width)
     {
     }
 
     /**
-     * mixed $ALIGN
+     * @param mixed $ALIGN
      */
     public function settextalignment($ALIGN)
     {
     }
 
     /**
-     * mixed $antialias
+     * @param mixed $antialias
      */
     public function settextantialias($antialias)
     {
     }
 
     /**
-     * mixed $DECORATION
+     * @param mixed $DECORATION
      */
     public function settextdecoration($DECORATION)
     {
     }
 
     /**
-     * mixed $encoding
+     * @param mixed $encoding
      */
     public function settextencoding($encoding)
     {
     }
 
     /**
-     * mixed $spacing
+     * @param mixed $spacing
      */
     public function settextinterlinespacing($spacing)
     {
     }
 
     /**
-     * mixed $spacing
+     * @param mixed $spacing
      */
     public function settextinterwordspacing($spacing)
     {
     }
 
     /**
-     * mixed $kerning
+     * @param mixed $kerning
      */
     public function settextkerning($kerning)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function settextundercolor($color)
     {
     }
 
     /**
-     * mixed $xml
+     * @param mixed $xml
      */
     public function setvectorgraphics($xml)
     {
     }
 
     /**
-     * mixed $sx
-     * mixed $sy
-     * mixed $ex
-     * mixed $ey
+     * @param mixed $sx
+     * @param mixed $sy
+     * @param mixed $ex
+     * @param mixed $ey
      */
     public function setviewbox($sx, $sy, $ex, $ey)
     {
     }
 
     /**
-     * mixed $degrees
+     * @param mixed $degrees
      */
     public function skewx($degrees)
     {
     }
 
     /**
-     * mixed $degrees
+     * @param mixed $degrees
      */
     public function skewy($degrees)
     {
     }
 
     /**
-     * mixed $x
-     * mixed $y
+     * @param mixed $x
+     * @param mixed $y
      */
     public function translate($x, $y)
     {
@@ -3463,7 +3463,7 @@ class ImagickKernel
     }
 
     /**
-     * ImagickKernel $ImagickKernel
+     * @param ImagickKernel $ImagickKernel
      */
     public function addkernel($ImagickKernel)
     {
@@ -3474,16 +3474,16 @@ class ImagickKernel
     }
 
     /**
-     * mixed $kerneltype
-     * mixed $paramstring
+     * @param mixed $kerneltype
+     * @param mixed $paramstring
      */
     public static function frombuiltin($kerneltype, $paramstring)
     {
     }
 
     /**
-     * mixed $array
-     * mixed|null $array
+     * @param mixed $array
+     * @param mixed|null $array
      */
     public static function frommatrix($array, $array = null)
     {
@@ -3517,7 +3517,7 @@ class ImagickKernelException extends Exception
 class ImagickPixel
 {
     /**
-     * mixed|null $color
+     * @param mixed|null $color
      */
     public function __construct($color = null)
     {
@@ -3536,7 +3536,7 @@ class ImagickPixel
     }
 
     /**
-     * mixed|null $normalized
+     * @param mixed|null $normalized
      */
     public function getcolor($normalized = null)
     {
@@ -3555,14 +3555,14 @@ class ImagickPixel
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function getcolorvalue($color)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function getcolorvaluequantum($color)
     {
@@ -3577,69 +3577,69 @@ class ImagickPixel
     }
 
     /**
-     * mixed $color
-     * mixed|null $fuzz
+     * @param mixed $color
+     * @param mixed|null $fuzz
      */
     public function ispixelsimilar($color, $fuzz = null)
     {
     }
 
     /**
-     * mixed $color
-     * mixed|null $fuzz
+     * @param mixed $color
+     * @param mixed|null $fuzz
      */
     public function ispixelsimilarquantum($color, $fuzz = null)
     {
     }
 
     /**
-     * mixed $color
-     * mixed|null $fuzz
+     * @param mixed $color
+     * @param mixed|null $fuzz
      */
     public function issimilar($color, $fuzz = null)
     {
     }
 
     /**
-     * mixed $color
+     * @param mixed $color
      */
     public function setcolor($color)
     {
     }
 
     /**
-     * mixed $colorCount
+     * @param mixed $colorCount
      */
     public function setcolorcount($colorCount)
     {
     }
 
     /**
-     * mixed $color
-     * mixed $value
+     * @param mixed $color
+     * @param mixed $value
      */
     public function setcolorvalue($color, $value)
     {
     }
 
     /**
-     * mixed $color_value
+     * @param mixed $color_value
      */
     public function setcolorvaluequantum($color_value)
     {
     }
 
     /**
-     * mixed $hue
-     * mixed $saturation
-     * mixed $luminosity
+     * @param mixed $hue
+     * @param mixed $saturation
+     * @param mixed $luminosity
      */
     public function sethsl($hue, $saturation, $luminosity)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function setindex($index)
     {
@@ -3658,7 +3658,7 @@ class ImagickPixelException extends Exception
 class ImagickPixelIterator implements Iterator
 {
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public function __construct($Imagick)
     {
@@ -3698,18 +3698,18 @@ class ImagickPixelIterator implements Iterator
     }
 
     /**
-     * Imagick $Imagick
+     * @param Imagick $Imagick
      */
     public static function getpixeliterator($Imagick)
     {
     }
 
     /**
-     * Imagick $Imagick
-     * mixed $x
-     * mixed $y
-     * mixed $columns
-     * mixed $rows
+     * @param Imagick $Imagick
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $columns
+     * @param mixed $rows
      */
     public static function getpixelregioniterator($Imagick, $x, $y, $columns, $rows)
     {
@@ -3779,7 +3779,7 @@ class ImagickPixelIterator implements Iterator
     }
 
     /**
-     * mixed $row
+     * @param mixed $row
      */
     public function setiteratorrow($row)
     {

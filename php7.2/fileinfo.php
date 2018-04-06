@@ -125,9 +125,9 @@ const FILEINFO_SYMLINK = 2;
 class finfo
 {
     /**
-     * mixed $string
-     * mixed|null $options
-     * mixed|null $context
+     * @param mixed $string
+     * @param mixed|null $options
+     * @param mixed|null $context
      */
     public function buffer($string, $options = null, $context = null)
     {
@@ -136,9 +136,9 @@ class finfo
     /**
      * Reads entire file into an array
      *
-     * mixed $filename
-     * mixed|null $options
-     * mixed|null $context
+     * @param mixed $filename
+     * @param mixed|null $options
+     * @param mixed|null $context
      *
      * @return array
      *
@@ -151,15 +151,15 @@ class finfo
     }
 
     /**
-     * mixed|null $options
-     * mixed|null $arg
+     * @param mixed|null $options
+     * @param mixed|null $arg
      */
     public function finfo($options = null, $arg = null)
     {
     }
 
     /**
-     * mixed $options
+     * @param mixed $options
      */
     public function set_flags($options)
     {
@@ -169,10 +169,10 @@ class finfo
 /**
  * Return information about a string buffer
  *
- * mixed $finfo
- * mixed $string
- * mixed|null $options
- * mixed|null $context
+ * @param mixed $finfo
+ * @param mixed $string
+ * @param mixed|null $options
+ * @param mixed|null $context
  *
  * @return string
  *
@@ -187,7 +187,7 @@ function finfo_buffer($finfo, $string, $options = null, $context = null): string
 /**
  * Close fileinfo resource
  *
- * mixed $finfo
+ * @param mixed $finfo
  *
  * @return bool
  *
@@ -202,10 +202,10 @@ function finfo_close($finfo): bool
 /**
  * Return information about a file
  *
- * mixed $finfo
- * mixed $filename
- * mixed|null $options
- * mixed|null $context
+ * @param mixed $finfo
+ * @param mixed $filename
+ * @param mixed|null $options
+ * @param mixed|null $context
  *
  * @return string
  *
@@ -220,8 +220,8 @@ function finfo_file($finfo, $filename, $options = null, $context = null): string
 /**
  * Create a new fileinfo resource
  *
- * mixed|null $options
- * mixed|null $arg
+ * @param mixed|null $options
+ * @param mixed|null $arg
  *
  * @return resource
  *
@@ -236,8 +236,8 @@ function finfo_open($options = null, $arg = null)
 /**
  * Set libmagic configuration options
  *
- * mixed $finfo
- * mixed $options
+ * @param mixed $finfo
+ * @param mixed $options
  *
  * @return bool
  *
@@ -252,7 +252,7 @@ function finfo_set_flags($finfo, $options): bool
 /**
  * Detect MIME Content-type for a file
  *
- * mixed $string
+ * @param mixed $string
  *
  * @return string
  *

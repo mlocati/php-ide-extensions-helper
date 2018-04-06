@@ -5,7 +5,7 @@
 /**
  * Close a DBA database
  *
- * mixed $handle
+ * @param mixed $handle
  *
  * @return void
  *
@@ -20,8 +20,8 @@ function dba_close($handle)
 /**
  * Delete DBA entry specified by key
  *
- * mixed $key
- * mixed $handle
+ * @param mixed $key
+ * @param mixed $handle
  *
  * @return bool
  *
@@ -36,8 +36,8 @@ function dba_delete($key, $handle): bool
 /**
  * Check whether key exists
  *
- * mixed $key
- * mixed $handle
+ * @param mixed $key
+ * @param mixed $handle
  *
  * @return bool
  *
@@ -52,9 +52,9 @@ function dba_exists($key, $handle): bool
 /**
  * Fetch data specified by key
  *
- * mixed $key
- * mixed $skip
- * mixed|null $handle
+ * @param mixed $key
+ * @param mixed $skip
+ * @param mixed|null $handle
  *
  * @return string
  *
@@ -69,7 +69,7 @@ function dba_fetch($key, $skip, $handle = null): string
 /**
  * Fetch first key
  *
- * mixed $handle
+ * @param mixed $handle
  *
  * @return string
  *
@@ -84,7 +84,7 @@ function dba_firstkey($handle): string
 /**
  * List all the handlers available
  *
- * mixed|null $full_info
+ * @param mixed|null $full_info
  *
  * @return array
  *
@@ -99,9 +99,9 @@ function dba_handlers($full_info = null): array
 /**
  * Insert entry
  *
- * mixed $key
- * mixed $value
- * mixed $handle
+ * @param mixed $key
+ * @param mixed $value
+ * @param mixed $handle
  *
  * @return bool
  *
@@ -116,7 +116,7 @@ function dba_insert($key, $value, $handle): bool
 /**
  * Splits a key in string representation into array representation
  *
- * mixed $key
+ * @param mixed $key
  *
  * @return mixed
  *
@@ -144,7 +144,7 @@ function dba_list(): array
 /**
  * Fetch next key
  *
- * mixed $handle
+ * @param mixed $handle
  *
  * @return string
  *
@@ -159,10 +159,10 @@ function dba_nextkey($handle): string
 /**
  * Open database
  *
- * mixed $path
- * mixed $mode
- * mixed|null $handlername
- * mixed $handler_parameters
+ * @param mixed $path
+ * @param mixed $mode
+ * @param mixed|null $handlername
+ * @param mixed $handler_parameters
  *
  * @return resource
  *
@@ -177,7 +177,7 @@ function dba_open($path, $mode, $handlername = null, ...$handler_parameters)
 /**
  * Optimize database
  *
- * mixed $handle
+ * @param mixed $handle
  *
  * @return bool
  *
@@ -192,10 +192,10 @@ function dba_optimize($handle): bool
 /**
  * Open database persistently
  *
- * mixed $path
- * mixed $mode
- * mixed|null $handlername
- * mixed $handler_parameters
+ * @param mixed $path
+ * @param mixed $mode
+ * @param mixed|null $handlername
+ * @param mixed $handler_parameters
  *
  * @return resource
  *
@@ -210,9 +210,9 @@ function dba_popen($path, $mode, $handlername = null, ...$handler_parameters)
 /**
  * Replace or insert entry
  *
- * mixed $key
- * mixed $value
- * mixed $handle
+ * @param mixed $key
+ * @param mixed $value
+ * @param mixed $handle
  *
  * @return bool
  *
@@ -227,7 +227,7 @@ function dba_replace($key, $value, $handle): bool
 /**
  * Synchronize database
  *
- * mixed $handle
+ * @param mixed $handle
  *
  * @return bool
  *

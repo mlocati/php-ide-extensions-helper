@@ -48,29 +48,29 @@ interface SessionHandlerInterface
     public function close();
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function destroy($key);
 
     /**
-     * mixed $maxlifetime
+     * @param mixed $maxlifetime
      */
     public function gc($maxlifetime);
 
     /**
-     * mixed $save_path
-     * mixed $session_name
+     * @param mixed $save_path
+     * @param mixed $session_name
      */
     public function open($save_path, $session_name);
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function read($key);
 
     /**
-     * mixed $key
-     * mixed $val
+     * @param mixed $key
+     * @param mixed $val
      */
     public function write($key, $val);
 }
@@ -93,13 +93,13 @@ interface SessionIdInterface
 interface SessionUpdateTimestampHandlerInterface
 {
     /**
-     * mixed $key
-     * mixed $val
+     * @param mixed $key
+     * @param mixed $val
      */
     public function updateTimestamp($key, $val);
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function validateId($key);
 }
@@ -135,37 +135,37 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function destroy($key)
     {
     }
 
     /**
-     * mixed $maxlifetime
+     * @param mixed $maxlifetime
      */
     public function gc($maxlifetime)
     {
     }
 
     /**
-     * mixed $save_path
-     * mixed $session_name
+     * @param mixed $save_path
+     * @param mixed $session_name
      */
     public function open($save_path, $session_name)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function read($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $val
+     * @param mixed $key
+     * @param mixed $val
      */
     public function write($key, $val)
     {
@@ -188,7 +188,7 @@ function session_abort(): bool
 /**
  * Return current cache expire
  *
- * mixed|null $new_cache_expire
+ * @param mixed|null $new_cache_expire
  *
  * @return int
  *
@@ -203,7 +203,7 @@ function session_cache_expire($new_cache_expire = null): int
 /**
  * Get and/or set the current cache limiter
  *
- * mixed|null $cache_limiter
+ * @param mixed|null $cache_limiter
  *
  * @return string
  *
@@ -229,7 +229,7 @@ function session_commit()
 /**
  * Create new session id
  *
- * mixed|null $prefix
+ * @param mixed|null $prefix
  *
  * @return string
  *
@@ -244,7 +244,7 @@ function session_create_id($prefix = null): string
 /**
  * Decodes session data from a session encoded string
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return bool
  *
@@ -311,7 +311,7 @@ function session_get_cookie_params(): array
 /**
  * Get and/or set the current session id
  *
- * mixed|null $id
+ * @param mixed|null $id
  *
  * @return string
  *
@@ -326,7 +326,7 @@ function session_id($id = null): string
 /**
  * Get and/or set the current session module
  *
- * mixed|null $module
+ * @param mixed|null $module
  *
  * @return string
  *
@@ -341,7 +341,7 @@ function session_module_name($module = null): string
 /**
  * Get and/or set the current session name
  *
- * mixed|null $name
+ * @param mixed|null $name
  *
  * @return string
  *
@@ -356,7 +356,7 @@ function session_name($name = null): string
 /**
  * Update the current session id with a newly generated one
  *
- * mixed|null $delete_old_session
+ * @param mixed|null $delete_old_session
  *
  * @return bool
  *
@@ -397,7 +397,7 @@ function session_reset(): bool
 /**
  * Get and/or set the current session save path
  *
- * mixed|null $path
+ * @param mixed|null $path
  *
  * @return string
  *
@@ -412,11 +412,11 @@ function session_save_path($path = null): string
 /**
  * Set the session cookie parameters
  *
- * mixed $lifetime
- * mixed|null $path
- * mixed|null $domain
- * mixed|null $secure
- * mixed|null $httponly
+ * @param mixed $lifetime
+ * @param mixed|null $path
+ * @param mixed|null $domain
+ * @param mixed|null $secure
+ * @param mixed|null $httponly
  *
  * @return bool
  *
@@ -431,15 +431,15 @@ function session_set_cookie_params($lifetime, $path = null, $domain = null, $sec
 /**
  * Sets user-level session storage functions
  *
- * mixed $open
- * mixed|null $close
- * mixed|null $read
- * mixed|null $write
- * mixed|null $destroy
- * mixed|null $gc
- * mixed|null $create_sid
- * mixed|null $validate_sid
- * mixed|null $update_timestamp
+ * @param mixed $open
+ * @param mixed|null $close
+ * @param mixed|null $read
+ * @param mixed|null $write
+ * @param mixed|null $destroy
+ * @param mixed|null $gc
+ * @param mixed|null $create_sid
+ * @param mixed|null $validate_sid
+ * @param mixed|null $update_timestamp
  *
  * @return bool
  *
@@ -454,7 +454,7 @@ function session_set_save_handler($open, $close = null, $read = null, $write = n
 /**
  * Start new or resume existing session
  *
- * mixed|null $options
+ * @param mixed|null $options
  *
  * @return bool
  *

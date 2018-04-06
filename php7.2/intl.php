@@ -998,7 +998,7 @@ const ULOC_VALID_LOCALE = 1;
 class Collator
 {
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public function __construct($arg1)
     {
@@ -1007,8 +1007,8 @@ class Collator
     /**
      * Sort an array and maintain index association
      *
-     * array[] $arr
-     * mixed|null $flags
+     * @param array[] $arr
+     * @param mixed|null $flags
      *
      * @return bool
      *
@@ -1021,22 +1021,22 @@ class Collator
     }
 
     /**
-     * mixed $arg1
-     * mixed $arg2
+     * @param mixed $arg1
+     * @param mixed $arg2
      */
     public function compare($arg1, $arg2)
     {
     }
 
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public static function create($arg1)
     {
     }
 
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public function getAttribute($arg1)
     {
@@ -1051,14 +1051,14 @@ class Collator
     }
 
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public function getLocale($arg1)
     {
     }
 
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public function getSortKey($arg1)
     {
@@ -1069,15 +1069,15 @@ class Collator
     }
 
     /**
-     * mixed $arg1
-     * mixed $arg2
+     * @param mixed $arg1
+     * @param mixed $arg2
      */
     public function setAttribute($arg1, $arg2)
     {
     }
 
     /**
-     * mixed $arg1
+     * @param mixed $arg1
      */
     public function setStrength($arg1)
     {
@@ -1086,8 +1086,8 @@ class Collator
     /**
      * Sort an array
      *
-     * array[] $arr
-     * mixed|null $flags
+     * @param array[] $arr
+     * @param mixed|null $flags
      *
      * @return bool
      *
@@ -1100,7 +1100,7 @@ class Collator
     }
 
     /**
-     * array[] $arr
+     * @param array[] $arr
      */
     public function sortWithSortKeys(&$arr)
     {
@@ -1128,7 +1128,7 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed|null $locale
+     * @param mixed|null $locale
      */
     public static function createCharacterInstance($locale = null)
     {
@@ -1139,28 +1139,28 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed|null $locale
+     * @param mixed|null $locale
      */
     public static function createLineInstance($locale = null)
     {
     }
 
     /**
-     * mixed|null $locale
+     * @param mixed|null $locale
      */
     public static function createSentenceInstance($locale = null)
     {
     }
 
     /**
-     * mixed|null $locale
+     * @param mixed|null $locale
      */
     public static function createTitleInstance($locale = null)
     {
     }
 
     /**
-     * mixed|null $locale
+     * @param mixed|null $locale
      */
     public static function createWordInstance($locale = null)
     {
@@ -1184,7 +1184,7 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function following($offset)
     {
@@ -1199,14 +1199,14 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed $locale_type
+     * @param mixed $locale_type
      */
     public function getLocale($locale_type)
     {
     }
 
     /**
-     * mixed|null $key_type
+     * @param mixed|null $key_type
      */
     public function getPartsIterator($key_type = null)
     {
@@ -1226,7 +1226,7 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function isBoundary($offset)
     {
@@ -1239,7 +1239,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Advance the internal pointer of an array
      *
-     * mixed|null $offset
+     * @param mixed|null $offset
      *
      * @return mixed
      *
@@ -1252,7 +1252,7 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function preceding($offset)
     {
@@ -1263,7 +1263,7 @@ class IntlBreakIterator implements Traversable
     }
 
     /**
-     * mixed $text
+     * @param mixed $text
      */
     public function setText($text)
     {
@@ -1282,80 +1282,80 @@ class IntlCalendar
     }
 
     /**
-     * mixed $field
-     * mixed $amount
+     * @param mixed $field
+     * @param mixed $amount
      */
     public function add($field, $amount)
     {
     }
 
     /**
-     * IntlCalendar $calendar
+     * @param IntlCalendar $calendar
      */
     public function after($calendar)
     {
     }
 
     /**
-     * IntlCalendar $calendar
+     * @param IntlCalendar $calendar
      */
     public function before($calendar)
     {
     }
 
     /**
-     * mixed|null $field
+     * @param mixed|null $field
      */
     public function clear($field = null)
     {
     }
 
     /**
-     * mixed|null $timeZone
-     * mixed|null $locale
+     * @param mixed|null $timeZone
+     * @param mixed|null $locale
      */
     public static function createInstance($timeZone = null, $locale = null)
     {
     }
 
     /**
-     * IntlCalendar $calendar
+     * @param IntlCalendar $calendar
      */
     public function equals($calendar)
     {
     }
 
     /**
-     * mixed $when
-     * mixed $field
+     * @param mixed $when
+     * @param mixed $field
      */
     public function fieldDifference($when, $field)
     {
     }
 
     /**
-     * mixed $dateTime
+     * @param mixed $dateTime
      */
     public static function fromDateTime($dateTime)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function get($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getActualMaximum($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getActualMinimum($field)
     {
@@ -1366,7 +1366,7 @@ class IntlCalendar
     }
 
     /**
-     * mixed $dayOfWeek
+     * @param mixed $dayOfWeek
      */
     public function getDayOfWeekType($dayOfWeek)
     {
@@ -1385,37 +1385,37 @@ class IntlCalendar
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getGreatestMinimum($field)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $locale
-     * mixed $commonlyUsed
+     * @param mixed $key
+     * @param mixed $locale
+     * @param mixed $commonlyUsed
      */
     public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getLeastMaximum($field)
     {
     }
 
     /**
-     * mixed $localeType
+     * @param mixed $localeType
      */
     public function getLocale($localeType)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getMaximum($field)
     {
@@ -1426,7 +1426,7 @@ class IntlCalendar
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function getMinimum($field)
     {
@@ -1466,7 +1466,7 @@ class IntlCalendar
     }
 
     /**
-     * mixed $dayOfWeek
+     * @param mixed $dayOfWeek
      */
     public function getWeekendTransition($dayOfWeek)
     {
@@ -1477,7 +1477,7 @@ class IntlCalendar
     }
 
     /**
-     * IntlCalendar $calendar
+     * @param IntlCalendar $calendar
      */
     public function isEquivalentTo($calendar)
     {
@@ -1490,7 +1490,7 @@ class IntlCalendar
     /**
      * Determine if a variable is set and is not <code>NULL</code>
      *
-     * mixed $field
+     * @param mixed $field
      *
      * @return bool
      *
@@ -1503,76 +1503,76 @@ class IntlCalendar
     }
 
     /**
-     * mixed|null $date
+     * @param mixed|null $date
      */
     public function isWeekend($date = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $amountOrUpOrDown
+     * @param mixed $field
+     * @param mixed $amountOrUpOrDown
      */
     public function roll($field, $amountOrUpOrDown)
     {
     }
 
     /**
-     * mixed $fieldOrYear
-     * mixed $valueOrMonth
-     * mixed|null $dayOfMonth
-     * mixed|null $hour
-     * mixed|null $minute
-     * mixed|null $second
+     * @param mixed $fieldOrYear
+     * @param mixed $valueOrMonth
+     * @param mixed|null $dayOfMonth
+     * @param mixed|null $hour
+     * @param mixed|null $minute
+     * @param mixed|null $second
      */
     public function set($fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
     {
     }
 
     /**
-     * mixed $dayOfWeek
+     * @param mixed $dayOfWeek
      */
     public function setFirstDayOfWeek($dayOfWeek)
     {
     }
 
     /**
-     * mixed $isLenient
+     * @param mixed $isLenient
      */
     public function setLenient($isLenient)
     {
     }
 
     /**
-     * mixed $numberOfDays
+     * @param mixed $numberOfDays
      */
     public function setMinimalDaysInFirstWeek($numberOfDays)
     {
     }
 
     /**
-     * mixed $wallTimeOption
+     * @param mixed $wallTimeOption
      */
     public function setRepeatedWallTimeOption($wallTimeOption)
     {
     }
 
     /**
-     * mixed $wallTimeOption
+     * @param mixed $wallTimeOption
      */
     public function setSkippedWallTimeOption($wallTimeOption)
     {
     }
 
     /**
-     * mixed $date
+     * @param mixed $date
      */
     public function setTime($date)
     {
     }
 
     /**
-     * mixed $timeZone
+     * @param mixed $timeZone
      */
     public function setTimeZone($timeZone)
     {
@@ -1594,51 +1594,51 @@ class IntlCalendar
 class IntlChar
 {
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function charAge($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function charDigitValue($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function charDirection($codepoint)
     {
     }
 
     /**
-     * mixed $characterName
-     * mixed|null $nameChoice
+     * @param mixed $characterName
+     * @param mixed|null $nameChoice
      */
     public static function charFromName($characterName, $nameChoice = null)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function charMirror($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
-     * mixed|null $nameChoice
+     * @param mixed $codepoint
+     * @param mixed|null $nameChoice
      */
     public static function charName($codepoint, $nameChoice = null)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function charType($codepoint)
     {
@@ -1647,7 +1647,7 @@ class IntlChar
     /**
      * Return a specific character
      *
-     * mixed $codepoint
+     * @param mixed $codepoint
      *
      * @return string
      *
@@ -1660,130 +1660,130 @@ class IntlChar
     }
 
     /**
-     * mixed $codepoint
-     * mixed|null $radix
+     * @param mixed $codepoint
+     * @param mixed|null $radix
      */
     public static function digit($codepoint, $radix = null)
     {
     }
 
     /**
-     * mixed $start
-     * mixed $limit
-     * mixed $callback
-     * mixed|null $nameChoice
+     * @param mixed $start
+     * @param mixed $limit
+     * @param mixed $callback
+     * @param mixed|null $nameChoice
      */
     public static function enumCharNames($start, $limit, $callback, $nameChoice = null)
     {
     }
 
     /**
-     * mixed|null $callback
+     * @param mixed|null $callback
      */
     public static function enumCharTypes($callback = null)
     {
     }
 
     /**
-     * mixed $codepoint
-     * mixed|null $options
+     * @param mixed $codepoint
+     * @param mixed|null $options
      */
     public static function foldCase($codepoint, $options = null)
     {
     }
 
     /**
-     * mixed $digit
-     * mixed|null $radix
+     * @param mixed $digit
+     * @param mixed|null $radix
      */
     public static function forDigit($digit, $radix = null)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function getBidiPairedBracket($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function getBlockCode($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function getCombiningClass($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function getFC_NFKC_Closure($codepoint)
     {
     }
 
     /**
-     * mixed $property
+     * @param mixed $property
      */
     public static function getIntPropertyMaxValue($property)
     {
     }
 
     /**
-     * mixed $property
+     * @param mixed $property
      */
     public static function getIntPropertyMinValue($property)
     {
     }
 
     /**
-     * mixed $codepoint
-     * mixed $property
+     * @param mixed $codepoint
+     * @param mixed $property
      */
     public static function getIntPropertyValue($codepoint, $property)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function getNumericValue($codepoint)
     {
     }
 
     /**
-     * mixed $alias
+     * @param mixed $alias
      */
     public static function getPropertyEnum($alias)
     {
     }
 
     /**
-     * mixed $property
-     * mixed|null $nameChoice
+     * @param mixed $property
+     * @param mixed|null $nameChoice
      */
     public static function getPropertyName($property, $nameChoice = null)
     {
     }
 
     /**
-     * mixed $property
-     * mixed $name
+     * @param mixed $property
+     * @param mixed $name
      */
     public static function getPropertyValueEnum($property, $name)
     {
     }
 
     /**
-     * mixed $property
-     * mixed $value
-     * mixed|null $nameChoice
+     * @param mixed $property
+     * @param mixed $value
+     * @param mixed|null $nameChoice
      */
     public static function getPropertyValueName($property, $value, $nameChoice = null)
     {
@@ -1794,204 +1794,204 @@ class IntlChar
     }
 
     /**
-     * mixed $codepoint
-     * mixed $property
+     * @param mixed $codepoint
+     * @param mixed $property
      */
     public static function hasBinaryProperty($codepoint, $property)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isalnum($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isalpha($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isbase($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isblank($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function iscntrl($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isdefined($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isdigit($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isgraph($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isIDIgnorable($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isIDPart($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isIDStart($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isISOControl($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isJavaIDPart($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isJavaIDStart($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isJavaSpaceChar($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function islower($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isMirrored($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isprint($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function ispunct($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isspace($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function istitle($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isUAlphabetic($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isULowercase($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isupper($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isUUppercase($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isUWhiteSpace($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isWhitespace($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function isxdigit($codepoint)
     {
@@ -2000,7 +2000,7 @@ class IntlChar
     /**
      * Return ASCII value of character
      *
-     * mixed $character
+     * @param mixed $character
      *
      * @return int
      *
@@ -2013,21 +2013,21 @@ class IntlChar
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function tolower($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function totitle($codepoint)
     {
     }
 
     /**
-     * mixed $codepoint
+     * @param mixed $codepoint
      */
     public static function toupper($codepoint)
     {
@@ -2068,41 +2068,41 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 class IntlDateFormatter
 {
     /**
-     * mixed $locale
-     * mixed $datetype
-     * mixed $timetype
-     * mixed|null $timezone
-     * mixed|null $calendar
-     * mixed|null $pattern
+     * @param mixed $locale
+     * @param mixed $datetype
+     * @param mixed $timetype
+     * @param mixed|null $timezone
+     * @param mixed|null $calendar
+     * @param mixed|null $pattern
      */
     public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed $datetype
-     * mixed $timetype
-     * mixed|null $timezone
-     * mixed|null $calendar
-     * mixed|null $pattern
+     * @param mixed $locale
+     * @param mixed $datetype
+     * @param mixed $timetype
+     * @param mixed|null $timezone
+     * @param mixed|null $calendar
+     * @param mixed|null $pattern
      */
     public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null)
     {
     }
 
     /**
-     * mixed|null $args
-     * mixed|null $array
+     * @param mixed|null $args
+     * @param mixed|null $array
      */
     public function format($args = null, $array = null)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $format
-     * mixed|null $locale
+     * @param mixed $object
+     * @param mixed|null $format
+     * @param mixed|null $locale
      */
     public static function formatObject($object, $format = null, $locale = null)
     {
@@ -2155,8 +2155,8 @@ class IntlDateFormatter
     /**
      * Get the local time
      *
-     * mixed $string
-     * mixed|null $position
+     * @param mixed $string
+     * @param mixed|null $position
      *
      * @return array
      *
@@ -2169,36 +2169,36 @@ class IntlDateFormatter
     }
 
     /**
-     * mixed $string
-     * mixed|null $position
+     * @param mixed $string
+     * @param mixed|null $position
      */
     public function parse($string, &$position = null)
     {
     }
 
     /**
-     * mixed $which
+     * @param mixed $which
      */
     public function setCalendar($which)
     {
     }
 
     /**
-     * mixed $lenient
+     * @param mixed $lenient
      */
     public function setLenient($lenient)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function setPattern($pattern)
     {
     }
 
     /**
-     * mixed $zone
+     * @param mixed $zone
      */
     public function setTimeZone($zone)
     {
@@ -2225,12 +2225,12 @@ class IntlException extends Exception
 class IntlGregorianCalendar extends IntlCalendar
 {
     /**
-     * mixed|null $timeZoneOrYear
-     * mixed|null $localeOrMonth
-     * mixed|null $dayOfMonth
-     * mixed|null $hour
-     * mixed|null $minute
-     * mixed|null $second
+     * @param mixed|null $timeZoneOrYear
+     * @param mixed|null $localeOrMonth
+     * @param mixed|null $dayOfMonth
+     * @param mixed|null $hour
+     * @param mixed|null $minute
+     * @param mixed|null $second
      */
     public function __construct($timeZoneOrYear = null, $localeOrMonth = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
     {
@@ -2241,14 +2241,14 @@ class IntlGregorianCalendar extends IntlCalendar
     }
 
     /**
-     * mixed $year
+     * @param mixed $year
      */
     public function isLeapYear($year)
     {
     }
 
     /**
-     * mixed $date
+     * @param mixed $date
      */
     public function setGregorianChange($date)
     {
@@ -2359,8 +2359,8 @@ class IntlPartsIterator extends IntlIterator
 class IntlRuleBasedBreakIterator extends IntlBreakIterator
 {
     /**
-     * mixed $rules
-     * mixed|null $areCompiled
+     * @param mixed $rules
+     * @param mixed|null $areCompiled
      */
     public function __construct($rules, $areCompiled = null)
     {
@@ -2395,7 +2395,7 @@ class IntlTimeZone
     }
 
     /**
-     * mixed $zoneId
+     * @param mixed $zoneId
      */
     public static function countEquivalentIDs($zoneId)
     {
@@ -2406,47 +2406,47 @@ class IntlTimeZone
     }
 
     /**
-     * mixed|null $countryOrRawOffset
+     * @param mixed|null $countryOrRawOffset
      */
     public static function createEnumeration($countryOrRawOffset = null)
     {
     }
 
     /**
-     * mixed $zoneId
+     * @param mixed $zoneId
      */
     public static function createTimeZone($zoneId)
     {
     }
 
     /**
-     * mixed $zoneType
-     * mixed|null $region
-     * mixed|null $rawOffset
+     * @param mixed $zoneType
+     * @param mixed|null $region
+     * @param mixed|null $rawOffset
      */
     public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = null)
     {
     }
 
     /**
-     * mixed $zoneId
+     * @param mixed $zoneId
      */
     public static function fromDateTimeZone($zoneId)
     {
     }
 
     /**
-     * mixed $zoneId
-     * mixed|null $isSystemID
+     * @param mixed $zoneId
+     * @param mixed|null $isSystemID
      */
     public static function getCanonicalID($zoneId, &$isSystemID = null)
     {
     }
 
     /**
-     * mixed|null $isDaylight
-     * mixed|null $style
-     * mixed|null $locale
+     * @param mixed|null $isDaylight
+     * @param mixed|null $style
+     * @param mixed|null $locale
      */
     public function getDisplayName($isDaylight = null, $style = null, $locale = null)
     {
@@ -2457,8 +2457,8 @@ class IntlTimeZone
     }
 
     /**
-     * mixed $zoneId
-     * mixed $index
+     * @param mixed $zoneId
+     * @param mixed $index
      */
     public static function getEquivalentID($zoneId, $index)
     {
@@ -2481,18 +2481,18 @@ class IntlTimeZone
     }
 
     /**
-     * mixed $timezone
-     * mixed|null $region
+     * @param mixed $timezone
+     * @param mixed|null $region
      */
     public static function getIDForWindowsID($timezone, $region = null)
     {
     }
 
     /**
-     * mixed $date
-     * mixed $local
-     * mixed $rawOffset
-     * mixed $dstOffset
+     * @param mixed $date
+     * @param mixed $local
+     * @param mixed $rawOffset
+     * @param mixed $dstOffset
      */
     public function getOffset($date, $local, &$rawOffset, &$dstOffset)
     {
@@ -2503,7 +2503,7 @@ class IntlTimeZone
     }
 
     /**
-     * mixed $zoneId
+     * @param mixed $zoneId
      */
     public static function getRegion($zoneId)
     {
@@ -2518,14 +2518,14 @@ class IntlTimeZone
     }
 
     /**
-     * mixed $timezone
+     * @param mixed $timezone
      */
     public static function getWindowsID($timezone)
     {
     }
 
     /**
-     * IntlTimeZone $otherTimeZone
+     * @param IntlTimeZone $otherTimeZone
      */
     public function hasSameRules($otherTimeZone)
     {
@@ -2555,37 +2555,37 @@ class IntlTimeZone
 class Locale
 {
     /**
-     * mixed $header
+     * @param mixed $header
      */
     public static function acceptFromHttp($header)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function canonicalize($locale)
     {
     }
 
     /**
-     * mixed $subtags
+     * @param mixed $subtags
      */
     public static function composeLocale($subtags)
     {
     }
 
     /**
-     * mixed $langtag
-     * mixed $locale
-     * mixed|null $canonicalize
+     * @param mixed $langtag
+     * @param mixed $locale
+     * @param mixed|null $canonicalize
      */
     public static function filterMatches($langtag, $locale, $canonicalize = null)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function getAllVariants($locale)
     {
@@ -2596,92 +2596,92 @@ class Locale
     }
 
     /**
-     * mixed $locale
-     * mixed|null $in_locale
+     * @param mixed $locale
+     * @param mixed|null $in_locale
      */
     public static function getDisplayLanguage($locale, $in_locale = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed|null $in_locale
+     * @param mixed $locale
+     * @param mixed|null $in_locale
      */
     public static function getDisplayName($locale, $in_locale = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed|null $in_locale
+     * @param mixed $locale
+     * @param mixed|null $in_locale
      */
     public static function getDisplayRegion($locale, $in_locale = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed|null $in_locale
+     * @param mixed $locale
+     * @param mixed|null $in_locale
      */
     public static function getDisplayScript($locale, $in_locale = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed|null $in_locale
+     * @param mixed $locale
+     * @param mixed|null $in_locale
      */
     public static function getDisplayVariant($locale, $in_locale = null)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function getKeywords($locale)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function getPrimaryLanguage($locale)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function getRegion($locale)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function getScript($locale)
     {
     }
 
     /**
-     * mixed $langtag
-     * mixed $locale
-     * mixed|null $canonicalize
-     * mixed|null $default
+     * @param mixed $langtag
+     * @param mixed $locale
+     * @param mixed|null $canonicalize
+     * @param mixed|null $default
      */
     public static function lookup($langtag, $locale, $canonicalize = null, $default = null)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function parseLocale($locale)
     {
     }
 
     /**
-     * mixed $locale
+     * @param mixed $locale
      */
     public static function setDefault($locale)
     {
@@ -2715,32 +2715,32 @@ class Locale
 class MessageFormatter
 {
     /**
-     * mixed $locale
-     * mixed $pattern
+     * @param mixed $locale
+     * @param mixed $pattern
      */
     public function __construct($locale, $pattern)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed $pattern
+     * @param mixed $locale
+     * @param mixed $pattern
      */
     public static function create($locale, $pattern)
     {
     }
 
     /**
-     * mixed $args
+     * @param mixed $args
      */
     public function format($args)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed $pattern
-     * mixed $args
+     * @param mixed $locale
+     * @param mixed $pattern
+     * @param mixed $args
      */
     public static function formatMessage($locale, $pattern, $args)
     {
@@ -2763,23 +2763,23 @@ class MessageFormatter
     }
 
     /**
-     * mixed $source
+     * @param mixed $source
      */
     public function parse($source)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed $pattern
-     * mixed $args
+     * @param mixed $locale
+     * @param mixed $pattern
+     * @param mixed $args
      */
     public static function parseMessage($locale, $pattern, $args)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function setPattern($pattern)
     {
@@ -2814,16 +2814,16 @@ class MessageFormatter
 class Normalizer
 {
     /**
-     * mixed $input
-     * mixed|null $form
+     * @param mixed $input
+     * @param mixed|null $form
      */
     public static function isNormalized($input, $form = null)
     {
     }
 
     /**
-     * mixed $input
-     * mixed|null $form
+     * @param mixed $input
+     * @param mixed|null $form
      */
     public static function normalize($input, $form = null)
     {
@@ -2850,41 +2850,41 @@ class Normalizer
 class NumberFormatter
 {
     /**
-     * mixed $locale
-     * mixed $style
-     * mixed|null $pattern
+     * @param mixed $locale
+     * @param mixed $style
+     * @param mixed|null $pattern
      */
     public function __construct($locale, $style, $pattern = null)
     {
     }
 
     /**
-     * mixed $locale
-     * mixed $style
-     * mixed|null $pattern
+     * @param mixed $locale
+     * @param mixed $style
+     * @param mixed|null $pattern
      */
     public static function create($locale, $style, $pattern = null)
     {
     }
 
     /**
-     * mixed $num
-     * mixed|null $type
+     * @param mixed $num
+     * @param mixed|null $type
      */
     public function format($num, $type = null)
     {
     }
 
     /**
-     * mixed $num
-     * mixed $currency
+     * @param mixed $num
+     * @param mixed $currency
      */
     public function formatCurrency($num, $currency)
     {
     }
 
     /**
-     * mixed $attr
+     * @param mixed $attr
      */
     public function getAttribute($attr)
     {
@@ -2899,7 +2899,7 @@ class NumberFormatter
     }
 
     /**
-     * mixed|null $type
+     * @param mixed|null $type
      */
     public function getLocale($type = null)
     {
@@ -2910,63 +2910,63 @@ class NumberFormatter
     }
 
     /**
-     * mixed $attr
+     * @param mixed $attr
      */
     public function getSymbol($attr)
     {
     }
 
     /**
-     * mixed $attr
+     * @param mixed $attr
      */
     public function getTextAttribute($attr)
     {
     }
 
     /**
-     * mixed $string
-     * mixed|null $type
-     * mixed|null $position
+     * @param mixed $string
+     * @param mixed|null $type
+     * @param mixed|null $position
      */
     public function parse($string, $type = null, &$position = null)
     {
     }
 
     /**
-     * mixed $string
-     * mixed $currency
-     * mixed|null $position
+     * @param mixed $string
+     * @param mixed $currency
+     * @param mixed|null $position
      */
     public function parseCurrency($string, &$currency, &$position = null)
     {
     }
 
     /**
-     * mixed $attr
-     * mixed $value
+     * @param mixed $attr
+     * @param mixed $value
      */
     public function setAttribute($attr, $value)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function setPattern($pattern)
     {
     }
 
     /**
-     * mixed $attr
-     * mixed $symbol
+     * @param mixed $attr
+     * @param mixed $symbol
      */
     public function setSymbol($attr, $symbol)
     {
     }
 
     /**
-     * mixed $attr
-     * mixed $value
+     * @param mixed $attr
+     * @param mixed $value
      */
     public function setTextAttribute($attr, $value)
     {
@@ -2992,9 +2992,9 @@ class NumberFormatter
 class ResourceBundle implements Traversable
 {
     /**
-     * mixed $locale
-     * mixed $bundlename
-     * mixed|null $fallback
+     * @param mixed $locale
+     * @param mixed $bundlename
+     * @param mixed|null $fallback
      */
     public function __construct($locale, $bundlename, $fallback = null)
     {
@@ -3014,17 +3014,17 @@ class ResourceBundle implements Traversable
     }
 
     /**
-     * mixed $locale
-     * mixed $bundlename
-     * mixed|null $fallback
+     * @param mixed $locale
+     * @param mixed $bundlename
+     * @param mixed|null $fallback
      */
     public static function create($locale, $bundlename, $fallback = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed|null $fallback
+     * @param mixed $index
+     * @param mixed|null $fallback
      */
     public function get($index, $fallback = null)
     {
@@ -3039,7 +3039,7 @@ class ResourceBundle implements Traversable
     }
 
     /**
-     * mixed $bundlename
+     * @param mixed $bundlename
      */
     public static function getLocales($bundlename)
     {
@@ -3063,31 +3063,31 @@ class Spoofchecker
     }
 
     /**
-     * mixed $s1
-     * mixed $s2
-     * mixed|null $error
+     * @param mixed $s1
+     * @param mixed $s2
+     * @param mixed|null $error
      */
     public function areConfusable($s1, $s2, &$error = null)
     {
     }
 
     /**
-     * mixed $text
-     * mixed|null $error
+     * @param mixed $text
+     * @param mixed|null $error
      */
     public function isSuspicious($text, &$error = null)
     {
     }
 
     /**
-     * mixed $locale_list
+     * @param mixed $locale_list
      */
     public function setAllowedLocales($locale_list)
     {
     }
 
     /**
-     * mixed $checks
+     * @param mixed $checks
      */
     public function setChecks($checks)
     {
@@ -3106,16 +3106,16 @@ class Transliterator
     }
 
     /**
-     * mixed $id
-     * mixed|null $direction
+     * @param mixed $id
+     * @param mixed|null $direction
      */
     public static function create($id, $direction = null)
     {
     }
 
     /**
-     * mixed $rules
-     * mixed|null $direction
+     * @param mixed $rules
+     * @param mixed|null $direction
      */
     public static function createFromRules($rules, $direction = null)
     {
@@ -3138,9 +3138,9 @@ class Transliterator
     }
 
     /**
-     * mixed $subject
-     * mixed|null $start
-     * mixed|null $end
+     * @param mixed $subject
+     * @param mixed|null $start
+     * @param mixed|null $end
      */
     public function transliterate($subject, $start = null, $end = null)
     {
@@ -3155,33 +3155,33 @@ class Transliterator
 class UConverter
 {
     /**
-     * mixed|null $destination_encoding
-     * mixed|null $source_encoding
+     * @param mixed|null $destination_encoding
+     * @param mixed|null $source_encoding
      */
     public function __construct($destination_encoding = null, $source_encoding = null)
     {
     }
 
     /**
-     * mixed $str
-     * mixed|null $reverse
+     * @param mixed $str
+     * @param mixed|null $reverse
      */
     public function convert($str, $reverse = null)
     {
     }
 
     /**
-     * mixed $reason
-     * mixed $source
-     * mixed $codePoint
-     * mixed $error
+     * @param mixed $reason
+     * @param mixed $source
+     * @param mixed $codePoint
+     * @param mixed $error
      */
     public function fromUCallback($reason, $source, $codePoint, &$error)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public static function getAliases($name)
     {
@@ -3224,48 +3224,48 @@ class UConverter
     }
 
     /**
-     * mixed|null $reason
+     * @param mixed|null $reason
      */
     public static function reasonText($reason = null)
     {
     }
 
     /**
-     * mixed $encoding
+     * @param mixed $encoding
      */
     public function setDestinationEncoding($encoding)
     {
     }
 
     /**
-     * mixed $encoding
+     * @param mixed $encoding
      */
     public function setSourceEncoding($encoding)
     {
     }
 
     /**
-     * mixed $chars
+     * @param mixed $chars
      */
     public function setSubstChars($chars)
     {
     }
 
     /**
-     * mixed $reason
-     * mixed $source
-     * mixed $codeUnits
-     * mixed $error
+     * @param mixed $reason
+     * @param mixed $source
+     * @param mixed $codeUnits
+     * @param mixed $error
      */
     public function toUCallback($reason, $source, $codeUnits, &$error)
     {
     }
 
     /**
-     * mixed $str
-     * mixed $toEncoding
-     * mixed $fromEncoding
-     * array[]|null $options
+     * @param mixed $str
+     * @param mixed $toEncoding
+     * @param mixed $fromEncoding
+     * @param array[]|null $options
      */
     public static function transcode($str, $toEncoding, $fromEncoding, $options = null)
     {
@@ -3275,9 +3275,9 @@ class UConverter
 /**
  * Sort array maintaining index association
  *
- * Collator $object
- * array[] $arr
- * mixed|null $sort_flags
+ * @param Collator $object
+ * @param array[] $arr
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -3292,9 +3292,9 @@ function collator_asort($object, &$arr, $sort_flags = null): bool
 /**
  * Compare two Unicode strings
  *
- * Collator $object
- * mixed $arg1
- * mixed $arg2
+ * @param Collator $object
+ * @param mixed $arg1
+ * @param mixed $arg2
  *
  * @return int
  *
@@ -3309,7 +3309,7 @@ function collator_compare($object, $arg1, $arg2): int
 /**
  * Create a collator
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return Collator
  *
@@ -3324,8 +3324,8 @@ function collator_create($arg1)
 /**
  * Get collation attribute value
  *
- * Collator $object
- * mixed $arg1
+ * @param Collator $object
+ * @param mixed $arg1
  *
  * @return int
  *
@@ -3340,7 +3340,7 @@ function collator_get_attribute($object, $arg1): int
 /**
  * Get collator's last error code
  *
- * Collator $object
+ * @param Collator $object
  *
  * @return int
  *
@@ -3355,7 +3355,7 @@ function collator_get_error_code($object): int
 /**
  * Get text for collator's last error code
  *
- * Collator $object
+ * @param Collator $object
  *
  * @return string
  *
@@ -3370,8 +3370,8 @@ function collator_get_error_message($object): string
 /**
  * Get the locale name of the collator
  *
- * Collator $object
- * mixed $arg1
+ * @param Collator $object
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -3386,8 +3386,8 @@ function collator_get_locale($object, $arg1): string
 /**
  * Get sorting key for a string
  *
- * Collator $object
- * mixed $arg1
+ * @param Collator $object
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -3402,7 +3402,7 @@ function collator_get_sort_key($object, $arg1): string
 /**
  * Get current collation strength
  *
- * Collator $object
+ * @param Collator $object
  *
  * @return int
  *
@@ -3417,9 +3417,9 @@ function collator_get_strength($object): int
 /**
  * Set collation attribute
  *
- * Collator $object
- * mixed $arg1
- * mixed $arg2
+ * @param Collator $object
+ * @param mixed $arg1
+ * @param mixed $arg2
  *
  * @return bool
  *
@@ -3434,8 +3434,8 @@ function collator_set_attribute($object, $arg1, $arg2): bool
 /**
  * Set collation strength
  *
- * Collator $object
- * mixed $arg1
+ * @param Collator $object
+ * @param mixed $arg1
  *
  * @return bool
  *
@@ -3450,9 +3450,9 @@ function collator_set_strength($object, $arg1): bool
 /**
  * Sort array using specified collator
  *
- * Collator $object
- * array[] $arr
- * mixed|null $sort_flags
+ * @param Collator $object
+ * @param array[] $arr
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -3467,8 +3467,8 @@ function collator_sort($object, &$arr, $sort_flags = null): bool
 /**
  * Sort array using specified collator and sort keys
  *
- * Collator $coll
- * array[] $arr
+ * @param Collator $coll
+ * @param array[] $arr
  *
  * @return bool
  *
@@ -3483,12 +3483,12 @@ function collator_sort_with_sort_keys($coll, &$arr): bool
 /**
  * Create a date formatter
  *
- * mixed $locale
- * mixed $date_type
- * mixed $time_type
- * mixed|null $timezone_str
- * mixed|null $calendar
- * mixed|null $pattern
+ * @param mixed $locale
+ * @param mixed $date_type
+ * @param mixed $time_type
+ * @param mixed|null $timezone_str
+ * @param mixed|null $calendar
+ * @param mixed|null $pattern
  *
  * @return IntlDateFormatter
  *
@@ -3503,8 +3503,8 @@ function datefmt_create($locale, $date_type, $time_type, $timezone_str = null, $
 /**
  * Format the date/time value as a string
  *
- * mixed|null $args
- * mixed|null $array
+ * @param mixed|null $args
+ * @param mixed|null $array
  *
  * @return string
  *
@@ -3519,9 +3519,9 @@ function datefmt_format($args = null, $array = null): string
 /**
  * Formats an object
  *
- * mixed $object
- * mixed|null $format
- * mixed|null $locale
+ * @param mixed $object
+ * @param mixed|null $format
+ * @param mixed|null $locale
  *
  * @return string
  *
@@ -3536,7 +3536,7 @@ function datefmt_format_object($object, $format = null, $locale = null): string
 /**
  * Get the calendar type used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return int
  *
@@ -3551,7 +3551,7 @@ function datefmt_get_calendar($mf): int
 /**
  * Get copy of formatterʼs calendar object
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return IntlCalendar
  *
@@ -3566,7 +3566,7 @@ function datefmt_get_calendar_object($mf)
 /**
  * Get the datetype used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return int
  *
@@ -3581,7 +3581,7 @@ function datefmt_get_datetype($mf): int
 /**
  * Get the error code from last operation
  *
- * mixed $nf
+ * @param mixed $nf
  *
  * @return int
  *
@@ -3596,7 +3596,7 @@ function datefmt_get_error_code($nf): int
 /**
  * Get the error text from the last operation
  *
- * mixed $coll
+ * @param mixed $coll
  *
  * @return string
  *
@@ -3611,7 +3611,7 @@ function datefmt_get_error_message($coll): string
 /**
  * Get the locale used by formatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return string
  *
@@ -3626,7 +3626,7 @@ function datefmt_get_locale($mf): string
 /**
  * Get the pattern used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return string
  *
@@ -3641,7 +3641,7 @@ function datefmt_get_pattern($mf): string
 /**
  * Get the timetype used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return int
  *
@@ -3656,7 +3656,7 @@ function datefmt_get_timetype($mf): int
 /**
  * Get formatterʼs timezone
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return IntlTimeZone
  *
@@ -3671,7 +3671,7 @@ function datefmt_get_timezone($mf)
 /**
  * Get the timezone-id used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return string
  *
@@ -3686,7 +3686,7 @@ function datefmt_get_timezone_id($mf): string
 /**
  * Get the lenient used for the IntlDateFormatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return bool
  *
@@ -3701,9 +3701,9 @@ function datefmt_is_lenient($mf): bool
 /**
  * Parse string to a field-based time value
  *
- * mixed $formatter
- * mixed $string
- * mixed|null $position
+ * @param mixed $formatter
+ * @param mixed $string
+ * @param mixed|null $position
  *
  * @return array
  *
@@ -3718,9 +3718,9 @@ function datefmt_localtime($formatter, $string, &$position = null): array
 /**
  * Parse string to a timestamp value
  *
- * mixed $formatter
- * mixed $string
- * mixed|null $position
+ * @param mixed $formatter
+ * @param mixed $string
+ * @param mixed|null $position
  *
  * @return int
  *
@@ -3735,8 +3735,8 @@ function datefmt_parse($formatter, $string, &$position = null): int
 /**
  * Sets the calendar type used by the formatter
  *
- * mixed $mf
- * mixed $calendar
+ * @param mixed $mf
+ * @param mixed $calendar
  *
  * @return bool
  *
@@ -3751,7 +3751,7 @@ function datefmt_set_calendar($mf, $calendar): bool
 /**
  * Set the leniency of the parser
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return bool
  *
@@ -3766,8 +3766,8 @@ function datefmt_set_lenient($mf): bool
 /**
  * Set the pattern used for the IntlDateFormatter
  *
- * mixed $mf
- * mixed $pattern
+ * @param mixed $mf
+ * @param mixed $pattern
  *
  * @return bool
  *
@@ -3782,8 +3782,8 @@ function datefmt_set_pattern($mf, $pattern): bool
 /**
  * Sets formatterʼs timezone
  *
- * mixed $mf
- * mixed $timezone
+ * @param mixed $mf
+ * @param mixed $timezone
  *
  * @return bool
  *
@@ -3798,11 +3798,11 @@ function datefmt_set_timezone($mf, $timezone): bool
 /**
  * Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8
  *
- * mixed $arg1
- * mixed $arg2
- * mixed|null $arg3
- * mixed|null $arg4
- * mixed|null $arg5
+ * @param mixed $arg1
+ * @param mixed $arg2
+ * @param mixed|null $arg3
+ * @param mixed|null $arg4
+ * @param mixed|null $arg5
  *
  * @return string
  *
@@ -3817,9 +3817,9 @@ function grapheme_extract($arg1, $arg2, $arg3 = null, $arg4 = null, &$arg5 = nul
 /**
  * Find position (in grapheme units) of first occurrence of a case-insensitive string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -3834,9 +3834,9 @@ function grapheme_stripos($haystack, $needle, $offset = null): int
 /**
  * Returns part of haystack string from the first occurrence of case-insensitive needle to the end of haystack
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $before_needle
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $before_needle
  *
  * @return string
  *
@@ -3851,7 +3851,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = null): string
 /**
  * Get string length in grapheme units
  *
- * mixed $string
+ * @param mixed $string
  *
  * @return int
  *
@@ -3866,9 +3866,9 @@ function grapheme_strlen($string): int
 /**
  * Find position (in grapheme units) of first occurrence of a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -3883,9 +3883,9 @@ function grapheme_strpos($haystack, $needle, $offset = null): int
 /**
  * Find position (in grapheme units) of last occurrence of a case-insensitive string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -3900,9 +3900,9 @@ function grapheme_strripos($haystack, $needle, $offset = null): int
 /**
  * Find position (in grapheme units) of last occurrence of a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -3917,9 +3917,9 @@ function grapheme_strrpos($haystack, $needle, $offset = null): int
 /**
  * Returns part of haystack string from the first occurrence of needle to the end of haystack
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $before_needle
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $before_needle
  *
  * @return string
  *
@@ -3934,9 +3934,9 @@ function grapheme_strstr($haystack, $needle, $before_needle = null): string
 /**
  * Return part of a string
  *
- * mixed $string
- * mixed $start
- * mixed|null $length
+ * @param mixed $string
+ * @param mixed $start
+ * @param mixed|null $length
  *
  * @return string
  *
@@ -3951,10 +3951,10 @@ function grapheme_substr($string, $start, $length = null): string
 /**
  * Convert domain name to IDNA ASCII form
  *
- * mixed $domain
- * mixed|null $option
- * mixed|null $variant
- * mixed|null $idn_info
+ * @param mixed $domain
+ * @param mixed|null $option
+ * @param mixed|null $variant
+ * @param mixed|null $idn_info
  *
  * @return string
  *
@@ -3969,10 +3969,10 @@ function idn_to_ascii($domain, $option = null, $variant = null, &$idn_info = nul
 /**
  * Convert domain name from IDNA ASCII to Unicode
  *
- * mixed $domain
- * mixed|null $option
- * mixed|null $variant
- * mixed|null $idn_info
+ * @param mixed $domain
+ * @param mixed|null $option
+ * @param mixed|null $variant
+ * @param mixed|null $idn_info
  *
  * @return string
  *
@@ -3985,7 +3985,7 @@ function idn_to_utf8($domain, $option = null, $variant = null, &$idn_info = null
 }
 
 /**
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  */
@@ -4020,7 +4020,7 @@ function intl_get_error_message(): string
 }
 
 /**
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  */
@@ -4029,89 +4029,89 @@ function intl_is_failure($arg1)
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
- * mixed $amount
+ * @param IntlCalendar $calendar
+ * @param mixed $field
+ * @param mixed $amount
  */
 function intlcal_add($calendar, $field, $amount)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * IntlCalendar $otherCalendar
+ * @param IntlCalendar $calendar
+ * @param IntlCalendar $otherCalendar
  */
 function intlcal_after($calendar, $otherCalendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * IntlCalendar $otherCalendar
+ * @param IntlCalendar $calendar
+ * @param IntlCalendar $otherCalendar
  */
 function intlcal_before($calendar, $otherCalendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed|null $field
+ * @param IntlCalendar $calendar
+ * @param mixed|null $field
  */
 function intlcal_clear($calendar, $field = null)
 {
 }
 
 /**
- * mixed|null $timeZone
- * mixed|null $locale
+ * @param mixed|null $timeZone
+ * @param mixed|null $locale
  */
 function intlcal_create_instance($timeZone = null, $locale = null)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * IntlCalendar $otherCalendar
+ * @param IntlCalendar $calendar
+ * @param IntlCalendar $otherCalendar
  */
 function intlcal_equals($calendar, $otherCalendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $when
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $when
+ * @param mixed $field
  */
 function intlcal_field_difference($calendar, $when, $field)
 {
 }
 
 /**
- * mixed $dateTime
+ * @param mixed $dateTime
  */
 function intlcal_from_date_time($dateTime)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get($calendar, $field)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_actual_maximum($calendar, $field)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_actual_minimum($calendar, $field)
 {
@@ -4122,8 +4122,8 @@ function intlcal_get_available_locales()
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $dayOfWeek
+ * @param IntlCalendar $calendar
+ * @param mixed $dayOfWeek
  */
 function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
 {
@@ -4132,7 +4132,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
 /**
  * Get last error code on the object
  *
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  *
  * @return int
  *
@@ -4145,7 +4145,7 @@ function intlcal_get_error_code($calendar): int
 /**
  * Get last error message on the object
  *
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  *
  * @return string
  *
@@ -4156,63 +4156,63 @@ function intlcal_get_error_message($calendar): string
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_first_day_of_week($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_greatest_minimum($calendar, $field)
 {
 }
 
 /**
- * mixed $key
- * mixed $locale
- * mixed $commonlyUsed
+ * @param mixed $key
+ * @param mixed $locale
+ * @param mixed $commonlyUsed
  */
 function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_least_maximum($calendar, $field)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $localeType
+ * @param IntlCalendar $calendar
+ * @param mixed $localeType
  */
 function intlcal_get_locale($calendar, $localeType)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_maximum($calendar, $field)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_minimal_days_in_first_week($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_get_minimum($calendar, $field)
 {
@@ -4223,208 +4223,208 @@ function intlcal_get_now()
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_repeated_wall_time_option($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_skipped_wall_time_option($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_time($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_time_zone($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_get_type($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $dayOfWeek
+ * @param IntlCalendar $calendar
+ * @param mixed $dayOfWeek
  */
 function intlcal_get_weekend_transition($calendar, $dayOfWeek)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_in_daylight_time($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * IntlCalendar $otherCalendar
+ * @param IntlCalendar $calendar
+ * @param IntlCalendar $otherCalendar
  */
 function intlcal_is_equivalent_to($calendar, $otherCalendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_is_lenient($calendar)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
+ * @param IntlCalendar $calendar
+ * @param mixed $field
  */
 function intlcal_is_set($calendar, $field)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed|null $date
+ * @param IntlCalendar $calendar
+ * @param mixed|null $date
  */
 function intlcal_is_weekend($calendar, $date = null)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $field
- * mixed|null $amountOrUpOrDown
+ * @param IntlCalendar $calendar
+ * @param mixed $field
+ * @param mixed|null $amountOrUpOrDown
  */
 function intlcal_roll($calendar, $field, $amountOrUpOrDown = null)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $fieldOrYear
- * mixed $valueOrMonth
- * mixed|null $dayOfMonth
- * mixed|null $hour
- * mixed|null $minute
- * mixed|null $second
+ * @param IntlCalendar $calendar
+ * @param mixed $fieldOrYear
+ * @param mixed $valueOrMonth
+ * @param mixed|null $dayOfMonth
+ * @param mixed|null $hour
+ * @param mixed|null $minute
+ * @param mixed|null $second
  */
 function intlcal_set($calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $dayOfWeek
+ * @param IntlCalendar $calendar
+ * @param mixed $dayOfWeek
  */
 function intlcal_set_first_day_of_week($calendar, $dayOfWeek)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $isLenient
+ * @param IntlCalendar $calendar
+ * @param mixed $isLenient
  */
 function intlcal_set_lenient($calendar, $isLenient)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $numberOfDays
+ * @param IntlCalendar $calendar
+ * @param mixed $numberOfDays
  */
 function intlcal_set_minimal_days_in_first_week($calendar, $numberOfDays)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $wallTimeOption
+ * @param IntlCalendar $calendar
+ * @param mixed $wallTimeOption
  */
 function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $wallTimeOption
+ * @param IntlCalendar $calendar
+ * @param mixed $wallTimeOption
  */
 function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $date
+ * @param IntlCalendar $calendar
+ * @param mixed $date
  */
 function intlcal_set_time($calendar, $date)
 {
 }
 
 /**
- * IntlCalendar $calendar
- * mixed $timeZone
+ * @param IntlCalendar $calendar
+ * @param mixed $timeZone
  */
 function intlcal_set_time_zone($calendar, $timeZone)
 {
 }
 
 /**
- * IntlCalendar $calendar
+ * @param IntlCalendar $calendar
  */
 function intlcal_to_date_time($calendar)
 {
 }
 
 /**
- * mixed|null $timeZoneOrYear
- * mixed|null $localeOrMonth
- * mixed|null $dayOfMonth
- * mixed|null $hour
- * mixed|null $minute
- * mixed|null $second
+ * @param mixed|null $timeZoneOrYear
+ * @param mixed|null $localeOrMonth
+ * @param mixed|null $dayOfMonth
+ * @param mixed|null $hour
+ * @param mixed|null $minute
+ * @param mixed|null $second
  */
 function intlgregcal_create_instance($timeZoneOrYear = null, $localeOrMonth = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
 }
 
 /**
- * IntlGregorianCalendar $calendar
+ * @param IntlGregorianCalendar $calendar
  */
 function intlgregcal_get_gregorian_change($calendar)
 {
 }
 
 /**
- * IntlGregorianCalendar $calendar
- * mixed $year
+ * @param IntlGregorianCalendar $calendar
+ * @param mixed $year
  */
 function intlgregcal_is_leap_year($calendar, $year)
 {
 }
 
 /**
- * IntlGregorianCalendar $calendar
- * mixed $date
+ * @param IntlGregorianCalendar $calendar
+ * @param mixed $date
  */
 function intlgregcal_set_gregorian_change($calendar, $date)
 {
 }
 
 /**
- * mixed $zoneId
+ * @param mixed $zoneId
  */
 function intltz_count_equivalent_ids($zoneId)
 {
@@ -4435,63 +4435,63 @@ function intltz_create_default()
 }
 
 /**
- * mixed|null $countryOrRawOffset
+ * @param mixed|null $countryOrRawOffset
  */
 function intltz_create_enumeration($countryOrRawOffset = null)
 {
 }
 
 /**
- * mixed $zoneId
+ * @param mixed $zoneId
  */
 function intltz_create_time_zone($zoneId)
 {
 }
 
 /**
- * mixed $zoneType
- * mixed|null $region
- * mixed|null $rawOffset
+ * @param mixed $zoneType
+ * @param mixed|null $region
+ * @param mixed|null $rawOffset
  */
 function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null)
 {
 }
 
 /**
- * DateTimeZone $dateTimeZone
+ * @param DateTimeZone $dateTimeZone
  */
 function intltz_from_date_time_zone($dateTimeZone)
 {
 }
 
 /**
- * mixed $zoneId
- * mixed|null $isSystemID
+ * @param mixed $zoneId
+ * @param mixed|null $isSystemID
  */
 function intltz_get_canonical_id($zoneId, &$isSystemID = null)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
- * mixed|null $isDaylight
- * mixed|null $style
- * mixed|null $locale
+ * @param IntlTimeZone $timeZone
+ * @param mixed|null $isDaylight
+ * @param mixed|null $style
+ * @param mixed|null $locale
  */
 function intltz_get_display_name($timeZone, $isDaylight = null, $style = null, $locale = null)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  */
 function intltz_get_dst_savings($timeZone)
 {
 }
 
 /**
- * mixed $zoneId
- * mixed $index
+ * @param mixed $zoneId
+ * @param mixed $index
  */
 function intltz_get_equivalent_id($zoneId, $index)
 {
@@ -4500,7 +4500,7 @@ function intltz_get_equivalent_id($zoneId, $index)
 /**
  * Get last error code on the object
  *
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  *
  * @return int
  *
@@ -4513,7 +4513,7 @@ function intltz_get_error_code($timeZone): int
 /**
  * Get last error message on the object
  *
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  *
  * @return string
  *
@@ -4528,32 +4528,32 @@ function intltz_get_gmt()
 }
 
 /**
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  */
 function intltz_get_id($timeZone)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
- * mixed $date
- * mixed $local
- * mixed $rawOffset
- * mixed $dstOffset
+ * @param IntlTimeZone $timeZone
+ * @param mixed $date
+ * @param mixed $local
+ * @param mixed $rawOffset
+ * @param mixed $dstOffset
  */
 function intltz_get_offset($timeZone, $date, $local, &$rawOffset, &$dstOffset)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  */
 function intltz_get_raw_offset($timeZone)
 {
 }
 
 /**
- * mixed $zoneId
+ * @param mixed $zoneId
  */
 function intltz_get_region($zoneId)
 {
@@ -4568,22 +4568,22 @@ function intltz_get_unknown()
 }
 
 /**
- * IntlTimeZone $timeZone
- * IntlTimeZone|null $otherTimeZone
+ * @param IntlTimeZone $timeZone
+ * @param IntlTimeZone|null $otherTimeZone
  */
 function intltz_has_same_rules($timeZone, $otherTimeZone = null)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  */
 function intltz_to_date_time_zone($timeZone)
 {
 }
 
 /**
- * IntlTimeZone $timeZone
+ * @param IntlTimeZone $timeZone
  */
 function intltz_use_daylight_time($timeZone)
 {
@@ -4592,7 +4592,7 @@ function intltz_use_daylight_time($timeZone)
 /**
  * Tries to find out best available locale based on HTTP "Accept-Language" header
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4607,7 +4607,7 @@ function locale_accept_from_http($arg1): string
 /**
  * Canonicalize the locale string
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4622,7 +4622,7 @@ function locale_canonicalize($arg1): string
 /**
  * Returns a correctly ordered and delimited locale ID
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4637,9 +4637,9 @@ function locale_compose($arg1): string
 /**
  * Checks if a language tag filter matches with locale
  *
- * mixed $langtag
- * mixed $locale
- * mixed|null $canonicalize
+ * @param mixed $langtag
+ * @param mixed $locale
+ * @param mixed|null $canonicalize
  *
  * @return bool
  *
@@ -4654,7 +4654,7 @@ function locale_filter_matches($langtag, $locale, $canonicalize = null): bool
 /**
  * Gets the variants for the input locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return array
  *
@@ -4682,8 +4682,8 @@ function locale_get_default(): string
 /**
  * Returns an appropriately localized display name for language of the inputlocale
  *
- * mixed $locale
- * mixed|null $in_locale
+ * @param mixed $locale
+ * @param mixed|null $in_locale
  *
  * @return string
  *
@@ -4698,8 +4698,8 @@ function locale_get_display_language($locale, $in_locale = null): string
 /**
  * Returns an appropriately localized display name for the input locale
  *
- * mixed $locale
- * mixed|null $in_locale
+ * @param mixed $locale
+ * @param mixed|null $in_locale
  *
  * @return string
  *
@@ -4714,8 +4714,8 @@ function locale_get_display_name($locale, $in_locale = null): string
 /**
  * Returns an appropriately localized display name for region of the input locale
  *
- * mixed $locale
- * mixed|null $in_locale
+ * @param mixed $locale
+ * @param mixed|null $in_locale
  *
  * @return string
  *
@@ -4730,8 +4730,8 @@ function locale_get_display_region($locale, $in_locale = null): string
 /**
  * Returns an appropriately localized display name for script of the input locale
  *
- * mixed $locale
- * mixed|null $in_locale
+ * @param mixed $locale
+ * @param mixed|null $in_locale
  *
  * @return string
  *
@@ -4746,8 +4746,8 @@ function locale_get_display_script($locale, $in_locale = null): string
 /**
  * Returns an appropriately localized display name for variants of the input locale
  *
- * mixed $locale
- * mixed|null $in_locale
+ * @param mixed $locale
+ * @param mixed|null $in_locale
  *
  * @return string
  *
@@ -4762,7 +4762,7 @@ function locale_get_display_variant($locale, $in_locale = null): string
 /**
  * Gets the keywords for the input locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return array
  *
@@ -4777,7 +4777,7 @@ function locale_get_keywords($arg1): array
 /**
  * Gets the primary language for the input locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4792,7 +4792,7 @@ function locale_get_primary_language($arg1): string
 /**
  * Gets the region for the input locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4807,7 +4807,7 @@ function locale_get_region($arg1): string
 /**
  * Gets the script for the input locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return string
  *
@@ -4822,10 +4822,10 @@ function locale_get_script($arg1): string
 /**
  * Searches the language tag list for the best match to the language
  *
- * mixed $langtag
- * mixed $locale
- * mixed|null $canonicalize
- * mixed|null $def
+ * @param mixed $langtag
+ * @param mixed $locale
+ * @param mixed|null $canonicalize
+ * @param mixed|null $def
  *
  * @return string
  *
@@ -4840,7 +4840,7 @@ function locale_lookup($langtag, $locale, $canonicalize = null, $def = null): st
 /**
  * Returns a key-value array of locale ID subtag elements
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return array
  *
@@ -4855,7 +4855,7 @@ function locale_parse($arg1): array
 /**
  * Sets the default runtime locale
  *
- * mixed $arg1
+ * @param mixed $arg1
  *
  * @return bool
  *
@@ -4870,8 +4870,8 @@ function locale_set_default($arg1): bool
 /**
  * Constructs a new Message Formatter
  *
- * mixed $locale
- * mixed $pattern
+ * @param mixed $locale
+ * @param mixed $pattern
  *
  * @return MessageFormatter
  *
@@ -4886,8 +4886,8 @@ function msgfmt_create($locale, $pattern)
 /**
  * Format the message
  *
- * mixed $nf
- * mixed $args
+ * @param mixed $nf
+ * @param mixed $args
  *
  * @return string
  *
@@ -4902,9 +4902,9 @@ function msgfmt_format($nf, $args): string
 /**
  * Quick format message
  *
- * mixed $locale
- * mixed $pattern
- * mixed $args
+ * @param mixed $locale
+ * @param mixed $pattern
+ * @param mixed $args
  *
  * @return string
  *
@@ -4919,7 +4919,7 @@ function msgfmt_format_message($locale, $pattern, $args): string
 /**
  * Get the error code from last operation
  *
- * mixed $nf
+ * @param mixed $nf
  *
  * @return int
  *
@@ -4934,7 +4934,7 @@ function msgfmt_get_error_code($nf): int
 /**
  * Get the error text from the last operation
  *
- * mixed $coll
+ * @param mixed $coll
  *
  * @return string
  *
@@ -4949,7 +4949,7 @@ function msgfmt_get_error_message($coll): string
 /**
  * Get the locale for which the formatter was created
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return string
  *
@@ -4964,7 +4964,7 @@ function msgfmt_get_locale($mf): string
 /**
  * Get the pattern used by the formatter
  *
- * mixed $mf
+ * @param mixed $mf
  *
  * @return string
  *
@@ -4979,8 +4979,8 @@ function msgfmt_get_pattern($mf): string
 /**
  * Parse input string according to pattern
  *
- * mixed $nf
- * mixed $source
+ * @param mixed $nf
+ * @param mixed $source
  *
  * @return array
  *
@@ -4995,9 +4995,9 @@ function msgfmt_parse($nf, $source): array
 /**
  * Quick parse input string
  *
- * mixed $locale
- * mixed $pattern
- * mixed $source
+ * @param mixed $locale
+ * @param mixed $pattern
+ * @param mixed $source
  *
  * @return array
  *
@@ -5012,8 +5012,8 @@ function msgfmt_parse_message($locale, $pattern, $source): array
 /**
  * Set the pattern used by the formatter
  *
- * mixed $mf
- * mixed $pattern
+ * @param mixed $mf
+ * @param mixed $pattern
  *
  * @return bool
  *
@@ -5029,8 +5029,8 @@ function msgfmt_set_pattern($mf, $pattern): bool
  * Checks if the provided string is already in the specified normalization
  *    form
  *
- * mixed $input
- * mixed|null $form
+ * @param mixed $input
+ * @param mixed|null $form
  *
  * @return bool
  *
@@ -5045,8 +5045,8 @@ function normalizer_is_normalized($input, $form = null): bool
 /**
  * Normalizes the input provided and returns the normalized string
  *
- * mixed $input
- * mixed|null $form
+ * @param mixed $input
+ * @param mixed|null $form
  *
  * @return string
  *
@@ -5061,9 +5061,9 @@ function normalizer_normalize($input, $form = null): string
 /**
  * Create a number formatter
  *
- * mixed $locale
- * mixed $style
- * mixed|null $pattern
+ * @param mixed $locale
+ * @param mixed $style
+ * @param mixed|null $pattern
  *
  * @return NumberFormatter
  *
@@ -5078,9 +5078,9 @@ function numfmt_create($locale, $style, $pattern = null)
 /**
  * Format a number
  *
- * mixed $nf
- * mixed $num
- * mixed|null $type
+ * @param mixed $nf
+ * @param mixed $num
+ * @param mixed|null $type
  *
  * @return string
  *
@@ -5095,9 +5095,9 @@ function numfmt_format($nf, $num, $type = null): string
 /**
  * Format a currency value
  *
- * mixed $nf
- * mixed $num
- * mixed $currency
+ * @param mixed $nf
+ * @param mixed $num
+ * @param mixed $currency
  *
  * @return string
  *
@@ -5112,8 +5112,8 @@ function numfmt_format_currency($nf, $num, $currency): string
 /**
  * Get an attribute
  *
- * mixed $nf
- * mixed $attr
+ * @param mixed $nf
+ * @param mixed $attr
  *
  * @return int
  *
@@ -5128,7 +5128,7 @@ function numfmt_get_attribute($nf, $attr): int
 /**
  * Get formatter's last error code
  *
- * mixed $nf
+ * @param mixed $nf
  *
  * @return int
  *
@@ -5143,7 +5143,7 @@ function numfmt_get_error_code($nf): int
 /**
  * Get formatter's last error message
  *
- * mixed $nf
+ * @param mixed $nf
  *
  * @return string
  *
@@ -5158,8 +5158,8 @@ function numfmt_get_error_message($nf): string
 /**
  * Get formatter locale
  *
- * mixed $nf
- * mixed|null $type
+ * @param mixed $nf
+ * @param mixed|null $type
  *
  * @return string
  *
@@ -5174,7 +5174,7 @@ function numfmt_get_locale($nf, $type = null): string
 /**
  * Get formatter pattern
  *
- * mixed $nf
+ * @param mixed $nf
  *
  * @return string
  *
@@ -5189,8 +5189,8 @@ function numfmt_get_pattern($nf): string
 /**
  * Get a symbol value
  *
- * mixed $nf
- * mixed $attr
+ * @param mixed $nf
+ * @param mixed $attr
  *
  * @return string
  *
@@ -5205,8 +5205,8 @@ function numfmt_get_symbol($nf, $attr): string
 /**
  * Get a text attribute
  *
- * mixed $nf
- * mixed $attr
+ * @param mixed $nf
+ * @param mixed $attr
  *
  * @return string
  *
@@ -5221,10 +5221,10 @@ function numfmt_get_text_attribute($nf, $attr): string
 /**
  * Parse a number
  *
- * mixed $formatter
- * mixed $string
- * mixed|null $type
- * mixed|null $position
+ * @param mixed $formatter
+ * @param mixed $string
+ * @param mixed|null $type
+ * @param mixed|null $position
  *
  * @return mixed
  *
@@ -5239,10 +5239,10 @@ function numfmt_parse($formatter, $string, $type = null, &$position = null)
 /**
  * Parse a currency number
  *
- * mixed $formatter
- * mixed $string
- * mixed $currency
- * mixed|null $position
+ * @param mixed $formatter
+ * @param mixed $string
+ * @param mixed $currency
+ * @param mixed|null $position
  *
  * @return float
  *
@@ -5257,9 +5257,9 @@ function numfmt_parse_currency($formatter, $string, &$currency, &$position = nul
 /**
  * Set an attribute
  *
- * mixed $nf
- * mixed $attr
- * mixed $value
+ * @param mixed $nf
+ * @param mixed $attr
+ * @param mixed $value
  *
  * @return bool
  *
@@ -5274,8 +5274,8 @@ function numfmt_set_attribute($nf, $attr, $value): bool
 /**
  * Set formatter pattern
  *
- * mixed $nf
- * mixed $pattern
+ * @param mixed $nf
+ * @param mixed $pattern
  *
  * @return bool
  *
@@ -5290,9 +5290,9 @@ function numfmt_set_pattern($nf, $pattern): bool
 /**
  * Set a symbol value
  *
- * mixed $nf
- * mixed $attr
- * mixed $symbol
+ * @param mixed $nf
+ * @param mixed $attr
+ * @param mixed $symbol
  *
  * @return bool
  *
@@ -5307,9 +5307,9 @@ function numfmt_set_symbol($nf, $attr, $symbol): bool
 /**
  * Set a text attribute
  *
- * mixed $nf
- * mixed $attr
- * mixed $value
+ * @param mixed $nf
+ * @param mixed $attr
+ * @param mixed $value
  *
  * @return bool
  *
@@ -5324,7 +5324,7 @@ function numfmt_set_text_attribute($nf, $attr, $value): bool
 /**
  * Get number of elements in the bundle
  *
- * mixed $bundle
+ * @param mixed $bundle
  *
  * @return int
  *
@@ -5337,9 +5337,9 @@ function resourcebundle_count($bundle): int
 /**
  * Create a resource bundle
  *
- * mixed $locale
- * mixed $bundlename
- * mixed|null $fallback
+ * @param mixed $locale
+ * @param mixed $bundlename
+ * @param mixed|null $fallback
  *
  * @return ResourceBundle
  *
@@ -5352,9 +5352,9 @@ function resourcebundle_create($locale, $bundlename, $fallback = null)
 /**
  * Get data from the bundle
  *
- * mixed $bundle
- * mixed $index
- * mixed|null $fallback
+ * @param mixed $bundle
+ * @param mixed $index
+ * @param mixed|null $fallback
  *
  * @return mixed
  *
@@ -5367,7 +5367,7 @@ function resourcebundle_get($bundle, $index, $fallback = null)
 /**
  * Get bundle's last error code
  *
- * mixed $bundle
+ * @param mixed $bundle
  *
  * @return int
  *
@@ -5380,7 +5380,7 @@ function resourcebundle_get_error_code($bundle): int
 /**
  * Get bundle's last error message
  *
- * mixed $bundle
+ * @param mixed $bundle
  *
  * @return string
  *
@@ -5393,7 +5393,7 @@ function resourcebundle_get_error_message($bundle): string
 /**
  * Get supported locales
  *
- * mixed $bundlename
+ * @param mixed $bundlename
  *
  * @return array
  *
@@ -5406,8 +5406,8 @@ function resourcebundle_locales($bundlename): array
 /**
  * Create a transliterator
  *
- * mixed $id
- * mixed|null $direction
+ * @param mixed $id
+ * @param mixed|null $direction
  *
  * @return Transliterator
  *
@@ -5420,8 +5420,8 @@ function transliterator_create($id, $direction = null)
 /**
  * Create transliterator from rules
  *
- * mixed $rules
- * mixed|null $direction
+ * @param mixed $rules
+ * @param mixed|null $direction
  *
  * @return Transliterator
  *
@@ -5434,7 +5434,7 @@ function transliterator_create_from_rules($rules, $direction = null)
 /**
  * Create an inverse transliterator
  *
- * Transliterator $orig_trans
+ * @param Transliterator $orig_trans
  *
  * @return Transliterator
  *
@@ -5447,7 +5447,7 @@ function transliterator_create_inverse($orig_trans)
 /**
  * Get last error code
  *
- * Transliterator $trans
+ * @param Transliterator $trans
  *
  * @return int
  *
@@ -5460,7 +5460,7 @@ function transliterator_get_error_code($trans): int
 /**
  * Get last error message
  *
- * Transliterator $trans
+ * @param Transliterator $trans
  *
  * @return string
  *
@@ -5484,10 +5484,10 @@ function transliterator_list_ids(): array
 /**
  * Transliterate a string
  *
- * mixed $trans
- * mixed $subject
- * mixed|null $start
- * mixed|null $end
+ * @param mixed $trans
+ * @param mixed $subject
+ * @param mixed|null $start
+ * @param mixed|null $end
  *
  * @return string
  *

@@ -121,7 +121,7 @@ class Cond
     }
 
     /**
-     * mixed $condition
+     * @param mixed $condition
      */
     final public static function broadcast($condition)
     {
@@ -132,23 +132,23 @@ class Cond
     }
 
     /**
-     * mixed $condition
+     * @param mixed $condition
      */
     final public static function destroy($condition)
     {
     }
 
     /**
-     * mixed $condition
+     * @param mixed $condition
      */
     final public static function signal($condition)
     {
     }
 
     /**
-     * mixed $condition
-     * mixed $mutex
-     * mixed|null $timeout
+     * @param mixed $condition
+     * @param mixed $mutex
+     * @param mixed|null $timeout
      */
     final public static function wait($condition, $mutex, $timeout = null)
     {
@@ -169,36 +169,36 @@ class Mutex
     }
 
     /**
-     * mixed|null $lock
+     * @param mixed|null $lock
      */
     final public static function create($lock = null)
     {
     }
 
     /**
-     * mixed $mutex
+     * @param mixed $mutex
      */
     final public static function destroy($mutex)
     {
     }
 
     /**
-     * mixed $mutex
+     * @param mixed $mutex
      */
     final public static function lock($mutex)
     {
     }
 
     /**
-     * mixed $mutex
+     * @param mixed $mutex
      */
     final public static function trylock($mutex)
     {
     }
 
     /**
-     * mixed $mutex
-     * mixed|null $destroy
+     * @param mixed $mutex
+     * @param mixed|null $destroy
      */
     final public static function unlock($mutex, $destroy = null)
     {
@@ -215,23 +215,23 @@ class Mutex
 class Pool
 {
     /**
-     * mixed $size
-     * mixed|null $class
-     * mixed|null $ctor
+     * @param mixed $size
+     * @param mixed|null $class
+     * @param mixed|null $ctor
      */
     public function __construct($size, $class = null, $ctor = null)
     {
     }
 
     /**
-     * mixed $collector
+     * @param mixed $collector
      */
     public function collect($collector)
     {
     }
 
     /**
-     * mixed $size
+     * @param mixed $size
      */
     public function resize($size)
     {
@@ -242,15 +242,15 @@ class Pool
     }
 
     /**
-     * mixed $task
+     * @param mixed $task
      */
     public function submit($task)
     {
     }
 
     /**
-     * mixed $worker
-     * mixed $task
+     * @param mixed $worker
+     * @param mixed $task
      */
     public function submitTo($worker, $task)
     {
@@ -287,8 +287,8 @@ class Thread extends Threaded
     }
 
     /**
-     * mixed $block
-     * mixed|null $args
+     * @param mixed $block
+     * @param mixed|null $args
      */
     public static function globally($block, $args = null)
     {
@@ -318,7 +318,7 @@ class Thread extends Threaded
     }
 
     /**
-     * mixed|null $options
+     * @param mixed|null $options
      */
     public function start($options = null)
     {
@@ -335,8 +335,8 @@ class Thread extends Threaded
 class Threaded implements Countable, Traversable
 {
     /**
-     * mixed $size
-     * mixed|null $preserve
+     * @param mixed $size
+     * @param mixed|null $preserve
      */
     public function chunk($size, $preserve = null)
     {
@@ -356,16 +356,16 @@ class Threaded implements Countable, Traversable
     }
 
     /**
-     * mixed $class
+     * @param mixed $class
      */
     public static function extend($class)
     {
     }
 
     /**
-     * Closure $run
-     * Closure|null $construct
-     * mixed|null $args
+     * @param Closure $run
+     * @param Closure|null $construct
+     * @param mixed|null $args
      */
     public static function from($run, $construct = null, $args = null)
     {
@@ -392,8 +392,8 @@ class Threaded implements Countable, Traversable
     }
 
     /**
-     * mixed $from
-     * mixed|null $overwrite
+     * @param mixed $from
+     * @param mixed|null $overwrite
      */
     public function merge($from, $overwrite = null)
     {
@@ -416,7 +416,7 @@ class Threaded implements Countable, Traversable
     }
 
     /**
-     * mixed $function
+     * @param mixed $function
      */
     public function synchronized($function)
     {
@@ -427,7 +427,7 @@ class Threaded implements Countable, Traversable
     }
 
     /**
-     * mixed|null $timeout
+     * @param mixed|null $timeout
      */
     public function wait($timeout = null)
     {
@@ -460,14 +460,14 @@ class Worker extends Thread
     }
 
     /**
-     * mixed $work
+     * @param mixed $work
      */
     public function stack(&$work)
     {
     }
 
     /**
-     * mixed|null $work
+     * @param mixed|null $work
      */
     public function unstack(&$work = null)
     {

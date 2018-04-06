@@ -74,9 +74,9 @@ const MYSQL_CLIENT_SSL = 2048;
 const MYSQL_NUM = 2;
 
 /**
- * mixed $database_name
- * mixed $query
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed $query
+ * @param mixed|null $link_identifier
  *
  * @since PHP 4, PHP 5
  *
@@ -89,7 +89,7 @@ function mysql($database_name, $query, $link_identifier = null)
 /**
  * Get number of affected rows in previous MySQL operation
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -104,7 +104,7 @@ function mysql_affected_rows($link_identifier = null)
 /**
  * Returns the name of the character set
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -119,7 +119,7 @@ function mysql_client_encoding($link_identifier = null)
 /**
  * Close MySQL connection
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -134,11 +134,11 @@ function mysql_close($link_identifier = null)
 /**
  * Open a connection to a MySQL Server
  *
- * mixed|null $hostname
- * mixed|null $username
- * mixed|null $password
- * mixed|null $new
- * mixed|null $flags
+ * @param mixed|null $hostname
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $new
+ * @param mixed|null $flags
  *
  * @return resource
  *
@@ -153,8 +153,8 @@ function mysql_connect($hostname = null, $username = null, $password = null, $ne
 /**
  * Move internal result pointer
  *
- * mixed $result
- * mixed $row_number
+ * @param mixed $result
+ * @param mixed $row_number
  *
  * @return bool
  *
@@ -169,9 +169,9 @@ function mysql_data_seek($result, $row_number)
 /**
  * Retrieves database name from the call to <code>mysql_list_dbs</code>
  *
- * mixed $result
- * mixed $row
- * mixed|null $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed|null $field
  *
  * @return string
  *
@@ -186,9 +186,9 @@ function mysql_db_name($result, $row, $field = null)
 /**
  * Selects a database and executes a query on it
  *
- * mixed $database_name
- * mixed $query
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed $query
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -203,9 +203,9 @@ function mysql_db_query($database_name, $query, $link_identifier = null)
 }
 
 /**
- * mixed $result
- * mixed $row
- * mixed|null $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed|null $field
  *
  * @since PHP 4, PHP 5
  *
@@ -218,7 +218,7 @@ function mysql_dbname($result, $row, $field = null)
 /**
  * Returns the numerical value of the error message from previous MySQL operation
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -233,7 +233,7 @@ function mysql_errno($link_identifier = null)
 /**
  * Returns the text of the error message from previous MySQL operation
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -248,7 +248,7 @@ function mysql_error($link_identifier = null)
 /**
  * Escapes a string for use in a mysql_query
  *
- * mixed $string
+ * @param mixed $string
  *
  * @return string
  *
@@ -263,8 +263,8 @@ function mysql_escape_string($string)
 /**
  * Fetch a result row as an associative array, a numeric array, or both
  *
- * mixed $result
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $result_type
  *
  * @return array
  *
@@ -279,7 +279,7 @@ function mysql_fetch_array($result, $result_type = null): array
 /**
  * Fetch a result row as an associative array
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -294,8 +294,8 @@ function mysql_fetch_assoc($result): array
 /**
  * Get column information from a result and return as an object
  *
- * mixed $result
- * mixed|null $field_offset
+ * @param mixed $result
+ * @param mixed|null $field_offset
  *
  * @return object
  *
@@ -310,7 +310,7 @@ function mysql_fetch_field($result, $field_offset = null)
 /**
  * Get the length of each output in a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -325,9 +325,9 @@ function mysql_fetch_lengths($result): array
 /**
  * Fetch a result row as an object
  *
- * mixed $result
- * mixed|null $class_name
- * mixed|null $ctor_params
+ * @param mixed $result
+ * @param mixed|null $class_name
+ * @param mixed|null $ctor_params
  *
  * @return object
  *
@@ -342,7 +342,7 @@ function mysql_fetch_object($result, $class_name = null, $ctor_params = null)
 /**
  * Get a result row as an enumerated array
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -357,8 +357,8 @@ function mysql_fetch_row($result): array
 /**
  * Get the flags associated with the specified field in a result
  *
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @return string
  *
@@ -373,8 +373,8 @@ function mysql_field_flags($result, $field_offset)
 /**
  * Returns the length of the specified field
  *
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @return int
  *
@@ -389,8 +389,8 @@ function mysql_field_len($result, $field_offset)
 /**
  * Get the name of the specified field in a result
  *
- * mixed $result
- * mixed $field_index
+ * @param mixed $result
+ * @param mixed $field_index
  *
  * @return string
  *
@@ -405,8 +405,8 @@ function mysql_field_name($result, $field_index)
 /**
  * Set result pointer to a specified field offset
  *
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @return bool
  *
@@ -421,8 +421,8 @@ function mysql_field_seek($result, $field_offset)
 /**
  * Get name of the table the specified field is in
  *
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @return string
  *
@@ -437,8 +437,8 @@ function mysql_field_table($result, $field_offset)
 /**
  * Get the type of the specified field in a result
  *
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @return string
  *
@@ -451,8 +451,8 @@ function mysql_field_type($result, $field_offset)
 }
 
 /**
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @since PHP 4, PHP 5
  *
@@ -463,8 +463,8 @@ function mysql_fieldflags($result, $field_offset)
 }
 
 /**
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @since PHP 4, PHP 5
  *
@@ -475,8 +475,8 @@ function mysql_fieldlen($result, $field_offset)
 }
 
 /**
- * mixed $result
- * mixed $field_index
+ * @param mixed $result
+ * @param mixed $field_index
  *
  * @since PHP 4, PHP 5
  *
@@ -487,8 +487,8 @@ function mysql_fieldname($result, $field_index)
 }
 
 /**
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @since PHP 4, PHP 5
  *
@@ -499,8 +499,8 @@ function mysql_fieldtable($result, $field_offset)
 }
 
 /**
- * mixed $result
- * mixed $field_offset
+ * @param mixed $result
+ * @param mixed $field_offset
  *
  * @since PHP 4, PHP 5
  *
@@ -513,7 +513,7 @@ function mysql_fieldtype($result, $field_offset)
 /**
  * Free result memory
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return bool
  *
@@ -526,7 +526,7 @@ function mysql_free_result($result)
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5
  *
@@ -552,7 +552,7 @@ function mysql_get_client_info()
 /**
  * Get MySQL host info
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -567,7 +567,7 @@ function mysql_get_host_info($link_identifier = null)
 /**
  * Get MySQL protocol info
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -582,7 +582,7 @@ function mysql_get_proto_info($link_identifier = null)
 /**
  * Get MySQL server info
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -597,7 +597,7 @@ function mysql_get_server_info($link_identifier = null)
 /**
  * Get information about the most recent query
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -612,7 +612,7 @@ function mysql_info($link_identifier = null)
 /**
  * Get the ID generated in the last query
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -627,7 +627,7 @@ function mysql_insert_id($link_identifier = null)
 /**
  * List databases available on a MySQL server
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -644,9 +644,9 @@ function mysql_list_dbs($link_identifier = null)
 /**
  * List MySQL table fields
  *
- * mixed $database_name
- * mixed $table_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed $table_name
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -661,7 +661,7 @@ function mysql_list_fields($database_name, $table_name, $link_identifier = null)
 /**
  * List MySQL processes
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -676,8 +676,8 @@ function mysql_list_processes($link_identifier = null)
 /**
  * List tables in a MySQL database
  *
- * mixed $database_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *
@@ -692,7 +692,7 @@ function mysql_list_tables($database_name, $link_identifier = null)
 }
 
 /**
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @since PHP 4, PHP 5
  *
@@ -703,9 +703,9 @@ function mysql_listdbs($link_identifier = null)
 }
 
 /**
- * mixed $database_name
- * mixed $table_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed $table_name
+ * @param mixed|null $link_identifier
  *
  * @since PHP 4, PHP 5
  *
@@ -716,8 +716,8 @@ function mysql_listfields($database_name, $table_name, $link_identifier = null)
 }
 
 /**
- * mixed $database_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed|null $link_identifier
  *
  * @since PHP 4, PHP 5 < 5.1.7
  *
@@ -730,7 +730,7 @@ function mysql_listtables($database_name, $link_identifier = null)
 /**
  * Get number of fields in result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -745,7 +745,7 @@ function mysql_num_fields($result)
 /**
  * Get number of rows in result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -758,7 +758,7 @@ function mysql_num_rows($result)
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5
  *
@@ -769,7 +769,7 @@ function mysql_numfields($result)
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5
  *
@@ -782,10 +782,10 @@ function mysql_numrows($result)
 /**
  * Open a persistent connection to a MySQL server
  *
- * mixed|null $hostname
- * mixed|null $username
- * mixed|null $password
- * mixed|null $flags
+ * @param mixed|null $hostname
+ * @param mixed|null $username
+ * @param mixed|null $password
+ * @param mixed|null $flags
  *
  * @return resource
  *
@@ -800,7 +800,7 @@ function mysql_pconnect($hostname = null, $username = null, $password = null, $f
 /**
  * Ping a server connection or reconnect if there is no connection
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -815,8 +815,8 @@ function mysql_ping($link_identifier = null)
 /**
  * Send a MySQL query
  *
- * mixed $query
- * mixed|null $link_identifier
+ * @param mixed $query
+ * @param mixed|null $link_identifier
  *
  * @return mixed
  *
@@ -831,8 +831,8 @@ function mysql_query($query, $link_identifier = null)
 /**
  * Escapes special characters in a string for use in an SQL statement
  *
- * mixed $string
- * mixed|null $link_identifier
+ * @param mixed $string
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -847,9 +847,9 @@ function mysql_real_escape_string($string, $link_identifier = null)
 /**
  * Get result data
  *
- * mixed $result
- * mixed $row
- * mixed|null $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed|null $field
  *
  * @return string
  *
@@ -864,8 +864,8 @@ function mysql_result($result, $row, $field = null)
 /**
  * Select a MySQL database
  *
- * mixed $database_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -878,8 +878,8 @@ function mysql_select_db($database_name, $link_identifier = null)
 }
 
 /**
- * mixed $database_name
- * mixed|null $link_identifier
+ * @param mixed $database_name
+ * @param mixed|null $link_identifier
  *
  * @since PHP 4, PHP 5
  *
@@ -892,8 +892,8 @@ function mysql_selectdb($database_name, $link_identifier = null)
 /**
  * Sets the client character set
  *
- * mixed $charset_name
- * mixed|null $link_identifier
+ * @param mixed $charset_name
+ * @param mixed|null $link_identifier
  *
  * @return bool
  *
@@ -908,7 +908,7 @@ function mysql_set_charset($charset_name, $link_identifier = null)
 /**
  * Get current system status
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return string
  *
@@ -921,9 +921,9 @@ function mysql_stat($link_identifier = null)
 }
 
 /**
- * mixed $result
- * mixed $row
- * mixed|null $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed|null $field
  *
  * @since PHP 4 >= 4.3.0, PHP 5
  */
@@ -934,9 +934,9 @@ function mysql_table_name($result, $row, $field = null)
 /**
  * Get table name of field
  *
- * mixed $result
- * mixed $row
- * mixed|null $field
+ * @param mixed $result
+ * @param mixed $row
+ * @param mixed|null $field
  *
  * @return string
  *
@@ -951,7 +951,7 @@ function mysql_tablename($result, $row, $field = null)
 /**
  * Return the current thread ID
  *
- * mixed|null $link_identifier
+ * @param mixed|null $link_identifier
  *
  * @return int
  *
@@ -966,8 +966,8 @@ function mysql_thread_id($link_identifier = null)
 /**
  * Send an SQL query to MySQL without fetching and buffering the result rows
  *
- * mixed $query
- * mixed|null $link_identifier
+ * @param mixed $query
+ * @param mixed|null $link_identifier
  *
  * @return resource
  *

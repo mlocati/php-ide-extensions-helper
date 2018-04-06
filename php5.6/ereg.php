@@ -6,9 +6,9 @@
 /**
  * Regular expression match
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  *
  * @return int
  *
@@ -25,9 +25,9 @@ function ereg($pattern, $string, &$registers = null)
 /**
  * Replace regular expression
  *
- * mixed $pattern
- * mixed $replacement
- * mixed $string
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
  *
  * @return string
  *
@@ -44,9 +44,9 @@ function ereg_replace($pattern, $replacement, $string)
 /**
  * Case insensitive regular expression match
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $registers
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $registers
  *
  * @return int
  *
@@ -63,9 +63,9 @@ function eregi($pattern, $string, &$registers = null)
 /**
  * Replace regular expression case insensitive
  *
- * mixed $pattern
- * mixed $replacement
- * mixed $string
+ * @param mixed $pattern
+ * @param mixed $replacement
+ * @param mixed $string
  *
  * @return string
  *
@@ -82,9 +82,9 @@ function eregi_replace($pattern, $replacement, $string)
 /**
  * Split string into array by regular expression
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $limit
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $limit
  *
  * @return array
  *
@@ -101,9 +101,9 @@ function split($pattern, $string, $limit = null): array
 /**
  * Split string into array by regular expression case insensitive
  *
- * mixed $pattern
- * mixed $string
- * mixed|null $limit
+ * @param mixed $pattern
+ * @param mixed $string
+ * @param mixed|null $limit
  *
  * @return array
  *
@@ -120,7 +120,7 @@ function spliti($pattern, $string, $limit = null): array
 /**
  * Make regular expression for case insensitive match
  *
- * mixed $string
+ * @param mixed $string
  *
  * @return string
  *

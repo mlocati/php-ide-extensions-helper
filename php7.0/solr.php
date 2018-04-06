@@ -44,7 +44,7 @@ class SolrClient
     }
 
     /**
-     * array[] $clientOptions
+     * @param array[] $clientOptions
      */
     public function __construct($clientOptions)
     {
@@ -63,69 +63,69 @@ class SolrClient
     }
 
     /**
-     * SolrInputDocument $doc
-     * mixed|null $overwrite
-     * mixed|null $commitWithin
+     * @param SolrInputDocument $doc
+     * @param mixed|null $overwrite
+     * @param mixed|null $commitWithin
      */
     public function &addDocument(&$doc, $overwrite = null, $commitWithin = null)
     {
     }
 
     /**
-     * array[] $docs
-     * mixed|null $overwrite
-     * mixed|null $commitWithin
+     * @param array[] $docs
+     * @param mixed|null $overwrite
+     * @param mixed|null $commitWithin
      */
     public function &addDocuments(&$docs, $overwrite = null, $commitWithin = null)
     {
     }
 
     /**
-     * mixed|null $softCommit
-     * mixed|null $waitSearcher
-     * mixed|null $expungeDeletes
+     * @param mixed|null $softCommit
+     * @param mixed|null $waitSearcher
+     * @param mixed|null $expungeDeletes
      */
     public function &commit($softCommit = null, $waitSearcher = null, $expungeDeletes = null)
     {
     }
 
     /**
-     * mixed $id
+     * @param mixed $id
      */
     public function &deleteById($id)
     {
     }
 
     /**
-     * array[] $ids
+     * @param array[] $ids
      */
     public function &deleteByIds($ids)
     {
     }
 
     /**
-     * array[] $queries
+     * @param array[] $queries
      */
     public function &deleteByQueries($queries)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function &deleteByQuery($query)
     {
     }
 
     /**
-     * mixed $id
+     * @param mixed $id
      */
     public function &getById($id)
     {
     }
 
     /**
-     * array[] $ids
+     * @param array[] $ids
      */
     public function &getByIds($ids)
     {
@@ -140,9 +140,9 @@ class SolrClient
     }
 
     /**
-     * mixed|null $maxSegments
-     * mixed|null $softCommit
-     * mixed|null $waitSearcher
+     * @param mixed|null $maxSegments
+     * @param mixed|null $softCommit
+     * @param mixed|null $waitSearcher
      */
     public function &optimize($maxSegments = null, $softCommit = null, $waitSearcher = null)
     {
@@ -153,14 +153,14 @@ class SolrClient
     }
 
     /**
-     * SolrParams $query
+     * @param SolrParams $query
      */
     public function &query(&$query)
     {
     }
 
     /**
-     * mixed $raw_request
+     * @param mixed $raw_request
      */
     public function &request($raw_request)
     {
@@ -171,15 +171,15 @@ class SolrClient
     }
 
     /**
-     * mixed $responseWriter
+     * @param mixed $responseWriter
      */
     public function &setResponseWriter($responseWriter)
     {
     }
 
     /**
-     * mixed $type
-     * mixed $value
+     * @param mixed $type
+     * @param mixed $value
      */
     public function setServlet($type, $value)
     {
@@ -225,7 +225,7 @@ class SolrClientException extends SolrException
 class SolrCollapseFunction
 {
     /**
-     * mixed|null $field
+     * @param mixed|null $field
      */
     public function __construct($field = null)
     {
@@ -272,42 +272,42 @@ class SolrCollapseFunction
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function setField($fieldName)
     {
     }
 
     /**
-     * mixed $hint
+     * @param mixed $hint
      */
     public function setHint($hint)
     {
     }
 
     /**
-     * mixed $max
+     * @param mixed $max
      */
     public function setMax($max)
     {
     }
 
     /**
-     * mixed $min
+     * @param mixed $min
      */
     public function setMin($min)
     {
     }
 
     /**
-     * mixed $policy
+     * @param mixed $policy
      */
     public function setNullPolicy($policy)
     {
     }
 
     /**
-     * mixed $size
+     * @param mixed $size
      */
     public function setSize($size)
     {
@@ -320,191 +320,191 @@ class SolrCollapseFunction
 class SolrDisMaxQuery extends SolrQuery
 {
     /**
-     * mixed|null $q
+     * @param mixed|null $q
      */
     public function __construct($q = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $boost
-     * mixed|null $slop
+     * @param mixed $field
+     * @param mixed $boost
+     * @param mixed|null $slop
      */
     public function addBigramPhraseField($field, $boost, $slop = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $value
-     * mixed|null $boost
+     * @param mixed $field
+     * @param mixed $value
+     * @param mixed|null $boost
      */
     public function addBoostQuery($field, $value, $boost = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $boost
-     * mixed|null $slop
+     * @param mixed $field
+     * @param mixed $boost
+     * @param mixed|null $slop
      */
     public function addPhraseField($field, $boost, $slop = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed|null $boost
+     * @param mixed $field
+     * @param mixed|null $boost
      */
     public function addQueryField($field, $boost = null)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $boost
-     * mixed|null $slop
+     * @param mixed $field
+     * @param mixed $boost
+     * @param mixed|null $slop
      */
     public function addTrigramPhraseField($field, $boost, $slop = null)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function addUserField($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removeBigramPhraseField($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removeBoostQuery($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removePhraseField($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removeQueryField($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removeTrigramPhraseField($field)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function removeUserField($field)
     {
     }
 
     /**
-     * mixed $fields
+     * @param mixed $fields
      */
     public function setBigramPhraseFields($fields)
     {
     }
 
     /**
-     * mixed $slop
+     * @param mixed $slop
      */
     public function setBigramPhraseSlop($slop)
     {
     }
 
     /**
-     * mixed $function
+     * @param mixed $function
      */
     public function setBoostFunction($function)
     {
     }
 
     /**
-     * mixed $q
+     * @param mixed $q
      */
     public function setBoostQuery($q)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function setMinimumMatch($value)
     {
     }
 
     /**
-     * mixed $fields
+     * @param mixed $fields
      */
     public function setPhraseFields($fields)
     {
     }
 
     /**
-     * mixed $slop
+     * @param mixed $slop
      */
     public function setPhraseSlop($slop)
     {
     }
 
     /**
-     * mixed $q
+     * @param mixed $q
      */
     public function setQueryAlt($q)
     {
     }
 
     /**
-     * mixed $slop
+     * @param mixed $slop
      */
     public function setQueryPhraseSlop($slop)
     {
     }
 
     /**
-     * mixed $tieBreaker
+     * @param mixed $tieBreaker
      */
     public function setTieBreaker($tieBreaker)
     {
     }
 
     /**
-     * mixed $fields
+     * @param mixed $fields
      */
     public function setTrigramPhraseFields($fields)
     {
     }
 
     /**
-     * mixed $slop
+     * @param mixed $slop
      */
     public function setTrigramPhraseSlop($slop)
     {
     }
 
     /**
-     * mixed $fields
+     * @param mixed $fields
      */
     public function setUserFields($fields)
     {
@@ -541,37 +541,37 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function __get($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function __isset($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
-     * mixed $fieldValue
+     * @param mixed $fieldName
+     * @param mixed $fieldValue
      */
     public function __set($fieldName, $fieldValue)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function __unset($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
-     * mixed $fieldValue
+     * @param mixed $fieldName
+     * @param mixed $fieldValue
      */
     public function addField($fieldName, $fieldValue)
     {
@@ -595,14 +595,14 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function deleteField($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function fieldExists($fieldName)
     {
@@ -617,7 +617,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function getField($fieldName)
     {
@@ -653,8 +653,8 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     }
 
     /**
-     * SolrDocument $sourceDoc
-     * mixed|null $overwrite
+     * @param SolrDocument $sourceDoc
+     * @param mixed|null $overwrite
      */
     public function merge(&$sourceDoc, $overwrite = null)
     {
@@ -674,29 +674,29 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function offsetExists($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function offsetGet($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
-     * mixed $fieldValue
+     * @param mixed $fieldName
+     * @param mixed $fieldValue
      */
     public function offsetSet($fieldName, $fieldValue)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function offsetUnset($fieldName)
     {
@@ -744,8 +744,8 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     /**
      * Sort an array
      *
-     * mixed $sortOrderBy
-     * mixed|null $sortDirection
+     * @param mixed $sortOrderBy
+     * @param mixed|null $sortDirection
      *
      * @return bool
      *
@@ -764,7 +764,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -889,23 +889,23 @@ final class SolrInputDocument
     }
 
     /**
-     * SolrInputDocument $child
+     * @param SolrInputDocument $child
      */
     public function addChildDocument(&$child)
     {
     }
 
     /**
-     * array[] $docs
+     * @param array[] $docs
      */
     public function &addChildDocuments(&$docs)
     {
     }
 
     /**
-     * mixed $fieldName
-     * mixed $fieldValue
-     * mixed|null $fieldBoostValue
+     * @param mixed $fieldName
+     * @param mixed $fieldValue
+     * @param mixed|null $fieldBoostValue
      */
     public function addField($fieldName, $fieldValue, $fieldBoostValue = null)
     {
@@ -916,14 +916,14 @@ final class SolrInputDocument
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function deleteField($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function fieldExists($fieldName)
     {
@@ -942,14 +942,14 @@ final class SolrInputDocument
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function getField($fieldName)
     {
     }
 
     /**
-     * mixed $fieldName
+     * @param mixed $fieldName
      */
     public function getFieldBoost($fieldName)
     {
@@ -968,8 +968,8 @@ final class SolrInputDocument
     }
 
     /**
-     * SolrInputDocument $sourceDoc
-     * mixed|null $overwrite
+     * @param SolrInputDocument $sourceDoc
+     * @param mixed|null $overwrite
      */
     public function merge(&$sourceDoc, $overwrite = null)
     {
@@ -989,15 +989,15 @@ final class SolrInputDocument
     }
 
     /**
-     * mixed $documentBoostValue
+     * @param mixed $documentBoostValue
      */
     public function setBoost($documentBoostValue)
     {
     }
 
     /**
-     * mixed $fieldName
-     * mixed $fieldBoostValue
+     * @param mixed $fieldName
+     * @param mixed $fieldBoostValue
      */
     public function setFieldBoost($fieldName, $fieldBoostValue)
     {
@@ -1006,8 +1006,8 @@ final class SolrInputDocument
     /**
      * Sort an array
      *
-     * mixed $sortOrderBy
-     * mixed|null $sortDirection
+     * @param mixed $sortOrderBy
+     * @param mixed|null $sortDirection
      *
      * @return bool
      *
@@ -1071,29 +1071,29 @@ final class SolrObject implements ArrayAccess
     }
 
     /**
-     * mixed $property_name
+     * @param mixed $property_name
      */
     public function offsetExists($property_name)
     {
     }
 
     /**
-     * mixed $property_name
+     * @param mixed $property_name
      */
     public function offsetGet($property_name)
     {
     }
 
     /**
-     * mixed $property_name
-     * mixed $property_value
+     * @param mixed $property_name
+     * @param mixed $property_value
      */
     public function offsetSet($property_name, $property_value)
     {
     }
 
     /**
-     * mixed $property_name
+     * @param mixed $property_name
      */
     public function offsetUnset($property_name)
     {
@@ -1118,30 +1118,30 @@ abstract class SolrParams implements Serializable
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function &add($name, $value)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function &addParam($name, $value)
     {
     }
 
     /**
-     * mixed $param_name
+     * @param mixed $param_name
      */
     public function get($param_name)
     {
     }
 
     /**
-     * mixed $param_name
+     * @param mixed $param_name
      */
     public function getParam($param_name)
     {
@@ -1169,23 +1169,23 @@ abstract class SolrParams implements Serializable
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function &set($name, $value)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function &setParam($name, $value)
     {
     }
 
     /**
-     * mixed|null $url_encode
+     * @param mixed|null $url_encode
      */
     public function toString($url_encode = null)
     {
@@ -1194,7 +1194,7 @@ abstract class SolrParams implements Serializable
     /**
      * Creates a PHP value from a stored representation
      *
-     * mixed $serialized
+     * @param mixed $serialized
      *
      * @return mixed
      *
@@ -1239,7 +1239,7 @@ final class SolrPingResponse extends SolrResponse
 class SolrQuery extends SolrModifiableParams
 {
     /**
-     * mixed|null $q
+     * @param mixed|null $q
      */
     public function __construct($q = null)
     {
@@ -1250,138 +1250,138 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed $fq
+     * @param mixed $fq
      */
     public function &addExpandFilterQuery($fq)
     {
     }
 
     /**
-     * mixed $field
-     * mixed|null $order
+     * @param mixed $field
+     * @param mixed|null $order
      */
     public function &addExpandSortField($field, $order = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addFacetDateField($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &addFacetDateOther($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addFacetField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addFacetQuery($value)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function &addField($field)
     {
     }
 
     /**
-     * mixed $fq
+     * @param mixed $fq
      */
     public function &addFilterQuery($fq)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addGroupField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addGroupFunction($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addGroupQuery($value)
     {
     }
 
     /**
-     * mixed $field
-     * mixed|null $order
+     * @param mixed $field
+     * @param mixed|null $order
      */
     public function &addGroupSortField($field, $order = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addHighlightField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addMltField($value)
     {
     }
 
     /**
-     * mixed $field
-     * mixed $boost
+     * @param mixed $field
+     * @param mixed $boost
      */
     public function &addMltQueryField($field, $boost)
     {
     }
 
     /**
-     * mixed $field
-     * mixed|null $order
+     * @param mixed $field
+     * @param mixed|null $order
      */
     public function &addSortField($field, $order = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addStatsFacet($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &addStatsField($value)
     {
     }
 
     /**
-     * SolrCollapseFunction $collapseFunction
+     * @param SolrCollapseFunction $collapseFunction
      */
     public function &collapse(&$collapseFunction)
     {
@@ -1412,7 +1412,7 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetDateEnd($field_override = null)
     {
@@ -1423,28 +1423,28 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetDateGap($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetDateHardEnd($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetDateOther($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetDateStart($field_override = null)
     {
@@ -1455,42 +1455,42 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetLimit($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetMethod($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetMinCount($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetMissing($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetOffset($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetPrefix($field_override = null)
     {
@@ -1501,7 +1501,7 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getFacetSort($field_override = null)
     {
@@ -1572,7 +1572,7 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightAlternateField($field_override = null)
     {
@@ -1583,21 +1583,21 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightFormatter($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightFragmenter($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightFragsize($field_override = null)
     {
@@ -1608,7 +1608,7 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightMaxAlternateFieldLength($field_override = null)
     {
@@ -1619,7 +1619,7 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightMergeContiguous($field_override = null)
     {
@@ -1642,21 +1642,21 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightSimplePost($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightSimplePre($field_override = null)
     {
     }
 
     /**
-     * mixed|null $field_override
+     * @param mixed|null $field_override
      */
     public function getHighlightSnippets($field_override = null)
     {
@@ -1791,631 +1791,631 @@ class SolrQuery extends SolrModifiableParams
     }
 
     /**
-     * mixed $fq
+     * @param mixed $fq
      */
     public function &removeExpandFilterQuery($fq)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function &removeExpandSortField($field)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeFacetDateField($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &removeFacetDateOther($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeFacetField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeFacetQuery($value)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function &removeField($field)
     {
     }
 
     /**
-     * mixed $fq
+     * @param mixed $fq
      */
     public function &removeFilterQuery($fq)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeHighlightField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeMltField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeMltQueryField($value)
     {
     }
 
     /**
-     * mixed $field
+     * @param mixed $field
      */
     public function &removeSortField($field)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeStatsFacet($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &removeStatsField($value)
     {
     }
 
     /**
-     * mixed $flag
+     * @param mixed $flag
      */
     public function &setEchoHandler($flag)
     {
     }
 
     /**
-     * mixed $type
+     * @param mixed $type
      */
     public function &setEchoParams($type)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setExpand($value)
     {
     }
 
     /**
-     * mixed $q
+     * @param mixed $q
      */
     public function &setExpandQuery($q)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setExpandRows($value)
     {
     }
 
     /**
-     * mixed $flag
+     * @param mixed $flag
      */
     public function &setExplainOther($flag)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setFacet($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetDateEnd($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetDateGap($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetDateHardEnd($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetDateStart($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetEnumCacheMinDefaultFrequency($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetLimit($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetMethod($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetMinCount($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetMissing($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetOffset($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetPrefix($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setFacetSort($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroup($value)
     {
     }
 
     /**
-     * mixed $percent
+     * @param mixed $percent
      */
     public function &setGroupCachePercent($percent)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupFacet($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupFormat($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupLimit($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupMain($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupNGroups($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupOffset($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setGroupTruncate($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlight($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightAlternateField($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightFormatter($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightFragmenter($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightFragsize($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightHighlightMultiTerm($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightMaxAlternateFieldLength($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightMaxAnalyzedChars($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightMergeContiguous($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightRegexMaxAnalyzedChars($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightRegexPattern($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightRegexSlop($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightRequireFieldMatch($value)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightSimplePost($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightSimplePre($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
-     * mixed|null $field_override
+     * @param mixed $value
+     * @param mixed|null $field_override
      */
     public function &setHighlightSnippets($value, $field_override = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setHighlightUsePhraseHighlighter($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMlt($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltBoost($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltCount($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMaxNumQueryTerms($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMaxNumTokens($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMaxWordLength($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMinDocFrequency($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMinTermFrequency($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setMltMinWordLength($value)
     {
     }
 
     /**
-     * mixed $flag
+     * @param mixed $flag
      */
     public function &setOmitHeader($flag)
     {
     }
 
     /**
-     * mixed $q
+     * @param mixed $q
      */
     public function &setQuery($q)
     {
     }
 
     /**
-     * mixed $rows
+     * @param mixed $rows
      */
     public function &setRows($rows)
     {
     }
 
     /**
-     * mixed $flag
+     * @param mixed $flag
      */
     public function &setShowDebugInfo($flag)
     {
     }
 
     /**
-     * mixed $start
+     * @param mixed $start
      */
     public function &setStart($start)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setStats($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTerms($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsField($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsIncludeLowerBound($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsIncludeUpperBound($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsLimit($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsLowerBound($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsMaxCount($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsMinCount($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsPrefix($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsReturnRaw($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsSort($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function &setTermsUpperBound($value)
     {
     }
 
     /**
-     * mixed $timeAllowed
+     * @param mixed $timeAllowed
      */
     public function &setTimeAllowed($timeAllowed)
     {
@@ -2490,7 +2490,7 @@ abstract class SolrResponse
     }
 
     /**
-     * mixed|null $parser_mode
+     * @param mixed|null $parser_mode
      */
     public function setParseMode($parser_mode = null)
     {
@@ -2543,22 +2543,22 @@ final class SolrUpdateResponse extends SolrResponse
 abstract class SolrUtils
 {
     /**
-     * mixed $jsonResponse
+     * @param mixed $jsonResponse
      */
     public static function digestJsonResponse($jsonResponse)
     {
     }
 
     /**
-     * mixed $xmlresponse
-     * mixed|null $parse_mode
+     * @param mixed $xmlresponse
+     * @param mixed|null $parse_mode
      */
     public static function digestXmlResponse($xmlresponse, $parse_mode = null)
     {
     }
 
     /**
-     * mixed $str
+     * @param mixed $str
      */
     public static function escapeQueryChars($str)
     {
@@ -2573,7 +2573,7 @@ abstract class SolrUtils
     }
 
     /**
-     * mixed $str
+     * @param mixed $str
      */
     public static function queryPhrase($str)
     {

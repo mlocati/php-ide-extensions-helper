@@ -97,9 +97,9 @@ const FTP_USEPASVADDRESS = 2;
 /**
  * Allocates space for a file to be uploaded
  *
- * mixed $ftp
- * mixed $size
- * mixed|null $response
+ * @param mixed $ftp
+ * @param mixed $size
+ * @param mixed|null $response
  *
  * @return bool
  *
@@ -114,7 +114,7 @@ function ftp_alloc($ftp, $size, &$response = null): bool
 /**
  * Changes to the parent directory
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @return bool
  *
@@ -129,8 +129,8 @@ function ftp_cdup($ftp): bool
 /**
  * Changes the current directory on a FTP server
  *
- * mixed $ftp
- * mixed $directory
+ * @param mixed $ftp
+ * @param mixed $directory
  *
  * @return bool
  *
@@ -145,9 +145,9 @@ function ftp_chdir($ftp, $directory): bool
 /**
  * Set permissions on a file via FTP
  *
- * mixed $ftp
- * mixed $mode
- * mixed $filename
+ * @param mixed $ftp
+ * @param mixed $mode
+ * @param mixed $filename
  *
  * @return int
  *
@@ -162,7 +162,7 @@ function ftp_chmod($ftp, $mode, $filename): int
 /**
  * Closes an FTP connection
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @return bool
  *
@@ -177,9 +177,9 @@ function ftp_close($ftp): bool
 /**
  * Opens an FTP connection
  *
- * mixed $host
- * mixed|null $port
- * mixed|null $timeout
+ * @param mixed $host
+ * @param mixed|null $port
+ * @param mixed|null $timeout
  *
  * @return resource
  *
@@ -194,8 +194,8 @@ function ftp_connect($host, $port = null, $timeout = null)
 /**
  * Deletes a file on the FTP server
  *
- * mixed $ftp
- * mixed $file
+ * @param mixed $ftp
+ * @param mixed $file
  *
  * @return bool
  *
@@ -210,8 +210,8 @@ function ftp_delete($ftp, $file): bool
 /**
  * Requests execution of a command on the FTP server
  *
- * mixed $ftp
- * mixed $command
+ * @param mixed $ftp
+ * @param mixed $command
  *
  * @return bool
  *
@@ -226,11 +226,11 @@ function ftp_exec($ftp, $command): bool
 /**
  * Downloads a file from the FTP server and saves to an open file
  *
- * mixed $ftp
- * mixed $fp
- * mixed $remote_file
- * mixed $mode
- * mixed|null $resumepos
+ * @param mixed $ftp
+ * @param mixed $fp
+ * @param mixed $remote_file
+ * @param mixed $mode
+ * @param mixed|null $resumepos
  *
  * @return bool
  *
@@ -245,11 +245,11 @@ function ftp_fget($ftp, $fp, $remote_file, $mode, $resumepos = null): bool
 /**
  * Uploads from an open file to the FTP server
  *
- * mixed $ftp
- * mixed $remote_file
- * mixed $fp
- * mixed $mode
- * mixed|null $startpos
+ * @param mixed $ftp
+ * @param mixed $remote_file
+ * @param mixed $fp
+ * @param mixed $mode
+ * @param mixed|null $startpos
  *
  * @return bool
  *
@@ -264,11 +264,11 @@ function ftp_fput($ftp, $remote_file, $fp, $mode, $startpos = null): bool
 /**
  * Downloads a file from the FTP server
  *
- * mixed $ftp
- * mixed $local_file
- * mixed $remote_file
- * mixed $mode
- * mixed|null $resume_pos
+ * @param mixed $ftp
+ * @param mixed $local_file
+ * @param mixed $remote_file
+ * @param mixed $mode
+ * @param mixed|null $resume_pos
  *
  * @return bool
  *
@@ -283,8 +283,8 @@ function ftp_get($ftp, $local_file, $remote_file, $mode, $resume_pos = null): bo
 /**
  * Retrieves various runtime behaviours of the current FTP stream
  *
- * mixed $ftp
- * mixed $option
+ * @param mixed $ftp
+ * @param mixed $option
  *
  * @return mixed
  *
@@ -299,9 +299,9 @@ function ftp_get_option($ftp, $option)
 /**
  * Logs in to an FTP connection
  *
- * mixed $ftp
- * mixed $username
- * mixed $password
+ * @param mixed $ftp
+ * @param mixed $username
+ * @param mixed $password
  *
  * @return bool
  *
@@ -316,8 +316,8 @@ function ftp_login($ftp, $username, $password): bool
 /**
  * Returns the last modified time of the given file
  *
- * mixed $ftp
- * mixed $filename
+ * @param mixed $ftp
+ * @param mixed $filename
  *
  * @return int
  *
@@ -332,8 +332,8 @@ function ftp_mdtm($ftp, $filename): int
 /**
  * Creates a directory
  *
- * mixed $ftp
- * mixed $directory
+ * @param mixed $ftp
+ * @param mixed $directory
  *
  * @return string
  *
@@ -348,7 +348,7 @@ function ftp_mkdir($ftp, $directory): string
 /**
  * Continues retrieving/sending a file (non-blocking)
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @return int
  *
@@ -363,11 +363,11 @@ function ftp_nb_continue($ftp): int
 /**
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
  *
- * mixed $ftp
- * mixed $fp
- * mixed $remote_file
- * mixed $mode
- * mixed|null $resumepos
+ * @param mixed $ftp
+ * @param mixed $fp
+ * @param mixed $remote_file
+ * @param mixed $mode
+ * @param mixed|null $resumepos
  *
  * @return int
  *
@@ -382,11 +382,11 @@ function ftp_nb_fget($ftp, $fp, $remote_file, $mode, $resumepos = null): int
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
  *
- * mixed $ftp
- * mixed $remote_file
- * mixed $fp
- * mixed $mode
- * mixed|null $startpos
+ * @param mixed $ftp
+ * @param mixed $remote_file
+ * @param mixed $fp
+ * @param mixed $mode
+ * @param mixed|null $startpos
  *
  * @return int
  *
@@ -401,11 +401,11 @@ function ftp_nb_fput($ftp, $remote_file, $fp, $mode, $startpos = null): int
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
  *
- * mixed $ftp
- * mixed $local_file
- * mixed $remote_file
- * mixed $mode
- * mixed|null $resume_pos
+ * @param mixed $ftp
+ * @param mixed $local_file
+ * @param mixed $remote_file
+ * @param mixed $mode
+ * @param mixed|null $resume_pos
  *
  * @return int
  *
@@ -420,11 +420,11 @@ function ftp_nb_get($ftp, $local_file, $remote_file, $mode, $resume_pos = null):
 /**
  * Stores a file on the FTP server (non-blocking)
  *
- * mixed $ftp
- * mixed $remote_file
- * mixed $local_file
- * mixed $mode
- * mixed|null $startpos
+ * @param mixed $ftp
+ * @param mixed $remote_file
+ * @param mixed $local_file
+ * @param mixed $mode
+ * @param mixed|null $startpos
  *
  * @return int
  *
@@ -439,8 +439,8 @@ function ftp_nb_put($ftp, $remote_file, $local_file, $mode, $startpos = null): i
 /**
  * Returns a list of files in the given directory
  *
- * mixed $ftp
- * mixed $directory
+ * @param mixed $ftp
+ * @param mixed $directory
  *
  * @return array
  *
@@ -455,8 +455,8 @@ function ftp_nlist($ftp, $directory): array
 /**
  * Turns passive mode on or off
  *
- * mixed $ftp
- * mixed $pasv
+ * @param mixed $ftp
+ * @param mixed $pasv
  *
  * @return bool
  *
@@ -471,11 +471,11 @@ function ftp_pasv($ftp, $pasv): bool
 /**
  * Uploads a file to the FTP server
  *
- * mixed $ftp
- * mixed $remote_file
- * mixed $local_file
- * mixed $mode
- * mixed|null $startpos
+ * @param mixed $ftp
+ * @param mixed $remote_file
+ * @param mixed $local_file
+ * @param mixed $mode
+ * @param mixed|null $startpos
  *
  * @return bool
  *
@@ -490,7 +490,7 @@ function ftp_put($ftp, $remote_file, $local_file, $mode, $startpos = null): bool
 /**
  * Returns the current directory name
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @return string
  *
@@ -505,7 +505,7 @@ function ftp_pwd($ftp): string
 /**
  * Alias of <code>ftp_close</code>
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -518,8 +518,8 @@ function ftp_quit($ftp)
 /**
  * Sends an arbitrary command to an FTP server
  *
- * mixed $ftp
- * mixed $command
+ * @param mixed $ftp
+ * @param mixed $command
  *
  * @return array
  *
@@ -534,9 +534,9 @@ function ftp_raw($ftp, $command): array
 /**
  * Returns a detailed list of files in the given directory
  *
- * mixed $ftp
- * mixed $directory
- * mixed|null $recursive
+ * @param mixed $ftp
+ * @param mixed $directory
+ * @param mixed|null $recursive
  *
  * @return array
  *
@@ -551,9 +551,9 @@ function ftp_rawlist($ftp, $directory, $recursive = null): array
 /**
  * Renames a file or a directory on the FTP server
  *
- * mixed $ftp
- * mixed $src
- * mixed $dest
+ * @param mixed $ftp
+ * @param mixed $src
+ * @param mixed $dest
  *
  * @return bool
  *
@@ -568,8 +568,8 @@ function ftp_rename($ftp, $src, $dest): bool
 /**
  * Removes a directory
  *
- * mixed $ftp
- * mixed $directory
+ * @param mixed $ftp
+ * @param mixed $directory
  *
  * @return bool
  *
@@ -584,9 +584,9 @@ function ftp_rmdir($ftp, $directory): bool
 /**
  * Set miscellaneous runtime FTP options
  *
- * mixed $ftp
- * mixed $option
- * mixed $value
+ * @param mixed $ftp
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -601,8 +601,8 @@ function ftp_set_option($ftp, $option, $value): bool
 /**
  * Sends a SITE command to the server
  *
- * mixed $ftp
- * mixed $cmd
+ * @param mixed $ftp
+ * @param mixed $cmd
  *
  * @return bool
  *
@@ -617,8 +617,8 @@ function ftp_site($ftp, $cmd): bool
 /**
  * Returns the size of the given file
  *
- * mixed $ftp
- * mixed $filename
+ * @param mixed $ftp
+ * @param mixed $filename
  *
  * @return int
  *
@@ -633,9 +633,9 @@ function ftp_size($ftp, $filename): int
 /**
  * Opens a Secure SSL-FTP connection
  *
- * mixed $host
- * mixed|null $port
- * mixed|null $timeout
+ * @param mixed $host
+ * @param mixed|null $port
+ * @param mixed|null $timeout
  *
  * @return resource
  *
@@ -650,7 +650,7 @@ function ftp_ssl_connect($host, $port = null, $timeout = null)
 /**
  * Returns the system type identifier of the remote FTP server
  *
- * mixed $ftp
+ * @param mixed $ftp
  *
  * @return string
  *

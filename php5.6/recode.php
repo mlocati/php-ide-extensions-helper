@@ -5,8 +5,8 @@
 /**
  * Alias of <code>recode_string</code>
  *
- * mixed $request
- * mixed $str
+ * @param mixed $request
+ * @param mixed $str
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -19,9 +19,9 @@ function recode($request, $str)
 /**
  * Recode from file to file according to recode request
  *
- * mixed $request
- * mixed $input
- * mixed $output
+ * @param mixed $request
+ * @param mixed $input
+ * @param mixed $output
  *
  * @return bool
  *
@@ -36,8 +36,8 @@ function recode_file($request, $input, $output)
 /**
  * Recode a string according to a recode request
  *
- * mixed $request
- * mixed $str
+ * @param mixed $request
+ * @param mixed $str
  *
  * @return string
  *

@@ -51,7 +51,7 @@ class XMLWriter
     /**
      * Flush system output buffer
      *
-     * mixed|null $empty
+     * @param mixed|null $empty
      *
      * @return void
      *
@@ -72,44 +72,44 @@ class XMLWriter
     }
 
     /**
-     * mixed $uri
+     * @param mixed $uri
      */
     public function openUri($uri)
     {
     }
 
     /**
-     * mixed|null $flush
+     * @param mixed|null $flush
      */
     public function outputMemory($flush = null)
     {
     }
 
     /**
-     * mixed $indent
+     * @param mixed $indent
      */
     public function setIndent($indent)
     {
     }
 
     /**
-     * mixed $indentString
+     * @param mixed $indentString
      */
     public function setIndentString($indentString)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function startAttribute($name)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $name
-     * mixed $uri
+     * @param mixed $prefix
+     * @param mixed $name
+     * @param mixed $uri
      */
     public function startAttributeNs($prefix, $name, $uri)
     {
@@ -124,169 +124,169 @@ class XMLWriter
     }
 
     /**
-     * mixed|null $version
-     * mixed|null $encoding
-     * mixed|null $standalone
+     * @param mixed|null $version
+     * @param mixed|null $encoding
+     * @param mixed|null $standalone
      */
     public function startDocument($version = null, $encoding = null, $standalone = null)
     {
     }
 
     /**
-     * mixed $qualifiedName
-     * mixed|null $publicId
-     * mixed|null $systemId
+     * @param mixed $qualifiedName
+     * @param mixed|null $publicId
+     * @param mixed|null $systemId
      */
     public function startDtd($qualifiedName, $publicId = null, $systemId = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function startDtdAttlist($name)
     {
     }
 
     /**
-     * mixed $qualifiedName
+     * @param mixed $qualifiedName
      */
     public function startDtdElement($qualifiedName)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $isparam
+     * @param mixed $name
+     * @param mixed $isparam
      */
     public function startDtdEntity($name, $isparam)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function startElement($name)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $name
-     * mixed $uri
+     * @param mixed $prefix
+     * @param mixed $name
+     * @param mixed $uri
      */
     public function startElementNs($prefix, $name, $uri)
     {
     }
 
     /**
-     * mixed $target
+     * @param mixed $target
      */
     public function startPi($target)
     {
     }
 
     /**
-     * mixed $content
+     * @param mixed $content
      */
     public function text($content)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function writeAttribute($name, $value)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $name
-     * mixed $uri
-     * mixed $content
+     * @param mixed $prefix
+     * @param mixed $name
+     * @param mixed $uri
+     * @param mixed $content
      */
     public function writeAttributeNs($prefix, $name, $uri, $content)
     {
     }
 
     /**
-     * mixed $content
+     * @param mixed $content
      */
     public function writeCdata($content)
     {
     }
 
     /**
-     * mixed $content
+     * @param mixed $content
      */
     public function writeComment($content)
     {
     }
 
     /**
-     * mixed $name
-     * mixed|null $publicId
-     * mixed|null $systemId
-     * mixed|null $subset
+     * @param mixed $name
+     * @param mixed|null $publicId
+     * @param mixed|null $systemId
+     * @param mixed|null $subset
      */
     public function writeDtd($name, $publicId = null, $systemId = null, $subset = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $content
+     * @param mixed $name
+     * @param mixed $content
      */
     public function writeDtdAttlist($name, $content)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $content
+     * @param mixed $name
+     * @param mixed $content
      */
     public function writeDtdElement($name, $content)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $content
+     * @param mixed $name
+     * @param mixed $content
      */
     public function writeDtdEntity($name, $content)
     {
     }
 
     /**
-     * mixed $name
-     * mixed|null $content
+     * @param mixed $name
+     * @param mixed|null $content
      */
     public function writeElement($name, $content = null)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $name
-     * mixed $uri
-     * mixed|null $content
+     * @param mixed $prefix
+     * @param mixed $name
+     * @param mixed $uri
+     * @param mixed|null $content
      */
     public function writeElementNs($prefix, $name, $uri, $content = null)
     {
     }
 
     /**
-     * mixed $target
-     * mixed $content
+     * @param mixed $target
+     * @param mixed $content
      */
     public function writePi($target, $content)
     {
     }
 
     /**
-     * mixed $content
+     * @param mixed $content
      */
     public function writeRaw($content)
     {
@@ -296,7 +296,7 @@ class XMLWriter
 /**
  * End attribute
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -311,7 +311,7 @@ function xmlwriter_end_attribute($xmlwriter): bool
 /**
  * End current CDATA
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -326,7 +326,7 @@ function xmlwriter_end_cdata($xmlwriter): bool
 /**
  * Create end comment
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -341,7 +341,7 @@ function xmlwriter_end_comment($xmlwriter): bool
 /**
  * End current document
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -356,7 +356,7 @@ function xmlwriter_end_document($xmlwriter): bool
 /**
  * End current DTD
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -371,7 +371,7 @@ function xmlwriter_end_dtd($xmlwriter): bool
 /**
  * End current DTD AttList
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -386,7 +386,7 @@ function xmlwriter_end_dtd_attlist($xmlwriter): bool
 /**
  * End current DTD element
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -401,7 +401,7 @@ function xmlwriter_end_dtd_element($xmlwriter): bool
 /**
  * End current DTD Entity
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -416,7 +416,7 @@ function xmlwriter_end_dtd_entity($xmlwriter): bool
 /**
  * End current element
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -431,7 +431,7 @@ function xmlwriter_end_element($xmlwriter): bool
 /**
  * End current PI
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -446,8 +446,8 @@ function xmlwriter_end_pi($xmlwriter): bool
 /**
  * Flush current buffer
  *
- * mixed $xmlwriter
- * mixed|null $empty
+ * @param mixed $xmlwriter
+ * @param mixed|null $empty
  *
  * @return mixed
  *
@@ -462,7 +462,7 @@ function xmlwriter_flush($xmlwriter, $empty = null)
 /**
  * End current element
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -490,7 +490,7 @@ function xmlwriter_open_memory(): bool
 /**
  * Create new xmlwriter using source uri for output
  *
- * mixed $uri
+ * @param mixed $uri
  *
  * @return bool
  *
@@ -505,8 +505,8 @@ function xmlwriter_open_uri($uri): bool
 /**
  * Returns current buffer
  *
- * mixed $xmlwriter
- * mixed|null $flush
+ * @param mixed $xmlwriter
+ * @param mixed|null $flush
  *
  * @return string
  *
@@ -521,8 +521,8 @@ function xmlwriter_output_memory($xmlwriter, $flush = null): string
 /**
  * Toggle indentation on/off
  *
- * mixed $xmlwriter
- * mixed $indent
+ * @param mixed $xmlwriter
+ * @param mixed $indent
  *
  * @return bool
  *
@@ -537,8 +537,8 @@ function xmlwriter_set_indent($xmlwriter, $indent): bool
 /**
  * Set string used for indenting
  *
- * mixed $xmlwriter
- * mixed $indentString
+ * @param mixed $xmlwriter
+ * @param mixed $indentString
  *
  * @return bool
  *
@@ -553,8 +553,8 @@ function xmlwriter_set_indent_string($xmlwriter, $indentString): bool
 /**
  * Create start attribute
  *
- * mixed $xmlwriter
- * mixed $name
+ * @param mixed $xmlwriter
+ * @param mixed $name
  *
  * @return bool
  *
@@ -569,10 +569,10 @@ function xmlwriter_start_attribute($xmlwriter, $name): bool
 /**
  * Create start namespaced attribute
  *
- * mixed $xmlwriter
- * mixed $prefix
- * mixed $name
- * mixed $uri
+ * @param mixed $xmlwriter
+ * @param mixed $prefix
+ * @param mixed $name
+ * @param mixed $uri
  *
  * @return bool
  *
@@ -587,7 +587,7 @@ function xmlwriter_start_attribute_ns($xmlwriter, $prefix, $name, $uri): bool
 /**
  * Create start CDATA tag
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -602,7 +602,7 @@ function xmlwriter_start_cdata($xmlwriter): bool
 /**
  * Create start comment
  *
- * mixed $xmlwriter
+ * @param mixed $xmlwriter
  *
  * @return bool
  *
@@ -617,10 +617,10 @@ function xmlwriter_start_comment($xmlwriter): bool
 /**
  * Create document tag
  *
- * mixed $xmlwriter
- * mixed|null $version
- * mixed|null $encoding
- * mixed|null $standalone
+ * @param mixed $xmlwriter
+ * @param mixed|null $version
+ * @param mixed|null $encoding
+ * @param mixed|null $standalone
  *
  * @return bool
  *
@@ -635,10 +635,10 @@ function xmlwriter_start_document($xmlwriter, $version = null, $encoding = null,
 /**
  * Create start DTD tag
  *
- * mixed $xmlwriter
- * mixed $qualifiedName
- * mixed|null $publicId
- * mixed|null $systemId
+ * @param mixed $xmlwriter
+ * @param mixed $qualifiedName
+ * @param mixed|null $publicId
+ * @param mixed|null $systemId
  *
  * @return bool
  *
@@ -653,8 +653,8 @@ function xmlwriter_start_dtd($xmlwriter, $qualifiedName, $publicId = null, $syst
 /**
  * Create start DTD AttList
  *
- * mixed $xmlwriter
- * mixed $name
+ * @param mixed $xmlwriter
+ * @param mixed $name
  *
  * @return bool
  *
@@ -669,8 +669,8 @@ function xmlwriter_start_dtd_attlist($xmlwriter, $name): bool
 /**
  * Create start DTD element
  *
- * mixed $xmlwriter
- * mixed $qualifiedName
+ * @param mixed $xmlwriter
+ * @param mixed $qualifiedName
  *
  * @return bool
  *
@@ -685,9 +685,9 @@ function xmlwriter_start_dtd_element($xmlwriter, $qualifiedName): bool
 /**
  * Create start DTD Entity
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed $isparam
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed $isparam
  *
  * @return bool
  *
@@ -702,8 +702,8 @@ function xmlwriter_start_dtd_entity($xmlwriter, $name, $isparam): bool
 /**
  * Create start element tag
  *
- * mixed $xmlwriter
- * mixed $name
+ * @param mixed $xmlwriter
+ * @param mixed $name
  *
  * @return bool
  *
@@ -718,10 +718,10 @@ function xmlwriter_start_element($xmlwriter, $name): bool
 /**
  * Create start namespaced element tag
  *
- * mixed $xmlwriter
- * mixed $prefix
- * mixed $name
- * mixed $uri
+ * @param mixed $xmlwriter
+ * @param mixed $prefix
+ * @param mixed $name
+ * @param mixed $uri
  *
  * @return bool
  *
@@ -736,8 +736,8 @@ function xmlwriter_start_element_ns($xmlwriter, $prefix, $name, $uri): bool
 /**
  * Create start PI tag
  *
- * mixed $xmlwriter
- * mixed $target
+ * @param mixed $xmlwriter
+ * @param mixed $target
  *
  * @return bool
  *
@@ -752,8 +752,8 @@ function xmlwriter_start_pi($xmlwriter, $target): bool
 /**
  * Write text
  *
- * mixed $xmlwriter
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $content
  *
  * @return bool
  *
@@ -768,9 +768,9 @@ function xmlwriter_text($xmlwriter, $content): bool
 /**
  * Write full attribute
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed $value
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed $value
  *
  * @return bool
  *
@@ -785,11 +785,11 @@ function xmlwriter_write_attribute($xmlwriter, $name, $value): bool
 /**
  * Write full namespaced attribute
  *
- * mixed $xmlwriter
- * mixed $prefix
- * mixed $name
- * mixed $uri
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $prefix
+ * @param mixed $name
+ * @param mixed $uri
+ * @param mixed $content
  *
  * @return bool
  *
@@ -804,8 +804,8 @@ function xmlwriter_write_attribute_ns($xmlwriter, $prefix, $name, $uri, $content
 /**
  * Write full CDATA tag
  *
- * mixed $xmlwriter
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $content
  *
  * @return bool
  *
@@ -820,8 +820,8 @@ function xmlwriter_write_cdata($xmlwriter, $content): bool
 /**
  * Write full comment tag
  *
- * mixed $xmlwriter
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $content
  *
  * @return bool
  *
@@ -836,11 +836,11 @@ function xmlwriter_write_comment($xmlwriter, $content): bool
 /**
  * Write full DTD tag
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed|null $publicId
- * mixed|null $systemId
- * mixed|null $subset
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed|null $publicId
+ * @param mixed|null $systemId
+ * @param mixed|null $subset
  *
  * @return bool
  *
@@ -855,9 +855,9 @@ function xmlwriter_write_dtd($xmlwriter, $name, $publicId = null, $systemId = nu
 /**
  * Write full DTD AttList tag
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed $content
  *
  * @return bool
  *
@@ -872,9 +872,9 @@ function xmlwriter_write_dtd_attlist($xmlwriter, $name, $content): bool
 /**
  * Write full DTD element tag
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed $content
  *
  * @return bool
  *
@@ -889,9 +889,9 @@ function xmlwriter_write_dtd_element($xmlwriter, $name, $content): bool
 /**
  * Write full DTD Entity tag
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed $content
  *
  * @return bool
  *
@@ -906,9 +906,9 @@ function xmlwriter_write_dtd_entity($xmlwriter, $name, $content): bool
 /**
  * Write full element tag
  *
- * mixed $xmlwriter
- * mixed $name
- * mixed|null $content
+ * @param mixed $xmlwriter
+ * @param mixed $name
+ * @param mixed|null $content
  *
  * @return bool
  *
@@ -923,11 +923,11 @@ function xmlwriter_write_element($xmlwriter, $name, $content = null): bool
 /**
  * Write full namespaced element tag
  *
- * mixed $xmlwriter
- * mixed $prefix
- * mixed $name
- * mixed $uri
- * mixed|null $content
+ * @param mixed $xmlwriter
+ * @param mixed $prefix
+ * @param mixed $name
+ * @param mixed $uri
+ * @param mixed|null $content
  *
  * @return bool
  *
@@ -942,9 +942,9 @@ function xmlwriter_write_element_ns($xmlwriter, $prefix, $name, $uri, $content =
 /**
  * Writes a PI
  *
- * mixed $xmlwriter
- * mixed $target
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $target
+ * @param mixed $content
  *
  * @return bool
  *
@@ -959,8 +959,8 @@ function xmlwriter_write_pi($xmlwriter, $target, $content): bool
 /**
  * Write a raw XML text
  *
- * mixed $xmlwriter
- * mixed $content
+ * @param mixed $xmlwriter
+ * @param mixed $content
  *
  * @return bool
  *

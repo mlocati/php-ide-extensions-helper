@@ -671,7 +671,7 @@ const T_YIELD = 267;
 /**
  * Split given source into PHP tokens
  *
- * mixed $source
+ * @param mixed $source
  *
  * @return array
  *
@@ -686,7 +686,7 @@ function token_get_all($source): array
 /**
  * Get the symbolic name of a given PHP token
  *
- * mixed $token
+ * @param mixed $token
  *
  * @return string
  *

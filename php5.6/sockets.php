@@ -1350,7 +1350,7 @@ const TCP_NODELAY = 1;
 /**
  * Accepts a connection on a socket
  *
- * mixed $socket
+ * @param mixed $socket
  *
  * @return resource
  *
@@ -1365,9 +1365,9 @@ function socket_accept($socket)
 /**
  * Binds a name to a socket
  *
- * mixed $socket
- * mixed $addr
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $addr
+ * @param mixed|null $port
  *
  * @return bool
  *
@@ -1382,7 +1382,7 @@ function socket_bind($socket, $addr, $port = null)
 /**
  * Clears the error on the socket or the last error code
  *
- * mixed|null $socket
+ * @param mixed|null $socket
  *
  * @return void
  *
@@ -1397,7 +1397,7 @@ function socket_clear_error($socket = null)
 /**
  * Closes a socket resource
  *
- * mixed $socket
+ * @param mixed $socket
  *
  * @return void
  *
@@ -1412,8 +1412,8 @@ function socket_close($socket)
 /**
  * Calculate message buffer size
  *
- * mixed $level
- * mixed $type
+ * @param mixed $level
+ * @param mixed $type
  *
  * @return int
  *
@@ -1428,9 +1428,9 @@ function socket_cmsg_space($level, $type)
 /**
  * Initiates a connection on a socket
  *
- * mixed $socket
- * mixed $addr
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $addr
+ * @param mixed|null $port
  *
  * @return bool
  *
@@ -1445,9 +1445,9 @@ function socket_connect($socket, $addr, $port = null)
 /**
  * Create a socket (endpoint for communication)
  *
- * mixed $domain
- * mixed $type
- * mixed $protocol
+ * @param mixed $domain
+ * @param mixed $type
+ * @param mixed $protocol
  *
  * @return resource
  *
@@ -1462,8 +1462,8 @@ function socket_create($domain, $type, $protocol)
 /**
  * Opens a socket on port to accept connections
  *
- * mixed $port
- * mixed|null $backlog
+ * @param mixed $port
+ * @param mixed|null $backlog
  *
  * @return resource
  *
@@ -1478,10 +1478,10 @@ function socket_create_listen($port, $backlog = null)
 /**
  * Creates a pair of indistinguishable sockets and stores them in an array
  *
- * mixed $domain
- * mixed $type
- * mixed $protocol
- * mixed $fd
+ * @param mixed $domain
+ * @param mixed $type
+ * @param mixed $protocol
+ * @param mixed $fd
  *
  * @return bool
  *
@@ -1496,9 +1496,9 @@ function socket_create_pair($domain, $type, $protocol, &$fd)
 /**
  * Gets socket options for the socket
  *
- * mixed $socket
- * mixed $level
- * mixed $optname
+ * @param mixed $socket
+ * @param mixed $level
+ * @param mixed $optname
  *
  * @return mixed
  *
@@ -1513,9 +1513,9 @@ function socket_get_option($socket, $level, $optname)
 /**
  * Alias of <code>socket_get_option</code>
  *
- * mixed $socket
- * mixed $level
- * mixed $optname
+ * @param mixed $socket
+ * @param mixed $level
+ * @param mixed $optname
  *
  * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
  *
@@ -1528,9 +1528,9 @@ function socket_getopt($socket, $level, $optname)
 /**
  * Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
  *
- * mixed $socket
- * mixed $addr
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $addr
+ * @param mixed|null $port
  *
  * @return bool
  *
@@ -1545,9 +1545,9 @@ function socket_getpeername($socket, &$addr, &$port = null)
 /**
  * Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
  *
- * mixed $socket
- * mixed $addr
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $addr
+ * @param mixed|null $port
  *
  * @return bool
  *
@@ -1562,7 +1562,7 @@ function socket_getsockname($socket, &$addr, &$port = null)
 /**
  * Import a stream
  *
- * mixed $stream
+ * @param mixed $stream
  *
  * @return resource
  *
@@ -1577,7 +1577,7 @@ function socket_import_stream($stream)
 /**
  * Returns the last error on the socket
  *
- * mixed|null $socket
+ * @param mixed|null $socket
  *
  * @return int
  *
@@ -1592,8 +1592,8 @@ function socket_last_error($socket = null)
 /**
  * Listens for a connection on a socket
  *
- * mixed $socket
- * mixed|null $backlog
+ * @param mixed $socket
+ * @param mixed|null $backlog
  *
  * @return bool
  *
@@ -1608,9 +1608,9 @@ function socket_listen($socket, $backlog = null)
 /**
  * Reads a maximum of length bytes from a socket
  *
- * mixed $socket
- * mixed $length
- * mixed|null $type
+ * @param mixed $socket
+ * @param mixed $length
+ * @param mixed|null $type
  *
  * @return string
  *
@@ -1625,10 +1625,10 @@ function socket_read($socket, $length, $type = null)
 /**
  * Receives data from a connected socket
  *
- * mixed $socket
- * mixed $buf
- * mixed $len
- * mixed $flags
+ * @param mixed $socket
+ * @param mixed $buf
+ * @param mixed $len
+ * @param mixed $flags
  *
  * @return int
  *
@@ -1643,12 +1643,12 @@ function socket_recv($socket, &$buf, $len, $flags)
 /**
  * Receives data from a socket whether or not it is connection-oriented
  *
- * mixed $socket
- * mixed $buf
- * mixed $len
- * mixed $flags
- * mixed $name
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $buf
+ * @param mixed $len
+ * @param mixed $flags
+ * @param mixed $name
+ * @param mixed|null $port
  *
  * @return int
  *
@@ -1663,9 +1663,9 @@ function socket_recvfrom($socket, &$buf, $len, $flags, &$name, &$port = null)
 /**
  * Read a message
  *
- * mixed $socket
- * mixed $msghdr
- * mixed $flags
+ * @param mixed $socket
+ * @param mixed $msghdr
+ * @param mixed $flags
  *
  * @return int
  *
@@ -1680,11 +1680,11 @@ function socket_recvmsg($socket, &$msghdr, $flags)
 /**
  * Runs the select() system call on the given arrays of sockets with a specified timeout
  *
- * mixed $read_fds
- * mixed $write_fds
- * mixed $except_fds
- * mixed $tv_sec
- * mixed|null $tv_usec
+ * @param mixed $read_fds
+ * @param mixed $write_fds
+ * @param mixed $except_fds
+ * @param mixed $tv_sec
+ * @param mixed|null $tv_usec
  *
  * @return int
  *
@@ -1699,10 +1699,10 @@ function socket_select(&$read_fds, &$write_fds, &$except_fds, $tv_sec, $tv_usec 
 /**
  * Sends data to a connected socket
  *
- * mixed $socket
- * mixed $buf
- * mixed $len
- * mixed $flags
+ * @param mixed $socket
+ * @param mixed $buf
+ * @param mixed $len
+ * @param mixed $flags
  *
  * @return int
  *
@@ -1717,9 +1717,9 @@ function socket_send($socket, $buf, $len, $flags)
 /**
  * Send a message
  *
- * mixed $socket
- * mixed $msghdr
- * mixed $flags
+ * @param mixed $socket
+ * @param mixed $msghdr
+ * @param mixed $flags
  *
  * @return int
  *
@@ -1734,12 +1734,12 @@ function socket_sendmsg($socket, $msghdr, $flags)
 /**
  * Sends a message to a socket, whether it is connected or not
  *
- * mixed $socket
- * mixed $buf
- * mixed $len
- * mixed $flags
- * mixed $addr
- * mixed|null $port
+ * @param mixed $socket
+ * @param mixed $buf
+ * @param mixed $len
+ * @param mixed $flags
+ * @param mixed $addr
+ * @param mixed|null $port
  *
  * @return int
  *
@@ -1754,7 +1754,7 @@ function socket_sendto($socket, $buf, $len, $flags, $addr, $port = null)
 /**
  * Sets blocking mode on a socket resource
  *
- * mixed $socket
+ * @param mixed $socket
  *
  * @return bool
  *
@@ -1769,7 +1769,7 @@ function socket_set_block($socket)
 /**
  * Sets nonblocking mode for file descriptor fd
  *
- * mixed $socket
+ * @param mixed $socket
  *
  * @return bool
  *
@@ -1784,10 +1784,10 @@ function socket_set_nonblock($socket)
 /**
  * Sets socket options for the socket
  *
- * mixed $socket
- * mixed $level
- * mixed $optname
- * mixed $optval
+ * @param mixed $socket
+ * @param mixed $level
+ * @param mixed $optname
+ * @param mixed $optval
  *
  * @return bool
  *
@@ -1802,10 +1802,10 @@ function socket_set_option($socket, $level, $optname, $optval)
 /**
  * Alias of <code>socket_set_option</code>
  *
- * mixed $socket
- * mixed $level
- * mixed $optname
- * mixed $optval
+ * @param mixed $socket
+ * @param mixed $level
+ * @param mixed $optname
+ * @param mixed $optval
  *
  * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
  *
@@ -1818,8 +1818,8 @@ function socket_setopt($socket, $level, $optname, $optval)
 /**
  * Shuts down a socket for receiving, sending, or both
  *
- * mixed $socket
- * mixed|null $how
+ * @param mixed $socket
+ * @param mixed|null $how
  *
  * @return bool
  *
@@ -1834,7 +1834,7 @@ function socket_shutdown($socket, $how = null)
 /**
  * Return a string describing a socket error
  *
- * mixed $errno
+ * @param mixed $errno
  *
  * @return string
  *
@@ -1849,9 +1849,9 @@ function socket_strerror($errno)
 /**
  * Write to a socket
  *
- * mixed $socket
- * mixed $buf
- * mixed|null $length
+ * @param mixed $socket
+ * @param mixed $buf
+ * @param mixed|null $length
  *
  * @return int
  *

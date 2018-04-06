@@ -1166,7 +1166,7 @@ function tidy_error_count()
 /**
  * Returns a <code>tidyNode</code> object starting from the &lt;body&gt; tag of the tidy parse tree
  *
- * mixed $tidy
+ * @param mixed $tidy
  *
  * @return tidyNode
  *
@@ -1246,8 +1246,8 @@ function tidy_get_html_ver()
 /**
  * Returns the documentation for the given option name
  *
- * mixed $resource
- * mixed $optname
+ * @param mixed $resource
+ * @param mixed $optname
  *
  * @return string
  *
@@ -1314,7 +1314,7 @@ function tidy_get_status()
 /**
  * Returns the value of the specified configuration option for the tidy document
  *
- * mixed $option
+ * @param mixed $option
  *
  * @return mixed
  *
@@ -1355,10 +1355,10 @@ function tidy_is_xml()
 /**
  * Parse markup in file or URI
  *
- * mixed $file
- * mixed|null $config_options
- * mixed|null $encoding
- * mixed|null $use_include_path
+ * @param mixed $file
+ * @param mixed|null $config_options
+ * @param mixed|null $encoding
+ * @param mixed|null $use_include_path
  *
  * @return bool
  *
@@ -1373,9 +1373,9 @@ function tidy_parse_file($file, $config_options = null, $encoding = null, $use_i
 /**
  * Parse a document stored in a string
  *
- * mixed $input
- * mixed|null $config_options
- * mixed|null $encoding
+ * @param mixed $input
+ * @param mixed|null $config_options
+ * @param mixed|null $encoding
  *
  * @return bool
  *
@@ -1390,10 +1390,10 @@ function tidy_parse_string($input, $config_options = null, $encoding = null)
 /**
  * Repair a file and return it as a string
  *
- * mixed $filename
- * mixed|null $config_file
- * mixed|null $encoding
- * mixed|null $use_include_path
+ * @param mixed $filename
+ * @param mixed|null $config_file
+ * @param mixed|null $encoding
+ * @param mixed|null $use_include_path
  *
  * @return string
  *
@@ -1408,9 +1408,9 @@ function tidy_repair_file($filename, $config_file = null, $encoding = null, $use
 /**
  * Repair a string using an optionally provided configuration file
  *
- * mixed $data
- * mixed|null $config_file
- * mixed|null $encoding
+ * @param mixed $data
+ * @param mixed|null $config_file
+ * @param mixed|null $encoding
  *
  * @return string
  *

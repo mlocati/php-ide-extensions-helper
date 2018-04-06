@@ -6,7 +6,7 @@
 /**
  * Check for alphanumeric character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -21,7 +21,7 @@ function ctype_alnum($text)
 /**
  * Check for alphabetic character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -36,7 +36,7 @@ function ctype_alpha($text)
 /**
  * Check for control character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -51,7 +51,7 @@ function ctype_cntrl($text)
 /**
  * Check for numeric character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -66,7 +66,7 @@ function ctype_digit($text)
 /**
  * Check for any printable character(s) except space
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -81,7 +81,7 @@ function ctype_graph($text)
 /**
  * Check for lowercase character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -96,7 +96,7 @@ function ctype_lower($text)
 /**
  * Check for printable character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -112,7 +112,7 @@ function ctype_print($text)
  * Check for any printable character which is not whitespace or an
  *    alphanumeric character
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -127,7 +127,7 @@ function ctype_punct($text)
 /**
  * Check for whitespace character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -142,7 +142,7 @@ function ctype_space($text)
 /**
  * Check for uppercase character(s)
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *
@@ -157,7 +157,7 @@ function ctype_upper($text)
 /**
  * Check for character(s) representing a hexadecimal digit
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return bool
  *

@@ -328,10 +328,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -621,9 +621,9 @@ class Redis
     }
 
     /**
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -763,10 +763,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -817,8 +817,8 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $srcdb
-     * mixed $dstdb
+     * @param mixed $srcdb
+     * @param mixed $dstdb
      */
     public function swapdb($srcdb, $dstdb)
     {
@@ -850,8 +850,8 @@ class Redis
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -980,10 +980,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1009,8 +1009,8 @@ class Redis
 class RedisArray
 {
     /**
-     * mixed $function_name
-     * mixed $arguments
+     * @param mixed $function_name
+     * @param mixed $arguments
      */
     public function __call($function_name, $arguments)
     {
@@ -1418,10 +1418,10 @@ class RedisCluster
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1654,10 +1654,10 @@ class RedisCluster
     }
 
     /**
-     * mixed $i_iterator
-     * mixed $str_node
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed $str_node
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
@@ -1753,10 +1753,10 @@ class RedisCluster
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1813,8 +1813,8 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -1911,10 +1911,10 @@ class RedisCluster
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {

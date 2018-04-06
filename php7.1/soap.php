@@ -743,19 +743,19 @@ const XSD_UNSIGNEDSHORT = 141;
 class SoapClient
 {
     /**
-     * mixed $function_name
-     * mixed $arguments
+     * @param mixed $function_name
+     * @param mixed $arguments
      */
     public function __call($function_name, $arguments)
     {
     }
 
     /**
-     * mixed $request
-     * mixed $location
-     * mixed $action
-     * mixed $version
-     * mixed|null $one_way
+     * @param mixed $request
+     * @param mixed $location
+     * @param mixed $action
+     * @param mixed $version
+     * @param mixed|null $one_way
      */
     public function __doRequest($request, $location, $action, $version, $one_way = null)
     {
@@ -790,41 +790,41 @@ class SoapClient
     }
 
     /**
-     * mixed $name
-     * mixed|null $value
+     * @param mixed $name
+     * @param mixed|null $value
      */
     public function __setCookie($name, $value = null)
     {
     }
 
     /**
-     * mixed|null $new_location
+     * @param mixed|null $new_location
      */
     public function __setLocation($new_location = null)
     {
     }
 
     /**
-     * mixed|null $soapheaders
+     * @param mixed|null $soapheaders
      */
     public function __setSoapHeaders($soapheaders = null)
     {
     }
 
     /**
-     * mixed $function_name
-     * mixed $arguments
-     * mixed|null $options
-     * mixed|null $input_headers
-     * mixed|null $output_headers
+     * @param mixed $function_name
+     * @param mixed $arguments
+     * @param mixed|null $options
+     * @param mixed|null $input_headers
+     * @param mixed|null $output_headers
      */
     public function __soapCall($function_name, $arguments, $options = null, $input_headers = null, &$output_headers = null)
     {
     }
 
     /**
-     * mixed $wsdl
-     * mixed|null $options
+     * @param mixed $wsdl
+     * @param mixed|null $options
      */
     public function SoapClient($wsdl, $options = null)
     {
@@ -845,12 +845,12 @@ class SoapFault extends Exception
     }
 
     /**
-     * mixed $faultcode
-     * mixed $faultstring
-     * mixed|null $faultactor
-     * mixed|null $detail
-     * mixed|null $faultname
-     * mixed|null $headerfault
+     * @param mixed $faultcode
+     * @param mixed $faultstring
+     * @param mixed|null $faultactor
+     * @param mixed|null $detail
+     * @param mixed|null $faultname
+     * @param mixed|null $headerfault
      */
     public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null)
     {
@@ -867,11 +867,11 @@ class SoapFault extends Exception
 class SoapHeader
 {
     /**
-     * mixed $namespace
-     * mixed $name
-     * mixed|null $data
-     * mixed|null $mustunderstand
-     * mixed|null $actor
+     * @param mixed $namespace
+     * @param mixed $name
+     * @param mixed|null $data
+     * @param mixed|null $mustunderstand
+     * @param mixed|null $actor
      */
     public function SoapHeader($namespace, $name, $data = null, $mustunderstand = null, $actor = null)
     {
@@ -888,8 +888,8 @@ class SoapHeader
 class SoapParam
 {
     /**
-     * mixed $data
-     * mixed $name
+     * @param mixed $data
+     * @param mixed $name
      */
     public function SoapParam($data, $name)
     {
@@ -906,25 +906,25 @@ class SoapParam
 class SoapServer
 {
     /**
-     * mixed $functions
+     * @param mixed $functions
      */
     public function addFunction($functions)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function addSoapHeader($object)
     {
     }
 
     /**
-     * mixed $code
-     * mixed $string
-     * mixed|null $actor
-     * mixed|null $details
-     * mixed|null $name
+     * @param mixed $code
+     * @param mixed $string
+     * @param mixed|null $actor
+     * @param mixed|null $details
+     * @param mixed|null $name
      */
     public function fault($code, $string, $actor = null, $details = null, $name = null)
     {
@@ -935,37 +935,37 @@ class SoapServer
     }
 
     /**
-     * mixed|null $soap_request
+     * @param mixed|null $soap_request
      */
     public function handle($soap_request = null)
     {
     }
 
     /**
-     * mixed $class_name
-     * mixed|null $args
+     * @param mixed $class_name
+     * @param mixed|null $args
      */
     public function setClass($class_name, $args = null)
     {
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function setObject($object)
     {
     }
 
     /**
-     * mixed $mode
+     * @param mixed $mode
      */
     public function setPersistence($mode)
     {
     }
 
     /**
-     * mixed $wsdl
-     * mixed|null $options
+     * @param mixed $wsdl
+     * @param mixed|null $options
      */
     public function SoapServer($wsdl, $options = null)
     {
@@ -982,12 +982,12 @@ class SoapServer
 class SoapVar
 {
     /**
-     * mixed $data
-     * mixed $encoding
-     * mixed|null $type_name
-     * mixed|null $type_namespace
-     * mixed|null $node_name
-     * mixed|null $node_namespace
+     * @param mixed $data
+     * @param mixed $encoding
+     * @param mixed|null $type_name
+     * @param mixed|null $type_namespace
+     * @param mixed|null $node_name
+     * @param mixed|null $node_namespace
      */
     public function SoapVar($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null)
     {
@@ -997,7 +997,7 @@ class SoapVar
 /**
  * Checks if a SOAP call has failed
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return bool
  *
@@ -1012,7 +1012,7 @@ function is_soap_fault($object): bool
 /**
  * Set whether to use the SOAP error handler
  *
- * mixed|null $handler
+ * @param mixed|null $handler
  *
  * @return bool
  *

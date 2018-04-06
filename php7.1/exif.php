@@ -17,7 +17,7 @@ const EXIF_USE_MBSTRING = 1;
 /**
  * Determine the type of an image
  *
- * mixed $imagefile
+ * @param mixed $imagefile
  *
  * @return int
  *
@@ -32,10 +32,10 @@ function exif_imagetype($imagefile): int
 /**
  * Reads the <code>EXIF</code> headers from an image file
  *
- * mixed $filename
- * mixed|null $sections_needed
- * mixed|null $sub_arrays
- * mixed|null $read_thumbnail
+ * @param mixed $filename
+ * @param mixed|null $sections_needed
+ * @param mixed|null $sub_arrays
+ * @param mixed|null $read_thumbnail
  *
  * @return array
  *
@@ -50,7 +50,7 @@ function exif_read_data($filename, $sections_needed = null, $sub_arrays = null, 
 /**
  * Get the header name for an index
  *
- * mixed $index
+ * @param mixed $index
  *
  * @return string
  *
@@ -65,10 +65,10 @@ function exif_tagname($index): string
 /**
  * Retrieve the embedded thumbnail of an image
  *
- * mixed $filename
- * mixed|null $width
- * mixed|null $height
- * mixed|null $imagetype
+ * @param mixed $filename
+ * @param mixed|null $width
+ * @param mixed|null $height
+ * @param mixed|null $imagetype
  *
  * @return string
  *
@@ -83,10 +83,10 @@ function exif_thumbnail($filename, &$width = null, &$height = null, &$imagetype 
 /**
  * Alias of <code>exif_read_data</code>
  *
- * mixed $filename
- * mixed|null $sections_needed
- * mixed|null $sub_arrays
- * mixed|null $read_thumbnail
+ * @param mixed $filename
+ * @param mixed|null $sections_needed
+ * @param mixed|null $sub_arrays
+ * @param mixed|null $read_thumbnail
  *
  * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
  *

@@ -14,10 +14,10 @@
 class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     /**
-     * mixed $filename
-     * mixed|null $flags
-     * mixed|null $alias
-     * mixed|null $fileformat
+     * @param mixed $filename
+     * @param mixed|null $flags
+     * @param mixed|null $alias
+     * @param mixed|null $fileformat
      */
     public function __construct($filename, $flags = null, $alias = null, $fileformat = null)
     {
@@ -28,23 +28,23 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed|null $dirname
+     * @param mixed|null $dirname
      */
     public function addEmptyDir($dirname = null)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $localname
+     * @param mixed $filename
+     * @param mixed|null $localname
      */
     public function addFile($filename, $localname = null)
     {
     }
 
     /**
-     * mixed $localname
-     * mixed|null $contents
+     * @param mixed $localname
+     * @param mixed|null $contents
      */
     public function addFromString($localname, $contents = null)
     {
@@ -55,23 +55,23 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $base_dir
-     * mixed|null $regex
+     * @param mixed $base_dir
+     * @param mixed|null $regex
      */
     public function buildFromDirectory($base_dir, $regex = null)
     {
     }
 
     /**
-     * mixed $iterator
-     * mixed|null $base_directory
+     * @param mixed $iterator
+     * @param mixed|null $base_directory
      */
     public function buildFromIterator($iterator, $base_directory = null)
     {
     }
 
     /**
-     * mixed|null $method
+     * @param mixed|null $method
      */
     final public static function canCompress($method = null)
     {
@@ -82,33 +82,33 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $compression_type
-     * mixed|null $file_ext
+     * @param mixed $compression_type
+     * @param mixed|null $file_ext
      */
     public function compress($compression_type, $file_ext = null)
     {
     }
 
     /**
-     * mixed $compression_type
+     * @param mixed $compression_type
      */
     public function compressFiles($compression_type)
     {
     }
 
     /**
-     * mixed|null $format
-     * mixed|null $compression_type
-     * mixed|null $file_ext
+     * @param mixed|null $format
+     * @param mixed|null $compression_type
+     * @param mixed|null $file_ext
      */
     public function convertToData($format = null, $compression_type = null, $file_ext = null)
     {
     }
 
     /**
-     * mixed|null $format
-     * mixed|null $compression_type
-     * mixed|null $file_ext
+     * @param mixed|null $format
+     * @param mixed|null $compression_type
+     * @param mixed|null $file_ext
      */
     public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
     {
@@ -117,8 +117,8 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     /**
      * Copies file
      *
-     * mixed $newfile
-     * mixed $oldfile
+     * @param mixed $newfile
+     * @param mixed $oldfile
      *
      * @return bool
      *
@@ -144,15 +144,15 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed|null $index
-     * mixed|null $webindex
+     * @param mixed|null $index
+     * @param mixed|null $webindex
      */
     final public static function createDefaultStub($index = null, $webindex = null)
     {
     }
 
     /**
-     * mixed|null $file_ext
+     * @param mixed|null $file_ext
      */
     public function decompress($file_ext = null)
     {
@@ -165,7 +165,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     /**
      * See <code>unlink</code> or <code>unset</code>
      *
-     * mixed $entry
+     * @param mixed $entry
      *
      * @since None
      *
@@ -180,9 +180,9 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $pathto
-     * mixed|null $files
-     * mixed|null $overwrite
+     * @param mixed $pathto
+     * @param mixed|null $files
+     * @param mixed|null $overwrite
      */
     public function extractTo($pathto, $files = null, $overwrite = null)
     {
@@ -241,15 +241,15 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $fileformat
+     * @param mixed $fileformat
      */
     public function isFileFormat($fileformat)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $executable
+     * @param mixed $filename
+     * @param mixed|null $executable
      */
     final public static function isValidPharFilename($filename, $executable = null)
     {
@@ -260,105 +260,105 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $filename
-     * mixed|null $alias
+     * @param mixed $filename
+     * @param mixed|null $alias
      */
     final public static function loadPhar($filename, $alias = null)
     {
     }
 
     /**
-     * mixed|null $alias
-     * mixed|null $offset
+     * @param mixed|null $alias
+     * @param mixed|null $offset
      */
     final public static function mapPhar($alias = null, $offset = null)
     {
     }
 
     /**
-     * mixed $inphar
-     * mixed $externalfile
+     * @param mixed $inphar
+     * @param mixed $externalfile
      */
     final public static function mount($inphar, $externalfile)
     {
     }
 
     /**
-     * mixed $munglist
+     * @param mixed $munglist
      */
     final public static function mungServer($munglist)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetExists($entry)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetGet($entry)
     {
     }
 
     /**
-     * mixed $entry
-     * mixed $value
+     * @param mixed $entry
+     * @param mixed $value
      */
     public function offsetSet($entry, $value)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetUnset($entry)
     {
     }
 
     /**
-     * mixed $retphar
+     * @param mixed $retphar
      */
     final public static function running($retphar)
     {
     }
 
     /**
-     * mixed $alias
+     * @param mixed $alias
      */
     public function setAlias($alias)
     {
     }
 
     /**
-     * mixed|null $index
-     * mixed|null $webindex
+     * @param mixed|null $index
+     * @param mixed|null $webindex
      */
     public function setDefaultStub($index = null, $webindex = null)
     {
     }
 
     /**
-     * mixed $metadata
+     * @param mixed $metadata
      */
     public function setMetadata($metadata)
     {
     }
 
     /**
-     * mixed $algorithm
-     * mixed|null $privatekey
+     * @param mixed $algorithm
+     * @param mixed|null $privatekey
      */
     public function setSignatureAlgorithm($algorithm, $privatekey = null)
     {
     }
 
     /**
-     * mixed $newstub
-     * mixed|null $maxlen
+     * @param mixed $newstub
+     * @param mixed|null $maxlen
      */
     public function setStub($newstub, $maxlen = null)
     {
@@ -373,18 +373,18 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
     }
 
     /**
-     * mixed $archive
+     * @param mixed $archive
      */
     final public static function unlinkArchive($archive)
     {
     }
 
     /**
-     * mixed|null $alias
-     * mixed|null $index
-     * mixed|null $f404
-     * mixed|null $mimetypes
-     * mixed|null $rewrites
+     * @param mixed|null $alias
+     * @param mixed|null $index
+     * @param mixed|null $f404
+     * @param mixed|null $mimetypes
+     * @param mixed|null $rewrites
      */
     final public static function webPhar($alias = null, $index = null, $f404 = null, $mimetypes = null, $rewrites = null)
     {
@@ -405,10 +405,10 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     /**
-     * mixed $filename
-     * mixed|null $flags
-     * mixed|null $alias
-     * mixed|null $fileformat
+     * @param mixed $filename
+     * @param mixed|null $flags
+     * @param mixed|null $alias
+     * @param mixed|null $fileformat
      */
     public function __construct($filename, $flags = null, $alias = null, $fileformat = null)
     {
@@ -419,23 +419,23 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed|null $dirname
+     * @param mixed|null $dirname
      */
     public function addEmptyDir($dirname = null)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $localname
+     * @param mixed $filename
+     * @param mixed|null $localname
      */
     public function addFile($filename, $localname = null)
     {
     }
 
     /**
-     * mixed $localname
-     * mixed|null $contents
+     * @param mixed $localname
+     * @param mixed|null $contents
      */
     public function addFromString($localname, $contents = null)
     {
@@ -446,23 +446,23 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $base_dir
-     * mixed|null $regex
+     * @param mixed $base_dir
+     * @param mixed|null $regex
      */
     public function buildFromDirectory($base_dir, $regex = null)
     {
     }
 
     /**
-     * mixed $iterator
-     * mixed|null $base_directory
+     * @param mixed $iterator
+     * @param mixed|null $base_directory
      */
     public function buildFromIterator($iterator, $base_directory = null)
     {
     }
 
     /**
-     * mixed|null $method
+     * @param mixed|null $method
      */
     final public static function canCompress($method = null)
     {
@@ -473,33 +473,33 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $compression_type
-     * mixed|null $file_ext
+     * @param mixed $compression_type
+     * @param mixed|null $file_ext
      */
     public function compress($compression_type, $file_ext = null)
     {
     }
 
     /**
-     * mixed $compression_type
+     * @param mixed $compression_type
      */
     public function compressFiles($compression_type)
     {
     }
 
     /**
-     * mixed|null $format
-     * mixed|null $compression_type
-     * mixed|null $file_ext
+     * @param mixed|null $format
+     * @param mixed|null $compression_type
+     * @param mixed|null $file_ext
      */
     public function convertToData($format = null, $compression_type = null, $file_ext = null)
     {
     }
 
     /**
-     * mixed|null $format
-     * mixed|null $compression_type
-     * mixed|null $file_ext
+     * @param mixed|null $format
+     * @param mixed|null $compression_type
+     * @param mixed|null $file_ext
      */
     public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
     {
@@ -508,8 +508,8 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     /**
      * Copies file
      *
-     * mixed $newfile
-     * mixed $oldfile
+     * @param mixed $newfile
+     * @param mixed $oldfile
      *
      * @return bool
      *
@@ -535,15 +535,15 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed|null $index
-     * mixed|null $webindex
+     * @param mixed|null $index
+     * @param mixed|null $webindex
      */
     final public static function createDefaultStub($index = null, $webindex = null)
     {
     }
 
     /**
-     * mixed|null $file_ext
+     * @param mixed|null $file_ext
      */
     public function decompress($file_ext = null)
     {
@@ -556,7 +556,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     /**
      * See <code>unlink</code> or <code>unset</code>
      *
-     * mixed $entry
+     * @param mixed $entry
      *
      * @since None
      *
@@ -571,9 +571,9 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $pathto
-     * mixed|null $files
-     * mixed|null $overwrite
+     * @param mixed $pathto
+     * @param mixed|null $files
+     * @param mixed|null $overwrite
      */
     public function extractTo($pathto, $files = null, $overwrite = null)
     {
@@ -632,15 +632,15 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $fileformat
+     * @param mixed $fileformat
      */
     public function isFileFormat($fileformat)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $executable
+     * @param mixed $filename
+     * @param mixed|null $executable
      */
     final public static function isValidPharFilename($filename, $executable = null)
     {
@@ -651,105 +651,105 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $filename
-     * mixed|null $alias
+     * @param mixed $filename
+     * @param mixed|null $alias
      */
     final public static function loadPhar($filename, $alias = null)
     {
     }
 
     /**
-     * mixed|null $alias
-     * mixed|null $offset
+     * @param mixed|null $alias
+     * @param mixed|null $offset
      */
     final public static function mapPhar($alias = null, $offset = null)
     {
     }
 
     /**
-     * mixed $inphar
-     * mixed $externalfile
+     * @param mixed $inphar
+     * @param mixed $externalfile
      */
     final public static function mount($inphar, $externalfile)
     {
     }
 
     /**
-     * mixed $munglist
+     * @param mixed $munglist
      */
     final public static function mungServer($munglist)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetExists($entry)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetGet($entry)
     {
     }
 
     /**
-     * mixed $entry
-     * mixed $value
+     * @param mixed $entry
+     * @param mixed $value
      */
     public function offsetSet($entry, $value)
     {
     }
 
     /**
-     * mixed $entry
+     * @param mixed $entry
      */
     public function offsetUnset($entry)
     {
     }
 
     /**
-     * mixed $retphar
+     * @param mixed $retphar
      */
     final public static function running($retphar)
     {
     }
 
     /**
-     * mixed $alias
+     * @param mixed $alias
      */
     public function setAlias($alias)
     {
     }
 
     /**
-     * mixed|null $index
-     * mixed|null $webindex
+     * @param mixed|null $index
+     * @param mixed|null $webindex
      */
     public function setDefaultStub($index = null, $webindex = null)
     {
     }
 
     /**
-     * mixed $metadata
+     * @param mixed $metadata
      */
     public function setMetadata($metadata)
     {
     }
 
     /**
-     * mixed $algorithm
-     * mixed|null $privatekey
+     * @param mixed $algorithm
+     * @param mixed|null $privatekey
      */
     public function setSignatureAlgorithm($algorithm, $privatekey = null)
     {
     }
 
     /**
-     * mixed $newstub
-     * mixed|null $maxlen
+     * @param mixed $newstub
+     * @param mixed|null $maxlen
      */
     public function setStub($newstub, $maxlen = null)
     {
@@ -764,18 +764,18 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
     }
 
     /**
-     * mixed $archive
+     * @param mixed $archive
      */
     final public static function unlinkArchive($archive)
     {
     }
 
     /**
-     * mixed|null $alias
-     * mixed|null $index
-     * mixed|null $f404
-     * mixed|null $mimetypes
-     * mixed|null $rewrites
+     * @param mixed|null $alias
+     * @param mixed|null $index
+     * @param mixed|null $f404
+     * @param mixed|null $mimetypes
+     * @param mixed|null $rewrites
      */
     final public static function webPhar($alias = null, $index = null, $f404 = null, $mimetypes = null, $rewrites = null)
     {
@@ -805,7 +805,7 @@ class PharException extends Exception
 class PharFileInfo extends SplFileInfo
 {
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function __construct($filename)
     {
@@ -818,7 +818,7 @@ class PharFileInfo extends SplFileInfo
     /**
      * Changes file mode
      *
-     * mixed $perms
+     * @param mixed $perms
      *
      * @return bool
      *
@@ -831,7 +831,7 @@ class PharFileInfo extends SplFileInfo
     }
 
     /**
-     * mixed $compression_type
+     * @param mixed $compression_type
      */
     public function compress($compression_type)
     {
@@ -870,7 +870,7 @@ class PharFileInfo extends SplFileInfo
     }
 
     /**
-     * mixed|null $compression_type
+     * @param mixed|null $compression_type
      */
     public function isCompressed($compression_type = null)
     {
@@ -881,7 +881,7 @@ class PharFileInfo extends SplFileInfo
     }
 
     /**
-     * mixed $metadata
+     * @param mixed $metadata
      */
     public function setMetadata($metadata)
     {

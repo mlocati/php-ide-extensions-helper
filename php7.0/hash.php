@@ -234,9 +234,9 @@ const MHASH_WHIRLPOOL = 22;
 /**
  * Generate a hash value (message digest)
  *
- * mixed $algo
- * mixed $data
- * mixed|null $raw_output
+ * @param mixed $algo
+ * @param mixed $data
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -264,7 +264,7 @@ function hash_algos(): array
 /**
  * Copy hashing context
  *
- * mixed $context
+ * @param mixed $context
  *
  * @return HashContext
  *
@@ -279,8 +279,8 @@ function hash_copy($context)
 /**
  * Timing attack safe string comparison
  *
- * mixed $known_string
- * mixed $user_string
+ * @param mixed $known_string
+ * @param mixed $user_string
  *
  * @return bool
  *
@@ -295,9 +295,9 @@ function hash_equals($known_string, $user_string): bool
 /**
  * Generate a hash value using the contents of a given file
  *
- * mixed $algo
- * mixed $filename
- * mixed|null $raw_output
+ * @param mixed $algo
+ * @param mixed $filename
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -312,8 +312,8 @@ function hash_file($algo, $filename, $raw_output = null): string
 /**
  * Finalize an incremental hash and return resulting digest
  *
- * mixed $context
- * mixed|null $raw_output
+ * @param mixed $context
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -328,10 +328,10 @@ function hash_final($context, $raw_output = null): string
 /**
  * Generate a keyed hash value using the HMAC method
  *
- * mixed $algo
- * mixed $data
- * mixed $key
- * mixed|null $raw_output
+ * @param mixed $algo
+ * @param mixed $data
+ * @param mixed $key
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -346,10 +346,10 @@ function hash_hmac($algo, $data, $key, $raw_output = null): string
 /**
  * Generate a keyed hash value using the HMAC method and the contents of a given file
  *
- * mixed $algo
- * mixed $filename
- * mixed $key
- * mixed|null $raw_output
+ * @param mixed $algo
+ * @param mixed $filename
+ * @param mixed $key
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -364,9 +364,9 @@ function hash_hmac_file($algo, $filename, $key, $raw_output = null): string
 /**
  * Initialize an incremental hashing context
  *
- * mixed $algo
- * mixed|null $options
- * mixed|null $key
+ * @param mixed $algo
+ * @param mixed|null $options
+ * @param mixed|null $key
  *
  * @return HashContext
  *
@@ -381,12 +381,12 @@ function hash_init($algo, $options = null, $key = null)
 /**
  * Generate a PBKDF2 key derivation of a supplied password
  *
- * mixed $algo
- * mixed $password
- * mixed $salt
- * mixed $iterations
- * mixed|null $length
- * mixed|null $raw_output
+ * @param mixed $algo
+ * @param mixed $password
+ * @param mixed $salt
+ * @param mixed $iterations
+ * @param mixed|null $length
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -401,8 +401,8 @@ function hash_pbkdf2($algo, $password, $salt, $iterations, $length = null, $raw_
 /**
  * Pump data into an active hashing context
  *
- * mixed $context
- * mixed $data
+ * @param mixed $context
+ * @param mixed $data
  *
  * @return bool
  *
@@ -417,9 +417,9 @@ function hash_update($context, $data): bool
 /**
  * Pump data into an active hashing context from a file
  *
- * mixed $context
- * mixed $filename
- * mixed|null $context
+ * @param mixed $context
+ * @param mixed $filename
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -434,9 +434,9 @@ function hash_update_file($context, $filename, $context = null): bool
 /**
  * Pump data into an active hashing context from an open stream
  *
- * mixed $context
- * mixed $handle
- * mixed|null $length
+ * @param mixed $context
+ * @param mixed $handle
+ * @param mixed|null $length
  *
  * @return int
  *
@@ -453,9 +453,9 @@ function hash_update_stream($context, $handle, $length = null): int
  *
  * WARNING: this may be available on Windows but not on POSIX
  *
- * mixed $hash
- * mixed $data
- * mixed|null $key
+ * @param mixed $hash
+ * @param mixed $data
+ * @param mixed|null $key
  *
  * @return string
  *
@@ -487,7 +487,7 @@ function mhash_count(): int
  *
  * WARNING: this may be available on Windows but not on POSIX
  *
- * mixed $hash
+ * @param mixed $hash
  *
  * @return int
  *
@@ -504,7 +504,7 @@ function mhash_get_block_size($hash): int
  *
  * WARNING: this may be available on Windows but not on POSIX
  *
- * mixed $hash
+ * @param mixed $hash
  *
  * @return string
  *
@@ -521,10 +521,10 @@ function mhash_get_hash_name($hash): string
  *
  * WARNING: this may be available on Windows but not on POSIX
  *
- * mixed $hash
- * mixed $input_password
- * mixed $salt
- * mixed $bytes
+ * @param mixed $hash
+ * @param mixed $input_password
+ * @param mixed $salt
+ * @param mixed $bytes
  *
  * @return string
  *

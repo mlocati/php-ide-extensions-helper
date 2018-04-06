@@ -10,7 +10,7 @@ const READLINE_LIB = 'libedit';
 /**
  * Reads a line
  *
- * mixed|null $prompt
+ * @param mixed|null $prompt
  *
  * @return string
  *
@@ -25,7 +25,7 @@ function readline($prompt = null)
 /**
  * Adds a line to the history
  *
- * mixed $prompt
+ * @param mixed $prompt
  *
  * @return bool
  *
@@ -40,8 +40,8 @@ function readline_add_history($prompt)
 /**
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately
  *
- * mixed $prompt
- * mixed $callback
+ * @param mixed $prompt
+ * @param mixed $callback
  *
  * @return bool
  *
@@ -95,7 +95,7 @@ function readline_clear_history()
 /**
  * Registers a completion function
  *
- * mixed $funcname
+ * @param mixed $funcname
  *
  * @return bool
  *
@@ -110,8 +110,8 @@ function readline_completion_function($funcname)
 /**
  * Gets/sets various internal readline variables
  *
- * mixed|null $varname
- * mixed|null $newvalue
+ * @param mixed|null $varname
+ * @param mixed|null $newvalue
  *
  * @return mixed
  *
@@ -139,7 +139,7 @@ function readline_on_new_line()
 /**
  * Reads the history
  *
- * mixed|null $filename
+ * @param mixed|null $filename
  *
  * @return bool
  *
@@ -167,7 +167,7 @@ function readline_redisplay()
 /**
  * Writes the history
  *
- * mixed|null $filename
+ * @param mixed|null $filename
  *
  * @return bool
  *

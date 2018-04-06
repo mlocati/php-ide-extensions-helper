@@ -6,7 +6,7 @@
 /**
  * Compiles and caches a PHP script without executing it
  *
- * mixed $file
+ * @param mixed $file
  *
  * @return bool
  *
@@ -34,7 +34,7 @@ function opcache_get_configuration(): array
 /**
  * Get status information about the cache
  *
- * mixed|null $fetch_scripts
+ * @param mixed|null $fetch_scripts
  *
  * @return array
  *
@@ -49,8 +49,8 @@ function opcache_get_status($fetch_scripts = null): array
 /**
  * Invalidates a cached script
  *
- * mixed $script
- * mixed|null $force
+ * @param mixed $script
+ * @param mixed|null $force
  *
  * @return bool
  *
@@ -65,7 +65,7 @@ function opcache_invalidate($script, $force = null): bool
 /**
  * Tells whether a script is cached in OPCache
  *
- * mixed $script
+ * @param mixed $script
  *
  * @return bool
  *

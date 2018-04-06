@@ -13,36 +13,36 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function _prefix($key)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function _serialize($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function _unserialize($value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function append($key, $value)
     {
     }
 
     /**
-     * mixed $password
+     * @param mixed $password
      */
     public function auth($password)
     {
@@ -57,54 +57,54 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function bitcount($key)
     {
     }
 
     /**
-     * mixed $operation
-     * mixed $ret_key
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $operation
+     * @param mixed $ret_key
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function bitop($operation, $ret_key, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $bit
-     * mixed|null $start
-     * mixed|null $end
+     * @param mixed $key
+     * @param mixed $bit
+     * @param mixed|null $start
+     * @param mixed|null $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function blPop($key, $timeout_or_key, ...$extra_args)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function brPop($key, $timeout_or_key, ...$extra_args)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
-     * mixed $timeout
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $timeout
      */
     public function brpoplpush($src, $dst, $timeout)
     {
@@ -115,8 +115,8 @@ class Redis
     }
 
     /**
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function client($cmd, ...$args)
     {
@@ -127,26 +127,26 @@ class Redis
     }
 
     /**
-     * mixed $args
+     * @param mixed $args
      */
     public function command(...$args)
     {
     }
 
     /**
-     * mixed $cmd
-     * mixed $key
-     * mixed|null $value
+     * @param mixed $cmd
+     * @param mixed $key
+     * @param mixed|null $value
      */
     public function config($cmd, $key, $value = null)
     {
     }
 
     /**
-     * mixed $host
-     * mixed $port
-     * mixed|null $timeout
-     * mixed|null $retry_interval
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed|null $timeout
+     * @param mixed|null $retry_interval
      */
     public function connect($host, $port, $timeout = null, $retry_interval = null)
     {
@@ -157,30 +157,30 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function debug($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function decr($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function decrBy($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function del($key, ...$other_keys)
     {
@@ -189,8 +189,8 @@ class Redis
     /**
      * See <code>unlink</code> or <code>unset</code>
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @since None
      *
@@ -205,7 +205,7 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function dump($key)
     {
@@ -214,7 +214,7 @@ class Redis
     /**
      * Output one or more strings
      *
-     * mixed $msg
+     * @param mixed $msg
      *
      * @return void
      *
@@ -229,9 +229,9 @@ class Redis
     /**
      * Evaluate a string as PHP code
      *
-     * mixed $script
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      *
      * @return mixed
      *
@@ -244,27 +244,27 @@ class Redis
     }
 
     /**
-     * mixed $script_sha
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script_sha
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
     }
 
     /**
-     * mixed $script
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      */
     public function evaluate($script, $args = null, $num_keys = null)
     {
     }
 
     /**
-     * mixed $script_sha
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script_sha
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      */
     public function evaluateSha($script_sha, $args = null, $num_keys = null)
     {
@@ -284,24 +284,24 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function exists($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout
+     * @param mixed $key
+     * @param mixed $timeout
      */
     public function expire($key, $timeout)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function expireAt($key, $timestamp)
     {
@@ -316,69 +316,69 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $lng
-     * mixed $lat
-     * mixed $member
-     * mixed $other_triples
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lat
+     * @param mixed $member
+     * @param mixed $other_triples
      */
     public function geoadd($key, $lng, $lat, $member, ...$other_triples)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $src
-     * mixed $dst
-     * mixed|null $unit
+     * @param mixed $key
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed|null $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geohash($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geopos($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $lng
-     * mixed $lan
-     * mixed $radius
-     * mixed $unit
-     * array[]|null $opts
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lan
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array[]|null $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, $opts = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $radius
-     * mixed $unit
-     * array[]|null $opts
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array[]|null $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, $opts = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function get($key)
     {
@@ -389,8 +389,8 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $offset
+     * @param mixed $key
+     * @param mixed $offset
      */
     public function getBit($key, $offset)
     {
@@ -405,7 +405,7 @@ class Redis
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function getKeys($pattern)
     {
@@ -420,14 +420,14 @@ class Redis
     }
 
     /**
-     * array[] $keys
+     * @param array[] $keys
      */
     public function getMultiple($keys)
     {
     }
 
     /**
-     * mixed $option
+     * @param mixed $option
      */
     public function getOption($option)
     {
@@ -442,9 +442,9 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function getRange($key, $start, $end)
     {
@@ -455,8 +455,8 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function getSet($key, $value)
     {
@@ -467,153 +467,153 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function hDel($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hExists($key, $member)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hGet($key, $member)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hGetAll($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hIncrBy($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hIncrByFloat($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hKeys($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hLen($key)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
+     * @param mixed $key
+     * @param array[] $keys
      */
     public function hMget($key, $keys)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $pairs
+     * @param mixed $key
+     * @param array[] $pairs
      */
     public function hMset($key, $pairs)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hSet($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hSetNx($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hStrLen($key, $member)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hVals($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function incr($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrBy($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrByFloat($key, $value)
     {
     }
 
     /**
-     * mixed|null $option
+     * @param mixed|null $option
      */
     public function info($option = null)
     {
@@ -624,7 +624,7 @@ class Redis
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function keys($pattern)
     {
@@ -635,117 +635,117 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lGet($key, $index)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function lGetRange($key, $start, $end)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lindex($key, $index)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $position
-     * mixed $pivot
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $position
+     * @param mixed $pivot
+     * @param mixed $value
      */
     public function lInsert($key, $position, $pivot, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $stop
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $stop
      */
     public function listTrim($key, $start, $stop)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function lLen($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function lPop($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lPush($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lPushx($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function lrange($key, $start, $end)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed $count
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed $count
      */
     public function lrem($key, $value, $count)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed $count
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed $count
      */
     public function lRemove($key, $value, $count)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $index
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $index
+     * @param mixed $value
      */
     public function lSet($key, $index, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function lSize($key)
     {
@@ -754,9 +754,9 @@ class Redis
     /**
      * Strip whitespace (or other characters) from the beginning of a string
      *
-     * mixed $key
-     * mixed $start
-     * mixed $stop
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $stop
      *
      * @return string
      *
@@ -769,42 +769,42 @@ class Redis
     }
 
     /**
-     * array[] $keys
+     * @param array[] $keys
      */
     public function mget($keys)
     {
     }
 
     /**
-     * mixed $host
-     * mixed $port
-     * mixed $key
-     * mixed $db
-     * mixed $timeout
-     * mixed|null $copy
-     * mixed|null $replace
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed $key
+     * @param mixed $db
+     * @param mixed $timeout
+     * @param mixed|null $copy
+     * @param mixed|null $replace
      */
     public function migrate($host, $port, $key, $db, $timeout, $copy = null, $replace = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $dbindex
+     * @param mixed $key
+     * @param mixed $dbindex
      */
     public function move($key, $dbindex)
     {
     }
 
     /**
-     * array[] $pairs
+     * @param array[] $pairs
      */
     public function mset($pairs)
     {
     }
 
     /**
-     * array[] $pairs
+     * @param array[] $pairs
      */
     public function msetnx($pairs)
     {
@@ -815,73 +815,73 @@ class Redis
     }
 
     /**
-     * mixed $field
-     * mixed $key
+     * @param mixed $field
+     * @param mixed $key
      */
     public function object($field, $key)
     {
     }
 
     /**
-     * mixed $host
-     * mixed $port
-     * mixed|null $timeout
-     * mixed|null $retry_interval
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed|null $timeout
+     * @param mixed|null $retry_interval
      */
     public function open($host, $port, $timeout = null, $retry_interval = null)
     {
     }
 
     /**
-     * mixed $host
-     * mixed $port
-     * mixed|null $timeout
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed|null $timeout
      */
     public function pconnect($host, $port, $timeout = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function persist($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpire($key, $timestamp)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpireAt($key, $timestamp)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $elements
+     * @param mixed $key
+     * @param array[] $elements
      */
     public function pfadd($key, $elements)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function pfcount($key)
     {
     }
 
     /**
-     * mixed $dstkey
-     * array[] $keys
+     * @param mixed $dstkey
+     * @param array[] $keys
      */
     public function pfmerge($dstkey, $keys)
     {
@@ -898,9 +898,9 @@ class Redis
     /**
      * Opens process file pointer
      *
-     * mixed $host
-     * mixed $port
-     * mixed|null $timeout
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed|null $timeout
      *
      * @return resource
      *
@@ -913,47 +913,47 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function psetex($key, $expire, $value)
     {
     }
 
     /**
-     * array[] $patterns
+     * @param array[] $patterns
      */
     public function psubscribe($patterns)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function pttl($key)
     {
     }
 
     /**
-     * mixed $channel
-     * mixed $message
+     * @param mixed $channel
+     * @param mixed $message
      */
     public function publish($channel, $message)
     {
     }
 
     /**
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function pubsub($cmd, ...$args)
     {
     }
 
     /**
-     * mixed $pattern
-     * mixed $other_patterns
+     * @param mixed $pattern
+     * @param mixed $other_patterns
      */
     public function punsubscribe($pattern, ...$other_patterns)
     {
@@ -964,8 +964,8 @@ class Redis
     }
 
     /**
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function rawcommand($cmd, ...$args)
     {
@@ -974,8 +974,8 @@ class Redis
     /**
      * Renames a file or directory
      *
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      *
      * @return bool
      *
@@ -988,25 +988,25 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      */
     public function renameKey($key, $newkey)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      */
     public function renameNx($key, $newkey)
     {
     }
 
     /**
-     * mixed $ttl
-     * mixed $key
-     * mixed $value
+     * @param mixed $ttl
+     * @param mixed $key
+     * @param mixed $value
      */
     public function restore($ttl, $key, $value)
     {
@@ -1017,47 +1017,47 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function rPop($key)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
+     * @param mixed $src
+     * @param mixed $dst
      */
     public function rpoplpush($src, $dst)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rPush($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rPushx($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sAdd($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $options
+     * @param mixed $key
+     * @param array[] $options
      */
     public function sAddArray($key, $options)
     {
@@ -1068,188 +1068,188 @@ class Redis
     }
 
     /**
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function scard($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sContains($key, $value)
     {
     }
 
     /**
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function script($cmd, ...$args)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sDiff($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sDiffStore($dst, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dbindex
+     * @param mixed $dbindex
      */
     public function select($dbindex)
     {
     }
 
     /**
-     * mixed $msg
+     * @param mixed $msg
      */
     public function sendEcho($msg)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $timeout
-     * mixed|null $opt
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $timeout
+     * @param mixed|null $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setBit($key, $offset, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function setex($key, $expire, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function setnx($key, $value)
     {
     }
 
     /**
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function setOption($option, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setRange($key, $offset, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout
+     * @param mixed $key
+     * @param mixed $timeout
      */
     public function setTimeout($key, $timeout)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function sGetMembers($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sInter($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sInterStore($dst, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sismember($key, $value)
     {
     }
 
     /**
-     * mixed|null $host
-     * mixed|null $port
+     * @param mixed|null $host
+     * @param mixed|null $port
      */
     public function slaveof($host = null, $port = null)
     {
     }
 
     /**
-     * mixed $arg
-     * mixed|null $option
+     * @param mixed $arg
+     * @param mixed|null $option
      */
     public function slowlog($arg, $option = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function sMembers($key)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
-     * mixed $value
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $value
      */
     public function sMove($src, $dst, $value)
     {
@@ -1258,8 +1258,8 @@ class Redis
     /**
      * Sort an array
      *
-     * mixed $key
-     * array[]|null $options
+     * @param mixed $key
+     * @param array[]|null $options
      *
      * @return bool
      *
@@ -1272,96 +1272,96 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed|null $pattern
-     * mixed|null $get
-     * mixed|null $start
-     * mixed|null $end
-     * mixed|null $getList
+     * @param mixed $key
+     * @param mixed|null $pattern
+     * @param mixed|null $get
+     * @param mixed|null $start
+     * @param mixed|null $end
+     * @param mixed|null $getList
      */
     public function sortAsc($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $pattern
-     * mixed|null $get
-     * mixed|null $start
-     * mixed|null $end
-     * mixed|null $getList
+     * @param mixed $key
+     * @param mixed|null $pattern
+     * @param mixed|null $get
+     * @param mixed|null $start
+     * @param mixed|null $end
+     * @param mixed|null $getList
      */
     public function sortAscAlpha($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $pattern
-     * mixed|null $get
-     * mixed|null $start
-     * mixed|null $end
-     * mixed|null $getList
+     * @param mixed $key
+     * @param mixed|null $pattern
+     * @param mixed|null $get
+     * @param mixed|null $start
+     * @param mixed|null $end
+     * @param mixed|null $getList
      */
     public function sortDesc($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $pattern
-     * mixed|null $get
-     * mixed|null $start
-     * mixed|null $end
-     * mixed|null $getList
+     * @param mixed $key
+     * @param mixed|null $pattern
+     * @param mixed|null $get
+     * @param mixed|null $start
+     * @param mixed|null $end
+     * @param mixed|null $getList
      */
     public function sortDescAlpha($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function sPop($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $count
+     * @param mixed $key
+     * @param mixed|null $count
      */
     public function sRandMember($key, $count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function srem($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sRemove($key, $value)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function sSize($key)
     {
@@ -1370,7 +1370,7 @@ class Redis
     /**
      * Get string length
      *
-     * mixed $key
+     * @param mixed $key
      *
      * @return int
      *
@@ -1383,7 +1383,7 @@ class Redis
     }
 
     /**
-     * array[] $channels
+     * @param array[] $channels
      */
     public function subscribe($channels)
     {
@@ -1392,9 +1392,9 @@ class Redis
     /**
      * Return part of a string
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      *
      * @return string
      *
@@ -1407,25 +1407,25 @@ class Redis
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sUnion($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sUnionStore($dst, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $srcdb
-     * mixed $dstdb
+     * @param mixed $srcdb
+     * @param mixed $dstdb
      */
     public function swapdb($srcdb, $dstdb)
     {
@@ -1445,14 +1445,14 @@ class Redis
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function ttl($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function type($key)
     {
@@ -1461,8 +1461,8 @@ class Redis
     /**
      * Deletes a file
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -1475,8 +1475,8 @@ class Redis
     }
 
     /**
-     * mixed $channel
-     * mixed $other_channels
+     * @param mixed $channel
+     * @param mixed $other_channels
      */
     public function unsubscribe($channel, ...$other_channels)
     {
@@ -1487,293 +1487,293 @@ class Redis
     }
 
     /**
-     * mixed $numslaves
-     * mixed $timeout
+     * @param mixed $numslaves
+     * @param mixed $timeout
      */
     public function wait($numslaves, $timeout)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function watch($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $score
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $score
+     * @param mixed $value
      */
     public function zAdd($key, $score, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function zCard($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zCount($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function zDelete($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function zDeleteRangeByRank($key, $start, $end)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zDeleteRangeByScore($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed $member
      */
     public function zIncrBy($key, $value, $member)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zInter($key, $keys, $weights = null, $aggregate = null)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zinterstore($key, $keys, $weights = null, $aggregate = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zLexCount($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zRange($key, $start, $end, $scores = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array[]|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array[]|null $options
      */
     public function zRangeByScore($key, $start, $end, $options = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zRank($key, $member)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function zRem($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function zRemove($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zRemoveRangeByScore($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zRemRangeByLex($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zRemRangeByRank($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zRemRangeByScore($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zReverseRange($key, $start, $end, $scores = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zRevRange($key, $start, $end, $scores = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array[]|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array[]|null $options
      */
     public function zRevRangeByScore($key, $start, $end, $options = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zRevRank($key, $member)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zScore($key, $member)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function zSize($key)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zUnion($key, $keys, $weights = null, $aggregate = null)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zunionstore($key, $keys, $weights = null, $aggregate = null)
     {
@@ -1783,16 +1783,16 @@ class Redis
 class RedisArray
 {
     /**
-     * mixed $function_name
-     * mixed $arguments
+     * @param mixed $function_name
+     * @param mixed $arguments
      */
     public function __call($function_name, $arguments)
     {
     }
 
     /**
-     * mixed $name_or_hosts
-     * array[]|null $options
+     * @param mixed $name_or_hosts
+     * @param array[]|null $options
      */
     public function __construct($name_or_hosts, $options = null)
     {
@@ -1811,21 +1811,21 @@ class RedisArray
     }
 
     /**
-     * mixed $host
+     * @param mixed $host
      */
     public function _instance($host)
     {
     }
 
     /**
-     * mixed|null $callable
+     * @param mixed|null $callable
      */
     public function _rehash($callable = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function _target($key)
     {
@@ -1836,7 +1836,7 @@ class RedisArray
     }
 
     /**
-     * mixed $keys
+     * @param mixed $keys
      */
     public function del($keys)
     {
@@ -1845,7 +1845,7 @@ class RedisArray
     /**
      * See <code>unlink</code> or <code>unset</code>
      *
-     * mixed $keys
+     * @param mixed $keys
      *
      * @since None
      *
@@ -1881,14 +1881,14 @@ class RedisArray
     }
 
     /**
-     * mixed $keys
+     * @param mixed $keys
      */
     public function getMultiple($keys)
     {
     }
 
     /**
-     * mixed $opt
+     * @param mixed $opt
      */
     public function getOption($opt)
     {
@@ -1899,29 +1899,29 @@ class RedisArray
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function keys($pattern)
     {
     }
 
     /**
-     * mixed $keys
+     * @param mixed $keys
      */
     public function mget($keys)
     {
     }
 
     /**
-     * mixed $pairs
+     * @param mixed $pairs
      */
     public function mset($pairs)
     {
     }
 
     /**
-     * mixed $host
-     * mixed|null $mode
+     * @param mixed $host
+     * @param mixed|null $mode
      */
     public function multi($host, $mode = null)
     {
@@ -1936,15 +1936,15 @@ class RedisArray
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function select($index)
     {
     }
 
     /**
-     * mixed $opt
-     * mixed $value
+     * @param mixed $opt
+     * @param mixed $value
      */
     public function setOption($opt, $value)
     {
@@ -1971,11 +1971,11 @@ class RedisArray
 class RedisCluster
 {
     /**
-     * mixed $name
-     * array[]|null $seeds
-     * mixed|null $timeout
-     * mixed|null $read_timeout
-     * mixed|null $persistent
+     * @param mixed $name
+     * @param array[]|null $seeds
+     * @param mixed|null $timeout
+     * @param mixed|null $read_timeout
+     * @param mixed|null $persistent
      */
     public function __construct($name, $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
     {
@@ -1986,7 +1986,7 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function _prefix($key)
     {
@@ -1997,90 +1997,90 @@ class RedisCluster
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function _serialize($value)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function _unserialize($value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function append($key, $value)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function bgrewriteaof($key_or_address)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function bgsave($key_or_address)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function bitcount($key)
     {
     }
 
     /**
-     * mixed $operation
-     * mixed $ret_key
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $operation
+     * @param mixed $ret_key
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function bitop($operation, $ret_key, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $bit
-     * mixed|null $start
-     * mixed|null $end
+     * @param mixed $key
+     * @param mixed $bit
+     * @param mixed|null $start
+     * @param mixed|null $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function blpop($key, $timeout_or_key, ...$extra_args)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function brpop($key, $timeout_or_key, ...$extra_args)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
-     * mixed $timeout
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $timeout
      */
     public function brpoplpush($src, $dst, $timeout)
     {
@@ -2091,9 +2091,9 @@ class RedisCluster
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function client($key_or_address, $arg = null, ...$other_args)
     {
@@ -2104,55 +2104,55 @@ class RedisCluster
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function cluster($key_or_address, $arg = null, ...$other_args)
     {
     }
 
     /**
-     * mixed $args
+     * @param mixed $args
      */
     public function command(...$args)
     {
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function config($key_or_address, $arg = null, ...$other_args)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function dbsize($key_or_address)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function decr($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function decrby($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function del($key, ...$other_keys)
     {
@@ -2163,7 +2163,7 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function dump($key)
     {
@@ -2172,7 +2172,7 @@ class RedisCluster
     /**
      * Output one or more strings
      *
-     * mixed $msg
+     * @param mixed $msg
      *
      * @return void
      *
@@ -2187,9 +2187,9 @@ class RedisCluster
     /**
      * Evaluate a string as PHP code
      *
-     * mixed $script
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      *
      * @return mixed
      *
@@ -2202,9 +2202,9 @@ class RedisCluster
     }
 
     /**
-     * mixed $script_sha
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script_sha
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
@@ -2224,114 +2224,114 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function exists($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timeout
+     * @param mixed $key
+     * @param mixed $timeout
      */
     public function expire($key, $timeout)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function expireat($key, $timestamp)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function flushall($key_or_address)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function flushdb($key_or_address)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $lng
-     * mixed $lat
-     * mixed $member
-     * mixed $other_triples
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lat
+     * @param mixed $member
+     * @param mixed $other_triples
      */
     public function geoadd($key, $lng, $lat, $member, ...$other_triples)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $src
-     * mixed $dst
-     * mixed|null $unit
+     * @param mixed $key
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed|null $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geohash($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geopos($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $lng
-     * mixed $lan
-     * mixed $radius
-     * mixed $unit
-     * array[]|null $opts
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lan
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array[]|null $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, $opts = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $radius
-     * mixed $unit
-     * array[]|null $opts
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array[]|null $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, $opts = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function get($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $offset
+     * @param mixed $key
+     * @param mixed $offset
      */
     public function getbit($key, $offset)
     {
@@ -2346,274 +2346,274 @@ class RedisCluster
     }
 
     /**
-     * mixed $option
+     * @param mixed $option
      */
     public function getoption($option)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function getrange($key, $start, $end)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function getset($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function hdel($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hexists($key, $member)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hget($key, $member)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hgetall($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hincrby($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hincrbyfloat($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hkeys($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hlen($key)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
+     * @param mixed $key
+     * @param array[] $keys
      */
     public function hmget($key, $keys)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $pairs
+     * @param mixed $key
+     * @param array[] $pairs
      */
     public function hmset($key, $pairs)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hset($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hsetnx($key, $member, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hstrlen($key, $member)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function hvals($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function incr($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrby($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrbyfloat($key, $value)
     {
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $option
+     * @param mixed $key_or_address
+     * @param mixed|null $option
      */
     public function info($key_or_address, $option = null)
     {
     }
 
     /**
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function keys($pattern)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function lastsave($key_or_address)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lget($key, $index)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lindex($key, $index)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $position
-     * mixed $pivot
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $position
+     * @param mixed $pivot
+     * @param mixed $value
      */
     public function linsert($key, $position, $pivot, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function llen($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function lpop($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lpush($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lpushx($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function lrange($key, $start, $end)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lrem($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $index
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $index
+     * @param mixed $value
      */
     public function lset($key, $index, $value)
     {
@@ -2622,9 +2622,9 @@ class RedisCluster
     /**
      * Strip whitespace (or other characters) from the beginning of a string
      *
-     * mixed $key
-     * mixed $start
-     * mixed $stop
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $stop
      *
      * @return string
      *
@@ -2637,21 +2637,21 @@ class RedisCluster
     }
 
     /**
-     * array[] $keys
+     * @param array[] $keys
      */
     public function mget($keys)
     {
     }
 
     /**
-     * array[] $pairs
+     * @param array[] $pairs
      */
     public function mset($pairs)
     {
     }
 
     /**
-     * array[] $pairs
+     * @param array[] $pairs
      */
     public function msetnx($pairs)
     {
@@ -2662,124 +2662,124 @@ class RedisCluster
     }
 
     /**
-     * mixed $field
-     * mixed $key
+     * @param mixed $field
+     * @param mixed $key
      */
     public function object($field, $key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function persist($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpire($key, $timestamp)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpireat($key, $timestamp)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $elements
+     * @param mixed $key
+     * @param array[] $elements
      */
     public function pfadd($key, $elements)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function pfcount($key)
     {
     }
 
     /**
-     * mixed $dstkey
-     * array[] $keys
+     * @param mixed $dstkey
+     * @param array[] $keys
      */
     public function pfmerge($dstkey, $keys)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function ping($key_or_address)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function psetex($key, $expire, $value)
     {
     }
 
     /**
-     * array[] $patterns
+     * @param array[] $patterns
      */
     public function psubscribe($patterns)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function pttl($key)
     {
     }
 
     /**
-     * mixed $channel
-     * mixed $message
+     * @param mixed $channel
+     * @param mixed $message
      */
     public function publish($channel, $message)
     {
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function pubsub($key_or_address, $arg = null, ...$other_args)
     {
     }
 
     /**
-     * mixed $pattern
-     * mixed $other_patterns
+     * @param mixed $pattern
+     * @param mixed $other_patterns
      */
     public function punsubscribe($pattern, ...$other_patterns)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function randomkey($key_or_address)
     {
     }
 
     /**
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function rawcommand($cmd, ...$args)
     {
@@ -2788,8 +2788,8 @@ class RedisCluster
     /**
      * Renames a file or directory
      *
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      *
      * @return bool
      *
@@ -2802,17 +2802,17 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      */
     public function renamenx($key, $newkey)
     {
     }
 
     /**
-     * mixed $ttl
-     * mixed $key
-     * mixed $value
+     * @param mixed $ttl
+     * @param mixed $key
+     * @param mixed $value
      */
     public function restore($ttl, $key, $value)
     {
@@ -2823,200 +2823,200 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function rpop($key)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
+     * @param mixed $src
+     * @param mixed $dst
      */
     public function rpoplpush($src, $dst)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rpush($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rpushx($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sadd($key, $value)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $options
+     * @param mixed $key
+     * @param array[] $options
      */
     public function saddarray($key, $options)
     {
     }
 
     /**
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function save($key_or_address)
     {
     }
 
     /**
-     * mixed $i_iterator
-     * mixed $str_node
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed $str_node
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function scard($key)
     {
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function script($key_or_address, $arg = null, ...$other_args)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sdiff($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sdiffstore($dst, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $timeout
-     * mixed|null $opt
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $timeout
+     * @param mixed|null $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setbit($key, $offset, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function setex($key, $expire, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function setnx($key, $value)
     {
     }
 
     /**
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function setoption($option, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setrange($key, $offset, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sinter($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sinterstore($dst, $key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sismember($key, $value)
     {
     }
 
     /**
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function slowlog($key_or_address, $arg = null, ...$other_args)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function smembers($key)
     {
     }
 
     /**
-     * mixed $src
-     * mixed $dst
-     * mixed $value
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $value
      */
     public function smove($src, $dst, $value)
     {
@@ -3025,8 +3025,8 @@ class RedisCluster
     /**
      * Sort an array
      *
-     * mixed $key
-     * array[]|null $options
+     * @param mixed $key
+     * @param array[]|null $options
      *
      * @return bool
      *
@@ -3039,33 +3039,33 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function spop($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $count
+     * @param mixed $key
+     * @param mixed|null $count
      */
     public function srandmember($key, $count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function srem($key, $value)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -3074,7 +3074,7 @@ class RedisCluster
     /**
      * Get string length
      *
-     * mixed $key
+     * @param mixed $key
      *
      * @return int
      *
@@ -3087,24 +3087,24 @@ class RedisCluster
     }
 
     /**
-     * array[] $channels
+     * @param array[] $channels
      */
     public function subscribe($channels)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sunion($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sunionstore($dst, $key, ...$other_keys)
     {
@@ -3124,14 +3124,14 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function ttl($key)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function type($key)
     {
@@ -3140,8 +3140,8 @@ class RedisCluster
     /**
      * Deletes a file
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -3154,8 +3154,8 @@ class RedisCluster
     }
 
     /**
-     * mixed $channel
-     * mixed $other_channels
+     * @param mixed $channel
+     * @param mixed $other_channels
      */
     public function unsubscribe($channel, ...$other_channels)
     {
@@ -3166,203 +3166,203 @@ class RedisCluster
     }
 
     /**
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function watch($key, ...$other_keys)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $score
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $score
+     * @param mixed $value
      */
     public function zadd($key, $score, $value)
     {
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function zcard($key)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zcount($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed $member
      */
     public function zincrby($key, $value, $member)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zinterstore($key, $keys, $weights = null, $aggregate = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zlexcount($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zrange($key, $start, $end, $scores = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array[]|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array[]|null $options
      */
     public function zrangebyscore($key, $start, $end, $options = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zrank($key, $member)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function zrem($key, $member, ...$other_members)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebylex($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebyrank($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebyscore($key, $min, $max)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zrevrange($key, $start, $end, $scores = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zrevrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array[]|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array[]|null $options
      */
     public function zrevrangebyscore($key, $start, $end, $options = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zrevrank($key, $member)
     {
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zscore($key, $member)
     {
     }
 
     /**
-     * mixed $key
-     * array[] $keys
-     * array[]|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array[] $keys
+     * @param array[]|null $weights
+     * @param mixed|null $aggregate
      */
     public function zunionstore($key, $keys, $weights = null, $aggregate = null)
     {

@@ -80,7 +80,7 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $args
+     * @param mixed $args
      */
     public function command(...$args)
     {
@@ -207,11 +207,11 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $lng
-     * mixed $lat
-     * mixed $member
-     * mixed $other_triples
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lat
+     * @param mixed $member
+     * @param mixed $other_triples
      */
     public function geoadd($key, $lng, $lat, $member, ...$other_triples)
     {
@@ -220,10 +220,10 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $src
-     * mixed $dst
-     * mixed|null $unit
+     * @param mixed $key
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed|null $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -232,9 +232,9 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geohash($key, $member, ...$other_members)
     {
@@ -243,9 +243,9 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geopos($key, $member, ...$other_members)
     {
@@ -254,12 +254,12 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $lng
-     * mixed $lan
-     * mixed $radius
-     * mixed $unit
-     * array|null $opts
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lan
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array|null $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -268,11 +268,11 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $radius
-     * mixed $unit
-     * array|null $opts
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array|null $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -383,10 +383,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -403,8 +403,8 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hStrLen($key, $member)
     {
@@ -686,8 +686,8 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $options
+     * @param mixed $key
+     * @param array $options
      */
     public function sAddArray($key, array $options)
     {
@@ -698,9 +698,9 @@ class Redis
     }
 
     /**
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -840,10 +840,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -894,8 +894,8 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $srcdb
-     * mixed $dstdb
+     * @param mixed $srcdb
+     * @param mixed $dstdb
      */
     public function swapdb($srcdb, $dstdb)
     {
@@ -927,8 +927,8 @@ class Redis
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -995,9 +995,9 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zLexCount($key, $min, $max)
     {
@@ -1034,9 +1034,9 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zRemRangeByLex($key, $min, $max)
     {
@@ -1061,11 +1061,11 @@ class Redis
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -1080,10 +1080,10 @@ class Redis
     }
 
     /**
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1109,8 +1109,8 @@ class Redis
 class RedisArray
 {
     /**
-     * mixed $function_name
-     * mixed $arguments
+     * @param mixed $function_name
+     * @param mixed $arguments
      */
     public function __call($function_name, $arguments)
     {
@@ -1260,11 +1260,11 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $name
-     * array|null $seeds
-     * mixed|null $timeout
-     * mixed|null $read_timeout
-     * mixed|null $persistent
+     * @param mixed $name
+     * @param array|null $seeds
+     * @param mixed|null $timeout
+     * @param mixed|null $read_timeout
+     * @param mixed|null $persistent
      */
     public function __construct($name, array $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
     {
@@ -1280,7 +1280,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function _prefix($key)
     {
@@ -1296,7 +1296,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $value
+     * @param mixed $value
      */
     public function _serialize($value)
     {
@@ -1305,7 +1305,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $value
+     * @param mixed $value
      */
     public function _unserialize($value)
     {
@@ -1314,8 +1314,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function append($key, $value)
     {
@@ -1324,7 +1324,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function bgrewriteaof($key_or_address)
     {
@@ -1333,7 +1333,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function bgsave($key_or_address)
     {
@@ -1342,7 +1342,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function bitcount($key)
     {
@@ -1351,10 +1351,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $operation
-     * mixed $ret_key
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $operation
+     * @param mixed $ret_key
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function bitop($operation, $ret_key, $key, ...$other_keys)
     {
@@ -1363,10 +1363,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $bit
-     * mixed|null $start
-     * mixed|null $end
+     * @param mixed $key
+     * @param mixed $bit
+     * @param mixed|null $start
+     * @param mixed|null $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
@@ -1375,9 +1375,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function blpop($key, $timeout_or_key, ...$extra_args)
     {
@@ -1386,9 +1386,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timeout_or_key
-     * mixed $extra_args
+     * @param mixed $key
+     * @param mixed $timeout_or_key
+     * @param mixed $extra_args
      */
     public function brpop($key, $timeout_or_key, ...$extra_args)
     {
@@ -1397,9 +1397,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $src
-     * mixed $dst
-     * mixed $timeout
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $timeout
      */
     public function brpoplpush($src, $dst, $timeout)
     {
@@ -1415,9 +1415,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function client($key_or_address, $arg = null, ...$other_args)
     {
@@ -1433,9 +1433,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function cluster($key_or_address, $arg = null, ...$other_args)
     {
@@ -1444,7 +1444,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $args
+     * @param mixed $args
      */
     public function command(...$args)
     {
@@ -1453,9 +1453,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function config($key_or_address, $arg = null, ...$other_args)
     {
@@ -1464,7 +1464,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function dbsize($key_or_address)
     {
@@ -1473,7 +1473,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function decr($key)
     {
@@ -1482,8 +1482,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function decrby($key, $value)
     {
@@ -1492,8 +1492,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function del($key, ...$other_keys)
     {
@@ -1509,7 +1509,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function dump($key)
     {
@@ -1520,7 +1520,7 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $msg
+     * @param mixed $msg
      *
      * @return void
      *
@@ -1537,9 +1537,9 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $script
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      *
      * @return mixed
      *
@@ -1554,9 +1554,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $script_sha
-     * mixed|null $args
-     * mixed|null $num_keys
+     * @param mixed $script_sha
+     * @param mixed|null $args
+     * @param mixed|null $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
@@ -1580,7 +1580,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function exists($key)
     {
@@ -1589,8 +1589,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timeout
+     * @param mixed $key
+     * @param mixed $timeout
      */
     public function expire($key, $timeout)
     {
@@ -1599,8 +1599,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function expireat($key, $timestamp)
     {
@@ -1609,7 +1609,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function flushall($key_or_address)
     {
@@ -1618,7 +1618,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function flushdb($key_or_address)
     {
@@ -1627,11 +1627,11 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $lng
-     * mixed $lat
-     * mixed $member
-     * mixed $other_triples
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lat
+     * @param mixed $member
+     * @param mixed $other_triples
      */
     public function geoadd($key, $lng, $lat, $member, ...$other_triples)
     {
@@ -1640,10 +1640,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $src
-     * mixed $dst
-     * mixed|null $unit
+     * @param mixed $key
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed|null $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -1652,9 +1652,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geohash($key, $member, ...$other_members)
     {
@@ -1663,9 +1663,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function geopos($key, $member, ...$other_members)
     {
@@ -1674,12 +1674,12 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $lng
-     * mixed $lan
-     * mixed $radius
-     * mixed $unit
-     * array|null $opts
+     * @param mixed $key
+     * @param mixed $lng
+     * @param mixed $lan
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array|null $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -1688,11 +1688,11 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $radius
-     * mixed $unit
-     * array|null $opts
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $radius
+     * @param mixed $unit
+     * @param array|null $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -1701,7 +1701,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function get($key)
     {
@@ -1710,8 +1710,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $offset
+     * @param mixed $key
+     * @param mixed $offset
      */
     public function getbit($key, $offset)
     {
@@ -1734,7 +1734,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $option
+     * @param mixed $option
      */
     public function getoption($option)
     {
@@ -1743,9 +1743,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function getrange($key, $start, $end)
     {
@@ -1754,8 +1754,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function getset($key, $value)
     {
@@ -1764,9 +1764,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function hdel($key, $member, ...$other_members)
     {
@@ -1775,8 +1775,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hexists($key, $member)
     {
@@ -1785,8 +1785,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hget($key, $member)
     {
@@ -1795,7 +1795,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function hgetall($key)
     {
@@ -1804,9 +1804,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hincrby($key, $member, $value)
     {
@@ -1815,9 +1815,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hincrbyfloat($key, $member, $value)
     {
@@ -1826,7 +1826,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function hkeys($key)
     {
@@ -1835,7 +1835,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function hlen($key)
     {
@@ -1844,8 +1844,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $keys
+     * @param mixed $key
+     * @param array $keys
      */
     public function hmget($key, array $keys)
     {
@@ -1854,8 +1854,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $pairs
+     * @param mixed $key
+     * @param array $pairs
      */
     public function hmset($key, array $pairs)
     {
@@ -1864,10 +1864,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1876,9 +1876,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hset($key, $member, $value)
     {
@@ -1887,9 +1887,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $value
      */
     public function hsetnx($key, $member, $value)
     {
@@ -1898,8 +1898,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function hstrlen($key, $member)
     {
@@ -1908,7 +1908,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function hvals($key)
     {
@@ -1917,7 +1917,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function incr($key)
     {
@@ -1926,8 +1926,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrby($key, $value)
     {
@@ -1936,8 +1936,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function incrbyfloat($key, $value)
     {
@@ -1946,8 +1946,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $option
+     * @param mixed $key_or_address
+     * @param mixed|null $option
      */
     public function info($key_or_address, $option = null)
     {
@@ -1956,7 +1956,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $pattern
+     * @param mixed $pattern
      */
     public function keys($pattern)
     {
@@ -1965,7 +1965,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function lastsave($key_or_address)
     {
@@ -1974,8 +1974,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lget($key, $index)
     {
@@ -1984,8 +1984,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $index
+     * @param mixed $key
+     * @param mixed $index
      */
     public function lindex($key, $index)
     {
@@ -1994,10 +1994,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $position
-     * mixed $pivot
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $position
+     * @param mixed $pivot
+     * @param mixed $value
      */
     public function linsert($key, $position, $pivot, $value)
     {
@@ -2006,7 +2006,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function llen($key)
     {
@@ -2015,7 +2015,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function lpop($key)
     {
@@ -2024,8 +2024,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lpush($key, $value)
     {
@@ -2034,8 +2034,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lpushx($key, $value)
     {
@@ -2044,9 +2044,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
      */
     public function lrange($key, $start, $end)
     {
@@ -2055,8 +2055,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function lrem($key, $value)
     {
@@ -2065,9 +2065,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $index
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $index
+     * @param mixed $value
      */
     public function lset($key, $index, $value)
     {
@@ -2078,9 +2078,9 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $stop
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $stop
      *
      * @return string
      *
@@ -2095,7 +2095,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * array $keys
+     * @param array $keys
      */
     public function mget(array $keys)
     {
@@ -2104,7 +2104,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * array $pairs
+     * @param array $pairs
      */
     public function mset(array $pairs)
     {
@@ -2113,7 +2113,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * array $pairs
+     * @param array $pairs
      */
     public function msetnx(array $pairs)
     {
@@ -2129,8 +2129,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $field
-     * mixed $key
+     * @param mixed $field
+     * @param mixed $key
      */
     public function object($field, $key)
     {
@@ -2139,7 +2139,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function persist($key)
     {
@@ -2148,8 +2148,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpire($key, $timestamp)
     {
@@ -2158,8 +2158,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $timestamp
+     * @param mixed $key
+     * @param mixed $timestamp
      */
     public function pexpireat($key, $timestamp)
     {
@@ -2168,8 +2168,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $elements
+     * @param mixed $key
+     * @param array $elements
      */
     public function pfadd($key, array $elements)
     {
@@ -2178,7 +2178,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function pfcount($key)
     {
@@ -2187,8 +2187,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $dstkey
-     * array $keys
+     * @param mixed $dstkey
+     * @param array $keys
      */
     public function pfmerge($dstkey, array $keys)
     {
@@ -2197,7 +2197,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function ping($key_or_address)
     {
@@ -2206,9 +2206,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function psetex($key, $expire, $value)
     {
@@ -2217,7 +2217,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * array $patterns
+     * @param array $patterns
      */
     public function psubscribe(array $patterns)
     {
@@ -2226,7 +2226,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function pttl($key)
     {
@@ -2235,8 +2235,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $channel
-     * mixed $message
+     * @param mixed $channel
+     * @param mixed $message
      */
     public function publish($channel, $message)
     {
@@ -2245,9 +2245,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function pubsub($key_or_address, $arg = null, ...$other_args)
     {
@@ -2256,8 +2256,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $pattern
-     * mixed $other_patterns
+     * @param mixed $pattern
+     * @param mixed $other_patterns
      */
     public function punsubscribe($pattern, ...$other_patterns)
     {
@@ -2266,7 +2266,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function randomkey($key_or_address)
     {
@@ -2275,8 +2275,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $cmd
-     * mixed $args
+     * @param mixed $cmd
+     * @param mixed $args
      */
     public function rawcommand($cmd, ...$args)
     {
@@ -2287,8 +2287,8 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      *
      * @return bool
      *
@@ -2303,8 +2303,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $newkey
+     * @param mixed $key
+     * @param mixed $newkey
      */
     public function renamenx($key, $newkey)
     {
@@ -2313,9 +2313,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $ttl
-     * mixed $key
-     * mixed $value
+     * @param mixed $ttl
+     * @param mixed $key
+     * @param mixed $value
      */
     public function restore($ttl, $key, $value)
     {
@@ -2331,7 +2331,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function rpop($key)
     {
@@ -2340,8 +2340,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $src
-     * mixed $dst
+     * @param mixed $src
+     * @param mixed $dst
      */
     public function rpoplpush($src, $dst)
     {
@@ -2350,8 +2350,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rpush($key, $value)
     {
@@ -2360,8 +2360,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function rpushx($key, $value)
     {
@@ -2370,8 +2370,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sadd($key, $value)
     {
@@ -2380,8 +2380,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $options
+     * @param mixed $key
+     * @param array $options
      */
     public function saddarray($key, array $options)
     {
@@ -2390,7 +2390,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
+     * @param mixed $key_or_address
      */
     public function save($key_or_address)
     {
@@ -2399,10 +2399,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $i_iterator
-     * mixed $str_node
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $i_iterator
+     * @param mixed $str_node
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
@@ -2411,7 +2411,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function scard($key)
     {
@@ -2420,9 +2420,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function script($key_or_address, $arg = null, ...$other_args)
     {
@@ -2431,8 +2431,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sdiff($key, ...$other_keys)
     {
@@ -2441,9 +2441,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sdiffstore($dst, $key, ...$other_keys)
     {
@@ -2452,10 +2452,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
-     * mixed|null $timeout
-     * mixed|null $opt
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $timeout
+     * @param mixed|null $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
@@ -2464,9 +2464,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setbit($key, $offset, $value)
     {
@@ -2475,9 +2475,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $expire
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $expire
+     * @param mixed $value
      */
     public function setex($key, $expire, $value)
     {
@@ -2486,8 +2486,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function setnx($key, $value)
     {
@@ -2496,8 +2496,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function setoption($option, $value)
     {
@@ -2506,9 +2506,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $offset
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $offset
+     * @param mixed $value
      */
     public function setrange($key, $offset, $value)
     {
@@ -2517,8 +2517,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sinter($key, ...$other_keys)
     {
@@ -2527,9 +2527,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sinterstore($dst, $key, ...$other_keys)
     {
@@ -2538,8 +2538,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function sismember($key, $value)
     {
@@ -2548,9 +2548,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key_or_address
-     * mixed|null $arg
-     * mixed $other_args
+     * @param mixed $key_or_address
+     * @param mixed|null $arg
+     * @param mixed $other_args
      */
     public function slowlog($key_or_address, $arg = null, ...$other_args)
     {
@@ -2559,7 +2559,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function smembers($key)
     {
@@ -2568,9 +2568,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $src
-     * mixed $dst
-     * mixed $value
+     * @param mixed $src
+     * @param mixed $dst
+     * @param mixed $value
      */
     public function smove($src, $dst, $value)
     {
@@ -2581,8 +2581,8 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array|null $options
+     * @param mixed $key
+     * @param array|null $options
      *
      * @return bool
      *
@@ -2597,7 +2597,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function spop($key)
     {
@@ -2606,8 +2606,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed|null $count
+     * @param mixed $key
+     * @param mixed|null $count
      */
     public function srandmember($key, $count = null)
     {
@@ -2616,8 +2616,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function srem($key, $value)
     {
@@ -2626,10 +2626,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -2640,7 +2640,7 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      *
      * @return int
      *
@@ -2655,7 +2655,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * array $channels
+     * @param array $channels
      */
     public function subscribe(array $channels)
     {
@@ -2664,8 +2664,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sunion($key, ...$other_keys)
     {
@@ -2674,9 +2674,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $dst
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $dst
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function sunionstore($dst, $key, ...$other_keys)
     {
@@ -2700,7 +2700,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function ttl($key)
     {
@@ -2709,7 +2709,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function type($key)
     {
@@ -2720,8 +2720,8 @@ class RedisCluster
      *
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      *
      * @return bool
      *
@@ -2736,8 +2736,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $channel
-     * mixed $other_channels
+     * @param mixed $channel
+     * @param mixed $other_channels
      */
     public function unsubscribe($channel, ...$other_channels)
     {
@@ -2753,8 +2753,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $other_keys
+     * @param mixed $key
+     * @param mixed $other_keys
      */
     public function watch($key, ...$other_keys)
     {
@@ -2763,9 +2763,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $score
-     * mixed $value
+     * @param mixed $key
+     * @param mixed $score
+     * @param mixed $value
      */
     public function zadd($key, $score, $value)
     {
@@ -2774,7 +2774,7 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
+     * @param mixed $key
      */
     public function zcard($key)
     {
@@ -2783,9 +2783,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zcount($key, $min, $max)
     {
@@ -2794,9 +2794,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $value
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed $member
      */
     public function zincrby($key, $value, $member)
     {
@@ -2805,10 +2805,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $keys
-     * array|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array $keys
+     * @param array|null $weights
+     * @param mixed|null $aggregate
      */
     public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -2817,9 +2817,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zlexcount($key, $min, $max)
     {
@@ -2828,10 +2828,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zrange($key, $start, $end, $scores = null)
     {
@@ -2840,11 +2840,11 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -2853,10 +2853,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array|null $options
      */
     public function zrangebyscore($key, $start, $end, array $options = null)
     {
@@ -2865,8 +2865,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zrank($key, $member)
     {
@@ -2875,9 +2875,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
-     * mixed $other_members
+     * @param mixed $key
+     * @param mixed $member
+     * @param mixed $other_members
      */
     public function zrem($key, $member, ...$other_members)
     {
@@ -2886,9 +2886,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebylex($key, $min, $max)
     {
@@ -2897,9 +2897,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebyrank($key, $min, $max)
     {
@@ -2908,9 +2908,9 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
      */
     public function zremrangebyscore($key, $min, $max)
     {
@@ -2919,10 +2919,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * mixed|null $scores
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed|null $scores
      */
     public function zrevrange($key, $start, $end, $scores = null)
     {
@@ -2931,11 +2931,11 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $min
-     * mixed $max
-     * mixed|null $offset
-     * mixed|null $limit
+     * @param mixed $key
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed|null $offset
+     * @param mixed|null $limit
      */
     public function zrevrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -2944,10 +2944,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $start
-     * mixed $end
-     * array|null $options
+     * @param mixed $key
+     * @param mixed $start
+     * @param mixed $end
+     * @param array|null $options
      */
     public function zrevrangebyscore($key, $start, $end, array $options = null)
     {
@@ -2956,8 +2956,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zrevrank($key, $member)
     {
@@ -2966,10 +2966,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $str_key
-     * mixed $i_iterator
-     * mixed|null $str_pattern
-     * mixed|null $i_count
+     * @param mixed $str_key
+     * @param mixed $i_iterator
+     * @param mixed|null $str_pattern
+     * @param mixed|null $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -2978,8 +2978,8 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * mixed $member
+     * @param mixed $key
+     * @param mixed $member
      */
     public function zscore($key, $member)
     {
@@ -2988,10 +2988,10 @@ class RedisCluster
     /**
      * WARNING: this may be available on POSIX but not on Windows
      *
-     * mixed $key
-     * array $keys
-     * array|null $weights
-     * mixed|null $aggregate
+     * @param mixed $key
+     * @param array $keys
+     * @param array|null $weights
+     * @param mixed|null $aggregate
      */
     public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {

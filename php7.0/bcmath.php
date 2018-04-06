@@ -6,9 +6,9 @@
 /**
  * Add two arbitrary precision numbers
  *
- * mixed $left_operand
- * mixed $right_operand
- * mixed|null $scale
+ * @param mixed $left_operand
+ * @param mixed $right_operand
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -23,9 +23,9 @@ function bcadd($left_operand, $right_operand, $scale = null): string
 /**
  * Compare two arbitrary precision numbers
  *
- * mixed $left_operand
- * mixed $right_operand
- * mixed|null $scale
+ * @param mixed $left_operand
+ * @param mixed $right_operand
+ * @param mixed|null $scale
  *
  * @return int
  *
@@ -40,9 +40,9 @@ function bccomp($left_operand, $right_operand, $scale = null): int
 /**
  * Divide two arbitrary precision numbers
  *
- * mixed $left_operand
- * mixed $right_operand
- * mixed|null $scale
+ * @param mixed $left_operand
+ * @param mixed $right_operand
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -57,8 +57,8 @@ function bcdiv($left_operand, $right_operand, $scale = null): string
 /**
  * Get modulus of an arbitrary precision number
  *
- * mixed $left_operand
- * mixed $right_operand
+ * @param mixed $left_operand
+ * @param mixed $right_operand
  *
  * @return string
  *
@@ -73,9 +73,9 @@ function bcmod($left_operand, $right_operand): string
 /**
  * Multiply two arbitrary precision numbers
  *
- * mixed $left_operand
- * mixed $right_operand
- * mixed|null $scale
+ * @param mixed $left_operand
+ * @param mixed $right_operand
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -90,9 +90,9 @@ function bcmul($left_operand, $right_operand, $scale = null): string
 /**
  * Raise an arbitrary precision number to another
  *
- * mixed $x
- * mixed $y
- * mixed|null $scale
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -107,10 +107,10 @@ function bcpow($x, $y, $scale = null): string
 /**
  * Raise an arbitrary precision number to another, reduced by a specified modulus
  *
- * mixed $x
- * mixed $y
- * mixed $mod
- * mixed|null $scale
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $mod
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -125,7 +125,7 @@ function bcpowmod($x, $y, $mod, $scale = null): string
 /**
  * Set default scale parameter for all bc math functions
  *
- * mixed $scale
+ * @param mixed $scale
  *
  * @return int
  *
@@ -140,8 +140,8 @@ function bcscale($scale): int
 /**
  * Get the square root of an arbitrary precision number
  *
- * mixed $operand
- * mixed|null $scale
+ * @param mixed $operand
+ * @param mixed|null $scale
  *
  * @return string
  *
@@ -156,9 +156,9 @@ function bcsqrt($operand, $scale = null): string
 /**
  * Subtract one arbitrary precision number from another
  *
- * mixed $left_operand
- * mixed $right_operand
- * mixed|null $scale
+ * @param mixed $left_operand
+ * @param mixed $right_operand
+ * @param mixed|null $scale
  *
  * @return string
  *

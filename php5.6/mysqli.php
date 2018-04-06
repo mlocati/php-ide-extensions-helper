@@ -924,24 +924,24 @@ const MYSQLI_ZEROFILL_FLAG = 64;
 class mysqli
 {
     /**
-     * mixed $mode
+     * @param mixed $mode
      */
     public function autocommit($mode)
     {
     }
 
     /**
-     * mixed|null $flags
-     * mixed|null $name
+     * @param mixed|null $flags
+     * @param mixed|null $name
      */
     public function begin_transaction($flags = null, $name = null)
     {
     }
 
     /**
-     * mixed $user
-     * mixed $password
-     * mixed $database
+     * @param mixed $user
+     * @param mixed $password
+     * @param mixed $database
      */
     public function change_user($user, $password, $database)
     {
@@ -956,27 +956,27 @@ class mysqli
     }
 
     /**
-     * mixed|null $flags
-     * mixed|null $name
+     * @param mixed|null $flags
+     * @param mixed|null $name
      */
     public function commit($flags = null, $name = null)
     {
     }
 
     /**
-     * mixed|null $host
-     * mixed|null $user
-     * mixed|null $password
-     * mixed|null $database
-     * mixed|null $port
-     * mixed|null $socket
+     * @param mixed|null $host
+     * @param mixed|null $user
+     * @param mixed|null $password
+     * @param mixed|null $database
+     * @param mixed|null $port
+     * @param mixed|null $socket
      */
     public function connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
     {
     }
 
     /**
-     * mixed $debug_options
+     * @param mixed $debug_options
      */
     public function debug($debug_options)
     {
@@ -987,7 +987,7 @@ class mysqli
     }
 
     /**
-     * mixed $string_to_escape
+     * @param mixed $string_to_escape
      */
     public function escape_string($string_to_escape)
     {
@@ -1018,7 +1018,7 @@ class mysqli
     }
 
     /**
-     * mixed $connection_id
+     * @param mixed $connection_id
      */
     public function kill($connection_id)
     {
@@ -1029,19 +1029,19 @@ class mysqli
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function multi_query($query)
     {
     }
 
     /**
-     * mixed|null $host
-     * mixed|null $user
-     * mixed|null $password
-     * mixed|null $database
-     * mixed|null $port
-     * mixed|null $socket
+     * @param mixed|null $host
+     * @param mixed|null $user
+     * @param mixed|null $password
+     * @param mixed|null $database
+     * @param mixed|null $port
+     * @param mixed|null $socket
      */
     public function mysqli($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
     {
@@ -1052,8 +1052,8 @@ class mysqli
     }
 
     /**
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function options($option, $value)
     {
@@ -1064,52 +1064,52 @@ class mysqli
     }
 
     /**
-     * array|null $read
-     * array|null $write
-     * array|null $error
-     * mixed $sec
-     * mixed|null $usec
+     * @param array|null $read
+     * @param array|null $write
+     * @param array|null $error
+     * @param mixed $sec
+     * @param mixed|null $usec
      */
     public static function poll(array &$read = null, array &$write = null, array &$error = null, $sec, $usec = null)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function prepare($query)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function query($query)
     {
     }
 
     /**
-     * mixed|null $host
-     * mixed|null $user
-     * mixed|null $password
-     * mixed|null $database
-     * mixed|null $port
-     * mixed|null $socket
-     * mixed|null $flags
+     * @param mixed|null $host
+     * @param mixed|null $user
+     * @param mixed|null $password
+     * @param mixed|null $database
+     * @param mixed|null $port
+     * @param mixed|null $socket
+     * @param mixed|null $flags
      */
     public function real_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null, $flags = null)
     {
     }
 
     /**
-     * mixed $string_to_escape
+     * @param mixed $string_to_escape
      */
     public function real_escape_string($string_to_escape)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function real_query($query)
     {
@@ -1120,62 +1120,62 @@ class mysqli
     }
 
     /**
-     * mixed $options
+     * @param mixed $options
      */
     public function refresh($options)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function release_savepoint($name)
     {
     }
 
     /**
-     * mixed|null $flags
-     * mixed|null $name
+     * @param mixed|null $flags
+     * @param mixed|null $name
      */
     public function rollback($flags = null, $name = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function savepoint($name)
     {
     }
 
     /**
-     * mixed $database
+     * @param mixed $database
      */
     public function select_db($database)
     {
     }
 
     /**
-     * mixed $charset
+     * @param mixed $charset
      */
     public function set_charset($charset)
     {
     }
 
     /**
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function set_opt($option, $value)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $cert
-     * mixed $certificate_authority
-     * mixed $certificate_authority_path
-     * mixed $cipher
+     * @param mixed $key
+     * @param mixed $cert
+     * @param mixed $certificate_authority
+     * @param mixed $certificate_authority_path
+     * @param mixed $cipher
      */
     public function ssl_set($key, $cert, $certificate_authority, $certificate_authority_path, $cipher)
     {
@@ -1199,7 +1199,7 @@ class mysqli
     }
 
     /**
-     * mixed|null $flags
+     * @param mixed|null $flags
      */
     public function store_result($flags = null)
     {
@@ -1243,7 +1243,7 @@ class mysqli_result implements Traversable
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function data_seek($offset)
     {
@@ -1254,7 +1254,7 @@ class mysqli_result implements Traversable
     }
 
     /**
-     * mixed|null $result_type
+     * @param mixed|null $result_type
      */
     public function fetch_array($result_type = null)
     {
@@ -1269,7 +1269,7 @@ class mysqli_result implements Traversable
     }
 
     /**
-     * mixed $field_nr
+     * @param mixed $field_nr
      */
     public function fetch_field_direct($field_nr)
     {
@@ -1280,8 +1280,8 @@ class mysqli_result implements Traversable
     }
 
     /**
-     * mixed|null $class_name
-     * array|null $params
+     * @param mixed|null $class_name
+     * @param array|null $params
      */
     public function fetch_object($class_name = null, array $params = null)
     {
@@ -1292,7 +1292,7 @@ class mysqli_result implements Traversable
     }
 
     /**
-     * mixed $field_nr
+     * @param mixed $field_nr
      */
     public function field_seek($field_nr)
     {
@@ -1332,30 +1332,30 @@ class mysqli_stmt
     }
 
     /**
-     * mixed $attribute
+     * @param mixed $attribute
      */
     public function attr_get($attribute)
     {
     }
 
     /**
-     * mixed $attribute
-     * mixed $value
+     * @param mixed $attribute
+     * @param mixed $value
      */
     public function attr_set($attribute, $value)
     {
     }
 
     /**
-     * mixed $types
-     * mixed $vars
+     * @param mixed $types
+     * @param mixed $vars
      */
     public function bind_param($types, &...$vars)
     {
     }
 
     /**
-     * mixed $vars
+     * @param mixed $vars
      */
     public function bind_result(&...$vars)
     {
@@ -1366,7 +1366,7 @@ class mysqli_stmt
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function data_seek($offset)
     {
@@ -1405,7 +1405,7 @@ class mysqli_stmt
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function prepare($query)
     {
@@ -1429,8 +1429,8 @@ class mysqli_stmt
     }
 
     /**
-     * mixed $param_nr
-     * mixed $data
+     * @param mixed $param_nr
+     * @param mixed $data
      */
     public function send_long_data($param_nr, $data)
     {
@@ -1471,7 +1471,7 @@ final class mysqli_warning
 /**
  * Gets the number of affected rows in a previous MySQL operation
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -1486,8 +1486,8 @@ function mysqli_affected_rows($link)
 /**
  * Turns on or off auto-committing database modifications
  *
- * mixed $link
- * mixed $mode
+ * @param mixed $link
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -1502,9 +1502,9 @@ function mysqli_autocommit($link, $mode)
 /**
  * Starts a transaction
  *
- * mixed $link
- * mixed|null $flags
- * mixed|null $name
+ * @param mixed $link
+ * @param mixed|null $flags
+ * @param mixed|null $name
  *
  * @return bool
  *
@@ -1519,10 +1519,10 @@ function mysqli_begin_transaction($link, $flags = null, $name = null)
 /**
  * Changes the user of the specified database connection
  *
- * mixed $link
- * mixed $user
- * mixed $password
- * mixed $database
+ * @param mixed $link
+ * @param mixed $user
+ * @param mixed $password
+ * @param mixed $database
  *
  * @return bool
  *
@@ -1537,7 +1537,7 @@ function mysqli_change_user($link, $user, $password, $database)
 /**
  * Returns the default character set for the database connection
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -1552,7 +1552,7 @@ function mysqli_character_set_name($link)
 /**
  * Closes a previously opened database connection
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -1567,9 +1567,9 @@ function mysqli_close($link)
 /**
  * Commits the current transaction
  *
- * mixed $link
- * mixed|null $flags
- * mixed|null $name
+ * @param mixed $link
+ * @param mixed|null $flags
+ * @param mixed|null $name
  *
  * @return bool
  *
@@ -1584,12 +1584,12 @@ function mysqli_commit($link, $flags = null, $name = null)
 /**
  * Alias of <code>mysqli::__construct</code>
  *
- * mixed|null $host
- * mixed|null $user
- * mixed|null $password
- * mixed|null $database
- * mixed|null $port
- * mixed|null $socket
+ * @param mixed|null $host
+ * @param mixed|null $user
+ * @param mixed|null $password
+ * @param mixed|null $database
+ * @param mixed|null $port
+ * @param mixed|null $socket
  *
  * @return void
  *
@@ -1630,8 +1630,8 @@ function mysqli_connect_error()
 /**
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * mixed $result
- * mixed $offset
+ * @param mixed $result
+ * @param mixed $offset
  *
  * @return bool
  *
@@ -1646,7 +1646,7 @@ function mysqli_data_seek($result, $offset)
 /**
  * Performs debugging operations
  *
- * mixed $debug_options
+ * @param mixed $debug_options
  *
  * @return bool
  *
@@ -1661,7 +1661,7 @@ function mysqli_debug($debug_options)
 /**
  * Dump debugging information into the log
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -1676,7 +1676,7 @@ function mysqli_dump_debug_info($link)
 /**
  * Returns the error code for the most recent function call
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -1691,7 +1691,7 @@ function mysqli_errno($link)
 /**
  * Returns a string description of the last error
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -1706,7 +1706,7 @@ function mysqli_error($link)
 /**
  * Returns a list of errors from the last command executed
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return array
  *
@@ -1721,8 +1721,8 @@ function mysqli_error_list($link): array
 /**
  * Alias of <code>mysqli_real_escape_string</code>
  *
- * mixed $link
- * mixed $query
+ * @param mixed $link
+ * @param mixed $query
  *
  * @since PHP 5, PHP 7
  *
@@ -1735,7 +1735,7 @@ function mysqli_escape_string($link, $query)
 /**
  * Alias for <code>mysqli_stmt_execute</code>
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @since PHP 5, PHP 7
  *
@@ -1748,7 +1748,7 @@ function mysqli_execute($stmt)
 /**
  * Fetches all result rows as an associative array, a numeric array, or both
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return mixed
  *
@@ -1763,8 +1763,8 @@ function mysqli_fetch_all($result)
 /**
  * Fetch a result row as an associative, a numeric array, or both
  *
- * mixed $result
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $result_type
  *
  * @return mixed
  *
@@ -1779,7 +1779,7 @@ function mysqli_fetch_array($result, $result_type = null)
 /**
  * Fetch a result row as an associative array
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -1794,7 +1794,7 @@ function mysqli_fetch_assoc($result): array
 /**
  * Returns the next field in the result set
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return object
  *
@@ -1809,8 +1809,8 @@ function mysqli_fetch_field($result)
 /**
  * Fetch meta-data for a single field
  *
- * mixed $result
- * mixed $field_nr
+ * @param mixed $result
+ * @param mixed $field_nr
  *
  * @return object
  *
@@ -1825,7 +1825,7 @@ function mysqli_fetch_field_direct($result, $field_nr)
 /**
  * Returns an array of objects representing the fields in a result set
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -1840,7 +1840,7 @@ function mysqli_fetch_fields($result): array
 /**
  * Returns the lengths of the columns of the current row in the result set
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return array
  *
@@ -1855,9 +1855,9 @@ function mysqli_fetch_lengths($result): array
 /**
  * Returns the current row of a result set as an object
  *
- * mixed $result
- * mixed|null $class_name
- * array|null $params
+ * @param mixed $result
+ * @param mixed|null $class_name
+ * @param array|null $params
  *
  * @return object
  *
@@ -1872,7 +1872,7 @@ function mysqli_fetch_object($result, $class_name = null, array $params = null)
 /**
  * Get a result row as an enumerated array
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return mixed
  *
@@ -1887,7 +1887,7 @@ function mysqli_fetch_row($result)
 /**
  * Returns the number of columns for the most recent query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -1902,8 +1902,8 @@ function mysqli_field_count($link)
 /**
  * Set result pointer to a specified field offset
  *
- * mixed $result
- * mixed $field_nr
+ * @param mixed $result
+ * @param mixed $field_nr
  *
  * @return bool
  *
@@ -1918,7 +1918,7 @@ function mysqli_field_seek($result, $field_nr)
 /**
  * Get current field offset of a result pointer
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -1933,7 +1933,7 @@ function mysqli_field_tell($result)
 /**
  * Frees the memory associated with a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return void
  *
@@ -1948,7 +1948,7 @@ function mysqli_free_result($result)
 /**
  * Returns a character set object
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return object
  *
@@ -1963,7 +1963,7 @@ function mysqli_get_charset($link)
 /**
  * Get MySQL client info
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -1991,7 +1991,7 @@ function mysqli_get_client_stats(): array
 /**
  * Returns the MySQL client version as an integer
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -2006,7 +2006,7 @@ function mysqli_get_client_version($link)
 /**
  * Returns statistics about the client connection
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -2021,7 +2021,7 @@ function mysqli_get_connection_stats($link)
 /**
  * Returns a string representing the type of connection used
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -2049,7 +2049,7 @@ function mysqli_get_links_stats(): array
 /**
  * Returns the version of the MySQL protocol used
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -2064,7 +2064,7 @@ function mysqli_get_proto_info($link)
 /**
  * Returns the version of the MySQL server
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -2079,7 +2079,7 @@ function mysqli_get_server_info($link)
 /**
  * Returns the version of the MySQL server as an integer
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -2094,7 +2094,7 @@ function mysqli_get_server_version($link)
 /**
  * Get result of SHOW WARNINGS
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return mysqli_warning
  *
@@ -2109,7 +2109,7 @@ function mysqli_get_warnings($link)
 /**
  * Retrieves information about the most recently executed query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -2137,7 +2137,7 @@ function mysqli_init()
 /**
  * Returns the auto generated id used in the latest query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return mixed
  *
@@ -2152,8 +2152,8 @@ function mysqli_insert_id($link)
 /**
  * Asks the server to kill a MySQL thread
  *
- * mixed $link
- * mixed $connection_id
+ * @param mixed $link
+ * @param mixed $connection_id
  *
  * @return bool
  *
@@ -2168,7 +2168,7 @@ function mysqli_kill($link, $connection_id)
 /**
  * Check if there are any more query results from a multi query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -2183,8 +2183,8 @@ function mysqli_more_results($link)
 /**
  * Performs a query on the database
  *
- * mixed $link
- * mixed $query
+ * @param mixed $link
+ * @param mixed $query
  *
  * @return bool
  *
@@ -2199,7 +2199,7 @@ function mysqli_multi_query($link, $query)
 /**
  * Prepare next result from multi_query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -2214,7 +2214,7 @@ function mysqli_next_result($link)
 /**
  * Get the number of fields in a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -2229,7 +2229,7 @@ function mysqli_num_fields($result)
 /**
  * Gets the number of rows in a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -2244,9 +2244,9 @@ function mysqli_num_rows($result)
 /**
  * Set options
  *
- * mixed $link
- * mixed $option
- * mixed $value
+ * @param mixed $link
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -2261,7 +2261,7 @@ function mysqli_options($link, $option, $value)
 /**
  * Pings a server connection, or tries to reconnect if the connection has gone down
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return bool
  *
@@ -2276,11 +2276,11 @@ function mysqli_ping($link)
 /**
  * Poll connections
  *
- * array|null $read
- * array|null $write
- * array|null $error
- * mixed $sec
- * mixed|null $usec
+ * @param array|null $read
+ * @param array|null $write
+ * @param array|null $error
+ * @param mixed $sec
+ * @param mixed|null $usec
  *
  * @return int
  *
@@ -2295,8 +2295,8 @@ function mysqli_poll(array &$read = null, array &$write = null, array &$error = 
 /**
  * Prepare an SQL statement for execution
  *
- * mixed $link
- * mixed $query
+ * @param mixed $link
+ * @param mixed $query
  *
  * @return mysqli_stmt
  *
@@ -2311,8 +2311,8 @@ function mysqli_prepare($link, $query)
 /**
  * Performs a query on the database
  *
- * mixed $link
- * mixed $query
+ * @param mixed $link
+ * @param mixed $query
  *
  * @return mixed
  *
@@ -2327,14 +2327,14 @@ function mysqli_query($link, $query)
 /**
  * Opens a connection to a mysql server
  *
- * mixed $link
- * mixed|null $host
- * mixed|null $user
- * mixed|null $password
- * mixed|null $database
- * mixed|null $port
- * mixed|null $socket
- * mixed|null $flags
+ * @param mixed $link
+ * @param mixed|null $host
+ * @param mixed|null $user
+ * @param mixed|null $password
+ * @param mixed|null $database
+ * @param mixed|null $port
+ * @param mixed|null $socket
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -2349,8 +2349,8 @@ function mysqli_real_connect($link, $host = null, $user = null, $password = null
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
  *
- * mixed $link
- * mixed $string_to_escape
+ * @param mixed $link
+ * @param mixed $string_to_escape
  *
  * @return string
  *
@@ -2365,8 +2365,8 @@ function mysqli_real_escape_string($link, $string_to_escape)
 /**
  * Execute an SQL query
  *
- * mixed $link
- * mixed $query
+ * @param mixed $link
+ * @param mixed $query
  *
  * @return bool
  *
@@ -2381,7 +2381,7 @@ function mysqli_real_query($link, $query)
 /**
  * Get result from async query
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return mysqli_result
  *
@@ -2396,8 +2396,8 @@ function mysqli_reap_async_query($link)
 /**
  * Refreshes
  *
- * mixed $link
- * mixed $options
+ * @param mixed $link
+ * @param mixed $options
  *
  * @return bool
  *
@@ -2412,8 +2412,8 @@ function mysqli_refresh($link, $options)
 /**
  * Removes the named savepoint from the set of savepoints of the current transaction
  *
- * mixed $link
- * mixed $name
+ * @param mixed $link
+ * @param mixed $name
  *
  * @return bool
  *
@@ -2428,7 +2428,7 @@ function mysqli_release_savepoint($link, $name)
 /**
  * Alias of mysqli_driver-&gt;report_mode
  *
- * mixed $flags
+ * @param mixed $flags
  *
  * @return bool
  *
@@ -2443,9 +2443,9 @@ function mysqli_report($flags)
 /**
  * Rolls back current transaction
  *
- * mixed $link
- * mixed|null $flags
- * mixed|null $name
+ * @param mixed $link
+ * @param mixed|null $flags
+ * @param mixed|null $name
  *
  * @return bool
  *
@@ -2460,8 +2460,8 @@ function mysqli_rollback($link, $flags = null, $name = null)
 /**
  * Set a named transaction savepoint
  *
- * mixed $link
- * mixed $name
+ * @param mixed $link
+ * @param mixed $name
  *
  * @return bool
  *
@@ -2476,8 +2476,8 @@ function mysqli_savepoint($link, $name)
 /**
  * Selects the default database for database queries
  *
- * mixed $link
- * mixed $database
+ * @param mixed $link
+ * @param mixed $database
  *
  * @return bool
  *
@@ -2492,8 +2492,8 @@ function mysqli_select_db($link, $database)
 /**
  * Sets the default client character set
  *
- * mixed $link
- * mixed $charset
+ * @param mixed $link
+ * @param mixed $charset
  *
  * @return bool
  *
@@ -2519,7 +2519,7 @@ function mysqli_set_opt()
 /**
  * Returns the SQLSTATE error from previous MySQL operation
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -2534,12 +2534,12 @@ function mysqli_sqlstate($link)
 /**
  * Used for establishing secure connections using SSL
  *
- * mixed $link
- * mixed $key
- * mixed $cert
- * mixed $certificate_authority
- * mixed $certificate_authority_path
- * mixed $cipher
+ * @param mixed $link
+ * @param mixed $key
+ * @param mixed $cert
+ * @param mixed $certificate_authority
+ * @param mixed $certificate_authority_path
+ * @param mixed $cipher
  *
  * @return bool
  *
@@ -2554,7 +2554,7 @@ function mysqli_ssl_set($link, $key, $cert, $certificate_authority, $certificate
 /**
  * Gets the current system status
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return string
  *
@@ -2570,7 +2570,7 @@ function mysqli_stat($link)
  * Returns the total number of rows changed, deleted, or
  *   inserted by the last executed statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -2585,8 +2585,8 @@ function mysqli_stmt_affected_rows($stmt)
 /**
  * Used to get the current value of a statement attribute
  *
- * mixed $stmt
- * mixed $attribute
+ * @param mixed $stmt
+ * @param mixed $attribute
  *
  * @return int
  *
@@ -2601,9 +2601,9 @@ function mysqli_stmt_attr_get($stmt, $attribute)
 /**
  * Used to modify the behavior of a prepared statement
  *
- * mixed $stmt
- * mixed $attribute
- * mixed $value
+ * @param mixed $stmt
+ * @param mixed $attribute
+ * @param mixed $value
  *
  * @return bool
  *
@@ -2618,9 +2618,9 @@ function mysqli_stmt_attr_set($stmt, $attribute, $value)
 /**
  * Binds variables to a prepared statement as parameters
  *
- * mixed $stmt
- * mixed $types
- * mixed $vars
+ * @param mixed $stmt
+ * @param mixed $types
+ * @param mixed $vars
  *
  * @return bool
  *
@@ -2635,8 +2635,8 @@ function mysqli_stmt_bind_param($stmt, $types, &...$vars)
 /**
  * Binds variables to a prepared statement for result storage
  *
- * mixed $stmt
- * mixed $vars
+ * @param mixed $stmt
+ * @param mixed $vars
  *
  * @return bool
  *
@@ -2651,7 +2651,7 @@ function mysqli_stmt_bind_result($stmt, &...$vars)
 /**
  * Closes a prepared statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2666,8 +2666,8 @@ function mysqli_stmt_close($stmt)
 /**
  * Seeks to an arbitrary row in statement result set
  *
- * mixed $stmt
- * mixed $offset
+ * @param mixed $stmt
+ * @param mixed $offset
  *
  * @return void
  *
@@ -2682,7 +2682,7 @@ function mysqli_stmt_data_seek($stmt, $offset)
 /**
  * Returns the error code for the most recent statement call
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -2697,7 +2697,7 @@ function mysqli_stmt_errno($stmt)
 /**
  * Returns a string description for last statement error
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return string
  *
@@ -2712,7 +2712,7 @@ function mysqli_stmt_error($stmt)
 /**
  * Returns a list of errors from the last statement executed
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return array
  *
@@ -2727,7 +2727,7 @@ function mysqli_stmt_error_list($stmt): array
 /**
  * Executes a prepared Query
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2742,7 +2742,7 @@ function mysqli_stmt_execute($stmt)
 /**
  * Fetch results from a prepared statement into the bound variables
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2757,7 +2757,7 @@ function mysqli_stmt_fetch($stmt)
 /**
  * Returns the number of field in the given statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -2772,7 +2772,7 @@ function mysqli_stmt_field_count($stmt)
 /**
  * Frees stored result memory for the given statement handle
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return void
  *
@@ -2787,7 +2787,7 @@ function mysqli_stmt_free_result($stmt)
 /**
  * Gets a result set from a prepared statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mysqli_result
  *
@@ -2802,7 +2802,7 @@ function mysqli_stmt_get_result($stmt)
 /**
  * Get result of SHOW WARNINGS
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return object
  *
@@ -2817,7 +2817,7 @@ function mysqli_stmt_get_warnings($stmt)
 /**
  * Initializes a statement and returns an object for use with mysqli_stmt_prepare
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return mysqli_stmt
  *
@@ -2832,7 +2832,7 @@ function mysqli_stmt_init($link)
 /**
  * Get the ID generated from the previous INSERT operation
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -2847,7 +2847,7 @@ function mysqli_stmt_insert_id($stmt)
 /**
  * Check if there are more query results from a multiple query
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2862,7 +2862,7 @@ function mysqli_stmt_more_results($stmt)
 /**
  * Reads the next result from a multiple query
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2877,7 +2877,7 @@ function mysqli_stmt_next_result($stmt)
 /**
  * Return the number of rows in statements result set
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -2892,7 +2892,7 @@ function mysqli_stmt_num_rows($stmt)
 /**
  * Returns the number of parameter for the given statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -2907,8 +2907,8 @@ function mysqli_stmt_param_count($stmt)
 /**
  * Prepare an SQL statement for execution
  *
- * mixed $stmt
- * mixed $query
+ * @param mixed $stmt
+ * @param mixed $query
  *
  * @return mixed
  *
@@ -2923,7 +2923,7 @@ function mysqli_stmt_prepare($stmt, $query)
 /**
  * Resets a prepared statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -2938,7 +2938,7 @@ function mysqli_stmt_reset($stmt)
 /**
  * Returns result set metadata from a prepared statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mysqli_result
  *
@@ -2953,9 +2953,9 @@ function mysqli_stmt_result_metadata($stmt)
 /**
  * Send data in blocks
  *
- * mixed $stmt
- * mixed $param_nr
- * mixed $data
+ * @param mixed $stmt
+ * @param mixed $param_nr
+ * @param mixed $data
  *
  * @return bool
  *
@@ -2970,7 +2970,7 @@ function mysqli_stmt_send_long_data($stmt, $param_nr, $data)
 /**
  * Returns SQLSTATE error from previous statement operation
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return string
  *
@@ -2985,7 +2985,7 @@ function mysqli_stmt_sqlstate($stmt)
 /**
  * Transfers a result set from a prepared statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -3000,8 +3000,8 @@ function mysqli_stmt_store_result($stmt)
 /**
  * Transfers a result set from the last query
  *
- * mixed $link
- * mixed|null $flags
+ * @param mixed $link
+ * @param mixed|null $flags
  *
  * @return mysqli_result
  *
@@ -3016,7 +3016,7 @@ function mysqli_store_result($link, $flags = null)
 /**
  * Returns the thread ID for the current connection
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *
@@ -3044,7 +3044,7 @@ function mysqli_thread_safe()
 /**
  * Initiate a result set retrieval
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return mysqli_result
  *
@@ -3059,7 +3059,7 @@ function mysqli_use_result($link)
 /**
  * Returns the number of warnings from the last query for the given link
  *
- * mixed $link
+ * @param mixed $link
  *
  * @return int
  *

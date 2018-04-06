@@ -122,10 +122,10 @@ const APC_LIST_DELETED = 2;
 class APCuIterator implements Iterator
 {
     /**
-     * mixed|null $search
-     * mixed|null $format
-     * mixed|null $chunk_size
-     * mixed|null $list
+     * @param mixed|null $search
+     * @param mixed|null $format
+     * @param mixed|null $chunk_size
+     * @param mixed|null $list
      */
     public function __construct($search = null, $format = null, $chunk_size = null, $list = null)
     {
@@ -203,9 +203,9 @@ class APCuIterator implements Iterator
 /**
  * Cache a new variable in the data store
  *
- * mixed $key
- * mixed $var
- * mixed|null $ttl
+ * @param mixed $key
+ * @param mixed $var
+ * @param mixed|null $ttl
  *
  * @return bool
  *
@@ -220,7 +220,7 @@ function apcu_add($key, $var, $ttl = null): bool
 /**
  * Retrieves cached information from APCu's data store
  *
- * mixed|null $limited
+ * @param mixed|null $limited
  *
  * @return array
  *
@@ -235,9 +235,9 @@ function apcu_cache_info($limited = null): array
 /**
  * Updates an old value with a new value
  *
- * mixed $key
- * mixed $old
- * mixed $new
+ * @param mixed $key
+ * @param mixed $old
+ * @param mixed $new
  *
  * @return bool
  *
@@ -265,9 +265,9 @@ function apcu_clear_cache(): bool
 /**
  * Decrease a stored number
  *
- * mixed $key
- * mixed|null $step
- * mixed|null $success
+ * @param mixed $key
+ * @param mixed|null $step
+ * @param mixed|null $success
  *
  * @return int
  *
@@ -282,7 +282,7 @@ function apcu_dec($key, $step = null, &$success = null): int
 /**
  * Removes a stored variable from the cache
  *
- * mixed $keys
+ * @param mixed $keys
  *
  * @return bool
  *
@@ -301,9 +301,9 @@ function apcu_enabled()
 /**
  * Atomically fetch or generate a cache entry
  *
- * mixed $key
- * callable $generator
- * int|null $ttl
+ * @param mixed $key
+ * @param callable $generator
+ * @param int|null $ttl
  *
  * @return mixed
  *
@@ -318,7 +318,7 @@ function apcu_entry($key, callable $generator, int $ttl = null)
 /**
  * Checks if entry exists
  *
- * mixed $keys
+ * @param mixed $keys
  *
  * @return mixed
  *
@@ -333,8 +333,8 @@ function apcu_exists($keys)
 /**
  * Fetch a stored variable from the cache
  *
- * mixed $key
- * mixed|null $success
+ * @param mixed $key
+ * @param mixed|null $success
  *
  * @return mixed
  *
@@ -349,9 +349,9 @@ function apcu_fetch($key, &$success = null)
 /**
  * Increase a stored number
  *
- * mixed $key
- * mixed|null $step
- * mixed|null $success
+ * @param mixed $key
+ * @param mixed|null $step
+ * @param mixed|null $success
  *
  * @return int
  *
@@ -364,7 +364,7 @@ function apcu_inc($key, $step = null, &$success = null): int
 }
 
 /**
- * mixed $key
+ * @param mixed $key
  */
 function apcu_key_info($key)
 {
@@ -373,7 +373,7 @@ function apcu_key_info($key)
 /**
  * Retrieves APCu Shared Memory Allocation information
  *
- * mixed|null $limited
+ * @param mixed|null $limited
  *
  * @return array
  *
@@ -388,9 +388,9 @@ function apcu_sma_info($limited = null): array
 /**
  * Cache a variable in the data store
  *
- * mixed $key
- * mixed $var
- * mixed|null $ttl
+ * @param mixed $key
+ * @param mixed $var
+ * @param mixed|null $ttl
  *
  * @return bool
  *

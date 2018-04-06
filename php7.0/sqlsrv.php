@@ -742,7 +742,7 @@ const SQLSRV_TXN_SNAPSHOT = 32;
 /**
  * Begins a database transaction
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return bool
  *
@@ -755,7 +755,7 @@ function sqlsrv_begin_transaction($conn): bool
 /**
  * Cancels a statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -768,7 +768,7 @@ function sqlsrv_cancel($stmt): bool
 /**
  * Returns information about the client and specified connection
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return array
  *
@@ -781,7 +781,7 @@ function sqlsrv_client_info($conn): array
 /**
  * Closes an open connection and releases resourses associated with the connection
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return bool
  *
@@ -794,7 +794,7 @@ function sqlsrv_close($conn): bool
 /**
  * Commits a transaction that was begun with <code>sqlsrv_begin_transaction</code>
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return bool
  *
@@ -807,8 +807,8 @@ function sqlsrv_commit($conn): bool
 /**
  * Changes the driver error handling and logging configurations
  *
- * mixed $setting
- * mixed $value
+ * @param mixed $setting
+ * @param mixed $value
  *
  * @return bool
  *
@@ -821,8 +821,8 @@ function sqlsrv_configure($setting, $value): bool
 /**
  * Opens a connection to a Microsoft SQL Server database
  *
- * mixed $server_name
- * array[]|null $connection_info
+ * @param mixed $server_name
+ * @param array[]|null $connection_info
  *
  * @return resource
  *
@@ -835,7 +835,7 @@ function sqlsrv_connect($server_name, $connection_info = null)
 /**
  * Returns error and warning information about the last SQLSRV operation performed
  *
- * mixed|null $errors_and_or_warnings
+ * @param mixed|null $errors_and_or_warnings
  *
  * @return mixed
  *
@@ -848,7 +848,7 @@ function sqlsrv_errors($errors_and_or_warnings = null)
 /**
  * Executes a statement prepared with <code>sqlsrv_prepare</code>
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -861,7 +861,7 @@ function sqlsrv_execute($stmt): bool
 /**
  * Makes the next row in a result set available for reading
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -874,10 +874,10 @@ function sqlsrv_fetch($stmt)
 /**
  * Returns a row as an array
  *
- * mixed $stmt
- * mixed|null $fetch_type
- * mixed|null $row
- * mixed|null $offset
+ * @param mixed $stmt
+ * @param mixed|null $fetch_type
+ * @param mixed|null $row
+ * @param mixed|null $offset
  *
  * @return array
  *
@@ -890,11 +890,11 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row = null, $offset = nu
 /**
  * Retrieves the next row of data in a result set as an object
  *
- * mixed $stmt
- * mixed|null $class_name
- * mixed|null $ctor_params
- * mixed|null $row
- * mixed|null $offset
+ * @param mixed $stmt
+ * @param mixed|null $class_name
+ * @param mixed|null $ctor_params
+ * @param mixed|null $row
+ * @param mixed|null $offset
  *
  * @return mixed
  *
@@ -908,7 +908,7 @@ function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $ro
  * Retrieves metadata for the fields of a statement prepared by 
  *   <code>sqlsrv_prepare</code> or <code>sqlsrv_query</code>
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -921,7 +921,7 @@ function sqlsrv_field_metadata($stmt)
 /**
  * Frees all resources for the specified statement
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return bool
  *
@@ -934,7 +934,7 @@ function sqlsrv_free_stmt($conn): bool
 /**
  * Returns the value of the specified configuration setting
  *
- * mixed $setting
+ * @param mixed $setting
  *
  * @return mixed
  *
@@ -947,9 +947,9 @@ function sqlsrv_get_config($setting)
 /**
  * Gets field data from the currently selected row
  *
- * mixed $stmt
- * mixed $field_index
- * mixed|null $get_as_type
+ * @param mixed $stmt
+ * @param mixed $field_index
+ * @param mixed|null $get_as_type
  *
  * @return mixed
  *
@@ -962,7 +962,7 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type = null)
 /**
  * Indicates whether the specified statement has rows
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -975,7 +975,7 @@ function sqlsrv_has_rows($stmt): bool
 /**
  * Makes the next result of the specified statement active
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -988,7 +988,7 @@ function sqlsrv_next_result($stmt)
 /**
  * Retrieves the number of fields (columns) on a statement
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -1001,7 +1001,7 @@ function sqlsrv_num_fields($stmt)
 /**
  * Retrieves the number of rows in a result set
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return mixed
  *
@@ -1012,14 +1012,14 @@ function sqlsrv_num_rows($stmt)
 }
 
 /**
- * mixed $encoding
+ * @param mixed $encoding
  */
 function SQLSRV_PHPTYPE_STREAM($encoding)
 {
 }
 
 /**
- * mixed $encoding
+ * @param mixed $encoding
  */
 function SQLSRV_PHPTYPE_STRING($encoding)
 {
@@ -1028,10 +1028,10 @@ function SQLSRV_PHPTYPE_STRING($encoding)
 /**
  * Prepares a query for execution
  *
- * mixed $conn
- * mixed $tsql
- * mixed|null $params
- * mixed|null $options
+ * @param mixed $conn
+ * @param mixed $tsql
+ * @param mixed|null $params
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -1044,10 +1044,10 @@ function sqlsrv_prepare($conn, $tsql, $params = null, $options = null)
 /**
  * Prepares and executes a query
  *
- * mixed $conn
- * mixed $tsql
- * mixed|null $params
- * mixed|null $options
+ * @param mixed $conn
+ * @param mixed $tsql
+ * @param mixed|null $params
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -1061,7 +1061,7 @@ function sqlsrv_query($conn, $tsql, $params = null, $options = null)
  * Rolls back a transaction that was begun with 
  *   <code>sqlsrv_begin_transaction</code>
  *
- * mixed $conn
+ * @param mixed $conn
  *
  * @return bool
  *
@@ -1075,7 +1075,7 @@ function sqlsrv_rollback($conn): bool
  * Returns the number of rows modified by the last INSERT, UPDATE, or 
  *   DELETE query executed
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return int
  *
@@ -1088,7 +1088,7 @@ function sqlsrv_rows_affected($stmt): int
 /**
  * Sends data from parameter streams to the server
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return bool
  *
@@ -1101,7 +1101,7 @@ function sqlsrv_send_stream_data($stmt): bool
 /**
  * Returns information about the server
  *
- * mixed $stmt
+ * @param mixed $stmt
  *
  * @return array
  *
@@ -1112,58 +1112,58 @@ function sqlsrv_server_info($stmt): array
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_BINARY($size)
 {
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_CHAR($size)
 {
 }
 
 /**
- * mixed $precision
- * mixed $scale
+ * @param mixed $precision
+ * @param mixed $scale
  */
 function SQLSRV_SQLTYPE_DECIMAL($precision, $scale)
 {
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_NCHAR($size)
 {
 }
 
 /**
- * mixed $precision
- * mixed $scale
+ * @param mixed $precision
+ * @param mixed $scale
  */
 function SQLSRV_SQLTYPE_NUMERIC($precision, $scale)
 {
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_NVARCHAR($size)
 {
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_VARBINARY($size)
 {
 }
 
 /**
- * mixed $size
+ * @param mixed $size
  */
 function SQLSRV_SQLTYPE_VARCHAR($size)
 {

@@ -5,8 +5,8 @@
 /**
  * Acquire a semaphore
  *
- * mixed $sem_identifier
- * mixed|null $nowait
+ * @param mixed $sem_identifier
+ * @param mixed|null $nowait
  *
  * @return bool
  *
@@ -21,10 +21,10 @@ function sem_acquire($sem_identifier, $nowait = null): bool
 /**
  * Get a semaphore id
  *
- * mixed $key
- * mixed|null $max_acquire
- * mixed|null $perm
- * mixed|null $auto_release
+ * @param mixed $key
+ * @param mixed|null $max_acquire
+ * @param mixed|null $perm
+ * @param mixed|null $auto_release
  *
  * @return resource
  *
@@ -39,7 +39,7 @@ function sem_get($key, $max_acquire = null, $perm = null, $auto_release = null)
 /**
  * Release a semaphore
  *
- * mixed $sem_identifier
+ * @param mixed $sem_identifier
  *
  * @return bool
  *
@@ -54,7 +54,7 @@ function sem_release($sem_identifier): bool
 /**
  * Remove a semaphore
  *
- * mixed $sem_identifier
+ * @param mixed $sem_identifier
  *
  * @return bool
  *

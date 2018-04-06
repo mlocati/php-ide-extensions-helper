@@ -12,108 +12,108 @@
 class Memcached
 {
     /**
-     * mixed|null $persistent_id
-     * mixed|null $callback
+     * @param mixed|null $persistent_id
+     * @param mixed|null $callback
      */
     public function __construct($persistent_id = null, $callback = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function add($key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function addByKey($server_key, $key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $host
-     * mixed $port
-     * mixed|null $weight
+     * @param mixed $host
+     * @param mixed $port
+     * @param mixed|null $weight
      */
     public function addServer($host, $port, $weight = null)
     {
     }
 
     /**
-     * array $servers
+     * @param array $servers
      */
     public function addServers(array $servers)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
      */
     public function append($key, $value, $expiration = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
      */
     public function appendByKey($server_key, $key, $value, $expiration = null)
     {
     }
 
     /**
-     * mixed $cas_token
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $cas_token
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function cas($cas_token, $key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $cas_token
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $cas_token
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function casByKey($cas_token, $server_key, $key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $key
-     * mixed|null $offset
-     * mixed|null $initial_value
-     * mixed|null $expiry
+     * @param mixed $key
+     * @param mixed|null $offset
+     * @param mixed|null $initial_value
+     * @param mixed|null $expiry
      */
     public function decrement($key, $offset = null, $initial_value = null, $expiry = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed|null $offset
-     * mixed|null $initial_value
-     * mixed|null $expiry
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed|null $offset
+     * @param mixed|null $initial_value
+     * @param mixed|null $expiry
      */
     public function decrementByKey($server_key, $key, $offset = null, $initial_value = null, $expiry = null)
     {
@@ -122,8 +122,8 @@ class Memcached
     /**
      * See <code>unlink</code> or <code>unset</code>
      *
-     * mixed $key
-     * mixed|null $time
+     * @param mixed $key
+     * @param mixed|null $time
      *
      * @since None
      *
@@ -134,26 +134,26 @@ class Memcached
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed|null $time
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed|null $time
      */
     public function deleteByKey($server_key, $key, $time = null)
     {
     }
 
     /**
-     * mixed $keys
-     * mixed|null $time
+     * @param mixed $keys
+     * @param mixed|null $time
      */
     public function deleteMulti($keys, $time = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $keys
-     * mixed|null $time
+     * @param mixed $server_key
+     * @param mixed $keys
+     * @param mixed|null $time
      */
     public function deleteMultiByKey($server_key, $keys, $time = null)
     {
@@ -170,7 +170,7 @@ class Memcached
     /**
      * Flush system output buffer
      *
-     * mixed|null $delay
+     * @param mixed|null $delay
      *
      * @return void
      *
@@ -187,10 +187,10 @@ class Memcached
     }
 
     /**
-     * mixed $key
-     * mixed|null $cache_cb
-     * mixed|null $cas_token
-     * mixed|null $udf_flags
+     * @param mixed $key
+     * @param mixed|null $cache_cb
+     * @param mixed|null $cas_token
+     * @param mixed|null $udf_flags
      */
     public function get($key, $cache_cb = null, &$cas_token = null, &$udf_flags = null)
     {
@@ -201,30 +201,30 @@ class Memcached
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed|null $cache_cb
-     * mixed|null $cas_token
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed|null $cache_cb
+     * @param mixed|null $cas_token
+     * @param mixed|null $udf_flags
      */
     public function getByKey($server_key, $key, $cache_cb = null, &$cas_token = null, &$udf_flags = null)
     {
     }
 
     /**
-     * array $keys
-     * mixed|null $with_cas
-     * mixed|null $value_cb
+     * @param array $keys
+     * @param mixed|null $with_cas
+     * @param mixed|null $value_cb
      */
     public function getDelayed(array $keys, $with_cas = null, $value_cb = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * array $keys
-     * mixed|null $with_cas
-     * mixed|null $value_cb
+     * @param mixed $server_key
+     * @param array $keys
+     * @param mixed|null $with_cas
+     * @param mixed|null $value_cb
      */
     public function getDelayedByKey($server_key, array $keys, $with_cas = null, $value_cb = null)
     {
@@ -247,28 +247,28 @@ class Memcached
     }
 
     /**
-     * array $keys
-     * mixed|null $cas_tokens
-     * mixed|null $flags
-     * mixed|null $udf_flags
+     * @param array $keys
+     * @param mixed|null $cas_tokens
+     * @param mixed|null $flags
+     * @param mixed|null $udf_flags
      */
     public function getMulti(array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * array $keys
-     * mixed|null $cas_tokens
-     * mixed|null $flags
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param array $keys
+     * @param mixed|null $cas_tokens
+     * @param mixed|null $flags
+     * @param mixed|null $udf_flags
      */
     public function getMultiByKey($server_key, array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null)
     {
     }
 
     /**
-     * mixed $option
+     * @param mixed $option
      */
     public function getOption($option)
     {
@@ -283,7 +283,7 @@ class Memcached
     }
 
     /**
-     * mixed $server_key
+     * @param mixed $server_key
      */
     public function getServerByKey($server_key)
     {
@@ -302,21 +302,21 @@ class Memcached
     }
 
     /**
-     * mixed $key
-     * mixed|null $offset
-     * mixed|null $initial_value
-     * mixed|null $expiry
+     * @param mixed $key
+     * @param mixed|null $offset
+     * @param mixed|null $initial_value
+     * @param mixed|null $expiry
      */
     public function increment($key, $offset = null, $initial_value = null, $expiry = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed|null $offset
-     * mixed|null $initial_value
-     * mixed|null $expiry
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed|null $offset
+     * @param mixed|null $initial_value
+     * @param mixed|null $expiry
      */
     public function incrementByKey($server_key, $key, $offset = null, $initial_value = null, $expiry = null)
     {
@@ -331,19 +331,19 @@ class Memcached
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
      */
     public function prepend($key, $value, $expiration = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
      */
     public function prependByKey($server_key, $key, $value, $expiration = null)
     {
@@ -354,21 +354,21 @@ class Memcached
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function replace($key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function replaceByKey($server_key, $key, $value, $expiration = null, $udf_flags = null)
     {
@@ -379,72 +379,72 @@ class Memcached
     }
 
     /**
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function set($key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $host_map
-     * mixed $forward_map
-     * mixed $replicas
+     * @param mixed $host_map
+     * @param mixed $forward_map
+     * @param mixed $replicas
      */
     public function setBucket($host_map, $forward_map, $replicas)
     {
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $value
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $value
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function setByKey($server_key, $key, $value, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * array $items
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param array $items
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function setMulti(array $items, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $server_key
-     * array $items
-     * mixed|null $expiration
-     * mixed|null $udf_flags
+     * @param mixed $server_key
+     * @param array $items
+     * @param mixed|null $expiration
+     * @param mixed|null $udf_flags
      */
     public function setMultiByKey($server_key, array $items, $expiration = null, $udf_flags = null)
     {
     }
 
     /**
-     * mixed $option
-     * mixed $value
+     * @param mixed $option
+     * @param mixed $value
      */
     public function setOption($option, $value)
     {
     }
 
     /**
-     * mixed $options
+     * @param mixed $options
      */
     public function setOptions($options)
     {
     }
 
     /**
-     * mixed $username
-     * mixed $password
+     * @param mixed $username
+     * @param mixed $password
      */
     public function setSaslAuthData($username, $password)
     {
@@ -453,8 +453,8 @@ class Memcached
     /**
      * Sets access and modification time of file
      *
-     * mixed $key
-     * mixed $expiration
+     * @param mixed $key
+     * @param mixed $expiration
      *
      * @return bool
      *
@@ -467,9 +467,9 @@ class Memcached
     }
 
     /**
-     * mixed $server_key
-     * mixed $key
-     * mixed $expiration
+     * @param mixed $server_key
+     * @param mixed $key
+     * @param mixed $expiration
      */
     public function touchByKey($server_key, $key, $expiration)
     {

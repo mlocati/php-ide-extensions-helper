@@ -130,16 +130,16 @@ const SQLITE3_TEXT = 3;
 class SQLite3
 {
     /**
-     * mixed $filename
-     * mixed|null $flags
-     * mixed|null $encryption_key
+     * @param mixed $filename
+     * @param mixed|null $flags
+     * @param mixed|null $encryption_key
      */
     public function __construct($filename, $flags = null, $encryption_key = null)
     {
     }
 
     /**
-     * mixed $ms
+     * @param mixed $ms
      */
     public function busyTimeout($ms)
     {
@@ -154,42 +154,42 @@ class SQLite3
     }
 
     /**
-     * mixed $name
-     * mixed $step_callback
-     * mixed $final_callback
-     * mixed|null $argument_count
+     * @param mixed $name
+     * @param mixed $step_callback
+     * @param mixed $final_callback
+     * @param mixed|null $argument_count
      */
     public function createAggregate($name, $step_callback, $final_callback, $argument_count = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $callback
+     * @param mixed $name
+     * @param mixed $callback
      */
     public function createCollation($name, $callback)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $callback
-     * mixed|null $argument_count
-     * mixed|null $flags
+     * @param mixed $name
+     * @param mixed $callback
+     * @param mixed|null $argument_count
+     * @param mixed|null $flags
      */
     public function createFunction($name, $callback, $argument_count = null, $flags = null)
     {
     }
 
     /**
-     * mixed|null $enableExceptions
+     * @param mixed|null $enableExceptions
      */
     public function enableExceptions($enableExceptions = null)
     {
     }
 
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public static function escapeString($value)
     {
@@ -198,7 +198,7 @@ class SQLite3
     /**
      * Execute an external program
      *
-     * mixed $query
+     * @param mixed $query
      *
      * @return string
      *
@@ -223,49 +223,49 @@ class SQLite3
     }
 
     /**
-     * mixed $shared_library
+     * @param mixed $shared_library
      */
     public function loadExtension($shared_library)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $flags
-     * mixed|null $encryption_key
+     * @param mixed $filename
+     * @param mixed|null $flags
+     * @param mixed|null $encryption_key
      */
     public function open($filename, $flags = null, $encryption_key = null)
     {
     }
 
     /**
-     * mixed $table
-     * mixed $column
-     * mixed $rowid
-     * mixed|null $dbname
-     * mixed|null $flags
+     * @param mixed $table
+     * @param mixed $column
+     * @param mixed $rowid
+     * @param mixed|null $dbname
+     * @param mixed|null $flags
      */
     public function openBlob($table, $column, $rowid, $dbname = null, $flags = null)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function prepare($query)
     {
     }
 
     /**
-     * mixed $query
+     * @param mixed $query
      */
     public function query($query)
     {
     }
 
     /**
-     * mixed $query
-     * mixed|null $entire_row
+     * @param mixed $query
+     * @param mixed|null $entire_row
      */
     public function querySingle($query, $entire_row = null)
     {
@@ -290,21 +290,21 @@ class SQLite3Result
     }
 
     /**
-     * mixed $column_number
+     * @param mixed $column_number
      */
     public function columnName($column_number)
     {
     }
 
     /**
-     * mixed $column_number
+     * @param mixed $column_number
      */
     public function columnType($column_number)
     {
     }
 
     /**
-     * mixed|null $mode
+     * @param mixed|null $mode
      */
     public function fetchArray($mode = null)
     {
@@ -342,25 +342,25 @@ class SQLite3Result
 class SQLite3Stmt
 {
     /**
-     * mixed $sqlite3
+     * @param mixed $sqlite3
      */
     private function __construct($sqlite3)
     {
     }
 
     /**
-     * mixed $param_number
-     * mixed $param
-     * mixed|null $type
+     * @param mixed $param_number
+     * @param mixed $param
+     * @param mixed|null $type
      */
     public function bindParam($param_number, &$param, $type = null)
     {
     }
 
     /**
-     * mixed $param_number
-     * mixed $param
-     * mixed|null $type
+     * @param mixed $param_number
+     * @param mixed $param
+     * @param mixed|null $type
      */
     public function bindValue($param_number, $param, $type = null)
     {

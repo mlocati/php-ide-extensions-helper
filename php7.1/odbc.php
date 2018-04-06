@@ -394,8 +394,8 @@ const SQL_WVARCHAR = -9;
 /**
  * Toggle autocommit behaviour
  *
- * mixed $connection_id
- * mixed|null $onoff
+ * @param mixed $connection_id
+ * @param mixed|null $onoff
  *
  * @return mixed
  *
@@ -410,8 +410,8 @@ function odbc_autocommit($connection_id, $onoff = null)
 /**
  * Handling of binary column data
  *
- * mixed $result_id
- * mixed $mode
+ * @param mixed $result_id
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -426,7 +426,7 @@ function odbc_binmode($result_id, $mode): bool
 /**
  * Close an ODBC connection
  *
- * mixed $connection_id
+ * @param mixed $connection_id
  *
  * @return void
  *
@@ -454,11 +454,11 @@ function odbc_close_all()
 /**
  * Lists columns and associated privileges for the given table
  *
- * mixed $connection_id
- * mixed $catalog
- * mixed $schema
- * mixed $table
- * mixed $column
+ * @param mixed $connection_id
+ * @param mixed $catalog
+ * @param mixed $schema
+ * @param mixed $table
+ * @param mixed $column
  *
  * @return resource
  *
@@ -473,11 +473,11 @@ function odbc_columnprivileges($connection_id, $catalog, $schema, $table, $colum
 /**
  * Lists the column names in specified tables
  *
- * mixed $connection_id
- * mixed|null $qualifier
- * mixed|null $owner
- * mixed|null $table_name
- * mixed|null $column_name
+ * @param mixed $connection_id
+ * @param mixed|null $qualifier
+ * @param mixed|null $owner
+ * @param mixed|null $table_name
+ * @param mixed|null $column_name
  *
  * @return resource
  *
@@ -492,7 +492,7 @@ function odbc_columns($connection_id, $qualifier = null, $owner = null, $table_n
 /**
  * Commit an ODBC transaction
  *
- * mixed $connection_id
+ * @param mixed $connection_id
  *
  * @return bool
  *
@@ -507,10 +507,10 @@ function odbc_commit($connection_id): bool
 /**
  * Connect to a datasource
  *
- * mixed $dsn
- * mixed $user
- * mixed $password
- * mixed|null $cursor_option
+ * @param mixed $dsn
+ * @param mixed $user
+ * @param mixed $password
+ * @param mixed|null $cursor_option
  *
  * @return resource
  *
@@ -525,7 +525,7 @@ function odbc_connect($dsn, $user, $password, $cursor_option = null)
 /**
  * Get cursorname
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return string
  *
@@ -540,8 +540,8 @@ function odbc_cursor($result_id): string
 /**
  * Returns information about a current connection
  *
- * mixed $connection_id
- * mixed $fetch_type
+ * @param mixed $connection_id
+ * @param mixed $fetch_type
  *
  * @return array
  *
@@ -556,9 +556,9 @@ function odbc_data_source($connection_id, $fetch_type): array
 /**
  * Alias of <code>odbc_exec</code>
  *
- * mixed $connection_id
- * mixed $query
- * mixed|null $flags
+ * @param mixed $connection_id
+ * @param mixed $query
+ * @param mixed|null $flags
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -571,7 +571,7 @@ function odbc_do($connection_id, $query, $flags = null)
 /**
  * Get the last error code
  *
- * mixed|null $connection_id
+ * @param mixed|null $connection_id
  *
  * @return string
  *
@@ -586,7 +586,7 @@ function odbc_error($connection_id = null): string
 /**
  * Get the last error message
  *
- * mixed|null $connection_id
+ * @param mixed|null $connection_id
  *
  * @return string
  *
@@ -601,9 +601,9 @@ function odbc_errormsg($connection_id = null): string
 /**
  * Prepare and execute an SQL statement
  *
- * mixed $connection_id
- * mixed $query
- * mixed|null $flags
+ * @param mixed $connection_id
+ * @param mixed $query
+ * @param mixed|null $flags
  *
  * @return resource
  *
@@ -618,8 +618,8 @@ function odbc_exec($connection_id, $query, $flags = null)
 /**
  * Execute a prepared statement
  *
- * mixed $result_id
- * mixed|null $parameters_array
+ * @param mixed $result_id
+ * @param mixed|null $parameters_array
  *
  * @return bool
  *
@@ -634,8 +634,8 @@ function odbc_execute($result_id, $parameters_array = null): bool
 /**
  * Fetch a result row as an associative array
  *
- * mixed $result
- * mixed|null $rownumber
+ * @param mixed $result
+ * @param mixed|null $rownumber
  *
  * @return array
  *
@@ -650,9 +650,9 @@ function odbc_fetch_array($result, $rownumber = null): array
 /**
  * Fetch one result row into array
  *
- * mixed $result_id
- * mixed $result_array
- * mixed|null $rownumber
+ * @param mixed $result_id
+ * @param mixed $result_array
+ * @param mixed|null $rownumber
  *
  * @return int
  *
@@ -667,8 +667,8 @@ function odbc_fetch_into($result_id, &$result_array, $rownumber = null): int
 /**
  * Fetch a result row as an object
  *
- * mixed $result
- * mixed|null $rownumber
+ * @param mixed $result
+ * @param mixed|null $rownumber
  *
  * @return object
  *
@@ -683,8 +683,8 @@ function odbc_fetch_object($result, $rownumber = null)
 /**
  * Fetch a row
  *
- * mixed $result_id
- * mixed|null $row_number
+ * @param mixed $result_id
+ * @param mixed|null $row_number
  *
  * @return bool
  *
@@ -699,8 +699,8 @@ function odbc_fetch_row($result_id, $row_number = null): bool
 /**
  * Get the length (precision) of a field
  *
- * mixed $result_id
- * mixed $field_number
+ * @param mixed $result_id
+ * @param mixed $field_number
  *
  * @return int
  *
@@ -715,8 +715,8 @@ function odbc_field_len($result_id, $field_number): int
 /**
  * Get the columnname
  *
- * mixed $result_id
- * mixed $field_number
+ * @param mixed $result_id
+ * @param mixed $field_number
  *
  * @return string
  *
@@ -731,8 +731,8 @@ function odbc_field_name($result_id, $field_number): string
 /**
  * Return column number
  *
- * mixed $result_id
- * mixed $field_name
+ * @param mixed $result_id
+ * @param mixed $field_name
  *
  * @return int
  *
@@ -747,8 +747,8 @@ function odbc_field_num($result_id, $field_name): int
 /**
  * Alias of <code>odbc_field_len</code>
  *
- * mixed $result_id
- * mixed $field_number
+ * @param mixed $result_id
+ * @param mixed $field_number
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -761,8 +761,8 @@ function odbc_field_precision($result_id, $field_number)
 /**
  * Get the scale of a field
  *
- * mixed $result_id
- * mixed $field_number
+ * @param mixed $result_id
+ * @param mixed $field_number
  *
  * @return int
  *
@@ -777,8 +777,8 @@ function odbc_field_scale($result_id, $field_number): int
 /**
  * Datatype of a field
  *
- * mixed $result_id
- * mixed $field_number
+ * @param mixed $result_id
+ * @param mixed $field_number
  *
  * @return string
  *
@@ -793,13 +793,13 @@ function odbc_field_type($result_id, $field_number): string
 /**
  * Retrieves a list of foreign keys
  *
- * mixed $connection_id
- * mixed $pk_qualifier
- * mixed $pk_owner
- * mixed $pk_table
- * mixed $fk_qualifier
- * mixed $fk_owner
- * mixed $fk_table
+ * @param mixed $connection_id
+ * @param mixed $pk_qualifier
+ * @param mixed $pk_owner
+ * @param mixed $pk_table
+ * @param mixed $fk_qualifier
+ * @param mixed $fk_owner
+ * @param mixed $fk_table
  *
  * @return resource
  *
@@ -814,7 +814,7 @@ function odbc_foreignkeys($connection_id, $pk_qualifier, $pk_owner, $pk_table, $
 /**
  * Free resources associated with a result
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return bool
  *
@@ -829,8 +829,8 @@ function odbc_free_result($result_id): bool
 /**
  * Retrieves information about data types supported by the data source
  *
- * mixed $connection_id
- * mixed|null $data_type
+ * @param mixed $connection_id
+ * @param mixed|null $data_type
  *
  * @return resource
  *
@@ -845,8 +845,8 @@ function odbc_gettypeinfo($connection_id, $data_type = null)
 /**
  * Handling of LONG columns
  *
- * mixed $result_id
- * mixed $length
+ * @param mixed $result_id
+ * @param mixed $length
  *
  * @return bool
  *
@@ -861,7 +861,7 @@ function odbc_longreadlen($result_id, $length): bool
 /**
  * Checks if multiple results are available
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return bool
  *
@@ -876,7 +876,7 @@ function odbc_next_result($result_id): bool
 /**
  * Number of columns in a result
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return int
  *
@@ -891,7 +891,7 @@ function odbc_num_fields($result_id): int
 /**
  * Number of rows in a result
  *
- * mixed $result_id
+ * @param mixed $result_id
  *
  * @return int
  *
@@ -906,10 +906,10 @@ function odbc_num_rows($result_id): int
 /**
  * Open a persistent database connection
  *
- * mixed $dsn
- * mixed $user
- * mixed $password
- * mixed|null $cursor_option
+ * @param mixed $dsn
+ * @param mixed $user
+ * @param mixed $password
+ * @param mixed|null $cursor_option
  *
  * @return resource
  *
@@ -924,8 +924,8 @@ function odbc_pconnect($dsn, $user, $password, $cursor_option = null)
 /**
  * Prepares a statement for execution
  *
- * mixed $connection_id
- * mixed $query
+ * @param mixed $connection_id
+ * @param mixed $query
  *
  * @return resource
  *
@@ -940,10 +940,10 @@ function odbc_prepare($connection_id, $query)
 /**
  * Gets the primary keys for a table
  *
- * mixed $connection_id
- * mixed $qualifier
- * mixed $owner
- * mixed $table
+ * @param mixed $connection_id
+ * @param mixed $qualifier
+ * @param mixed $owner
+ * @param mixed $table
  *
  * @return resource
  *
@@ -958,11 +958,11 @@ function odbc_primarykeys($connection_id, $qualifier, $owner, $table)
 /**
  * Retrieve information about parameters to procedures
  *
- * mixed $connection_id
- * mixed|null $qualifier
- * mixed|null $owner
- * mixed|null $proc
- * mixed|null $column
+ * @param mixed $connection_id
+ * @param mixed|null $qualifier
+ * @param mixed|null $owner
+ * @param mixed|null $proc
+ * @param mixed|null $column
  *
  * @return resource
  *
@@ -977,10 +977,10 @@ function odbc_procedurecolumns($connection_id, $qualifier = null, $owner = null,
 /**
  * Get the list of procedures stored in a specific data source
  *
- * mixed $connection_id
- * mixed|null $qualifier
- * mixed|null $owner
- * mixed|null $name
+ * @param mixed $connection_id
+ * @param mixed|null $qualifier
+ * @param mixed|null $owner
+ * @param mixed|null $name
  *
  * @return resource
  *
@@ -995,8 +995,8 @@ function odbc_procedures($connection_id, $qualifier = null, $owner = null, $name
 /**
  * Get result data
  *
- * mixed $result_id
- * mixed $field
+ * @param mixed $result_id
+ * @param mixed $field
  *
  * @return mixed
  *
@@ -1011,8 +1011,8 @@ function odbc_result($result_id, $field)
 /**
  * Print result as HTML table
  *
- * mixed $result_id
- * mixed|null $format
+ * @param mixed $result_id
+ * @param mixed|null $format
  *
  * @return int
  *
@@ -1027,7 +1027,7 @@ function odbc_result_all($result_id, $format = null): int
 /**
  * Rollback a transaction
  *
- * mixed $connection_id
+ * @param mixed $connection_id
  *
  * @return bool
  *
@@ -1042,10 +1042,10 @@ function odbc_rollback($connection_id): bool
 /**
  * Adjust ODBC settings
  *
- * mixed $conn_id
- * mixed $which
- * mixed $option
- * mixed $value
+ * @param mixed $conn_id
+ * @param mixed $which
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -1060,13 +1060,13 @@ function odbc_setoption($conn_id, $which, $option, $value): bool
 /**
  * Retrieves special columns
  *
- * mixed $connection_id
- * mixed $type
- * mixed $qualifier
- * mixed $owner
- * mixed $table
- * mixed $scope
- * mixed $nullable
+ * @param mixed $connection_id
+ * @param mixed $type
+ * @param mixed $qualifier
+ * @param mixed $owner
+ * @param mixed $table
+ * @param mixed $scope
+ * @param mixed $nullable
  *
  * @return resource
  *
@@ -1081,12 +1081,12 @@ function odbc_specialcolumns($connection_id, $type, $qualifier, $owner, $table, 
 /**
  * Retrieve statistics about a table
  *
- * mixed $connection_id
- * mixed $qualifier
- * mixed $owner
- * mixed $name
- * mixed $unique
- * mixed $accuracy
+ * @param mixed $connection_id
+ * @param mixed $qualifier
+ * @param mixed $owner
+ * @param mixed $name
+ * @param mixed $unique
+ * @param mixed $accuracy
  *
  * @return resource
  *
@@ -1101,10 +1101,10 @@ function odbc_statistics($connection_id, $qualifier, $owner, $name, $unique, $ac
 /**
  * Lists tables and the privileges associated with each table
  *
- * mixed $connection_id
- * mixed $qualifier
- * mixed $owner
- * mixed $name
+ * @param mixed $connection_id
+ * @param mixed $qualifier
+ * @param mixed $owner
+ * @param mixed $name
  *
  * @return resource
  *
@@ -1119,11 +1119,11 @@ function odbc_tableprivileges($connection_id, $qualifier, $owner, $name)
 /**
  * Get the list of table names stored in a specific data source
  *
- * mixed $connection_id
- * mixed|null $qualifier
- * mixed|null $owner
- * mixed|null $name
- * mixed|null $table_types
+ * @param mixed $connection_id
+ * @param mixed|null $qualifier
+ * @param mixed|null $owner
+ * @param mixed|null $name
+ * @param mixed|null $table_types
  *
  * @return resource
  *

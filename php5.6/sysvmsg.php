@@ -30,8 +30,8 @@ const MSG_NOERROR = 2;
 /**
  * Create or attach to a message queue
  *
- * mixed $key
- * mixed|null $perms
+ * @param mixed $key
+ * @param mixed|null $perms
  *
  * @return resource
  *
@@ -46,7 +46,7 @@ function msg_get_queue($key, $perms = null)
 /**
  * Check whether a message queue exists
  *
- * mixed $key
+ * @param mixed $key
  *
  * @return bool
  *
@@ -61,14 +61,14 @@ function msg_queue_exists($key)
 /**
  * Receive a message from a message queue
  *
- * mixed $queue
- * mixed $desiredmsgtype
- * mixed $msgtype
- * mixed $maxsize
- * mixed $message
- * mixed|null $unserialize
- * mixed|null $flags
- * mixed|null $errorcode
+ * @param mixed $queue
+ * @param mixed $desiredmsgtype
+ * @param mixed $msgtype
+ * @param mixed $maxsize
+ * @param mixed $message
+ * @param mixed|null $unserialize
+ * @param mixed|null $flags
+ * @param mixed|null $errorcode
  *
  * @return bool
  *
@@ -83,7 +83,7 @@ function msg_receive($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $u
 /**
  * Destroy a message queue
  *
- * mixed $queue
+ * @param mixed $queue
  *
  * @return bool
  *
@@ -98,12 +98,12 @@ function msg_remove_queue($queue)
 /**
  * Send a message to a message queue
  *
- * mixed $queue
- * mixed $msgtype
- * mixed $message
- * mixed|null $serialize
- * mixed|null $blocking
- * mixed|null $errorcode
+ * @param mixed $queue
+ * @param mixed $msgtype
+ * @param mixed $message
+ * @param mixed|null $serialize
+ * @param mixed|null $blocking
+ * @param mixed|null $errorcode
  *
  * @return bool
  *
@@ -118,8 +118,8 @@ function msg_send($queue, $msgtype, $message, $serialize = null, $blocking = nul
 /**
  * Set information in the message queue data structure
  *
- * mixed $queue
- * mixed $data
+ * @param mixed $queue
+ * @param mixed $data
  *
  * @return bool
  *
@@ -134,7 +134,7 @@ function msg_set_queue($queue, $data)
 /**
  * Returns information from the message queue data structure
  *
- * mixed $queue
+ * @param mixed $queue
  *
  * @return array
  *

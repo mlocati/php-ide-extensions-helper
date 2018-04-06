@@ -501,8 +501,8 @@ const INPUT_SESSION = 6;
 /**
  * Checks if variable of specified type exists
  *
- * mixed $type
- * mixed $variable_name
+ * @param mixed $type
+ * @param mixed $variable_name
  *
  * @return bool
  *
@@ -517,7 +517,7 @@ function filter_has_var($type, $variable_name): bool
 /**
  * Returns the filter ID belonging to a named filter
  *
- * mixed $filtername
+ * @param mixed $filtername
  *
  * @return int
  *
@@ -532,10 +532,10 @@ function filter_id($filtername): int
 /**
  * Gets a specific external variable by name and optionally filters it
  *
- * mixed $type
- * mixed $variable_name
- * mixed|null $filter
- * mixed|null $options
+ * @param mixed $type
+ * @param mixed $variable_name
+ * @param mixed|null $filter
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -550,9 +550,9 @@ function filter_input($type, $variable_name, $filter = null, $options = null)
 /**
  * Gets external variables and optionally filters them
  *
- * mixed $type
- * mixed|null $definition
- * mixed|null $add_empty
+ * @param mixed $type
+ * @param mixed|null $definition
+ * @param mixed|null $add_empty
  *
  * @return mixed
  *
@@ -580,9 +580,9 @@ function filter_list(): array
 /**
  * Filters a variable with a specified filter
  *
- * mixed $variable
- * mixed|null $filter
- * mixed|null $options
+ * @param mixed $variable
+ * @param mixed|null $filter
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -597,9 +597,9 @@ function filter_var($variable, $filter = null, $options = null)
 /**
  * Gets multiple variables and optionally filters them
  *
- * mixed $data
- * mixed|null $definition
- * mixed|null $add_empty
+ * @param mixed $data
+ * @param mixed|null $definition
+ * @param mixed|null $add_empty
  *
  * @return mixed
  *

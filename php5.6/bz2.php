@@ -6,7 +6,7 @@
 /**
  * Close a bzip2 file
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -21,9 +21,9 @@ function bzclose($fp)
 /**
  * Compress a string into bzip2 encoded data
  *
- * mixed $source
- * mixed $blocksize
- * mixed|null $workfactor
+ * @param mixed $source
+ * @param mixed $blocksize
+ * @param mixed|null $workfactor
  *
  * @return mixed
  *
@@ -38,8 +38,8 @@ function bzcompress($source, $blocksize, $workfactor = null)
 /**
  * Decompresses bzip2 encoded data
  *
- * mixed $source
- * mixed|null $small
+ * @param mixed $source
+ * @param mixed|null $small
  *
  * @return mixed
  *
@@ -54,7 +54,7 @@ function bzdecompress($source, $small = null)
 /**
  * Returns a bzip2 error number
  *
- * mixed $bz
+ * @param mixed $bz
  *
  * @return int
  *
@@ -69,7 +69,7 @@ function bzerrno($bz)
 /**
  * Returns the bzip2 error number and error string in an array
  *
- * mixed $bz
+ * @param mixed $bz
  *
  * @return array
  *
@@ -84,7 +84,7 @@ function bzerror($bz): array
 /**
  * Returns a bzip2 error string
  *
- * mixed $bz
+ * @param mixed $bz
  *
  * @return string
  *
@@ -99,7 +99,7 @@ function bzerrstr($bz)
 /**
  * Force a write of all buffered data
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -114,8 +114,8 @@ function bzflush($fp)
 /**
  * Opens a bzip2 compressed file
  *
- * mixed $file
- * mixed $mode
+ * @param mixed $file
+ * @param mixed $mode
  *
  * @return resource
  *
@@ -130,8 +130,8 @@ function bzopen($file, $mode)
 /**
  * Binary safe bzip2 file read
  *
- * mixed $bz
- * mixed|null $length
+ * @param mixed $bz
+ * @param mixed|null $length
  *
  * @return string
  *
@@ -146,9 +146,9 @@ function bzread($bz, $length = null)
 /**
  * Binary safe bzip2 file write
  *
- * mixed $fp
- * mixed $str
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed $str
+ * @param mixed|null $length
  *
  * @return int
  *

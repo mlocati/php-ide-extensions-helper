@@ -415,8 +415,8 @@ const XML_TEXT_NODE = 3;
 class DOMAttr extends DOMNode
 {
     /**
-     * mixed $name
-     * mixed|null $value
+     * @param mixed $name
+     * @param mixed|null $value
      */
     public function __construct($name, $value = null)
     {
@@ -439,7 +439,7 @@ class DOMAttr extends DOMNode
 class DOMCdataSection extends DOMText
 {
     /**
-     * mixed $value
+     * @param mixed $value
      */
     public function __construct($value)
     {
@@ -457,40 +457,40 @@ class DOMCdataSection extends DOMText
 class DOMCharacterData extends DOMNode
 {
     /**
-     * mixed $arg
+     * @param mixed $arg
      */
     public function appendData($arg)
     {
     }
 
     /**
-     * mixed $offset
-     * mixed $count
+     * @param mixed $offset
+     * @param mixed $count
      */
     public function deleteData($offset, $count)
     {
     }
 
     /**
-     * mixed $offset
-     * mixed $arg
+     * @param mixed $offset
+     * @param mixed $arg
      */
     public function insertData($offset, $arg)
     {
     }
 
     /**
-     * mixed $offset
-     * mixed $count
-     * mixed $arg
+     * @param mixed $offset
+     * @param mixed $count
+     * @param mixed $arg
      */
     public function replaceData($offset, $count, $arg)
     {
     }
 
     /**
-     * mixed $offset
-     * mixed $count
+     * @param mixed $offset
+     * @param mixed $count
      */
     public function substringData($offset, $count)
     {
@@ -508,7 +508,7 @@ class DOMCharacterData extends DOMNode
 class DOMComment extends DOMCharacterData
 {
     /**
-     * mixed|null $value
+     * @param mixed|null $value
      */
     public function __construct($value = null)
     {
@@ -518,23 +518,23 @@ class DOMComment extends DOMCharacterData
 class DOMConfiguration
 {
     /**
-     * mixed|null $name
-     * mixed|null $value
+     * @param mixed|null $name
+     * @param mixed|null $value
      */
     public function canSetParameter($name = null, $value = null)
     {
     }
 
     /**
-     * mixed|null $name
+     * @param mixed|null $name
      */
     public function getParameter($name = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function setParameter($name, $value)
     {
@@ -552,44 +552,44 @@ class DOMConfiguration
 class DOMDocument extends DOMNode
 {
     /**
-     * mixed|null $version
-     * mixed|null $encoding
+     * @param mixed|null $version
+     * @param mixed|null $encoding
      */
     public function __construct($version = null, $encoding = null)
     {
     }
 
     /**
-     * DOMNode $source
+     * @param DOMNode $source
      */
     public function adoptNode($source)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function createAttribute($name)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $qualifiedName
+     * @param mixed $namespaceURI
+     * @param mixed $qualifiedName
      */
     public function createAttributeNS($namespaceURI, $qualifiedName)
     {
     }
 
     /**
-     * mixed $data
+     * @param mixed $data
      */
     public function createCDATASection($data)
     {
     }
 
     /**
-     * mixed $data
+     * @param mixed $data
      */
     public function createComment($data)
     {
@@ -600,101 +600,101 @@ class DOMDocument extends DOMNode
     }
 
     /**
-     * mixed $tagName
-     * mixed|null $value
+     * @param mixed $tagName
+     * @param mixed|null $value
      */
     public function createElement($tagName, $value = null)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $qualifiedName
-     * mixed|null $value
+     * @param mixed $namespaceURI
+     * @param mixed $qualifiedName
+     * @param mixed|null $value
      */
     public function createElementNS($namespaceURI, $qualifiedName, $value = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function createEntityReference($name)
     {
     }
 
     /**
-     * mixed $target
-     * mixed $data
+     * @param mixed $target
+     * @param mixed $data
      */
     public function createProcessingInstruction($target, $data)
     {
     }
 
     /**
-     * mixed $data
+     * @param mixed $data
      */
     public function createTextNode($data)
     {
     }
 
     /**
-     * mixed $elementId
+     * @param mixed $elementId
      */
     public function getElementById($elementId)
     {
     }
 
     /**
-     * mixed $tagName
+     * @param mixed $tagName
      */
     public function getElementsByTagName($tagName)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * DOMNode $importedNode
-     * mixed $deep
+     * @param DOMNode $importedNode
+     * @param mixed $deep
      */
     public function importNode($importedNode, $deep)
     {
     }
 
     /**
-     * mixed $source
-     * mixed|null $options
+     * @param mixed $source
+     * @param mixed|null $options
      */
     public function load($source, $options = null)
     {
     }
 
     /**
-     * mixed $source
-     * mixed|null $options
+     * @param mixed $source
+     * @param mixed|null $options
      */
     public function loadHTML($source, $options = null)
     {
     }
 
     /**
-     * mixed $source
-     * mixed|null $options
+     * @param mixed $source
+     * @param mixed|null $options
      */
     public function loadHTMLFile($source, $options = null)
     {
     }
 
     /**
-     * mixed $source
-     * mixed|null $options
+     * @param mixed $source
+     * @param mixed|null $options
      */
     public function loadXML($source, $options = null)
     {
@@ -705,38 +705,38 @@ class DOMDocument extends DOMNode
     }
 
     /**
-     * mixed $baseClass
-     * mixed $extendedClass
+     * @param mixed $baseClass
+     * @param mixed $extendedClass
      */
     public function registerNodeClass($baseClass, $extendedClass)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function relaxNGValidate($filename)
     {
     }
 
     /**
-     * mixed $source
+     * @param mixed $source
      */
     public function relaxNGValidateSource($source)
     {
     }
 
     /**
-     * DOMNode $node
-     * mixed $namespaceURI
-     * mixed $qualifiedName
+     * @param DOMNode $node
+     * @param mixed $namespaceURI
+     * @param mixed $qualifiedName
      */
     public function renameNode($node, $namespaceURI, $qualifiedName)
     {
     }
 
     /**
-     * mixed $file
+     * @param mixed $file
      */
     public function save($file)
     {
@@ -747,29 +747,29 @@ class DOMDocument extends DOMNode
     }
 
     /**
-     * mixed $file
+     * @param mixed $file
      */
     public function saveHTMLFile($file)
     {
     }
 
     /**
-     * DOMNode|null $node
-     * mixed|null $options
+     * @param DOMNode|null $node
+     * @param mixed|null $options
      */
     public function saveXML($node = null, $options = null)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function schemaValidate($filename)
     {
     }
 
     /**
-     * mixed $source
+     * @param mixed $source
      */
     public function schemaValidateSource($source)
     {
@@ -780,7 +780,7 @@ class DOMDocument extends DOMNode
     }
 
     /**
-     * mixed|null $options
+     * @param mixed|null $options
      */
     public function xinclude($options = null)
     {
@@ -799,7 +799,7 @@ class DOMDocumentFragment extends DOMNode
     }
 
     /**
-     * mixed $data
+     * @param mixed $data
      */
     public function appendXML($data)
     {
@@ -830,147 +830,147 @@ class DOMDomError
 class DOMElement extends DOMNode
 {
     /**
-     * mixed $name
-     * mixed|null $value
-     * mixed|null $uri
+     * @param mixed $name
+     * @param mixed|null $value
+     * @param mixed|null $uri
      */
     public function __construct($name, $value = null, $uri = null)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getAttribute($name)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getAttributeNode($name)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function getAttributeNodeNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function getAttributeNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getElementsByTagName($name)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function hasAttribute($name)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function hasAttributeNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function removeAttribute($name)
     {
     }
 
     /**
-     * DOMAttr $oldAttr
+     * @param DOMAttr $oldAttr
      */
     public function removeAttributeNode($oldAttr)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
+     * @param mixed $namespaceURI
+     * @param mixed $localName
      */
     public function removeAttributeNS($namespaceURI, $localName)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $value
+     * @param mixed $name
+     * @param mixed $value
      */
     public function setAttribute($name, $value)
     {
     }
 
     /**
-     * DOMAttr $newAttr
+     * @param DOMAttr $newAttr
      */
     public function setAttributeNode($newAttr)
     {
     }
 
     /**
-     * DOMAttr $newAttr
+     * @param DOMAttr $newAttr
      */
     public function setAttributeNodeNS($newAttr)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $qualifiedName
-     * mixed $value
+     * @param mixed $namespaceURI
+     * @param mixed $qualifiedName
+     * @param mixed $value
      */
     public function setAttributeNS($namespaceURI, $qualifiedName, $value)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $isId
+     * @param mixed $name
+     * @param mixed $isId
      */
     public function setIdAttribute($name, $isId)
     {
     }
 
     /**
-     * DOMAttr $attr
-     * mixed $isId
+     * @param DOMAttr $attr
+     * @param mixed $isId
      */
     public function setIdAttributeNode($attr, $isId)
     {
     }
 
     /**
-     * mixed $namespaceURI
-     * mixed $localName
-     * mixed $isId
+     * @param mixed $namespaceURI
+     * @param mixed $localName
+     * @param mixed $isId
      */
     public function setIdAttributeNS($namespaceURI, $localName, $isId)
     {
@@ -996,7 +996,7 @@ class DOMEntity extends DOMNode
 class DOMEntityReference extends DOMNode
 {
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function __construct($name)
     {
@@ -1006,7 +1006,7 @@ class DOMEntityReference extends DOMNode
 class DOMErrorHandler
 {
     /**
-     * DOMDomError $error
+     * @param DOMDomError $error
      */
     public function handleError($error)
     {
@@ -1037,26 +1037,26 @@ final class DOMException extends Exception
 class DOMImplementation
 {
     /**
-     * mixed $namespaceURI
-     * mixed $qualifiedName
-     * DOMDocumentType $docType
+     * @param mixed $namespaceURI
+     * @param mixed $qualifiedName
+     * @param DOMDocumentType $docType
      */
     public function createDocument($namespaceURI, $qualifiedName, $docType)
     {
     }
 
     /**
-     * mixed $qualifiedName
-     * mixed $publicId
-     * mixed $systemId
+     * @param mixed $qualifiedName
+     * @param mixed $publicId
+     * @param mixed $systemId
      */
     public function createDocumentType($qualifiedName, $publicId, $systemId)
     {
     }
 
     /**
-     * mixed $feature
-     * mixed $version
+     * @param mixed $feature
+     * @param mixed $version
      */
     public function getFeature($feature, $version)
     {
@@ -1070,7 +1070,7 @@ class DOMImplementation
 class DOMImplementationList
 {
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function item($index)
     {
@@ -1080,14 +1080,14 @@ class DOMImplementationList
 class DOMImplementationSource
 {
     /**
-     * mixed $features
+     * @param mixed $features
      */
     public function getDomimplementation($features)
     {
     }
 
     /**
-     * mixed $features
+     * @param mixed $features
      */
     public function getDomimplementations($features)
     {
@@ -1119,51 +1119,51 @@ class DOMNamedNodeMap implements Countable, Traversable
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getNamedItem($name)
     {
     }
 
     /**
-     * mixed|null $namespaceURI
-     * mixed|null $localName
+     * @param mixed|null $namespaceURI
+     * @param mixed|null $localName
      */
     public function getNamedItemNS($namespaceURI = null, $localName = null)
     {
     }
 
     /**
-     * mixed|null $index
+     * @param mixed|null $index
      */
     public function item($index = null)
     {
     }
 
     /**
-     * mixed|null $name
+     * @param mixed|null $name
      */
     public function removeNamedItem($name = null)
     {
     }
 
     /**
-     * mixed|null $namespaceURI
-     * mixed|null $localName
+     * @param mixed|null $namespaceURI
+     * @param mixed|null $localName
      */
     public function removeNamedItemNS($namespaceURI = null, $localName = null)
     {
     }
 
     /**
-     * DOMNode $arg
+     * @param DOMNode $arg
      */
     public function setNamedItem($arg)
     {
     }
 
     /**
-     * DOMNode|null $arg
+     * @param DOMNode|null $arg
      */
     public function setNamedItemNS($arg = null)
     {
@@ -1173,14 +1173,14 @@ class DOMNamedNodeMap implements Countable, Traversable
 class DOMNameList
 {
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function getName($index)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function getNamespaceURI($index)
     {
@@ -1219,50 +1219,50 @@ class DOMNameSpaceNode
 class DOMNode
 {
     /**
-     * DOMNode $newChild
+     * @param DOMNode $newChild
      */
     public function appendChild($newChild)
     {
     }
 
     /**
-     * mixed|null $exclusive
-     * mixed|null $with_comments
-     * array[]|null $xpath
-     * array[]|null $ns_prefixes
+     * @param mixed|null $exclusive
+     * @param mixed|null $with_comments
+     * @param array[]|null $xpath
+     * @param array[]|null $ns_prefixes
      */
     public function C14N($exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null)
     {
     }
 
     /**
-     * mixed $uri
-     * mixed|null $exclusive
-     * mixed|null $with_comments
-     * array[]|null $xpath
-     * array[]|null $ns_prefixes
+     * @param mixed $uri
+     * @param mixed|null $exclusive
+     * @param mixed|null $with_comments
+     * @param array[]|null $xpath
+     * @param array[]|null $ns_prefixes
      */
     public function C14NFile($uri, $exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null)
     {
     }
 
     /**
-     * mixed|null $deep
+     * @param mixed|null $deep
      */
     public function cloneNode($deep = null)
     {
     }
 
     /**
-     * DOMNode $other
+     * @param DOMNode $other
      */
     public function compareDocumentPosition($other)
     {
     }
 
     /**
-     * mixed $feature
-     * mixed $version
+     * @param mixed $feature
+     * @param mixed $version
      */
     public function getFeature($feature, $version)
     {
@@ -1277,7 +1277,7 @@ class DOMNode
     }
 
     /**
-     * mixed $key
+     * @param mixed $key
      */
     public function getUserData($key)
     {
@@ -1292,51 +1292,51 @@ class DOMNode
     }
 
     /**
-     * DOMNode $newChild
-     * DOMNode|null $refChild
+     * @param DOMNode $newChild
+     * @param DOMNode|null $refChild
      */
     public function insertBefore($newChild, $refChild = null)
     {
     }
 
     /**
-     * mixed $namespaceURI
+     * @param mixed $namespaceURI
      */
     public function isDefaultNamespace($namespaceURI)
     {
     }
 
     /**
-     * DOMNode $arg
+     * @param DOMNode $arg
      */
     public function isEqualNode($arg)
     {
     }
 
     /**
-     * DOMNode $other
+     * @param DOMNode $other
      */
     public function isSameNode($other)
     {
     }
 
     /**
-     * mixed $feature
-     * mixed $version
+     * @param mixed $feature
+     * @param mixed $version
      */
     public function isSupported($feature, $version)
     {
     }
 
     /**
-     * mixed $prefix
+     * @param mixed $prefix
      */
     public function lookupNamespaceUri($prefix)
     {
     }
 
     /**
-     * mixed $namespaceURI
+     * @param mixed $namespaceURI
      */
     public function lookupPrefix($namespaceURI)
     {
@@ -1347,24 +1347,24 @@ class DOMNode
     }
 
     /**
-     * DOMNode $oldChild
+     * @param DOMNode $oldChild
      */
     public function removeChild($oldChild)
     {
     }
 
     /**
-     * DOMNode $newChild
-     * DOMNode $oldChild
+     * @param DOMNode $newChild
+     * @param DOMNode $oldChild
      */
     public function replaceChild($newChild, $oldChild)
     {
     }
 
     /**
-     * mixed $key
-     * mixed $data
-     * mixed $handler
+     * @param mixed $key
+     * @param mixed $data
+     * @param mixed $handler
      */
     public function setUserData($key, $data, $handler)
     {
@@ -1396,7 +1396,7 @@ class DOMNodeList implements Countable, Traversable
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function item($index)
     {
@@ -1420,8 +1420,8 @@ class DOMNotation extends DOMNode
 class DOMProcessingInstruction extends DOMNode
 {
     /**
-     * mixed $name
-     * mixed|null $value
+     * @param mixed $name
+     * @param mixed|null $value
      */
     public function __construct($name, $value = null)
     {
@@ -1431,14 +1431,14 @@ class DOMProcessingInstruction extends DOMNode
 class DOMStringExtend
 {
     /**
-     * mixed $offset32
+     * @param mixed $offset32
      */
     public function findOffset16($offset32)
     {
     }
 
     /**
-     * mixed $offset16
+     * @param mixed $offset16
      */
     public function findOffset32($offset16)
     {
@@ -1448,7 +1448,7 @@ class DOMStringExtend
 class DOMStringList
 {
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function item($index)
     {
@@ -1468,7 +1468,7 @@ class DOMStringList
 class DOMText extends DOMCharacterData
 {
     /**
-     * mixed|null $value
+     * @param mixed|null $value
      */
     public function __construct($value = null)
     {
@@ -1483,14 +1483,14 @@ class DOMText extends DOMCharacterData
     }
 
     /**
-     * mixed $content
+     * @param mixed $content
      */
     public function replaceWholeText($content)
     {
     }
 
     /**
-     * mixed $offset
+     * @param mixed $offset
      */
     public function splitText($offset)
     {
@@ -1518,33 +1518,33 @@ class DOMUserDataHandler
 class DOMXPath
 {
     /**
-     * DOMDocument $doc
+     * @param DOMDocument $doc
      */
     public function __construct($doc)
     {
     }
 
     /**
-     * mixed $expr
-     * DOMNode|null $context
-     * mixed|null $registerNodeNS
+     * @param mixed $expr
+     * @param DOMNode|null $context
+     * @param mixed|null $registerNodeNS
      */
     public function evaluate($expr, $context = null, $registerNodeNS = null)
     {
     }
 
     /**
-     * mixed $expr
-     * DOMNode|null $context
-     * mixed|null $registerNodeNS
+     * @param mixed $expr
+     * @param DOMNode|null $context
+     * @param mixed|null $registerNodeNS
      */
     public function query($expr, $context = null, $registerNodeNS = null)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $uri
+     * @param mixed $prefix
+     * @param mixed $uri
      */
     public function registerNamespace($prefix, $uri)
     {
@@ -1559,7 +1559,7 @@ class DOMXPath
  * Gets a <code>DOMElement</code> object from a
  *    <code>SimpleXMLElement</code> object
  *
- * mixed $node
+ * @param mixed $node
  *
  * @return DOMElement
  *

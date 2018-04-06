@@ -33,8 +33,8 @@ const PSPELL_RUN_TOGETHER = 8;
 /**
  * Add the word to a personal wordlist
  *
- * mixed $pspell
- * mixed $word
+ * @param mixed $pspell
+ * @param mixed $word
  *
  * @return bool
  *
@@ -49,8 +49,8 @@ function pspell_add_to_personal($pspell, $word)
 /**
  * Add the word to the wordlist in the current session
  *
- * mixed $pspell
- * mixed $word
+ * @param mixed $pspell
+ * @param mixed $word
  *
  * @return bool
  *
@@ -65,8 +65,8 @@ function pspell_add_to_session($pspell, $word)
 /**
  * Check a word
  *
- * mixed $pspell
- * mixed $word
+ * @param mixed $pspell
+ * @param mixed $word
  *
  * @return bool
  *
@@ -81,7 +81,7 @@ function pspell_check($pspell, $word)
 /**
  * Clear the current session
  *
- * mixed $pspell
+ * @param mixed $pspell
  *
  * @return bool
  *
@@ -96,10 +96,10 @@ function pspell_clear_session($pspell)
 /**
  * Create a config used to open a dictionary
  *
- * mixed $language
- * mixed|null $spelling
- * mixed|null $jargon
- * mixed|null $encoding
+ * @param mixed $language
+ * @param mixed|null $spelling
+ * @param mixed|null $jargon
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -114,8 +114,8 @@ function pspell_config_create($language, $spelling = null, $jargon = null, $enco
 /**
  * Location of language data files
  *
- * mixed $conf
- * mixed $directory
+ * @param mixed $conf
+ * @param mixed $directory
  *
  * @return bool
  *
@@ -130,8 +130,8 @@ function pspell_config_data_dir($conf, $directory)
 /**
  * Location of the main word list
  *
- * mixed $conf
- * mixed $directory
+ * @param mixed $conf
+ * @param mixed $directory
  *
  * @return bool
  *
@@ -146,8 +146,8 @@ function pspell_config_dict_dir($conf, $directory)
 /**
  * Ignore words less than N characters long
  *
- * mixed $conf
- * mixed $ignore
+ * @param mixed $conf
+ * @param mixed $ignore
  *
  * @return bool
  *
@@ -162,8 +162,8 @@ function pspell_config_ignore($conf, $ignore)
 /**
  * Change the mode number of suggestions returned
  *
- * mixed $conf
- * mixed $mode
+ * @param mixed $conf
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -178,8 +178,8 @@ function pspell_config_mode($conf, $mode)
 /**
  * Set a file that contains personal wordlist
  *
- * mixed $conf
- * mixed $personal
+ * @param mixed $conf
+ * @param mixed $personal
  *
  * @return bool
  *
@@ -194,8 +194,8 @@ function pspell_config_personal($conf, $personal)
 /**
  * Set a file that contains replacement pairs
  *
- * mixed $conf
- * mixed $repl
+ * @param mixed $conf
+ * @param mixed $repl
  *
  * @return bool
  *
@@ -210,8 +210,8 @@ function pspell_config_repl($conf, $repl)
 /**
  * Consider run-together words as valid compounds
  *
- * mixed $conf
- * mixed $runtogether
+ * @param mixed $conf
+ * @param mixed $runtogether
  *
  * @return bool
  *
@@ -227,8 +227,8 @@ function pspell_config_runtogether($conf, $runtogether)
  * Determine whether to save a replacement pairs list
  *   along with the wordlist
  *
- * mixed $conf
- * mixed $save
+ * @param mixed $conf
+ * @param mixed $save
  *
  * @return bool
  *
@@ -243,11 +243,11 @@ function pspell_config_save_repl($conf, $save)
 /**
  * Load a new dictionary
  *
- * mixed $language
- * mixed|null $spelling
- * mixed|null $jargon
- * mixed|null $encoding
- * mixed|null $mode
+ * @param mixed $language
+ * @param mixed|null $spelling
+ * @param mixed|null $jargon
+ * @param mixed|null $encoding
+ * @param mixed|null $mode
  *
  * @return int
  *
@@ -262,7 +262,7 @@ function pspell_new($language, $spelling = null, $jargon = null, $encoding = nul
 /**
  * Load a new dictionary with settings based on a given config
  *
- * mixed $config
+ * @param mixed $config
  *
  * @return int
  *
@@ -277,12 +277,12 @@ function pspell_new_config($config)
 /**
  * Load a new dictionary with personal wordlist
  *
- * mixed $personal
- * mixed $language
- * mixed|null $spelling
- * mixed|null $jargon
- * mixed|null $encoding
- * mixed|null $mode
+ * @param mixed $personal
+ * @param mixed $language
+ * @param mixed|null $spelling
+ * @param mixed|null $jargon
+ * @param mixed|null $encoding
+ * @param mixed|null $mode
  *
  * @return int
  *
@@ -297,7 +297,7 @@ function pspell_new_personal($personal, $language, $spelling = null, $jargon = n
 /**
  * Save the personal wordlist to a file
  *
- * mixed $pspell
+ * @param mixed $pspell
  *
  * @return bool
  *
@@ -312,9 +312,9 @@ function pspell_save_wordlist($pspell)
 /**
  * Store a replacement pair for a word
  *
- * mixed $pspell
- * mixed $misspell
- * mixed $correct
+ * @param mixed $pspell
+ * @param mixed $misspell
+ * @param mixed $correct
  *
  * @return bool
  *
@@ -329,8 +329,8 @@ function pspell_store_replacement($pspell, $misspell, $correct)
 /**
  * Suggest spellings of a word
  *
- * mixed $pspell
- * mixed $word
+ * @param mixed $pspell
+ * @param mixed $word
  *
  * @return array
  *

@@ -577,7 +577,7 @@ const TYPEVIDEO = 6;
 /**
  * Convert an 8bit string to a quoted-printable string
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return string
  *
@@ -605,11 +605,11 @@ function imap_alerts(): array
 /**
  * Append a string message to a specified mailbox
  *
- * mixed $stream_id
- * mixed $folder
- * mixed $message
- * mixed|null $options
- * mixed|null $date
+ * @param mixed $stream_id
+ * @param mixed $folder
+ * @param mixed $message
+ * @param mixed|null $options
+ * @param mixed|null $date
  *
  * @return bool
  *
@@ -624,7 +624,7 @@ function imap_append($stream_id, $folder, $message, $options = null, $date = nul
 /**
  * Decode BASE64 encoded text
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return string
  *
@@ -639,7 +639,7 @@ function imap_base64($text): string
 /**
  * Convert an 8bit string to a base64 string
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return string
  *
@@ -654,9 +654,9 @@ function imap_binary($text): string
 /**
  * Read the message body
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -671,9 +671,9 @@ function imap_body($stream_id, $msg_no, $options = null): string
 /**
  * Read the structure of a specified body section of a specific message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed $section
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed $section
  *
  * @return object
  *
@@ -688,7 +688,7 @@ function imap_bodystruct($stream_id, $msg_no, $section): object
 /**
  * Check current mailbox
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return object
  *
@@ -703,10 +703,10 @@ function imap_check($stream_id): object
 /**
  * Clears flags on messages
  *
- * mixed $stream_id
- * mixed $sequence
- * mixed $flag
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $sequence
+ * @param mixed $flag
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -721,8 +721,8 @@ function imap_clearflag_full($stream_id, $sequence, $flag, $options = null): boo
 /**
  * Close an IMAP stream
  *
- * mixed $stream_id
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -737,8 +737,8 @@ function imap_close($stream_id, $options = null): bool
 /**
  * Alias of <code>imap_createmailbox</code>
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -751,8 +751,8 @@ function imap_create($stream_id, $mailbox)
 /**
  * Create a new mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @return bool
  *
@@ -767,9 +767,9 @@ function imap_createmailbox($stream_id, $mailbox): bool
 /**
  * Mark a message for deletion from current mailbox
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -784,8 +784,8 @@ function imap_delete($stream_id, $msg_no, $options = null): bool
 /**
  * Delete a mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @return bool
  *
@@ -813,7 +813,7 @@ function imap_errors(): array
 /**
  * Delete all messages marked for deletion
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return bool
  *
@@ -828,9 +828,9 @@ function imap_expunge($stream_id): bool
 /**
  * Read an overview of the information in the headers of the given message
  *
- * mixed $stream_id
- * mixed $sequence
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $sequence
+ * @param mixed|null $options
  *
  * @return array
  *
@@ -845,10 +845,10 @@ function imap_fetch_overview($stream_id, $sequence, $options = null): array
 /**
  * Fetch a particular section of the body of the message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed $section
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed $section
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -863,9 +863,9 @@ function imap_fetchbody($stream_id, $msg_no, $section, $options = null): string
 /**
  * Returns header for a message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -880,10 +880,10 @@ function imap_fetchheader($stream_id, $msg_no, $options = null): string
 /**
  * Fetch MIME headers for a particular section of the message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed $section
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed $section
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -898,9 +898,9 @@ function imap_fetchmime($stream_id, $msg_no, $section, $options = null): string
 /**
  * Read the structure of a particular message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $options
  *
  * @return object
  *
@@ -915,9 +915,9 @@ function imap_fetchstructure($stream_id, $msg_no, $options = null): object
 /**
  * Alias of <code>imap_body</code>
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $options
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -930,8 +930,8 @@ function imap_fetchtext($stream_id, $msg_no, $options = null)
 /**
  * Clears IMAP cache
  *
- * mixed $stream_id
- * mixed|null $flags
+ * @param mixed $stream_id
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -946,8 +946,8 @@ function imap_gc($stream_id, $flags = null): bool
 /**
  * Retrieve the quota level settings, and usage statics per mailbox
  *
- * mixed $stream_id
- * mixed $qroot
+ * @param mixed $stream_id
+ * @param mixed $qroot
  *
  * @return array
  *
@@ -962,8 +962,8 @@ function imap_get_quota($stream_id, $qroot): array
 /**
  * Retrieve the quota settings per user
  *
- * mixed $stream_id
- * mixed $mbox
+ * @param mixed $stream_id
+ * @param mixed $mbox
  *
  * @return array
  *
@@ -978,8 +978,8 @@ function imap_get_quotaroot($stream_id, $mbox): array
 /**
  * Gets the ACL for a given mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @return array
  *
@@ -994,9 +994,9 @@ function imap_getacl($stream_id, $mailbox): array
 /**
  * Read the list of mailboxes, returning detailed information on each one
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @return array
  *
@@ -1011,9 +1011,9 @@ function imap_getmailboxes($stream_id, $ref, $pattern): array
 /**
  * List all the subscribed mailboxes
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @return array
  *
@@ -1028,11 +1028,11 @@ function imap_getsubscribed($stream_id, $ref, $pattern): array
 /**
  * Alias of <code>imap_headerinfo</code>
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $from_length
- * mixed|null $subject_length
- * mixed|null $default_host
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $from_length
+ * @param mixed|null $subject_length
+ * @param mixed|null $default_host
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1045,11 +1045,11 @@ function imap_header($stream_id, $msg_no, $from_length = null, $subject_length =
 /**
  * Read the header of the message
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $from_length
- * mixed|null $subject_length
- * mixed|null $default_host
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $from_length
+ * @param mixed|null $subject_length
+ * @param mixed|null $default_host
  *
  * @return object
  *
@@ -1064,7 +1064,7 @@ function imap_headerinfo($stream_id, $msg_no, $from_length = null, $subject_leng
 /**
  * Returns headers for all messages in a mailbox
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return array
  *
@@ -1092,9 +1092,9 @@ function imap_last_error(): string
 /**
  * Read the list of mailboxes
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @return array
  *
@@ -1109,9 +1109,9 @@ function imap_list($stream_id, $ref, $pattern): array
 /**
  * Alias of <code>imap_list</code>
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1124,10 +1124,10 @@ function imap_listmailbox($stream_id, $ref, $pattern)
 /**
  * Returns the list of mailboxes that matches the given text
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
- * mixed $content
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
+ * @param mixed $content
  *
  * @return array
  *
@@ -1142,9 +1142,9 @@ function imap_listscan($stream_id, $ref, $pattern, $content): array
 /**
  * Alias of <code>imap_lsub</code>
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1157,9 +1157,9 @@ function imap_listsubscribed($stream_id, $ref, $pattern)
 /**
  * List all the subscribed mailboxes
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
  *
  * @return array
  *
@@ -1174,13 +1174,13 @@ function imap_lsub($stream_id, $ref, $pattern): array
 /**
  * Send an email message
  *
- * mixed $to
- * mixed $subject
- * mixed $message
- * mixed|null $additional_headers
- * mixed|null $cc
- * mixed|null $bcc
- * mixed|null $rpath
+ * @param mixed $to
+ * @param mixed $subject
+ * @param mixed $message
+ * @param mixed|null $additional_headers
+ * @param mixed|null $cc
+ * @param mixed|null $bcc
+ * @param mixed|null $rpath
  *
  * @return bool
  *
@@ -1195,8 +1195,8 @@ function imap_mail($to, $subject, $message, $additional_headers = null, $cc = nu
 /**
  * Create a MIME message based on given envelope and body sections
  *
- * mixed $envelope
- * mixed $body
+ * @param mixed $envelope
+ * @param mixed $body
  *
  * @return string
  *
@@ -1211,10 +1211,10 @@ function imap_mail_compose($envelope, $body): string
 /**
  * Copy specified messages to a mailbox
  *
- * mixed $stream_id
- * mixed $msglist
- * mixed $mailbox
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $msglist
+ * @param mixed $mailbox
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -1229,10 +1229,10 @@ function imap_mail_copy($stream_id, $msglist, $mailbox, $options = null): bool
 /**
  * Move specified messages to a mailbox
  *
- * mixed $stream_id
- * mixed $sequence
- * mixed $mailbox
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $sequence
+ * @param mixed $mailbox
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -1247,7 +1247,7 @@ function imap_mail_move($stream_id, $sequence, $mailbox, $options = null): bool
 /**
  * Get information about the current mailbox
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return object
  *
@@ -1262,7 +1262,7 @@ function imap_mailboxmsginfo($stream_id): object
 /**
  * Decode MIME header elements
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return array
  *
@@ -1277,8 +1277,8 @@ function imap_mime_header_decode($str): array
 /**
  * Gets the message sequence number for the given UID
  *
- * mixed $stream_id
- * mixed $unique_msg_id
+ * @param mixed $stream_id
+ * @param mixed $unique_msg_id
  *
  * @return int
  *
@@ -1293,7 +1293,7 @@ function imap_msgno($stream_id, $unique_msg_id): int
 /**
  * Decode a modified UTF-7 string to UTF-8
  *
- * mixed $in
+ * @param mixed $in
  *
  * @return string
  *
@@ -1308,7 +1308,7 @@ function imap_mutf7_to_utf8($in): string
 /**
  * Gets the number of messages in the current mailbox
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return int
  *
@@ -1323,7 +1323,7 @@ function imap_num_msg($stream_id): int
 /**
  * Gets the number of recent messages in current mailbox
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return int
  *
@@ -1338,12 +1338,12 @@ function imap_num_recent($stream_id): int
 /**
  * Open an <code>IMAP</code> stream to a mailbox
  *
- * mixed $mailbox
- * mixed $user
- * mixed $password
- * mixed|null $options
- * mixed|null $n_retries
- * mixed|null $params
+ * @param mixed $mailbox
+ * @param mixed $user
+ * @param mixed $password
+ * @param mixed|null $options
+ * @param mixed|null $n_retries
+ * @param mixed|null $params
  *
  * @return resource
  *
@@ -1358,7 +1358,7 @@ function imap_open($mailbox, $user, $password, $options = null, $n_retries = nul
 /**
  * Check if the IMAP stream is still active
  *
- * mixed $stream_id
+ * @param mixed $stream_id
  *
  * @return bool
  *
@@ -1373,7 +1373,7 @@ function imap_ping($stream_id): bool
 /**
  * Convert a quoted-printable string to an 8 bit string
  *
- * mixed $text
+ * @param mixed $text
  *
  * @return string
  *
@@ -1388,9 +1388,9 @@ function imap_qprint($text): string
 /**
  * Alias of <code>imap_renamemailbox</code>
  *
- * mixed $stream_id
- * mixed $old_name
- * mixed $new_name
+ * @param mixed $stream_id
+ * @param mixed $old_name
+ * @param mixed $new_name
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1403,9 +1403,9 @@ function imap_rename($stream_id, $old_name, $new_name)
 /**
  * Rename an old mailbox to new mailbox
  *
- * mixed $stream_id
- * mixed $old_name
- * mixed $new_name
+ * @param mixed $stream_id
+ * @param mixed $old_name
+ * @param mixed $new_name
  *
  * @return bool
  *
@@ -1420,10 +1420,10 @@ function imap_renamemailbox($stream_id, $old_name, $new_name): bool
 /**
  * Reopen <code>IMAP</code> stream to new mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
- * mixed|null $options
- * mixed|null $n_retries
+ * @param mixed $stream_id
+ * @param mixed $mailbox
+ * @param mixed|null $options
+ * @param mixed|null $n_retries
  *
  * @return bool
  *
@@ -1438,8 +1438,8 @@ function imap_reopen($stream_id, $mailbox, $options = null, $n_retries = null): 
 /**
  * Parses an address string
  *
- * mixed $address_string
- * mixed $default_host
+ * @param mixed $address_string
+ * @param mixed $default_host
  *
  * @return array
  *
@@ -1454,8 +1454,8 @@ function imap_rfc822_parse_adrlist($address_string, $default_host): array
 /**
  * Parse mail headers from a string
  *
- * mixed $headers
- * mixed|null $default_host
+ * @param mixed $headers
+ * @param mixed|null $default_host
  *
  * @return object
  *
@@ -1470,9 +1470,9 @@ function imap_rfc822_parse_headers($headers, $default_host = null): object
 /**
  * Returns a properly formatted email address given the mailbox, host, and personal info
  *
- * mixed $mailbox
- * mixed $host
- * mixed $personal
+ * @param mixed $mailbox
+ * @param mixed $host
+ * @param mixed $personal
  *
  * @return string
  *
@@ -1487,11 +1487,11 @@ function imap_rfc822_write_address($mailbox, $host, $personal): string
 /**
  * Save a specific body section to a file
  *
- * mixed $stream_id
- * mixed $file
- * mixed $msg_no
- * mixed|null $section
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $file
+ * @param mixed $msg_no
+ * @param mixed|null $section
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -1506,10 +1506,10 @@ function imap_savebody($stream_id, $file, $msg_no, $section = null, $options = n
 /**
  * Alias of <code>imap_listscan</code>
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
- * mixed $content
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
+ * @param mixed $content
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1522,10 +1522,10 @@ function imap_scan($stream_id, $ref, $pattern, $content)
 /**
  * Alias of <code>imap_listscan</code>
  *
- * mixed $stream_id
- * mixed $ref
- * mixed $pattern
- * mixed $content
+ * @param mixed $stream_id
+ * @param mixed $ref
+ * @param mixed $pattern
+ * @param mixed $content
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1538,10 +1538,10 @@ function imap_scanmailbox($stream_id, $ref, $pattern, $content)
 /**
  * This function returns an array of messages matching the given search criteria
  *
- * mixed $stream_id
- * mixed $criteria
- * mixed|null $options
- * mixed|null $charset
+ * @param mixed $stream_id
+ * @param mixed $criteria
+ * @param mixed|null $options
+ * @param mixed|null $charset
  *
  * @return array
  *
@@ -1556,9 +1556,9 @@ function imap_search($stream_id, $criteria, $options = null, $charset = null): a
 /**
  * Sets a quota for a given mailbox
  *
- * mixed $stream_id
- * mixed $qroot
- * mixed $mailbox_size
+ * @param mixed $stream_id
+ * @param mixed $qroot
+ * @param mixed $mailbox_size
  *
  * @return bool
  *
@@ -1573,10 +1573,10 @@ function imap_set_quota($stream_id, $qroot, $mailbox_size): bool
 /**
  * Sets the ACL for a given mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
- * mixed $id
- * mixed $rights
+ * @param mixed $stream_id
+ * @param mixed $mailbox
+ * @param mixed $id
+ * @param mixed $rights
  *
  * @return bool
  *
@@ -1591,10 +1591,10 @@ function imap_setacl($stream_id, $mailbox, $id, $rights): bool
 /**
  * Sets flags on messages
  *
- * mixed $stream_id
- * mixed $sequence
- * mixed $flag
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed $sequence
+ * @param mixed $flag
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -1609,12 +1609,12 @@ function imap_setflag_full($stream_id, $sequence, $flag, $options = null): bool
 /**
  * Gets and sort messages
  *
- * mixed $stream_id
- * mixed $criteria
- * mixed $reverse
- * mixed|null $options
- * mixed|null $search_criteria
- * mixed|null $charset
+ * @param mixed $stream_id
+ * @param mixed $criteria
+ * @param mixed $reverse
+ * @param mixed|null $options
+ * @param mixed|null $search_criteria
+ * @param mixed|null $charset
  *
  * @return array
  *
@@ -1629,9 +1629,9 @@ function imap_sort($stream_id, $criteria, $reverse, $options = null, $search_cri
 /**
  * Returns status information on a mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
- * mixed $options
+ * @param mixed $stream_id
+ * @param mixed $mailbox
+ * @param mixed $options
  *
  * @return object
  *
@@ -1646,8 +1646,8 @@ function imap_status($stream_id, $mailbox, $options): object
 /**
  * Subscribe to a mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @return bool
  *
@@ -1662,8 +1662,8 @@ function imap_subscribe($stream_id, $mailbox): bool
 /**
  * Returns a tree of threaded message
  *
- * mixed $stream_id
- * mixed|null $options
+ * @param mixed $stream_id
+ * @param mixed|null $options
  *
  * @return array
  *
@@ -1678,8 +1678,8 @@ function imap_thread($stream_id, $options = null): array
 /**
  * Set or fetch imap timeout
  *
- * mixed $timeout_type
- * mixed|null $timeout
+ * @param mixed $timeout_type
+ * @param mixed|null $timeout
  *
  * @return mixed
  *
@@ -1694,8 +1694,8 @@ function imap_timeout($timeout_type, $timeout = null)
 /**
  * This function returns the UID for the given message sequence number
  *
- * mixed $stream_id
- * mixed $msg_no
+ * @param mixed $stream_id
+ * @param mixed $msg_no
  *
  * @return int
  *
@@ -1710,9 +1710,9 @@ function imap_uid($stream_id, $msg_no): int
 /**
  * Unmark the message which is marked deleted
  *
- * mixed $stream_id
- * mixed $msg_no
- * mixed|null $flags
+ * @param mixed $stream_id
+ * @param mixed $msg_no
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -1727,8 +1727,8 @@ function imap_undelete($stream_id, $msg_no, $flags = null): bool
 /**
  * Unsubscribe from a mailbox
  *
- * mixed $stream_id
- * mixed $mailbox
+ * @param mixed $stream_id
+ * @param mixed $mailbox
  *
  * @return bool
  *
@@ -1743,7 +1743,7 @@ function imap_unsubscribe($stream_id, $mailbox): bool
 /**
  * Decodes a modified UTF-7 encoded string
  *
- * mixed $buf
+ * @param mixed $buf
  *
  * @return string
  *
@@ -1758,7 +1758,7 @@ function imap_utf7_decode($buf): string
 /**
  * Converts ISO-8859-1 string to modified UTF-7 text
  *
- * mixed $buf
+ * @param mixed $buf
  *
  * @return string
  *
@@ -1773,7 +1773,7 @@ function imap_utf7_encode($buf): string
 /**
  * Converts MIME-encoded text to UTF-8
  *
- * mixed $mime_encoded_text
+ * @param mixed $mime_encoded_text
  *
  * @return string
  *
@@ -1788,7 +1788,7 @@ function imap_utf8($mime_encoded_text): string
 /**
  * Encode a UTF-8 string to modified UTF-7
  *
- * mixed $in
+ * @param mixed $in
  *
  * @return string
  *

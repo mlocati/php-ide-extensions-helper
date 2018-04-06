@@ -178,11 +178,11 @@ const PREG_UNMATCHED_AS_NULL = 512;
 /**
  * Perform a regular expression search and replace
  *
- * mixed $regex
- * mixed $replace
- * mixed $subject
- * mixed|null $limit
- * mixed|null $count
+ * @param mixed $regex
+ * @param mixed $replace
+ * @param mixed $subject
+ * @param mixed|null $limit
+ * @param mixed|null $count
  *
  * @return mixed
  *
@@ -197,9 +197,9 @@ function preg_filter($regex, $replace, $subject, $limit = null, &$count = null)
 /**
  * Return array entries that match the pattern
  *
- * mixed $regex
- * mixed $input
- * mixed|null $flags
+ * @param mixed $regex
+ * @param mixed $input
+ * @param mixed|null $flags
  *
  * @return array
  *
@@ -227,11 +227,11 @@ function preg_last_error(): int
 /**
  * Perform a regular expression match
  *
- * mixed $pattern
- * mixed $subject
- * mixed|null $subpatterns
- * mixed|null $flags
- * mixed|null $offset
+ * @param mixed $pattern
+ * @param mixed $subject
+ * @param mixed|null $subpatterns
+ * @param mixed|null $flags
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -246,11 +246,11 @@ function preg_match($pattern, $subject, &$subpatterns = null, $flags = null, $of
 /**
  * Perform a global regular expression match
  *
- * mixed $pattern
- * mixed $subject
- * mixed|null $subpatterns
- * mixed|null $flags
- * mixed|null $offset
+ * @param mixed $pattern
+ * @param mixed $subject
+ * @param mixed|null $subpatterns
+ * @param mixed|null $flags
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -265,8 +265,8 @@ function preg_match_all($pattern, $subject, &$subpatterns = null, $flags = null,
 /**
  * Quote regular expression characters
  *
- * mixed $str
- * mixed|null $delim_char
+ * @param mixed $str
+ * @param mixed|null $delim_char
  *
  * @return string
  *
@@ -281,11 +281,11 @@ function preg_quote($str, $delim_char = null): string
 /**
  * Perform a regular expression search and replace
  *
- * mixed $regex
- * mixed $replace
- * mixed $subject
- * mixed|null $limit
- * mixed|null $count
+ * @param mixed $regex
+ * @param mixed $replace
+ * @param mixed $subject
+ * @param mixed|null $limit
+ * @param mixed|null $count
  *
  * @return mixed
  *
@@ -300,11 +300,11 @@ function preg_replace($regex, $replace, $subject, $limit = null, &$count = null)
 /**
  * Perform a regular expression search and replace using a callback
  *
- * mixed $regex
- * mixed $callback
- * mixed $subject
- * mixed|null $limit
- * mixed|null $count
+ * @param mixed $regex
+ * @param mixed $callback
+ * @param mixed $subject
+ * @param mixed|null $limit
+ * @param mixed|null $count
  *
  * @return mixed
  *
@@ -319,10 +319,10 @@ function preg_replace_callback($regex, $callback, $subject, $limit = null, &$cou
 /**
  * Perform a regular expression search and replace using callbacks
  *
- * mixed $pattern
- * mixed $subject
- * mixed|null $limit
- * mixed|null $count
+ * @param mixed $pattern
+ * @param mixed $subject
+ * @param mixed|null $limit
+ * @param mixed|null $count
  *
  * @return mixed
  *
@@ -337,10 +337,10 @@ function preg_replace_callback_array($pattern, $subject, $limit = null, &$count 
 /**
  * Split string by a regular expression
  *
- * mixed $pattern
- * mixed $subject
- * mixed|null $limit
- * mixed|null $flags
+ * @param mixed $pattern
+ * @param mixed $subject
+ * @param mixed|null $limit
+ * @param mixed|null $flags
  *
  * @return array
  *

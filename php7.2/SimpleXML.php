@@ -13,11 +13,11 @@
 class SimpleXMLElement implements Traversable
 {
     /**
-     * mixed $data
-     * mixed|null $options
-     * mixed|null $data_is_url
-     * mixed|null $ns
-     * mixed|null $is_prefix
+     * @param mixed $data
+     * @param mixed|null $options
+     * @param mixed|null $data_is_url
+     * @param mixed|null $ns
+     * @param mixed|null $is_prefix
      */
     final public function __construct($data, $options = null, $data_is_url = null, $ns = null, $is_prefix = null)
     {
@@ -28,41 +28,41 @@ class SimpleXMLElement implements Traversable
     }
 
     /**
-     * mixed $name
-     * mixed|null $value
-     * mixed|null $ns
+     * @param mixed $name
+     * @param mixed|null $value
+     * @param mixed|null $ns
      */
     public function addAttribute($name, $value = null, $ns = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed|null $value
-     * mixed|null $ns
+     * @param mixed $name
+     * @param mixed|null $value
+     * @param mixed|null $ns
      */
     public function addChild($name, $value = null, $ns = null)
     {
     }
 
     /**
-     * mixed|null $filename
+     * @param mixed|null $filename
      */
     public function asXML($filename = null)
     {
     }
 
     /**
-     * mixed|null $ns
-     * mixed|null $is_prefix
+     * @param mixed|null $ns
+     * @param mixed|null $is_prefix
      */
     public function attributes($ns = null, $is_prefix = null)
     {
     }
 
     /**
-     * mixed|null $ns
-     * mixed|null $is_prefix
+     * @param mixed|null $ns
+     * @param mixed|null $is_prefix
      */
     public function children($ns = null, $is_prefix = null)
     {
@@ -82,8 +82,8 @@ class SimpleXMLElement implements Traversable
     }
 
     /**
-     * mixed|null $recursve
-     * mixed|null $from_root
+     * @param mixed|null $recursve
+     * @param mixed|null $from_root
      */
     public function getDocNamespaces($recursve = null, $from_root = null)
     {
@@ -94,29 +94,29 @@ class SimpleXMLElement implements Traversable
     }
 
     /**
-     * mixed|null $recursve
+     * @param mixed|null $recursve
      */
     public function getNamespaces($recursve = null)
     {
     }
 
     /**
-     * mixed $prefix
-     * mixed $ns
+     * @param mixed $prefix
+     * @param mixed $ns
      */
     public function registerXPathNamespace($prefix, $ns)
     {
     }
 
     /**
-     * mixed|null $filename
+     * @param mixed|null $filename
      */
     public function saveXML($filename = null)
     {
     }
 
     /**
-     * mixed $path
+     * @param mixed $path
      */
     public function xpath($path)
     {
@@ -200,8 +200,8 @@ class SimpleXMLIterator extends SimpleXMLElement implements Countable, Recursive
 /**
  * Get a <code>SimpleXMLElement</code> object from a DOM node
  *
- * mixed $node
- * mixed|null $class_name
+ * @param mixed $node
+ * @param mixed|null $class_name
  *
  * @return SimpleXMLElement
  *
@@ -216,11 +216,11 @@ function simplexml_import_dom($node, $class_name = null)
 /**
  * Interprets an XML file into an object
  *
- * mixed $filename
- * mixed|null $class_name
- * mixed|null $options
- * mixed|null $ns
- * mixed|null $is_prefix
+ * @param mixed $filename
+ * @param mixed|null $class_name
+ * @param mixed|null $options
+ * @param mixed|null $ns
+ * @param mixed|null $is_prefix
  *
  * @return SimpleXMLElement
  *
@@ -235,11 +235,11 @@ function simplexml_load_file($filename, $class_name = null, $options = null, $ns
 /**
  * Interprets a string of XML into an object
  *
- * mixed $data
- * mixed|null $class_name
- * mixed|null $options
- * mixed|null $ns
- * mixed|null $is_prefix
+ * @param mixed $data
+ * @param mixed|null $class_name
+ * @param mixed|null $options
+ * @param mixed|null $ns
+ * @param mixed|null $is_prefix
  *
  * @return SimpleXMLElement
  *

@@ -3256,9 +3256,9 @@ const CURLVERSION_NOW = 3;
 class CURLFile
 {
     /**
-     * mixed $filename
-     * mixed|null $mimetype
-     * mixed|null $postname
+     * @param mixed $filename
+     * @param mixed|null $mimetype
+     * @param mixed|null $postname
      */
     public function __construct($filename, $mimetype = null, $postname = null)
     {
@@ -3281,14 +3281,14 @@ class CURLFile
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function setMimeType($name)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function setPostFilename($name)
     {
@@ -3298,7 +3298,7 @@ class CURLFile
 /**
  * Close a cURL session
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return void
  *
@@ -3313,7 +3313,7 @@ function curl_close($ch)
 /**
  * Copy a cURL handle along with all of its preferences
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return resource
  *
@@ -3328,7 +3328,7 @@ function curl_copy_handle($ch)
 /**
  * Return the last error number
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return int
  *
@@ -3343,7 +3343,7 @@ function curl_errno($ch): int
 /**
  * Return a string containing the last error for the current session
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return string
  *
@@ -3358,8 +3358,8 @@ function curl_error($ch): string
 /**
  * URL encodes the given string
  *
- * mixed $ch
- * mixed $str
+ * @param mixed $ch
+ * @param mixed $str
  *
  * @return string
  *
@@ -3374,7 +3374,7 @@ function curl_escape($ch, $str): string
 /**
  * Perform a cURL session
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return mixed
  *
@@ -3389,9 +3389,9 @@ function curl_exec($ch)
 /**
  * Create a CURLFile object
  *
- * mixed $filename
- * mixed|null $mimetype
- * mixed|null $postname
+ * @param mixed $filename
+ * @param mixed|null $mimetype
+ * @param mixed|null $postname
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -3404,8 +3404,8 @@ function curl_file_create($filename, $mimetype = null, $postname = null)
 /**
  * Get information regarding a specific transfer
  *
- * mixed $ch
- * mixed|null $option
+ * @param mixed $ch
+ * @param mixed|null $option
  *
  * @return mixed
  *
@@ -3420,7 +3420,7 @@ function curl_getinfo($ch, $option = null)
 /**
  * Initialize a cURL session
  *
- * mixed|null $url
+ * @param mixed|null $url
  *
  * @return resource
  *
@@ -3435,8 +3435,8 @@ function curl_init($url = null)
 /**
  * Add a normal cURL handle to a cURL multi handle
  *
- * mixed $mh
- * mixed $ch
+ * @param mixed $mh
+ * @param mixed $ch
  *
  * @return int
  *
@@ -3451,7 +3451,7 @@ function curl_multi_add_handle($mh, $ch): int
 /**
  * Close a set of cURL handles
  *
- * mixed $mh
+ * @param mixed $mh
  *
  * @return void
  *
@@ -3466,8 +3466,8 @@ function curl_multi_close($mh)
 /**
  * Run the sub-connections of the current cURL handle
  *
- * mixed $mh
- * mixed|null $still_running
+ * @param mixed $mh
+ * @param mixed|null $still_running
  *
  * @return int
  *
@@ -3482,7 +3482,7 @@ function curl_multi_exec($mh, &$still_running = null): int
 /**
  * Return the content of a cURL handle if <code>CURLOPT_RETURNTRANSFER</code> is set
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return string
  *
@@ -3497,8 +3497,8 @@ function curl_multi_getcontent($ch): string
 /**
  * Get information about the current transfers
  *
- * mixed $mh
- * mixed|null $msgs_in_queue
+ * @param mixed $mh
+ * @param mixed|null $msgs_in_queue
  *
  * @return array
  *
@@ -3526,8 +3526,8 @@ function curl_multi_init()
 /**
  * Remove a multi handle from a set of cURL handles
  *
- * mixed $mh
- * mixed $ch
+ * @param mixed $mh
+ * @param mixed $ch
  *
  * @return int
  *
@@ -3542,8 +3542,8 @@ function curl_multi_remove_handle($mh, $ch): int
 /**
  * Wait for activity on any curl_multi connection
  *
- * mixed $mh
- * mixed|null $timeout
+ * @param mixed $mh
+ * @param mixed|null $timeout
  *
  * @return int
  *
@@ -3558,9 +3558,9 @@ function curl_multi_select($mh, $timeout = null): int
 /**
  * Set an option for the cURL multi handle
  *
- * mixed $sh
- * mixed $option
- * mixed $value
+ * @param mixed $sh
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -3575,7 +3575,7 @@ function curl_multi_setopt($sh, $option, $value): bool
 /**
  * Return string describing error code
  *
- * mixed $errornum
+ * @param mixed $errornum
  *
  * @return string
  *
@@ -3590,8 +3590,8 @@ function curl_multi_strerror($errornum): string
 /**
  * Pause and unpause a connection
  *
- * mixed $ch
- * mixed $bitmask
+ * @param mixed $ch
+ * @param mixed $bitmask
  *
  * @return int
  *
@@ -3606,7 +3606,7 @@ function curl_pause($ch, $bitmask): int
 /**
  * Reset all options of a libcurl session handle
  *
- * mixed $ch
+ * @param mixed $ch
  *
  * @return void
  *
@@ -3621,9 +3621,9 @@ function curl_reset($ch)
 /**
  * Set an option for a cURL transfer
  *
- * mixed $ch
- * mixed $option
- * mixed $value
+ * @param mixed $ch
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -3638,8 +3638,8 @@ function curl_setopt($ch, $option, $value): bool
 /**
  * Set multiple options for a cURL transfer
  *
- * mixed $ch
- * array[] $options
+ * @param mixed $ch
+ * @param array[] $options
  *
  * @return bool
  *
@@ -3654,7 +3654,7 @@ function curl_setopt_array($ch, $options): bool
 /**
  * Close a cURL share handle
  *
- * mixed $sh
+ * @param mixed $sh
  *
  * @return void
  *
@@ -3682,9 +3682,9 @@ function curl_share_init()
 /**
  * Set an option for a cURL share handle
  *
- * mixed $sh
- * mixed $option
- * mixed $value
+ * @param mixed $sh
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -3699,7 +3699,7 @@ function curl_share_setopt($sh, $option, $value): bool
 /**
  * Return string describing the given error code
  *
- * mixed $errornum
+ * @param mixed $errornum
  *
  * @return string
  *
@@ -3714,8 +3714,8 @@ function curl_strerror($errornum): string
 /**
  * Decodes the given URL encoded string
  *
- * mixed $ch
- * mixed $str
+ * @param mixed $ch
+ * @param mixed $str
  *
  * @return string
  *
@@ -3730,7 +3730,7 @@ function curl_unescape($ch, $str): string
 /**
  * Gets cURL version information
  *
- * mixed|null $version
+ * @param mixed|null $version
  *
  * @return array
  *

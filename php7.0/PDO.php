@@ -13,10 +13,10 @@
 class PDO
 {
     /**
-     * mixed $dsn
-     * mixed|null $username
-     * mixed|null $passwd
-     * mixed|null $options
+     * @param mixed $dsn
+     * @param mixed|null $username
+     * @param mixed|null $passwd
+     * @param mixed|null $options
      */
     public function __construct($dsn, $username = null, $passwd = null, $options = null)
     {
@@ -49,7 +49,7 @@ class PDO
     /**
      * Execute an external program
      *
-     * mixed $query
+     * @param mixed $query
      *
      * @return string
      *
@@ -62,7 +62,7 @@ class PDO
     }
 
     /**
-     * mixed $attribute
+     * @param mixed $attribute
      */
     public function getAttribute($attribute)
     {
@@ -77,15 +77,15 @@ class PDO
     }
 
     /**
-     * mixed|null $seqname
+     * @param mixed|null $seqname
      */
     public function lastInsertId($seqname = null)
     {
     }
 
     /**
-     * mixed $statement
-     * mixed|null $options
+     * @param mixed $statement
+     * @param mixed|null $options
      */
     public function prepare($statement, $options = null)
     {
@@ -96,8 +96,8 @@ class PDO
     }
 
     /**
-     * mixed $string
-     * mixed|null $paramtype
+     * @param mixed $string
+     * @param mixed|null $paramtype
      */
     public function quote($string, $paramtype = null)
     {
@@ -108,8 +108,8 @@ class PDO
     }
 
     /**
-     * mixed $attribute
-     * mixed $value
+     * @param mixed $attribute
+     * @param mixed $value
      */
     public function setAttribute($attribute, $value)
     {
@@ -153,31 +153,31 @@ class PDOStatement implements Traversable
     }
 
     /**
-     * mixed $column
-     * mixed $param
-     * mixed|null $type
-     * mixed|null $maxlen
-     * mixed|null $driverdata
+     * @param mixed $column
+     * @param mixed $param
+     * @param mixed|null $type
+     * @param mixed|null $maxlen
+     * @param mixed|null $driverdata
      */
     public function bindColumn($column, &$param, $type = null, $maxlen = null, $driverdata = null)
     {
     }
 
     /**
-     * mixed $paramno
-     * mixed $param
-     * mixed|null $type
-     * mixed|null $maxlen
-     * mixed|null $driverdata
+     * @param mixed $paramno
+     * @param mixed $param
+     * @param mixed|null $type
+     * @param mixed|null $maxlen
+     * @param mixed|null $driverdata
      */
     public function bindParam($paramno, &$param, $type = null, $maxlen = null, $driverdata = null)
     {
     }
 
     /**
-     * mixed $paramno
-     * mixed $param
-     * mixed|null $type
+     * @param mixed $paramno
+     * @param mixed $param
+     * @param mixed|null $type
      */
     public function bindValue($paramno, $param, $type = null)
     {
@@ -204,54 +204,54 @@ class PDOStatement implements Traversable
     }
 
     /**
-     * mixed|null $bound_input_params
+     * @param mixed|null $bound_input_params
      */
     public function execute($bound_input_params = null)
     {
     }
 
     /**
-     * mixed|null $how
-     * mixed|null $orientation
-     * mixed|null $offset
+     * @param mixed|null $how
+     * @param mixed|null $orientation
+     * @param mixed|null $offset
      */
     public function fetch($how = null, $orientation = null, $offset = null)
     {
     }
 
     /**
-     * mixed|null $how
-     * mixed|null $class_name
-     * mixed|null $ctor_args
+     * @param mixed|null $how
+     * @param mixed|null $class_name
+     * @param mixed|null $ctor_args
      */
     public function fetchAll($how = null, $class_name = null, $ctor_args = null)
     {
     }
 
     /**
-     * mixed|null $column_number
+     * @param mixed|null $column_number
      */
     public function fetchColumn($column_number = null)
     {
     }
 
     /**
-     * mixed|null $class_name
-     * mixed|null $ctor_args
+     * @param mixed|null $class_name
+     * @param mixed|null $ctor_args
      */
     public function fetchObject($class_name = null, $ctor_args = null)
     {
     }
 
     /**
-     * mixed $attribute
+     * @param mixed $attribute
      */
     public function getAttribute($attribute)
     {
     }
 
     /**
-     * mixed $column
+     * @param mixed $column
      */
     public function getColumnMeta($column)
     {
@@ -266,16 +266,16 @@ class PDOStatement implements Traversable
     }
 
     /**
-     * mixed $attribute
-     * mixed $value
+     * @param mixed $attribute
+     * @param mixed $value
      */
     public function setAttribute($attribute, $value)
     {
     }
 
     /**
-     * mixed $mode
-     * mixed|null $params
+     * @param mixed $mode
+     * @param mixed|null $params
      */
     public function setFetchMode($mode, $params = null)
     {

@@ -199,7 +199,7 @@ const XML_SAX_IMPL = 'libxml';
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
  *    to single-byte ISO-8859-1
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -214,7 +214,7 @@ function utf8_decode($data): string
 /**
  * Encodes an ISO-8859-1 string to UTF-8
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -229,7 +229,7 @@ function utf8_encode($data): string
 /**
  * Get XML parser error string
  *
- * mixed $code
+ * @param mixed $code
  *
  * @return string
  *
@@ -244,7 +244,7 @@ function xml_error_string($code): string
 /**
  * Get current byte index for an XML parser
  *
- * mixed $parser
+ * @param mixed $parser
  *
  * @return int
  *
@@ -259,7 +259,7 @@ function xml_get_current_byte_index($parser): int
 /**
  * Get current column number for an XML parser
  *
- * mixed $parser
+ * @param mixed $parser
  *
  * @return int
  *
@@ -274,7 +274,7 @@ function xml_get_current_column_number($parser): int
 /**
  * Get current line number for an XML parser
  *
- * mixed $parser
+ * @param mixed $parser
  *
  * @return int
  *
@@ -289,7 +289,7 @@ function xml_get_current_line_number($parser): int
 /**
  * Get XML parser error code
  *
- * mixed $parser
+ * @param mixed $parser
  *
  * @return int
  *
@@ -304,9 +304,9 @@ function xml_get_error_code($parser): int
 /**
  * Start parsing an XML document
  *
- * mixed $parser
- * mixed $data
- * mixed|null $isfinal
+ * @param mixed $parser
+ * @param mixed $data
+ * @param mixed|null $isfinal
  *
  * @return int
  *
@@ -321,10 +321,10 @@ function xml_parse($parser, $data, $isfinal = null): int
 /**
  * Parse XML data into an array structure
  *
- * mixed $parser
- * mixed $data
- * mixed $values
- * mixed|null $index
+ * @param mixed $parser
+ * @param mixed $data
+ * @param mixed $values
+ * @param mixed|null $index
  *
  * @return int
  *
@@ -339,7 +339,7 @@ function xml_parse_into_struct($parser, $data, &$values, &$index = null): int
 /**
  * Create an XML parser
  *
- * mixed|null $encoding
+ * @param mixed|null $encoding
  *
  * @return resource
  *
@@ -354,8 +354,8 @@ function xml_parser_create($encoding = null)
 /**
  * Create an XML parser with namespace support
  *
- * mixed|null $encoding
- * mixed|null $sep
+ * @param mixed|null $encoding
+ * @param mixed|null $sep
  *
  * @return resource
  *
@@ -370,7 +370,7 @@ function xml_parser_create_ns($encoding = null, $sep = null)
 /**
  * Free an XML parser
  *
- * mixed $parser
+ * @param mixed $parser
  *
  * @return bool
  *
@@ -385,8 +385,8 @@ function xml_parser_free($parser): bool
 /**
  * Get options from an XML parser
  *
- * mixed $parser
- * mixed $option
+ * @param mixed $parser
+ * @param mixed $option
  *
  * @return mixed
  *
@@ -401,9 +401,9 @@ function xml_parser_get_option($parser, $option)
 /**
  * Set options in an XML parser
  *
- * mixed $parser
- * mixed $option
- * mixed $value
+ * @param mixed $parser
+ * @param mixed $option
+ * @param mixed $value
  *
  * @return bool
  *
@@ -418,8 +418,8 @@ function xml_parser_set_option($parser, $option, $value): bool
 /**
  * Set up character data handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -434,8 +434,8 @@ function xml_set_character_data_handler($parser, $hdl): bool
 /**
  * Set up default handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -450,9 +450,9 @@ function xml_set_default_handler($parser, $hdl): bool
 /**
  * Set up start and end element handlers
  *
- * mixed $parser
- * mixed $shdl
- * mixed $ehdl
+ * @param mixed $parser
+ * @param mixed $shdl
+ * @param mixed $ehdl
  *
  * @return bool
  *
@@ -467,8 +467,8 @@ function xml_set_element_handler($parser, $shdl, $ehdl): bool
 /**
  * Set up end namespace declaration handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -483,8 +483,8 @@ function xml_set_end_namespace_decl_handler($parser, $hdl): bool
 /**
  * Set up external entity reference handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -499,8 +499,8 @@ function xml_set_external_entity_ref_handler($parser, $hdl): bool
 /**
  * Set up notation declaration handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -515,8 +515,8 @@ function xml_set_notation_decl_handler($parser, $hdl): bool
 /**
  * Use XML Parser within an object
  *
- * mixed $parser
- * mixed $obj
+ * @param mixed $parser
+ * @param mixed $obj
  *
  * @return bool
  *
@@ -531,8 +531,8 @@ function xml_set_object($parser, $obj): bool
 /**
  * Set up processing instruction (PI) handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -547,8 +547,8 @@ function xml_set_processing_instruction_handler($parser, $hdl): bool
 /**
  * Set up start namespace declaration handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *
@@ -563,8 +563,8 @@ function xml_set_start_namespace_decl_handler($parser, $hdl): bool
 /**
  * Set up unparsed entity declaration handler
  *
- * mixed $parser
- * mixed $hdl
+ * @param mixed $parser
+ * @param mixed $hdl
  *
  * @return bool
  *

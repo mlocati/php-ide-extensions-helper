@@ -268,8 +268,8 @@ const POSIX_X_OK = 1;
 /**
  * Determine accessibility of a file
  *
- * mixed $file
- * mixed|null $mode
+ * @param mixed $file
+ * @param mixed|null $mode
  *
  * @return bool
  *
@@ -373,7 +373,7 @@ function posix_getgid(): int
 /**
  * Return info about a group by group id
  *
- * mixed $gid
+ * @param mixed $gid
  *
  * @return array
  *
@@ -388,7 +388,7 @@ function posix_getgrgid($gid): array
 /**
  * Return info about a group by name
  *
- * mixed $name
+ * @param mixed $name
  *
  * @return array
  *
@@ -429,7 +429,7 @@ function posix_getlogin(): string
 /**
  * Get process group id for job control
  *
- * mixed $pid
+ * @param mixed $pid
  *
  * @return int
  *
@@ -483,7 +483,7 @@ function posix_getppid(): int
 /**
  * Return info about a user by username
  *
- * mixed $username
+ * @param mixed $username
  *
  * @return array
  *
@@ -498,7 +498,7 @@ function posix_getpwnam($username): array
 /**
  * Return info about a user by user id
  *
- * mixed $uid
+ * @param mixed $uid
  *
  * @return array
  *
@@ -526,7 +526,7 @@ function posix_getrlimit(): array
 /**
  * Get the current sid of the process
  *
- * mixed $pid
+ * @param mixed $pid
  *
  * @return int
  *
@@ -554,8 +554,8 @@ function posix_getuid(): int
 /**
  * Calculate the group access list
  *
- * mixed $name
- * mixed $base_group_id
+ * @param mixed $name
+ * @param mixed $base_group_id
  *
  * @return bool
  *
@@ -570,7 +570,7 @@ function posix_initgroups($name, $base_group_id): bool
 /**
  * Determine if a file descriptor is an interactive terminal
  *
- * mixed $fd
+ * @param mixed $fd
  *
  * @return bool
  *
@@ -585,8 +585,8 @@ function posix_isatty($fd): bool
 /**
  * Send a signal to a process
  *
- * mixed $pid
- * mixed $sig
+ * @param mixed $pid
+ * @param mixed $sig
  *
  * @return bool
  *
@@ -601,8 +601,8 @@ function posix_kill($pid, $sig): bool
 /**
  * Create a fifo special file (a named pipe)
  *
- * mixed $pathname
- * mixed $mode
+ * @param mixed $pathname
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -617,10 +617,10 @@ function posix_mkfifo($pathname, $mode): bool
 /**
  * Create a special or ordinary file (POSIX.1)
  *
- * mixed $pathname
- * mixed $mode
- * mixed|null $major
- * mixed|null $minor
+ * @param mixed $pathname
+ * @param mixed $mode
+ * @param mixed|null $major
+ * @param mixed|null $minor
  *
  * @return bool
  *
@@ -635,7 +635,7 @@ function posix_mknod($pathname, $mode, $major = null, $minor = null): bool
 /**
  * Set the effective GID of the current process
  *
- * mixed $gid
+ * @param mixed $gid
  *
  * @return bool
  *
@@ -650,7 +650,7 @@ function posix_setegid($gid): bool
 /**
  * Set the effective UID of the current process
  *
- * mixed $uid
+ * @param mixed $uid
  *
  * @return bool
  *
@@ -665,7 +665,7 @@ function posix_seteuid($uid): bool
 /**
  * Set the GID of the current process
  *
- * mixed $gid
+ * @param mixed $gid
  *
  * @return bool
  *
@@ -680,8 +680,8 @@ function posix_setgid($gid): bool
 /**
  * Set process group id for job control
  *
- * mixed $pid
- * mixed $pgid
+ * @param mixed $pid
+ * @param mixed $pgid
  *
  * @return bool
  *
@@ -696,9 +696,9 @@ function posix_setpgid($pid, $pgid): bool
 /**
  * Set system resource limits
  *
- * mixed $resource
- * mixed $softlimit
- * mixed $hardlimit
+ * @param mixed $resource
+ * @param mixed $softlimit
+ * @param mixed $hardlimit
  *
  * @return bool
  *
@@ -726,7 +726,7 @@ function posix_setsid(): int
 /**
  * Set the UID of the current process
  *
- * mixed $uid
+ * @param mixed $uid
  *
  * @return bool
  *
@@ -741,7 +741,7 @@ function posix_setuid($uid): bool
 /**
  * Retrieve the system error message associated with the given errno
  *
- * mixed $errno
+ * @param mixed $errno
  *
  * @return string
  *
@@ -769,7 +769,7 @@ function posix_times(): array
 /**
  * Determine terminal device name
  *
- * mixed $fd
+ * @param mixed $fd
  *
  * @return string
  *

@@ -171,11 +171,11 @@ const SNMP_VALUE_PLAIN = 1;
 class SNMP
 {
     /**
-     * mixed $version
-     * mixed $host
-     * mixed $community
-     * mixed|null $timeout
-     * mixed|null $retries
+     * @param mixed $version
+     * @param mixed $host
+     * @param mixed $community
+     * @param mixed|null $timeout
+     * @param mixed|null $retries
      */
     public function __construct($version, $host, $community, $timeout = null, $retries = null)
     {
@@ -186,8 +186,8 @@ class SNMP
     }
 
     /**
-     * mixed $object_id
-     * mixed|null $use_orignames
+     * @param mixed $object_id
+     * @param mixed|null $use_orignames
      */
     public function get($object_id, $use_orignames = null)
     {
@@ -202,40 +202,40 @@ class SNMP
     }
 
     /**
-     * mixed $object_id
-     * mixed|null $use_orignames
+     * @param mixed $object_id
+     * @param mixed|null $use_orignames
      */
     public function getnext($object_id, $use_orignames = null)
     {
     }
 
     /**
-     * mixed $object_id
-     * mixed $type
-     * mixed $value
+     * @param mixed $object_id
+     * @param mixed $type
+     * @param mixed $value
      */
     public function set($object_id, $type, $value)
     {
     }
 
     /**
-     * mixed $sec_level
-     * mixed $auth_protocol
-     * mixed $auth_passphrase
-     * mixed $priv_protocol
-     * mixed $priv_passphrase
-     * mixed $contextName
-     * mixed $contextEngineID
+     * @param mixed $sec_level
+     * @param mixed $auth_protocol
+     * @param mixed $auth_passphrase
+     * @param mixed $priv_protocol
+     * @param mixed $priv_passphrase
+     * @param mixed $contextName
+     * @param mixed $contextEngineID
      */
     public function setSecurity($sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID)
     {
     }
 
     /**
-     * mixed $object_id
-     * mixed $suffix_keys
-     * mixed $max_repetitions
-     * mixed $non_repeaters
+     * @param mixed $object_id
+     * @param mixed $suffix_keys
+     * @param mixed $max_repetitions
+     * @param mixed $non_repeaters
      */
     public function walk($object_id, $suffix_keys, $max_repetitions, $non_repeaters)
     {
@@ -259,11 +259,11 @@ class SNMPException extends RuntimeException
 /**
  * Fetch an <code>SNMP</code> object
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -278,11 +278,11 @@ function snmp2_get($host, $community, $object_id, $timeout = null, $retries = nu
 /**
  * Fetch the <code>SNMP</code> object which follows the given object id
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -297,11 +297,11 @@ function snmp2_getnext($host, $community, $object_id, $timeout = null, $retries 
 /**
  * Return all objects including their respective object ID within the specified one
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -316,13 +316,13 @@ function snmp2_real_walk($host, $community, $object_id, $timeout = null, $retrie
 /**
  * Set the value of an <code>SNMP</code> object
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed $type
- * mixed $value
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed $type
+ * @param mixed $value
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return bool
  *
@@ -337,11 +337,11 @@ function snmp2_set($host, $community, $object_id, $type, $value, $timeout = null
 /**
  * Fetch all the <code>SNMP</code> objects from an agent
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -356,16 +356,16 @@ function snmp2_walk($host, $community, $object_id, $timeout = null, $retries = n
 /**
  * Fetch an <code>SNMP</code> object
  *
- * mixed $host
- * mixed $sec_name
- * mixed $sec_level
- * mixed $auth_protocol
- * mixed $auth_passphrase
- * mixed $priv_protocol
- * mixed $priv_passphrase
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $sec_name
+ * @param mixed $sec_level
+ * @param mixed $auth_protocol
+ * @param mixed $auth_passphrase
+ * @param mixed $priv_protocol
+ * @param mixed $priv_passphrase
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -380,16 +380,16 @@ function snmp3_get($host, $sec_name, $sec_level, $auth_protocol, $auth_passphras
 /**
  * Fetch the <code>SNMP</code> object which follows the given object id
  *
- * mixed $host
- * mixed $sec_name
- * mixed $sec_level
- * mixed $auth_protocol
- * mixed $auth_passphrase
- * mixed $priv_protocol
- * mixed $priv_passphrase
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $sec_name
+ * @param mixed $sec_level
+ * @param mixed $auth_protocol
+ * @param mixed $auth_passphrase
+ * @param mixed $priv_protocol
+ * @param mixed $priv_passphrase
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -404,16 +404,16 @@ function snmp3_getnext($host, $sec_name, $sec_level, $auth_protocol, $auth_passp
 /**
  * Return all objects including their respective object ID within the specified one
  *
- * mixed $host
- * mixed $sec_name
- * mixed $sec_level
- * mixed $auth_protocol
- * mixed $auth_passphrase
- * mixed $priv_protocol
- * mixed $priv_passphrase
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $sec_name
+ * @param mixed $sec_level
+ * @param mixed $auth_protocol
+ * @param mixed $auth_passphrase
+ * @param mixed $priv_protocol
+ * @param mixed $priv_passphrase
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -428,18 +428,18 @@ function snmp3_real_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_pas
 /**
  * Set the value of an SNMP object
  *
- * mixed $host
- * mixed $sec_name
- * mixed $sec_level
- * mixed $auth_protocol
- * mixed $auth_passphrase
- * mixed $priv_protocol
- * mixed $priv_passphrase
- * mixed $object_id
- * mixed $type
- * mixed $value
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $sec_name
+ * @param mixed $sec_level
+ * @param mixed $auth_protocol
+ * @param mixed $auth_passphrase
+ * @param mixed $priv_protocol
+ * @param mixed $priv_passphrase
+ * @param mixed $object_id
+ * @param mixed $type
+ * @param mixed $value
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return bool
  *
@@ -454,16 +454,16 @@ function snmp3_set($host, $sec_name, $sec_level, $auth_protocol, $auth_passphras
 /**
  * Fetch all the <code>SNMP</code> objects from an agent
  *
- * mixed $host
- * mixed $sec_name
- * mixed $sec_level
- * mixed $auth_protocol
- * mixed $auth_passphrase
- * mixed $priv_protocol
- * mixed $priv_passphrase
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $sec_name
+ * @param mixed $sec_level
+ * @param mixed $auth_protocol
+ * @param mixed $auth_passphrase
+ * @param mixed $priv_protocol
+ * @param mixed $priv_passphrase
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -478,7 +478,7 @@ function snmp3_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
 /**
  * Fetches the current value of the UCD library's quick_print setting
  *
- * mixed $d
+ * @param mixed $d
  *
  * @return bool
  *
@@ -506,7 +506,7 @@ function snmp_get_valueretrieval(): int
 /**
  * Reads and parses a MIB file into the active MIB tree
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -521,7 +521,7 @@ function snmp_read_mib($filename): bool
 /**
  * Return all values that are enums with their enum value instead of the raw integer
  *
- * mixed $enum_print
+ * @param mixed $enum_print
  *
  * @return bool
  *
@@ -536,7 +536,7 @@ function snmp_set_enum_print($enum_print): bool
 /**
  * Set the OID output format
  *
- * mixed $oid_format
+ * @param mixed $oid_format
  *
  * @return void
  *
@@ -551,7 +551,7 @@ function snmp_set_oid_numeric_print($oid_format)
 /**
  * Set the OID output format
  *
- * mixed $oid_format
+ * @param mixed $oid_format
  *
  * @return bool
  *
@@ -566,7 +566,7 @@ function snmp_set_oid_output_format($oid_format): bool
 /**
  * Set the value of <code>quick_print</code> within the UCD <code>SNMP</code> library
  *
- * mixed $quick_print
+ * @param mixed $quick_print
  *
  * @return bool
  *
@@ -581,7 +581,7 @@ function snmp_set_quick_print($quick_print): bool
 /**
  * Specify the method how the SNMP values will be returned
  *
- * mixed $method
+ * @param mixed $method
  *
  * @return bool
  *
@@ -596,11 +596,11 @@ function snmp_set_valueretrieval($method): bool
 /**
  * Fetch an <code>SNMP</code> object
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -615,11 +615,11 @@ function snmpget($host, $community, $object_id, $timeout = null, $retries = null
 /**
  * Fetch the <code>SNMP</code> object which follows the given object id
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return string
  *
@@ -634,11 +634,11 @@ function snmpgetnext($host, $community, $object_id, $timeout = null, $retries = 
 /**
  * Return all objects including their respective object ID within the specified one
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -653,13 +653,13 @@ function snmprealwalk($host, $community, $object_id, $timeout = null, $retries =
 /**
  * Set the value of an <code>SNMP</code> object
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed $type
- * mixed $value
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed $type
+ * @param mixed $value
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return bool
  *
@@ -674,11 +674,11 @@ function snmpset($host, $community, $object_id, $type, $value, $timeout = null, 
 /**
  * Fetch all the <code>SNMP</code> objects from an agent
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *
@@ -693,11 +693,11 @@ function snmpwalk($host, $community, $object_id, $timeout = null, $retries = nul
 /**
  * Query for a tree of information about a network entity
  *
- * mixed $host
- * mixed $community
- * mixed $object_id
- * mixed|null $timeout
- * mixed|null $retries
+ * @param mixed $host
+ * @param mixed $community
+ * @param mixed $object_id
+ * @param mixed|null $timeout
+ * @param mixed|null $retries
  *
  * @return array
  *

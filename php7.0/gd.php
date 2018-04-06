@@ -780,9 +780,9 @@ function gd_info(): array
 /**
  * Output image to browser or file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $threshold
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $threshold
  *
  * @return bool
  *
@@ -797,9 +797,9 @@ function image2wbmp($im, $filename = null, $threshold = null): bool
 /**
  * Return an image containing the affine transformed src image, using an optional clipping area
  *
- * mixed $im
- * mixed $affine
- * mixed|null $clip
+ * @param mixed $im
+ * @param mixed $affine
+ * @param mixed|null $clip
  *
  * @return resource
  *
@@ -814,8 +814,8 @@ function imageaffine($im, $affine, $clip = null)
 /**
  * Concatenate two affine transformation matrices
  *
- * mixed $m1
- * mixed $m2
+ * @param mixed $m1
+ * @param mixed $m2
  *
  * @return array
  *
@@ -830,8 +830,8 @@ function imageaffinematrixconcat($m1, $m2): array
 /**
  * Get an affine transformation matrix
  *
- * mixed $type
- * mixed|null $options
+ * @param mixed $type
+ * @param mixed|null $options
  *
  * @return array
  *
@@ -846,8 +846,8 @@ function imageaffinematrixget($type, $options = null): array
 /**
  * Set the blending mode for an image
  *
- * mixed $im
- * mixed $blend
+ * @param mixed $im
+ * @param mixed $blend
  *
  * @return bool
  *
@@ -862,8 +862,8 @@ function imagealphablending($im, $blend): bool
 /**
  * Should antialias functions be used or not
  *
- * mixed $im
- * mixed $on
+ * @param mixed $im
+ * @param mixed $on
  *
  * @return bool
  *
@@ -878,14 +878,14 @@ function imageantialias($im, $on): bool
 /**
  * Draws an arc
  *
- * mixed $im
- * mixed $cx
- * mixed $cy
- * mixed $w
- * mixed $h
- * mixed $s
- * mixed $e
- * mixed $col
+ * @param mixed $im
+ * @param mixed $cx
+ * @param mixed $cy
+ * @param mixed $w
+ * @param mixed $h
+ * @param mixed $s
+ * @param mixed $e
+ * @param mixed $col
  *
  * @return bool
  *
@@ -900,12 +900,12 @@ function imagearc($im, $cx, $cy, $w, $h, $s, $e, $col): bool
 /**
  * Draw a character horizontally
  *
- * mixed $im
- * mixed $font
- * mixed $x
- * mixed $y
- * mixed $c
- * mixed $col
+ * @param mixed $im
+ * @param mixed $font
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $c
+ * @param mixed $col
  *
  * @return bool
  *
@@ -920,12 +920,12 @@ function imagechar($im, $font, $x, $y, $c, $col): bool
 /**
  * Draw a character vertically
  *
- * mixed $im
- * mixed $font
- * mixed $x
- * mixed $y
- * mixed $c
- * mixed $col
+ * @param mixed $im
+ * @param mixed $font
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $c
+ * @param mixed $col
  *
  * @return bool
  *
@@ -940,10 +940,10 @@ function imagecharup($im, $font, $x, $y, $c, $col): bool
 /**
  * Allocate a color for an image
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
  *
  * @return int
  *
@@ -958,11 +958,11 @@ function imagecolorallocate($im, $red, $green, $blue): int
 /**
  * Allocate a color for an image
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
- * mixed $alpha
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
+ * @param mixed $alpha
  *
  * @return int
  *
@@ -977,9 +977,9 @@ function imagecolorallocatealpha($im, $red, $green, $blue, $alpha): int
 /**
  * Get the index of the color of a pixel
  *
- * mixed $im
- * mixed $x
- * mixed $y
+ * @param mixed $im
+ * @param mixed $x
+ * @param mixed $y
  *
  * @return int
  *
@@ -994,10 +994,10 @@ function imagecolorat($im, $x, $y): int
 /**
  * Get the index of the closest color to the specified color
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
  *
  * @return int
  *
@@ -1012,11 +1012,11 @@ function imagecolorclosest($im, $red, $green, $blue): int
 /**
  * Get the index of the closest color to the specified color + alpha
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
- * mixed $alpha
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
+ * @param mixed $alpha
  *
  * @return int
  *
@@ -1031,10 +1031,10 @@ function imagecolorclosestalpha($im, $red, $green, $blue, $alpha): int
 /**
  * Get the index of the color which has the hue, white and blackness
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
  *
  * @return int
  *
@@ -1049,8 +1049,8 @@ function imagecolorclosesthwb($im, $red, $green, $blue): int
 /**
  * De-allocate a color for an image
  *
- * mixed $im
- * mixed $index
+ * @param mixed $im
+ * @param mixed $index
  *
  * @return bool
  *
@@ -1065,10 +1065,10 @@ function imagecolordeallocate($im, $index): bool
 /**
  * Get the index of the specified color
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
  *
  * @return int
  *
@@ -1083,11 +1083,11 @@ function imagecolorexact($im, $red, $green, $blue): int
 /**
  * Get the index of the specified color + alpha
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
- * mixed $alpha
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
+ * @param mixed $alpha
  *
  * @return int
  *
@@ -1102,8 +1102,8 @@ function imagecolorexactalpha($im, $red, $green, $blue, $alpha): int
 /**
  * Makes the colors of the palette version of an image more closely match the true color version
  *
- * mixed $im1
- * mixed $im2
+ * @param mixed $im1
+ * @param mixed $im2
  *
  * @return bool
  *
@@ -1118,10 +1118,10 @@ function imagecolormatch($im1, $im2): bool
 /**
  * Get the index of the specified color or its closest possible alternative
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
  *
  * @return int
  *
@@ -1136,11 +1136,11 @@ function imagecolorresolve($im, $red, $green, $blue): int
 /**
  * Get the index of the specified color + alpha or its closest possible alternative
  *
- * mixed $im
- * mixed $red
- * mixed $green
- * mixed $blue
- * mixed $alpha
+ * @param mixed $im
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
+ * @param mixed $alpha
  *
  * @return int
  *
@@ -1155,12 +1155,12 @@ function imagecolorresolvealpha($im, $red, $green, $blue, $alpha): int
 /**
  * Set the color for the specified palette index
  *
- * mixed $im
- * mixed $color
- * mixed $red
- * mixed $green
- * mixed $blue
- * mixed|null $alpha
+ * @param mixed $im
+ * @param mixed $color
+ * @param mixed $red
+ * @param mixed $green
+ * @param mixed $blue
+ * @param mixed|null $alpha
  *
  * @return void
  *
@@ -1175,8 +1175,8 @@ function imagecolorset($im, $color, $red, $green, $blue, $alpha = null)
 /**
  * Get the colors for an index
  *
- * mixed $im
- * mixed $index
+ * @param mixed $im
+ * @param mixed $index
  *
  * @return array
  *
@@ -1191,7 +1191,7 @@ function imagecolorsforindex($im, $index): array
 /**
  * Find out the number of colors in an image's palette
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return int
  *
@@ -1206,8 +1206,8 @@ function imagecolorstotal($im): int
 /**
  * Define a color as transparent
  *
- * mixed $im
- * mixed|null $col
+ * @param mixed $im
+ * @param mixed|null $col
  *
  * @return int
  *
@@ -1222,10 +1222,10 @@ function imagecolortransparent($im, $col = null): int
 /**
  * Apply a 3x3 convolution matrix, using coefficient and offset
  *
- * mixed $im
- * mixed $matrix3x3
- * mixed $div
- * mixed $offset
+ * @param mixed $im
+ * @param mixed $matrix3x3
+ * @param mixed $div
+ * @param mixed $offset
  *
  * @return bool
  *
@@ -1240,14 +1240,14 @@ function imageconvolution($im, $matrix3x3, $div, $offset): bool
 /**
  * Copy part of an image
  *
- * mixed $dst_im
- * mixed $src_im
- * mixed $dst_x
- * mixed $dst_y
- * mixed $src_x
- * mixed $src_y
- * mixed $src_w
- * mixed $src_h
+ * @param mixed $dst_im
+ * @param mixed $src_im
+ * @param mixed $dst_x
+ * @param mixed $dst_y
+ * @param mixed $src_x
+ * @param mixed $src_y
+ * @param mixed $src_w
+ * @param mixed $src_h
  *
  * @return bool
  *
@@ -1262,15 +1262,15 @@ function imagecopy($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $sr
 /**
  * Copy and merge part of an image
  *
- * mixed $src_im
- * mixed $dst_im
- * mixed $dst_x
- * mixed $dst_y
- * mixed $src_x
- * mixed $src_y
- * mixed $src_w
- * mixed $src_h
- * mixed $pct
+ * @param mixed $src_im
+ * @param mixed $dst_im
+ * @param mixed $dst_x
+ * @param mixed $dst_y
+ * @param mixed $src_x
+ * @param mixed $src_y
+ * @param mixed $src_w
+ * @param mixed $src_h
+ * @param mixed $pct
  *
  * @return bool
  *
@@ -1285,15 +1285,15 @@ function imagecopymerge($src_im, $dst_im, $dst_x, $dst_y, $src_x, $src_y, $src_w
 /**
  * Copy and merge part of an image with gray scale
  *
- * mixed $src_im
- * mixed $dst_im
- * mixed $dst_x
- * mixed $dst_y
- * mixed $src_x
- * mixed $src_y
- * mixed $src_w
- * mixed $src_h
- * mixed $pct
+ * @param mixed $src_im
+ * @param mixed $dst_im
+ * @param mixed $dst_x
+ * @param mixed $dst_y
+ * @param mixed $src_x
+ * @param mixed $src_y
+ * @param mixed $src_w
+ * @param mixed $src_h
+ * @param mixed $pct
  *
  * @return bool
  *
@@ -1308,16 +1308,16 @@ function imagecopymergegray($src_im, $dst_im, $dst_x, $dst_y, $src_x, $src_y, $s
 /**
  * Copy and resize part of an image with resampling
  *
- * mixed $dst_im
- * mixed $src_im
- * mixed $dst_x
- * mixed $dst_y
- * mixed $src_x
- * mixed $src_y
- * mixed $dst_w
- * mixed $dst_h
- * mixed $src_w
- * mixed $src_h
+ * @param mixed $dst_im
+ * @param mixed $src_im
+ * @param mixed $dst_x
+ * @param mixed $dst_y
+ * @param mixed $src_x
+ * @param mixed $src_y
+ * @param mixed $dst_w
+ * @param mixed $dst_h
+ * @param mixed $src_w
+ * @param mixed $src_h
  *
  * @return bool
  *
@@ -1332,16 +1332,16 @@ function imagecopyresampled($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $d
 /**
  * Copy and resize part of an image
  *
- * mixed $dst_im
- * mixed $src_im
- * mixed $dst_x
- * mixed $dst_y
- * mixed $src_x
- * mixed $src_y
- * mixed $dst_w
- * mixed $dst_h
- * mixed $src_w
- * mixed $src_h
+ * @param mixed $dst_im
+ * @param mixed $src_im
+ * @param mixed $dst_x
+ * @param mixed $dst_y
+ * @param mixed $src_x
+ * @param mixed $src_y
+ * @param mixed $dst_w
+ * @param mixed $dst_h
+ * @param mixed $src_w
+ * @param mixed $src_h
  *
  * @return bool
  *
@@ -1356,8 +1356,8 @@ function imagecopyresized($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $dst
 /**
  * Create a new palette based image
  *
- * mixed $x_size
- * mixed $y_size
+ * @param mixed $x_size
+ * @param mixed $y_size
  *
  * @return resource
  *
@@ -1372,7 +1372,7 @@ function imagecreate($x_size, $y_size)
 /**
  * Create a new image from GD file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1387,7 +1387,7 @@ function imagecreatefromgd($filename)
 /**
  * Create a new image from GD2 file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1402,11 +1402,11 @@ function imagecreatefromgd2($filename)
 /**
  * Create a new image from a given part of GD2 file or URL
  *
- * mixed $filename
- * mixed $srcX
- * mixed $srcY
- * mixed $width
- * mixed $height
+ * @param mixed $filename
+ * @param mixed $srcX
+ * @param mixed $srcY
+ * @param mixed $width
+ * @param mixed $height
  *
  * @return resource
  *
@@ -1421,7 +1421,7 @@ function imagecreatefromgd2part($filename, $srcX, $srcY, $width, $height)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1436,7 +1436,7 @@ function imagecreatefromgif($filename)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1451,7 +1451,7 @@ function imagecreatefromjpeg($filename)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1466,7 +1466,7 @@ function imagecreatefrompng($filename)
 /**
  * Create a new image from the image stream in the string
  *
- * mixed $image
+ * @param mixed $image
  *
  * @return resource
  *
@@ -1481,7 +1481,7 @@ function imagecreatefromstring($image)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1496,7 +1496,7 @@ function imagecreatefromwbmp($filename)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1511,7 +1511,7 @@ function imagecreatefromwebp($filename)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1526,7 +1526,7 @@ function imagecreatefromxbm($filename)
 /**
  * Create a new image from file or URL
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -1541,8 +1541,8 @@ function imagecreatefromxpm($filename)
 /**
  * Create a new true color image
  *
- * mixed $x_size
- * mixed $y_size
+ * @param mixed $x_size
+ * @param mixed $y_size
  *
  * @return resource
  *
@@ -1557,8 +1557,8 @@ function imagecreatetruecolor($x_size, $y_size)
 /**
  * Crop an image to the given rectangle
  *
- * mixed $im
- * mixed $rect
+ * @param mixed $im
+ * @param mixed $rect
  *
  * @return resource
  *
@@ -1573,10 +1573,10 @@ function imagecrop($im, $rect)
 /**
  * Crop an image automatically using one of the available modes
  *
- * mixed $im
- * mixed|null $mode
- * mixed|null $threshold
- * mixed|null $color
+ * @param mixed $im
+ * @param mixed|null $mode
+ * @param mixed|null $threshold
+ * @param mixed|null $color
  *
  * @return resource
  *
@@ -1591,12 +1591,12 @@ function imagecropauto($im, $mode = null, $threshold = null, $color = null)
 /**
  * Draw a dashed line
  *
- * mixed $im
- * mixed $x1
- * mixed $y1
- * mixed $x2
- * mixed $y2
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x1
+ * @param mixed $y1
+ * @param mixed $x2
+ * @param mixed $y2
+ * @param mixed $col
  *
  * @return bool
  *
@@ -1611,7 +1611,7 @@ function imagedashedline($im, $x1, $y1, $x2, $y2, $col): bool
 /**
  * Destroy an image
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return bool
  *
@@ -1626,12 +1626,12 @@ function imagedestroy($im): bool
 /**
  * Draw an ellipse
  *
- * mixed $im
- * mixed $cx
- * mixed $cy
- * mixed $w
- * mixed $h
- * mixed $color
+ * @param mixed $im
+ * @param mixed $cx
+ * @param mixed $cy
+ * @param mixed $w
+ * @param mixed $h
+ * @param mixed $color
  *
  * @return bool
  *
@@ -1646,10 +1646,10 @@ function imageellipse($im, $cx, $cy, $w, $h, $color): bool
 /**
  * Flood fill
  *
- * mixed $im
- * mixed $x
- * mixed $y
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $col
  *
  * @return bool
  *
@@ -1664,15 +1664,15 @@ function imagefill($im, $x, $y, $col): bool
 /**
  * Draw a partial arc and fill it
  *
- * mixed $im
- * mixed $cx
- * mixed $cy
- * mixed $w
- * mixed $h
- * mixed $s
- * mixed $e
- * mixed $col
- * mixed $style
+ * @param mixed $im
+ * @param mixed $cx
+ * @param mixed $cy
+ * @param mixed $w
+ * @param mixed $h
+ * @param mixed $s
+ * @param mixed $e
+ * @param mixed $col
+ * @param mixed $style
  *
  * @return bool
  *
@@ -1687,12 +1687,12 @@ function imagefilledarc($im, $cx, $cy, $w, $h, $s, $e, $col, $style): bool
 /**
  * Draw a filled ellipse
  *
- * mixed $im
- * mixed $cx
- * mixed $cy
- * mixed $w
- * mixed $h
- * mixed $color
+ * @param mixed $im
+ * @param mixed $cx
+ * @param mixed $cy
+ * @param mixed $w
+ * @param mixed $h
+ * @param mixed $color
  *
  * @return bool
  *
@@ -1707,10 +1707,10 @@ function imagefilledellipse($im, $cx, $cy, $w, $h, $color): bool
 /**
  * Draw a filled polygon
  *
- * mixed $im
- * mixed $points
- * mixed $num_pos
- * mixed $col
+ * @param mixed $im
+ * @param mixed $points
+ * @param mixed $num_pos
+ * @param mixed $col
  *
  * @return bool
  *
@@ -1725,12 +1725,12 @@ function imagefilledpolygon($im, $points, $num_pos, $col): bool
 /**
  * Draw a filled rectangle
  *
- * mixed $im
- * mixed $x1
- * mixed $y1
- * mixed $x2
- * mixed $y2
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x1
+ * @param mixed $y1
+ * @param mixed $x2
+ * @param mixed $y2
+ * @param mixed $col
  *
  * @return bool
  *
@@ -1745,11 +1745,11 @@ function imagefilledrectangle($im, $x1, $y1, $x2, $y2, $col): bool
 /**
  * Flood fill to specific color
  *
- * mixed $im
- * mixed $x
- * mixed $y
- * mixed $border
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $border
+ * @param mixed $col
  *
  * @return bool
  *
@@ -1764,12 +1764,12 @@ function imagefilltoborder($im, $x, $y, $border, $col): bool
 /**
  * Applies a filter to an image
  *
- * mixed $im
- * mixed $filtertype
- * mixed|null $arg1
- * mixed|null $arg2
- * mixed|null $arg3
- * mixed|null $arg4
+ * @param mixed $im
+ * @param mixed $filtertype
+ * @param mixed|null $arg1
+ * @param mixed|null $arg2
+ * @param mixed|null $arg3
+ * @param mixed|null $arg4
  *
  * @return bool
  *
@@ -1784,8 +1784,8 @@ function imagefilter($im, $filtertype, $arg1 = null, $arg2 = null, $arg3 = null,
 /**
  * Flips an image using a given mode
  *
- * mixed $im
- * mixed $mode
+ * @param mixed $im
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -1800,7 +1800,7 @@ function imageflip($im, $mode): bool
 /**
  * Get font height
  *
- * mixed $font
+ * @param mixed $font
  *
  * @return int
  *
@@ -1815,7 +1815,7 @@ function imagefontheight($font): int
 /**
  * Get font width
  *
- * mixed $font
+ * @param mixed $font
  *
  * @return int
  *
@@ -1830,11 +1830,11 @@ function imagefontwidth($font): int
 /**
  * Give the bounding box of a text using fonts via freetype2
  *
- * mixed $size
- * mixed $angle
- * mixed $font_file
- * mixed $text
- * mixed|null $extrainfo
+ * @param mixed $size
+ * @param mixed $angle
+ * @param mixed $font_file
+ * @param mixed $text
+ * @param mixed|null $extrainfo
  *
  * @return array
  *
@@ -1849,15 +1849,15 @@ function imageftbbox($size, $angle, $font_file, $text, $extrainfo = null): array
 /**
  * Write text to the image using fonts using FreeType 2
  *
- * mixed $im
- * mixed $size
- * mixed $angle
- * mixed $x
- * mixed $y
- * mixed $col
- * mixed $font_file
- * mixed $text
- * mixed|null $extrainfo
+ * @param mixed $im
+ * @param mixed $size
+ * @param mixed $angle
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $col
+ * @param mixed $font_file
+ * @param mixed $text
+ * @param mixed|null $extrainfo
  *
  * @return array
  *
@@ -1872,9 +1872,9 @@ function imagefttext($im, $size, $angle, $x, $y, $col, $font_file, $text, $extra
 /**
  * Apply a gamma correction to a GD image
  *
- * mixed $im
- * mixed $inputgamma
- * mixed $outputgamma
+ * @param mixed $im
+ * @param mixed $inputgamma
+ * @param mixed $outputgamma
  *
  * @return bool
  *
@@ -1889,8 +1889,8 @@ function imagegammacorrect($im, $inputgamma, $outputgamma): bool
 /**
  * Output GD image to browser or file
  *
- * mixed $im
- * mixed|null $filename
+ * @param mixed $im
+ * @param mixed|null $filename
  *
  * @return bool
  *
@@ -1905,10 +1905,10 @@ function imagegd($im, $filename = null): bool
 /**
  * Output GD2 image to browser or file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $chunk_size
- * mixed|null $type
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $chunk_size
+ * @param mixed|null $type
  *
  * @return bool
  *
@@ -1923,8 +1923,8 @@ function imagegd2($im, $filename = null, $chunk_size = null, $type = null): bool
 /**
  * Output image to browser or file
  *
- * mixed $im
- * mixed|null $filename
+ * @param mixed $im
+ * @param mixed|null $filename
  *
  * @return bool
  *
@@ -1956,8 +1956,8 @@ function imagegrabscreen()
  *
  * WARNING: this may be available on Windows but not on POSIX
  *
- * mixed $handle
- * mixed|null $client_area
+ * @param mixed $handle
+ * @param mixed|null $client_area
  *
  * @return resource
  *
@@ -1972,8 +1972,8 @@ function imagegrabwindow($handle, $client_area = null)
 /**
  * Enable or disable interlace
  *
- * mixed $im
- * mixed|null $interlace
+ * @param mixed $im
+ * @param mixed|null $interlace
  *
  * @return int
  *
@@ -1988,7 +1988,7 @@ function imageinterlace($im, $interlace = null): int
 /**
  * Finds whether an image is a truecolor image
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return bool
  *
@@ -2003,9 +2003,9 @@ function imageistruecolor($im): bool
 /**
  * Output image to browser or file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $quality
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $quality
  *
  * @return bool
  *
@@ -2020,8 +2020,8 @@ function imagejpeg($im, $filename = null, $quality = null): bool
 /**
  * Set the alpha blending flag to use layering effects
  *
- * mixed $im
- * mixed $effect
+ * @param mixed $im
+ * @param mixed $effect
  *
  * @return bool
  *
@@ -2036,12 +2036,12 @@ function imagelayereffect($im, $effect): bool
 /**
  * Draw a line
  *
- * mixed $im
- * mixed $x1
- * mixed $y1
- * mixed $x2
- * mixed $y2
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x1
+ * @param mixed $y1
+ * @param mixed $x2
+ * @param mixed $y2
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2056,7 +2056,7 @@ function imageline($im, $x1, $y1, $x2, $y2, $col): bool
 /**
  * Load a new font
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -2071,8 +2071,8 @@ function imageloadfont($filename): int
 /**
  * Copy the palette from one image to another
  *
- * mixed $dst
- * mixed $src
+ * @param mixed $dst
+ * @param mixed $src
  *
  * @return void
  *
@@ -2087,7 +2087,7 @@ function imagepalettecopy($dst, $src)
 /**
  * Converts a palette based image to true color
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return bool
  *
@@ -2102,10 +2102,10 @@ function imagepalettetotruecolor($im): bool
 /**
  * Output a PNG image to either the browser or a file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $quality
- * mixed|null $filters
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $quality
+ * @param mixed|null $filters
  *
  * @return bool
  *
@@ -2120,10 +2120,10 @@ function imagepng($im, $filename = null, $quality = null, $filters = null): bool
 /**
  * Draws a polygon
  *
- * mixed $im
- * mixed $points
- * mixed $num_pos
- * mixed $col
+ * @param mixed $im
+ * @param mixed $points
+ * @param mixed $num_pos
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2138,12 +2138,12 @@ function imagepolygon($im, $points, $num_pos, $col): bool
 /**
  * Draw a rectangle
  *
- * mixed $im
- * mixed $x1
- * mixed $y1
- * mixed $x2
- * mixed $y2
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x1
+ * @param mixed $y1
+ * @param mixed $x2
+ * @param mixed $y2
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2158,10 +2158,10 @@ function imagerectangle($im, $x1, $y1, $x2, $y2, $col): bool
 /**
  * Rotate an image with a given angle
  *
- * mixed $im
- * mixed $angle
- * mixed $bgdcolor
- * mixed|null $ignoretransparent
+ * @param mixed $im
+ * @param mixed $angle
+ * @param mixed $bgdcolor
+ * @param mixed|null $ignoretransparent
  *
  * @return resource
  *
@@ -2176,8 +2176,8 @@ function imagerotate($im, $angle, $bgdcolor, $ignoretransparent = null)
 /**
  * Set the flag to save full alpha channel information (as opposed to single-color transparency) when saving PNG images
  *
- * mixed $im
- * mixed $save
+ * @param mixed $im
+ * @param mixed $save
  *
  * @return bool
  *
@@ -2192,10 +2192,10 @@ function imagesavealpha($im, $save): bool
 /**
  * Scale an image using the given new width and height
  *
- * mixed $im
- * mixed $new_width
- * mixed|null $new_height
- * mixed|null $mode
+ * @param mixed $im
+ * @param mixed $new_width
+ * @param mixed|null $new_height
+ * @param mixed|null $mode
  *
  * @return resource
  *
@@ -2210,8 +2210,8 @@ function imagescale($im, $new_width, $new_height = null, $mode = null)
 /**
  * Set the brush image for line drawing
  *
- * mixed $im
- * mixed $brush
+ * @param mixed $im
+ * @param mixed $brush
  *
  * @return bool
  *
@@ -2226,8 +2226,8 @@ function imagesetbrush($im, $brush): bool
 /**
  * Set the interpolation method
  *
- * mixed $im
- * mixed $method
+ * @param mixed $im
+ * @param mixed $method
  *
  * @return bool
  *
@@ -2242,10 +2242,10 @@ function imagesetinterpolation($im, $method): bool
 /**
  * Set a single pixel
  *
- * mixed $im
- * mixed $x
- * mixed $y
- * mixed $col
+ * @param mixed $im
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2260,8 +2260,8 @@ function imagesetpixel($im, $x, $y, $col): bool
 /**
  * Set the style for line drawing
  *
- * mixed $im
- * mixed $styles
+ * @param mixed $im
+ * @param mixed $styles
  *
  * @return bool
  *
@@ -2276,8 +2276,8 @@ function imagesetstyle($im, $styles): bool
 /**
  * Set the thickness for line drawing
  *
- * mixed $im
- * mixed $thickness
+ * @param mixed $im
+ * @param mixed $thickness
  *
  * @return bool
  *
@@ -2292,8 +2292,8 @@ function imagesetthickness($im, $thickness): bool
 /**
  * Set the tile image for filling
  *
- * mixed $im
- * mixed $tile
+ * @param mixed $im
+ * @param mixed $tile
  *
  * @return bool
  *
@@ -2308,12 +2308,12 @@ function imagesettile($im, $tile): bool
 /**
  * Draw a string horizontally
  *
- * mixed $im
- * mixed $font
- * mixed $x
- * mixed $y
- * mixed $str
- * mixed $col
+ * @param mixed $im
+ * @param mixed $font
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $str
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2328,12 +2328,12 @@ function imagestring($im, $font, $x, $y, $str, $col): bool
 /**
  * Draw a string vertically
  *
- * mixed $im
- * mixed $font
- * mixed $x
- * mixed $y
- * mixed $str
- * mixed $col
+ * @param mixed $im
+ * @param mixed $font
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $str
+ * @param mixed $col
  *
  * @return bool
  *
@@ -2348,7 +2348,7 @@ function imagestringup($im, $font, $x, $y, $str, $col): bool
 /**
  * Get image width
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return int
  *
@@ -2363,7 +2363,7 @@ function imagesx($im): int
 /**
  * Get image height
  *
- * mixed $im
+ * @param mixed $im
  *
  * @return int
  *
@@ -2378,9 +2378,9 @@ function imagesy($im): int
 /**
  * Convert a true color image to a palette image
  *
- * mixed $im
- * mixed $ditherFlag
- * mixed $colorsWanted
+ * @param mixed $im
+ * @param mixed $ditherFlag
+ * @param mixed $colorsWanted
  *
  * @return bool
  *
@@ -2395,10 +2395,10 @@ function imagetruecolortopalette($im, $ditherFlag, $colorsWanted): bool
 /**
  * Give the bounding box of a text using TrueType fonts
  *
- * mixed $size
- * mixed $angle
- * mixed $font_file
- * mixed $text
+ * @param mixed $size
+ * @param mixed $angle
+ * @param mixed $font_file
+ * @param mixed $text
  *
  * @return array
  *
@@ -2413,14 +2413,14 @@ function imagettfbbox($size, $angle, $font_file, $text): array
 /**
  * Write text to the image using TrueType fonts
  *
- * mixed $im
- * mixed $size
- * mixed $angle
- * mixed $x
- * mixed $y
- * mixed $col
- * mixed $font_file
- * mixed $text
+ * @param mixed $im
+ * @param mixed $size
+ * @param mixed $angle
+ * @param mixed $x
+ * @param mixed $y
+ * @param mixed $col
+ * @param mixed $font_file
+ * @param mixed $text
  *
  * @return array
  *
@@ -2448,9 +2448,9 @@ function imagetypes(): int
 /**
  * Output image to browser or file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $foreground
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $foreground
  *
  * @return bool
  *
@@ -2465,9 +2465,9 @@ function imagewbmp($im, $filename = null, $foreground = null): bool
 /**
  * Output a WebP image to browser or file
  *
- * mixed $im
- * mixed|null $filename
- * mixed|null $quality
+ * @param mixed $im
+ * @param mixed|null $filename
+ * @param mixed|null $quality
  *
  * @return bool
  *
@@ -2482,9 +2482,9 @@ function imagewebp($im, $filename = null, $quality = null): bool
 /**
  * Output an XBM image to browser or file
  *
- * mixed $im
- * mixed $filename
- * mixed|null $foreground
+ * @param mixed $im
+ * @param mixed $filename
+ * @param mixed|null $foreground
  *
  * @return bool
  *
@@ -2499,11 +2499,11 @@ function imagexbm($im, $filename, $foreground = null): bool
 /**
  * Convert JPEG image file to WBMP image file
  *
- * mixed $f_org
- * mixed $f_dest
- * mixed $d_height
- * mixed $d_width
- * mixed $d_threshold
+ * @param mixed $f_org
+ * @param mixed $f_dest
+ * @param mixed $d_height
+ * @param mixed $d_width
+ * @param mixed $d_threshold
  *
  * @return bool
  *
@@ -2518,11 +2518,11 @@ function jpeg2wbmp($f_org, $f_dest, $d_height, $d_width, $d_threshold): bool
 /**
  * Convert PNG image file to WBMP image file
  *
- * mixed $f_org
- * mixed $f_dest
- * mixed $d_height
- * mixed $d_width
- * mixed $d_threshold
+ * @param mixed $f_org
+ * @param mixed $f_dest
+ * @param mixed $d_height
+ * @param mixed $d_width
+ * @param mixed $d_threshold
  *
  * @return bool
  *

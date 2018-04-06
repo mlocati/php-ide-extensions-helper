@@ -108,23 +108,23 @@ interface Collectable
 class Pool
 {
     /**
-     * int $size
-     * string|null $class
-     * array[]|null $ctor
+     * @param int $size
+     * @param string|null $class
+     * @param array[]|null $ctor
      */
     public function __construct(int $size, string $class = null, $ctor = null)
     {
     }
 
     /**
-     * Closure $collector
+     * @param Closure $collector
      */
     public function collect($collector)
     {
     }
 
     /**
-     * int $size
+     * @param int $size
      */
     public function resize(int $size)
     {
@@ -135,15 +135,15 @@ class Pool
     }
 
     /**
-     * Threaded $task
+     * @param Threaded $task
      */
     public function submit($task)
     {
     }
 
     /**
-     * int $worker
-     * Threaded $task
+     * @param int $worker
+     * @param Threaded $task
      */
     public function submitTo(int $worker, $task)
     {
@@ -195,7 +195,7 @@ class Thread extends Threaded
     }
 
     /**
-     * int|null $options
+     * @param int|null $options
      */
     public function start(int $options = null)
     {
@@ -216,8 +216,8 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
-     * mixed $size
-     * mixed|null $preserve
+     * @param mixed $size
+     * @param mixed|null $preserve
      */
     public function chunk($size, $preserve = null)
     {
@@ -241,7 +241,7 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
-     * mixed $class
+     * @param mixed $class
      */
     public static function extend($class)
     {
@@ -267,8 +267,8 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
-     * mixed $from
-     * mixed|null $overwrite
+     * @param mixed $from
+     * @param mixed|null $overwrite
      */
     public function merge($from, $overwrite = null)
     {
@@ -295,14 +295,14 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
-     * mixed $function
+     * @param mixed $function
      */
     public function synchronized($function)
     {
     }
 
     /**
-     * int|null $timeout
+     * @param int|null $timeout
      */
     public function wait(int $timeout = null)
     {
@@ -335,14 +335,14 @@ class Volatile extends Threaded
 class Worker extends Thread
 {
     /**
-     * Closure|null $function
+     * @param Closure|null $function
      */
     public function collect($function = null)
     {
     }
 
     /**
-     * Collectable $collectable
+     * @param Collectable $collectable
      */
     public function collector($collectable)
     {
@@ -361,7 +361,7 @@ class Worker extends Thread
     }
 
     /**
-     * Threaded $work
+     * @param Threaded $work
      */
     public function stack($work)
     {
@@ -373,7 +373,7 @@ class Worker extends Thread
 }
 
 /**
- * mixed $timeout
+ * @param mixed $timeout
  */
 function pthreads_no_sleeping($timeout)
 {

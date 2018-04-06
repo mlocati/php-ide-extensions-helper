@@ -3090,14 +3090,14 @@ class AssertionError extends Error
 class Directory
 {
     /**
-     * mixed|null $dir_handle
+     * @param mixed|null $dir_handle
      */
     public function close($dir_handle = null)
     {
     }
 
     /**
-     * mixed|null $dir_handle
+     * @param mixed|null $dir_handle
      */
     public function read($dir_handle = null)
     {
@@ -3106,7 +3106,7 @@ class Directory
     /**
      * Rewind the position of a file pointer
      *
-     * mixed|null $dir_handle
+     * @param mixed|null $dir_handle
      *
      * @return bool
      *
@@ -3130,10 +3130,10 @@ class Directory
 class php_user_filter
 {
     /**
-     * mixed $in
-     * mixed $out
-     * mixed $consumed
-     * mixed $closing
+     * @param mixed $in
+     * @param mixed $out
+     * @param mixed $consumed
+     * @param mixed $closing
      */
     public function filter($in, $out, &$consumed, $closing)
     {
@@ -3151,7 +3151,7 @@ class php_user_filter
 /**
  * Absolute value
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return number
  *
@@ -3166,7 +3166,7 @@ function abs($number)
 /**
  * Arc cosine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -3181,7 +3181,7 @@ function acos($number): float
 /**
  * Inverse hyperbolic cosine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -3196,8 +3196,8 @@ function acosh($number): float
 /**
  * Quote string with slashes in a C style
  *
- * mixed $str
- * mixed $charlist
+ * @param mixed $str
+ * @param mixed $charlist
  *
  * @return string
  *
@@ -3212,7 +3212,7 @@ function addcslashes($str, $charlist): string
 /**
  * Quote string with slashes
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -3227,8 +3227,8 @@ function addslashes($str): string
 /**
  * Changes the case of all keys in an array
  *
- * mixed $input
- * mixed|null $case
+ * @param mixed $input
+ * @param mixed|null $case
  *
  * @return array
  *
@@ -3243,9 +3243,9 @@ function array_change_key_case($input, $case = null): array
 /**
  * Split an array into chunks
  *
- * mixed $arg
- * mixed $size
- * mixed|null $preserve_keys
+ * @param mixed $arg
+ * @param mixed $size
+ * @param mixed|null $preserve_keys
  *
  * @return array
  *
@@ -3260,9 +3260,9 @@ function array_chunk($arg, $size, $preserve_keys = null): array
 /**
  * Return the values from a single column in the input array
  *
- * mixed $arg
- * mixed $column_key
- * mixed|null $index_key
+ * @param mixed $arg
+ * @param mixed $column_key
+ * @param mixed|null $index_key
  *
  * @return array
  *
@@ -3277,8 +3277,8 @@ function array_column($arg, $column_key, $index_key = null): array
 /**
  * Creates an array by using one array for keys and another for its values
  *
- * mixed $keys
- * mixed $values
+ * @param mixed $keys
+ * @param mixed $values
  *
  * @return array
  *
@@ -3293,7 +3293,7 @@ function array_combine($keys, $values): array
 /**
  * Counts all the values of an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return array
  *
@@ -3308,8 +3308,8 @@ function array_count_values($arg): array
 /**
  * Computes the difference of arrays
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3324,8 +3324,8 @@ function array_diff($arr1, ...$arrays): array
 /**
  * Computes the difference of arrays with additional index check
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3340,8 +3340,8 @@ function array_diff_assoc($arr1, ...$arrays): array
 /**
  * Computes the difference of arrays using keys for comparison
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3356,9 +3356,9 @@ function array_diff_key($arr1, ...$arrays): array
 /**
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_comp_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_comp_func
  *
  * @return array
  *
@@ -3373,9 +3373,9 @@ function array_diff_uassoc($arr1, $arr2, $callback_data_comp_func): array
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_key_comp_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_key_comp_func
  *
  * @return array
  *
@@ -3390,9 +3390,9 @@ function array_diff_ukey($arr1, $arr2, $callback_key_comp_func): array
 /**
  * Fill an array with values
  *
- * mixed $start_key
- * mixed $num
- * mixed $val
+ * @param mixed $start_key
+ * @param mixed $num
+ * @param mixed $val
  *
  * @return array
  *
@@ -3407,8 +3407,8 @@ function array_fill($start_key, $num, $val): array
 /**
  * Fill an array with values, specifying keys
  *
- * mixed $keys
- * mixed $val
+ * @param mixed $keys
+ * @param mixed $val
  *
  * @return array
  *
@@ -3423,9 +3423,9 @@ function array_fill_keys($keys, $val): array
 /**
  * Filters elements of an array using a callback function
  *
- * mixed $arg
- * mixed|null $callback
- * mixed|null $use_keys
+ * @param mixed $arg
+ * @param mixed|null $callback
+ * @param mixed|null $use_keys
  *
  * @return array
  *
@@ -3440,7 +3440,7 @@ function array_filter($arg, $callback = null, $use_keys = null): array
 /**
  * Exchanges all keys with their associated values in an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return array
  *
@@ -3455,8 +3455,8 @@ function array_flip($arg): array
 /**
  * Computes the intersection of arrays
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3471,8 +3471,8 @@ function array_intersect($arr1, ...$arrays): array
 /**
  * Computes the intersection of arrays with additional index check
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3487,8 +3487,8 @@ function array_intersect_assoc($arr1, ...$arrays): array
 /**
  * Computes the intersection of arrays using keys for comparison
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3503,9 +3503,9 @@ function array_intersect_key($arr1, ...$arrays): array
 /**
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_key_compare_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_key_compare_func
  *
  * @return array
  *
@@ -3520,9 +3520,9 @@ function array_intersect_uassoc($arr1, $arr2, $callback_key_compare_func): array
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_key_compare_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_key_compare_func
  *
  * @return array
  *
@@ -3537,8 +3537,8 @@ function array_intersect_ukey($arr1, $arr2, $callback_key_compare_func): array
 /**
  * Checks if the given key or index exists in the array
  *
- * mixed $key
- * mixed $search
+ * @param mixed $key
+ * @param mixed $search
  *
  * @return bool
  *
@@ -3553,9 +3553,9 @@ function array_key_exists($key, $search): bool
 /**
  * Return all the keys or a subset of the keys of an array
  *
- * mixed $arg
- * mixed|null $search_value
- * mixed|null $strict
+ * @param mixed $arg
+ * @param mixed|null $search_value
+ * @param mixed|null $strict
  *
  * @return array
  *
@@ -3570,8 +3570,8 @@ function array_keys($arg, $search_value = null, $strict = null): array
 /**
  * Applies the callback to the elements of the given arrays
  *
- * mixed $callback
- * mixed $arrays
+ * @param mixed $callback
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3586,8 +3586,8 @@ function array_map($callback, ...$arrays): array
 /**
  * Merge one or more arrays
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3602,8 +3602,8 @@ function array_merge($arr1, ...$arrays): array
 /**
  * Merge two or more arrays recursively
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3618,10 +3618,10 @@ function array_merge_recursive($arr1, ...$arrays): array
 /**
  * Sort multiple or multi-dimensional arrays
  *
- * mixed $arr1
- * mixed|null $sort_order
- * mixed|null $sort_flags
- * mixed $arr2
+ * @param mixed $arr1
+ * @param mixed|null $sort_order
+ * @param mixed|null $sort_flags
+ * @param mixed $arr2
  *
  * @return bool
  *
@@ -3636,9 +3636,9 @@ function array_multisort(&$arr1, &$sort_order = null, &$sort_flags = null, &...$
 /**
  * Pad array to the specified length with a value
  *
- * mixed $arg
- * mixed $pad_size
- * mixed $pad_value
+ * @param mixed $arg
+ * @param mixed $pad_size
+ * @param mixed $pad_value
  *
  * @return array
  *
@@ -3653,7 +3653,7 @@ function array_pad($arg, $pad_size, $pad_value): array
 /**
  * Pop the element off the end of array
  *
- * mixed $stack
+ * @param mixed $stack
  *
  * @return mixed
  *
@@ -3668,7 +3668,7 @@ function array_pop(&$stack)
 /**
  * Calculate the product of values in an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return number
  *
@@ -3683,8 +3683,8 @@ function array_product($arg)
 /**
  * Push one or more elements onto the end of array
  *
- * mixed $stack
- * mixed $vars
+ * @param mixed $stack
+ * @param mixed $vars
  *
  * @return int
  *
@@ -3699,8 +3699,8 @@ function array_push(&$stack, ...$vars): int
 /**
  * Pick one or more random entries out of an array
  *
- * mixed $arg
- * mixed|null $num_req
+ * @param mixed $arg
+ * @param mixed|null $num_req
  *
  * @return mixed
  *
@@ -3715,9 +3715,9 @@ function array_rand($arg, $num_req = null)
 /**
  * Iteratively reduce the array to a single value using a callback function
  *
- * mixed $arg
- * mixed $callback
- * mixed|null $initial
+ * @param mixed $arg
+ * @param mixed $callback
+ * @param mixed|null $initial
  *
  * @return mixed
  *
@@ -3732,8 +3732,8 @@ function array_reduce($arg, $callback, $initial = null)
 /**
  * Replaces elements from passed arrays into the first array
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3748,8 +3748,8 @@ function array_replace($arr1, ...$arrays): array
 /**
  * Replaces elements from passed arrays into the first array recursively
  *
- * mixed $arr1
- * mixed $arrays
+ * @param mixed $arr1
+ * @param mixed $arrays
  *
  * @return array
  *
@@ -3764,8 +3764,8 @@ function array_replace_recursive($arr1, ...$arrays): array
 /**
  * Return an array with elements in reverse order
  *
- * mixed $input
- * mixed|null $preserve_keys
+ * @param mixed $input
+ * @param mixed|null $preserve_keys
  *
  * @return array
  *
@@ -3780,9 +3780,9 @@ function array_reverse($input, $preserve_keys = null): array
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
  *
- * mixed $needle
- * mixed $haystack
- * mixed|null $strict
+ * @param mixed $needle
+ * @param mixed $haystack
+ * @param mixed|null $strict
  *
  * @return mixed
  *
@@ -3797,7 +3797,7 @@ function array_search($needle, $haystack, $strict = null)
 /**
  * Shift an element off the beginning of array
  *
- * mixed $stack
+ * @param mixed $stack
  *
  * @return mixed
  *
@@ -3812,10 +3812,10 @@ function array_shift(&$stack)
 /**
  * Extract a slice of the array
  *
- * mixed $arg
- * mixed $offset
- * mixed|null $length
- * mixed|null $preserve_keys
+ * @param mixed $arg
+ * @param mixed $offset
+ * @param mixed|null $length
+ * @param mixed|null $preserve_keys
  *
  * @return array
  *
@@ -3830,10 +3830,10 @@ function array_slice($arg, $offset, $length = null, $preserve_keys = null): arra
 /**
  * Remove a portion of the array and replace it with something else
  *
- * mixed $arg
- * mixed $offset
- * mixed|null $length
- * mixed|null $replacement
+ * @param mixed $arg
+ * @param mixed $offset
+ * @param mixed|null $length
+ * @param mixed|null $replacement
  *
  * @return array
  *
@@ -3848,7 +3848,7 @@ function array_splice(&$arg, $offset, $length = null, $replacement = null): arra
 /**
  * Calculate the sum of values in an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return number
  *
@@ -3863,9 +3863,9 @@ function array_sum($arg)
 /**
  * Computes the difference of arrays by using a callback function for data comparison
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_comp_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_comp_func
  *
  * @return array
  *
@@ -3880,9 +3880,9 @@ function array_udiff($arr1, $arr2, $callback_data_comp_func): array
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_key_comp_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_key_comp_func
  *
  * @return array
  *
@@ -3897,10 +3897,10 @@ function array_udiff_assoc($arr1, $arr2, $callback_key_comp_func): array
 /**
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_comp_func
- * mixed $callback_key_comp_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_comp_func
+ * @param mixed $callback_key_comp_func
  *
  * @return array
  *
@@ -3915,9 +3915,9 @@ function array_udiff_uassoc($arr1, $arr2, $callback_data_comp_func, $callback_ke
 /**
  * Computes the intersection of arrays, compares data by a callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_compare_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_compare_func
  *
  * @return array
  *
@@ -3932,9 +3932,9 @@ function array_uintersect($arr1, $arr2, $callback_data_compare_func): array
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_compare_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_compare_func
  *
  * @return array
  *
@@ -3949,10 +3949,10 @@ function array_uintersect_assoc($arr1, $arr2, $callback_data_compare_func): arra
 /**
  * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
  *
- * mixed $arr1
- * mixed $arr2
- * mixed $callback_data_compare_func
- * mixed $callback_key_compare_func
+ * @param mixed $arr1
+ * @param mixed $arr2
+ * @param mixed $callback_data_compare_func
+ * @param mixed $callback_key_compare_func
  *
  * @return array
  *
@@ -3967,8 +3967,8 @@ function array_uintersect_uassoc($arr1, $arr2, $callback_data_compare_func, $cal
 /**
  * Removes duplicate values from an array
  *
- * mixed $arg
- * mixed|null $flags
+ * @param mixed $arg
+ * @param mixed|null $flags
  *
  * @return array
  *
@@ -3983,8 +3983,8 @@ function array_unique($arg, $flags = null): array
 /**
  * Prepend one or more elements to the beginning of an array
  *
- * mixed $stack
- * mixed $vars
+ * @param mixed $stack
+ * @param mixed $vars
  *
  * @return int
  *
@@ -3999,7 +3999,7 @@ function array_unshift(&$stack, ...$vars): int
 /**
  * Return all the values of an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return array
  *
@@ -4014,9 +4014,9 @@ function array_values($arg): array
 /**
  * Apply a user supplied function to every member of an array
  *
- * mixed $input
- * mixed $funcname
- * mixed|null $userdata
+ * @param mixed $input
+ * @param mixed $funcname
+ * @param mixed|null $userdata
  *
  * @return bool
  *
@@ -4031,9 +4031,9 @@ function array_walk(&$input, $funcname, $userdata = null): bool
 /**
  * Apply a user function recursively to every member of an array
  *
- * mixed $input
- * mixed $funcname
- * mixed|null $userdata
+ * @param mixed $input
+ * @param mixed $funcname
+ * @param mixed|null $userdata
  *
  * @return bool
  *
@@ -4048,8 +4048,8 @@ function array_walk_recursive(&$input, $funcname, $userdata = null): bool
 /**
  * Sort an array in reverse order and maintain index association
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -4064,7 +4064,7 @@ function arsort(&$arg, $sort_flags = null): bool
 /**
  * Arc sine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4079,7 +4079,7 @@ function asin($number): float
 /**
  * Inverse hyperbolic sine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4094,8 +4094,8 @@ function asinh($number): float
 /**
  * Sort an array and maintain index association
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -4110,8 +4110,8 @@ function asort(&$arg, $sort_flags = null): bool
 /**
  * Checks if assertion is <code>FALSE</code>
  *
- * mixed $assertion
- * mixed|null $description
+ * @param mixed $assertion
+ * @param mixed|null $description
  *
  * @return bool
  *
@@ -4126,8 +4126,8 @@ function assert($assertion, $description = null): bool
 /**
  * Set/get the various assert flags
  *
- * mixed $what
- * mixed|null $value
+ * @param mixed $what
+ * @param mixed|null $value
  *
  * @return mixed
  *
@@ -4142,7 +4142,7 @@ function assert_options($what, $value = null)
 /**
  * Arc tangent
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4157,8 +4157,8 @@ function atan($number): float
 /**
  * Arc tangent of two variables
  *
- * mixed $y
- * mixed $x
+ * @param mixed $y
+ * @param mixed $x
  *
  * @return float
  *
@@ -4173,7 +4173,7 @@ function atan2($y, $x): float
 /**
  * Inverse hyperbolic tangent
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4188,8 +4188,8 @@ function atanh($number): float
 /**
  * Decodes data encoded with MIME base64
  *
- * mixed $str
- * mixed|null $strict
+ * @param mixed $str
+ * @param mixed|null $strict
  *
  * @return string
  *
@@ -4204,7 +4204,7 @@ function base64_decode($str, $strict = null): string
 /**
  * Encodes data with MIME base64
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -4219,9 +4219,9 @@ function base64_encode($str): string
 /**
  * Convert a number between arbitrary bases
  *
- * mixed $number
- * mixed $frombase
- * mixed $tobase
+ * @param mixed $number
+ * @param mixed $frombase
+ * @param mixed $tobase
  *
  * @return string
  *
@@ -4236,8 +4236,8 @@ function base_convert($number, $frombase, $tobase): string
 /**
  * Returns trailing name component of path
  *
- * mixed $path
- * mixed|null $suffix
+ * @param mixed $path
+ * @param mixed|null $suffix
  *
  * @return string
  *
@@ -4252,7 +4252,7 @@ function basename($path, $suffix = null): string
 /**
  * Convert binary data into hexadecimal representation
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -4267,7 +4267,7 @@ function bin2hex($data): string
 /**
  * Binary to decimal
  *
- * mixed $binary_number
+ * @param mixed $binary_number
  *
  * @return number
  *
@@ -4282,7 +4282,7 @@ function bindec($binary_number)
 /**
  * Get the boolean value of a variable
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -4297,8 +4297,8 @@ function boolval($var): bool
 /**
  * Call the callback given by the first parameter
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return mixed
  *
@@ -4313,8 +4313,8 @@ function call_user_func($function_name, ...$parameters)
 /**
  * Call a callback with an array of parameters
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return mixed
  *
@@ -4329,7 +4329,7 @@ function call_user_func_array($function_name, $parameters)
 /**
  * Round fractions up
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4344,7 +4344,7 @@ function ceil($number): float
 /**
  * Change directory
  *
- * mixed $directory
+ * @param mixed $directory
  *
  * @return bool
  *
@@ -4359,8 +4359,8 @@ function chdir($directory): bool
 /**
  * Check DNS records corresponding to a given Internet host name or IP address
  *
- * mixed $host
- * mixed|null $type
+ * @param mixed $host
+ * @param mixed|null $type
  *
  * @return bool
  *
@@ -4375,8 +4375,8 @@ function checkdnsrr($host, $type = null): bool
 /**
  * Changes file group
  *
- * mixed $filename
- * mixed $group
+ * @param mixed $filename
+ * @param mixed $group
  *
  * @return bool
  *
@@ -4391,8 +4391,8 @@ function chgrp($filename, $group): bool
 /**
  * Changes file mode
  *
- * mixed $filename
- * mixed $mode
+ * @param mixed $filename
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -4407,8 +4407,8 @@ function chmod($filename, $mode): bool
 /**
  * Alias of <code>rtrim</code>
  *
- * mixed $str
- * mixed|null $character_mask
+ * @param mixed $str
+ * @param mixed|null $character_mask
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -4421,8 +4421,8 @@ function chop($str, $character_mask = null)
 /**
  * Changes file owner
  *
- * mixed $filename
- * mixed $user
+ * @param mixed $filename
+ * @param mixed $user
  *
  * @return bool
  *
@@ -4437,7 +4437,7 @@ function chown($filename, $user): bool
 /**
  * Return a specific character
  *
- * mixed $codepoint
+ * @param mixed $codepoint
  *
  * @return string
  *
@@ -4452,9 +4452,9 @@ function chr($codepoint): string
 /**
  * Split a string into smaller chunks
  *
- * mixed $str
- * mixed|null $chunklen
- * mixed|null $ending
+ * @param mixed $str
+ * @param mixed|null $chunklen
+ * @param mixed|null $ending
  *
  * @return string
  *
@@ -4469,8 +4469,8 @@ function chunk_split($str, $chunklen = null, $ending = null): string
 /**
  * Clears file status cache
  *
- * mixed|null $clear_realpath_cache
- * mixed|null $filename
+ * @param mixed|null $clear_realpath_cache
+ * @param mixed|null $filename
  *
  * @return void
  *
@@ -4498,7 +4498,7 @@ function cli_get_process_title(): string
 /**
  * Sets the process title
  *
- * mixed $title
+ * @param mixed $title
  *
  * @return bool
  *
@@ -4513,7 +4513,7 @@ function cli_set_process_title($title): bool
 /**
  * Close directory handle
  *
- * mixed|null $dir_handle
+ * @param mixed|null $dir_handle
  *
  * @return void
  *
@@ -4541,7 +4541,7 @@ function closelog(): bool
 /**
  * Create array containing variables and their values
  *
- * mixed $var_names
+ * @param mixed $var_names
  *
  * @return array
  *
@@ -4582,7 +4582,7 @@ function connection_status(): int
 /**
  * Returns the value of a constant
  *
- * mixed $const_name
+ * @param mixed $const_name
  *
  * @return mixed
  *
@@ -4597,9 +4597,9 @@ function constant($const_name)
 /**
  * Convert from one Cyrillic character set to another
  *
- * mixed $str
- * mixed $from
- * mixed $to
+ * @param mixed $str
+ * @param mixed $from
+ * @param mixed $to
  *
  * @return string
  *
@@ -4614,7 +4614,7 @@ function convert_cyr_string($str, $from, $to): string
 /**
  * Decode a uuencoded string
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -4629,7 +4629,7 @@ function convert_uudecode($data): string
 /**
  * Uuencode a string
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -4644,9 +4644,9 @@ function convert_uuencode($data): string
 /**
  * Copies file
  *
- * mixed $source_file
- * mixed $destination_file
- * mixed|null $context
+ * @param mixed $source_file
+ * @param mixed $destination_file
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -4661,7 +4661,7 @@ function copy($source_file, $destination_file, $context = null): bool
 /**
  * Cosine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4676,7 +4676,7 @@ function cos($number): float
 /**
  * Hyperbolic cosine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4691,8 +4691,8 @@ function cosh($number): float
 /**
  * Count all elements in an array, or something in an object
  *
- * mixed $var
- * mixed|null $mode
+ * @param mixed $var
+ * @param mixed|null $mode
  *
  * @return int
  *
@@ -4707,8 +4707,8 @@ function count($var, $mode = null): int
 /**
  * Return information about characters used in a string
  *
- * mixed $input
- * mixed|null $mode
+ * @param mixed $input
+ * @param mixed|null $mode
  *
  * @return mixed
  *
@@ -4723,7 +4723,7 @@ function count_chars($input, $mode = null)
 /**
  * Calculates the crc32 polynomial of a string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return int
  *
@@ -4738,8 +4738,8 @@ function crc32($str): int
 /**
  * One-way string hashing
  *
- * mixed $str
- * mixed|null $salt
+ * @param mixed $str
+ * @param mixed|null $salt
  *
  * @return string
  *
@@ -4754,7 +4754,7 @@ function crypt($str, $salt = null): string
 /**
  * Return the current element in an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -4769,7 +4769,7 @@ function current($arg)
 /**
  * Dumps a string representation of an internal zend value to output
  *
- * mixed $vars
+ * @param mixed $vars
  *
  * @return void
  *
@@ -4784,7 +4784,7 @@ function debug_zval_dump(...$vars)
 /**
  * Decimal to binary
  *
- * mixed $decimal_number
+ * @param mixed $decimal_number
  *
  * @return string
  *
@@ -4799,7 +4799,7 @@ function decbin($decimal_number): string
 /**
  * Decimal to hexadecimal
  *
- * mixed $decimal_number
+ * @param mixed $decimal_number
  *
  * @return string
  *
@@ -4814,7 +4814,7 @@ function dechex($decimal_number): string
 /**
  * Decimal to octal
  *
- * mixed $decimal_number
+ * @param mixed $decimal_number
  *
  * @return string
  *
@@ -4829,7 +4829,7 @@ function decoct($decimal_number): string
 /**
  * Converts the number in degrees to the radian equivalent
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -4844,8 +4844,8 @@ function deg2rad($number): float
 /**
  * Return an instance of the Directory class
  *
- * mixed $directory
- * mixed|null $context
+ * @param mixed $directory
+ * @param mixed|null $context
  *
  * @return Directory
  *
@@ -4860,8 +4860,8 @@ function dir($directory, $context = null)
 /**
  * Returns a parent directory's path
  *
- * mixed $path
- * mixed|null $levels
+ * @param mixed $path
+ * @param mixed|null $levels
  *
  * @return string
  *
@@ -4876,7 +4876,7 @@ function dirname($path, $levels = null): string
 /**
  * Returns available space on filesystem or disk partition
  *
- * mixed $path
+ * @param mixed $path
  *
  * @return float
  *
@@ -4891,7 +4891,7 @@ function disk_free_space($path): float
 /**
  * Returns the total size of a filesystem or disk partition
  *
- * mixed $path
+ * @param mixed $path
  *
  * @return float
  *
@@ -4906,7 +4906,7 @@ function disk_total_space($path): float
 /**
  * Alias of <code>disk_free_space</code>
  *
- * mixed $path
+ * @param mixed $path
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -4919,7 +4919,7 @@ function diskfreespace($path)
 /**
  * Loads a PHP extension at runtime
  *
- * mixed $extension_filename
+ * @param mixed $extension_filename
  *
  * @return bool
  *
@@ -4934,8 +4934,8 @@ function dl($extension_filename): bool
 /**
  * Alias of <code>checkdnsrr</code>
  *
- * mixed $host
- * mixed|null $type
+ * @param mixed $host
+ * @param mixed|null $type
  *
  * @since PHP 5, PHP 7
  *
@@ -4948,9 +4948,9 @@ function dns_check_record($host, $type = null)
 /**
  * Alias of <code>getmxrr</code>
  *
- * mixed $hostname
- * mixed $mxhosts
- * mixed|null $weight
+ * @param mixed $hostname
+ * @param mixed $mxhosts
+ * @param mixed|null $weight
  *
  * @since PHP 5, PHP 7
  *
@@ -4963,11 +4963,11 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
 /**
  * Fetch DNS Resource Records associated with a hostname
  *
- * mixed $hostname
- * mixed|null $type
- * array[]|null $authns
- * array[]|null $addtl
- * mixed|null $raw
+ * @param mixed $hostname
+ * @param mixed|null $type
+ * @param array[]|null $authns
+ * @param array[]|null $addtl
+ * @param mixed|null $raw
  *
  * @return array
  *
@@ -4982,7 +4982,7 @@ function dns_get_record($hostname, $type = null, &$authns = null, &$addtl = null
 /**
  * Alias of <code>floatval</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -4995,7 +4995,7 @@ function doubleval($var)
 /**
  * Set the internal pointer of an array to its last element
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -5036,10 +5036,10 @@ function error_get_last(): array
 /**
  * Send an error message to the defined error handling routines
  *
- * mixed $message
- * mixed|null $message_type
- * mixed|null $destination
- * mixed|null $extra_headers
+ * @param mixed $message
+ * @param mixed|null $message_type
+ * @param mixed|null $destination
+ * @param mixed|null $extra_headers
  *
  * @return bool
  *
@@ -5054,7 +5054,7 @@ function error_log($message, $message_type = null, $destination = null, $extra_h
 /**
  * Escape a string to be used as a shell argument
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return string
  *
@@ -5069,7 +5069,7 @@ function escapeshellarg($arg): string
 /**
  * Escape shell metacharacters
  *
- * mixed $command
+ * @param mixed $command
  *
  * @return string
  *
@@ -5084,9 +5084,9 @@ function escapeshellcmd($command): string
 /**
  * Execute an external program
  *
- * mixed $command
- * mixed|null $output
- * mixed|null $return_value
+ * @param mixed $command
+ * @param mixed|null $output
+ * @param mixed|null $return_value
  *
  * @return string
  *
@@ -5101,7 +5101,7 @@ function exec($command, &$output = null, &$return_value = null): string
 /**
  * Calculates the exponent of <code>e</code>
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -5116,9 +5116,9 @@ function exp($number): float
 /**
  * Split a string by a string
  *
- * mixed $separator
- * mixed $str
- * mixed|null $limit
+ * @param mixed $separator
+ * @param mixed $str
+ * @param mixed|null $limit
  *
  * @return array
  *
@@ -5134,7 +5134,7 @@ function explode($separator, $str, $limit = null): array
  * Returns exp(number) - 1, computed in a way that is accurate even
  *    when the value of number is close to zero
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -5149,9 +5149,9 @@ function expm1($number): float
 /**
  * Import variables into the current symbol table from an array
  *
- * mixed $arg
- * mixed|null $extract_type
- * mixed|null $prefix
+ * @param mixed $arg
+ * @param mixed|null $extract_type
+ * @param mixed|null $prefix
  *
  * @return int
  *
@@ -5166,7 +5166,7 @@ function extract(&$arg, $extract_type = null, $prefix = null): int
 /**
  * Calculate the hash value needed by EZMLM
  *
- * mixed $addr
+ * @param mixed $addr
  *
  * @return int
  *
@@ -5181,7 +5181,7 @@ function ezmlm_hash($addr): int
 /**
  * Closes an open file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -5196,7 +5196,7 @@ function fclose($fp): bool
 /**
  * Tests for end-of-file on a file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -5211,7 +5211,7 @@ function feof($fp): bool
 /**
  * Flushes the output to a file
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -5226,7 +5226,7 @@ function fflush($fp): bool
 /**
  * Gets character from file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return string
  *
@@ -5241,11 +5241,11 @@ function fgetc($fp): string
 /**
  * Gets line from file pointer and parse for CSV fields
  *
- * mixed $fp
- * mixed|null $length
- * mixed|null $delimiter
- * mixed|null $enclosure
- * mixed|null $escape
+ * @param mixed $fp
+ * @param mixed|null $length
+ * @param mixed|null $delimiter
+ * @param mixed|null $enclosure
+ * @param mixed|null $escape
  *
  * @return array
  *
@@ -5260,8 +5260,8 @@ function fgetcsv($fp, $length = null, $delimiter = null, $enclosure = null, $esc
 /**
  * Gets line from file pointer
  *
- * mixed $fp
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed|null $length
  *
  * @return string
  *
@@ -5276,9 +5276,9 @@ function fgets($fp, $length = null): string
 /**
  * Gets line from file pointer and strip HTML tags
  *
- * mixed $fp
- * mixed|null $length
- * mixed|null $allowable_tags
+ * @param mixed $fp
+ * @param mixed|null $length
+ * @param mixed|null $allowable_tags
  *
  * @return string
  *
@@ -5293,9 +5293,9 @@ function fgetss($fp, $length = null, $allowable_tags = null): string
 /**
  * Reads entire file into an array
  *
- * mixed $filename
- * mixed|null $flags
- * mixed|null $context
+ * @param mixed $filename
+ * @param mixed|null $flags
+ * @param mixed|null $context
  *
  * @return array
  *
@@ -5310,7 +5310,7 @@ function file($filename, $flags = null, $context = null): array
 /**
  * Checks whether a file or directory exists
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -5325,11 +5325,11 @@ function file_exists($filename): bool
 /**
  * Reads entire file into a string
  *
- * mixed $filename
- * mixed|null $flags
- * mixed|null $context
- * mixed|null $offset
- * mixed|null $maxlen
+ * @param mixed $filename
+ * @param mixed|null $flags
+ * @param mixed|null $context
+ * @param mixed|null $offset
+ * @param mixed|null $maxlen
  *
  * @return string
  *
@@ -5344,10 +5344,10 @@ function file_get_contents($filename, $flags = null, $context = null, $offset = 
 /**
  * Write a string to a file
  *
- * mixed $filename
- * mixed $data
- * mixed|null $flags
- * mixed|null $context
+ * @param mixed $filename
+ * @param mixed $data
+ * @param mixed|null $flags
+ * @param mixed|null $context
  *
  * @return int
  *
@@ -5362,7 +5362,7 @@ function file_put_contents($filename, $data, $flags = null, $context = null): in
 /**
  * Gets last access time of file
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5377,7 +5377,7 @@ function fileatime($filename): int
 /**
  * Gets inode change time of file
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5392,7 +5392,7 @@ function filectime($filename): int
 /**
  * Gets file group
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5407,7 +5407,7 @@ function filegroup($filename): int
 /**
  * Gets file inode
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5422,7 +5422,7 @@ function fileinode($filename): int
 /**
  * Gets file modification time
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5437,7 +5437,7 @@ function filemtime($filename): int
 /**
  * Gets file owner
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5452,7 +5452,7 @@ function fileowner($filename): int
 /**
  * Gets file permissions
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5467,7 +5467,7 @@ function fileperms($filename): int
 /**
  * Gets file size
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -5482,7 +5482,7 @@ function filesize($filename): int
 /**
  * Gets file type
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return string
  *
@@ -5497,7 +5497,7 @@ function filetype($filename): string
 /**
  * Get float value of a variable
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return float
  *
@@ -5512,9 +5512,9 @@ function floatval($var): float
 /**
  * Portable advisory file locking
  *
- * mixed $fp
- * mixed $operation
- * mixed|null $wouldblock
+ * @param mixed $fp
+ * @param mixed $operation
+ * @param mixed|null $wouldblock
  *
  * @return bool
  *
@@ -5529,7 +5529,7 @@ function flock($fp, $operation, &$wouldblock = null): bool
 /**
  * Round fractions down
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -5558,8 +5558,8 @@ function flush()
  * Returns the floating point remainder (modulo) of the division
  *   of the arguments
  *
- * mixed $x
- * mixed $y
+ * @param mixed $x
+ * @param mixed $y
  *
  * @return float
  *
@@ -5574,9 +5574,9 @@ function fmod($x, $y): float
 /**
  * Match filename against a pattern
  *
- * mixed $pattern
- * mixed $filename
- * mixed|null $flags
+ * @param mixed $pattern
+ * @param mixed $filename
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -5591,10 +5591,10 @@ function fnmatch($pattern, $filename, $flags = null): bool
 /**
  * Opens file or URL
  *
- * mixed $filename
- * mixed $mode
- * mixed|null $use_include_path
- * mixed|null $context
+ * @param mixed $filename
+ * @param mixed $mode
+ * @param mixed|null $use_include_path
+ * @param mixed|null $context
  *
  * @return resource
  *
@@ -5609,8 +5609,8 @@ function fopen($filename, $mode, $use_include_path = null, $context = null)
 /**
  * Call a static method
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return mixed
  *
@@ -5625,8 +5625,8 @@ function forward_static_call($function_name, ...$parameters)
 /**
  * Call a static method and pass the arguments as array
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return mixed
  *
@@ -5641,7 +5641,7 @@ function forward_static_call_array($function_name, $parameters)
 /**
  * Output all remaining data on a file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -5656,9 +5656,9 @@ function fpassthru($fp): int
 /**
  * Write a formatted string to a stream
  *
- * mixed $stream
- * mixed $format
- * mixed $args
+ * @param mixed $stream
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return int
  *
@@ -5673,11 +5673,11 @@ function fprintf($stream, $format, ...$args): int
 /**
  * Format line as CSV and write to file pointer
  *
- * mixed $fp
- * mixed $fields
- * mixed|null $delimiter
- * mixed|null $enclosure
- * mixed|null $escape_char
+ * @param mixed $fp
+ * @param mixed $fields
+ * @param mixed|null $delimiter
+ * @param mixed|null $enclosure
+ * @param mixed|null $escape_char
  *
  * @return int
  *
@@ -5692,9 +5692,9 @@ function fputcsv($fp, $fields, $delimiter = null, $enclosure = null, $escape_cha
 /**
  * Alias of <code>fwrite</code>
  *
- * mixed $fp
- * mixed $str
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed $str
+ * @param mixed|null $length
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -5707,8 +5707,8 @@ function fputs($fp, $str, $length = null)
 /**
  * Binary-safe file read
  *
- * mixed $fp
- * mixed $length
+ * @param mixed $fp
+ * @param mixed $length
  *
  * @return string
  *
@@ -5723,9 +5723,9 @@ function fread($fp, $length): string
 /**
  * Parses input from a file according to a format
  *
- * mixed $stream
- * mixed $format
- * mixed $vars
+ * @param mixed $stream
+ * @param mixed $format
+ * @param mixed $vars
  *
  * @return mixed
  *
@@ -5740,9 +5740,9 @@ function fscanf($stream, $format, &...$vars)
 /**
  * Seeks on a file pointer
  *
- * mixed $fp
- * mixed $offset
- * mixed|null $whence
+ * @param mixed $fp
+ * @param mixed $offset
+ * @param mixed|null $whence
  *
  * @return int
  *
@@ -5757,11 +5757,11 @@ function fseek($fp, $offset, $whence = null): int
 /**
  * Open Internet or Unix domain socket connection
  *
- * mixed $hostname
- * mixed $port
- * mixed|null $errno
- * mixed|null $errstr
- * mixed|null $timeout
+ * @param mixed $hostname
+ * @param mixed $port
+ * @param mixed|null $errno
+ * @param mixed|null $errstr
+ * @param mixed|null $timeout
  *
  * @return resource
  *
@@ -5776,7 +5776,7 @@ function fsockopen($hostname, $port, &$errno = null, &$errstr = null, $timeout =
 /**
  * Gets information about a file using an open file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return array
  *
@@ -5791,7 +5791,7 @@ function fstat($fp): array
 /**
  * Returns the current position of the file read/write pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -5808,8 +5808,8 @@ function ftell($fp): int
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $pathname
- * mixed $proj
+ * @param mixed $pathname
+ * @param mixed $proj
  *
  * @return int
  *
@@ -5824,8 +5824,8 @@ function ftok($pathname, $proj): int
 /**
  * Truncates a file to a given length
  *
- * mixed $fp
- * mixed $size
+ * @param mixed $fp
+ * @param mixed $size
  *
  * @return bool
  *
@@ -5840,9 +5840,9 @@ function ftruncate($fp, $size): bool
 /**
  * Binary-safe file write
  *
- * mixed $fp
- * mixed $str
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed $str
+ * @param mixed|null $length
  *
  * @return int
  *
@@ -5857,8 +5857,8 @@ function fwrite($fp, $str, $length = null): int
 /**
  * Tells what the user's browser is capable of
  *
- * mixed|null $browser_name
- * mixed|null $return_array
+ * @param mixed|null $browser_name
+ * @param mixed|null $return_array
  *
  * @return mixed
  *
@@ -5873,7 +5873,7 @@ function get_browser($browser_name = null, $return_array = null)
 /**
  * Gets the value of a PHP configuration option
  *
- * mixed $option_name
+ * @param mixed $option_name
  *
  * @return mixed
  *
@@ -5901,8 +5901,8 @@ function get_current_user(): string
 /**
  * Fetches all the headers sent by the server in response to a HTTP request
  *
- * mixed $url
- * mixed|null $format
+ * @param mixed $url
+ * @param mixed|null $format
  *
  * @return array
  *
@@ -5917,9 +5917,9 @@ function get_headers($url, $format = null): array
 /**
  * Returns the translation table used by <code>htmlspecialchars</code> and <code>htmlentities</code>
  *
- * mixed|null $table
- * mixed|null $quote_style
- * mixed|null $encoding
+ * @param mixed|null $table
+ * @param mixed|null $quote_style
+ * @param mixed|null $encoding
  *
  * @return array
  *
@@ -5973,8 +5973,8 @@ function get_magic_quotes_runtime(): bool
 /**
  * Extracts all meta tag content attributes from a file and returns an array
  *
- * mixed $filename
- * mixed|null $use_include_path
+ * @param mixed $filename
+ * @param mixed|null $use_include_path
  *
  * @return array
  *
@@ -6002,8 +6002,8 @@ function getcwd(): string
 /**
  * Gets the value of an environment variable
  *
- * mixed $varname
- * mixed|null $local_only
+ * @param mixed $varname
+ * @param mixed|null $local_only
  *
  * @return string
  *
@@ -6018,7 +6018,7 @@ function getenv($varname, $local_only = null): string
 /**
  * Get the Internet host name corresponding to a given IP address
  *
- * mixed $ip_address
+ * @param mixed $ip_address
  *
  * @return string
  *
@@ -6033,7 +6033,7 @@ function gethostbyaddr($ip_address): string
 /**
  * Get the IPv4 address corresponding to a given Internet host name
  *
- * mixed $hostname
+ * @param mixed $hostname
  *
  * @return string
  *
@@ -6049,7 +6049,7 @@ function gethostbyname($hostname): string
  * Get a list of IPv4 addresses corresponding to a given Internet host
  *    name
  *
- * mixed $hostname
+ * @param mixed $hostname
  *
  * @return array
  *
@@ -6077,8 +6077,8 @@ function gethostname(): string
 /**
  * Get the size of an image
  *
- * mixed $imagefile
- * mixed|null $info
+ * @param mixed $imagefile
+ * @param mixed|null $info
  *
  * @return array
  *
@@ -6093,8 +6093,8 @@ function getimagesize($imagefile, &$info = null): array
 /**
  * Get the size of an image from a string
  *
- * mixed $imagefile
- * mixed|null $info
+ * @param mixed $imagefile
+ * @param mixed|null $info
  *
  * @return array
  *
@@ -6122,9 +6122,9 @@ function getlastmod(): int
 /**
  * Get MX records corresponding to a given Internet host name
  *
- * mixed $hostname
- * mixed $mxhosts
- * mixed|null $weight
+ * @param mixed $hostname
+ * @param mixed $mxhosts
+ * @param mixed|null $weight
  *
  * @return bool
  *
@@ -6191,8 +6191,8 @@ function getmyuid(): int
 /**
  * Gets options from the command line argument list
  *
- * mixed $options
- * mixed|null $opts
+ * @param mixed $options
+ * @param mixed|null $opts
  *
  * @return array
  *
@@ -6207,7 +6207,7 @@ function getopt($options, $opts = null): array
 /**
  * Get protocol number associated with protocol name
  *
- * mixed $name
+ * @param mixed $name
  *
  * @return int
  *
@@ -6222,7 +6222,7 @@ function getprotobyname($name): int
 /**
  * Get protocol name associated with protocol number
  *
- * mixed $proto
+ * @param mixed $proto
  *
  * @return string
  *
@@ -6250,7 +6250,7 @@ function getrandmax(): int
 /**
  * Gets the current resource usages
  *
- * mixed|null $who
+ * @param mixed|null $who
  *
  * @return array
  *
@@ -6265,8 +6265,8 @@ function getrusage($who = null): array
 /**
  * Get port number associated with an Internet service and protocol
  *
- * mixed $service
- * mixed $protocol
+ * @param mixed $service
+ * @param mixed $protocol
  *
  * @return int
  *
@@ -6281,8 +6281,8 @@ function getservbyname($service, $protocol): int
 /**
  * Get Internet service which corresponds to port and protocol
  *
- * mixed $port
- * mixed $protocol
+ * @param mixed $port
+ * @param mixed $protocol
  *
  * @return string
  *
@@ -6297,7 +6297,7 @@ function getservbyport($port, $protocol): string
 /**
  * Get current time
  *
- * mixed|null $get_as_float
+ * @param mixed|null $get_as_float
  *
  * @return mixed
  *
@@ -6312,7 +6312,7 @@ function gettimeofday($get_as_float = null)
 /**
  * Get the type of a variable
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return string
  *
@@ -6327,8 +6327,8 @@ function gettype($var): string
 /**
  * Find pathnames matching a pattern
  *
- * mixed $pattern
- * mixed|null $flags
+ * @param mixed $pattern
+ * @param mixed|null $flags
  *
  * @return array
  *
@@ -6343,9 +6343,9 @@ function glob($pattern, $flags = null): array
 /**
  * Send a raw HTTP header
  *
- * mixed $header
- * mixed|null $replace
- * mixed|null $http_response_code
+ * @param mixed $header
+ * @param mixed|null $replace
+ * @param mixed|null $http_response_code
  *
  * @return void
  *
@@ -6360,7 +6360,7 @@ function header($header, $replace = null, $http_response_code = null)
 /**
  * Call a header function
  *
- * mixed $callback
+ * @param mixed $callback
  *
  * @return bool
  *
@@ -6375,7 +6375,7 @@ function header_register_callback($callback): bool
 /**
  * Remove previously set headers
  *
- * mixed|null $name
+ * @param mixed|null $name
  *
  * @return void
  *
@@ -6403,8 +6403,8 @@ function headers_list(): array
 /**
  * Checks if or where headers have been sent
  *
- * mixed|null $file
- * mixed|null $line
+ * @param mixed|null $file
+ * @param mixed|null $line
  *
  * @return bool
  *
@@ -6419,8 +6419,8 @@ function headers_sent(&$file = null, &$line = null): bool
 /**
  * Convert logical Hebrew text to visual text
  *
- * mixed $str
- * mixed|null $max_chars_per_line
+ * @param mixed $str
+ * @param mixed|null $max_chars_per_line
  *
  * @return string
  *
@@ -6435,8 +6435,8 @@ function hebrev($str, $max_chars_per_line = null): string
 /**
  * Convert logical Hebrew text to visual text with newline conversion
  *
- * mixed $str
- * mixed|null $max_chars_per_line
+ * @param mixed $str
+ * @param mixed|null $max_chars_per_line
  *
  * @return string
  *
@@ -6451,7 +6451,7 @@ function hebrevc($str, $max_chars_per_line = null): string
 /**
  * Decodes a hexadecimally encoded binary string
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -6466,7 +6466,7 @@ function hex2bin($data): string
 /**
  * Hexadecimal to decimal
  *
- * mixed $hexadecimal_number
+ * @param mixed $hexadecimal_number
  *
  * @return number
  *
@@ -6481,8 +6481,8 @@ function hexdec($hexadecimal_number)
 /**
  * Syntax highlighting of a file
  *
- * mixed $file_name
- * mixed|null $return
+ * @param mixed $file_name
+ * @param mixed|null $return
  *
  * @return mixed
  *
@@ -6497,8 +6497,8 @@ function highlight_file($file_name, $return = null)
 /**
  * Syntax highlighting of a string
  *
- * mixed $string
- * mixed|null $return
+ * @param mixed $string
+ * @param mixed|null $return
  *
  * @return mixed
  *
@@ -6513,9 +6513,9 @@ function highlight_string($string, $return = null)
 /**
  * Convert all HTML entities to their applicable characters
  *
- * mixed $string
- * mixed|null $quote_style
- * mixed|null $encoding
+ * @param mixed $string
+ * @param mixed|null $quote_style
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -6530,10 +6530,10 @@ function html_entity_decode($string, $quote_style = null, $encoding = null): str
 /**
  * Convert all applicable characters to HTML entities
  *
- * mixed $string
- * mixed|null $quote_style
- * mixed|null $encoding
- * mixed|null $double_encode
+ * @param mixed $string
+ * @param mixed|null $quote_style
+ * @param mixed|null $encoding
+ * @param mixed|null $double_encode
  *
  * @return string
  *
@@ -6548,10 +6548,10 @@ function htmlentities($string, $quote_style = null, $encoding = null, $double_en
 /**
  * Convert special characters to HTML entities
  *
- * mixed $string
- * mixed|null $quote_style
- * mixed|null $encoding
- * mixed|null $double_encode
+ * @param mixed $string
+ * @param mixed|null $quote_style
+ * @param mixed|null $encoding
+ * @param mixed|null $double_encode
  *
  * @return string
  *
@@ -6566,8 +6566,8 @@ function htmlspecialchars($string, $quote_style = null, $encoding = null, $doubl
 /**
  * Convert special HTML entities back to characters
  *
- * mixed $string
- * mixed|null $quote_style
+ * @param mixed $string
+ * @param mixed|null $quote_style
  *
  * @return string
  *
@@ -6582,10 +6582,10 @@ function htmlspecialchars_decode($string, $quote_style = null): string
 /**
  * Generate URL-encoded query string
  *
- * mixed $formdata
- * mixed|null $prefix
- * mixed|null $arg_separator
- * mixed|null $enc_type
+ * @param mixed $formdata
+ * @param mixed|null $prefix
+ * @param mixed|null $arg_separator
+ * @param mixed|null $enc_type
  *
  * @return string
  *
@@ -6600,7 +6600,7 @@ function http_build_query($formdata, $prefix = null, $arg_separator = null, $enc
 /**
  * Get or Set the HTTP response code
  *
- * mixed|null $response_code
+ * @param mixed|null $response_code
  *
  * @return mixed
  *
@@ -6615,8 +6615,8 @@ function http_response_code($response_code = null)
 /**
  * Calculate the length of the hypotenuse of a right-angle triangle
  *
- * mixed $num1
- * mixed $num2
+ * @param mixed $num1
+ * @param mixed $num2
  *
  * @return float
  *
@@ -6631,7 +6631,7 @@ function hypot($num1, $num2): float
 /**
  * Set whether a client disconnect should abort script execution
  *
- * mixed|null $value
+ * @param mixed|null $value
  *
  * @return int
  *
@@ -6646,8 +6646,8 @@ function ignore_user_abort($value = null): int
 /**
  * Get file extension for image type
  *
- * mixed $imagetype
- * mixed|null $include_dot
+ * @param mixed $imagetype
+ * @param mixed|null $include_dot
  *
  * @return string
  *
@@ -6663,7 +6663,7 @@ function image_type_to_extension($imagetype, $include_dot = null): string
  * Get Mime-Type for image-type returned by getimagesize,
  *    exif_read_data, exif_thumbnail, exif_imagetype
  *
- * mixed $imagetype
+ * @param mixed $imagetype
  *
  * @return string
  *
@@ -6678,8 +6678,8 @@ function image_type_to_mime_type($imagetype): string
 /**
  * Join array elements with a string
  *
- * mixed $glue
- * mixed $pieces
+ * @param mixed $glue
+ * @param mixed $pieces
  *
  * @return string
  *
@@ -6694,9 +6694,9 @@ function implode($glue, $pieces): string
 /**
  * Checks if a value exists in an array
  *
- * mixed $needle
- * mixed $haystack
- * mixed|null $strict
+ * @param mixed $needle
+ * @param mixed $haystack
+ * @param mixed|null $strict
  *
  * @return bool
  *
@@ -6711,7 +6711,7 @@ function in_array($needle, $haystack, $strict = null): bool
 /**
  * Converts a packed internet address to a human readable representation
  *
- * mixed $in_addr
+ * @param mixed $in_addr
  *
  * @return string
  *
@@ -6726,7 +6726,7 @@ function inet_ntop($in_addr): string
 /**
  * Converts a human readable IP address to its packed in_addr representation
  *
- * mixed $ip_address
+ * @param mixed $ip_address
  *
  * @return string
  *
@@ -6741,8 +6741,8 @@ function inet_pton($ip_address): string
 /**
  * Alias of <code>ini_set</code>
  *
- * mixed $varname
- * mixed $newvalue
+ * @param mixed $varname
+ * @param mixed $newvalue
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -6755,7 +6755,7 @@ function ini_alter($varname, $newvalue)
 /**
  * Gets the value of a configuration option
  *
- * mixed $varname
+ * @param mixed $varname
  *
  * @return string
  *
@@ -6770,8 +6770,8 @@ function ini_get($varname): string
 /**
  * Gets all configuration options
  *
- * mixed|null $extension
- * mixed|null $details
+ * @param mixed|null $extension
+ * @param mixed|null $details
  *
  * @return array
  *
@@ -6786,7 +6786,7 @@ function ini_get_all($extension = null, $details = null): array
 /**
  * Restores the value of a configuration option
  *
- * mixed $varname
+ * @param mixed $varname
  *
  * @return void
  *
@@ -6801,8 +6801,8 @@ function ini_restore($varname)
 /**
  * Sets the value of a configuration option
  *
- * mixed $varname
- * mixed $newvalue
+ * @param mixed $varname
+ * @param mixed $newvalue
  *
  * @return string
  *
@@ -6817,8 +6817,8 @@ function ini_set($varname, $newvalue): string
 /**
  * Integer division
  *
- * mixed $dividend
- * mixed $divisor
+ * @param mixed $dividend
+ * @param mixed $divisor
  *
  * @return int
  *
@@ -6833,8 +6833,8 @@ function intdiv($dividend, $divisor): int
 /**
  * Get the integer value of a variable
  *
- * mixed $var
- * mixed|null $base
+ * @param mixed $var
+ * @param mixed|null $base
  *
  * @return int
  *
@@ -6849,7 +6849,7 @@ function intval($var, $base = null): int
 /**
  * Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer
  *
- * mixed $ip_address
+ * @param mixed $ip_address
  *
  * @return int
  *
@@ -6864,9 +6864,9 @@ function ip2long($ip_address): int
 /**
  * Embeds binary IPTC data into a JPEG image
  *
- * mixed $iptcdata
- * mixed $jpeg_file_name
- * mixed|null $spool
+ * @param mixed $iptcdata
+ * @param mixed $jpeg_file_name
+ * @param mixed|null $spool
  *
  * @return mixed
  *
@@ -6881,7 +6881,7 @@ function iptcembed($iptcdata, $jpeg_file_name, $spool = null)
 /**
  * Parse a binary IPTC block into single tags
  *
- * mixed $iptcdata
+ * @param mixed $iptcdata
  *
  * @return array
  *
@@ -6896,7 +6896,7 @@ function iptcparse($iptcdata): array
 /**
  * Finds whether a variable is an array
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -6911,7 +6911,7 @@ function is_array($var): bool
 /**
  * Finds out whether a variable is a boolean
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -6926,9 +6926,9 @@ function is_bool($var): bool
 /**
  * Verify that the contents of a variable can be called as a function
  *
- * mixed $var
- * mixed|null $syntax_only
- * mixed|null $callable_name
+ * @param mixed $var
+ * @param mixed|null $syntax_only
+ * @param mixed|null $callable_name
  *
  * @return bool
  *
@@ -6943,7 +6943,7 @@ function is_callable($var, $syntax_only = null, &$callable_name = null): bool
 /**
  * Tells whether the filename is a directory
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -6958,7 +6958,7 @@ function is_dir($filename): bool
 /**
  * Alias of <code>is_float</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -6971,7 +6971,7 @@ function is_double($var)
 /**
  * Tells whether the filename is executable
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -6986,7 +6986,7 @@ function is_executable($filename): bool
 /**
  * Tells whether the filename is a regular file
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -7001,7 +7001,7 @@ function is_file($filename): bool
 /**
  * Finds whether a value is a legal finite number
  *
- * mixed $val
+ * @param mixed $val
  *
  * @return bool
  *
@@ -7016,7 +7016,7 @@ function is_finite($val): bool
 /**
  * Finds whether the type of a variable is float
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7031,7 +7031,7 @@ function is_float($var): bool
 /**
  * Finds whether a value is infinite
  *
- * mixed $val
+ * @param mixed $val
  *
  * @return bool
  *
@@ -7046,7 +7046,7 @@ function is_infinite($val): bool
 /**
  * Find whether the type of a variable is integer
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7061,7 +7061,7 @@ function is_int($var): bool
 /**
  * Alias of <code>is_int</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -7074,7 +7074,7 @@ function is_integer($var)
 /**
  * Tells whether the filename is a symbolic link
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -7089,7 +7089,7 @@ function is_link($filename): bool
 /**
  * Alias of <code>is_int</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -7102,7 +7102,7 @@ function is_long($var)
 /**
  * Finds whether a value is not a number
  *
- * mixed $val
+ * @param mixed $val
  *
  * @return bool
  *
@@ -7117,7 +7117,7 @@ function is_nan($val): bool
 /**
  * Finds whether a variable is <code>NULL</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7132,7 +7132,7 @@ function is_null($var): bool
 /**
  * Finds whether a variable is a number or a numeric string
  *
- * mixed $value
+ * @param mixed $value
  *
  * @return bool
  *
@@ -7147,7 +7147,7 @@ function is_numeric($value): bool
 /**
  * Finds whether a variable is an object
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7162,7 +7162,7 @@ function is_object($var): bool
 /**
  * Tells whether a file exists and is readable
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -7177,7 +7177,7 @@ function is_readable($filename): bool
 /**
  * Alias of <code>is_float</code>
  *
- * mixed $var
+ * @param mixed $var
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -7190,7 +7190,7 @@ function is_real($var)
 /**
  * Finds whether a variable is a resource
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7205,7 +7205,7 @@ function is_resource($var): bool
 /**
  * Finds whether a variable is a scalar
  *
- * mixed $value
+ * @param mixed $value
  *
  * @return bool
  *
@@ -7220,7 +7220,7 @@ function is_scalar($value): bool
 /**
  * Find whether the type of a variable is string
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return bool
  *
@@ -7235,7 +7235,7 @@ function is_string($var): bool
 /**
  * Tells whether the file was uploaded via HTTP POST
  *
- * mixed $path
+ * @param mixed $path
  *
  * @return bool
  *
@@ -7250,7 +7250,7 @@ function is_uploaded_file($path): bool
 /**
  * Tells whether the filename is writable
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -7265,7 +7265,7 @@ function is_writable($filename): bool
 /**
  * Alias of <code>is_writable</code>
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -7278,8 +7278,8 @@ function is_writeable($filename)
 /**
  * Alias of <code>implode</code>
  *
- * mixed $glue
- * mixed $pieces
+ * @param mixed $glue
+ * @param mixed $pieces
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -7292,7 +7292,7 @@ function join($glue, $pieces)
 /**
  * Fetch a key from an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -7307,8 +7307,8 @@ function key($arg)
 /**
  * Alias of <code>array_key_exists</code>
  *
- * mixed $key
- * mixed $search
+ * @param mixed $key
+ * @param mixed $search
  *
  * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
  *
@@ -7321,8 +7321,8 @@ function key_exists($key, $search)
 /**
  * Sort an array by key in reverse order
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -7337,8 +7337,8 @@ function krsort(&$arg, $sort_flags = null): bool
 /**
  * Sort an array by key
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -7353,7 +7353,7 @@ function ksort(&$arg, $sort_flags = null): bool
 /**
  * Make a string's first character lowercase
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -7383,8 +7383,8 @@ function lcg_value(): float
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $filename
- * mixed $group
+ * @param mixed $filename
+ * @param mixed $group
  *
  * @return bool
  *
@@ -7401,8 +7401,8 @@ function lchgrp($filename, $group): bool
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $filename
- * mixed $user
+ * @param mixed $filename
+ * @param mixed $user
  *
  * @return bool
  *
@@ -7417,11 +7417,11 @@ function lchown($filename, $user): bool
 /**
  * Calculate Levenshtein distance between two strings
  *
- * mixed $str1
- * mixed $str2
- * mixed|null $cost_ins
- * mixed|null $cost_rep
- * mixed|null $cost_del
+ * @param mixed $str1
+ * @param mixed $str2
+ * @param mixed|null $cost_ins
+ * @param mixed|null $cost_rep
+ * @param mixed|null $cost_del
  *
  * @return int
  *
@@ -7436,8 +7436,8 @@ function levenshtein($str1, $str2, $cost_ins = null, $cost_rep = null, $cost_del
 /**
  * Create a hard link
  *
- * mixed $target
- * mixed $link
+ * @param mixed $target
+ * @param mixed $link
  *
  * @return bool
  *
@@ -7452,7 +7452,7 @@ function link($target, $link): bool
 /**
  * Gets information about a link
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return int
  *
@@ -7480,8 +7480,8 @@ function localeconv(): array
 /**
  * Natural logarithm
  *
- * mixed $number
- * mixed|null $base
+ * @param mixed $number
+ * @param mixed|null $base
  *
  * @return float
  *
@@ -7496,7 +7496,7 @@ function log($number, $base = null): float
 /**
  * Base-10 logarithm
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -7512,7 +7512,7 @@ function log10($number): float
  * Returns log(1 + number), computed in a way that is accurate even when
  *    the value of number is close to zero
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -7527,7 +7527,7 @@ function log1p($number): float
 /**
  * Converts an long integer address into a string in (IPv4) Internet standard dotted format
  *
- * mixed $proper_address
+ * @param mixed $proper_address
  *
  * @return string
  *
@@ -7542,7 +7542,7 @@ function long2ip($proper_address): string
 /**
  * Gives information about a file or symbolic link
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return array
  *
@@ -7557,8 +7557,8 @@ function lstat($filename): array
 /**
  * Strip whitespace (or other characters) from the beginning of a string
  *
- * mixed $str
- * mixed|null $character_mask
+ * @param mixed $str
+ * @param mixed|null $character_mask
  *
  * @return string
  *
@@ -7573,11 +7573,11 @@ function ltrim($str, $character_mask = null): string
 /**
  * Send mail
  *
- * mixed $to
- * mixed $subject
- * mixed $message
- * mixed|null $additional_headers
- * mixed|null $additional_parameters
+ * @param mixed $to
+ * @param mixed $subject
+ * @param mixed $message
+ * @param mixed|null $additional_headers
+ * @param mixed|null $additional_parameters
  *
  * @return bool
  *
@@ -7592,7 +7592,7 @@ function mail($to, $subject, $message, $additional_headers = null, $additional_p
 /**
  * Find highest value
  *
- * mixed $args
+ * @param mixed $args
  *
  * @return mixed
  *
@@ -7607,8 +7607,8 @@ function max(...$args)
 /**
  * Calculate the md5 hash of a string
  *
- * mixed $str
- * mixed|null $raw_output
+ * @param mixed $str
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -7623,8 +7623,8 @@ function md5($str, $raw_output = null): string
 /**
  * Calculates the md5 hash of a given file
  *
- * mixed $filename
- * mixed|null $raw_output
+ * @param mixed $filename
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -7639,7 +7639,7 @@ function md5_file($filename, $raw_output = null): string
 /**
  * Returns the peak of memory allocated by PHP
  *
- * mixed|null $real_usage
+ * @param mixed|null $real_usage
  *
  * @return int
  *
@@ -7654,7 +7654,7 @@ function memory_get_peak_usage($real_usage = null): int
 /**
  * Returns the amount of memory allocated to PHP
  *
- * mixed|null $real_usage
+ * @param mixed|null $real_usage
  *
  * @return int
  *
@@ -7669,8 +7669,8 @@ function memory_get_usage($real_usage = null): int
 /**
  * Calculate the metaphone key of a string
  *
- * mixed $text
- * mixed|null $phones
+ * @param mixed $text
+ * @param mixed|null $phones
  *
  * @return string
  *
@@ -7685,7 +7685,7 @@ function metaphone($text, $phones = null): string
 /**
  * Return current Unix timestamp with microseconds
  *
- * mixed|null $get_as_float
+ * @param mixed|null $get_as_float
  *
  * @return mixed
  *
@@ -7700,7 +7700,7 @@ function microtime($get_as_float = null)
 /**
  * Find lowest value
  *
- * mixed $args
+ * @param mixed $args
  *
  * @return mixed
  *
@@ -7715,10 +7715,10 @@ function min(...$args)
 /**
  * Makes directory
  *
- * mixed $pathname
- * mixed|null $mode
- * mixed|null $recursive
- * mixed|null $context
+ * @param mixed $pathname
+ * @param mixed|null $mode
+ * @param mixed|null $recursive
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -7735,8 +7735,8 @@ function mkdir($pathname, $mode = null, $recursive = null, $context = null): boo
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $format
- * mixed $value
+ * @param mixed $format
+ * @param mixed $value
  *
  * @return string
  *
@@ -7751,8 +7751,8 @@ function money_format($format, $value): string
 /**
  * Moves an uploaded file to a new location
  *
- * mixed $path
- * mixed $new_path
+ * @param mixed $path
+ * @param mixed $new_path
  *
  * @return bool
  *
@@ -7780,8 +7780,8 @@ function mt_getrandmax(): int
 /**
  * Generate a random value via the Mersenne Twister Random Number Generator
  *
- * mixed|null $min
- * mixed|null $max
+ * @param mixed|null $min
+ * @param mixed|null $max
  *
  * @return int
  *
@@ -7796,7 +7796,7 @@ function mt_rand($min = null, $max = null): int
 /**
  * Seeds the Mersenne Twister Random Number Generator
  *
- * mixed|null $seed
+ * @param mixed|null $seed
  *
  * @return void
  *
@@ -7811,7 +7811,7 @@ function mt_srand($seed = null)
 /**
  * Sort an array using a case insensitive "natural order" algorithm
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return bool
  *
@@ -7826,7 +7826,7 @@ function natcasesort(&$arg): bool
 /**
  * Sort an array using a "natural order" algorithm
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return bool
  *
@@ -7841,7 +7841,7 @@ function natsort(&$arg): bool
 /**
  * Advance the internal pointer of an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -7856,8 +7856,8 @@ function next(&$arg)
 /**
  * Inserts HTML line breaks before all newlines in a string
  *
- * mixed $str
- * mixed|null $is_xhtml
+ * @param mixed $str
+ * @param mixed|null $is_xhtml
  *
  * @return string
  *
@@ -7874,7 +7874,7 @@ function nl2br($str, $is_xhtml = null): string
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $item
+ * @param mixed $item
  *
  * @return string
  *
@@ -7889,10 +7889,10 @@ function nl_langinfo($item): string
 /**
  * Format a number with grouped thousands
  *
- * mixed $number
- * mixed|null $num_decimal_places
- * mixed|null $dec_separator
- * mixed|null $thousands_separator
+ * @param mixed $number
+ * @param mixed|null $num_decimal_places
+ * @param mixed|null $dec_separator
+ * @param mixed|null $thousands_separator
  *
  * @return string
  *
@@ -8024,7 +8024,7 @@ function ob_get_level(): int
 /**
  * Get status of output buffers
  *
- * mixed|null $full_status
+ * @param mixed|null $full_status
  *
  * @return array
  *
@@ -8039,7 +8039,7 @@ function ob_get_status($full_status = null): array
 /**
  * Turn implicit flush on/off
  *
- * mixed|null $flag
+ * @param mixed|null $flag
  *
  * @return void
  *
@@ -8067,9 +8067,9 @@ function ob_list_handlers(): array
 /**
  * Turn on output buffering
  *
- * mixed|null $user_function
- * mixed|null $chunk_size
- * mixed|null $flags
+ * @param mixed|null $user_function
+ * @param mixed|null $chunk_size
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -8084,7 +8084,7 @@ function ob_start($user_function = null, $chunk_size = null, $flags = null): boo
 /**
  * Octal to decimal
  *
- * mixed $octal_number
+ * @param mixed $octal_number
  *
  * @return number
  *
@@ -8099,8 +8099,8 @@ function octdec($octal_number)
 /**
  * Open directory handle
  *
- * mixed $path
- * mixed|null $context
+ * @param mixed $path
+ * @param mixed|null $context
  *
  * @return resource
  *
@@ -8115,9 +8115,9 @@ function opendir($path, $context = null)
 /**
  * Open connection to system logger
  *
- * mixed $ident
- * mixed $option
- * mixed $facility
+ * @param mixed $ident
+ * @param mixed $option
+ * @param mixed $facility
  *
  * @return bool
  *
@@ -8132,7 +8132,7 @@ function openlog($ident, $option, $facility): bool
 /**
  * Return ASCII value of character
  *
- * mixed $character
+ * @param mixed $character
  *
  * @return int
  *
@@ -8147,8 +8147,8 @@ function ord($character): int
 /**
  * Add URL rewriter values
  *
- * mixed $name
- * mixed $value
+ * @param mixed $name
+ * @param mixed $value
  *
  * @return bool
  *
@@ -8176,8 +8176,8 @@ function output_reset_rewrite_vars(): bool
 /**
  * Pack data into binary string
  *
- * mixed $format
- * mixed $args
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return string
  *
@@ -8192,9 +8192,9 @@ function pack($format, ...$args): string
 /**
  * Parse a configuration file
  *
- * mixed $filename
- * mixed|null $process_sections
- * mixed|null $scanner_mode
+ * @param mixed $filename
+ * @param mixed|null $process_sections
+ * @param mixed|null $scanner_mode
  *
  * @return array
  *
@@ -8209,9 +8209,9 @@ function parse_ini_file($filename, $process_sections = null, $scanner_mode = nul
 /**
  * Parse a configuration string
  *
- * mixed $ini_string
- * mixed|null $process_sections
- * mixed|null $scanner_mode
+ * @param mixed $ini_string
+ * @param mixed|null $process_sections
+ * @param mixed|null $scanner_mode
  *
  * @return array
  *
@@ -8226,8 +8226,8 @@ function parse_ini_string($ini_string, $process_sections = null, $scanner_mode =
 /**
  * Parses the string into variables
  *
- * mixed $encoded_string
- * mixed|null $result
+ * @param mixed $encoded_string
+ * @param mixed|null $result
  *
  * @return void
  *
@@ -8242,8 +8242,8 @@ function parse_str($encoded_string, &$result = null)
 /**
  * Parse a URL and return its components
  *
- * mixed $url
- * mixed|null $component
+ * @param mixed $url
+ * @param mixed|null $component
  *
  * @return mixed
  *
@@ -8258,8 +8258,8 @@ function parse_url($url, $component = null)
 /**
  * Execute an external program and display raw output
  *
- * mixed $command
- * mixed|null $return_value
+ * @param mixed $command
+ * @param mixed|null $return_value
  *
  * @return void
  *
@@ -8274,7 +8274,7 @@ function passthru($command, &$return_value = null)
 /**
  * Returns information about the given hash
  *
- * mixed $hash
+ * @param mixed $hash
  *
  * @return array
  *
@@ -8289,9 +8289,9 @@ function password_get_info($hash): array
 /**
  * Creates a password hash
  *
- * mixed $password
- * mixed $algo
- * mixed|null $options
+ * @param mixed $password
+ * @param mixed $algo
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -8306,9 +8306,9 @@ function password_hash($password, $algo, $options = null): string
 /**
  * Checks if the given hash matches the given options
  *
- * mixed $hash
- * mixed $algo
- * mixed|null $options
+ * @param mixed $hash
+ * @param mixed $algo
+ * @param mixed|null $options
  *
  * @return bool
  *
@@ -8323,8 +8323,8 @@ function password_needs_rehash($hash, $algo, $options = null): bool
 /**
  * Verifies that a password matches a hash
  *
- * mixed $password
- * mixed $hash
+ * @param mixed $password
+ * @param mixed $hash
  *
  * @return bool
  *
@@ -8339,8 +8339,8 @@ function password_verify($password, $hash): bool
 /**
  * Returns information about a file path
  *
- * mixed $path
- * mixed|null $options
+ * @param mixed $path
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -8355,7 +8355,7 @@ function pathinfo($path, $options = null)
 /**
  * Closes process file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -8370,11 +8370,11 @@ function pclose($fp): int
 /**
  * Open persistent Internet or Unix domain socket connection
  *
- * mixed $hostname
- * mixed $port
- * mixed|null $errno
- * mixed|null $errstr
- * mixed|null $timeout
+ * @param mixed $hostname
+ * @param mixed $port
+ * @param mixed|null $errno
+ * @param mixed|null $errstr
+ * @param mixed|null $timeout
  *
  * @return resource
  *
@@ -8428,7 +8428,7 @@ function php_sapi_name(): string
 /**
  * Return source with stripped comments and whitespace
  *
- * mixed $file_name
+ * @param mixed $file_name
  *
  * @return string
  *
@@ -8443,7 +8443,7 @@ function php_strip_whitespace($file_name): string
 /**
  * Returns information about the operating system PHP is running on
  *
- * mixed|null $mode
+ * @param mixed|null $mode
  *
  * @return string
  *
@@ -8458,7 +8458,7 @@ function php_uname($mode = null): string
 /**
  * Prints out the credits for PHP
  *
- * mixed|null $flag
+ * @param mixed|null $flag
  *
  * @return bool
  *
@@ -8473,7 +8473,7 @@ function phpcredits($flag = null): bool
 /**
  * Outputs information about PHP's configuration
  *
- * mixed|null $what
+ * @param mixed|null $what
  *
  * @return bool
  *
@@ -8488,7 +8488,7 @@ function phpinfo($what = null): bool
 /**
  * Gets the current PHP version
  *
- * mixed|null $extension
+ * @param mixed|null $extension
  *
  * @return string
  *
@@ -8516,8 +8516,8 @@ function pi(): float
 /**
  * Opens process file pointer
  *
- * mixed $command
- * mixed $mode
+ * @param mixed $command
+ * @param mixed $mode
  *
  * @return resource
  *
@@ -8532,7 +8532,7 @@ function popen($command, $mode)
 /**
  * Alias of <code>current</code>
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -8545,8 +8545,8 @@ function pos($arg)
 /**
  * Exponential expression
  *
- * mixed $base
- * mixed $exponent
+ * @param mixed $base
+ * @param mixed $exponent
  *
  * @return number
  *
@@ -8561,7 +8561,7 @@ function pow($base, $exponent)
 /**
  * Rewind the internal array pointer
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -8576,8 +8576,8 @@ function prev(&$arg)
 /**
  * Prints human-readable information about a variable
  *
- * mixed $var
- * mixed|null $return
+ * @param mixed $var
+ * @param mixed|null $return
  *
  * @return mixed
  *
@@ -8592,8 +8592,8 @@ function print_r($var, $return = null)
 /**
  * Output a formatted string
  *
- * mixed $format
- * mixed $args
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return int
  *
@@ -8608,7 +8608,7 @@ function printf($format, ...$args): int
 /**
  * Close a process opened by <code>proc_open</code> and return the exit code of that process
  *
- * mixed $process
+ * @param mixed $process
  *
  * @return int
  *
@@ -8623,7 +8623,7 @@ function proc_close($process): int
 /**
  * Get information about a process opened by <code>proc_open</code>
  *
- * mixed $process
+ * @param mixed $process
  *
  * @return array
  *
@@ -8640,7 +8640,7 @@ function proc_get_status($process): array
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $priority
+ * @param mixed $priority
  *
  * @return bool
  *
@@ -8655,12 +8655,12 @@ function proc_nice($priority): bool
 /**
  * Execute a command and open file pointers for input/output
  *
- * mixed $command
- * mixed $descriptorspec
- * mixed $pipes
- * mixed|null $cwd
- * mixed|null $env
- * mixed|null $other_options
+ * @param mixed $command
+ * @param mixed $descriptorspec
+ * @param mixed $pipes
+ * @param mixed|null $cwd
+ * @param mixed|null $env
+ * @param mixed|null $other_options
  *
  * @return resource
  *
@@ -8675,8 +8675,8 @@ function proc_open($command, $descriptorspec, &$pipes, $cwd = null, $env = null,
 /**
  * Kills a process opened by proc_open
  *
- * mixed $process
- * mixed|null $signal
+ * @param mixed $process
+ * @param mixed|null $signal
  *
  * @return bool
  *
@@ -8691,7 +8691,7 @@ function proc_terminate($process, $signal = null): bool
 /**
  * Sets the value of an environment variable
  *
- * mixed $setting
+ * @param mixed $setting
  *
  * @return bool
  *
@@ -8706,7 +8706,7 @@ function putenv($setting): bool
 /**
  * Convert a quoted-printable string to an 8 bit string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -8721,7 +8721,7 @@ function quoted_printable_decode($str): string
 /**
  * Convert a 8 bit string to a quoted-printable string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -8736,7 +8736,7 @@ function quoted_printable_encode($str): string
 /**
  * Quote meta characters
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -8751,7 +8751,7 @@ function quotemeta($str): string
 /**
  * Converts the radian number to the equivalent number in degrees
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -8766,8 +8766,8 @@ function rad2deg($number): float
 /**
  * Generate a random integer
  *
- * mixed|null $min
- * mixed|null $max
+ * @param mixed|null $min
+ * @param mixed|null $max
  *
  * @return int
  *
@@ -8782,7 +8782,7 @@ function rand($min = null, $max = null): int
 /**
  * Generates cryptographically secure pseudo-random bytes
  *
- * mixed $length
+ * @param mixed $length
  *
  * @return string
  *
@@ -8797,8 +8797,8 @@ function random_bytes($length): string
 /**
  * Generates cryptographically secure pseudo-random integers
  *
- * mixed $min
- * mixed $max
+ * @param mixed $min
+ * @param mixed $max
  *
  * @return int
  *
@@ -8813,9 +8813,9 @@ function random_int($min, $max): int
 /**
  * Create an array containing a range of elements
  *
- * mixed $low
- * mixed $high
- * mixed|null $step
+ * @param mixed $low
+ * @param mixed $high
+ * @param mixed|null $step
  *
  * @return array
  *
@@ -8830,7 +8830,7 @@ function range($low, $high, $step = null): array
 /**
  * Decode URL-encoded strings
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -8845,7 +8845,7 @@ function rawurldecode($str): string
 /**
  * URL-encode according to RFC 3986
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -8860,7 +8860,7 @@ function rawurlencode($str): string
 /**
  * Read entry from directory handle
  *
- * mixed|null $dir_handle
+ * @param mixed|null $dir_handle
  *
  * @return string
  *
@@ -8875,9 +8875,9 @@ function readdir($dir_handle = null): string
 /**
  * Outputs a file
  *
- * mixed $filename
- * mixed|null $flags
- * mixed|null $context
+ * @param mixed $filename
+ * @param mixed|null $flags
+ * @param mixed|null $context
  *
  * @return int
  *
@@ -8892,7 +8892,7 @@ function readfile($filename, $flags = null, $context = null): int
 /**
  * Returns the target of a symbolic link
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return string
  *
@@ -8907,7 +8907,7 @@ function readlink($filename): string
 /**
  * Returns canonicalized absolute pathname
  *
- * mixed $path
+ * @param mixed $path
  *
  * @return string
  *
@@ -8948,8 +8948,8 @@ function realpath_cache_size(): int
 /**
  * Register a function for execution on shutdown
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return void
  *
@@ -8964,8 +8964,8 @@ function register_shutdown_function($function_name, ...$parameters)
 /**
  * Register a function for execution on each tick
  *
- * mixed $function_name
- * mixed $parameters
+ * @param mixed $function_name
+ * @param mixed $parameters
  *
  * @return bool
  *
@@ -8980,9 +8980,9 @@ function register_tick_function($function_name, ...$parameters): bool
 /**
  * Renames a file or directory
  *
- * mixed $old_name
- * mixed $new_name
- * mixed|null $context
+ * @param mixed $old_name
+ * @param mixed $new_name
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -8997,7 +8997,7 @@ function rename($old_name, $new_name, $context = null): bool
 /**
  * Set the internal pointer of an array to its first element
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return mixed
  *
@@ -9025,7 +9025,7 @@ function restore_include_path()
 /**
  * Rewind the position of a file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -9040,7 +9040,7 @@ function rewind($fp): bool
 /**
  * Rewind directory handle
  *
- * mixed|null $dir_handle
+ * @param mixed|null $dir_handle
  *
  * @return void
  *
@@ -9055,8 +9055,8 @@ function rewinddir($dir_handle = null)
 /**
  * Removes directory
  *
- * mixed $dirname
- * mixed|null $context
+ * @param mixed $dirname
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -9071,9 +9071,9 @@ function rmdir($dirname, $context = null): bool
 /**
  * Rounds a float
  *
- * mixed $number
- * mixed|null $precision
- * mixed|null $mode
+ * @param mixed $number
+ * @param mixed|null $precision
+ * @param mixed|null $mode
  *
  * @return float
  *
@@ -9088,8 +9088,8 @@ function round($number, $precision = null, $mode = null): float
 /**
  * Sort an array in reverse order
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -9104,8 +9104,8 @@ function rsort(&$arg, $sort_flags = null): bool
 /**
  * Strip whitespace (or other characters) from the end of a string
  *
- * mixed $str
- * mixed|null $character_mask
+ * @param mixed $str
+ * @param mixed|null $character_mask
  *
  * @return string
  *
@@ -9120,9 +9120,9 @@ function rtrim($str, $character_mask = null): string
 /**
  * List files and directories inside the specified path
  *
- * mixed $dir
- * mixed|null $sorting_order
- * mixed|null $context
+ * @param mixed $dir
+ * @param mixed|null $sorting_order
+ * @param mixed|null $context
  *
  * @return array
  *
@@ -9137,7 +9137,7 @@ function scandir($dir, $sorting_order = null, $context = null): array
 /**
  * Generates a storable representation of a value
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return string
  *
@@ -9152,8 +9152,8 @@ function serialize($var): string
 /**
  * Alias of <code>stream_set_write_buffer</code>
  *
- * mixed $fp
- * mixed $buffer
+ * @param mixed $fp
+ * @param mixed $buffer
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9166,7 +9166,7 @@ function set_file_buffer($fp, $buffer)
 /**
  * Sets the include_path configuration option
  *
- * mixed $new_include_path
+ * @param mixed $new_include_path
  *
  * @return string
  *
@@ -9181,7 +9181,7 @@ function set_include_path($new_include_path): string
 /**
  * Limits the maximum execution time
  *
- * mixed $seconds
+ * @param mixed $seconds
  *
  * @return bool
  *
@@ -9196,13 +9196,13 @@ function set_time_limit($seconds): bool
 /**
  * Send a cookie
  *
- * mixed $name
- * mixed|null $value
- * mixed|null $expires
- * mixed|null $path
- * mixed|null $domain
- * mixed|null $secure
- * mixed|null $httponly
+ * @param mixed $name
+ * @param mixed|null $value
+ * @param mixed|null $expires
+ * @param mixed|null $path
+ * @param mixed|null $domain
+ * @param mixed|null $secure
+ * @param mixed|null $httponly
  *
  * @return bool
  *
@@ -9217,8 +9217,8 @@ function setcookie($name, $value = null, $expires = null, $path = null, $domain 
 /**
  * Set locale information
  *
- * mixed $category
- * mixed $locales
+ * @param mixed $category
+ * @param mixed $locales
  *
  * @return string
  *
@@ -9233,13 +9233,13 @@ function setlocale($category, ...$locales): string
 /**
  * Send a cookie without urlencoding the cookie value
  *
- * mixed $name
- * mixed|null $value
- * mixed|null $expires
- * mixed|null $path
- * mixed|null $domain
- * mixed|null $secure
- * mixed|null $httponly
+ * @param mixed $name
+ * @param mixed|null $value
+ * @param mixed|null $expires
+ * @param mixed|null $path
+ * @param mixed|null $domain
+ * @param mixed|null $secure
+ * @param mixed|null $httponly
  *
  * @return bool
  *
@@ -9254,8 +9254,8 @@ function setrawcookie($name, $value = null, $expires = null, $path = null, $doma
 /**
  * Set the type of a variable
  *
- * mixed $var
- * mixed $type
+ * @param mixed $var
+ * @param mixed $type
  *
  * @return bool
  *
@@ -9270,8 +9270,8 @@ function settype(&$var, $type): bool
 /**
  * Calculate the sha1 hash of a string
  *
- * mixed $str
- * mixed|null $raw_output
+ * @param mixed $str
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -9286,8 +9286,8 @@ function sha1($str, $raw_output = null): string
 /**
  * Calculate the sha1 hash of a file
  *
- * mixed $filename
- * mixed|null $raw_output
+ * @param mixed $filename
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -9302,7 +9302,7 @@ function sha1_file($filename, $raw_output = null): string
 /**
  * Execute command via shell and return the complete output as a string
  *
- * mixed $cmd
+ * @param mixed $cmd
  *
  * @return string
  *
@@ -9317,8 +9317,8 @@ function shell_exec($cmd): string
 /**
  * Alias of <code>highlight_file</code>
  *
- * mixed $file_name
- * mixed|null $return
+ * @param mixed $file_name
+ * @param mixed|null $return
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9331,7 +9331,7 @@ function show_source($file_name, $return = null)
 /**
  * Shuffle an array
  *
- * mixed $arg
+ * @param mixed $arg
  *
  * @return bool
  *
@@ -9346,9 +9346,9 @@ function shuffle(&$arg): bool
 /**
  * Calculate the similarity between two strings
  *
- * mixed $str1
- * mixed $str2
- * mixed|null $percent
+ * @param mixed $str1
+ * @param mixed $str2
+ * @param mixed|null $percent
  *
  * @return int
  *
@@ -9363,7 +9363,7 @@ function similar_text($str1, $str2, &$percent = null): int
 /**
  * Sine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -9378,7 +9378,7 @@ function sin($number): float
 /**
  * Hyperbolic sine
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -9393,8 +9393,8 @@ function sinh($number): float
 /**
  * Alias of <code>count</code>
  *
- * mixed $var
- * mixed|null $mode
+ * @param mixed $var
+ * @param mixed|null $mode
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9407,7 +9407,7 @@ function sizeof($var, $mode = null)
 /**
  * Delay execution
  *
- * mixed $seconds
+ * @param mixed $seconds
  *
  * @return int
  *
@@ -9422,7 +9422,7 @@ function sleep($seconds): int
 /**
  * Alias of <code>stream_get_meta_data</code>
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9435,8 +9435,8 @@ function socket_get_status($fp)
 /**
  * Alias of <code>stream_set_blocking</code>
  *
- * mixed $socket
- * mixed $mode
+ * @param mixed $socket
+ * @param mixed $mode
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9449,9 +9449,9 @@ function socket_set_blocking($socket, $mode)
 /**
  * Alias of <code>stream_set_timeout</code>
  *
- * mixed $stream
- * mixed $seconds
- * mixed|null $microseconds
+ * @param mixed $stream
+ * @param mixed $seconds
+ * @param mixed|null $microseconds
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9464,8 +9464,8 @@ function socket_set_timeout($stream, $seconds, $microseconds = null)
 /**
  * Sort an array
  *
- * mixed $arg
- * mixed|null $sort_flags
+ * @param mixed $arg
+ * @param mixed|null $sort_flags
  *
  * @return bool
  *
@@ -9480,7 +9480,7 @@ function sort(&$arg, $sort_flags = null): bool
 /**
  * Calculate the soundex key of a string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -9495,8 +9495,8 @@ function soundex($str): string
 /**
  * Return a formatted string
  *
- * mixed $format
- * mixed $args
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return string
  *
@@ -9511,7 +9511,7 @@ function sprintf($format, ...$args): string
 /**
  * Square root
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -9526,7 +9526,7 @@ function sqrt($number): float
 /**
  * Seed the random number generator
  *
- * mixed|null $seed
+ * @param mixed|null $seed
  *
  * @return void
  *
@@ -9541,9 +9541,9 @@ function srand($seed = null)
 /**
  * Parses input from a string according to a format
  *
- * mixed $str
- * mixed $format
- * mixed $vars
+ * @param mixed $str
+ * @param mixed $format
+ * @param mixed $vars
  *
  * @return mixed
  *
@@ -9558,7 +9558,7 @@ function sscanf($str, $format, &...$vars)
 /**
  * Gives information about a file
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return array
  *
@@ -9573,10 +9573,10 @@ function stat($filename): array
 /**
  * Parse a CSV string into an array
  *
- * mixed $string
- * mixed|null $delimiter
- * mixed|null $enclosure
- * mixed|null $escape
+ * @param mixed $string
+ * @param mixed|null $delimiter
+ * @param mixed|null $enclosure
+ * @param mixed|null $escape
  *
  * @return array
  *
@@ -9591,10 +9591,10 @@ function str_getcsv($string, $delimiter = null, $enclosure = null, $escape = nul
 /**
  * Case-insensitive version of <code>str_replace</code>
  *
- * mixed $search
- * mixed $replace
- * mixed $subject
- * mixed|null $replace_count
+ * @param mixed $search
+ * @param mixed $replace
+ * @param mixed $subject
+ * @param mixed|null $replace_count
  *
  * @return mixed
  *
@@ -9609,10 +9609,10 @@ function str_ireplace($search, $replace, $subject, &$replace_count = null)
 /**
  * Pad a string to a certain length with another string
  *
- * mixed $input
- * mixed $pad_length
- * mixed|null $pad_string
- * mixed|null $pad_type
+ * @param mixed $input
+ * @param mixed $pad_length
+ * @param mixed|null $pad_string
+ * @param mixed|null $pad_type
  *
  * @return string
  *
@@ -9627,8 +9627,8 @@ function str_pad($input, $pad_length, $pad_string = null, $pad_type = null): str
 /**
  * Repeat a string
  *
- * mixed $input
- * mixed $mult
+ * @param mixed $input
+ * @param mixed $mult
  *
  * @return string
  *
@@ -9643,10 +9643,10 @@ function str_repeat($input, $mult): string
 /**
  * Replace all occurrences of the search string with the replacement string
  *
- * mixed $search
- * mixed $replace
- * mixed $subject
- * mixed|null $replace_count
+ * @param mixed $search
+ * @param mixed $replace
+ * @param mixed $subject
+ * @param mixed|null $replace_count
  *
  * @return mixed
  *
@@ -9661,7 +9661,7 @@ function str_replace($search, $replace, $subject, &$replace_count = null)
 /**
  * Perform the rot13 transform on a string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -9676,7 +9676,7 @@ function str_rot13($str): string
 /**
  * Randomly shuffles a string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -9691,8 +9691,8 @@ function str_shuffle($str): string
 /**
  * Convert a string to an array
  *
- * mixed $str
- * mixed|null $split_length
+ * @param mixed $str
+ * @param mixed|null $split_length
  *
  * @return array
  *
@@ -9707,9 +9707,9 @@ function str_split($str, $split_length = null): array
 /**
  * Return information about words used in a string
  *
- * mixed $str
- * mixed|null $format
- * mixed|null $charlist
+ * @param mixed $str
+ * @param mixed|null $format
+ * @param mixed|null $charlist
  *
  * @return mixed
  *
@@ -9724,9 +9724,9 @@ function str_word_count($str, $format = null, $charlist = null)
 /**
  * Alias of <code>strstr</code>
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -9739,8 +9739,8 @@ function strchr($haystack, $needle, $part = null)
 /**
  * Locale based string comparison
  *
- * mixed $str1
- * mixed $str2
+ * @param mixed $str1
+ * @param mixed $str2
  *
  * @return int
  *
@@ -9755,10 +9755,10 @@ function strcoll($str1, $str2): int
 /**
  * Find length of initial segment not matching mask
  *
- * mixed $str
- * mixed $mask
- * mixed|null $start
- * mixed|null $len
+ * @param mixed $str
+ * @param mixed $mask
+ * @param mixed|null $start
+ * @param mixed|null $len
  *
  * @return int
  *
@@ -9773,8 +9773,8 @@ function strcspn($str, $mask, $start = null, $len = null): int
 /**
  * Append bucket to brigade
  *
- * mixed $brigade
- * mixed $bucket
+ * @param mixed $brigade
+ * @param mixed $bucket
  *
  * @return void
  *
@@ -9789,7 +9789,7 @@ function stream_bucket_append($brigade, $bucket)
 /**
  * Return a bucket object from the brigade for operating on
  *
- * mixed $brigade
+ * @param mixed $brigade
  *
  * @return object
  *
@@ -9804,8 +9804,8 @@ function stream_bucket_make_writeable($brigade)
 /**
  * Create a new bucket for use on the current stream
  *
- * mixed $stream
- * mixed $buffer
+ * @param mixed $stream
+ * @param mixed $buffer
  *
  * @return object
  *
@@ -9820,8 +9820,8 @@ function stream_bucket_new($stream, $buffer)
 /**
  * Prepend bucket to brigade
  *
- * mixed $brigade
- * mixed $bucket
+ * @param mixed $brigade
+ * @param mixed $bucket
  *
  * @return void
  *
@@ -9836,8 +9836,8 @@ function stream_bucket_prepend($brigade, $bucket)
 /**
  * Creates a stream context
  *
- * mixed|null $options
- * mixed|null $params
+ * @param mixed|null $options
+ * @param mixed|null $params
  *
  * @return resource
  *
@@ -9852,7 +9852,7 @@ function stream_context_create($options = null, $params = null)
 /**
  * Retrieve the default stream context
  *
- * mixed|null $options
+ * @param mixed|null $options
  *
  * @return resource
  *
@@ -9867,7 +9867,7 @@ function stream_context_get_default($options = null)
 /**
  * Retrieve options for a stream/wrapper/context
  *
- * mixed $stream_or_context
+ * @param mixed $stream_or_context
  *
  * @return array
  *
@@ -9882,7 +9882,7 @@ function stream_context_get_options($stream_or_context): array
 /**
  * Retrieves parameters from a context
  *
- * mixed $stream_or_context
+ * @param mixed $stream_or_context
  *
  * @return array
  *
@@ -9897,7 +9897,7 @@ function stream_context_get_params($stream_or_context): array
 /**
  * Set the default stream context
  *
- * mixed $options
+ * @param mixed $options
  *
  * @return resource
  *
@@ -9912,10 +9912,10 @@ function stream_context_set_default($options)
 /**
  * Sets an option for a stream/wrapper/context
  *
- * mixed $stream_or_context
- * mixed $wrappername
- * mixed $optionname
- * mixed $value
+ * @param mixed $stream_or_context
+ * @param mixed $wrappername
+ * @param mixed $optionname
+ * @param mixed $value
  *
  * @return bool
  *
@@ -9930,8 +9930,8 @@ function stream_context_set_option($stream_or_context, $wrappername, $optionname
 /**
  * Set parameters for a stream/wrapper/context
  *
- * mixed $stream_or_context
- * mixed $options
+ * @param mixed $stream_or_context
+ * @param mixed $options
  *
  * @return bool
  *
@@ -9946,10 +9946,10 @@ function stream_context_set_params($stream_or_context, $options): bool
 /**
  * Copies data from one stream to another
  *
- * mixed $source
- * mixed $dest
- * mixed|null $maxlen
- * mixed|null $pos
+ * @param mixed $source
+ * @param mixed $dest
+ * @param mixed|null $maxlen
+ * @param mixed|null $pos
  *
  * @return int
  *
@@ -9964,10 +9964,10 @@ function stream_copy_to_stream($source, $dest, $maxlen = null, $pos = null): int
 /**
  * Attach a filter to a stream
  *
- * mixed $stream
- * mixed $filtername
- * mixed|null $read_write
- * mixed|null $filterparams
+ * @param mixed $stream
+ * @param mixed $filtername
+ * @param mixed|null $read_write
+ * @param mixed|null $filterparams
  *
  * @return resource
  *
@@ -9982,10 +9982,10 @@ function stream_filter_append($stream, $filtername, $read_write = null, $filterp
 /**
  * Attach a filter to a stream
  *
- * mixed $stream
- * mixed $filtername
- * mixed|null $read_write
- * mixed|null $filterparams
+ * @param mixed $stream
+ * @param mixed $filtername
+ * @param mixed|null $read_write
+ * @param mixed|null $filterparams
  *
  * @return resource
  *
@@ -10000,8 +10000,8 @@ function stream_filter_prepend($stream, $filtername, $read_write = null, $filter
 /**
  * Register a user defined stream filter
  *
- * mixed $filtername
- * mixed $classname
+ * @param mixed $filtername
+ * @param mixed $classname
  *
  * @return bool
  *
@@ -10016,7 +10016,7 @@ function stream_filter_register($filtername, $classname): bool
 /**
  * Remove a filter from a stream
  *
- * mixed $stream_filter
+ * @param mixed $stream_filter
  *
  * @return bool
  *
@@ -10031,9 +10031,9 @@ function stream_filter_remove($stream_filter): bool
 /**
  * Reads remainder of a stream into a string
  *
- * mixed $source
- * mixed|null $maxlen
- * mixed|null $offset
+ * @param mixed $source
+ * @param mixed|null $maxlen
+ * @param mixed|null $offset
  *
  * @return string
  *
@@ -10061,9 +10061,9 @@ function stream_get_filters(): array
 /**
  * Gets line from stream resource up to a given delimiter
  *
- * mixed $stream
- * mixed $maxlen
- * mixed|null $ending
+ * @param mixed $stream
+ * @param mixed $maxlen
+ * @param mixed|null $ending
  *
  * @return string
  *
@@ -10078,7 +10078,7 @@ function stream_get_line($stream, $maxlen, $ending = null): string
 /**
  * Retrieves header/meta data from streams/file pointers
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return array
  *
@@ -10119,7 +10119,7 @@ function stream_get_wrappers(): array
 /**
  * Checks if a stream is a local stream
  *
- * mixed $stream
+ * @param mixed $stream
  *
  * @return bool
  *
@@ -10134,9 +10134,9 @@ function stream_is_local($stream): bool
 /**
  * Alias of <code>stream_wrapper_register</code>
  *
- * mixed $protocol
- * mixed $classname
- * mixed|null $flags
+ * @param mixed $protocol
+ * @param mixed $classname
+ * @param mixed|null $flags
  *
  * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
  *
@@ -10149,7 +10149,7 @@ function stream_register_wrapper($protocol, $classname, $flags = null)
 /**
  * Resolve filename against the include path
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return string
  *
@@ -10165,11 +10165,11 @@ function stream_resolve_include_path($filename): string
  * Runs the equivalent of the select() system call on the given
  *    arrays of streams with a timeout specified by tv_sec and tv_usec
  *
- * mixed $read_streams
- * mixed $write_streams
- * mixed $except_streams
- * mixed $tv_sec
- * mixed|null $tv_usec
+ * @param mixed $read_streams
+ * @param mixed $write_streams
+ * @param mixed $except_streams
+ * @param mixed $tv_sec
+ * @param mixed|null $tv_usec
  *
  * @return int
  *
@@ -10184,8 +10184,8 @@ function stream_select(&$read_streams, &$write_streams, &$except_streams, $tv_se
 /**
  * Set blocking/non-blocking mode on a stream
  *
- * mixed $socket
- * mixed $mode
+ * @param mixed $socket
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -10200,8 +10200,8 @@ function stream_set_blocking($socket, $mode): bool
 /**
  * Set the stream chunk size
  *
- * mixed $fp
- * mixed $chunk_size
+ * @param mixed $fp
+ * @param mixed $chunk_size
  *
  * @return int
  *
@@ -10216,8 +10216,8 @@ function stream_set_chunk_size($fp, $chunk_size): int
 /**
  * Set read file buffering on the given stream
  *
- * mixed $fp
- * mixed $buffer
+ * @param mixed $fp
+ * @param mixed $buffer
  *
  * @return int
  *
@@ -10232,9 +10232,9 @@ function stream_set_read_buffer($fp, $buffer): int
 /**
  * Set timeout period on a stream
  *
- * mixed $stream
- * mixed $seconds
- * mixed|null $microseconds
+ * @param mixed $stream
+ * @param mixed $seconds
+ * @param mixed|null $microseconds
  *
  * @return bool
  *
@@ -10249,8 +10249,8 @@ function stream_set_timeout($stream, $seconds, $microseconds = null): bool
 /**
  * Sets write file buffering on the given stream
  *
- * mixed $fp
- * mixed $buffer
+ * @param mixed $fp
+ * @param mixed $buffer
  *
  * @return int
  *
@@ -10265,9 +10265,9 @@ function stream_set_write_buffer($fp, $buffer): int
 /**
  * Accept a connection on a socket created by <code>stream_socket_server</code>
  *
- * mixed $serverstream
- * mixed|null $timeout
- * mixed|null $peername
+ * @param mixed $serverstream
+ * @param mixed|null $timeout
+ * @param mixed|null $peername
  *
  * @return resource
  *
@@ -10282,12 +10282,12 @@ function stream_socket_accept($serverstream, $timeout = null, &$peername = null)
 /**
  * Open Internet or Unix domain socket connection
  *
- * mixed $remoteaddress
- * mixed|null $errcode
- * mixed|null $errstring
- * mixed|null $timeout
- * mixed|null $flags
- * mixed|null $context
+ * @param mixed $remoteaddress
+ * @param mixed|null $errcode
+ * @param mixed|null $errstring
+ * @param mixed|null $timeout
+ * @param mixed|null $flags
+ * @param mixed|null $context
  *
  * @return resource
  *
@@ -10302,10 +10302,10 @@ function stream_socket_client($remoteaddress, &$errcode = null, &$errstring = nu
 /**
  * Turns encryption on/off on an already connected socket
  *
- * mixed $stream
- * mixed $enable
- * mixed|null $cryptokind
- * mixed|null $sessionstream
+ * @param mixed $stream
+ * @param mixed $enable
+ * @param mixed|null $cryptokind
+ * @param mixed|null $sessionstream
  *
  * @return mixed
  *
@@ -10320,8 +10320,8 @@ function stream_socket_enable_crypto($stream, $enable, $cryptokind = null, $sess
 /**
  * Retrieve the name of the local or remote sockets
  *
- * mixed $stream
- * mixed $want_peer
+ * @param mixed $stream
+ * @param mixed $want_peer
  *
  * @return string
  *
@@ -10336,9 +10336,9 @@ function stream_socket_get_name($stream, $want_peer): string
 /**
  * Creates a pair of connected, indistinguishable socket streams
  *
- * mixed $domain
- * mixed $type
- * mixed $protocol
+ * @param mixed $domain
+ * @param mixed $type
+ * @param mixed $protocol
  *
  * @return array
  *
@@ -10353,10 +10353,10 @@ function stream_socket_pair($domain, $type, $protocol): array
 /**
  * Receives data from a socket, connected or not
  *
- * mixed $stream
- * mixed $amount
- * mixed|null $flags
- * mixed|null $remote_addr
+ * @param mixed $stream
+ * @param mixed $amount
+ * @param mixed|null $flags
+ * @param mixed|null $remote_addr
  *
  * @return string
  *
@@ -10371,10 +10371,10 @@ function stream_socket_recvfrom($stream, $amount, $flags = null, &$remote_addr =
 /**
  * Sends a message to a socket, whether it is connected or not
  *
- * mixed $stream
- * mixed $data
- * mixed|null $flags
- * mixed|null $target_addr
+ * @param mixed $stream
+ * @param mixed $data
+ * @param mixed|null $flags
+ * @param mixed|null $target_addr
  *
  * @return int
  *
@@ -10389,11 +10389,11 @@ function stream_socket_sendto($stream, $data, $flags = null, $target_addr = null
 /**
  * Create an Internet or Unix domain server socket
  *
- * mixed $localaddress
- * mixed|null $errcode
- * mixed|null $errstring
- * mixed|null $flags
- * mixed|null $context
+ * @param mixed $localaddress
+ * @param mixed|null $errcode
+ * @param mixed|null $errstring
+ * @param mixed|null $flags
+ * @param mixed|null $context
  *
  * @return resource
  *
@@ -10408,8 +10408,8 @@ function stream_socket_server($localaddress, &$errcode = null, &$errstring = nul
 /**
  * Shutdown a full-duplex connection
  *
- * mixed $stream
- * mixed $how
+ * @param mixed $stream
+ * @param mixed $how
  *
  * @return bool
  *
@@ -10424,7 +10424,7 @@ function stream_socket_shutdown($stream, $how): bool
 /**
  * Tells whether the stream supports locking
  *
- * mixed $stream
+ * @param mixed $stream
  *
  * @return bool
  *
@@ -10439,9 +10439,9 @@ function stream_supports_lock($stream): bool
 /**
  * Register a URL wrapper implemented as a PHP class
  *
- * mixed $protocol
- * mixed $classname
- * mixed|null $flags
+ * @param mixed $protocol
+ * @param mixed $classname
+ * @param mixed|null $flags
  *
  * @return bool
  *
@@ -10456,7 +10456,7 @@ function stream_wrapper_register($protocol, $classname, $flags = null): bool
 /**
  * Restores a previously unregistered built-in wrapper
  *
- * mixed $protocol
+ * @param mixed $protocol
  *
  * @return bool
  *
@@ -10471,7 +10471,7 @@ function stream_wrapper_restore($protocol): bool
 /**
  * Unregister a URL wrapper
  *
- * mixed $protocol
+ * @param mixed $protocol
  *
  * @return bool
  *
@@ -10486,8 +10486,8 @@ function stream_wrapper_unregister($protocol): bool
 /**
  * Strip HTML and PHP tags from a string
  *
- * mixed $str
- * mixed|null $allowable_tags
+ * @param mixed $str
+ * @param mixed|null $allowable_tags
  *
  * @return string
  *
@@ -10502,7 +10502,7 @@ function strip_tags($str, $allowable_tags = null): string
 /**
  * Un-quote string quoted with <code>addcslashes</code>
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -10517,9 +10517,9 @@ function stripcslashes($str): string
 /**
  * Find the position of the first occurrence of a case-insensitive substring in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -10534,7 +10534,7 @@ function stripos($haystack, $needle, $offset = null): int
 /**
  * Un-quotes a quoted string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -10549,9 +10549,9 @@ function stripslashes($str): string
 /**
  * Case-insensitive <code>strstr</code>
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
  *
  * @return string
  *
@@ -10566,8 +10566,8 @@ function stristr($haystack, $needle, $part = null): string
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
  *
- * mixed $s1
- * mixed $s2
+ * @param mixed $s1
+ * @param mixed $s2
  *
  * @return int
  *
@@ -10582,8 +10582,8 @@ function strnatcasecmp($s1, $s2): int
 /**
  * String comparisons using a "natural order" algorithm
  *
- * mixed $s1
- * mixed $s2
+ * @param mixed $s1
+ * @param mixed $s2
  *
  * @return int
  *
@@ -10598,8 +10598,8 @@ function strnatcmp($s1, $s2): int
 /**
  * Search a string for any of a set of characters
  *
- * mixed $haystack
- * mixed|null $char_list
+ * @param mixed $haystack
+ * @param mixed|null $char_list
  *
  * @return string
  *
@@ -10614,9 +10614,9 @@ function strpbrk($haystack, $char_list = null): string
 /**
  * Find the position of the first occurrence of a substring in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -10633,8 +10633,8 @@ function strpos($haystack, $needle, $offset = null): int
  *
  * WARNING: this may be available on POSIX but not on Windows
  *
- * mixed $timestamp
- * mixed $format
+ * @param mixed $timestamp
+ * @param mixed $format
  *
  * @return array
  *
@@ -10649,8 +10649,8 @@ function strptime($timestamp, $format): array
 /**
  * Find the last occurrence of a character in a string
  *
- * mixed $haystack
- * mixed $needle
+ * @param mixed $haystack
+ * @param mixed $needle
  *
  * @return string
  *
@@ -10665,7 +10665,7 @@ function strrchr($haystack, $needle): string
 /**
  * Reverse a string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -10680,9 +10680,9 @@ function strrev($str): string
 /**
  * Find the position of the last occurrence of a case-insensitive substring in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -10697,9 +10697,9 @@ function strripos($haystack, $needle, $offset = null): int
 /**
  * Find the position of the last occurrence of a substring in a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
  *
  * @return int
  *
@@ -10715,10 +10715,10 @@ function strrpos($haystack, $needle, $offset = null): int
  * Finds the length of the initial segment of a string consisting
  *    entirely of characters contained within a given mask
  *
- * mixed $str
- * mixed $mask
- * mixed|null $start
- * mixed|null $len
+ * @param mixed $str
+ * @param mixed $mask
+ * @param mixed|null $start
+ * @param mixed|null $len
  *
  * @return int
  *
@@ -10733,9 +10733,9 @@ function strspn($str, $mask, $start = null, $len = null): int
 /**
  * Find the first occurrence of a string
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $part
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $part
  *
  * @return string
  *
@@ -10750,8 +10750,8 @@ function strstr($haystack, $needle, $part = null): string
 /**
  * Tokenize string
  *
- * mixed $str
- * mixed $token
+ * @param mixed $str
+ * @param mixed $token
  *
  * @return string
  *
@@ -10766,7 +10766,7 @@ function strtok($str, $token): string
 /**
  * Make a string lowercase
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -10781,7 +10781,7 @@ function strtolower($str): string
 /**
  * Make a string uppercase
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -10796,9 +10796,9 @@ function strtoupper($str): string
 /**
  * Translate characters or replace substrings
  *
- * mixed $str
- * mixed $from
- * mixed|null $to
+ * @param mixed $str
+ * @param mixed $from
+ * @param mixed|null $to
  *
  * @return string
  *
@@ -10813,7 +10813,7 @@ function strtr($str, $from, $to = null): string
 /**
  * Get string value of a variable
  *
- * mixed $var
+ * @param mixed $var
  *
  * @return string
  *
@@ -10828,9 +10828,9 @@ function strval($var): string
 /**
  * Return part of a string
  *
- * mixed $str
- * mixed $start
- * mixed|null $length
+ * @param mixed $str
+ * @param mixed $start
+ * @param mixed|null $length
  *
  * @return string
  *
@@ -10845,11 +10845,11 @@ function substr($str, $start, $length = null): string
 /**
  * Binary safe comparison of two strings from an offset, up to length characters
  *
- * mixed $main_str
- * mixed $str
- * mixed $offset
- * mixed|null $length
- * mixed|null $case_sensitivity
+ * @param mixed $main_str
+ * @param mixed $str
+ * @param mixed $offset
+ * @param mixed|null $length
+ * @param mixed|null $case_sensitivity
  *
  * @return int
  *
@@ -10864,10 +10864,10 @@ function substr_compare($main_str, $str, $offset, $length = null, $case_sensitiv
 /**
  * Count the number of substring occurrences
  *
- * mixed $haystack
- * mixed $needle
- * mixed|null $offset
- * mixed|null $length
+ * @param mixed $haystack
+ * @param mixed $needle
+ * @param mixed|null $offset
+ * @param mixed|null $length
  *
  * @return int
  *
@@ -10882,10 +10882,10 @@ function substr_count($haystack, $needle, $offset = null, $length = null): int
 /**
  * Replace text within a portion of a string
  *
- * mixed $str
- * mixed $replace
- * mixed $start
- * mixed|null $length
+ * @param mixed $str
+ * @param mixed $replace
+ * @param mixed $start
+ * @param mixed|null $length
  *
  * @return mixed
  *
@@ -10900,8 +10900,8 @@ function substr_replace($str, $replace, $start, $length = null)
 /**
  * Creates a symbolic link
  *
- * mixed $target
- * mixed $link
+ * @param mixed $target
+ * @param mixed $link
  *
  * @return bool
  *
@@ -10944,8 +10944,8 @@ function sys_getloadavg(): array
 /**
  * Generate a system log message
  *
- * mixed $priority
- * mixed $message
+ * @param mixed $priority
+ * @param mixed $message
  *
  * @return bool
  *
@@ -10960,8 +10960,8 @@ function syslog($priority, $message): bool
 /**
  * Execute an external program and display the output
  *
- * mixed $command
- * mixed|null $return_value
+ * @param mixed $command
+ * @param mixed|null $return_value
  *
  * @return string
  *
@@ -10976,7 +10976,7 @@ function system($command, &$return_value = null): string
 /**
  * Tangent
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -10991,7 +10991,7 @@ function tan($number): float
 /**
  * Hyperbolic tangent
  *
- * mixed $number
+ * @param mixed $number
  *
  * @return float
  *
@@ -11006,8 +11006,8 @@ function tanh($number): float
 /**
  * Create file with unique file name
  *
- * mixed $dir
- * mixed $prefix
+ * @param mixed $dir
+ * @param mixed $prefix
  *
  * @return string
  *
@@ -11022,8 +11022,8 @@ function tempnam($dir, $prefix): string
 /**
  * Delay for a number of seconds and nanoseconds
  *
- * mixed $seconds
- * mixed $nanoseconds
+ * @param mixed $seconds
+ * @param mixed $nanoseconds
  *
  * @return mixed
  *
@@ -11038,7 +11038,7 @@ function time_nanosleep($seconds, $nanoseconds)
 /**
  * Make the script sleep until the specified time
  *
- * mixed $timestamp
+ * @param mixed $timestamp
  *
  * @return bool
  *
@@ -11066,9 +11066,9 @@ function tmpfile()
 /**
  * Sets access and modification time of file
  *
- * mixed $filename
- * mixed|null $time
- * mixed|null $atime
+ * @param mixed $filename
+ * @param mixed|null $time
+ * @param mixed|null $atime
  *
  * @return bool
  *
@@ -11083,8 +11083,8 @@ function touch($filename, $time = null, $atime = null): bool
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
  *
- * mixed $str
- * mixed|null $character_mask
+ * @param mixed $str
+ * @param mixed|null $character_mask
  *
  * @return string
  *
@@ -11099,8 +11099,8 @@ function trim($str, $character_mask = null): string
 /**
  * Sort an array with a user-defined comparison function and maintain index association
  *
- * mixed $arg
- * mixed $cmp_function
+ * @param mixed $arg
+ * @param mixed $cmp_function
  *
  * @return bool
  *
@@ -11115,7 +11115,7 @@ function uasort(&$arg, $cmp_function): bool
 /**
  * Make a string's first character uppercase
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -11130,8 +11130,8 @@ function ucfirst($str): string
 /**
  * Uppercase the first character of each word in a string
  *
- * mixed $str
- * mixed|null $delimiters
+ * @param mixed $str
+ * @param mixed|null $delimiters
  *
  * @return string
  *
@@ -11146,8 +11146,8 @@ function ucwords($str, $delimiters = null): string
 /**
  * Sort an array by keys using a user-defined comparison function
  *
- * mixed $arg
- * mixed $cmp_function
+ * @param mixed $arg
+ * @param mixed $cmp_function
  *
  * @return bool
  *
@@ -11162,7 +11162,7 @@ function uksort(&$arg, $cmp_function): bool
 /**
  * Changes the current umask
  *
- * mixed|null $mask
+ * @param mixed|null $mask
  *
  * @return int
  *
@@ -11177,8 +11177,8 @@ function umask($mask = null): int
 /**
  * Generate a unique ID
  *
- * mixed|null $prefix
- * mixed|null $more_entropy
+ * @param mixed|null $prefix
+ * @param mixed|null $more_entropy
  *
  * @return string
  *
@@ -11193,8 +11193,8 @@ function uniqid($prefix = null, $more_entropy = null): string
 /**
  * Deletes a file
  *
- * mixed $filename
- * mixed|null $context
+ * @param mixed $filename
+ * @param mixed|null $context
  *
  * @return bool
  *
@@ -11209,8 +11209,8 @@ function unlink($filename, $context = null): bool
 /**
  * Unpack data from binary string
  *
- * mixed $format
- * mixed $input
+ * @param mixed $format
+ * @param mixed $input
  *
  * @return array
  *
@@ -11225,7 +11225,7 @@ function unpack($format, $input): array
 /**
  * De-register a function for execution on each tick
  *
- * mixed $function_name
+ * @param mixed $function_name
  *
  * @return void
  *
@@ -11240,8 +11240,8 @@ function unregister_tick_function($function_name)
 /**
  * Creates a PHP value from a stored representation
  *
- * mixed $variable_representation
- * mixed|null $allowed_classes
+ * @param mixed $variable_representation
+ * @param mixed|null $allowed_classes
  *
  * @return mixed
  *
@@ -11256,7 +11256,7 @@ function unserialize($variable_representation, $allowed_classes = null)
 /**
  * Decodes URL-encoded string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -11271,7 +11271,7 @@ function urldecode($str): string
 /**
  * URL-encodes string
  *
- * mixed $str
+ * @param mixed $str
  *
  * @return string
  *
@@ -11286,7 +11286,7 @@ function urlencode($str): string
 /**
  * Delay execution in microseconds
  *
- * mixed $micro_seconds
+ * @param mixed $micro_seconds
  *
  * @return void
  *
@@ -11301,8 +11301,8 @@ function usleep($micro_seconds)
 /**
  * Sort an array by values using a user-defined comparison function
  *
- * mixed $arg
- * mixed $cmp_function
+ * @param mixed $arg
+ * @param mixed $cmp_function
  *
  * @return bool
  *
@@ -11317,7 +11317,7 @@ function usort(&$arg, $cmp_function): bool
 /**
  * Dumps information about a variable
  *
- * mixed $vars
+ * @param mixed $vars
  *
  * @return void
  *
@@ -11332,8 +11332,8 @@ function var_dump(...$vars)
 /**
  * Outputs or returns a parsable string representation of a variable
  *
- * mixed $var
- * mixed|null $return
+ * @param mixed $var
+ * @param mixed|null $return
  *
  * @return mixed
  *
@@ -11348,9 +11348,9 @@ function var_export($var, $return = null)
 /**
  * Compares two "PHP-standardized" version number strings
  *
- * mixed $ver1
- * mixed $ver2
- * mixed|null $oper
+ * @param mixed $ver1
+ * @param mixed $ver2
+ * @param mixed|null $oper
  *
  * @return int
  *
@@ -11365,9 +11365,9 @@ function version_compare($ver1, $ver2, $oper = null): int
 /**
  * Write a formatted string to a stream
  *
- * mixed $stream
- * mixed $format
- * mixed $args
+ * @param mixed $stream
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return int
  *
@@ -11382,8 +11382,8 @@ function vfprintf($stream, $format, $args): int
 /**
  * Output a formatted string
  *
- * mixed $format
- * mixed $args
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return int
  *
@@ -11398,8 +11398,8 @@ function vprintf($format, $args): int
 /**
  * Return a formatted string
  *
- * mixed $format
- * mixed $args
+ * @param mixed $format
+ * @param mixed $args
  *
  * @return string
  *
@@ -11414,10 +11414,10 @@ function vsprintf($format, $args): string
 /**
  * Wraps a string to a given number of characters
  *
- * mixed $str
- * mixed|null $width
- * mixed|null $break
- * mixed|null $cut
+ * @param mixed $str
+ * @param mixed|null $width
+ * @param mixed|null $break
+ * @param mixed|null $cut
  *
  * @return string
  *

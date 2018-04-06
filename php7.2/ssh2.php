@@ -167,8 +167,8 @@ const SSH2_TERM_UNIT_PIXELS = 1;
 /**
  * Authenticate over SSH using the ssh agent
  *
- * mixed $session
- * mixed $username
+ * @param mixed $session
+ * @param mixed $username
  *
  * @return bool
  *
@@ -183,13 +183,13 @@ function ssh2_auth_agent($session, $username): bool
 /**
  * Authenticate using a public hostkey
  *
- * mixed $session
- * mixed $username
- * mixed $hostname
- * mixed $pubkeyfile
- * mixed $privkeyfile
- * mixed|null $passphrase
- * mixed|null $local_username
+ * @param mixed $session
+ * @param mixed $username
+ * @param mixed $hostname
+ * @param mixed $pubkeyfile
+ * @param mixed $privkeyfile
+ * @param mixed|null $passphrase
+ * @param mixed|null $local_username
  *
  * @return bool
  *
@@ -204,8 +204,8 @@ function ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $
 /**
  * Authenticate as "none"
  *
- * mixed $session
- * mixed $username
+ * @param mixed $session
+ * @param mixed $username
  *
  * @return mixed
  *
@@ -220,9 +220,9 @@ function ssh2_auth_none($session, $username)
 /**
  * Authenticate over SSH using a plain password
  *
- * mixed $session
- * mixed $username
- * mixed $password
+ * @param mixed $session
+ * @param mixed $username
+ * @param mixed $password
  *
  * @return bool
  *
@@ -237,11 +237,11 @@ function ssh2_auth_password($session, $username, $password): bool
 /**
  * Authenticate using a public key
  *
- * mixed $session
- * mixed $username
- * mixed $pubkeyfile
- * mixed $privkeyfile
- * mixed|null $passphrase
+ * @param mixed $session
+ * @param mixed $username
+ * @param mixed $pubkeyfile
+ * @param mixed $privkeyfile
+ * @param mixed|null $passphrase
  *
  * @return bool
  *
@@ -256,8 +256,8 @@ function ssh2_auth_pubkey_file($session, $username, $pubkeyfile, $privkeyfile, $
 /**
  * Connect to an SSH server
  *
- * mixed $host
- * mixed $port
+ * @param mixed $host
+ * @param mixed $port
  *
  * @return resource
  *
@@ -270,7 +270,7 @@ function ssh2_connect($host, $port)
 }
 
 /**
- * mixed $resource
+ * @param mixed $resource
  *
  * @since PECL ssh2 >= 1.0
  */
@@ -281,13 +281,13 @@ function ssh2_disconnect($resource)
 /**
  * Execute a command on a remote server
  *
- * mixed $session
- * mixed $command
- * mixed|null $pty
- * mixed|null $env
- * mixed|null $width
- * mixed|null $height
- * mixed|null $width_height_type
+ * @param mixed $session
+ * @param mixed $command
+ * @param mixed|null $pty
+ * @param mixed|null $env
+ * @param mixed|null $width
+ * @param mixed|null $height
+ * @param mixed|null $width_height_type
  *
  * @return resource
  *
@@ -302,8 +302,8 @@ function ssh2_exec($session, $command, $pty = null, $env = null, $width = null, 
 /**
  * Fetch an extended data stream
  *
- * mixed $channel
- * mixed $stream_id
+ * @param mixed $channel
+ * @param mixed $stream_id
  *
  * @return resource
  *
@@ -318,8 +318,8 @@ function ssh2_fetch_stream($channel, $stream_id)
 /**
  * Retrieve fingerprint of remote server
  *
- * mixed $resource
- * mixed $flags
+ * @param mixed $resource
+ * @param mixed $flags
  *
  * @return string
  *
@@ -348,7 +348,7 @@ function ssh2_forward_listen()
 /**
  * Return list of negotiated methods
  *
- * mixed $resource
+ * @param mixed $resource
  *
  * @return array
  *
@@ -361,7 +361,7 @@ function ssh2_methods_negotiated($resource): array
 }
 
 /**
- * mixed $foo1
+ * @param mixed $foo1
  *
  * @since PECL ssh2 >= 0.9.0
  */
@@ -372,11 +372,11 @@ function ssh2_poll(&$foo1)
 /**
  * Add an authorized publickey
  *
- * mixed $pkey
- * mixed $algoname
- * mixed $blob
- * mixed|null $overwrite
- * mixed|null $attributes
+ * @param mixed $pkey
+ * @param mixed $algoname
+ * @param mixed $blob
+ * @param mixed|null $overwrite
+ * @param mixed|null $attributes
  *
  * @return bool
  *
@@ -391,7 +391,7 @@ function ssh2_publickey_add($pkey, $algoname, $blob, $overwrite = null, $attribu
 /**
  * Initialize Publickey subsystem
  *
- * mixed $session
+ * @param mixed $session
  *
  * @return resource
  *
@@ -406,7 +406,7 @@ function ssh2_publickey_init($session)
 /**
  * List currently authorized publickeys
  *
- * mixed $pkey
+ * @param mixed $pkey
  *
  * @return array
  *
@@ -421,9 +421,9 @@ function ssh2_publickey_list($pkey): array
 /**
  * Remove an authorized publickey
  *
- * mixed $pkey
- * mixed $algoname
- * mixed $blob
+ * @param mixed $pkey
+ * @param mixed $algoname
+ * @param mixed $blob
  *
  * @return bool
  *
@@ -438,9 +438,9 @@ function ssh2_publickey_remove($pkey, $algoname, $blob): bool
 /**
  * Request a file via SCP
  *
- * mixed $session
- * mixed $remote_file
- * mixed $local_file
+ * @param mixed $session
+ * @param mixed $remote_file
+ * @param mixed $local_file
  *
  * @return bool
  *
@@ -455,10 +455,10 @@ function ssh2_scp_recv($session, $remote_file, $local_file): bool
 /**
  * Send a file via SCP
  *
- * mixed $session
- * mixed $remote_file
- * mixed $local_file
- * mixed|null $create_mode
+ * @param mixed $session
+ * @param mixed $remote_file
+ * @param mixed $local_file
+ * @param mixed|null $create_mode
  *
  * @return bool
  *
@@ -473,7 +473,7 @@ function ssh2_scp_send($session, $remote_file, $local_file, $create_mode = null)
 /**
  * Initialize SFTP subsystem
  *
- * mixed $session
+ * @param mixed $session
  *
  * @return resource
  *
@@ -488,9 +488,9 @@ function ssh2_sftp($session)
 /**
  * Changes file mode
  *
- * mixed $sftp
- * mixed $filename
- * mixed $mode
+ * @param mixed $sftp
+ * @param mixed $filename
+ * @param mixed $mode
  *
  * @return bool
  *
@@ -505,8 +505,8 @@ function ssh2_sftp_chmod($sftp, $filename, $mode): bool
 /**
  * Stat a symbolic link
  *
- * mixed $sftp
- * mixed $path
+ * @param mixed $sftp
+ * @param mixed $path
  *
  * @return array
  *
@@ -521,10 +521,10 @@ function ssh2_sftp_lstat($sftp, $path): array
 /**
  * Create a directory
  *
- * mixed $sftp
- * mixed $dirname
- * mixed|null $mode
- * mixed|null $recursive
+ * @param mixed $sftp
+ * @param mixed $dirname
+ * @param mixed|null $mode
+ * @param mixed|null $recursive
  *
  * @return bool
  *
@@ -539,8 +539,8 @@ function ssh2_sftp_mkdir($sftp, $dirname, $mode = null, $recursive = null): bool
 /**
  * Return the target of a symbolic link
  *
- * mixed $sftp
- * mixed $link
+ * @param mixed $sftp
+ * @param mixed $link
  *
  * @return string
  *
@@ -555,8 +555,8 @@ function ssh2_sftp_readlink($sftp, $link): string
 /**
  * Resolve the realpath of a provided path string
  *
- * mixed $sftp
- * mixed $filename
+ * @param mixed $sftp
+ * @param mixed $filename
  *
  * @return string
  *
@@ -571,9 +571,9 @@ function ssh2_sftp_realpath($sftp, $filename): string
 /**
  * Rename a remote file
  *
- * mixed $sftp
- * mixed $from
- * mixed $to
+ * @param mixed $sftp
+ * @param mixed $from
+ * @param mixed $to
  *
  * @return bool
  *
@@ -588,8 +588,8 @@ function ssh2_sftp_rename($sftp, $from, $to): bool
 /**
  * Remove a directory
  *
- * mixed $sftp
- * mixed $dirname
+ * @param mixed $sftp
+ * @param mixed $dirname
  *
  * @return bool
  *
@@ -604,8 +604,8 @@ function ssh2_sftp_rmdir($sftp, $dirname): bool
 /**
  * Stat a file on a remote filesystem
  *
- * mixed $sftp
- * mixed $path
+ * @param mixed $sftp
+ * @param mixed $path
  *
  * @return array
  *
@@ -620,9 +620,9 @@ function ssh2_sftp_stat($sftp, $path): array
 /**
  * Create a symlink
  *
- * mixed $sftp
- * mixed $target
- * mixed $link
+ * @param mixed $sftp
+ * @param mixed $target
+ * @param mixed $link
  *
  * @return bool
  *
@@ -637,8 +637,8 @@ function ssh2_sftp_symlink($sftp, $target, $link): bool
 /**
  * Delete a file
  *
- * mixed $sftp
- * mixed $filename
+ * @param mixed $sftp
+ * @param mixed $filename
  *
  * @return bool
  *
@@ -653,12 +653,12 @@ function ssh2_sftp_unlink($sftp, $filename): bool
 /**
  * Request an interactive shell
  *
- * mixed $session
- * mixed|null $termtype
- * mixed|null $env
- * mixed|null $width
- * mixed|null $height
- * mixed|null $width_height_type
+ * @param mixed $session
+ * @param mixed|null $termtype
+ * @param mixed|null $env
+ * @param mixed|null $width
+ * @param mixed|null $height
+ * @param mixed|null $width_height_type
  *
  * @return resource
  *
@@ -673,9 +673,9 @@ function ssh2_shell($session, $termtype = null, $env = null, $width = null, $hei
 /**
  * Open a tunnel through a remote server
  *
- * mixed $session
- * mixed $host
- * mixed $port
+ * @param mixed $session
+ * @param mixed $host
+ * @param mixed $port
  *
  * @return resource
  *

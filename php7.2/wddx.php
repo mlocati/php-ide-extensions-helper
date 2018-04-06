@@ -6,8 +6,8 @@
 /**
  * Add variables to a WDDX packet with the specified ID
  *
- * mixed $packet_id
- * mixed $var_names
+ * @param mixed $packet_id
+ * @param mixed $var_names
  *
  * @return bool
  *
@@ -22,7 +22,7 @@ function wddx_add_vars($packet_id, ...$var_names): bool
 /**
  * Unserializes a WDDX packet
  *
- * mixed $packet
+ * @param mixed $packet
  *
  * @return mixed
  *
@@ -37,7 +37,7 @@ function wddx_deserialize($packet)
 /**
  * Ends a WDDX packet with the specified ID
  *
- * mixed $packet_id
+ * @param mixed $packet_id
  *
  * @return string
  *
@@ -52,7 +52,7 @@ function wddx_packet_end($packet_id): string
 /**
  * Starts a new WDDX packet with structure inside it
  *
- * mixed|null $comment
+ * @param mixed|null $comment
  *
  * @return resource
  *
@@ -67,8 +67,8 @@ function wddx_packet_start($comment = null)
 /**
  * Serialize a single value into a WDDX packet
  *
- * mixed $var
- * mixed|null $comment
+ * @param mixed $var
+ * @param mixed|null $comment
  *
  * @return string
  *
@@ -83,7 +83,7 @@ function wddx_serialize_value($var, $comment = null): string
 /**
  * Serialize variables into a WDDX packet
  *
- * mixed $var_names
+ * @param mixed $var_names
  *
  * @return string
  *

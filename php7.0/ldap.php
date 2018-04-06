@@ -283,9 +283,9 @@ const LDAP_OPT_X_TLS_TRY = 4;
 /**
  * Add entries to LDAP directory
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $entry
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $entry
  *
  * @return bool
  *
@@ -300,9 +300,9 @@ function ldap_add($link_identifier, $dn, $entry): bool
 /**
  * Bind to LDAP directory
  *
- * mixed $link_identifier
- * mixed|null $bind_rdn
- * mixed|null $bind_password
+ * @param mixed $link_identifier
+ * @param mixed|null $bind_rdn
+ * @param mixed|null $bind_password
  *
  * @return bool
  *
@@ -317,7 +317,7 @@ function ldap_bind($link_identifier, $bind_rdn = null, $bind_password = null): b
 /**
  * Alias of <code>ldap_unbind</code>
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -330,10 +330,10 @@ function ldap_close($link_identifier)
 /**
  * Compare value of attribute found in entry specified with DN
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $attribute
- * mixed $value
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $attribute
+ * @param mixed $value
  *
  * @return mixed
  *
@@ -348,8 +348,8 @@ function ldap_compare($link_identifier, $dn, $attribute, $value)
 /**
  * Connect to an LDAP server
  *
- * mixed|null $hostname
- * mixed|null $port
+ * @param mixed|null $hostname
+ * @param mixed|null $port
  *
  * @return resource
  *
@@ -364,10 +364,10 @@ function ldap_connect($hostname = null, $port = null)
 /**
  * Send LDAP pagination control
  *
- * mixed $link
- * mixed $pagesize
- * mixed|null $iscritical
- * mixed|null $cookie
+ * @param mixed $link
+ * @param mixed $pagesize
+ * @param mixed|null $iscritical
+ * @param mixed|null $cookie
  *
  * @return bool
  *
@@ -382,10 +382,10 @@ function ldap_control_paged_result($link, $pagesize, $iscritical = null, $cookie
 /**
  * Retrieve the LDAP pagination cookie
  *
- * mixed $link
- * mixed $result
- * mixed|null $cookie
- * mixed|null $estimated
+ * @param mixed $link
+ * @param mixed $result
+ * @param mixed|null $cookie
+ * @param mixed|null $estimated
  *
  * @return bool
  *
@@ -400,8 +400,8 @@ function ldap_control_paged_result_response($link, $result, &$cookie = null, &$e
 /**
  * Count the number of entries in a search
  *
- * mixed $link_identifier
- * mixed $result_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_identifier
  *
  * @return int
  *
@@ -416,8 +416,8 @@ function ldap_count_entries($link_identifier, $result_identifier): int
 /**
  * Delete an entry from a directory
  *
- * mixed $link_identifier
- * mixed $dn
+ * @param mixed $link_identifier
+ * @param mixed $dn
  *
  * @return bool
  *
@@ -432,7 +432,7 @@ function ldap_delete($link_identifier, $dn): bool
 /**
  * Convert DN to User Friendly Naming format
  *
- * mixed $dn
+ * @param mixed $dn
  *
  * @return string
  *
@@ -447,7 +447,7 @@ function ldap_dn2ufn($dn): string
 /**
  * Convert LDAP error number into string error message
  *
- * mixed $errno
+ * @param mixed $errno
  *
  * @return string
  *
@@ -462,7 +462,7 @@ function ldap_err2str($errno): string
 /**
  * Return the LDAP error number of the last LDAP command
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return int
  *
@@ -477,7 +477,7 @@ function ldap_errno($link_identifier): int
 /**
  * Return the LDAP error message of the last LDAP command
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return string
  *
@@ -492,9 +492,9 @@ function ldap_error($link_identifier): string
 /**
  * Escape a string for use in an LDAP filter or DN
  *
- * mixed $value
- * mixed|null $ignore
- * mixed|null $flags
+ * @param mixed $value
+ * @param mixed|null $ignore
+ * @param mixed|null $flags
  *
  * @return string
  *
@@ -509,8 +509,8 @@ function ldap_escape($value, $ignore = null, $flags = null): string
 /**
  * Splits DN into its component parts
  *
- * mixed $dn
- * mixed $with_attrib
+ * @param mixed $dn
+ * @param mixed $with_attrib
  *
  * @return array
  *
@@ -525,8 +525,8 @@ function ldap_explode_dn($dn, $with_attrib): array
 /**
  * Return first attribute
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
  *
  * @return string
  *
@@ -541,8 +541,8 @@ function ldap_first_attribute($link_identifier, $result_entry_identifier): strin
 /**
  * Return first result id
  *
- * mixed $link_identifier
- * mixed $result_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_identifier
  *
  * @return resource
  *
@@ -557,8 +557,8 @@ function ldap_first_entry($link_identifier, $result_identifier)
 /**
  * Return first reference
  *
- * mixed $link
- * mixed $result
+ * @param mixed $link
+ * @param mixed $result
  *
  * @return resource
  *
@@ -573,7 +573,7 @@ function ldap_first_reference($link, $result)
 /**
  * Free result memory
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -588,8 +588,8 @@ function ldap_free_result($link_identifier): bool
 /**
  * Get attributes from a search result entry
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
  *
  * @return array
  *
@@ -604,8 +604,8 @@ function ldap_get_attributes($link_identifier, $result_entry_identifier): array
 /**
  * Get the DN of a result entry
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
  *
  * @return string
  *
@@ -620,8 +620,8 @@ function ldap_get_dn($link_identifier, $result_entry_identifier): string
 /**
  * Get all result entries
  *
- * mixed $link_identifier
- * mixed $result_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_identifier
  *
  * @return array
  *
@@ -636,9 +636,9 @@ function ldap_get_entries($link_identifier, $result_identifier): array
 /**
  * Get the current value for given option
  *
- * mixed $link_identifier
- * mixed $option
- * mixed $retval
+ * @param mixed $link_identifier
+ * @param mixed $option
+ * @param mixed $retval
  *
  * @return bool
  *
@@ -653,9 +653,9 @@ function ldap_get_option($link_identifier, $option, &$retval): bool
 /**
  * Get all values from a result entry
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
- * mixed $attribute
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
+ * @param mixed $attribute
  *
  * @return array
  *
@@ -670,9 +670,9 @@ function ldap_get_values($link_identifier, $result_entry_identifier, $attribute)
 /**
  * Get all binary values from a result entry
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
- * mixed $attribute
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
+ * @param mixed $attribute
  *
  * @return array
  *
@@ -687,14 +687,14 @@ function ldap_get_values_len($link_identifier, $result_entry_identifier, $attrib
 /**
  * Single-level search
  *
- * mixed $link_identifier
- * mixed $base_dn
- * mixed $filter
- * mixed|null $attributes
- * mixed|null $attrsonly
- * mixed|null $sizelimit
- * mixed|null $timelimit
- * mixed|null $deref
+ * @param mixed $link_identifier
+ * @param mixed $base_dn
+ * @param mixed $filter
+ * @param mixed|null $attributes
+ * @param mixed|null $attrsonly
+ * @param mixed|null $sizelimit
+ * @param mixed|null $timelimit
+ * @param mixed|null $deref
  *
  * @return resource
  *
@@ -709,9 +709,9 @@ function ldap_list($link_identifier, $base_dn, $filter, $attributes = null, $att
 /**
  * Add attribute values to current attributes
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $entry
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $entry
  *
  * @return bool
  *
@@ -726,9 +726,9 @@ function ldap_mod_add($link_identifier, $dn, $entry): bool
 /**
  * Delete attribute values from current attributes
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $entry
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $entry
  *
  * @return bool
  *
@@ -743,9 +743,9 @@ function ldap_mod_del($link_identifier, $dn, $entry): bool
 /**
  * Replace attribute values with new ones
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $entry
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $entry
  *
  * @return bool
  *
@@ -760,9 +760,9 @@ function ldap_mod_replace($link_identifier, $dn, $entry): bool
 /**
  * Alias of <code>ldap_mod_replace</code>
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $entry
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $entry
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -775,9 +775,9 @@ function ldap_modify($link_identifier, $dn, $entry)
 /**
  * Batch and execute modifications on an LDAP entry
  *
- * mixed $link_identifier
- * mixed $dn
- * array[] $modifications_info
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param array[] $modifications_info
  *
  * @return bool
  *
@@ -792,8 +792,8 @@ function ldap_modify_batch($link_identifier, $dn, $modifications_info): bool
 /**
  * Get the next attribute in result
  *
- * mixed $link_identifier
- * mixed $result_entry_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_entry_identifier
  *
  * @return string
  *
@@ -808,8 +808,8 @@ function ldap_next_attribute($link_identifier, $result_entry_identifier): string
 /**
  * Get next result entry
  *
- * mixed $link_identifier
- * mixed $result_identifier
+ * @param mixed $link_identifier
+ * @param mixed $result_identifier
  *
  * @return resource
  *
@@ -824,8 +824,8 @@ function ldap_next_entry($link_identifier, $result_identifier)
 /**
  * Get next reference
  *
- * mixed $link
- * mixed $entry
+ * @param mixed $link
+ * @param mixed $entry
  *
  * @return resource
  *
@@ -840,9 +840,9 @@ function ldap_next_reference($link, $entry)
 /**
  * Extract information from reference entry
  *
- * mixed $link
- * mixed $entry
- * mixed $referrals
+ * @param mixed $link
+ * @param mixed $entry
+ * @param mixed $referrals
  *
  * @return bool
  *
@@ -857,12 +857,12 @@ function ldap_parse_reference($link, $entry, &$referrals): bool
 /**
  * Extract information from result
  *
- * mixed $link
- * mixed $result
- * mixed $errcode
- * mixed|null $matcheddn
- * mixed|null $errmsg
- * mixed|null $referrals
+ * @param mixed $link
+ * @param mixed $result
+ * @param mixed $errcode
+ * @param mixed|null $matcheddn
+ * @param mixed|null $errmsg
+ * @param mixed|null $referrals
  *
  * @return bool
  *
@@ -877,14 +877,14 @@ function ldap_parse_result($link, $result, &$errcode, &$matcheddn = null, &$errm
 /**
  * Read an entry
  *
- * mixed $link_identifier
- * mixed $base_dn
- * mixed $filter
- * mixed|null $attributes
- * mixed|null $attrsonly
- * mixed|null $sizelimit
- * mixed|null $timelimit
- * mixed|null $deref
+ * @param mixed $link_identifier
+ * @param mixed $base_dn
+ * @param mixed $filter
+ * @param mixed|null $attributes
+ * @param mixed|null $attrsonly
+ * @param mixed|null $sizelimit
+ * @param mixed|null $timelimit
+ * @param mixed|null $deref
  *
  * @return resource
  *
@@ -899,11 +899,11 @@ function ldap_read($link_identifier, $base_dn, $filter, $attributes = null, $att
 /**
  * Modify the name of an entry
  *
- * mixed $link_identifier
- * mixed $dn
- * mixed $newrdn
- * mixed $newparent
- * mixed $deleteoldrdn
+ * @param mixed $link_identifier
+ * @param mixed $dn
+ * @param mixed $newrdn
+ * @param mixed $newparent
+ * @param mixed $deleteoldrdn
  *
  * @return bool
  *
@@ -918,14 +918,14 @@ function ldap_rename($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn):
 /**
  * Search LDAP tree
  *
- * mixed $link_identifier
- * mixed $base_dn
- * mixed $filter
- * mixed|null $attributes
- * mixed|null $attrsonly
- * mixed|null $sizelimit
- * mixed|null $timelimit
- * mixed|null $deref
+ * @param mixed $link_identifier
+ * @param mixed $base_dn
+ * @param mixed $filter
+ * @param mixed|null $attributes
+ * @param mixed|null $attrsonly
+ * @param mixed|null $sizelimit
+ * @param mixed|null $timelimit
+ * @param mixed|null $deref
  *
  * @return resource
  *
@@ -940,9 +940,9 @@ function ldap_search($link_identifier, $base_dn, $filter, $attributes = null, $a
 /**
  * Set the value of the given option
  *
- * mixed $link_identifier
- * mixed $option
- * mixed $newval
+ * @param mixed $link_identifier
+ * @param mixed $option
+ * @param mixed $newval
  *
  * @return bool
  *
@@ -957,8 +957,8 @@ function ldap_set_option($link_identifier, $option, $newval): bool
 /**
  * Set a callback function to do re-binds on referral chasing
  *
- * mixed $link
- * mixed $callback
+ * @param mixed $link
+ * @param mixed $callback
  *
  * @return bool
  *
@@ -973,9 +973,9 @@ function ldap_set_rebind_proc($link, $callback): bool
 /**
  * Sort LDAP result entries on the client side
  *
- * mixed $link
- * mixed $result
- * mixed $sortfilter
+ * @param mixed $link
+ * @param mixed $result
+ * @param mixed $sortfilter
  *
  * @return bool
  *
@@ -992,7 +992,7 @@ function ldap_sort($link, $result, $sortfilter): bool
 /**
  * Start TLS
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *
@@ -1007,7 +1007,7 @@ function ldap_start_tls($link_identifier): bool
 /**
  * Unbind from LDAP directory
  *
- * mixed $link_identifier
+ * @param mixed $link_identifier
  *
  * @return bool
  *

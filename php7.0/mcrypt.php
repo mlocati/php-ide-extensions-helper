@@ -221,8 +221,8 @@ const MCRYPT_XTEA = 'xtea';
 /**
  * Creates an initialization vector (IV) from a random source
  *
- * mixed $size
- * mixed|null $source
+ * @param mixed $size
+ * @param mixed|null $source
  *
  * @return string
  *
@@ -237,11 +237,11 @@ function mcrypt_create_iv($size, $source = null): string
 /**
  * Decrypts crypttext with given parameters
  *
- * mixed $cipher
- * mixed $key
- * mixed $data
- * mixed $mode
- * mixed $iv
+ * @param mixed $cipher
+ * @param mixed $key
+ * @param mixed $data
+ * @param mixed $mode
+ * @param mixed $iv
  *
  * @return string
  *
@@ -256,7 +256,7 @@ function mcrypt_decrypt($cipher, $key, $data, $mode, $iv): string
 /**
  * Returns the name of the opened algorithm
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return string
  *
@@ -271,7 +271,7 @@ function mcrypt_enc_get_algorithms_name($td): string
 /**
  * Returns the blocksize of the opened algorithm
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return int
  *
@@ -286,7 +286,7 @@ function mcrypt_enc_get_block_size($td): int
 /**
  * Returns the size of the IV of the opened algorithm
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return int
  *
@@ -301,7 +301,7 @@ function mcrypt_enc_get_iv_size($td): int
 /**
  * Returns the maximum supported keysize of the opened mode
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return int
  *
@@ -316,7 +316,7 @@ function mcrypt_enc_get_key_size($td): int
 /**
  * Returns the name of the opened mode
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return string
  *
@@ -331,7 +331,7 @@ function mcrypt_enc_get_modes_name($td): string
 /**
  * Returns an array with the supported keysizes of the opened algorithm
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return array
  *
@@ -346,7 +346,7 @@ function mcrypt_enc_get_supported_key_sizes($td): array
 /**
  * Checks whether the algorithm of the opened mode is a block algorithm
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return bool
  *
@@ -361,7 +361,7 @@ function mcrypt_enc_is_block_algorithm($td): bool
 /**
  * Checks whether the encryption of the opened mode works on blocks
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return bool
  *
@@ -376,7 +376,7 @@ function mcrypt_enc_is_block_algorithm_mode($td): bool
 /**
  * Checks whether the opened mode outputs blocks
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return bool
  *
@@ -391,7 +391,7 @@ function mcrypt_enc_is_block_mode($td): bool
 /**
  * Runs a self test on the opened module
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return int
  *
@@ -406,11 +406,11 @@ function mcrypt_enc_self_test($td): int
 /**
  * Encrypts plaintext with given parameters
  *
- * mixed $cipher
- * mixed $key
- * mixed $data
- * mixed $mode
- * mixed $iv
+ * @param mixed $cipher
+ * @param mixed $key
+ * @param mixed $data
+ * @param mixed $mode
+ * @param mixed $iv
  *
  * @return string
  *
@@ -425,8 +425,8 @@ function mcrypt_encrypt($cipher, $key, $data, $mode, $iv): string
 /**
  * This function encrypts data
  *
- * mixed $td
- * mixed $data
+ * @param mixed $td
+ * @param mixed $data
  *
  * @return string
  *
@@ -441,7 +441,7 @@ function mcrypt_generic($td, $data): string
 /**
  * This function deinitializes an encryption module
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return bool
  *
@@ -456,9 +456,9 @@ function mcrypt_generic_deinit($td): bool
 /**
  * This function initializes all buffers needed for encryption
  *
- * mixed $td
- * mixed $key
- * mixed $iv
+ * @param mixed $td
+ * @param mixed $key
+ * @param mixed $iv
  *
  * @return int
  *
@@ -473,8 +473,8 @@ function mcrypt_generic_init($td, $key, $iv): int
 /**
  * Gets the block size of the specified cipher
  *
- * mixed $cipher
- * mixed $module
+ * @param mixed $cipher
+ * @param mixed $module
  *
  * @return int
  *
@@ -489,7 +489,7 @@ function mcrypt_get_block_size($cipher, $module): int
 /**
  * Gets the name of the specified cipher
  *
- * mixed $cipher
+ * @param mixed $cipher
  *
  * @return string
  *
@@ -504,8 +504,8 @@ function mcrypt_get_cipher_name($cipher): string
 /**
  * Returns the size of the IV belonging to a specific cipher/mode combination
  *
- * mixed $cipher
- * mixed $module
+ * @param mixed $cipher
+ * @param mixed $module
  *
  * @return int
  *
@@ -520,8 +520,8 @@ function mcrypt_get_iv_size($cipher, $module): int
 /**
  * Gets the key size of the specified cipher
  *
- * mixed $cipher
- * mixed $module
+ * @param mixed $cipher
+ * @param mixed $module
  *
  * @return int
  *
@@ -536,7 +536,7 @@ function mcrypt_get_key_size($cipher, $module): int
 /**
  * Gets an array of all supported ciphers
  *
- * mixed|null $lib_dir
+ * @param mixed|null $lib_dir
  *
  * @return array
  *
@@ -551,7 +551,7 @@ function mcrypt_list_algorithms($lib_dir = null): array
 /**
  * Gets an array of all supported modes
  *
- * mixed|null $lib_dir
+ * @param mixed|null $lib_dir
  *
  * @return array
  *
@@ -566,7 +566,7 @@ function mcrypt_list_modes($lib_dir = null): array
 /**
  * Closes the mcrypt module
  *
- * mixed $td
+ * @param mixed $td
  *
  * @return bool
  *
@@ -581,8 +581,8 @@ function mcrypt_module_close($td): bool
 /**
  * Returns the blocksize of the specified algorithm
  *
- * mixed $algorithm
- * mixed|null $lib_dir
+ * @param mixed $algorithm
+ * @param mixed|null $lib_dir
  *
  * @return int
  *
@@ -597,8 +597,8 @@ function mcrypt_module_get_algo_block_size($algorithm, $lib_dir = null): int
 /**
  * Returns the maximum supported keysize of the opened mode
  *
- * mixed $algorithm
- * mixed|null $lib_dir
+ * @param mixed $algorithm
+ * @param mixed|null $lib_dir
  *
  * @return int
  *
@@ -613,8 +613,8 @@ function mcrypt_module_get_algo_key_size($algorithm, $lib_dir = null): int
 /**
  * Returns an array with the supported keysizes of the opened algorithm
  *
- * mixed $algorithm
- * mixed|null $lib_dir
+ * @param mixed $algorithm
+ * @param mixed|null $lib_dir
  *
  * @return array
  *
@@ -629,8 +629,8 @@ function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null): arr
 /**
  * This function checks whether the specified algorithm is a block algorithm
  *
- * mixed $algorithm
- * mixed|null $lib_dir
+ * @param mixed $algorithm
+ * @param mixed|null $lib_dir
  *
  * @return bool
  *
@@ -645,8 +645,8 @@ function mcrypt_module_is_block_algorithm($algorithm, $lib_dir = null): bool
 /**
  * Returns if the specified module is a block algorithm or not
  *
- * mixed $mode
- * mixed|null $lib_dir
+ * @param mixed $mode
+ * @param mixed|null $lib_dir
  *
  * @return bool
  *
@@ -661,8 +661,8 @@ function mcrypt_module_is_block_algorithm_mode($mode, $lib_dir = null): bool
 /**
  * Returns if the specified mode outputs blocks or not
  *
- * mixed $mode
- * mixed|null $lib_dir
+ * @param mixed $mode
+ * @param mixed|null $lib_dir
  *
  * @return bool
  *
@@ -677,10 +677,10 @@ function mcrypt_module_is_block_mode($mode, $lib_dir = null): bool
 /**
  * Opens the module of the algorithm and the mode to be used
  *
- * mixed $cipher
- * mixed $cipher_directory
- * mixed $mode
- * mixed $mode_directory
+ * @param mixed $cipher
+ * @param mixed $cipher_directory
+ * @param mixed $mode
+ * @param mixed $mode_directory
  *
  * @return resource
  *
@@ -695,8 +695,8 @@ function mcrypt_module_open($cipher, $cipher_directory, $mode, $mode_directory)
 /**
  * This function runs a self test on the specified module
  *
- * mixed $algorithm
- * mixed|null $lib_dir
+ * @param mixed $algorithm
+ * @param mixed|null $lib_dir
  *
  * @return bool
  *
@@ -711,8 +711,8 @@ function mcrypt_module_self_test($algorithm, $lib_dir = null): bool
 /**
  * Decrypts data
  *
- * mixed $td
- * mixed $data
+ * @param mixed $td
+ * @param mixed $data
  *
  * @return string
  *

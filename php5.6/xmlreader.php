@@ -23,29 +23,29 @@ class XMLReader
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function getAttribute($name)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function getAttributeNo($index)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $namespaceURI
+     * @param mixed $name
+     * @param mixed $namespaceURI
      */
     public function getAttributeNs($name, $namespaceURI)
     {
     }
 
     /**
-     * mixed $property
+     * @param mixed $property
      */
     public function getParserProperty($property)
     {
@@ -56,29 +56,29 @@ class XMLReader
     }
 
     /**
-     * mixed $prefix
+     * @param mixed $prefix
      */
     public function lookupNamespace($prefix)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function moveToAttribute($name)
     {
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function moveToAttributeNo($index)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $namespaceURI
+     * @param mixed $name
+     * @param mixed $namespaceURI
      */
     public function moveToAttributeNs($name, $namespaceURI)
     {
@@ -99,7 +99,7 @@ class XMLReader
     /**
      * Advance the internal pointer of an array
      *
-     * mixed|null $localname
+     * @param mixed|null $localname
      *
      * @return mixed
      *
@@ -112,9 +112,9 @@ class XMLReader
     }
 
     /**
-     * mixed $URI
-     * mixed|null $encoding
-     * mixed|null $options
+     * @param mixed $URI
+     * @param mixed|null $encoding
+     * @param mixed|null $options
      */
     public function open($URI, $encoding = null, $options = null)
     {
@@ -137,38 +137,38 @@ class XMLReader
     }
 
     /**
-     * mixed $property
-     * mixed $value
+     * @param mixed $property
+     * @param mixed $value
      */
     public function setParserProperty($property, $value)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setRelaxNGSchema($filename)
     {
     }
 
     /**
-     * mixed $source
+     * @param mixed $source
      */
     public function setRelaxNGSchemaSource($source)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setSchema($filename)
     {
     }
 
     /**
-     * mixed $source
-     * mixed|null $encoding
-     * mixed|null $options
+     * @param mixed $source
+     * @param mixed|null $encoding
+     * @param mixed|null $options
      */
     public function XML($source, $encoding = null, $options = null)
     {

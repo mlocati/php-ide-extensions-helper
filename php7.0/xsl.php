@@ -134,8 +134,8 @@ const XSL_SECPREF_WRITE_NETWORK = 32;
 class XSLTProcessor
 {
     /**
-     * mixed $namespace
-     * mixed $name
+     * @param mixed $namespace
+     * @param mixed $name
      */
     public function getParameter($namespace, $name)
     {
@@ -150,67 +150,67 @@ class XSLTProcessor
     }
 
     /**
-     * mixed $doc
+     * @param mixed $doc
      */
     public function importStylesheet($doc)
     {
     }
 
     /**
-     * mixed|null $restrict
+     * @param mixed|null $restrict
      */
     public function registerPHPFunctions($restrict = null)
     {
     }
 
     /**
-     * mixed $namespace
-     * mixed $name
+     * @param mixed $namespace
+     * @param mixed $name
      */
     public function removeParameter($namespace, $name)
     {
     }
 
     /**
-     * mixed $namespace
-     * mixed $name
-     * mixed|null $value
+     * @param mixed $namespace
+     * @param mixed $name
+     * @param mixed|null $value
      */
     public function setParameter($namespace, $name, $value = null)
     {
     }
 
     /**
-     * mixed $filename
+     * @param mixed $filename
      */
     public function setProfiling($filename)
     {
     }
 
     /**
-     * mixed $securityPrefs
+     * @param mixed $securityPrefs
      */
     public function setSecurityPrefs($securityPrefs)
     {
     }
 
     /**
-     * mixed $doc
+     * @param mixed $doc
      */
     public function transformToDoc($doc)
     {
     }
 
     /**
-     * mixed $doc
-     * mixed $uri
+     * @param mixed $doc
+     * @param mixed $uri
      */
     public function transformToUri($doc, $uri)
     {
     }
 
     /**
-     * mixed $doc
+     * @param mixed $doc
      */
     public function transformToXml($doc)
     {

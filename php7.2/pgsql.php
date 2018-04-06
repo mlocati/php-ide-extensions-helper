@@ -640,7 +640,7 @@ const PGSQL_TUPLES_OK = 2;
 /**
  * Returns number of affected records (tuples)
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -655,7 +655,7 @@ function pg_affected_rows($result): int
 /**
  * Cancel an asynchronous query
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return bool
  *
@@ -670,7 +670,7 @@ function pg_cancel_query($connection): bool
 /**
  * Gets the client encoding
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -683,7 +683,7 @@ function pg_client_encoding($connection = null): string
 }
 
 /**
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  */
@@ -694,7 +694,7 @@ function pg_clientencoding($connection = null)
 /**
  * Closes a PostgreSQL connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return bool
  *
@@ -707,7 +707,7 @@ function pg_close($connection = null): bool
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -718,13 +718,13 @@ function pg_cmdtuples($result)
 /**
  * Open a PostgreSQL connection
  *
- * mixed $connection_string
- * mixed|null $connect_type
- * mixed|null $host
- * mixed|null $port
- * mixed|null $options
- * mixed|null $tty
- * mixed|null $database
+ * @param mixed $connection_string
+ * @param mixed|null $connect_type
+ * @param mixed|null $host
+ * @param mixed|null $port
+ * @param mixed|null $options
+ * @param mixed|null $tty
+ * @param mixed|null $database
  *
  * @return resource
  *
@@ -740,7 +740,7 @@ function pg_connect($connection_string, $connect_type = null, $host = null, $por
  * Poll the status of an in-progress asynchronous PostgreSQL connection
  *    attempt
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return int
  *
@@ -755,7 +755,7 @@ function pg_connect_poll($connection = null): int
 /**
  * Get connection is busy or not
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return bool
  *
@@ -770,7 +770,7 @@ function pg_connection_busy($connection): bool
 /**
  * Reset connection (reconnect)
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return bool
  *
@@ -785,7 +785,7 @@ function pg_connection_reset($connection): bool
 /**
  * Get connection status
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return int
  *
@@ -800,7 +800,7 @@ function pg_connection_status($connection): int
 /**
  * Reads input on the connection
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return bool
  *
@@ -815,10 +815,10 @@ function pg_consume_input($connection): bool
 /**
  * Convert associative array values into forms suitable for SQL statements
  *
- * mixed $db
- * mixed $table
- * mixed $values
- * mixed|null $options
+ * @param mixed $db
+ * @param mixed $table
+ * @param mixed $values
+ * @param mixed|null $options
  *
  * @return array
  *
@@ -833,11 +833,11 @@ function pg_convert($db, $table, $values, $options = null): array
 /**
  * Insert records into a table from an array
  *
- * mixed $connection
- * mixed $table_name
- * mixed $rows
- * mixed|null $delimiter
- * mixed|null $null_as
+ * @param mixed $connection
+ * @param mixed $table_name
+ * @param mixed $rows
+ * @param mixed|null $delimiter
+ * @param mixed|null $null_as
  *
  * @return bool
  *
@@ -852,10 +852,10 @@ function pg_copy_from($connection, $table_name, $rows, $delimiter = null, $null_
 /**
  * Copy a table to an array
  *
- * mixed $connection
- * mixed $table_name
- * mixed|null $delimiter
- * mixed|null $null_as
+ * @param mixed $connection
+ * @param mixed $table_name
+ * @param mixed|null $delimiter
+ * @param mixed|null $null_as
  *
  * @return array
  *
@@ -870,7 +870,7 @@ function pg_copy_to($connection, $table_name, $delimiter = null, $null_as = null
 /**
  * Get the database name
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -885,10 +885,10 @@ function pg_dbname($connection = null): string
 /**
  * Deletes records
  *
- * mixed $db
- * mixed $table
- * mixed $ids
- * mixed|null $options
+ * @param mixed $db
+ * @param mixed $table
+ * @param mixed $ids
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -903,7 +903,7 @@ function pg_delete($db, $table, $ids, $options = null)
 /**
  * Sync with PostgreSQL backend
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return bool
  *
@@ -916,7 +916,7 @@ function pg_end_copy($connection = null): bool
 }
 
 /**
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -927,8 +927,8 @@ function pg_errormessage($connection = null)
 /**
  * Escape a string for insertion into a bytea field
  *
- * mixed|null $connection
- * mixed|null $data
+ * @param mixed|null $connection
+ * @param mixed|null $data
  *
  * @return string
  *
@@ -943,8 +943,8 @@ function pg_escape_bytea($connection = null, $data = null): string
 /**
  * Escape a identifier for insertion into a text field
  *
- * mixed|null $connection
- * mixed|null $data
+ * @param mixed|null $connection
+ * @param mixed|null $data
  *
  * @return string
  *
@@ -959,8 +959,8 @@ function pg_escape_identifier($connection = null, $data = null): string
 /**
  * Escape a literal for insertion into a text field
  *
- * mixed|null $connection
- * mixed|null $data
+ * @param mixed|null $connection
+ * @param mixed|null $data
  *
  * @return string
  *
@@ -975,8 +975,8 @@ function pg_escape_literal($connection = null, $data = null): string
 /**
  * Escape a string for query
  *
- * mixed|null $connection
- * mixed|null $data
+ * @param mixed|null $connection
+ * @param mixed|null $data
  *
  * @return string
  *
@@ -989,8 +989,8 @@ function pg_escape_string($connection = null, $data = null): string
 }
 
 /**
- * mixed|null $connection
- * mixed|null $query
+ * @param mixed|null $connection
+ * @param mixed|null $query
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1001,9 +1001,9 @@ function pg_exec($connection = null, $query = null)
 /**
  * Sends a request to execute a prepared statement with given parameters, and waits for the result
  *
- * mixed|null $connection
- * mixed|null $stmtname
- * mixed|null $params
+ * @param mixed|null $connection
+ * @param mixed|null $stmtname
+ * @param mixed|null $params
  *
  * @return resource
  *
@@ -1018,8 +1018,8 @@ function pg_execute($connection = null, $stmtname = null, $params = null)
 /**
  * Fetches all rows from a result as an array
  *
- * mixed $result
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $result_type
  *
  * @return array
  *
@@ -1034,8 +1034,8 @@ function pg_fetch_all($result, $result_type = null): array
 /**
  * Fetches all rows in a particular result column as an array
  *
- * mixed $result
- * mixed|null $column_number
+ * @param mixed $result
+ * @param mixed|null $column_number
  *
  * @return array
  *
@@ -1050,9 +1050,9 @@ function pg_fetch_all_columns($result, $column_number = null): array
 /**
  * Fetch a row as an array
  *
- * mixed $result
- * mixed|null $row
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $result_type
  *
  * @return array
  *
@@ -1067,8 +1067,8 @@ function pg_fetch_array($result, $row = null, $result_type = null): array
 /**
  * Fetch a row as an associative array
  *
- * mixed $result
- * mixed|null $row
+ * @param mixed $result
+ * @param mixed|null $row
  *
  * @return array
  *
@@ -1083,11 +1083,11 @@ function pg_fetch_assoc($result, $row = null): array
 /**
  * Fetch a row as an object
  *
- * mixed $result
- * mixed|null $row
- * mixed|null $class_name
- * mixed|null $l
- * mixed|null $ctor_params
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $class_name
+ * @param mixed|null $l
+ * @param mixed|null $ctor_params
  *
  * @return object
  *
@@ -1102,9 +1102,9 @@ function pg_fetch_object($result, $row = null, $class_name = null, $l = null, $c
 /**
  * Returns values from a result resource
  *
- * mixed $result
- * mixed|null $row_number
- * mixed|null $field_name
+ * @param mixed $result
+ * @param mixed|null $row_number
+ * @param mixed|null $field_name
  *
  * @return string
  *
@@ -1119,9 +1119,9 @@ function pg_fetch_result($result, $row_number = null, $field_name = null): strin
 /**
  * Get a row as an enumerated array
  *
- * mixed $result
- * mixed|null $row
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $result_type
  *
  * @return array
  *
@@ -1136,9 +1136,9 @@ function pg_fetch_row($result, $row = null, $result_type = null): array
 /**
  * Test if a field is SQL <code>NULL</code>
  *
- * mixed $result
- * mixed|null $row
- * mixed|null $field_name_or_number
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $field_name_or_number
  *
  * @return int
  *
@@ -1153,8 +1153,8 @@ function pg_field_is_null($result, $row = null, $field_name_or_number = null): i
 /**
  * Returns the name of a field
  *
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @return string
  *
@@ -1169,8 +1169,8 @@ function pg_field_name($result, $field_number): string
 /**
  * Returns the field number of the named field
  *
- * mixed $result
- * mixed $field_name
+ * @param mixed $result
+ * @param mixed $field_name
  *
  * @return int
  *
@@ -1185,9 +1185,9 @@ function pg_field_num($result, $field_name): int
 /**
  * Returns the printed length
  *
- * mixed $result
- * mixed|null $row
- * mixed|null $field_name_or_number
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $field_name_or_number
  *
  * @return int
  *
@@ -1202,8 +1202,8 @@ function pg_field_prtlen($result, $row = null, $field_name_or_number = null): in
 /**
  * Returns the internal storage size of the named field
  *
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @return int
  *
@@ -1218,9 +1218,9 @@ function pg_field_size($result, $field_number): int
 /**
  * Returns the name or oid of the tables field
  *
- * mixed $result
- * mixed $field_number
- * mixed|null $oid_only
+ * @param mixed $result
+ * @param mixed $field_number
+ * @param mixed|null $oid_only
  *
  * @return mixed
  *
@@ -1235,8 +1235,8 @@ function pg_field_table($result, $field_number, $oid_only = null)
 /**
  * Returns the type name for the corresponding field number
  *
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @return string
  *
@@ -1251,8 +1251,8 @@ function pg_field_type($result, $field_number): string
 /**
  * Returns the type ID (OID) for the corresponding field number
  *
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @return int
  *
@@ -1265,9 +1265,9 @@ function pg_field_type_oid($result, $field_number): int
 }
 
 /**
- * mixed $result
- * mixed|null $row
- * mixed|null $field_name_or_number
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $field_name_or_number
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1276,8 +1276,8 @@ function pg_fieldisnull($result, $row = null, $field_name_or_number = null)
 }
 
 /**
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1286,8 +1286,8 @@ function pg_fieldname($result, $field_number)
 }
 
 /**
- * mixed $result
- * mixed $field_name
+ * @param mixed $result
+ * @param mixed $field_name
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1296,9 +1296,9 @@ function pg_fieldnum($result, $field_name)
 }
 
 /**
- * mixed $result
- * mixed|null $row
- * mixed|null $field_name_or_number
+ * @param mixed $result
+ * @param mixed|null $row
+ * @param mixed|null $field_name_or_number
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1307,8 +1307,8 @@ function pg_fieldprtlen($result, $row = null, $field_name_or_number = null)
 }
 
 /**
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1317,8 +1317,8 @@ function pg_fieldsize($result, $field_number)
 }
 
 /**
- * mixed $result
- * mixed $field_number
+ * @param mixed $result
+ * @param mixed $field_number
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1329,7 +1329,7 @@ function pg_fieldtype($result, $field_number)
 /**
  * Flush outbound query data on the connection
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return mixed
  *
@@ -1344,7 +1344,7 @@ function pg_flush($connection)
 /**
  * Free result memory
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return bool
  *
@@ -1357,7 +1357,7 @@ function pg_free_result($result): bool
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1368,8 +1368,8 @@ function pg_freeresult($result)
 /**
  * Gets SQL NOTIFY message
  *
- * mixed|null $connection
- * mixed|null $e
+ * @param mixed|null $connection
+ * @param mixed|null $e
  *
  * @return array
  *
@@ -1384,7 +1384,7 @@ function pg_get_notify($connection = null, $e = null): array
 /**
  * Gets the backend's process ID
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return int
  *
@@ -1399,7 +1399,7 @@ function pg_get_pid($connection = null): int
 /**
  * Get asynchronous query result
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return resource
  *
@@ -1412,7 +1412,7 @@ function pg_get_result($connection)
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1423,7 +1423,7 @@ function pg_getlastoid($result)
 /**
  * Returns the host name associated with the connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -1438,10 +1438,10 @@ function pg_host($connection = null): string
 /**
  * Insert array into table
  *
- * mixed $db
- * mixed $table
- * mixed $values
- * mixed|null $options
+ * @param mixed $db
+ * @param mixed $table
+ * @param mixed $values
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -1456,7 +1456,7 @@ function pg_insert($db, $table, $values, $options = null)
 /**
  * Get the last error message string of a connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -1471,8 +1471,8 @@ function pg_last_error($connection = null): string
 /**
  * Returns the last notice message from PostgreSQL server
  *
- * mixed $connection
- * mixed|null $option
+ * @param mixed $connection
+ * @param mixed|null $option
  *
  * @return mixed
  *
@@ -1487,7 +1487,7 @@ function pg_last_notice($connection, $option = null)
 /**
  * Returns the last row's OID
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return string
  *
@@ -1502,7 +1502,7 @@ function pg_last_oid($result): string
 /**
  * Close a large object
  *
- * mixed $large_object
+ * @param mixed $large_object
  *
  * @return bool
  *
@@ -1517,8 +1517,8 @@ function pg_lo_close($large_object): bool
 /**
  * Create a large object
  *
- * mixed|null $connection
- * mixed|null $large_object_id
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_id
  *
  * @return int
  *
@@ -1533,9 +1533,9 @@ function pg_lo_create($connection = null, $large_object_id = null): int
 /**
  * Export a large object to file
  *
- * mixed|null $connection
- * mixed|null $objoid
- * mixed|null $filename
+ * @param mixed|null $connection
+ * @param mixed|null $objoid
+ * @param mixed|null $filename
  *
  * @return bool
  *
@@ -1550,9 +1550,9 @@ function pg_lo_export($connection = null, $objoid = null, $filename = null): boo
 /**
  * Import a large object from file
  *
- * mixed|null $connection
- * mixed|null $filename
- * mixed|null $large_object_oid
+ * @param mixed|null $connection
+ * @param mixed|null $filename
+ * @param mixed|null $large_object_oid
  *
  * @return int
  *
@@ -1567,9 +1567,9 @@ function pg_lo_import($connection = null, $filename = null, $large_object_oid = 
 /**
  * Open a large object
  *
- * mixed|null $connection
- * mixed|null $large_object_oid
- * mixed|null $mode
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_oid
+ * @param mixed|null $mode
  *
  * @return resource
  *
@@ -1584,8 +1584,8 @@ function pg_lo_open($connection = null, $large_object_oid = null, $mode = null)
 /**
  * Read a large object
  *
- * mixed $large_object
- * mixed|null $len
+ * @param mixed $large_object
+ * @param mixed|null $len
  *
  * @return string
  *
@@ -1600,7 +1600,7 @@ function pg_lo_read($large_object, $len = null): string
 /**
  * Reads an entire large object and send straight to browser
  *
- * mixed $large_object
+ * @param mixed $large_object
  *
  * @return int
  *
@@ -1615,9 +1615,9 @@ function pg_lo_read_all($large_object): int
 /**
  * Seeks position within a large object
  *
- * mixed $large_object
- * mixed $offset
- * mixed|null $whence
+ * @param mixed $large_object
+ * @param mixed $offset
+ * @param mixed|null $whence
  *
  * @return bool
  *
@@ -1632,7 +1632,7 @@ function pg_lo_seek($large_object, $offset, $whence = null): bool
 /**
  * Returns current seek position a of large object
  *
- * mixed $large_object
+ * @param mixed $large_object
  *
  * @return int
  *
@@ -1647,8 +1647,8 @@ function pg_lo_tell($large_object): int
 /**
  * Truncates a large object
  *
- * mixed $large_object
- * mixed|null $size
+ * @param mixed $large_object
+ * @param mixed|null $size
  *
  * @return bool
  *
@@ -1663,8 +1663,8 @@ function pg_lo_truncate($large_object, $size = null): bool
 /**
  * Delete a large object
  *
- * mixed|null $connection
- * mixed|null $large_object_oid
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_oid
  *
  * @return bool
  *
@@ -1679,9 +1679,9 @@ function pg_lo_unlink($connection = null, $large_object_oid = null): bool
 /**
  * Write to a large object
  *
- * mixed $large_object
- * mixed $buf
- * mixed|null $len
+ * @param mixed $large_object
+ * @param mixed $buf
+ * @param mixed|null $len
  *
  * @return int
  *
@@ -1694,7 +1694,7 @@ function pg_lo_write($large_object, $buf, $len = null): int
 }
 
 /**
- * mixed $large_object
+ * @param mixed $large_object
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1703,8 +1703,8 @@ function pg_loclose($large_object)
 }
 
 /**
- * mixed|null $connection
- * mixed|null $large_object_id
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_id
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1713,9 +1713,9 @@ function pg_locreate($connection = null, $large_object_id = null)
 }
 
 /**
- * mixed|null $connection
- * mixed|null $objoid
- * mixed|null $filename
+ * @param mixed|null $connection
+ * @param mixed|null $objoid
+ * @param mixed|null $filename
  *
  * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
  */
@@ -1724,9 +1724,9 @@ function pg_loexport($connection = null, $objoid = null, $filename = null)
 }
 
 /**
- * mixed|null $connection
- * mixed|null $filename
- * mixed|null $large_object_oid
+ * @param mixed|null $connection
+ * @param mixed|null $filename
+ * @param mixed|null $large_object_oid
  *
  * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
  */
@@ -1735,9 +1735,9 @@ function pg_loimport($connection = null, $filename = null, $large_object_oid = n
 }
 
 /**
- * mixed|null $connection
- * mixed|null $large_object_oid
- * mixed|null $mode
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_oid
+ * @param mixed|null $mode
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1746,8 +1746,8 @@ function pg_loopen($connection = null, $large_object_oid = null, $mode = null)
 }
 
 /**
- * mixed $large_object
- * mixed|null $len
+ * @param mixed $large_object
+ * @param mixed|null $len
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1756,7 +1756,7 @@ function pg_loread($large_object, $len = null)
 }
 
 /**
- * mixed $large_object
+ * @param mixed $large_object
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1765,8 +1765,8 @@ function pg_loreadall($large_object)
 }
 
 /**
- * mixed|null $connection
- * mixed|null $large_object_oid
+ * @param mixed|null $connection
+ * @param mixed|null $large_object_oid
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1775,9 +1775,9 @@ function pg_lounlink($connection = null, $large_object_oid = null)
 }
 
 /**
- * mixed $large_object
- * mixed $buf
- * mixed|null $len
+ * @param mixed $large_object
+ * @param mixed $buf
+ * @param mixed|null $len
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1788,8 +1788,8 @@ function pg_lowrite($large_object, $buf, $len = null)
 /**
  * Get meta data for table
  *
- * mixed $db
- * mixed $table
+ * @param mixed $db
+ * @param mixed $table
  *
  * @return array
  *
@@ -1804,7 +1804,7 @@ function pg_meta_data($db, $table): array
 /**
  * Returns the number of fields in a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -1819,7 +1819,7 @@ function pg_num_fields($result): int
 /**
  * Returns the number of rows in a result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return int
  *
@@ -1832,7 +1832,7 @@ function pg_num_rows($result): int
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1841,7 +1841,7 @@ function pg_numfields($result)
 }
 
 /**
- * mixed $result
+ * @param mixed $result
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -1852,7 +1852,7 @@ function pg_numrows($result)
 /**
  * Get the options associated with the connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -1867,8 +1867,8 @@ function pg_options($connection = null): string
 /**
  * Looks up a current parameter setting of the server
  *
- * mixed $connection
- * mixed|null $param_name
+ * @param mixed $connection
+ * @param mixed|null $param_name
  *
  * @return string
  *
@@ -1883,12 +1883,12 @@ function pg_parameter_status($connection, $param_name = null): string
 /**
  * Open a persistent PostgreSQL connection
  *
- * mixed $connection_string
- * mixed|null $host
- * mixed|null $port
- * mixed|null $options
- * mixed|null $tty
- * mixed|null $database
+ * @param mixed $connection_string
+ * @param mixed|null $host
+ * @param mixed|null $port
+ * @param mixed|null $options
+ * @param mixed|null $tty
+ * @param mixed|null $database
  *
  * @return resource
  *
@@ -1903,7 +1903,7 @@ function pg_pconnect($connection_string, $host = null, $port = null, $options = 
 /**
  * Ping database connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return bool
  *
@@ -1918,7 +1918,7 @@ function pg_ping($connection = null): bool
 /**
  * Return the port number associated with the connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return int
  *
@@ -1934,9 +1934,9 @@ function pg_port($connection = null): int
  * Submits a request to create a prepared statement with the 
  *   given parameters, and waits for completion
  *
- * mixed|null $connection
- * mixed|null $stmtname
- * mixed|null $query
+ * @param mixed|null $connection
+ * @param mixed|null $stmtname
+ * @param mixed|null $query
  *
  * @return resource
  *
@@ -1951,8 +1951,8 @@ function pg_prepare($connection = null, $stmtname = null, $query = null)
 /**
  * Send a NULL-terminated string to PostgreSQL backend
  *
- * mixed|null $connection
- * mixed|null $query
+ * @param mixed|null $connection
+ * @param mixed|null $query
  *
  * @return bool
  *
@@ -1967,8 +1967,8 @@ function pg_put_line($connection = null, $query = null): bool
 /**
  * Execute a query
  *
- * mixed|null $connection
- * mixed|null $query
+ * @param mixed|null $connection
+ * @param mixed|null $query
  *
  * @return resource
  *
@@ -1983,9 +1983,9 @@ function pg_query($connection = null, $query = null)
 /**
  * Submits a command to the server and waits for the result, with the ability to pass parameters separately from the SQL command text
  *
- * mixed|null $connection
- * mixed|null $query
- * mixed|null $params
+ * @param mixed|null $connection
+ * @param mixed|null $query
+ * @param mixed|null $params
  *
  * @return resource
  *
@@ -1998,7 +1998,7 @@ function pg_query_params($connection = null, $query = null, $params = null)
 }
 
 /**
- * mixed $connection
+ * @param mixed $connection
  *
  * @since PHP 4, PHP 5, PHP 7
  */
@@ -2009,7 +2009,7 @@ function pg_result($connection)
 /**
  * Get error message associated with result
  *
- * mixed $result
+ * @param mixed $result
  *
  * @return string
  *
@@ -2024,8 +2024,8 @@ function pg_result_error($result): string
 /**
  * Returns an individual field of an error report
  *
- * mixed $result
- * mixed $fieldcode
+ * @param mixed $result
+ * @param mixed $fieldcode
  *
  * @return string
  *
@@ -2040,8 +2040,8 @@ function pg_result_error_field($result, $fieldcode): string
 /**
  * Set internal row offset in result resource
  *
- * mixed $result
- * mixed $offset
+ * @param mixed $result
+ * @param mixed $offset
  *
  * @return bool
  *
@@ -2056,8 +2056,8 @@ function pg_result_seek($result, $offset): bool
 /**
  * Get status of query result
  *
- * mixed $result
- * mixed|null $result_type
+ * @param mixed $result
+ * @param mixed|null $result_type
  *
  * @return mixed
  *
@@ -2072,11 +2072,11 @@ function pg_result_status($result, $result_type = null)
 /**
  * Select records
  *
- * mixed $db
- * mixed $table
- * mixed $ids
- * mixed|null $options
- * mixed|null $result_type
+ * @param mixed $db
+ * @param mixed $table
+ * @param mixed $ids
+ * @param mixed|null $options
+ * @param mixed|null $result_type
  *
  * @return mixed
  *
@@ -2091,9 +2091,9 @@ function pg_select($db, $table, $ids, $options = null, $result_type = null)
 /**
  * Sends a request to execute a prepared statement with given parameters, without waiting for the result(s)
  *
- * mixed $connection
- * mixed $stmtname
- * mixed $params
+ * @param mixed $connection
+ * @param mixed $stmtname
+ * @param mixed $params
  *
  * @return bool
  *
@@ -2108,9 +2108,9 @@ function pg_send_execute($connection, $stmtname, $params): bool
 /**
  * Sends a request to create a prepared statement with the given parameters, without waiting for completion
  *
- * mixed $connection
- * mixed $stmtname
- * mixed $query
+ * @param mixed $connection
+ * @param mixed $stmtname
+ * @param mixed $query
  *
  * @return bool
  *
@@ -2125,8 +2125,8 @@ function pg_send_prepare($connection, $stmtname, $query): bool
 /**
  * Sends asynchronous query
  *
- * mixed $connection
- * mixed $query
+ * @param mixed $connection
+ * @param mixed $query
  *
  * @return bool
  *
@@ -2141,9 +2141,9 @@ function pg_send_query($connection, $query): bool
 /**
  * Submits a command and separate parameters to the server without waiting for the result(s)
  *
- * mixed $connection
- * mixed $query
- * mixed $params
+ * @param mixed $connection
+ * @param mixed $query
+ * @param mixed $params
  *
  * @return bool
  *
@@ -2158,8 +2158,8 @@ function pg_send_query_params($connection, $query, $params): bool
 /**
  * Set the client encoding
  *
- * mixed|null $connection
- * mixed|null $encoding
+ * @param mixed|null $connection
+ * @param mixed|null $encoding
  *
  * @return int
  *
@@ -2175,8 +2175,8 @@ function pg_set_client_encoding($connection = null, $encoding = null): int
  * Determines the verbosity of messages returned by <code>pg_last_error</code> 
  *    and <code>pg_result_error</code>
  *
- * mixed|null $connection
- * mixed|null $verbosity
+ * @param mixed|null $connection
+ * @param mixed|null $verbosity
  *
  * @return int
  *
@@ -2189,8 +2189,8 @@ function pg_set_error_verbosity($connection = null, $verbosity = null): int
 }
 
 /**
- * mixed|null $connection
- * mixed|null $encoding
+ * @param mixed|null $connection
+ * @param mixed|null $encoding
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  */
@@ -2201,7 +2201,7 @@ function pg_setclientencoding($connection = null, $encoding = null)
 /**
  * Get a read only handle to the socket underlying a PostgreSQL connection
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return resource
  *
@@ -2216,9 +2216,9 @@ function pg_socket($connection)
 /**
  * Enable tracing a PostgreSQL connection
  *
- * mixed $filename
- * mixed|null $mode
- * mixed|null $connection
+ * @param mixed $filename
+ * @param mixed|null $mode
+ * @param mixed|null $connection
  *
  * @return bool
  *
@@ -2233,7 +2233,7 @@ function pg_trace($filename, $mode = null, $connection = null): bool
 /**
  * Returns the current in-transaction status of the server
  *
- * mixed $connection
+ * @param mixed $connection
  *
  * @return int
  *
@@ -2248,7 +2248,7 @@ function pg_transaction_status($connection): int
 /**
  * Return the TTY name associated with the connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return string
  *
@@ -2263,7 +2263,7 @@ function pg_tty($connection = null): string
 /**
  * Unescape binary for bytea type
  *
- * mixed $data
+ * @param mixed $data
  *
  * @return string
  *
@@ -2278,7 +2278,7 @@ function pg_unescape_bytea($data): string
 /**
  * Disable tracing of a PostgreSQL connection
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return bool
  *
@@ -2293,11 +2293,11 @@ function pg_untrace($connection = null): bool
 /**
  * Update table
  *
- * mixed $db
- * mixed $table
- * mixed $fields
- * mixed $ids
- * mixed|null $options
+ * @param mixed $db
+ * @param mixed $table
+ * @param mixed $fields
+ * @param mixed $ids
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -2312,7 +2312,7 @@ function pg_update($db, $table, $fields, $ids, $options = null)
 /**
  * Returns an array with client, protocol and server version (when available)
  *
- * mixed|null $connection
+ * @param mixed|null $connection
  *
  * @return array
  *

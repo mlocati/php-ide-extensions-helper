@@ -342,7 +342,7 @@ function libxml_clear_errors()
 /**
  * Disable the ability to load external entities
  *
- * mixed|null $disable
+ * @param mixed|null $disable
  *
  * @return bool
  *
@@ -383,7 +383,7 @@ function libxml_get_last_error()
 /**
  * Changes the default external entity loader
  *
- * mixed $resolver_function
+ * @param mixed $resolver_function
  *
  * @return bool
  *
@@ -398,7 +398,7 @@ function libxml_set_external_entity_loader($resolver_function): bool
 /**
  * Set the streams context for the next libxml document load or write
  *
- * mixed $context
+ * @param mixed $context
  *
  * @return void
  *
@@ -413,7 +413,7 @@ function libxml_set_streams_context($context)
 /**
  * Disable libxml errors and allow user to fetch error information as needed
  *
- * mixed|null $use_errors
+ * @param mixed|null $use_errors
  *
  * @return bool
  *

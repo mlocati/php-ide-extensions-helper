@@ -302,10 +302,10 @@ interface JsonSerializable
 /**
  * Decodes a JSON string
  *
- * mixed $json
- * mixed|null $assoc
- * mixed|null $depth
- * mixed|null $options
+ * @param mixed $json
+ * @param mixed|null $assoc
+ * @param mixed|null $depth
+ * @param mixed|null $options
  *
  * @return mixed
  *
@@ -320,9 +320,9 @@ function json_decode($json, $assoc = null, $depth = null, $options = null)
 /**
  * Returns the JSON representation of a value
  *
- * mixed $value
- * mixed|null $options
- * mixed|null $depth
+ * @param mixed $value
+ * @param mixed|null $options
+ * @param mixed|null $depth
  *
  * @return string
  *

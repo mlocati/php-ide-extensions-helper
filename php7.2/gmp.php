@@ -92,7 +92,7 @@ class GMP
 /**
  * Absolute value
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -107,8 +107,8 @@ function gmp_abs($a)
 /**
  * Add numbers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -123,8 +123,8 @@ function gmp_add($a, $b)
 /**
  * Bitwise AND
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -139,8 +139,8 @@ function gmp_and($a, $b)
 /**
  * Clear bit
  *
- * mixed $a
- * mixed $index
+ * @param mixed $a
+ * @param mixed $index
  *
  * @return void
  *
@@ -155,8 +155,8 @@ function gmp_clrbit($a, $index)
 /**
  * Compare numbers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return int
  *
@@ -171,7 +171,7 @@ function gmp_cmp($a, $b): int
 /**
  * Calculates one's complement
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -186,9 +186,9 @@ function gmp_com($a)
 /**
  * Alias of <code>gmp_div_q</code>
  *
- * mixed $a
- * mixed $b
- * mixed|null $round
+ * @param mixed $a
+ * @param mixed $b
+ * @param mixed|null $round
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -201,9 +201,9 @@ function gmp_div($a, $b, $round = null)
 /**
  * Divide numbers
  *
- * mixed $a
- * mixed $b
- * mixed|null $round
+ * @param mixed $a
+ * @param mixed $b
+ * @param mixed|null $round
  *
  * @return GMP
  *
@@ -218,9 +218,9 @@ function gmp_div_q($a, $b, $round = null)
 /**
  * Divide numbers and get quotient and remainder
  *
- * mixed $a
- * mixed $b
- * mixed|null $round
+ * @param mixed $a
+ * @param mixed $b
+ * @param mixed|null $round
  *
  * @return array
  *
@@ -235,9 +235,9 @@ function gmp_div_qr($a, $b, $round = null): array
 /**
  * Remainder of the division of numbers
  *
- * mixed $a
- * mixed $b
- * mixed|null $round
+ * @param mixed $a
+ * @param mixed $b
+ * @param mixed|null $round
  *
  * @return GMP
  *
@@ -252,8 +252,8 @@ function gmp_div_r($a, $b, $round = null)
 /**
  * Exact division of numbers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -268,9 +268,9 @@ function gmp_divexact($a, $b)
 /**
  * Export to a binary string
  *
- * mixed $gmpnumber
- * mixed|null $word_size
- * mixed|null $options
+ * @param mixed $gmpnumber
+ * @param mixed|null $word_size
+ * @param mixed|null $options
  *
  * @return string
  *
@@ -285,7 +285,7 @@ function gmp_export($gmpnumber, $word_size = null, $options = null): string
 /**
  * Factorial
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -300,8 +300,8 @@ function gmp_fact($a)
 /**
  * Calculate GCD
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -316,8 +316,8 @@ function gmp_gcd($a, $b)
 /**
  * Calculate GCD and multipliers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return array
  *
@@ -332,8 +332,8 @@ function gmp_gcdext($a, $b): array
 /**
  * Hamming distance
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return int
  *
@@ -348,9 +348,9 @@ function gmp_hamdist($a, $b): int
 /**
  * Import from a binary string
  *
- * mixed $data
- * mixed|null $word_size
- * mixed|null $options
+ * @param mixed $data
+ * @param mixed|null $word_size
+ * @param mixed|null $options
  *
  * @return GMP
  *
@@ -365,8 +365,8 @@ function gmp_import($data, $word_size = null, $options = null)
 /**
  * Create GMP number
  *
- * mixed $number
- * mixed|null $base
+ * @param mixed $number
+ * @param mixed|null $base
  *
  * @return GMP
  *
@@ -381,7 +381,7 @@ function gmp_init($number, $base = null)
 /**
  * Convert GMP number to integer
  *
- * mixed $gmpnumber
+ * @param mixed $gmpnumber
  *
  * @return int
  *
@@ -396,8 +396,8 @@ function gmp_intval($gmpnumber): int
 /**
  * Inverse by modulo
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -412,8 +412,8 @@ function gmp_invert($a, $b)
 /**
  * Jacobi symbol
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return int
  *
@@ -428,8 +428,8 @@ function gmp_jacobi($a, $b): int
 /**
  * Legendre symbol
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return int
  *
@@ -444,8 +444,8 @@ function gmp_legendre($a, $b): int
 /**
  * Modulo operation
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -460,8 +460,8 @@ function gmp_mod($a, $b)
 /**
  * Multiply numbers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -476,7 +476,7 @@ function gmp_mul($a, $b)
 /**
  * Negate number
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -491,7 +491,7 @@ function gmp_neg($a)
 /**
  * Find next prime number
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -506,8 +506,8 @@ function gmp_nextprime($a)
 /**
  * Bitwise OR
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -522,7 +522,7 @@ function gmp_or($a, $b)
 /**
  * Perfect square check
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return bool
  *
@@ -537,7 +537,7 @@ function gmp_perfect_square($a): bool
 /**
  * Population count
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return int
  *
@@ -552,8 +552,8 @@ function gmp_popcount($a): int
 /**
  * Raise number into power
  *
- * mixed $base
- * mixed $exp
+ * @param mixed $base
+ * @param mixed $exp
  *
  * @return GMP
  *
@@ -568,9 +568,9 @@ function gmp_pow($base, $exp)
 /**
  * Raise number into power with modulo
  *
- * mixed $base
- * mixed $exp
- * mixed $mod
+ * @param mixed $base
+ * @param mixed $exp
+ * @param mixed $mod
  *
  * @return GMP
  *
@@ -585,8 +585,8 @@ function gmp_powm($base, $exp, $mod)
 /**
  * Check if number is "probably prime"
  *
- * mixed $a
- * mixed|null $reps
+ * @param mixed $a
+ * @param mixed|null $reps
  *
  * @return int
  *
@@ -601,7 +601,7 @@ function gmp_prob_prime($a, $reps = null): int
 /**
  * Random number
  *
- * mixed|null $limiter
+ * @param mixed|null $limiter
  *
  * @return GMP
  *
@@ -618,7 +618,7 @@ function gmp_random($limiter = null)
 /**
  * Random number
  *
- * mixed $bits
+ * @param mixed $bits
  *
  * @return GMP
  *
@@ -633,8 +633,8 @@ function gmp_random_bits($bits)
 /**
  * Random number
  *
- * mixed $min
- * mixed $max
+ * @param mixed $min
+ * @param mixed $max
  *
  * @return GMP
  *
@@ -649,7 +649,7 @@ function gmp_random_range($min, $max)
 /**
  * Sets the RNG seed
  *
- * mixed $seed
+ * @param mixed $seed
  *
  * @return void
  *
@@ -664,8 +664,8 @@ function gmp_random_seed($seed)
 /**
  * Take the integer part of nth root
  *
- * mixed $a
- * mixed $nth
+ * @param mixed $a
+ * @param mixed $nth
  *
  * @return GMP
  *
@@ -680,8 +680,8 @@ function gmp_root($a, $nth)
 /**
  * Take the integer part and remainder of nth root
  *
- * mixed $a
- * mixed $nth
+ * @param mixed $a
+ * @param mixed $nth
  *
  * @return array
  *
@@ -696,8 +696,8 @@ function gmp_rootrem($a, $nth): array
 /**
  * Scan for 0
  *
- * mixed $a
- * mixed $start
+ * @param mixed $a
+ * @param mixed $start
  *
  * @return int
  *
@@ -712,8 +712,8 @@ function gmp_scan0($a, $start): int
 /**
  * Scan for 1
  *
- * mixed $a
- * mixed $start
+ * @param mixed $a
+ * @param mixed $start
  *
  * @return int
  *
@@ -728,9 +728,9 @@ function gmp_scan1($a, $start): int
 /**
  * Set bit
  *
- * mixed $a
- * mixed $index
- * mixed|null $set_clear
+ * @param mixed $a
+ * @param mixed $index
+ * @param mixed|null $set_clear
  *
  * @return void
  *
@@ -745,7 +745,7 @@ function gmp_setbit($a, $index, $set_clear = null)
 /**
  * Sign of number
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return int
  *
@@ -760,7 +760,7 @@ function gmp_sign($a): int
 /**
  * Calculate square root
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return GMP
  *
@@ -775,7 +775,7 @@ function gmp_sqrt($a)
 /**
  * Square root with remainder
  *
- * mixed $a
+ * @param mixed $a
  *
  * @return array
  *
@@ -790,8 +790,8 @@ function gmp_sqrtrem($a): array
 /**
  * Convert GMP number to string
  *
- * mixed $gmpnumber
- * mixed|null $base
+ * @param mixed $gmpnumber
+ * @param mixed|null $base
  *
  * @return string
  *
@@ -806,8 +806,8 @@ function gmp_strval($gmpnumber, $base = null): string
 /**
  * Subtract numbers
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *
@@ -822,8 +822,8 @@ function gmp_sub($a, $b)
 /**
  * Tests if a bit is set
  *
- * mixed $a
- * mixed $index
+ * @param mixed $a
+ * @param mixed $index
  *
  * @return bool
  *
@@ -838,8 +838,8 @@ function gmp_testbit($a, $index): bool
 /**
  * Bitwise XOR
  *
- * mixed $a
- * mixed $b
+ * @param mixed $a
+ * @param mixed $b
  *
  * @return GMP
  *

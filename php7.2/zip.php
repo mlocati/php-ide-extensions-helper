@@ -13,43 +13,43 @@
 class ZipArchive implements Countable
 {
     /**
-     * mixed $dirname
+     * @param mixed $dirname
      */
     public function addEmptyDir($dirname)
     {
     }
 
     /**
-     * mixed $filepath
-     * mixed|null $entryname
-     * mixed|null $start
-     * mixed|null $length
+     * @param mixed $filepath
+     * @param mixed|null $entryname
+     * @param mixed|null $start
+     * @param mixed|null $length
      */
     public function addFile($filepath, $entryname = null, $start = null, $length = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $content
+     * @param mixed $name
+     * @param mixed $content
      */
     public function addFromString($name, $content)
     {
     }
 
     /**
-     * mixed $pattern
-     * mixed|null $flags
-     * mixed|null $options
+     * @param mixed $pattern
+     * @param mixed|null $flags
+     * @param mixed|null $options
      */
     public function addGlob($pattern, $flags = null, $options = null)
     {
     }
 
     /**
-     * mixed $pattern
-     * mixed|null $path
-     * mixed|null $options
+     * @param mixed $pattern
+     * @param mixed|null $path
+     * @param mixed|null $options
      */
     public function addPattern($pattern, $path = null, $options = null)
     {
@@ -73,91 +73,91 @@ class ZipArchive implements Countable
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function deleteIndex($index)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function deleteName($name)
     {
     }
 
     /**
-     * mixed $pathto
-     * mixed|null $files
+     * @param mixed $pathto
+     * @param mixed|null $files
      */
     public function extractTo($pathto, $files = null)
     {
     }
 
     /**
-     * mixed|null $flags
+     * @param mixed|null $flags
      */
     public function getArchiveComment($flags = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed|null $flags
      */
     public function getCommentIndex($index, $flags = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed|null $flags
+     * @param mixed $name
+     * @param mixed|null $flags
      */
     public function getCommentName($name, $flags = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $opsys
-     * mixed $attr
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed $opsys
+     * @param mixed $attr
+     * @param mixed|null $flags
      */
     public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $opsys
-     * mixed $attr
-     * mixed|null $flags
+     * @param mixed $name
+     * @param mixed $opsys
+     * @param mixed $attr
+     * @param mixed|null $flags
      */
     public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed|null $len
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed|null $len
+     * @param mixed|null $flags
      */
     public function getFromIndex($index, $len = null, $flags = null)
     {
     }
 
     /**
-     * mixed $entryname
-     * mixed|null $len
-     * mixed|null $flags
+     * @param mixed $entryname
+     * @param mixed|null $len
+     * @param mixed|null $flags
      */
     public function getFromName($entryname, $len = null, $flags = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed|null $flags
      */
     public function getNameIndex($index, $flags = null)
     {
@@ -168,80 +168,80 @@ class ZipArchive implements Countable
     }
 
     /**
-     * mixed $entryname
+     * @param mixed $entryname
      */
     public function getStream($entryname)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $flags
+     * @param mixed $filename
+     * @param mixed|null $flags
      */
     public function locateName($filename, $flags = null)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $flags
+     * @param mixed $filename
+     * @param mixed|null $flags
      */
     public function open($filename, $flags = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $new_name
+     * @param mixed $index
+     * @param mixed $new_name
      */
     public function renameIndex($index, $new_name)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $new_name
+     * @param mixed $name
+     * @param mixed $new_name
      */
     public function renameName($name, $new_name)
     {
     }
 
     /**
-     * mixed $comment
+     * @param mixed $comment
      */
     public function setArchiveComment($comment)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $comment
+     * @param mixed $index
+     * @param mixed $comment
      */
     public function setCommentIndex($index, $comment)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $comment
+     * @param mixed $name
+     * @param mixed $comment
      */
     public function setCommentName($name, $comment)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $method
-     * mixed|null $compflags
+     * @param mixed $index
+     * @param mixed $method
+     * @param mixed|null $compflags
      */
     public function setCompressionIndex($index, $method, $compflags = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $method
-     * mixed|null $compflags
+     * @param mixed $name
+     * @param mixed $method
+     * @param mixed|null $compflags
      */
     public function setCompressionName($name, $method, $compflags = null)
     {
@@ -250,9 +250,9 @@ class ZipArchive implements Countable
     /**
      * WARNING: this may be available on Windows but not on POSIX
      *
-     * mixed $index
-     * mixed $method
-     * mixed|null $password
+     * @param mixed $index
+     * @param mixed $method
+     * @param mixed|null $password
      */
     public function setEncryptionIndex($index, $method, $password = null)
     {
@@ -261,52 +261,52 @@ class ZipArchive implements Countable
     /**
      * WARNING: this may be available on Windows but not on POSIX
      *
-     * mixed $name
-     * mixed $method
-     * mixed|null $password
+     * @param mixed $name
+     * @param mixed $method
+     * @param mixed|null $password
      */
     public function setEncryptionName($name, $method, $password = null)
     {
     }
 
     /**
-     * mixed $index
-     * mixed $opsys
-     * mixed $attr
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed $opsys
+     * @param mixed $attr
+     * @param mixed|null $flags
      */
     public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null)
     {
     }
 
     /**
-     * mixed $name
-     * mixed $opsys
-     * mixed $attr
-     * mixed|null $flags
+     * @param mixed $name
+     * @param mixed $opsys
+     * @param mixed $attr
+     * @param mixed|null $flags
      */
     public function setExternalAttributesName($name, $opsys, $attr, $flags = null)
     {
     }
 
     /**
-     * mixed $password
+     * @param mixed $password
      */
     public function setPassword($password)
     {
     }
 
     /**
-     * mixed $index
-     * mixed|null $flags
+     * @param mixed $index
+     * @param mixed|null $flags
      */
     public function statIndex($index, $flags = null)
     {
     }
 
     /**
-     * mixed $filename
-     * mixed|null $flags
+     * @param mixed $filename
+     * @param mixed|null $flags
      */
     public function statName($filename, $flags = null)
     {
@@ -321,14 +321,14 @@ class ZipArchive implements Countable
     }
 
     /**
-     * mixed $index
+     * @param mixed $index
      */
     public function unchangeIndex($index)
     {
     }
 
     /**
-     * mixed $name
+     * @param mixed $name
      */
     public function unchangeName($name)
     {
@@ -338,7 +338,7 @@ class ZipArchive implements Countable
 /**
  * Close a ZIP file archive
  *
- * mixed $zip
+ * @param mixed $zip
  *
  * @return void
  *
@@ -353,7 +353,7 @@ function zip_close($zip)
 /**
  * Close a directory entry
  *
- * mixed $zip_ent
+ * @param mixed $zip_ent
  *
  * @return bool
  *
@@ -368,7 +368,7 @@ function zip_entry_close($zip_ent): bool
 /**
  * Retrieve the compressed size of a directory entry
  *
- * mixed $zip_entry
+ * @param mixed $zip_entry
  *
  * @return int
  *
@@ -383,7 +383,7 @@ function zip_entry_compressedsize($zip_entry): int
 /**
  * Retrieve the compression method of a directory entry
  *
- * mixed $zip_entry
+ * @param mixed $zip_entry
  *
  * @return string
  *
@@ -398,7 +398,7 @@ function zip_entry_compressionmethod($zip_entry): string
 /**
  * Retrieve the actual file size of a directory entry
  *
- * mixed $zip_entry
+ * @param mixed $zip_entry
  *
  * @return int
  *
@@ -413,7 +413,7 @@ function zip_entry_filesize($zip_entry): int
 /**
  * Retrieve the name of a directory entry
  *
- * mixed $zip_entry
+ * @param mixed $zip_entry
  *
  * @return string
  *
@@ -428,9 +428,9 @@ function zip_entry_name($zip_entry): string
 /**
  * Open a directory entry for reading
  *
- * mixed $zip_dp
- * mixed $zip_entry
- * mixed|null $mode
+ * @param mixed $zip_dp
+ * @param mixed $zip_entry
+ * @param mixed|null $mode
  *
  * @return bool
  *
@@ -445,8 +445,8 @@ function zip_entry_open($zip_dp, $zip_entry, $mode = null): bool
 /**
  * Read from an open directory entry
  *
- * mixed $zip_entry
- * mixed|null $len
+ * @param mixed $zip_entry
+ * @param mixed|null $len
  *
  * @return string
  *
@@ -461,7 +461,7 @@ function zip_entry_read($zip_entry, $len = null): string
 /**
  * Open a ZIP file archive
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return resource
  *
@@ -476,7 +476,7 @@ function zip_open($filename)
 /**
  * Read next entry in a ZIP file archive
  *
- * mixed $zip
+ * @param mixed $zip
  *
  * @return resource
  *

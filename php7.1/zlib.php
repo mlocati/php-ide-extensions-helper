@@ -156,9 +156,9 @@ const ZLIB_VERSION = '1.2.8';
 /**
  * Incrementally deflate data
  *
- * mixed $resource
- * mixed $add
- * mixed|null $flush_behavior
+ * @param mixed $resource
+ * @param mixed $add
+ * @param mixed|null $flush_behavior
  *
  * @return string
  *
@@ -173,8 +173,8 @@ function deflate_add($resource, $add, $flush_behavior = null): string
 /**
  * Initialize an incremental deflate context
  *
- * mixed $encoding
- * mixed|null $level
+ * @param mixed $encoding
+ * @param mixed|null $level
  *
  * @return resource
  *
@@ -189,7 +189,7 @@ function deflate_init($encoding, $level = null)
 /**
  * Close an open gz-file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -204,9 +204,9 @@ function gzclose($fp): bool
 /**
  * Compress a string
  *
- * mixed $data
- * mixed|null $level
- * mixed|null $encoding
+ * @param mixed $data
+ * @param mixed|null $level
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -221,8 +221,8 @@ function gzcompress($data, $level = null, $encoding = null): string
 /**
  * Decodes a gzip compressed string
  *
- * mixed $data
- * mixed|null $max_decoded_len
+ * @param mixed $data
+ * @param mixed|null $max_decoded_len
  *
  * @return string
  *
@@ -237,9 +237,9 @@ function gzdecode($data, $max_decoded_len = null): string
 /**
  * Deflate a string
  *
- * mixed $data
- * mixed|null $level
- * mixed|null $encoding
+ * @param mixed $data
+ * @param mixed|null $level
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -254,9 +254,9 @@ function gzdeflate($data, $level = null, $encoding = null): string
 /**
  * Create a gzip compressed string
  *
- * mixed $data
- * mixed|null $level
- * mixed|null $encoding
+ * @param mixed $data
+ * @param mixed|null $level
+ * @param mixed|null $encoding
  *
  * @return string
  *
@@ -271,7 +271,7 @@ function gzencode($data, $level = null, $encoding = null): string
 /**
  * Test for <code>EOF</code> on a gz-file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -286,8 +286,8 @@ function gzeof($fp): int
 /**
  * Read entire gz-file into an array
  *
- * mixed $filename
- * mixed|null $use_include_path
+ * @param mixed $filename
+ * @param mixed|null $use_include_path
  *
  * @return array
  *
@@ -302,7 +302,7 @@ function gzfile($filename, $use_include_path = null): array
 /**
  * Get character from gz-file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return string
  *
@@ -317,8 +317,8 @@ function gzgetc($fp): string
 /**
  * Get line from file pointer
  *
- * mixed $fp
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed|null $length
  *
  * @return string
  *
@@ -333,9 +333,9 @@ function gzgets($fp, $length = null): string
 /**
  * Get line from gz-file pointer and strip HTML tags
  *
- * mixed $fp
- * mixed|null $length
- * mixed|null $allowable_tags
+ * @param mixed $fp
+ * @param mixed|null $length
+ * @param mixed|null $allowable_tags
  *
  * @return string
  *
@@ -350,8 +350,8 @@ function gzgetss($fp, $length = null, $allowable_tags = null): string
 /**
  * Inflate a deflated string
  *
- * mixed $data
- * mixed|null $max_decoded_len
+ * @param mixed $data
+ * @param mixed|null $max_decoded_len
  *
  * @return string
  *
@@ -366,9 +366,9 @@ function gzinflate($data, $max_decoded_len = null): string
 /**
  * Open gz-file
  *
- * mixed $filename
- * mixed $mode
- * mixed|null $use_include_path
+ * @param mixed $filename
+ * @param mixed $mode
+ * @param mixed|null $use_include_path
  *
  * @return resource
  *
@@ -383,7 +383,7 @@ function gzopen($filename, $mode, $use_include_path = null)
 /**
  * Output all remaining data on a gz-file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -398,9 +398,9 @@ function gzpassthru($fp): int
 /**
  * Alias of <code>gzwrite</code>
  *
- * mixed $fp
- * mixed $str
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed $str
+ * @param mixed|null $length
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -413,8 +413,8 @@ function gzputs($fp, $str, $length = null)
 /**
  * Binary-safe gz-file read
  *
- * mixed $fp
- * mixed $length
+ * @param mixed $fp
+ * @param mixed $length
  *
  * @return string
  *
@@ -429,7 +429,7 @@ function gzread($fp, $length): string
 /**
  * Rewind the position of a gz-file pointer
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return bool
  *
@@ -444,9 +444,9 @@ function gzrewind($fp): bool
 /**
  * Seek on a gz-file pointer
  *
- * mixed $fp
- * mixed $offset
- * mixed|null $whence
+ * @param mixed $fp
+ * @param mixed $offset
+ * @param mixed|null $whence
  *
  * @return int
  *
@@ -461,7 +461,7 @@ function gzseek($fp, $offset, $whence = null): int
 /**
  * Tell gz-file pointer read/write position
  *
- * mixed $fp
+ * @param mixed $fp
  *
  * @return int
  *
@@ -476,8 +476,8 @@ function gztell($fp): int
 /**
  * Uncompress a compressed string
  *
- * mixed $data
- * mixed|null $max_decoded_len
+ * @param mixed $data
+ * @param mixed|null $max_decoded_len
  *
  * @return string
  *
@@ -492,9 +492,9 @@ function gzuncompress($data, $max_decoded_len = null): string
 /**
  * Binary-safe gz-file write
  *
- * mixed $fp
- * mixed $str
- * mixed|null $length
+ * @param mixed $fp
+ * @param mixed $str
+ * @param mixed|null $length
  *
  * @return int
  *
@@ -509,9 +509,9 @@ function gzwrite($fp, $str, $length = null): int
 /**
  * Incrementally inflate encoded data
  *
- * mixed $context
- * mixed $encoded_data
- * mixed|null $flush_mode
+ * @param mixed $context
+ * @param mixed $encoded_data
+ * @param mixed|null $flush_mode
  *
  * @return string
  *
@@ -526,8 +526,8 @@ function inflate_add($context, $encoded_data, $flush_mode = null): string
 /**
  * Initialize an incremental inflate context
  *
- * mixed $encoding
- * mixed|null $options
+ * @param mixed $encoding
+ * @param mixed|null $options
  *
  * @return resource
  *
@@ -542,8 +542,8 @@ function inflate_init($encoding, $options = null)
 /**
  * ob_start callback function to gzip output buffer
  *
- * mixed $data
- * mixed $flags
+ * @param mixed $data
+ * @param mixed $flags
  *
  * @return string
  *
@@ -558,8 +558,8 @@ function ob_gzhandler($data, $flags): string
 /**
  * Output a gz-file
  *
- * mixed $filename
- * mixed|null $use_include_path
+ * @param mixed $filename
+ * @param mixed|null $use_include_path
  *
  * @return int
  *
@@ -574,8 +574,8 @@ function readgzfile($filename, $use_include_path = null): int
 /**
  * Uncompress any raw/gzip/zlib encoded data
  *
- * mixed $data
- * mixed|null $max_decoded_len
+ * @param mixed $data
+ * @param mixed|null $max_decoded_len
  *
  * @return string
  *
@@ -590,9 +590,9 @@ function zlib_decode($data, $max_decoded_len = null): string
 /**
  * Compress data with the specified encoding
  *
- * mixed $data
- * mixed $encoding
- * mixed|null $level
+ * @param mixed $data
+ * @param mixed $encoding
+ * @param mixed|null $level
  *
  * @return string
  *

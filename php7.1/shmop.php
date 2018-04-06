@@ -5,7 +5,7 @@
 /**
  * Close shared memory block
  *
- * mixed $shmid
+ * @param mixed $shmid
  *
  * @return void
  *
@@ -20,7 +20,7 @@ function shmop_close($shmid)
 /**
  * Delete shared memory block
  *
- * mixed $shmid
+ * @param mixed $shmid
  *
  * @return bool
  *
@@ -35,10 +35,10 @@ function shmop_delete($shmid): bool
 /**
  * Create or open shared memory block
  *
- * mixed $key
- * mixed $flags
- * mixed $mode
- * mixed $size
+ * @param mixed $key
+ * @param mixed $flags
+ * @param mixed $mode
+ * @param mixed $size
  *
  * @return resource
  *
@@ -53,9 +53,9 @@ function shmop_open($key, $flags, $mode, $size)
 /**
  * Read data from shared memory block
  *
- * mixed $shmid
- * mixed $start
- * mixed $count
+ * @param mixed $shmid
+ * @param mixed $start
+ * @param mixed $count
  *
  * @return string
  *
@@ -70,7 +70,7 @@ function shmop_read($shmid, $start, $count): string
 /**
  * Get size of shared memory block
  *
- * mixed $shmid
+ * @param mixed $shmid
  *
  * @return int
  *
@@ -85,9 +85,9 @@ function shmop_size($shmid): int
 /**
  * Write data into shared memory block
  *
- * mixed $shmid
- * mixed $data
- * mixed $offset
+ * @param mixed $shmid
+ * @param mixed $data
+ * @param mixed $offset
  *
  * @return int
  *

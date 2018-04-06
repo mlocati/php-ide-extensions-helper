@@ -31,8 +31,8 @@ function apache_get_version(): string
 /**
  * Get an Apache subprocess_env variable
  *
- * mixed $variable
- * mixed|null $walk_to_top
+ * @param mixed $variable
+ * @param mixed|null $walk_to_top
  *
  * @return string
  *
@@ -47,7 +47,7 @@ function apache_getenv($variable, $walk_to_top = null): string
 /**
  * Perform a partial request for the specified URI and return all info about it
  *
- * mixed $filename
+ * @param mixed $filename
  *
  * @return object
  *
@@ -62,8 +62,8 @@ function apache_lookup_uri($filename)
 /**
  * Get and set apache request notes
  *
- * mixed $note_name
- * mixed|null $note_value
+ * @param mixed $note_name
+ * @param mixed|null $note_value
  *
  * @return string
  *
@@ -104,9 +104,9 @@ function apache_response_headers(): array
 /**
  * Set an Apache subprocess_env variable
  *
- * mixed $variable
- * mixed $value
- * mixed|null $walk_to_top
+ * @param mixed $variable
+ * @param mixed $value
+ * @param mixed|null $walk_to_top
  *
  * @return bool
  *
@@ -134,7 +134,7 @@ function getallheaders(): array
 /**
  * Perform an Apache sub-request
  *
- * mixed $uri
+ * @param mixed $uri
  *
  * @return bool
  *

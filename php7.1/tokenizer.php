@@ -681,8 +681,8 @@ const TOKEN_PARSE = 1;
 /**
  * Split given source into PHP tokens
  *
- * mixed $source
- * mixed|null $flags
+ * @param mixed $source
+ * @param mixed|null $flags
  *
  * @return array
  *
@@ -697,7 +697,7 @@ function token_get_all($source, $flags = null): array
 /**
  * Get the symbolic name of a given PHP token
  *
- * mixed $token
+ * @param mixed $token
  *
  * @return string
  *

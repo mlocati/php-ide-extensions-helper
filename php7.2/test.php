@@ -26,14 +26,14 @@ function zend_leak_bytes()
 }
 
 /**
- * mixed $variable
+ * @param mixed $variable
  */
 function zend_leak_variable($variable)
 {
 }
 
 /**
- * mixed $str
+ * @param mixed $str
  */
 function zend_terminate_string(&$str)
 {

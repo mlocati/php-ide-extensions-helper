@@ -99,13 +99,13 @@ interface DateTimeInterface
     public function __wakeup();
 
     /**
-     * mixed $object
-     * mixed|null $absolute
+     * @param mixed $object
+     * @param mixed|null $absolute
      */
     public function diff($object, $absolute = null);
 
     /**
-     * mixed $format
+     * @param mixed $format
      */
     public function format($format);
 
@@ -126,7 +126,7 @@ interface DateTimeInterface
 class DateInterval
 {
     /**
-     * mixed $interval_spec
+     * @param mixed $interval_spec
      */
     public function __construct($interval_spec)
     {
@@ -141,14 +141,14 @@ class DateInterval
     }
 
     /**
-     * mixed $time
+     * @param mixed $time
      */
     public static function createFromDateString($time)
     {
     }
 
     /**
-     * mixed $format
+     * @param mixed $format
      */
     public function format($format)
     {
@@ -165,9 +165,9 @@ class DateInterval
 class DatePeriod implements Traversable
 {
     /**
-     * mixed $start
-     * mixed $interval
-     * mixed $end
+     * @param mixed $start
+     * @param mixed $interval
+     * @param mixed $end
      */
     public function __construct($start, $interval, $end)
     {
@@ -204,8 +204,8 @@ class DatePeriod implements Traversable
 class DateTime implements DateTimeInterface
 {
     /**
-     * mixed|null $time
-     * mixed|null $object
+     * @param mixed|null $time
+     * @param mixed|null $object
      */
     public function __construct($time = null, $object = null)
     {
@@ -220,31 +220,31 @@ class DateTime implements DateTimeInterface
     }
 
     /**
-     * mixed $interval
+     * @param mixed $interval
      */
     public function add($interval)
     {
     }
 
     /**
-     * mixed $format
-     * mixed $time
-     * mixed|null $object
+     * @param mixed $format
+     * @param mixed $time
+     * @param mixed|null $object
      */
     public static function createFromFormat($format, $time, $object = null)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $absolute
+     * @param mixed $object
+     * @param mixed|null $absolute
      */
     public function diff($object, $absolute = null)
     {
     }
 
     /**
-     * mixed $format
+     * @param mixed $format
      */
     public function format($format)
     {
@@ -267,55 +267,55 @@ class DateTime implements DateTimeInterface
     }
 
     /**
-     * mixed $modify
+     * @param mixed $modify
      */
     public function modify($modify)
     {
     }
 
     /**
-     * mixed $year
-     * mixed $month
-     * mixed $day
+     * @param mixed $year
+     * @param mixed $month
+     * @param mixed $day
      */
     public function setDate($year, $month, $day)
     {
     }
 
     /**
-     * mixed $year
-     * mixed $week
-     * mixed|null $day
+     * @param mixed $year
+     * @param mixed $week
+     * @param mixed|null $day
      */
     public function setISODate($year, $week, $day = null)
     {
     }
 
     /**
-     * mixed $hour
-     * mixed $minute
-     * mixed|null $second
+     * @param mixed $hour
+     * @param mixed $minute
+     * @param mixed|null $second
      */
     public function setTime($hour, $minute, $second = null)
     {
     }
 
     /**
-     * mixed $unixtimestamp
+     * @param mixed $unixtimestamp
      */
     public function setTimestamp($unixtimestamp)
     {
     }
 
     /**
-     * mixed $timezone
+     * @param mixed $timezone
      */
     public function setTimezone($timezone)
     {
     }
 
     /**
-     * mixed $interval
+     * @param mixed $interval
      */
     public function sub($interval)
     {
@@ -333,8 +333,8 @@ class DateTime implements DateTimeInterface
 class DateTimeImmutable implements DateTimeInterface
 {
     /**
-     * mixed|null $time
-     * mixed|null $object
+     * @param mixed|null $time
+     * @param mixed|null $object
      */
     public function __construct($time = null, $object = null)
     {
@@ -349,38 +349,38 @@ class DateTimeImmutable implements DateTimeInterface
     }
 
     /**
-     * mixed $interval
+     * @param mixed $interval
      */
     public function add($interval)
     {
     }
 
     /**
-     * mixed $format
-     * mixed $time
-     * mixed|null $object
+     * @param mixed $format
+     * @param mixed $time
+     * @param mixed|null $object
      */
     public static function createFromFormat($format, $time, $object = null)
     {
     }
 
     /**
-     * mixed $DateTime
+     * @param mixed $DateTime
      */
     public static function createFromMutable($DateTime)
     {
     }
 
     /**
-     * mixed $object
-     * mixed|null $absolute
+     * @param mixed $object
+     * @param mixed|null $absolute
      */
     public function diff($object, $absolute = null)
     {
     }
 
     /**
-     * mixed $format
+     * @param mixed $format
      */
     public function format($format)
     {
@@ -403,55 +403,55 @@ class DateTimeImmutable implements DateTimeInterface
     }
 
     /**
-     * mixed $modify
+     * @param mixed $modify
      */
     public function modify($modify)
     {
     }
 
     /**
-     * mixed $year
-     * mixed $month
-     * mixed $day
+     * @param mixed $year
+     * @param mixed $month
+     * @param mixed $day
      */
     public function setDate($year, $month, $day)
     {
     }
 
     /**
-     * mixed $year
-     * mixed $week
-     * mixed|null $day
+     * @param mixed $year
+     * @param mixed $week
+     * @param mixed|null $day
      */
     public function setISODate($year, $week, $day = null)
     {
     }
 
     /**
-     * mixed $hour
-     * mixed $minute
-     * mixed|null $second
+     * @param mixed $hour
+     * @param mixed $minute
+     * @param mixed|null $second
      */
     public function setTime($hour, $minute, $second = null)
     {
     }
 
     /**
-     * mixed $unixtimestamp
+     * @param mixed $unixtimestamp
      */
     public function setTimestamp($unixtimestamp)
     {
     }
 
     /**
-     * mixed $timezone
+     * @param mixed $timezone
      */
     public function setTimezone($timezone)
     {
     }
 
     /**
-     * mixed $interval
+     * @param mixed $interval
      */
     public function sub($interval)
     {
@@ -468,7 +468,7 @@ class DateTimeImmutable implements DateTimeInterface
 class DateTimeZone
 {
     /**
-     * mixed $timezone
+     * @param mixed $timezone
      */
     public function __construct($timezone)
     {
@@ -491,15 +491,15 @@ class DateTimeZone
     }
 
     /**
-     * mixed $object
+     * @param mixed $object
      */
     public function getOffset($object)
     {
     }
 
     /**
-     * mixed $timestamp_begin
-     * mixed $timestamp_end
+     * @param mixed $timestamp_begin
+     * @param mixed $timestamp_end
      */
     public function getTransitions($timestamp_begin, $timestamp_end)
     {
@@ -510,8 +510,8 @@ class DateTimeZone
     }
 
     /**
-     * mixed|null $what
-     * mixed|null $country
+     * @param mixed|null $what
+     * @param mixed|null $country
      */
     public static function listIdentifiers($what = null, $country = null)
     {
@@ -521,9 +521,9 @@ class DateTimeZone
 /**
  * Validate a Gregorian date
  *
- * mixed $month
- * mixed $day
- * mixed $year
+ * @param mixed $month
+ * @param mixed $day
+ * @param mixed $year
  *
  * @return bool
  *
@@ -538,8 +538,8 @@ function checkdate($month, $day, $year)
 /**
  * Format a local time/date
  *
- * mixed $format
- * mixed|null $timestamp
+ * @param mixed $format
+ * @param mixed|null $timestamp
  *
  * @return string
  *
@@ -555,8 +555,8 @@ function date($format, $timestamp = null)
  * Adds an amount of days, months, years, hours, minutes and seconds to a
  *    DateTime object
  *
- * mixed $object
- * mixed $interval
+ * @param mixed $object
+ * @param mixed $interval
  *
  * @return DateTime
  *
@@ -571,8 +571,8 @@ function date_add($object, $interval)
 /**
  * Returns new DateTime object
  *
- * mixed|null $time
- * mixed|null $object
+ * @param mixed|null $time
+ * @param mixed|null $object
  *
  * @return DateTime
  *
@@ -587,9 +587,9 @@ function date_create($time = null, $object = null)
 /**
  * Parses a time string according to a specified format
  *
- * mixed $format
- * mixed $time
- * mixed|null $object
+ * @param mixed $format
+ * @param mixed $time
+ * @param mixed|null $object
  *
  * @return DateTime
  *
@@ -604,8 +604,8 @@ function date_create_from_format($format, $time, $object = null)
 /**
  * Returns new DateTimeImmutable object
  *
- * mixed|null $time
- * mixed|null $object
+ * @param mixed|null $time
+ * @param mixed|null $object
  *
  * @return DateTimeImmutable
  *
@@ -620,9 +620,9 @@ function date_create_immutable($time = null, $object = null)
 /**
  * Parses a time string according to a specified format
  *
- * mixed $format
- * mixed $time
- * mixed|null $object
+ * @param mixed $format
+ * @param mixed $time
+ * @param mixed|null $object
  *
  * @return DateTimeImmutable
  *
@@ -637,10 +637,10 @@ function date_create_immutable_from_format($format, $time, $object = null)
 /**
  * Sets the date
  *
- * mixed $object
- * mixed $year
- * mixed $month
- * mixed $day
+ * @param mixed $object
+ * @param mixed $year
+ * @param mixed $month
+ * @param mixed $day
  *
  * @return DateTime
  *
@@ -668,7 +668,7 @@ function date_default_timezone_get()
 /**
  * Sets the default timezone used by all date/time functions in a script
  *
- * mixed $timezone_identifier
+ * @param mixed $timezone_identifier
  *
  * @return bool
  *
@@ -683,9 +683,9 @@ function date_default_timezone_set($timezone_identifier)
 /**
  * Returns the difference between two DateTime objects
  *
- * mixed $object
- * mixed $object2
- * mixed|null $absolute
+ * @param mixed $object
+ * @param mixed $object2
+ * @param mixed|null $absolute
  *
  * @return DateInterval
  *
@@ -700,8 +700,8 @@ function date_diff($object, $object2, $absolute = null)
 /**
  * Returns date formatted according to given format
  *
- * mixed $object
- * mixed $format
+ * @param mixed $object
+ * @param mixed $format
  *
  * @return string
  *
@@ -729,7 +729,7 @@ function date_get_last_errors(): array
 /**
  * Alias of <code>DateInterval::createFromDateString</code>
  *
- * mixed $time
+ * @param mixed $time
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -742,8 +742,8 @@ function date_interval_create_from_date_string($time)
 /**
  * Alias of <code>DateInterval::format</code>
  *
- * mixed $object
- * mixed $format
+ * @param mixed $object
+ * @param mixed $format
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -756,10 +756,10 @@ function date_interval_format($object, $format)
 /**
  * Sets the ISO date
  *
- * mixed $object
- * mixed $year
- * mixed $week
- * mixed|null $day
+ * @param mixed $object
+ * @param mixed $year
+ * @param mixed $week
+ * @param mixed|null $day
  *
  * @return DateTime
  *
@@ -774,8 +774,8 @@ function date_isodate_set($object, $year, $week, $day = null)
 /**
  * Alters the timestamp
  *
- * mixed $object
- * mixed $modify
+ * @param mixed $object
+ * @param mixed $modify
  *
  * @return DateTime
  *
@@ -790,7 +790,7 @@ function date_modify($object, $modify)
 /**
  * Returns the timezone offset
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return int
  *
@@ -805,7 +805,7 @@ function date_offset_get($object)
 /**
  * Returns associative array with detailed info about given date
  *
- * mixed $date
+ * @param mixed $date
  *
  * @return array
  *
@@ -820,8 +820,8 @@ function date_parse($date): array
 /**
  * Get info about given date formatted according to the specified format
  *
- * mixed $format
- * mixed $date
+ * @param mixed $format
+ * @param mixed $date
  *
  * @return array
  *
@@ -837,8 +837,8 @@ function date_parse_from_format($format, $date): array
  * Subtracts an amount of days, months, years, hours, minutes and seconds from
  *    a DateTime object
  *
- * mixed $object
- * mixed $interval
+ * @param mixed $object
+ * @param mixed $interval
  *
  * @return DateTime
  *
@@ -853,9 +853,9 @@ function date_sub($object, $interval)
 /**
  * Returns an array with information about sunset/sunrise and twilight begin/end
  *
- * mixed $time
- * mixed $latitude
- * mixed $longitude
+ * @param mixed $time
+ * @param mixed $latitude
+ * @param mixed $longitude
  *
  * @return array
  *
@@ -870,12 +870,12 @@ function date_sun_info($time, $latitude, $longitude): array
 /**
  * Returns time of sunrise for a given day and location
  *
- * mixed $time
- * mixed|null $format
- * mixed|null $latitude
- * mixed|null $longitude
- * mixed|null $zenith
- * mixed|null $gmt_offset
+ * @param mixed $time
+ * @param mixed|null $format
+ * @param mixed|null $latitude
+ * @param mixed|null $longitude
+ * @param mixed|null $zenith
+ * @param mixed|null $gmt_offset
  *
  * @return mixed
  *
@@ -890,12 +890,12 @@ function date_sunrise($time, $format = null, $latitude = null, $longitude = null
 /**
  * Returns time of sunset for a given day and location
  *
- * mixed $time
- * mixed|null $format
- * mixed|null $latitude
- * mixed|null $longitude
- * mixed|null $zenith
- * mixed|null $gmt_offset
+ * @param mixed $time
+ * @param mixed|null $format
+ * @param mixed|null $latitude
+ * @param mixed|null $longitude
+ * @param mixed|null $zenith
+ * @param mixed|null $gmt_offset
  *
  * @return mixed
  *
@@ -910,10 +910,10 @@ function date_sunset($time, $format = null, $latitude = null, $longitude = null,
 /**
  * Sets the time
  *
- * mixed $object
- * mixed $hour
- * mixed $minute
- * mixed|null $second
+ * @param mixed $object
+ * @param mixed $hour
+ * @param mixed $minute
+ * @param mixed|null $second
  *
  * @return DateTime
  *
@@ -928,7 +928,7 @@ function date_time_set($object, $hour, $minute, $second = null)
 /**
  * Gets the Unix timestamp
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return int
  *
@@ -943,8 +943,8 @@ function date_timestamp_get($object)
 /**
  * Sets the date and time based on an Unix timestamp
  *
- * mixed $object
- * mixed $unixtimestamp
+ * @param mixed $object
+ * @param mixed $unixtimestamp
  *
  * @return DateTime
  *
@@ -959,7 +959,7 @@ function date_timestamp_set($object, $unixtimestamp)
 /**
  * Return time zone relative to given DateTime
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return DateTimeZone
  *
@@ -974,8 +974,8 @@ function date_timezone_get($object)
 /**
  * Sets the time zone for the DateTime object
  *
- * mixed $object
- * mixed $timezone
+ * @param mixed $object
+ * @param mixed $timezone
  *
  * @return DateTime
  *
@@ -990,7 +990,7 @@ function date_timezone_set($object, $timezone)
 /**
  * Get date/time information
  *
- * mixed|null $timestamp
+ * @param mixed|null $timestamp
  *
  * @return array
  *
@@ -1005,8 +1005,8 @@ function getdate($timestamp = null): array
 /**
  * Format a GMT/UTC date/time
  *
- * mixed $format
- * mixed|null $timestamp
+ * @param mixed $format
+ * @param mixed|null $timestamp
  *
  * @return string
  *
@@ -1021,13 +1021,13 @@ function gmdate($format, $timestamp = null)
 /**
  * Get Unix timestamp for a GMT date
  *
- * mixed|null $hour
- * mixed|null $min
- * mixed|null $sec
- * mixed|null $mon
- * mixed|null $day
- * mixed|null $year
- * mixed|null $is_dst
+ * @param mixed|null $hour
+ * @param mixed|null $min
+ * @param mixed|null $sec
+ * @param mixed|null $mon
+ * @param mixed|null $day
+ * @param mixed|null $year
+ * @param mixed|null $is_dst
  *
  * @return int
  *
@@ -1042,8 +1042,8 @@ function gmmktime($hour = null, $min = null, $sec = null, $mon = null, $day = nu
 /**
  * Format a GMT/UTC time/date according to locale settings
  *
- * mixed $format
- * mixed|null $timestamp
+ * @param mixed $format
+ * @param mixed|null $timestamp
  *
  * @return string
  *
@@ -1058,8 +1058,8 @@ function gmstrftime($format, $timestamp = null)
 /**
  * Format a local time/date as integer
  *
- * mixed $format
- * mixed|null $timestamp
+ * @param mixed $format
+ * @param mixed|null $timestamp
  *
  * @return int
  *
@@ -1074,8 +1074,8 @@ function idate($format, $timestamp = null)
 /**
  * Get the local time
  *
- * mixed|null $timestamp
- * mixed|null $associative_array
+ * @param mixed|null $timestamp
+ * @param mixed|null $associative_array
  *
  * @return array
  *
@@ -1090,13 +1090,13 @@ function localtime($timestamp = null, $associative_array = null): array
 /**
  * Get Unix timestamp for a date
  *
- * mixed|null $hour
- * mixed|null $min
- * mixed|null $sec
- * mixed|null $mon
- * mixed|null $day
- * mixed|null $year
- * mixed|null $is_dst
+ * @param mixed|null $hour
+ * @param mixed|null $min
+ * @param mixed|null $sec
+ * @param mixed|null $mon
+ * @param mixed|null $day
+ * @param mixed|null $year
+ * @param mixed|null $is_dst
  *
  * @return int
  *
@@ -1111,8 +1111,8 @@ function mktime($hour = null, $min = null, $sec = null, $mon = null, $day = null
 /**
  * Format a local time/date according to locale settings
  *
- * mixed $format
- * mixed|null $timestamp
+ * @param mixed $format
+ * @param mixed|null $timestamp
  *
  * @return string
  *
@@ -1127,8 +1127,8 @@ function strftime($format, $timestamp = null)
 /**
  * Parse about any English textual datetime description into a Unix timestamp
  *
- * mixed $time
- * mixed|null $now
+ * @param mixed $time
+ * @param mixed|null $now
  *
  * @return int
  *
@@ -1169,8 +1169,8 @@ function timezone_abbreviations_list(): array
 /**
  * Returns a numerically indexed array containing all defined timezone identifiers
  *
- * mixed|null $what
- * mixed|null $country
+ * @param mixed|null $what
+ * @param mixed|null $country
  *
  * @return array
  *
@@ -1185,7 +1185,7 @@ function timezone_identifiers_list($what = null, $country = null): array
 /**
  * Returns location information for a timezone
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return array
  *
@@ -1200,9 +1200,9 @@ function timezone_location_get($object): array
 /**
  * Returns the timezone name from abbreviation
  *
- * mixed $abbr
- * mixed|null $gmtoffset
- * mixed|null $isdst
+ * @param mixed $abbr
+ * @param mixed|null $gmtoffset
+ * @param mixed|null $isdst
  *
  * @return string
  *
@@ -1217,7 +1217,7 @@ function timezone_name_from_abbr($abbr, $gmtoffset = null, $isdst = null)
 /**
  * Returns the name of the timezone
  *
- * mixed $object
+ * @param mixed $object
  *
  * @return string
  *
@@ -1232,8 +1232,8 @@ function timezone_name_get($object)
 /**
  * Returns the timezone offset from GMT
  *
- * mixed $object
- * mixed $datetime
+ * @param mixed $object
+ * @param mixed $datetime
  *
  * @return int
  *
@@ -1248,7 +1248,7 @@ function timezone_offset_get($object, $datetime)
 /**
  * Creates new DateTimeZone object
  *
- * mixed $timezone
+ * @param mixed $timezone
  *
  * @return DateTimeZone
  *
@@ -1263,9 +1263,9 @@ function timezone_open($timezone)
 /**
  * Returns all transitions for the timezone
  *
- * mixed $object
- * mixed|null $timestamp_begin
- * mixed|null $timestamp_end
+ * @param mixed $object
+ * @param mixed|null $timestamp_begin
+ * @param mixed|null $timestamp_end
  *
  * @return array
  *

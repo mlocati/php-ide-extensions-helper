@@ -396,7 +396,7 @@ const X509_PURPOSE_SSL_SERVER = 2;
 /**
  * Gets the cipher iv length
  *
- * mixed $method
+ * @param mixed $method
  *
  * @return int
  *
@@ -411,9 +411,9 @@ function openssl_cipher_iv_length($method): int
 /**
  * Exports a CSR as a string
  *
- * mixed $csr
- * mixed $out
- * mixed|null $notext
+ * @param mixed $csr
+ * @param mixed $out
+ * @param mixed|null $notext
  *
  * @return bool
  *
@@ -428,9 +428,9 @@ function openssl_csr_export($csr, &$out, $notext = null): bool
 /**
  * Exports a CSR to a file
  *
- * mixed $csr
- * mixed $outfilename
- * mixed|null $notext
+ * @param mixed $csr
+ * @param mixed $outfilename
+ * @param mixed|null $notext
  *
  * @return bool
  *
@@ -445,7 +445,7 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = null): bool
 /**
  * Returns the public key of a CSR
  *
- * mixed $csr
+ * @param mixed $csr
  *
  * @return resource
  *
@@ -460,7 +460,7 @@ function openssl_csr_get_public_key($csr)
 /**
  * Returns the subject of a CSR
  *
- * mixed $csr
+ * @param mixed $csr
  *
  * @return array
  *
@@ -475,10 +475,10 @@ function openssl_csr_get_subject($csr): array
 /**
  * Generates a CSR
  *
- * mixed $dn
- * mixed $privkey
- * mixed|null $configargs
- * mixed|null $extraattribs
+ * @param mixed $dn
+ * @param mixed $privkey
+ * @param mixed|null $configargs
+ * @param mixed|null $extraattribs
  *
  * @return mixed
  *
@@ -493,12 +493,12 @@ function openssl_csr_new($dn, &$privkey, $configargs = null, $extraattribs = nul
 /**
  * Sign a CSR with another certificate (or itself) and generate a certificate
  *
- * mixed $csr
- * mixed $x509
- * mixed $priv_key
- * mixed $days
- * mixed|null $config_args
- * mixed|null $serial
+ * @param mixed $csr
+ * @param mixed $x509
+ * @param mixed $priv_key
+ * @param mixed $days
+ * @param mixed|null $config_args
+ * @param mixed|null $serial
  *
  * @return resource
  *
@@ -513,13 +513,13 @@ function openssl_csr_sign($csr, $x509, $priv_key, $days, $config_args = null, $s
 /**
  * Decrypts data
  *
- * mixed $data
- * mixed $method
- * mixed $password
- * mixed|null $options
- * mixed|null $iv
- * mixed|null $tag
- * mixed|null $aad
+ * @param mixed $data
+ * @param mixed $method
+ * @param mixed $password
+ * @param mixed|null $options
+ * @param mixed|null $iv
+ * @param mixed|null $tag
+ * @param mixed|null $aad
  *
  * @return string
  *
@@ -534,8 +534,8 @@ function openssl_decrypt($data, $method, $password, $options = null, $iv = null,
 /**
  * Computes shared secret for public value of remote DH public key and local DH key
  *
- * mixed $pub_key
- * mixed $dh_key
+ * @param mixed $pub_key
+ * @param mixed $dh_key
  *
  * @return string
  *
@@ -550,9 +550,9 @@ function openssl_dh_compute_key($pub_key, $dh_key): string
 /**
  * Computes a digest
  *
- * mixed $data
- * mixed $method
- * mixed|null $raw_output
+ * @param mixed $data
+ * @param mixed $method
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -567,14 +567,14 @@ function openssl_digest($data, $method, $raw_output = null): string
 /**
  * Encrypts data
  *
- * mixed $data
- * mixed $method
- * mixed $password
- * mixed|null $options
- * mixed|null $iv
- * mixed|null $tag
- * mixed|null $aad
- * mixed|null $tag_length
+ * @param mixed $data
+ * @param mixed $method
+ * @param mixed $password
+ * @param mixed|null $options
+ * @param mixed|null $iv
+ * @param mixed|null $tag
+ * @param mixed|null $aad
+ * @param mixed|null $tag_length
  *
  * @return string
  *
@@ -602,7 +602,7 @@ function openssl_error_string(): string
 /**
  * Free key resource
  *
- * mixed $key
+ * @param mixed $key
  *
  * @return void
  *
@@ -630,7 +630,7 @@ function openssl_get_cert_locations(): array
 /**
  * Gets available cipher methods
  *
- * mixed|null $aliases
+ * @param mixed|null $aliases
  *
  * @return array
  *
@@ -658,7 +658,7 @@ function openssl_get_curve_names(): array
 /**
  * Gets available digest methods
  *
- * mixed|null $aliases
+ * @param mixed|null $aliases
  *
  * @return array
  *
@@ -673,8 +673,8 @@ function openssl_get_md_methods($aliases = null): array
 /**
  * Alias of <code>openssl_pkey_get_private</code>
  *
- * mixed $key
- * mixed|null $passphrase
+ * @param mixed $key
+ * @param mixed|null $passphrase
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -687,7 +687,7 @@ function openssl_get_privatekey($key, $passphrase = null)
 /**
  * Alias of <code>openssl_pkey_get_public</code>
  *
- * mixed $cert
+ * @param mixed $cert
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -700,12 +700,12 @@ function openssl_get_publickey($cert)
 /**
  * Open sealed data
  *
- * mixed $data
- * mixed $opendata
- * mixed $ekey
- * mixed $privkey
- * mixed|null $method
- * mixed|null $iv
+ * @param mixed $data
+ * @param mixed $opendata
+ * @param mixed $ekey
+ * @param mixed $privkey
+ * @param mixed|null $method
+ * @param mixed|null $iv
  *
  * @return bool
  *
@@ -720,11 +720,11 @@ function openssl_open($data, &$opendata, $ekey, $privkey, $method = null, $iv = 
 /**
  * Generates a PKCS5 v2 PBKDF2 string
  *
- * mixed $password
- * mixed $salt
- * mixed $key_length
- * mixed $iterations
- * mixed|null $digest_algorithm
+ * @param mixed $password
+ * @param mixed $salt
+ * @param mixed $key_length
+ * @param mixed $iterations
+ * @param mixed|null $digest_algorithm
  *
  * @return string
  *
@@ -739,11 +739,11 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
 /**
  * Exports a PKCS#12 Compatible Certificate Store File to variable
  *
- * mixed $x509
- * mixed $out
- * mixed $priv_key
- * mixed $pass
- * mixed $args
+ * @param mixed $x509
+ * @param mixed $out
+ * @param mixed $priv_key
+ * @param mixed $pass
+ * @param mixed $args
  *
  * @return bool
  *
@@ -758,11 +758,11 @@ function openssl_pkcs12_export($x509, &$out, $priv_key, $pass, $args): bool
 /**
  * Exports a PKCS#12 Compatible Certificate Store File
  *
- * mixed $x509
- * mixed $filename
- * mixed $priv_key
- * mixed $pass
- * mixed|null $args
+ * @param mixed $x509
+ * @param mixed $filename
+ * @param mixed $priv_key
+ * @param mixed $pass
+ * @param mixed|null $args
  *
  * @return bool
  *
@@ -777,9 +777,9 @@ function openssl_pkcs12_export_to_file($x509, $filename, $priv_key, $pass, $args
 /**
  * Parse a PKCS#12 Certificate Store into an array
  *
- * mixed $PKCS12
- * mixed $certs
- * mixed $pass
+ * @param mixed $PKCS12
+ * @param mixed $certs
+ * @param mixed $pass
  *
  * @return bool
  *
@@ -794,10 +794,10 @@ function openssl_pkcs12_read($PKCS12, &$certs, $pass): bool
 /**
  * Decrypts an S/MIME encrypted message
  *
- * mixed $infilename
- * mixed $outfilename
- * mixed $recipcert
- * mixed|null $recipkey
+ * @param mixed $infilename
+ * @param mixed $outfilename
+ * @param mixed $recipcert
+ * @param mixed|null $recipkey
  *
  * @return bool
  *
@@ -812,12 +812,12 @@ function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey 
 /**
  * Encrypt an S/MIME message
  *
- * mixed $infile
- * mixed $outfile
- * mixed $recipcerts
- * mixed $headers
- * mixed|null $flags
- * mixed|null $cipher
+ * @param mixed $infile
+ * @param mixed $outfile
+ * @param mixed $recipcerts
+ * @param mixed $headers
+ * @param mixed|null $flags
+ * @param mixed|null $cipher
  *
  * @return bool
  *
@@ -832,13 +832,13 @@ function openssl_pkcs7_encrypt($infile, $outfile, $recipcerts, $headers, $flags 
 /**
  * Sign an S/MIME message
  *
- * mixed $infile
- * mixed $outfile
- * mixed $signcert
- * mixed $signkey
- * mixed $headers
- * mixed|null $flags
- * mixed|null $extracertsfilename
+ * @param mixed $infile
+ * @param mixed $outfile
+ * @param mixed $signcert
+ * @param mixed $signkey
+ * @param mixed $headers
+ * @param mixed|null $flags
+ * @param mixed|null $extracertsfilename
  *
  * @return bool
  *
@@ -853,12 +853,12 @@ function openssl_pkcs7_sign($infile, $outfile, $signcert, $signkey, $headers, $f
 /**
  * Verifies the signature of an S/MIME signed message
  *
- * mixed $filename
- * mixed $flags
- * mixed|null $signerscerts
- * mixed|null $cainfo
- * mixed|null $extracerts
- * mixed|null $content
+ * @param mixed $filename
+ * @param mixed $flags
+ * @param mixed|null $signerscerts
+ * @param mixed|null $cainfo
+ * @param mixed|null $extracerts
+ * @param mixed|null $content
  *
  * @return mixed
  *
@@ -873,10 +873,10 @@ function openssl_pkcs7_verify($filename, $flags, $signerscerts = null, $cainfo =
 /**
  * Gets an exportable representation of a key into a string
  *
- * mixed $key
- * mixed $out
- * mixed|null $passphrase
- * mixed|null $config_args
+ * @param mixed $key
+ * @param mixed $out
+ * @param mixed|null $passphrase
+ * @param mixed|null $config_args
  *
  * @return bool
  *
@@ -891,10 +891,10 @@ function openssl_pkey_export($key, &$out, $passphrase = null, $config_args = nul
 /**
  * Gets an exportable representation of a key into a file
  *
- * mixed $key
- * mixed $outfilename
- * mixed|null $passphrase
- * mixed|null $config_args
+ * @param mixed $key
+ * @param mixed $outfilename
+ * @param mixed|null $passphrase
+ * @param mixed|null $config_args
  *
  * @return bool
  *
@@ -909,7 +909,7 @@ function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, $co
 /**
  * Frees a private key
  *
- * mixed $key
+ * @param mixed $key
  *
  * @return void
  *
@@ -924,7 +924,7 @@ function openssl_pkey_free($key)
 /**
  * Returns an array with the key details
  *
- * mixed $key
+ * @param mixed $key
  *
  * @return array
  *
@@ -939,8 +939,8 @@ function openssl_pkey_get_details($key): array
 /**
  * Get a private key
  *
- * mixed $key
- * mixed|null $passphrase
+ * @param mixed $key
+ * @param mixed|null $passphrase
  *
  * @return resource
  *
@@ -955,7 +955,7 @@ function openssl_pkey_get_private($key, $passphrase = null)
 /**
  * Extract public key from certificate and prepare it for use
  *
- * mixed $cert
+ * @param mixed $cert
  *
  * @return resource
  *
@@ -970,7 +970,7 @@ function openssl_pkey_get_public($cert)
 /**
  * Generates a new private key
  *
- * mixed|null $configargs
+ * @param mixed|null $configargs
  *
  * @return resource
  *
@@ -985,10 +985,10 @@ function openssl_pkey_new($configargs = null)
 /**
  * Decrypts data with private key
  *
- * mixed $data
- * mixed $crypted
- * mixed $key
- * mixed|null $padding
+ * @param mixed $data
+ * @param mixed $crypted
+ * @param mixed $key
+ * @param mixed|null $padding
  *
  * @return bool
  *
@@ -1003,10 +1003,10 @@ function openssl_private_decrypt($data, &$crypted, $key, $padding = null): bool
 /**
  * Encrypts data with private key
  *
- * mixed $data
- * mixed $crypted
- * mixed $key
- * mixed|null $padding
+ * @param mixed $data
+ * @param mixed $crypted
+ * @param mixed $key
+ * @param mixed|null $padding
  *
  * @return bool
  *
@@ -1021,10 +1021,10 @@ function openssl_private_encrypt($data, &$crypted, $key, $padding = null): bool
 /**
  * Decrypts data with public key
  *
- * mixed $data
- * mixed $crypted
- * mixed $key
- * mixed|null $padding
+ * @param mixed $data
+ * @param mixed $crypted
+ * @param mixed $key
+ * @param mixed|null $padding
  *
  * @return bool
  *
@@ -1039,10 +1039,10 @@ function openssl_public_decrypt($data, &$crypted, $key, $padding = null): bool
 /**
  * Encrypts data with public key
  *
- * mixed $data
- * mixed $crypted
- * mixed $key
- * mixed|null $padding
+ * @param mixed $data
+ * @param mixed $crypted
+ * @param mixed $key
+ * @param mixed|null $padding
  *
  * @return bool
  *
@@ -1057,8 +1057,8 @@ function openssl_public_encrypt($data, &$crypted, $key, $padding = null): bool
 /**
  * Generate a pseudo-random string of bytes
  *
- * mixed $length
- * mixed|null $result_is_strong
+ * @param mixed $length
+ * @param mixed|null $result_is_strong
  *
  * @return string
  *
@@ -1073,12 +1073,12 @@ function openssl_random_pseudo_bytes($length, &$result_is_strong = null): string
 /**
  * Seal (encrypt) data
  *
- * mixed $data
- * mixed $sealdata
- * mixed $ekeys
- * mixed $pubkeys
- * mixed|null $method
- * mixed|null $iv
+ * @param mixed $data
+ * @param mixed $sealdata
+ * @param mixed $ekeys
+ * @param mixed $pubkeys
+ * @param mixed|null $method
+ * @param mixed|null $iv
  *
  * @return int
  *
@@ -1093,10 +1093,10 @@ function openssl_seal($data, &$sealdata, &$ekeys, $pubkeys, $method = null, &$iv
 /**
  * Generate signature
  *
- * mixed $data
- * mixed $signature
- * mixed $key
- * mixed|null $method
+ * @param mixed $data
+ * @param mixed $signature
+ * @param mixed $key
+ * @param mixed|null $method
  *
  * @return bool
  *
@@ -1111,7 +1111,7 @@ function openssl_sign($data, &$signature, $key, $method = null): bool
 /**
  * Exports a valid PEM formatted public key signed public key and challenge
  *
- * mixed $spki
+ * @param mixed $spki
  *
  * @return string
  *
@@ -1126,7 +1126,7 @@ function openssl_spki_export($spki): string
 /**
  * Exports the challenge assoicated with a signed public key and challenge
  *
- * mixed $spki
+ * @param mixed $spki
  *
  * @return string
  *
@@ -1141,9 +1141,9 @@ function openssl_spki_export_challenge($spki): string
 /**
  * Generate a new signed public key and challenge
  *
- * mixed $privkey
- * mixed $challenge
- * mixed|null $algo
+ * @param mixed $privkey
+ * @param mixed $challenge
+ * @param mixed|null $algo
  *
  * @return string
  *
@@ -1158,7 +1158,7 @@ function openssl_spki_new($privkey, $challenge, $algo = null): string
 /**
  * Verifies a signed public key and challenge
  *
- * mixed $spki
+ * @param mixed $spki
  *
  * @return string
  *
@@ -1173,10 +1173,10 @@ function openssl_spki_verify($spki): string
 /**
  * Verify signature
  *
- * mixed $data
- * mixed $signature
- * mixed $key
- * mixed|null $method
+ * @param mixed $data
+ * @param mixed $signature
+ * @param mixed $key
+ * @param mixed|null $method
  *
  * @return int
  *
@@ -1191,8 +1191,8 @@ function openssl_verify($data, $signature, $key, $method = null): int
 /**
  * Checks if a private key corresponds to a certificate
  *
- * mixed $cert
- * mixed $key
+ * @param mixed $cert
+ * @param mixed $key
  *
  * @return bool
  *
@@ -1207,10 +1207,10 @@ function openssl_x509_check_private_key($cert, $key): bool
 /**
  * Verifies if a certificate can be used for a particular purpose
  *
- * mixed $x509cert
- * mixed $purpose
- * mixed $cainfo
- * mixed|null $untrustedfile
+ * @param mixed $x509cert
+ * @param mixed $purpose
+ * @param mixed $cainfo
+ * @param mixed|null $untrustedfile
  *
  * @return int
  *
@@ -1225,9 +1225,9 @@ function openssl_x509_checkpurpose($x509cert, $purpose, $cainfo, $untrustedfile 
 /**
  * Exports a certificate as a string
  *
- * mixed $x509
- * mixed $out
- * mixed|null $notext
+ * @param mixed $x509
+ * @param mixed $out
+ * @param mixed|null $notext
  *
  * @return bool
  *
@@ -1242,9 +1242,9 @@ function openssl_x509_export($x509, &$out, $notext = null): bool
 /**
  * Exports a certificate to file
  *
- * mixed $x509
- * mixed $outfilename
- * mixed|null $notext
+ * @param mixed $x509
+ * @param mixed $outfilename
+ * @param mixed|null $notext
  *
  * @return bool
  *
@@ -1259,9 +1259,9 @@ function openssl_x509_export_to_file($x509, $outfilename, $notext = null): bool
 /**
  * Calculates the fingerprint, or digest, of a given X.509 certificate
  *
- * mixed $x509
- * mixed|null $method
- * mixed|null $raw_output
+ * @param mixed $x509
+ * @param mixed|null $method
+ * @param mixed|null $raw_output
  *
  * @return string
  *
@@ -1276,7 +1276,7 @@ function openssl_x509_fingerprint($x509, $method = null, $raw_output = null): st
 /**
  * Free certificate resource
  *
- * mixed $x509
+ * @param mixed $x509
  *
  * @return void
  *
@@ -1291,8 +1291,8 @@ function openssl_x509_free($x509)
 /**
  * Parse an X509 certificate and return the information as an array
  *
- * mixed $x509
- * mixed $shortname
+ * @param mixed $x509
+ * @param mixed $shortname
  *
  * @return array
  *
@@ -1308,7 +1308,7 @@ function openssl_x509_parse($x509, $shortname): array
  * Parse an X.509 certificate and return a resource identifier for
  *   it
  *
- * mixed $cert
+ * @param mixed $cert
  *
  * @return resource
  *
