@@ -71,7 +71,7 @@ $commandChunks = array(
     'docker'
 );
 $commandChunks[] = 'run';
-$commandChunks[] = '--interactive';
+//$commandChunks[] = '--interactive';
 $commandChunks[] = '--tty';
 $commandChunks[] = '--rm';
 $commandChunks[] = '--volume ' . escapeshellarg(str_replace(DIRECTORY_SEPARATOR, '/', $rootDir) . ':/app');

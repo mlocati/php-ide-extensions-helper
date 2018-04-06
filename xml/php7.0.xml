@@ -402,6 +402,14 @@
     <iniEntry name="zend.enable_gc" value="'1'" posix="true" windows="true"/>
     <iniEntry name="zend.multibyte" value="'0'" posix="true" windows="true"/>
     <iniEntry name="zend.script_encoding" value="null" posix="true" windows="true"/>
+    <constant name="__CLASS__" value="'Name\\Space\\ClassName'" posix="true" windows="true"/>
+    <constant name="__DIR__" value="'/path/to'" posix="true" windows="true"/>
+    <constant name="__FILE__" value="'/path/to/file.php'" posix="true" windows="true"/>
+    <constant name="__FUNCTION__" value="'functionName'" posix="true" windows="true"/>
+    <constant name="__LINE__" value="1" posix="true" windows="true"/>
+    <constant name="__METHOD__" value="'Name\\Space\\ClassName::functionName'" posix="true" windows="true"/>
+    <constant name="__NAMESPACE__" value="'Name\\Space'" posix="true" windows="true"/>
+    <constant name="__TRAIT__" value="'Name\\Space\\TraitName'" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_IGNORE_ARGS" value="2" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_PROVIDE_OBJECT" value="1" posix="true" windows="true"/>
     <constant name="DEFAULT_INCLUDE_PATH" value="'.:/usr/local/lib/php'" posix="true" windows="true"/>
@@ -476,9 +484,9 @@
     <constant name="PHP_WINDOWS_VERSION_SP_MINOR" value="0" posix="false" windows="true"/>
     <constant name="PHP_WINDOWS_VERSION_SUITEMASK" value="256" posix="false" windows="true"/>
     <constant name="PHP_ZTS" value="0" posix="true" windows="true"/>
-    <constant name="STDERR" value="'Resource id #3'" posix="true" windows="true"/>
-    <constant name="STDIN" value="'Resource id #1'" posix="true" windows="true"/>
-    <constant name="STDOUT" value="'Resource id #2'" posix="true" windows="true"/>
+    <constant name="STDERR" value="'[resource]Resource id #3'" posix="true" windows="true"/>
+    <constant name="STDIN" value="'[resource]Resource id #1'" posix="true" windows="true"/>
+    <constant name="STDOUT" value="'[resource]Resource id #2'" posix="true" windows="true"/>
     <constant name="TRUE" value="true" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_CANT_WRITE" value="7" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_EXTENSION" value="8" posix="true" windows="true"/>

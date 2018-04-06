@@ -65,6 +65,8 @@ try {
         echo '  - extension: ', $extensionName, "\n";
         $extractor->parseExtension($extensionName);
     }
+    echo "  - adding magic constants\n";
+    $extractor->addMagicGlobalConstants();
     echo "  - saving\n";
     $extractor->save();
     echo "  - done\n";
@@ -197,10 +199,9 @@ class Extractor
                     case '-h':
                     case '--help':
                         self::exitWithHelp(0);
-                        break;
                     case '--no-validate':
                         $this->validateXml = false;
-                        break;
+                        continue 2;
                     case '--schema':
                         $this->schemaFile = array_shift($argv);
                         if ($this->schemaFile === null) {
@@ -210,6 +211,11 @@ class Extractor
                             writeError("Unable to find the specified XSD schema file {$this->schemaFile}", 1);
                         }
                         continue 2;
+                    default:
+                        if ($arg === '' || $arg[0] !== '-') {
+                            break;
+                        }
+                        writeError("Unrecognized option: $arg", 1);
                 }
             }
             if ($this->outputFile === null) {
@@ -392,7 +398,7 @@ EOF
      *
      * @return string
      */
-    private static function escapeXML($s)
+    private function escapeXML($s)
     {
         return defined('ENT_XML1') ? htmlspecialchars($s, ENT_XML1, 'UTF-8') : strtr($s, array(
             "&" => "&amp;",
@@ -678,6 +684,49 @@ EOF
     }
 
     /**
+     * Define magic global constants.
+     */
+    public function addMagicGlobalConstants()
+    {
+        $magicConstants = array(
+            '__LINE__' => 1,
+            '__FILE__' => '/path/to/file.php',
+            '__FUNCTION__' => 'functionName',
+            '__CLASS__' => 'Name\Space\ClassName',
+            '__METHOD__' => 'Name\Space\ClassName::functionName'
+        );
+        if (version_compare($this->phpVersionFull, '5.3.0') >= 0) {
+            $magicConstants += array(
+                '__DIR__' => '/path/to',
+                '__NAMESPACE__' => 'Name\Space'
+            );
+            if (version_compare($this->phpVersionFull, '5.4.0') >= 0) {
+                $magicConstants += array(
+                    '__TRAIT__' => 'Name\Space\TraitName'
+                );
+            }
+        }
+        $coreExtension = null;
+        $xpath = new DOMXPath($this->xml);
+        $xpath->registerNamespace('ns', self::XML_NAMESPACE);
+        foreach ($magicConstants as $name => $value) {
+            $node = $xpath->query('/ns:schema/ns:extension/ns:constant[@name="' . $this->escapeXML($name) . '"]');
+            if ($node->length < 1) {
+                if ($coreExtension === null) {
+                    $coreExtension = $this->getExtensionElement(new ReflectionExtension('Core'));
+                }
+                $search = $this->searchExtensionChildElement($coreExtension, 'constant', $name);
+                $new = $this->createOSTypeElement($coreExtension, 'constant', $search->addBefore);
+                $new->setAttribute('name', $name);
+                $new->setAttribute('value', self::serializeValue($value));
+                $this->sortElementAttributes($new, false);
+            } else {
+                $node->item(0)->setAttribute($this->osTag, 'true');
+            }
+        }
+    }
+
+    /**
      * Save or update a global constant.
      *
      *
@@ -732,6 +781,7 @@ EOF
             $new = $this->createOSTypeElement($extensionElement, $type, $search->addBefore);
             $new->setAttribute('name', $reflectionClass->getShortName());
             if ((string) $reflectionClass->getNamespaceName() !== '') {
+                throw new Exception('Namespaces aren\'t currently supported');
                 $new->setAttribute('namespace', $reflectionClass->getNamespaceName());
             }
             switch ($type) {
@@ -816,6 +866,7 @@ EOF
         if ($search->found === null) {
             $new = $this->createReflectionFunctionAbstract($reflectionFunction, $extensionElement, 'function', $search->addBefore);
             if ((string) $reflectionFunction->getNamespaceName() !== '') {
+                throw new Exception('Namespaces aren\'t currently supported');
                 $new->setAttribute('namespace', $reflectionFunction->getNamespaceName());
             }
             $this->sortElementAttributes($new, true);
@@ -969,9 +1020,9 @@ EOF
             $parameterElement = $this->xml->createElement('parameter');
             $parameterName = (string) $parameter->getName();
             if ($parameterName === '') {
-                for ($i = 1;; $i++) {
+                for ($i = 1;; $i ++) {
                     $parameterName = 'foo' . $i;
-                    if (!in_array($parameterName, $usedParameterNames)) {
+                    if (! in_array($parameterName, $usedParameterNames)) {
                         break;
                     }
                 }
@@ -1130,7 +1181,7 @@ EOF
         $attributeNames = array_keys($map);
         $prefixes = array(
             'namespace' => '00_',
-            'name' => '00_',
+            'name' => '01_',
             self::OSTAG_POSIX => '98_',
             'parsedwith-' . self::OSTAG_POSIX => '98_',
             self::OSTAG_WINDOWS => '99_',
@@ -1239,7 +1290,7 @@ EOF
                 }
                 return $open . implode($values, ', ') . $close;
             case 'resource':
-                return self::serializeValue((string) $value);
+                return self::serializeValue('[resource]' . (string) $value);
             default:
                 throw new Exception("Unable to serialize type $type");
         }

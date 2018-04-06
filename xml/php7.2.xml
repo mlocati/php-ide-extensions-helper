@@ -129,7 +129,7 @@
       <parameter name="ttl" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="bcmath" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="bcmath" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="bcmath.scale" value="'0'" posix="true" windows="true"/>
     <function name="bcadd" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="left_operand" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
@@ -180,7 +180,7 @@
       <parameter name="scale" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="bz2" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="bz2" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <function name="bzclose" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="fp" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
@@ -219,7 +219,7 @@
       <parameter name="length" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="calendar" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="calendar" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="CAL_DOW_DAYNO" value="0" posix="true" windows="true"/>
     <constant name="CAL_DOW_LONG" value="1" posix="true" windows="true"/>
     <constant name="CAL_DOW_SHORT" value="2" posix="true" windows="true"/>
@@ -315,7 +315,7 @@
       <parameter name="timestamp" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="Core" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="Core" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="allow_url_fopen" value="'1'" posix="true" windows="true"/>
     <iniEntry name="allow_url_include" value="'0'" posix="true" windows="true"/>
     <iniEntry name="arg_separator.input" value="'&amp;'" posix="true" windows="true"/>
@@ -403,6 +403,14 @@
     <iniEntry name="zend.multibyte" value="'0'" posix="true" windows="true"/>
     <iniEntry name="zend.script_encoding" value="null" posix="true" windows="true"/>
     <iniEntry name="zend.signal_check" value="'0'" posix="true" windows="false"/>
+    <constant name="__CLASS__" value="'Name\\Space\\ClassName'" posix="true" windows="true"/>
+    <constant name="__DIR__" value="'/path/to'" posix="true" windows="true"/>
+    <constant name="__FILE__" value="'/path/to/file.php'" posix="true" windows="true"/>
+    <constant name="__FUNCTION__" value="'functionName'" posix="true" windows="true"/>
+    <constant name="__LINE__" value="1" posix="true" windows="true"/>
+    <constant name="__METHOD__" value="'Name\\Space\\ClassName::functionName'" posix="true" windows="true"/>
+    <constant name="__NAMESPACE__" value="'Name\\Space'" posix="true" windows="true"/>
+    <constant name="__TRAIT__" value="'Name\\Space\\TraitName'" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_IGNORE_ARGS" value="2" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_PROVIDE_OBJECT" value="1" posix="true" windows="true"/>
     <constant name="DEFAULT_INCLUDE_PATH" value="'.:/usr/local/lib/php'" posix="true" windows="true"/>
@@ -483,9 +491,9 @@
     <constant name="PHP_WINDOWS_VERSION_SP_MINOR" value="0" posix="false" windows="true"/>
     <constant name="PHP_WINDOWS_VERSION_SUITEMASK" value="256" posix="false" windows="true"/>
     <constant name="PHP_ZTS" value="0" posix="true" windows="true"/>
-    <constant name="STDERR" value="'Resource id #3'" posix="true" windows="true"/>
-    <constant name="STDIN" value="'Resource id #1'" posix="true" windows="true"/>
-    <constant name="STDOUT" value="'Resource id #2'" posix="true" windows="true"/>
+    <constant name="STDERR" value="'[resource]Resource id #3'" posix="true" windows="true"/>
+    <constant name="STDIN" value="'[resource]Resource id #1'" posix="true" windows="true"/>
+    <constant name="STDOUT" value="'[resource]Resource id #2'" posix="true" windows="true"/>
     <constant name="TRUE" value="true" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_CANT_WRITE" value="7" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_EXTENSION" value="8" posix="true" windows="true"/>
@@ -803,7 +811,7 @@
     </function>
     <function name="zend_version" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
   </extension>
-  <extension name="ctype" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="ctype" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <function name="ctype_alnum" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="text" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
@@ -838,7 +846,7 @@
       <parameter name="text" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="curl" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="curl" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="curl.cainfo" value="''" posix="true" windows="true"/>
     <constant name="CURL_FNMATCHFUNC_FAIL" value="2" posix="true" windows="true"/>
     <constant name="CURL_FNMATCHFUNC_MATCH" value="0" posix="true" windows="true"/>
@@ -1449,7 +1457,7 @@
       <parameter name="version" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="date" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="date" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="date.default_latitude" value="'31.7667'" posix="true" windows="true"/>
     <iniEntry name="date.default_longitude" value="'35.2333'" posix="true" windows="true"/>
     <iniEntry name="date.sunrise_zenith" value="'90.583333'" posix="true" windows="true"/>
@@ -1932,7 +1940,7 @@
       <parameter name="handle" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="dom" conflict="domxml" require="libxml" suggest="" parsedwith-posix="20031129@7.2.3" parsedwith-windows="20031129@7.2.3">
+  <extension name="dom" conflict="domxml" require="libxml" suggest="" parsedwith-posix="20031129@7.2.3" parsedwith-windows="20031129@7.2.4">
     <constant name="DOM_HIERARCHY_REQUEST_ERR" value="3" posix="true" windows="true"/>
     <constant name="DOM_INDEX_SIZE_ERR" value="1" posix="true" windows="true"/>
     <constant name="DOM_INUSE_ATTRIBUTE_ERR" value="10" posix="true" windows="true"/>
@@ -2557,7 +2565,7 @@
       <parameter name="read_thumbnail" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="fileinfo" conflict="" require="" suggest="" parsedwith-posix="1.0.5@7.2.3" parsedwith-windows="1.0.5@7.2.3">
+  <extension name="fileinfo" conflict="" require="" suggest="" parsedwith-posix="1.0.5@7.2.3" parsedwith-windows="1.0.5@7.2.4">
     <constant name="FILEINFO_CONTINUE" value="32" posix="true" windows="true"/>
     <constant name="FILEINFO_DEVICES" value="8" posix="true" windows="true"/>
     <constant name="FILEINFO_EXTENSION" value="16777216" posix="true" windows="true"/>
@@ -2614,7 +2622,7 @@
       <parameter name="string" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="filter" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="filter" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="filter.default" value="'unsafe_raw'" posix="true" windows="true"/>
     <iniEntry name="filter.default_flags" value="null" posix="true" windows="true"/>
     <constant name="FILTER_CALLBACK" value="1024" posix="true" windows="true"/>
@@ -2889,7 +2897,7 @@
       <parameter name="ftp" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="gd" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="gd" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="gd.jpeg_ignore_warning" value="'1'" posix="true" windows="true"/>
     <constant name="GD_BUNDLED" value="1" posix="true" windows="true"/>
     <constant name="GD_EXTRA_VERSION" value="''" posix="true" windows="true"/>
@@ -3606,7 +3614,7 @@
       <parameter name="domain" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="gmp" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="gmp" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="GMP_BIG_ENDIAN" value="8" posix="true" windows="true"/>
     <constant name="GMP_LITTLE_ENDIAN" value="4" posix="true" windows="true"/>
     <constant name="GMP_LSW_FIRST" value="2" posix="true" windows="true"/>
@@ -3805,7 +3813,7 @@
       <parameter name="b" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="hash" conflict="" require="" suggest="" parsedwith-posix="1.0@7.2.3" parsedwith-windows="1.0@7.2.3">
+  <extension name="hash" conflict="" require="" suggest="" parsedwith-posix="1.0@7.2.3" parsedwith-windows="1.0@7.2.4">
     <constant name="HASH_HMAC" value="1" posix="true" windows="true"/>
     <constant name="MHASH_ADLER32" value="18" posix="false" windows="true"/>
     <constant name="MHASH_CRC32" value="0" posix="false" windows="true"/>
@@ -3929,7 +3937,7 @@
       <parameter name="bytes" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="iconv" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="iconv" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="iconv.input_encoding" value="''" posix="true" windows="true"/>
     <iniEntry name="iconv.internal_encoding" value="''" posix="true" windows="true"/>
     <iniEntry name="iconv.output_encoding" value="''" posix="true" windows="true"/>
@@ -7155,7 +7163,7 @@
       <parameter name="event2" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="intl" conflict="" require="" suggest="" parsedwith-posix="1.1.0@7.2.3" parsedwith-windows="1.1.0@7.2.3">
+  <extension name="intl" conflict="" require="" suggest="" parsedwith-posix="1.1.0@7.2.3" parsedwith-windows="1.1.0@7.2.4">
     <iniEntry name="intl.default_locale" value="null" posix="true" windows="true"/>
     <iniEntry name="intl.error_level" value="'0'" posix="true" windows="true"/>
     <iniEntry name="intl.use_exceptions" value="'0'" posix="true" windows="true"/>
@@ -9761,7 +9769,7 @@
       <parameter name="end" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="json" conflict="" require="" suggest="" parsedwith-posix="1.6.0@7.2.3" parsedwith-windows="1.6.0@7.2.3">
+  <extension name="json" conflict="" require="" suggest="" parsedwith-posix="1.6.0@7.2.3" parsedwith-windows="1.6.0@7.2.4">
     <constant name="JSON_BIGINT_AS_STRING" value="2" posix="true" windows="true"/>
     <constant name="JSON_ERROR_CTRL_CHAR" value="3" posix="true" windows="true"/>
     <constant name="JSON_ERROR_DEPTH" value="1" posix="true" windows="true"/>
@@ -10133,7 +10141,7 @@
       <parameter name="link_identifier" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="libxml" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="libxml" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="LIBXML_BIGLINES" value="4194304" posix="true" windows="true"/>
     <constant name="LIBXML_COMPACT" value="65536" posix="true" windows="true"/>
     <constant name="LIBXML_DOTTED_VERSION" value="'2.9.4'" posix="true" windows="true"/>
@@ -10178,7 +10186,7 @@
       <parameter name="use_errors" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="mbstring" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="mbstring" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="mbstring.detect_order" value="null" posix="true" windows="true"/>
     <iniEntry name="mbstring.encoding_translation" value="'0'" posix="true" windows="true"/>
     <iniEntry name="mbstring.func_overload" value="'0'" posix="true" windows="true"/>
@@ -10857,7 +10865,7 @@
     </class>
     <class name="MemcachedException" abstract="false" extends="RuntimeException" final="false" posix="true" windows="false"/>
   </extension>
-  <extension name="mysqli" conflict="" require="mysqlnd,spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="mysqli" conflict="" require="mysqlnd,spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="mysqli.allow_local_infile" value="'1'" posix="true" windows="true"/>
     <iniEntry name="mysqli.allow_persistent" value="'1'" posix="true" windows="true"/>
     <iniEntry name="mysqli.default_host" value="null" posix="true" windows="true"/>
@@ -11593,7 +11601,7 @@
       <parameter name="link" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="mysqlnd" conflict="" require="standard" suggest="" parsedwith-posix="mysqlnd 5.0.12-dev - 20150407 - $Id: 38fea24f2847fa7519001be390c98ae0acafe387 $@7.2.3" parsedwith-windows="mysqlnd 5.0.12-dev - 20150407 - $Id: 38fea24f2847fa7519001be390c98ae0acafe387 $@7.2.3">
+  <extension name="mysqlnd" conflict="" require="standard" suggest="" parsedwith-posix="mysqlnd 5.0.12-dev - 20150407 - $Id: 38fea24f2847fa7519001be390c98ae0acafe387 $@7.2.3" parsedwith-windows="mysqlnd 5.0.12-dev - 20150407 - $Id: 38fea24f2847fa7519001be390c98ae0acafe387 $@7.2.4">
     <iniEntry name="mysqlnd.collect_memory_statistics" value="'0'" posix="true" windows="true"/>
     <iniEntry name="mysqlnd.collect_statistics" value="'1'" posix="true" windows="true"/>
     <iniEntry name="mysqlnd.debug" value="null" posix="true" windows="true"/>
@@ -11883,7 +11891,7 @@
       <parameter name="table_types" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="openssl" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="openssl" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="openssl.cafile" value="null" posix="true" windows="true"/>
     <iniEntry name="openssl.capath" value="null" posix="true" windows="true"/>
     <constant name="OPENSSL_ALGO_MD4" value="3" posix="true" windows="true"/>
@@ -12406,7 +12414,7 @@
       <parameter name="status" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="pcre" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="pcre" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="pcre.backtrack_limit" value="'1000000'" posix="true" windows="true"/>
     <iniEntry name="pcre.jit" value="'1'" posix="true" windows="true"/>
     <iniEntry name="pcre.recursion_limit" value="'100000'" posix="true" windows="true"/>
@@ -12484,7 +12492,7 @@
       <parameter name="flags" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="PDO" conflict="" require="spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="PDO" conflict="" require="spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <class name="PDO" abstract="false" extends="" final="false" posix="true" windows="true">
       <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="dsn" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
@@ -12725,12 +12733,12 @@
   </extension>
   <extension name="pdo_dblib" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3"/>
   <extension name="PDO_Firebird" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3"/>
-  <extension name="pdo_mysql" conflict="" require="mysqlnd,pdo" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="pdo_mysql" conflict="" require="mysqlnd,pdo" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="pdo_mysql.default_socket" value="''" posix="true" windows="false"/>
   </extension>
   <extension name="PDO_ODBC" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3"/>
   <extension name="pdo_pgsql" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3"/>
-  <extension name="pdo_sqlite" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3"/>
+  <extension name="pdo_sqlite" conflict="" require="pdo" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4"/>
   <extension name="pdo_sqlsrv" conflict="" require="pdo" suggest="" parsedwith-posix="5.2.0@7.2.3">
     <iniEntry name="pdo_sqlsrv.client_buffer_max_kb_size" value="'10240'" posix="true" windows="false"/>
     <iniEntry name="pdo_sqlsrv.log_severity" value="'0'" posix="true" windows="false"/>
@@ -13272,7 +13280,7 @@
       <parameter name="connection" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="Phar" conflict="" require="spl" suggest="apc,bz2,openssl,standard,zlib" parsedwith-posix="2.0.2@7.2.3" parsedwith-windows="2.0.2@7.2.3">
+  <extension name="Phar" conflict="" require="spl" suggest="apc,bz2,openssl,standard,zlib" parsedwith-posix="2.0.2@7.2.3" parsedwith-windows="2.0.2@7.2.4">
     <iniEntry name="phar.cache_list" value="''" posix="true" windows="true"/>
     <iniEntry name="phar.readonly" value="'1'" posix="true" windows="true"/>
     <iniEntry name="phar.require_hash" value="'1'" posix="true" windows="true"/>
@@ -13834,7 +13842,7 @@
       <parameter name="word" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="readline" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="readline" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="cli.pager" value="''" posix="true" windows="true"/>
     <iniEntry name="cli.prompt" value="'\\b \\&gt; '" posix="true" windows="true"/>
     <constant name="READLINE_LIB" value="'libedit'" posix="true" windows="true"/>
@@ -15539,7 +15547,7 @@
     <class name="RedisClusterException" abstract="false" extends="Exception" final="false" posix="true" windows="false"/>
     <class name="RedisException" abstract="false" extends="Exception" final="false" posix="true" windows="false"/>
   </extension>
-  <extension name="Reflection" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="Reflection" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <interface name="Reflector" extends="" posix="true" windows="true">
       <method name="__toString" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
       <method name="export" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="true" visibility="public" posix="true" windows="true"/>
@@ -15919,7 +15927,7 @@
       <implements name="Reflector"/>
     </class>
   </extension>
-  <extension name="session" conflict="" require="spl" suggest="hash" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="session" conflict="" require="spl" suggest="hash" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="session.auto_start" value="'0'" posix="true" windows="true"/>
     <iniEntry name="session.cache_expire" value="'180'" posix="true" windows="true"/>
     <iniEntry name="session.cache_limiter" value="'nocache'" posix="true" windows="true"/>
@@ -16094,7 +16102,7 @@
       <parameter name="offset" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="SimpleXML" conflict="" require="libxml,spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="SimpleXML" conflict="" require="libxml,spl" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <class name="SimpleXMLElement" abstract="false" extends="" final="false" posix="true" windows="true">
       <method name="__construct" abstract="false" deprecated="false" final="true" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="data" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
@@ -16416,7 +16424,7 @@
       <parameter name="retries" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="soap" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="soap" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="soap.wsdl_cache" value="'1'" posix="true" windows="true"/>
     <iniEntry name="soap.wsdl_cache_dir" value="'/tmp'" posix="true" windows="true"/>
     <iniEntry name="soap.wsdl_cache_enabled" value="'1'" posix="true" windows="true"/>
@@ -17314,7 +17322,7 @@
       <parameter name="length" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="SPL" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="SPL" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <interface name="OuterIterator" extends="Iterator" posix="true" windows="true">
       <method name="getInnerIterator" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
     </interface>
@@ -18244,121 +18252,121 @@
       <parameter name="obj" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="sqlite3" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3">
-    <iniEntry name="sqlite3.extension_dir" value="null" posix="true" windows="false"/>
-    <constant name="SQLITE3_ASSOC" value="1" posix="true" windows="false"/>
-    <constant name="SQLITE3_BLOB" value="4" posix="true" windows="false"/>
-    <constant name="SQLITE3_BOTH" value="3" posix="true" windows="false"/>
-    <constant name="SQLITE3_DETERMINISTIC" value="2048" posix="true" windows="false"/>
-    <constant name="SQLITE3_FLOAT" value="2" posix="true" windows="false"/>
-    <constant name="SQLITE3_INTEGER" value="1" posix="true" windows="false"/>
-    <constant name="SQLITE3_NULL" value="5" posix="true" windows="false"/>
-    <constant name="SQLITE3_NUM" value="2" posix="true" windows="false"/>
-    <constant name="SQLITE3_OPEN_CREATE" value="4" posix="true" windows="false"/>
-    <constant name="SQLITE3_OPEN_READONLY" value="1" posix="true" windows="false"/>
-    <constant name="SQLITE3_OPEN_READWRITE" value="2" posix="true" windows="false"/>
-    <constant name="SQLITE3_TEXT" value="3" posix="true" windows="false"/>
-    <class name="SQLite3" abstract="false" extends="" final="false" posix="true" windows="false">
-      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+  <extension name="sqlite3" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
+    <iniEntry name="sqlite3.extension_dir" value="null" posix="true" windows="true"/>
+    <constant name="SQLITE3_ASSOC" value="1" posix="true" windows="true"/>
+    <constant name="SQLITE3_BLOB" value="4" posix="true" windows="true"/>
+    <constant name="SQLITE3_BOTH" value="3" posix="true" windows="true"/>
+    <constant name="SQLITE3_DETERMINISTIC" value="2048" posix="true" windows="true"/>
+    <constant name="SQLITE3_FLOAT" value="2" posix="true" windows="true"/>
+    <constant name="SQLITE3_INTEGER" value="1" posix="true" windows="true"/>
+    <constant name="SQLITE3_NULL" value="5" posix="true" windows="true"/>
+    <constant name="SQLITE3_NUM" value="2" posix="true" windows="true"/>
+    <constant name="SQLITE3_OPEN_CREATE" value="4" posix="true" windows="true"/>
+    <constant name="SQLITE3_OPEN_READONLY" value="1" posix="true" windows="true"/>
+    <constant name="SQLITE3_OPEN_READWRITE" value="2" posix="true" windows="true"/>
+    <constant name="SQLITE3_TEXT" value="3" posix="true" windows="true"/>
+    <class name="SQLite3" abstract="false" extends="" final="false" posix="true" windows="true">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="flags" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="encryption_key" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="busyTimeout" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="busyTimeout" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="ms" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="changes" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="close" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="createAggregate" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="changes" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="close" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="createAggregate" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="name" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="step_callback" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="final_callback" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="argument_count" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="createCollation" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="createCollation" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="name" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="callback" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="createFunction" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="createFunction" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="name" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="callback" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="argument_count" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="flags" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="enableExceptions" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="enableExceptions" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="enableExceptions" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="escapeString" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="true" visibility="public" posix="true" windows="false">
+      <method name="escapeString" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="true" visibility="public" posix="true" windows="true">
         <parameter name="value" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="exec" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="exec" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="query" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="lastErrorCode" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="lastErrorMsg" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="lastInsertRowID" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="loadExtension" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="lastErrorCode" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="lastErrorMsg" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="lastInsertRowID" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="loadExtension" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="shared_library" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="open" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="open" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="filename" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="flags" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="encryption_key" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="openBlob" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="openBlob" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="table" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="column" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="rowid" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="dbname" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="flags" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="prepare" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="prepare" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="query" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="query" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="query" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="query" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="querySingle" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="querySingle" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="query" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="entire_row" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="version" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="true" visibility="public" posix="true" windows="false"/>
+      <method name="version" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="true" visibility="public" posix="true" windows="true"/>
     </class>
-    <class name="SQLite3Result" abstract="false" extends="" final="false" posix="true" windows="false">
-      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="private" posix="true" windows="false"/>
-      <method name="columnName" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+    <class name="SQLite3Result" abstract="false" extends="" final="false" posix="true" windows="true">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="private" posix="true" windows="true"/>
+      <method name="columnName" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="column_number" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="columnType" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="columnType" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="column_number" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="fetchArray" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="fetchArray" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="mode" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="finalize" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="numColumns" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="reset" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="finalize" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="numColumns" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="reset" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
     </class>
-    <class name="SQLite3Stmt" abstract="false" extends="" final="false" posix="true" windows="false">
-      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="private" posix="true" windows="false">
+    <class name="SQLite3Stmt" abstract="false" extends="" final="false" posix="true" windows="true">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="private" posix="true" windows="true">
         <parameter name="sqlite3" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       </method>
-      <method name="bindParam" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="bindParam" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="param_number" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="param" allowsNull="false" byReference="true" optional="false" type="" variadic="false"/>
         <parameter name="type" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="bindValue" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+      <method name="bindValue" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="param_number" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="param" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
         <parameter name="type" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="clear" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="close" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="execute" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="paramCount" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="readOnly" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="reset" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="clear" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="close" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="execute" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="paramCount" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="readOnly" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="reset" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
     </class>
   </extension>
   <extension name="sqlsrv" conflict="" require="" suggest="" parsedwith-posix="5.2.0@7.2.3">
@@ -18742,7 +18750,7 @@
       <parameter name="port" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="standard" conflict="" require="" suggest="session" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="standard" conflict="" require="" suggest="session" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="assert.active" value="'1'" posix="true" windows="true"/>
     <iniEntry name="assert.bail" value="'0'" posix="true" windows="true"/>
     <iniEntry name="assert.callback" value="null" posix="true" windows="true"/>
@@ -21471,7 +21479,7 @@
     <function name="tidy_warning_count" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false"/>
   </extension>
   <extension name="timezonedb" conflict="" require="date,standard" suggest="" parsedwith-posix="2018.4@7.2.3"/>
-  <extension name="tokenizer" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="tokenizer" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="T_ABSTRACT" value="312" posix="true" windows="true"/>
     <constant name="T_AND_EQUAL" value="276" posix="true" windows="true"/>
     <constant name="T_ARRAY" value="368" posix="true" windows="true"/>
@@ -21658,7 +21666,7 @@
       <parameter name="uuid" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="wddx" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="wddx" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <function name="wddx_add_vars" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="packet_id" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="var_names" allowsNull="false" byReference="false" optional="false" type="" variadic="true"/>
@@ -21680,7 +21688,7 @@
       <parameter name="var_names" allowsNull="false" byReference="false" optional="false" type="" variadic="true"/>
     </function>
   </extension>
-  <extension name="xdebug" conflict="" require="" suggest="" parsedwith-posix="2.6.0@7.2.3" parsedwith-windows="2.6.0@7.2.3">
+  <extension name="xdebug" conflict="" require="" suggest="" parsedwith-posix="2.6.0@7.2.3" parsedwith-windows="2.6.0@7.2.4">
     <iniEntry name="xdebug.auto_trace" value="'0'" posix="true" windows="true"/>
     <iniEntry name="xdebug.cli_color" value="'0'" posix="true" windows="true"/>
     <iniEntry name="xdebug.collect_assignments" value="'0'" posix="true" windows="true"/>
@@ -21845,7 +21853,7 @@
       <parameter name="var" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="xml" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="xml" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="XML_ERROR_ASYNC_ENTITY" value="13" posix="true" windows="true"/>
     <constant name="XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF" value="16" posix="true" windows="true"/>
     <constant name="XML_ERROR_BAD_CHAR_REF" value="14" posix="true" windows="true"/>
@@ -21960,7 +21968,7 @@
       <parameter name="hdl" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="xmlreader" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="xmlreader" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <class name="XMLReader" abstract="false" extends="" final="false" posix="true" windows="true">
       <method name="close" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
       <method name="expand" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
@@ -22105,7 +22113,7 @@
       <parameter name="type" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="xmlwriter" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="xmlwriter" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <class name="XMLWriter" abstract="false" extends="" final="false" posix="true" windows="true">
       <method name="endAttribute" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
       <method name="endCdata" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
@@ -22406,7 +22414,7 @@
       <parameter name="content" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="xsl" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="xsl" conflict="" require="libxml" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <constant name="LIBEXSLT_DOTTED_VERSION" value="'1.1.29'" posix="true" windows="true"/>
     <constant name="LIBEXSLT_VERSION" value="817" posix="true" windows="true"/>
     <constant name="LIBXSLT_DOTTED_VERSION" value="'1.1.29'" posix="true" windows="true"/>
@@ -22525,7 +22533,7 @@
       <parameter name="callbacks" allowsNull="false" byReference="false" optional="true" type="array[]" variadic="false"/>
     </function>
   </extension>
-  <extension name="Zend OPcache" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="Zend OPcache" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="opcache.blacklist_filename" value="''" posix="true" windows="true"/>
     <iniEntry name="opcache.consistency_checks" value="'0'" posix="true" windows="true"/>
     <iniEntry name="opcache.dups_fix" value="'0'" posix="true" windows="true"/>
@@ -22577,7 +22585,7 @@
     </function>
     <function name="opcache_reset" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
   </extension>
-  <extension name="zip" conflict="" require="" suggest="" parsedwith-posix="1.15.2@7.2.3" parsedwith-windows="1.15.2@7.2.3">
+  <extension name="zip" conflict="" require="" suggest="" parsedwith-posix="1.15.2@7.2.3" parsedwith-windows="1.15.2@7.2.4">
     <class name="ZipArchive" abstract="false" extends="" final="false" posix="true" windows="true">
       <property name="comment" defaultValue="null" static="false" visibility="public" posix="true" windows="true"/>
       <property name="filename" defaultValue="null" static="false" visibility="public" posix="true" windows="true"/>
@@ -22853,7 +22861,7 @@
       <parameter name="zip" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="zlib" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.3@7.2.3">
+  <extension name="zlib" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="zlib.output_compression" value="'0'" posix="true" windows="true"/>
     <iniEntry name="zlib.output_compression_level" value="'-1'" posix="true" windows="true"/>
     <iniEntry name="zlib.output_handler" value="''" posix="true" windows="true"/>

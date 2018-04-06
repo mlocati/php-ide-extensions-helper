@@ -29,101 +29,101 @@
       <parameter name="uri" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
   </extension>
-  <extension name="apcu" conflict="" require="" suggest="" parsedwith-posix="5.1.11@7.1.15">
-    <iniEntry name="apc.coredump_unmap" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="apc.enable_cli" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="apc.enabled" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="apc.entries_hint" value="'4096'" posix="true" windows="false"/>
-    <iniEntry name="apc.gc_ttl" value="'3600'" posix="true" windows="false"/>
+  <extension name="apcu" conflict="" require="" suggest="" parsedwith-posix="5.1.11@7.1.15" parsedwith-windows="5.1.9@7.1.15">
+    <iniEntry name="apc.coredump_unmap" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="apc.enable_cli" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="apc.enabled" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="apc.entries_hint" value="'4096'" posix="true" windows="true"/>
+    <iniEntry name="apc.gc_ttl" value="'3600'" posix="true" windows="true"/>
     <iniEntry name="apc.mmap_file_mask" value="null" posix="true" windows="false"/>
-    <iniEntry name="apc.preload_path" value="null" posix="true" windows="false"/>
-    <iniEntry name="apc.serializer" value="'php'" posix="true" windows="false"/>
-    <iniEntry name="apc.shm_segments" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="apc.shm_size" value="'32M'" posix="true" windows="false"/>
-    <iniEntry name="apc.slam_defense" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="apc.smart" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="apc.ttl" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="apc.use_request_time" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="apc.writable" value="'/tmp'" posix="true" windows="false"/>
-    <constant name="APC_ITER_ALL" value="4294967295" posix="true" windows="false"/>
-    <constant name="APC_ITER_ATIME" value="128" posix="true" windows="false"/>
-    <constant name="APC_ITER_CTIME" value="32" posix="true" windows="false"/>
-    <constant name="APC_ITER_DTIME" value="64" posix="true" windows="false"/>
-    <constant name="APC_ITER_KEY" value="2" posix="true" windows="false"/>
-    <constant name="APC_ITER_MEM_SIZE" value="512" posix="true" windows="false"/>
-    <constant name="APC_ITER_MTIME" value="16" posix="true" windows="false"/>
-    <constant name="APC_ITER_NONE" value="0" posix="true" windows="false"/>
-    <constant name="APC_ITER_NUM_HITS" value="8" posix="true" windows="false"/>
-    <constant name="APC_ITER_REFCOUNT" value="256" posix="true" windows="false"/>
-    <constant name="APC_ITER_TTL" value="1024" posix="true" windows="false"/>
-    <constant name="APC_ITER_TYPE" value="1" posix="true" windows="false"/>
-    <constant name="APC_ITER_VALUE" value="4" posix="true" windows="false"/>
-    <constant name="APC_LIST_ACTIVE" value="1" posix="true" windows="false"/>
-    <constant name="APC_LIST_DELETED" value="2" posix="true" windows="false"/>
-    <class name="APCuIterator" abstract="false" extends="" final="false" posix="true" windows="false">
-      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+    <iniEntry name="apc.preload_path" value="null" posix="true" windows="true"/>
+    <iniEntry name="apc.serializer" value="'php'" posix="true" windows="true"/>
+    <iniEntry name="apc.shm_segments" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="apc.shm_size" value="'32M'" posix="true" windows="true"/>
+    <iniEntry name="apc.slam_defense" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="apc.smart" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="apc.ttl" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="apc.use_request_time" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="apc.writable" value="'/tmp'" posix="true" windows="true"/>
+    <constant name="APC_ITER_ALL" value="4294967295" posix="true" windows="true"/>
+    <constant name="APC_ITER_ATIME" value="128" posix="true" windows="true"/>
+    <constant name="APC_ITER_CTIME" value="32" posix="true" windows="true"/>
+    <constant name="APC_ITER_DTIME" value="64" posix="true" windows="true"/>
+    <constant name="APC_ITER_KEY" value="2" posix="true" windows="true"/>
+    <constant name="APC_ITER_MEM_SIZE" value="512" posix="true" windows="true"/>
+    <constant name="APC_ITER_MTIME" value="16" posix="true" windows="true"/>
+    <constant name="APC_ITER_NONE" value="0" posix="true" windows="true"/>
+    <constant name="APC_ITER_NUM_HITS" value="8" posix="true" windows="true"/>
+    <constant name="APC_ITER_REFCOUNT" value="256" posix="true" windows="true"/>
+    <constant name="APC_ITER_TTL" value="1024" posix="true" windows="true"/>
+    <constant name="APC_ITER_TYPE" value="1" posix="true" windows="true"/>
+    <constant name="APC_ITER_VALUE" value="4" posix="true" windows="true"/>
+    <constant name="APC_LIST_ACTIVE" value="1" posix="true" windows="true"/>
+    <constant name="APC_LIST_DELETED" value="2" posix="true" windows="true"/>
+    <class name="APCuIterator" abstract="false" extends="" final="false" posix="true" windows="true">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true">
         <parameter name="search" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="format" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="chunk_size" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
         <parameter name="list" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       </method>
-      <method name="current" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="getTotalCount" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="getTotalHits" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="getTotalSize" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="key" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="next" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="rewind" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
-      <method name="valid" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="current" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="getTotalCount" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="getTotalHits" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="getTotalSize" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="key" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="next" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="rewind" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
+      <method name="valid" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="true"/>
       <implements name="Iterator"/>
     </class>
-    <function name="apcu_add" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_add" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="var" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="ttl" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_cache_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_cache_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="limited" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_cas" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_cas" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="old" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="new" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="apcu_clear_cache" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false"/>
-    <function name="apcu_dec" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_clear_cache" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
+    <function name="apcu_dec" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="step" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       <parameter name="success" allowsNull="false" byReference="true" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_delete" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_delete" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="keys" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="apcu_enabled" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false"/>
-    <function name="apcu_entry" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_enabled" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
+    <function name="apcu_entry" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="generator" allowsNull="false" byReference="false" optional="false" type="callable" variadic="false"/>
       <parameter name="ttl" allowsNull="false" byReference="false" optional="true" type="int" variadic="false"/>
     </function>
-    <function name="apcu_exists" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_exists" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="keys" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="apcu_fetch" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_fetch" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="success" allowsNull="false" byReference="true" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_inc" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_inc" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="step" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
       <parameter name="success" allowsNull="false" byReference="true" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_key_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_key_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="apcu_sma_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_sma_info" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="limited" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="apcu_store" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="apcu_store" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="key" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="var" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="ttl" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
@@ -403,6 +403,14 @@
     <iniEntry name="zend.multibyte" value="'0'" posix="true" windows="true"/>
     <iniEntry name="zend.script_encoding" value="null" posix="true" windows="true"/>
     <iniEntry name="zend.signal_check" value="'0'" posix="true" windows="false"/>
+    <constant name="__CLASS__" value="'Name\\Space\\ClassName'" posix="true" windows="true"/>
+    <constant name="__DIR__" value="'/path/to'" posix="true" windows="true"/>
+    <constant name="__FILE__" value="'/path/to/file.php'" posix="true" windows="true"/>
+    <constant name="__FUNCTION__" value="'functionName'" posix="true" windows="true"/>
+    <constant name="__LINE__" value="1" posix="true" windows="true"/>
+    <constant name="__METHOD__" value="'Name\\Space\\ClassName::functionName'" posix="true" windows="true"/>
+    <constant name="__NAMESPACE__" value="'Name\\Space'" posix="true" windows="true"/>
+    <constant name="__TRAIT__" value="'Name\\Space\\TraitName'" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_IGNORE_ARGS" value="2" posix="true" windows="true"/>
     <constant name="DEBUG_BACKTRACE_PROVIDE_OBJECT" value="1" posix="true" windows="true"/>
     <constant name="DEFAULT_INCLUDE_PATH" value="'.:/usr/local/lib/php'" posix="true" windows="true"/>
@@ -478,9 +486,9 @@
     <constant name="PHP_WINDOWS_VERSION_SP_MINOR" value="0" posix="false" windows="true"/>
     <constant name="PHP_WINDOWS_VERSION_SUITEMASK" value="256" posix="false" windows="true"/>
     <constant name="PHP_ZTS" value="0" posix="true" windows="true"/>
-    <constant name="STDERR" value="'Resource id #3'" posix="true" windows="true"/>
-    <constant name="STDIN" value="'Resource id #1'" posix="true" windows="true"/>
-    <constant name="STDOUT" value="'Resource id #2'" posix="true" windows="true"/>
+    <constant name="STDERR" value="'[resource]Resource id #3'" posix="true" windows="true"/>
+    <constant name="STDIN" value="'[resource]Resource id #1'" posix="true" windows="true"/>
+    <constant name="STDOUT" value="'[resource]Resource id #2'" posix="true" windows="true"/>
     <constant name="TRUE" value="true" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_CANT_WRITE" value="7" posix="true" windows="true"/>
     <constant name="UPLOAD_ERR_EXTENSION" value="8" posix="true" windows="true"/>
@@ -22021,56 +22029,58 @@
       <parameter name="callbacks" allowsNull="false" byReference="false" optional="true" type="array[]" variadic="false"/>
     </function>
   </extension>
-  <extension name="Zend OPcache" conflict="" require="" suggest="" parsedwith-posix="7.1.15@7.1.15">
-    <iniEntry name="opcache.blacklist_filename" value="''" posix="true" windows="false"/>
-    <iniEntry name="opcache.consistency_checks" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.dups_fix" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.enable" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.enable_cli" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.enable_file_override" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.error_log" value="''" posix="true" windows="false"/>
-    <iniEntry name="opcache.fast_shutdown" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.file_cache" value="null" posix="true" windows="false"/>
-    <iniEntry name="opcache.file_cache_consistency_checks" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.file_cache_only" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.file_update_protection" value="'2'" posix="true" windows="false"/>
-    <iniEntry name="opcache.force_restart_timeout" value="'180'" posix="true" windows="false"/>
+  <extension name="Zend OPcache" conflict="" require="" suggest="" parsedwith-posix="7.1.15@7.1.15" parsedwith-windows="7.1.15@7.1.15">
+    <iniEntry name="opcache.blacklist_filename" value="''" posix="true" windows="true"/>
+    <iniEntry name="opcache.consistency_checks" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.dups_fix" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.enable" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.enable_cli" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.enable_file_override" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.error_log" value="''" posix="true" windows="true"/>
+    <iniEntry name="opcache.fast_shutdown" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.file_cache" value="null" posix="true" windows="true"/>
+    <iniEntry name="opcache.file_cache_consistency_checks" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.file_cache_fallback" value="'1'" posix="false" windows="true"/>
+    <iniEntry name="opcache.file_cache_only" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.file_update_protection" value="'2'" posix="true" windows="true"/>
+    <iniEntry name="opcache.force_restart_timeout" value="'180'" posix="true" windows="true"/>
     <iniEntry name="opcache.huge_code_pages" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.inherited_hack" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.interned_strings_buffer" value="'8'" posix="true" windows="false"/>
+    <iniEntry name="opcache.inherited_hack" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.interned_strings_buffer" value="'8'" posix="true" windows="true"/>
     <iniEntry name="opcache.lockfile_path" value="'/tmp'" posix="true" windows="false"/>
-    <iniEntry name="opcache.log_verbosity_level" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.max_accelerated_files" value="'10000'" posix="true" windows="false"/>
-    <iniEntry name="opcache.max_file_size" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.max_wasted_percentage" value="'5'" posix="true" windows="false"/>
-    <iniEntry name="opcache.memory_consumption" value="'128'" posix="true" windows="false"/>
-    <iniEntry name="opcache.opt_debug_level" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.optimization_level" value="'0x7FFFBFFF'" posix="true" windows="false"/>
-    <iniEntry name="opcache.preferred_memory_model" value="''" posix="true" windows="false"/>
-    <iniEntry name="opcache.protect_memory" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.restrict_api" value="''" posix="true" windows="false"/>
-    <iniEntry name="opcache.revalidate_freq" value="'2'" posix="true" windows="false"/>
-    <iniEntry name="opcache.revalidate_path" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.save_comments" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.use_cwd" value="'1'" posix="true" windows="false"/>
-    <iniEntry name="opcache.validate_permission" value="'0'" posix="true" windows="false"/>
+    <iniEntry name="opcache.log_verbosity_level" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.max_accelerated_files" value="'10000'" posix="true" windows="true"/>
+    <iniEntry name="opcache.max_file_size" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.max_wasted_percentage" value="'5'" posix="true" windows="true"/>
+    <iniEntry name="opcache.memory_consumption" value="'128'" posix="true" windows="true"/>
+    <iniEntry name="opcache.mmap_base" value="null" posix="false" windows="true"/>
+    <iniEntry name="opcache.opt_debug_level" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.optimization_level" value="'0x7FFFBFFF'" posix="true" windows="true"/>
+    <iniEntry name="opcache.preferred_memory_model" value="''" posix="true" windows="true"/>
+    <iniEntry name="opcache.protect_memory" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.restrict_api" value="''" posix="true" windows="true"/>
+    <iniEntry name="opcache.revalidate_freq" value="'2'" posix="true" windows="true"/>
+    <iniEntry name="opcache.revalidate_path" value="'0'" posix="true" windows="true"/>
+    <iniEntry name="opcache.save_comments" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.use_cwd" value="'1'" posix="true" windows="true"/>
+    <iniEntry name="opcache.validate_permission" value="'0'" posix="true" windows="true"/>
     <iniEntry name="opcache.validate_root" value="'0'" posix="true" windows="false"/>
-    <iniEntry name="opcache.validate_timestamps" value="'1'" posix="true" windows="false"/>
-    <function name="opcache_compile_file" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <iniEntry name="opcache.validate_timestamps" value="'1'" posix="true" windows="true"/>
+    <function name="opcache_compile_file" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="file" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="opcache_get_configuration" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false"/>
-    <function name="opcache_get_status" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="opcache_get_configuration" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
+    <function name="opcache_get_status" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="fetch_scripts" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="opcache_invalidate" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="opcache_invalidate" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="script" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
       <parameter name="force" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
-    <function name="opcache_is_script_cached" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+    <function name="opcache_is_script_cached" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true">
       <parameter name="script" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
     </function>
-    <function name="opcache_reset" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false"/>
+    <function name="opcache_reset" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="true"/>
   </extension>
   <extension name="zip" conflict="" require="" suggest="" parsedwith-posix="1.13.5@7.1.15" parsedwith-windows="1.13.5@7.1.15">
     <class name="ZipArchive" abstract="false" extends="" final="false" posix="true" windows="true">
