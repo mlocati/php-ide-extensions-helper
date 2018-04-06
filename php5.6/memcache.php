@@ -32,86 +32,223 @@ const MEMCACHE_HAVE_SESSION = 1;
  */
 class Memcache
 {
+    /**
+     * Add an item to the server
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.add.php
+     */
     public function add()
     {
     }
 
+    /**
+     * Add a memcached server to connection pool
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/memcache.addserver.php
+     */
     public function addserver()
     {
     }
 
+    /**
+     * Close memcached server connection
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 0.4.0
+     *
+     * @link http://www.php.net/manual/en/memcache.close.php
+     */
     public function close()
     {
     }
 
+    /**
+     * Open memcached server connection
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.connect.php
+     */
     public function connect()
     {
     }
 
+    /**
+     * Decrement item's value
+     *
+     * @return int
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.decrement.php
+     */
     public function decrement()
     {
     }
 
     /**
-     * See <code>unlink</code> or <code>unset</code>
+     * Delete item from the server
      *
-     * @since None
+     * @return bool
      *
-     * @link http://www.php.net/manual/en/function.delete.php
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.delete.php
      */
     public function delete()
     {
     }
 
     /**
-     * Flush system output buffer
+     * Flush all existing items at the server
      *
-     * @return void
+     * @return bool
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL memcache >= 1.0.0
      *
-     * @link http://www.php.net/manual/en/function.flush.php
+     * @link http://www.php.net/manual/en/memcache.flush.php
      */
     public function flush()
     {
     }
 
+    /**
+     * Retrieve item from the server
+     *
+     * @return string
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.get.php
+     */
     public function get()
     {
     }
 
-    public function getextendedstats()
+    /**
+     * Get statistics from all servers in pool
+     *
+     * @return array
+     *
+     * @since PECL memcache >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/memcache.getextendedstats.php
+     */
+    public function getextendedstats(): array
     {
     }
 
+    /**
+     * Returns server status
+     *
+     * @return int
+     *
+     * @since PECL memcache >= 2.1.0
+     *
+     * @link http://www.php.net/manual/en/memcache.getserverstatus.php
+     */
     public function getserverstatus()
     {
     }
 
-    public function getstats()
+    /**
+     * Get statistics of the server
+     *
+     * @return array
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.getstats.php
+     */
+    public function getstats(): array
     {
     }
 
+    /**
+     * Return version of the server
+     *
+     * @return string
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.getversion.php
+     */
     public function getversion()
     {
     }
 
+    /**
+     * Increment item's value
+     *
+     * @return int
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.increment.php
+     */
     public function increment()
     {
     }
 
+    /**
+     * Open memcached server persistent connection
+     *
+     * @return mixed
+     *
+     * @since PECL memcache >= 0.4.0
+     *
+     * @link http://www.php.net/manual/en/memcache.pconnect.php
+     */
     public function pconnect()
     {
     }
 
+    /**
+     * Replace value of the existing item
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.replace.php
+     */
     public function replace()
     {
     }
 
+    /**
+     * Store data at the server
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 0.2.0
+     *
+     * @link http://www.php.net/manual/en/memcache.set.php
+     */
     public function set()
     {
     }
 
+    /**
+     * Enable automatic compression of large values
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/memcache.setcompressthreshold.php
+     */
     public function setcompressthreshold()
     {
     }
@@ -120,6 +257,15 @@ class Memcache
     {
     }
 
+    /**
+     * Changes server parameters and status at runtime
+     *
+     * @return bool
+     *
+     * @since PECL memcache >= 2.1.0
+     *
+     * @link http://www.php.net/manual/en/memcache.setserverparams.php
+     */
     public function setserverparams()
     {
     }

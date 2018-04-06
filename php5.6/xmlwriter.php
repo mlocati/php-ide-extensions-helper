@@ -8,285 +8,627 @@
  */
 class XMLWriter
 {
+    /**
+     * End attribute
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-attribute.php
+     */
     public function endAttribute()
     {
     }
 
+    /**
+     * End current CDATA
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-cdata.php
+     */
     public function endCdata()
     {
     }
 
+    /**
+     * Create end comment
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-comment.php
+     */
     public function endComment()
     {
     }
 
+    /**
+     * End current document
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-document.php
+     */
     public function endDocument()
     {
     }
 
+    /**
+     * End current DTD
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-dtd.php
+     */
     public function endDtd()
     {
     }
 
+    /**
+     * End current DTD AttList
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-dtd-attlist.php
+     */
     public function endDtdAttlist()
     {
     }
 
+    /**
+     * End current DTD element
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-dtd-element.php
+     */
     public function endDtdElement()
     {
     }
 
+    /**
+     * End current DTD Entity
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-dtd-entity.php
+     */
     public function endDtdEntity()
     {
     }
 
+    /**
+     * End current element
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-element.php
+     */
     public function endElement()
     {
     }
 
+    /**
+     * End current PI
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-end-pi.php
+     */
     public function endPi()
     {
     }
 
     /**
-     * Flush system output buffer
+     * Flush current buffer
      *
      * @param mixed|null $empty
      *
-     * @return void
+     * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
      *
-     * @link http://www.php.net/manual/en/function.flush.php
+     * @link http://www.php.net/manual/en/function.xmlwriter-flush.php
      */
     public function flush($empty = null)
     {
     }
 
+    /**
+     * End current element
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-full-end-element.php
+     */
     public function fullEndElement()
     {
     }
 
+    /**
+     * Create new xmlwriter using memory for string output
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-open-memory.php
+     */
     public function openMemory()
     {
     }
 
     /**
+     * Create new xmlwriter using source uri for output
+     *
      * @param mixed $uri
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-open-uri.php
      */
     public function openUri($uri)
     {
     }
 
     /**
+     * Returns current buffer
+     *
      * @param mixed|null $flush
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-output-memory.php
      */
     public function outputMemory($flush = null)
     {
     }
 
     /**
+     * Toggle indentation on/off
+     *
      * @param mixed $indent
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-set-indent.php
      */
     public function setIndent($indent)
     {
     }
 
     /**
+     * Set string used for indenting
+     *
      * @param mixed $indentString
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-set-indent-string.php
      */
     public function setIndentString($indentString)
     {
     }
 
     /**
+     * Create start attribute
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-attribute.php
      */
     public function startAttribute($name)
     {
     }
 
     /**
+     * Create start namespaced attribute
+     *
      * @param mixed $prefix
      * @param mixed $name
      * @param mixed $uri
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-attribute-ns.php
      */
     public function startAttributeNs($prefix, $name, $uri)
     {
     }
 
+    /**
+     * Create start CDATA tag
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-cdata.php
+     */
     public function startCdata()
     {
     }
 
+    /**
+     * Create start comment
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-comment.php
+     */
     public function startComment()
     {
     }
 
     /**
+     * Create document tag
+     *
      * @param mixed|null $version
      * @param mixed|null $encoding
      * @param mixed|null $standalone
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-document.php
      */
     public function startDocument($version = null, $encoding = null, $standalone = null)
     {
     }
 
     /**
+     * Create start DTD tag
+     *
      * @param mixed $qualifiedName
      * @param mixed|null $publicId
      * @param mixed|null $systemId
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd.php
      */
     public function startDtd($qualifiedName, $publicId = null, $systemId = null)
     {
     }
 
     /**
+     * Create start DTD AttList
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-attlist.php
      */
     public function startDtdAttlist($name)
     {
     }
 
     /**
+     * Create start DTD element
+     *
      * @param mixed $qualifiedName
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-element.php
      */
     public function startDtdElement($qualifiedName)
     {
     }
 
     /**
+     * Create start DTD Entity
+     *
      * @param mixed $name
      * @param mixed $isparam
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-entity.php
      */
     public function startDtdEntity($name, $isparam)
     {
     }
 
     /**
+     * Create start element tag
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-element.php
      */
     public function startElement($name)
     {
     }
 
     /**
+     * Create start namespaced element tag
+     *
      * @param mixed $prefix
      * @param mixed $name
      * @param mixed $uri
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-element-ns.php
      */
     public function startElementNs($prefix, $name, $uri)
     {
     }
 
     /**
+     * Create start PI tag
+     *
      * @param mixed $target
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-start-pi.php
      */
     public function startPi($target)
     {
     }
 
     /**
+     * Write text
+     *
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-text.php
      */
     public function text($content)
     {
     }
 
     /**
+     * Write full attribute
+     *
      * @param mixed $name
      * @param mixed $value
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-attribute.php
      */
     public function writeAttribute($name, $value)
     {
     }
 
     /**
+     * Write full namespaced attribute
+     *
      * @param mixed $prefix
      * @param mixed $name
      * @param mixed $uri
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-attribute-ns.php
      */
     public function writeAttributeNs($prefix, $name, $uri, $content)
     {
     }
 
     /**
+     * Write full CDATA tag
+     *
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-cdata.php
      */
     public function writeCdata($content)
     {
     }
 
     /**
+     * Write full comment tag
+     *
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-comment.php
      */
     public function writeComment($content)
     {
     }
 
     /**
+     * Write full DTD tag
+     *
      * @param mixed $name
      * @param mixed|null $publicId
      * @param mixed|null $systemId
      * @param mixed|null $subset
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd.php
      */
     public function writeDtd($name, $publicId = null, $systemId = null, $subset = null)
     {
     }
 
     /**
+     * Write full DTD AttList tag
+     *
      * @param mixed $name
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-attlist.php
      */
     public function writeDtdAttlist($name, $content)
     {
     }
 
     /**
+     * Write full DTD element tag
+     *
      * @param mixed $name
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-element.php
      */
     public function writeDtdElement($name, $content)
     {
     }
 
     /**
+     * Write full DTD Entity tag
+     *
      * @param mixed $name
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-entity.php
      */
     public function writeDtdEntity($name, $content)
     {
     }
 
     /**
+     * Write full element tag
+     *
      * @param mixed $name
      * @param mixed|null $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-element.php
      */
     public function writeElement($name, $content = null)
     {
     }
 
     /**
+     * Write full namespaced element tag
+     *
      * @param mixed $prefix
      * @param mixed $name
      * @param mixed $uri
      * @param mixed|null $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-element-ns.php
      */
     public function writeElementNs($prefix, $name, $uri, $content = null)
     {
     }
 
     /**
+     * Writes a PI
+     *
      * @param mixed $target
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-pi.php
      */
     public function writePi($target, $content)
     {
     }
 
     /**
+     * Write a raw XML text
+     *
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
+     *
+     * @link http://www.php.net/manual/en/function.xmlwriter-write-raw.php
      */
     public function writeRaw($content)
     {

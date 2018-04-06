@@ -238,6 +238,13 @@ const MHASH_WHIRLPOOL = 22;
  */
 final class HashContext
 {
+    /**
+     * Private constructor to disallow direct instantiation
+     *
+     * @since PHP 7 >= 7.2.0
+     *
+     * @link http://www.php.net/manual/en/hashcontext.construct.php
+     */
     private function __construct()
     {
     }

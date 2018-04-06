@@ -962,87 +962,211 @@ const TIDY_TAG_XMP = 118;
  */
 class tidy
 {
+    /**
+     * Constructs a new <code>tidy</code> object
+     *
+     * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+     *
+     * @link http://www.php.net/manual/en/tidy.construct.php
+     */
     public function __construct()
     {
     }
 
+    /**
+     * Returns a <code>tidyNode</code> object starting from the &lt;body&gt; tag of the tidy parse tree
+     *
+     * @return tidyNode
+     *
+     * @link http://www.php.net/manual/en/tidy.body.php
+     */
     public function body()
     {
     }
 
-    public function cleanRepair()
-    {
-    }
-
-    public function diagnose()
-    {
-    }
-
-    public function getConfig()
-    {
-    }
-
-    public function getHtmlVer()
+    /**
+     * Execute configured cleanup and repair operations on parsed markup
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.cleanrepair.php
+     */
+    public function cleanRepair(): bool
     {
     }
 
     /**
-     * Gets options from the command line argument list
+     * Run configured diagnostics on parsed and repaired markup
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.diagnose.php
+     */
+    public function diagnose(): bool
+    {
+    }
+
+    /**
+     * Get current Tidy configuration
      *
      * @return array
      *
-     * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.getopt.php
+     * @link http://www.php.net/manual/en/tidy.getconfig.php
      */
-    public function getOpt(): array
+    public function getConfig(): array
     {
     }
 
-    public function getOptDoc()
+    /**
+     * Get the Detected HTML version for the specified document
+     *
+     * @return int
+     *
+     * @link http://www.php.net/manual/en/tidy.gethtmlver.php
+     */
+    public function getHtmlVer(): int
     {
     }
 
-    public function getRelease()
+    /**
+     * Returns the value of the specified configuration option for the tidy document
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/tidy.getopt.php
+     */
+    public function getOpt()
     {
     }
 
-    public function getStatus()
+    /**
+     * Returns the documentation for the given option name
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/tidy.getoptdoc.php
+     */
+    public function getOptDoc(): string
     {
     }
 
+    /**
+     * Get release date (version) for Tidy library
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/tidy.getrelease.php
+     */
+    public function getRelease(): string
+    {
+    }
+
+    /**
+     * Get status of specified document
+     *
+     * @return int
+     *
+     * @link http://www.php.net/manual/en/tidy.getstatus.php
+     */
+    public function getStatus(): int
+    {
+    }
+
+    /**
+     * Returns a <code>tidyNode</code> object starting from the &lt;head&gt; tag of the tidy parse tree
+     *
+     * @return tidyNode
+     *
+     * @link http://www.php.net/manual/en/tidy.head.php
+     */
     public function head()
     {
     }
 
+    /**
+     * Returns a <code>tidyNode</code> object starting from the &lt;html&gt; tag of the tidy parse tree
+     *
+     * @return tidyNode
+     *
+     * @link http://www.php.net/manual/en/tidy.html.php
+     */
     public function html()
     {
     }
 
-    public function isXhtml()
+    /**
+     * Indicates if the document is a XHTML document
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.isxhtml.php
+     */
+    public function isXhtml(): bool
     {
     }
 
-    public function isXml()
+    /**
+     * Indicates if the document is a generic (non HTML/XHTML) XML document
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.isxml.php
+     */
+    public function isXml(): bool
     {
     }
 
-    public function parseFile()
+    /**
+     * Parse markup in file or URI
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.parsefile.php
+     */
+    public function parseFile(): bool
     {
     }
 
-    public function parseString()
+    /**
+     * Parse a document stored in a string
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/tidy.parsestring.php
+     */
+    public function parseString(): bool
     {
     }
 
-    public function repairFile()
+    /**
+     * Repair a file and return it as a string
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/tidy.repairfile.php
+     */
+    public function repairFile(): string
     {
     }
 
-    public function repairString()
+    /**
+     * Repair a string using an optionally provided configuration file
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/tidy.repairstring.php
+     */
+    public function repairString(): string
     {
     }
 
+    /**
+     * Returns a <code>tidyNode</code> object representing the root of the tidy parse tree
+     *
+     * @return tidyNode
+     *
+     * @link http://www.php.net/manual/en/tidy.root.php
+     */
     public function root()
     {
     }
@@ -1061,39 +1185,120 @@ final class tidyNode
     {
     }
 
+    /**
+     * Returns the parent node of the current node
+     *
+     * @return tidyNode
+     *
+     * @since PHP 5 >= 5.2.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.getparent.php
+     */
     public function getParent()
     {
     }
 
-    public function hasChildren()
+    /**
+     * Checks if a node has children
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.haschildren.php
+     */
+    public function hasChildren(): bool
     {
     }
 
-    public function hasSiblings()
+    /**
+     * Checks if a node has siblings
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.hassiblings.php
+     */
+    public function hasSiblings(): bool
     {
     }
 
-    public function isAsp()
+    /**
+     * Checks if this node is ASP
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.isasp.php
+     */
+    public function isAsp(): bool
     {
     }
 
-    public function isComment()
+    /**
+     * Checks if a node represents a comment
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.iscomment.php
+     */
+    public function isComment(): bool
     {
     }
 
-    public function isHtml()
+    /**
+     * Checks if a node is part of a HTML document
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.ishtml.php
+     */
+    public function isHtml(): bool
     {
     }
 
-    public function isJste()
+    /**
+     * Checks if this node is JSTE
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.isjste.php
+     */
+    public function isJste(): bool
     {
     }
 
-    public function isPhp()
+    /**
+     * Checks if a node is PHP
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.isphp.php
+     */
+    public function isPhp(): bool
     {
     }
 
-    public function isText()
+    /**
+     * Checks if a node represents text (no markup)
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/tidynode.istext.php
+     */
+    public function isText(): bool
     {
     }
 }

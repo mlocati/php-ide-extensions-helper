@@ -14,13 +14,13 @@
 interface Countable
 {
     /**
-     * Count all elements in an array, or something in an object
+     * Count elements of an object
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/countable.count.php
      */
     public function count();
 }
@@ -35,6 +35,15 @@ interface Countable
  */
 interface OuterIterator extends Iterator
 {
+    /**
+     * Returns the inner iterator for the current entry
+     *
+     * @return Iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/outeriterator.getinneriterator.php
+     */
     public function getInnerIterator();
 }
 
@@ -48,8 +57,26 @@ interface OuterIterator extends Iterator
  */
 interface RecursiveIterator extends Iterator
 {
+    /**
+     * Returns an iterator for the current entry
+     *
+     * @return RecursiveIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiterator.getchildren.php
+     */
     public function getChildren();
 
+    /**
+     * Returns if an iterator can be created for the current entry
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiterator.haschildren.php
+     */
     public function hasChildren();
 }
 
@@ -63,7 +90,15 @@ interface RecursiveIterator extends Iterator
 interface SeekableIterator extends Iterator
 {
     /**
+     * Seeks to a position
+     *
      * @param mixed $position
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/seekableiterator.seek.php
      */
     public function seek($position);
 }
@@ -79,7 +114,15 @@ interface SeekableIterator extends Iterator
 interface SplObserver
 {
     /**
+     * Receive update from subject
+     *
      * @param SplSubject $SplSubject
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobserver.update.php
      */
     public function update($SplSubject);
 }
@@ -95,15 +138,40 @@ interface SplObserver
 interface SplSubject
 {
     /**
+     * Attach an SplObserver
+     *
      * @param SplObserver $SplObserver
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splsubject.attach.php
      */
     public function attach($SplObserver);
 
     /**
+     * Detach an observer
+     *
      * @param SplObserver $SplObserver
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splsubject.detach.php
      */
     public function detach($SplObserver);
 
+    /**
+     * Notify an observer
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splsubject.notify.php
+     */
     public function notify();
 }
 
@@ -116,81 +184,132 @@ interface SplSubject
  */
 class AppendIterator extends IteratorIterator
 {
+    /**
+     * Constructs an AppendIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.construct.php
+     */
     public function __construct()
     {
     }
 
     /**
+     * Appends an iterator
+     *
      * @param Iterator $iterator
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.append.php
      */
     public function append($iterator)
     {
     }
 
     /**
-     * Return the current element in an array
+     * Gets the current value
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/appenditerator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Gets the ArrayIterator
+     *
+     * @return ArrayIterator
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.getarrayiterator.php
+     */
     public function getArrayIterator()
     {
     }
 
+    /**
+     * Gets the inner iterator
+     *
+     * @return Iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
+    /**
+     * Gets an index of iterators
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.getiteratorindex.php
+     */
     public function getIteratorIndex()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Gets the current key
      *
-     * @return mixed
+     * @return scalar
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/appenditerator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Moves to the next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/appenditerator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewinds the Iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/appenditerator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Checks validity of the current element
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/appenditerator.valid.php
+     */
     public function valid()
     {
     }
@@ -207,245 +326,334 @@ class AppendIterator extends IteratorIterator
 class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Serializable
 {
     /**
+     * Construct an ArrayIterator
+     *
      * @param mixed|null $array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.construct.php
      */
     public function __construct($array = null)
     {
     }
 
     /**
+     * Append an element
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.append.php
      */
     public function append($value)
     {
     }
 
     /**
-     * Sort an array and maintain index association
+     * Sort array by values
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.asort.php
+     * @link http://www.php.net/manual/en/arrayiterator.asort.php
      */
     public function asort()
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Count elements
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/arrayiterator.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return current array entry
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/arrayiterator.current.php
      */
     public function current()
     {
     }
 
-    public function getArrayCopy()
+    /**
+     * Get array copy
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.getarraycopy.php
+     */
+    public function getArrayCopy(): array
     {
     }
 
+    /**
+     * Get flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.getflags.php
+     */
     public function getFlags()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current array key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/arrayiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Sort an array by key
+     * Sort array by keys
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.ksort.php
+     * @link http://www.php.net/manual/en/arrayiterator.ksort.php
      */
     public function ksort()
     {
     }
 
     /**
-     * Sort an array using a case insensitive "natural order" algorithm
+     * Sort an array naturally, case insensitive
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.natcasesort.php
+     * @link http://www.php.net/manual/en/arrayiterator.natcasesort.php
      */
     public function natcasesort()
     {
     }
 
     /**
-     * Sort an array using a "natural order" algorithm
+     * Sort an array naturally
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.natsort.php
+     * @link http://www.php.net/manual/en/arrayiterator.natsort.php
      */
     public function natsort()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to next entry
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/arrayiterator.next.php
      */
     public function next()
     {
     }
 
     /**
+     * Check if offset exists
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.offsetexists.php
      */
     public function offsetExists($index)
     {
     }
 
     /**
+     * Get value for an offset
+     *
      * @param mixed $index
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.offsetget.php
      */
     public function offsetGet($index)
     {
     }
 
     /**
+     * Set value for an offset
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.offsetset.php
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
+     * Unset value for an offset
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.offsetunset.php
      */
     public function offsetUnset($index)
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind array back to the start
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/arrayiterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Seek to position
+     *
      * @param mixed $position
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.seek.php
      */
     public function seek($position)
     {
     }
 
     /**
-     * Generates a storable representation of a value
+     * Serialize
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.serialize.php
+     * @link http://www.php.net/manual/en/arrayiterator.serialize.php
      */
     public function serialize()
     {
     }
 
     /**
+     * Set behaviour flags
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
     /**
-     * Sort an array with a user-defined comparison function and maintain index association
+     * Sort with a user-defined comparison function and maintain index association
      *
      * @param mixed $cmp_function
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.uasort.php
+     * @link http://www.php.net/manual/en/arrayiterator.uasort.php
      */
     public function uasort($cmp_function)
     {
     }
 
     /**
-     * Sort an array by keys using a user-defined comparison function
+     * Sort by keys using a user-defined comparison function
      *
      * @param mixed $cmp_function
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.uksort.php
+     * @link http://www.php.net/manual/en/arrayiterator.uksort.php
      */
     public function uksort($cmp_function)
     {
     }
 
     /**
-     * Creates a PHP value from a stored representation
+     * Unserialize
      *
      * @param mixed $serialized
      *
-     * @return mixed
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.unserialize.php
+     * @link http://www.php.net/manual/en/arrayiterator.unserialize.php
      */
     public function unserialize($serialized)
     {
     }
 
+    /**
+     * Check whether array contains more entries
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -461,76 +669,134 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
 class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializable
 {
     /**
+     * Construct a new array object
+     *
      * @param mixed|null $array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.construct.php
      */
     public function __construct($array = null)
     {
     }
 
     /**
+     * Appends the value
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.append.php
      */
     public function append($value)
     {
     }
 
     /**
-     * Sort an array and maintain index association
+     * Sort the entries by value
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.asort.php
+     * @link http://www.php.net/manual/en/arrayobject.asort.php
      */
     public function asort()
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Get the number of public properties in the ArrayObject
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/arrayobject.count.php
      */
     public function count()
     {
     }
 
     /**
+     * Exchange the array for another one
+     *
      * @param mixed $array
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.exchangearray.php
      */
-    public function exchangeArray($array)
+    public function exchangeArray($array): array
     {
     }
 
-    public function getArrayCopy()
+    /**
+     * Creates a copy of the ArrayObject
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.getarraycopy.php
+     */
+    public function getArrayCopy(): array
     {
     }
 
+    /**
+     * Gets the behavior flags
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.getflags.php
+     */
     public function getFlags()
     {
     }
 
+    /**
+     * Create a new iterator from an ArrayObject instance
+     *
+     * @return ArrayIterator
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.getiterator.php
+     */
     public function getIterator()
     {
     }
 
+    /**
+     * Gets the iterator classname for the ArrayObject
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.getiteratorclass.php
+     */
     public function getIteratorClass()
     {
     }
 
     /**
-     * Sort an array by key
+     * Sort the entries by key
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.ksort.php
+     * @link http://www.php.net/manual/en/arrayobject.ksort.php
      */
     public function ksort()
     {
@@ -539,125 +805,173 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort an array using a case insensitive "natural order" algorithm
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.natcasesort.php
+     * @link http://www.php.net/manual/en/arrayobject.natcasesort.php
      */
     public function natcasesort()
     {
     }
 
     /**
-     * Sort an array using a "natural order" algorithm
+     * Sort entries using a "natural order" algorithm
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.natsort.php
+     * @link http://www.php.net/manual/en/arrayobject.natsort.php
      */
     public function natsort()
     {
     }
 
     /**
+     * Returns whether the requested index exists
+     *
      * @param mixed $index
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.offsetexists.php
      */
     public function offsetExists($index)
     {
     }
 
     /**
+     * Returns the value at the specified index
+     *
      * @param mixed $index
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.offsetget.php
      */
     public function offsetGet($index)
     {
     }
 
     /**
+     * Sets the value at the specified index to newval
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.offsetset.php
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
+     * Unsets the value at the specified index
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.offsetunset.php
      */
     public function offsetUnset($index)
     {
     }
 
     /**
-     * Generates a storable representation of a value
+     * Serialize an ArrayObject
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.serialize.php
+     * @link http://www.php.net/manual/en/arrayobject.serialize.php
      */
     public function serialize()
     {
     }
 
     /**
+     * Sets the behavior flags
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
     /**
+     * Sets the iterator classname for the ArrayObject
+     *
      * @param mixed $iteratorClass
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/arrayobject.setiteratorclass.php
      */
     public function setIteratorClass($iteratorClass)
     {
     }
 
     /**
-     * Sort an array with a user-defined comparison function and maintain index association
+     * Sort the entries with a user-defined comparison function and maintain key association
      *
      * @param mixed $cmp_function
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.uasort.php
+     * @link http://www.php.net/manual/en/arrayobject.uasort.php
      */
     public function uasort($cmp_function)
     {
     }
 
     /**
-     * Sort an array by keys using a user-defined comparison function
+     * Sort the entries by keys using a user-defined comparison function
      *
      * @param mixed $cmp_function
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.uksort.php
+     * @link http://www.php.net/manual/en/arrayobject.uksort.php
      */
     public function uksort($cmp_function)
     {
     }
 
     /**
-     * Creates a PHP value from a stored representation
+     * Unserialize an ArrayObject
      *
      * @param mixed $serialized
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.unserialize.php
+     * @link http://www.php.net/manual/en/arrayobject.unserialize.php
      */
     public function unserialize($serialized)
     {
@@ -698,134 +1012,234 @@ class BadMethodCallException extends BadFunctionCallException
 class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
     /**
+     * Construct a new CachingIterator object for the iterator
+     *
      * @param Iterator $iterator
      * @param mixed|null $flags
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.construct.php
      */
     public function __construct($iterator, $flags = null)
     {
     }
 
+    /**
+     * Return the string representation of the current element
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.tostring.php
+     */
     public function __toString()
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * The number of elements in the iterator
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.2, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/cachingiterator.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return the current element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/cachingiterator.current.php
      */
     public function current()
     {
     }
 
-    public function getCache()
+    /**
+     * Retrieve the contents of the cache
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.getcache.php
+     */
+    public function getCache(): array
     {
     }
 
+    /**
+     * Get flags used
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.getflags.php
+     */
     public function getFlags()
     {
     }
 
+    /**
+     * Returns the inner iterator
+     *
+     * @return Iterator
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
+    /**
+     * Check whether the inner iterator has a valid next element
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.hasnext.php
+     */
     public function hasNext()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return the key for the current element
      *
-     * @return mixed
+     * @return scalar
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/cachingiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move the iterator forward
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/cachingiterator.next.php
      */
     public function next()
     {
     }
 
     /**
+     * The offsetExists purpose
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.offsetexists.php
      */
     public function offsetExists($index)
     {
     }
 
     /**
+     * The offsetGet purpose
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.offsetget.php
      */
     public function offsetGet($index)
     {
     }
 
     /**
+     * The offsetSet purpose
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.offsetset.php
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
+     * The offsetUnset purpose
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.offsetunset.php
      */
     public function offsetUnset($index)
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/cachingiterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * The setFlags purpose
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
+    /**
+     * Check whether the current element is valid
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/cachingiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -842,13 +1256,28 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 class CallbackFilterIterator extends FilterIterator
 {
     /**
+     * Create a filtered iterator from another iterator
+     *
      * @param Iterator $iterator
      * @param mixed $callback
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/callbackfilteriterator.construct.php
      */
     public function __construct($iterator, $callback)
     {
     }
 
+    /**
+     * Calls the callback with the current value, the current key and the inner iterator as arguments
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/callbackfilteriterator.accept.php
+     */
     public function accept()
     {
     }
@@ -865,94 +1294,161 @@ class CallbackFilterIterator extends FilterIterator
 class DirectoryIterator extends SplFileInfo implements SeekableIterator
 {
     /**
+     * Constructs a new directory iterator from a path
+     *
      * @param mixed $path
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.construct.php
      */
     public function __construct($path)
     {
     }
 
+    /**
+     * Get file name as a string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.tostring.php
+     */
     public function __toString()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return the current DirectoryIterator item
      *
-     * @return mixed
+     * @return DirectoryIterator
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/directoryiterator.current.php
      */
     public function current()
     {
     }
 
     /**
+     * Get base name of current DirectoryIterator item
+     *
      * @param mixed|null $suffix
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.getbasename.php
      */
     public function getBasename($suffix = null)
     {
     }
 
+    /**
+     * Gets the file extension
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.6, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.getextension.php
+     */
     public function getExtension()
     {
     }
 
+    /**
+     * Return file name of current DirectoryIterator item
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.getfilename.php
+     */
     public function getFilename()
     {
     }
 
+    /**
+     * Determine if current DirectoryIterator item is '.' or '..'
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.isdot.php
+     */
     public function isDot()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return the key for the current DirectoryIterator item
      *
-     * @return mixed
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/directoryiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move forward to next DirectoryIterator item
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/directoryiterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the DirectoryIterator back to the start
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/directoryiterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Seek to a DirectoryIterator item
+     *
      * @param mixed $position
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.seek.php
      */
     public function seek($position)
     {
     }
 
+    /**
+     * Check whether current DirectoryIterator position is a valid file
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directoryiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -979,57 +1475,66 @@ class DomainException extends LogicException
 class EmptyIterator implements Iterator
 {
     /**
-     * Return the current element in an array
+     * The current() method
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/emptyiterator.current.php
      */
     public function current()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * The key() method
      *
-     * @return mixed
+     * @return scalar
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/emptyiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * The next() method
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/emptyiterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * The rewind() method
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/emptyiterator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * The valid() method
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/emptyiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -1045,71 +1550,94 @@ class EmptyIterator implements Iterator
 class FilesystemIterator extends DirectoryIterator
 {
     /**
+     * Constructs a new filesystem iterator
+     *
      * @param mixed $path
      * @param mixed|null $flags
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filesystemiterator.construct.php
      */
     public function __construct($path, $flags = null)
     {
     }
 
     /**
-     * Return the current element in an array
+     * The current file
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/filesystemiterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Get the handling flags
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filesystemiterator.getflags.php
+     */
     public function getFlags()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Retrieve the key for the current file
      *
-     * @return mixed
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/filesystemiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to the next file
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/filesystemiterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewinds back to the beginning
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/filesystemiterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Sets handling flags
+     *
      * @param mixed|null $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filesystemiterator.setflags.php
      */
     public function setFlags($flags = null)
     {
@@ -1128,70 +1656,103 @@ class FilesystemIterator extends DirectoryIterator
 abstract class FilterIterator extends IteratorIterator
 {
     /**
+     * Construct a filterIterator
+     *
      * @param Iterator $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filteriterator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
+    /**
+     * Check whether the current element of the iterator is acceptable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filteriterator.accept.php
+     */
     abstract public function accept();
 
     /**
-     * Return the current element in an array
+     * Get the current element value
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/filteriterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Get the inner iterator
+     *
+     * @return Iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filteriterator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get the current key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/filteriterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move the iterator forward
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/filteriterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/filteriterator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Check whether the current element is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/filteriterator.valid.php
+     */
     public function valid()
     {
     }
@@ -1208,21 +1769,27 @@ abstract class FilterIterator extends IteratorIterator
 class GlobIterator extends FilesystemIterator implements Countable
 {
     /**
+     * Construct a directory using glob
+     *
      * @param mixed $path
      * @param mixed|null $flags
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/globiterator.construct.php
      */
     public function __construct($path, $flags = null)
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Get the number of directories and files
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/globiterator.count.php
      */
     public function count()
     {
@@ -1241,20 +1808,26 @@ class GlobIterator extends FilesystemIterator implements Countable
 class InfiniteIterator extends IteratorIterator
 {
     /**
+     * Constructs an InfiniteIterator
+     *
      * @param Iterator $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/infiniteiterator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Moves the inner Iterator forward or rewinds it
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/infiniteiterator.next.php
      */
     public function next()
     {
@@ -1287,68 +1860,92 @@ class InvalidArgumentException extends LogicException
 class IteratorIterator implements OuterIterator
 {
     /**
+     * Create an iterator from anything that is traversable
+     *
      * @param Traversable $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/iteratoriterator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
     /**
-     * Return the current element in an array
+     * Get the current value
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/iteratoriterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Get the inner iterator
+     *
+     * @return Traversable
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/iteratoriterator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get the key of the current element
      *
-     * @return mixed
+     * @return scalar
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/iteratoriterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Forward to the next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/iteratoriterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind to the first element
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/iteratoriterator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Checks if the iterator is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/iteratoriterator.valid.php
+     */
     public function valid()
     {
     }
@@ -1376,81 +1973,122 @@ class LengthException extends LogicException
 class LimitIterator extends IteratorIterator
 {
     /**
+     * Construct a LimitIterator
+     *
      * @param Iterator $iterator
      * @param mixed|null $offset
      * @param mixed|null $count
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/limititerator.construct.php
      */
     public function __construct($iterator, $offset = null, $count = null)
     {
     }
 
     /**
-     * Return the current element in an array
+     * Get current element
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/limititerator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Get inner iterator
+     *
+     * @return Iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/limititerator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
+    /**
+     * Return the current position
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/limititerator.getposition.php
+     */
     public function getPosition()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get current key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/limititerator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move the iterator forward
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/limititerator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the iterator to the specified starting offset
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/limititerator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Seek to the given position
+     *
      * @param mixed $position
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/limititerator.seek.php
      */
     public function seek($position)
     {
     }
 
+    /**
+     * Check whether the current element is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/limititerator.valid.php
+     */
     public function valid()
     {
     }
@@ -1478,101 +2116,166 @@ class LogicException extends Exception
 class MultipleIterator implements Iterator
 {
     /**
+     * Constructs a new MultipleIterator
+     *
      * @param mixed $flags
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.construct.php
      */
     public function __construct($flags)
     {
     }
 
     /**
+     * Attaches iterator information
+     *
      * @param Iterator $iterator
      * @param mixed|null $infos
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.attachiterator.php
      */
     public function attachIterator($iterator, $infos = null)
     {
     }
 
     /**
+     * Checks if an iterator is attached
+     *
      * @param Iterator $iterator
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.containsiterator.php
      */
     public function containsIterator($iterator)
     {
     }
 
+    /**
+     * Gets the number of attached iterator instances
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.countiterators.php
+     */
     public function countIterators()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Gets the registered iterator instances
      *
-     * @return mixed
+     * @return array
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/multipleiterator.current.php
      */
-    public function current()
+    public function current(): array
     {
     }
 
     /**
+     * Detaches an iterator
+     *
      * @param Iterator $iterator
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.detachiterator.php
      */
     public function detachIterator($iterator)
     {
     }
 
+    /**
+     * Gets the flag information
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.getflags.php
+     */
     public function getFlags()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Gets the registered iterator instances
      *
-     * @return mixed
+     * @return array
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/multipleiterator.key.php
      */
-    public function key()
+    public function key(): array
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Moves all attached iterator instances forward
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/multipleiterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewinds all attached iterator instances
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/multipleiterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Sets flags
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
+    /**
+     * Checks the validity of sub iterators
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/multipleiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -1588,68 +2291,92 @@ class MultipleIterator implements Iterator
 class NoRewindIterator extends IteratorIterator
 {
     /**
+     * Construct a NoRewindIterator
+     *
      * @param Iterator $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/norewinditerator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
     /**
-     * Return the current element in an array
+     * Get the current value
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/norewinditerator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Get the inner iterator
+     *
+     * @return iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/norewinditerator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get the current key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/norewinditerator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Forward to the next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/norewinditerator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Prevents the rewind operation on the inner iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/norewinditerator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Validates the iterator
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/norewinditerator.valid.php
+     */
     public function valid()
     {
     }
@@ -1702,12 +2429,27 @@ class OverflowException extends RuntimeException
 class ParentIterator extends RecursiveFilterIterator
 {
     /**
+     * Constructs a ParentIterator
+     *
      * @param RecursiveIterator $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/parentiterator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
+    /**
+     * Determines acceptability
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/parentiterator.accept.php
+     */
     public function accept()
     {
     }
@@ -1738,10 +2480,28 @@ class RangeException extends RuntimeException
  */
 class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 {
+    /**
+     * Returns an iterator for the current entry if it is an <code>array</code> or an <code>object</code>
+     *
+     * @return RecursiveArrayIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivearrayiterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Returns whether current entry is an array or an object
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivearrayiterator.haschildren.php
+     */
     public function hasChildren()
     {
     }
@@ -1757,17 +2517,41 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator
 {
     /**
+     * Construct
+     *
      * @param Iterator $iterator
      * @param mixed|null $flags
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecachingiterator.construct.php
      */
     public function __construct($iterator, $flags = null)
     {
     }
 
+    /**
+     * Return the inner iterator's children as a RecursiveCachingIterator
+     *
+     * @return RecursiveCachingIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecachingiterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Check whether the current element of the inner iterator has children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecachingiterator.haschildren.php
+     */
     public function hasChildren()
     {
     }
@@ -1784,17 +2568,41 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
 class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator
 {
     /**
+     * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
+     *
      * @param RecursiveIterator $iterator
      * @param mixed $callback
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
     public function __construct($iterator, $callback)
     {
     }
 
+    /**
+     * Return the inner iterator's children contained in a RecursiveCallbackFilterIterator
+     *
+     * @return RecursiveCallbackFilterIterator
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Check whether the inner iterator's current element has children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.haschildren.php
+     */
     public function hasChildren()
     {
     }
@@ -1811,27 +2619,68 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
 class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator
 {
     /**
+     * Constructs a RecursiveDirectoryIterator
+     *
      * @param mixed $path
      * @param mixed|null $flags
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivedirectoryiterator.construct.php
      */
     public function __construct($path, $flags = null)
     {
     }
 
+    /**
+     * Returns an iterator for the current entry if it is a directory
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivedirectoryiterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Get sub path
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivedirectoryiterator.getsubpath.php
+     */
     public function getSubPath()
     {
     }
 
+    /**
+     * Get sub path and name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivedirectoryiterator.getsubpathname.php
+     */
     public function getSubPathname()
     {
     }
 
     /**
+     * Returns whether current entry is a directory and not '.' or '..'
+     *
      * @param mixed|null $allow_links
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivedirectoryiterator.haschildren.php
      */
     public function hasChildren($allow_links = null)
     {
@@ -1850,16 +2699,40 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
 abstract class RecursiveFilterIterator extends FilterIterator implements RecursiveIterator
 {
     /**
+     * Create a RecursiveFilterIterator from a RecursiveIterator
+     *
      * @param RecursiveIterator $iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivefilteriterator.construct.php
      */
     public function __construct($iterator)
     {
     }
 
+    /**
+     * Return the inner iterator's children contained in a RecursiveFilterIterator
+     *
+     * @return RecursiveFilterIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivefilteriterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Check whether the inner iterator's current element has children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivefilteriterator.haschildren.php
+     */
     public function hasChildren()
     {
     }
@@ -1875,120 +2748,241 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
 class RecursiveIteratorIterator implements OuterIterator
 {
     /**
+     * Construct a RecursiveIteratorIterator
+     *
      * @param Traversable $iterator
      * @param mixed|null $mode
      * @param mixed|null $flags
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.construct.php
      */
     public function __construct($iterator, $mode = null, $flags = null)
     {
     }
 
+    /**
+     * Begin children
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.beginchildren.php
+     */
     public function beginChildren()
     {
     }
 
+    /**
+     * Begin Iteration
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.beginiteration.php
+     */
     public function beginIteration()
     {
     }
 
+    /**
+     * Get children
+     *
+     * @return RecursiveIterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.callgetchildren.php
+     */
     public function callGetChildren()
     {
     }
 
+    /**
+     * Has children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.callhaschildren.php
+     */
     public function callHasChildren()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Access the current element value
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * End children
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.endchildren.php
+     */
     public function endChildren()
     {
     }
 
+    /**
+     * End Iteration
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.enditeration.php
+     */
     public function endIteration()
     {
     }
 
+    /**
+     * Get the current depth of the recursive iteration
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.getdepth.php
+     */
     public function getDepth()
     {
     }
 
+    /**
+     * Get inner iterator
+     *
+     * @return iterator
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.getinneriterator.php
+     */
     public function getInnerIterator()
     {
     }
 
+    /**
+     * Get max depth
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
+     */
     public function getMaxDepth()
     {
     }
 
     /**
+     * The current active sub iterator
+     *
      * @param mixed|null $level
+     *
+     * @return RecursiveIterator
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.getsubiterator.php
      */
     public function getSubIterator($level = null)
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Access the current key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move forward to the next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.next.php
      */
     public function next()
     {
     }
 
+    /**
+     * Next element
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.nextelement.php
+     */
     public function nextElement()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the iterator to the first element of the top level inner iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Set max depth
+     *
      * @param mixed|null $max_depth
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
      */
     public function setMaxDepth($max_depth = null)
     {
     }
 
+    /**
+     * Check whether the current position is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveiteratoriterator.valid.php
+     */
     public function valid()
     {
     }
@@ -2004,24 +2998,51 @@ class RecursiveIteratorIterator implements OuterIterator
 class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 {
     /**
+     * Creates a new RecursiveRegexIterator
+     *
      * @param RecursiveIterator $iterator
      * @param mixed $regex
      * @param mixed|null $mode
      * @param mixed|null $flags
      * @param mixed|null $preg_flags
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveregexiterator.construct.php
      */
     public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.2.0, PHP 7
+     */
     public function accept()
     {
     }
 
+    /**
+     * Returns an iterator for the current entry
+     *
+     * @return RecursiveRegexIterator
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveregexiterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
+    /**
+     * Returns whether an iterator can be obtained for the current entry
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursiveregexiterator.haschildren.php
+     */
     public function hasChildren()
     {
     }
@@ -2037,119 +3058,241 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     /**
+     * Construct a RecursiveTreeIterator
+     *
      * @param Traversable $iterator
      * @param mixed|null $flags
      * @param mixed|null $caching_it_flags
      * @param mixed|null $mode
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.construct.php
      */
     public function __construct($iterator, $flags = null, $caching_it_flags = null, $mode = null)
     {
     }
 
+    /**
+     * Begin children
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.beginchildren.php
+     */
     public function beginChildren()
     {
     }
 
+    /**
+     * Begin iteration
+     *
+     * @return RecursiveIterator
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.beginiteration.php
+     */
     public function beginIteration()
     {
     }
 
+    /**
+     * Get children
+     *
+     * @return RecursiveIterator
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.callgetchildren.php
+     */
     public function callGetChildren()
     {
     }
 
+    /**
+     * Has children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.callhaschildren.php
+     */
     public function callHasChildren()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Get current element
      *
-     * @return mixed
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/recursivetreeiterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * End children
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.endchildren.php
+     */
     public function endChildren()
     {
     }
 
+    /**
+     * End iteration
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.enditeration.php
+     */
     public function endIteration()
     {
     }
 
+    /**
+     * Get current entry
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.getentry.php
+     */
     public function getEntry()
     {
     }
 
+    /**
+     * Get the postfix
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.getpostfix.php
+     */
     public function getPostfix()
     {
     }
 
+    /**
+     * Get the prefix
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.getprefix.php
+     */
     public function getPrefix()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get the key of the current element
      *
-     * @return mixed
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/recursivetreeiterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/recursivetreeiterator.next.php
      */
     public function next()
     {
     }
 
+    /**
+     * Next element
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.nextelement.php
+     */
     public function nextElement()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/recursivetreeiterator.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Set postfix
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.setpostfix.php
+     */
     public function setPostfix()
     {
     }
 
     /**
+     * Set a part of the prefix
+     *
      * @param mixed $part
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.setprefixpart.php
      */
     public function setPrefixPart($part, $value)
     {
     }
 
+    /**
+     * Check validity
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/recursivetreeiterator.valid.php
+     */
     public function valid()
     {
     }
@@ -2165,52 +3308,127 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 class RegexIterator extends FilterIterator
 {
     /**
+     * Create a new RegexIterator
+     *
      * @param Iterator $iterator
      * @param mixed $regex
      * @param mixed|null $mode
      * @param mixed|null $flags
      * @param mixed|null $preg_flags
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.construct.php
      */
     public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
+    /**
+     * Get accept status
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.accept.php
+     */
     public function accept()
     {
     }
 
+    /**
+     * Get flags
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.getflags.php
+     */
     public function getFlags()
     {
     }
 
+    /**
+     * Returns operation mode
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.getmode.php
+     */
     public function getMode()
     {
     }
 
+    /**
+     * Returns the regular expression flags
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.getpregflags.php
+     */
     public function getPregFlags()
     {
     }
 
+    /**
+     * Returns current regular expression
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.getregex.php
+     */
     public function getRegex()
     {
     }
 
     /**
+     * Sets the flags
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
     /**
+     * Sets the operation mode
+     *
      * @param mixed $mode
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.setmode.php
      */
     public function setMode($mode)
     {
     }
 
     /**
+     * Sets the regular expression flags
+     *
      * @param mixed $preg_flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/regexiterator.setpregflags.php
      */
     public function setPregFlags($preg_flags)
     {
@@ -2238,193 +3456,320 @@ class RuntimeException extends Exception
 class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializable
 {
     /**
+     * Add/insert a new value at the specified index
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.add.php
      */
     public function add($index, $newval)
     {
     }
 
+    /**
+     * Peeks at the node from the beginning of the doubly linked list
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.bottom.php
+     */
     public function bottom()
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Counts the number of elements in the doubly linked list
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return current array entry
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Returns the mode of iteration
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.getiteratormode.php
+     */
     public function getIteratorMode()
     {
     }
 
+    /**
+     * Checks whether the doubly linked list is empty
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.isempty.php
+     */
     public function isEmpty()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current node index
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to next entry
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.next.php
      */
     public function next()
     {
     }
 
     /**
+     * Returns whether the requested $index exists
+     *
      * @param mixed $index
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetexists.php
      */
     public function offsetExists($index)
     {
     }
 
     /**
+     * Returns the value at the specified $index
+     *
      * @param mixed $index
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetget.php
      */
     public function offsetGet($index)
     {
     }
 
     /**
+     * Sets the value at the specified $index to $newval
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetset.php
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
+     * Unsets the value at the specified $index
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetunset.php
      */
     public function offsetUnset($index)
     {
     }
 
+    /**
+     * Pops a node from the end of the doubly linked list
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.pop.php
+     */
     public function pop()
     {
     }
 
     /**
-     * Rewind the internal array pointer
+     * Move to previous entry
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.prev.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.prev.php
      */
     public function prev()
     {
     }
 
     /**
+     * Pushes an element at the end of the doubly linked list
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.push.php
      */
     public function push($value)
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind iterator back to the start
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
-     * Generates a storable representation of a value
+     * Serializes the storage
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.4.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.serialize.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.serialize.php
      */
     public function serialize()
     {
     }
 
     /**
+     * Sets the mode of iteration
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.setiteratormode.php
      */
     public function setIteratorMode($flags)
     {
     }
 
+    /**
+     * Shifts a node from the beginning of the doubly linked list
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.shift.php
+     */
     public function shift()
     {
     }
 
+    /**
+     * Peeks at the node from the end of the doubly linked list
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.top.php
+     */
     public function top()
     {
     }
 
     /**
-     * Creates a PHP value from a stored representation
+     * Unserializes the storage
      *
      * @param mixed $serialized
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.4.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.unserialize.php
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.unserialize.php
      */
     public function unserialize($serialized)
     {
     }
 
     /**
+     * Prepends the doubly linked list with an element
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.unshift.php
      */
     public function unshift($value)
     {
     }
 
+    /**
+     * Check whether the doubly linked list contains more nodes
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spldoublylinkedlist.valid.php
+     */
     public function valid()
     {
     }
@@ -2441,12 +3786,27 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
 class SplFileInfo
 {
     /**
+     * Construct a new SplFileInfo object
+     *
      * @param mixed $file_name
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.construct.php
      */
     public function __construct($file_name)
     {
     }
 
+    /**
+     * Returns the path to the file as a string
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.tostring.php
+     */
     public function __toString()
     {
     }
@@ -2455,138 +3815,366 @@ class SplFileInfo
     {
     }
 
+    /**
+     * Gets last access time of the file
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getatime.php
+     */
     public function getATime()
     {
     }
 
     /**
+     * Gets the base name of the file
+     *
      * @param mixed|null $suffix
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getbasename.php
      */
     public function getBasename($suffix = null)
     {
     }
 
+    /**
+     * Gets the inode change time
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getctime.php
+     */
     public function getCTime()
     {
     }
 
+    /**
+     * Gets the file extension
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.6, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getextension.php
+     */
     public function getExtension()
     {
     }
 
     /**
+     * Gets an SplFileInfo object for the file
+     *
      * @param mixed|null $class_name
+     *
+     * @return SplFileInfo
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getfileinfo.php
      */
     public function getFileInfo($class_name = null)
     {
     }
 
+    /**
+     * Gets the filename
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getfilename.php
+     */
     public function getFilename()
     {
     }
 
+    /**
+     * Gets the file group
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getgroup.php
+     */
     public function getGroup()
     {
     }
 
+    /**
+     * Gets the inode for the file
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getinode.php
+     */
     public function getInode()
     {
     }
 
+    /**
+     * Gets the target of a link
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getlinktarget.php
+     */
     public function getLinkTarget()
     {
     }
 
+    /**
+     * Gets the last modified time
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getmtime.php
+     */
     public function getMTime()
     {
     }
 
+    /**
+     * Gets the owner of the file
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getowner.php
+     */
     public function getOwner()
     {
     }
 
+    /**
+     * Gets the path without filename
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getpath.php
+     */
     public function getPath()
     {
     }
 
     /**
+     * Gets an SplFileInfo object for the path
+     *
      * @param mixed|null $class_name
+     *
+     * @return SplFileInfo
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getpathinfo.php
      */
     public function getPathInfo($class_name = null)
     {
     }
 
+    /**
+     * Gets the path to the file
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getpathname.php
+     */
     public function getPathname()
     {
     }
 
+    /**
+     * Gets file permissions
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getperms.php
+     */
     public function getPerms()
     {
     }
 
+    /**
+     * Gets absolute path to file
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getrealpath.php
+     */
     public function getRealPath()
     {
     }
 
+    /**
+     * Gets file size
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.getsize.php
+     */
     public function getSize()
     {
     }
 
     /**
-     * Get the type of a variable
+     * Gets file type
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.2, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.gettype.php
+     * @link http://www.php.net/manual/en/splfileinfo.gettype.php
      */
     public function getType()
     {
     }
 
+    /**
+     * Tells if the file is a directory
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.isdir.php
+     */
     public function isDir()
     {
     }
 
+    /**
+     * Tells if the file is executable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.isexecutable.php
+     */
     public function isExecutable()
     {
     }
 
+    /**
+     * Tells if the object references a regular file
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.isfile.php
+     */
     public function isFile()
     {
     }
 
+    /**
+     * Tells if the file is a link
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.islink.php
+     */
     public function isLink()
     {
     }
 
+    /**
+     * Tells if file is readable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.isreadable.php
+     */
     public function isReadable()
     {
     }
 
+    /**
+     * Tells if the entry is writable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.iswritable.php
+     */
     public function isWritable()
     {
     }
 
     /**
+     * Gets an SplFileObject object for the file
+     *
      * @param mixed|null $open_mode
      * @param mixed|null $use_include_path
      * @param mixed|null $context
+     *
+     * @return SplFileObject
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.openfile.php
      */
     public function openFile($open_mode = null, $use_include_path = null, $context = null)
     {
     }
 
     /**
+     * Sets the class used with <code>SplFileInfo::openFile</code>
+     *
      * @param mixed|null $class_name
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.setfileclass.php
      */
     public function setFileClass($class_name = null)
     {
     }
 
     /**
+     * Sets the class used with <code>SplFileInfo::getFileInfo</code> and <code>SplFileInfo::getPathInfo</code>
+     *
      * @param mixed|null $class_name
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileinfo.setinfoclass.php
      */
     public function setInfoClass($class_name = null)
     {
@@ -2603,64 +4191,88 @@ class SplFileInfo
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator
 {
     /**
+     * Construct a new file object
+     *
      * @param mixed $file_name
      * @param mixed|null $open_mode
      * @param mixed|null $use_include_path
      * @param mixed|null $context
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.construct.php
      */
     public function __construct($file_name, $open_mode = null, $use_include_path = null, $context = null)
     {
     }
 
+    /**
+     * Alias of <code>SplFileObject::current</code>
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.tostring.php
+     */
     public function __toString()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Retrieve current line of file
      *
-     * @return mixed
+     * @return string|array
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/splfileobject.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Reached end of file
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.eof.php
+     */
     public function eof()
     {
     }
 
     /**
-     * Flushes the output to a file
+     * Flushes the output to the file
      *
      * @return bool
      *
-     * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fflush.php
+     * @link http://www.php.net/manual/en/splfileobject.fflush.php
      */
     public function fflush()
     {
     }
 
     /**
-     * Gets character from file pointer
+     * Gets character from file
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fgetc.php
+     * @link http://www.php.net/manual/en/splfileobject.fgetc.php
      */
     public function fgetc()
     {
     }
 
     /**
-     * Gets line from file pointer and parse for CSV fields
+     * Gets line from file and parse as CSV fields
      *
      * @param mixed|null $delimiter
      * @param mixed|null $enclosure
@@ -2668,53 +4280,53 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @return array
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fgetcsv.php
+     * @link http://www.php.net/manual/en/splfileobject.fgetcsv.php
      */
     public function fgetcsv($delimiter = null, $enclosure = null, $escape = null): array
     {
     }
 
     /**
-     * Gets line from file pointer
+     * Gets line from file
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fgets.php
+     * @link http://www.php.net/manual/en/splfileobject.fgets.php
      */
     public function fgets()
     {
     }
 
     /**
-     * Gets line from file pointer and strip HTML tags
+     * Gets line from file and strip HTML tags
      *
      * @param mixed|null $allowable_tags
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fgetss.php
+     * @link http://www.php.net/manual/en/splfileobject.fgetss.php
      */
     public function fgetss($allowable_tags = null)
     {
     }
 
     /**
-     * Portable advisory file locking
+     * Portable file locking
      *
      * @param mixed $operation
      * @param mixed|null $wouldblock
      *
      * @return bool
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.flock.php
+     * @link http://www.php.net/manual/en/splfileobject.flock.php
      */
     public function flock($operation, &$wouldblock = null)
     {
@@ -2725,16 +4337,16 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fpassthru.php
+     * @link http://www.php.net/manual/en/splfileobject.fpassthru.php
      */
     public function fpassthru()
     {
     }
 
     /**
-     * Format line as CSV and write to file pointer
+     * Write a field array as a CSV line
      *
      * @param mixed $fields
      * @param mixed|null $delimiter
@@ -2743,211 +4355,304 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @return int
      *
-     * @since PHP 5 >= 5.1.0, PHP 7
+     * @since PHP 5 >= 5.4.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fputcsv.php
+     * @link http://www.php.net/manual/en/splfileobject.fputcsv.php
      */
     public function fputcsv($fields, $delimiter = null, $enclosure = null, $escape = null)
     {
     }
 
     /**
-     * Binary-safe file read
+     * Read from file
      *
      * @param mixed $length
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.5.11, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fread.php
+     * @link http://www.php.net/manual/en/splfileobject.fread.php
      */
     public function fread($length)
     {
     }
 
     /**
-     * Parses input from a file according to a format
+     * Parses input from file according to a format
      *
      * @param mixed $format
      * @param mixed $vars
      *
      * @return mixed
      *
-     * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fscanf.php
+     * @link http://www.php.net/manual/en/splfileobject.fscanf.php
      */
     public function fscanf($format, &...$vars)
     {
     }
 
     /**
-     * Seeks on a file pointer
+     * Seek to a position
      *
      * @param mixed $pos
      * @param mixed|null $whence
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fseek.php
+     * @link http://www.php.net/manual/en/splfileobject.fseek.php
      */
     public function fseek($pos, $whence = null)
     {
     }
 
     /**
-     * Gets information about a file using an open file pointer
+     * Gets information about the file
      *
      * @return array
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fstat.php
+     * @link http://www.php.net/manual/en/splfileobject.fstat.php
      */
     public function fstat(): array
     {
     }
 
     /**
-     * Returns the current position of the file read/write pointer
+     * Return current file position
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.ftell.php
+     * @link http://www.php.net/manual/en/splfileobject.ftell.php
      */
     public function ftell()
     {
     }
 
     /**
-     * Truncates a file to a given length
+     * Truncates the file to a given length
      *
      * @param mixed $size
      *
      * @return bool
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.ftruncate.php
+     * @link http://www.php.net/manual/en/splfileobject.ftruncate.php
      */
     public function ftruncate($size)
     {
     }
 
     /**
-     * Binary-safe file write
+     * Write to file
      *
      * @param mixed $str
      * @param mixed|null $length
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.fwrite.php
+     * @link http://www.php.net/manual/en/splfileobject.fwrite.php
      */
     public function fwrite($str, $length = null)
     {
     }
 
+    /**
+     * No purpose
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.getchildren.php
+     */
     public function getChildren()
     {
     }
 
-    public function getCsvControl()
+    /**
+     * Get the delimiter, enclosure and escape character for CSV
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.getcsvcontrol.php
+     */
+    public function getCsvControl(): array
     {
     }
 
+    /**
+     * Alias of <code>SplFileObject::fgets</code>
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.getcurrentline.php
+     */
     public function getCurrentLine()
     {
     }
 
+    /**
+     * Gets flags for the SplFileObject
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.getflags.php
+     */
     public function getFlags()
     {
     }
 
+    /**
+     * Get maximum line length
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.getmaxlinelen.php
+     */
     public function getMaxLineLen()
     {
     }
 
+    /**
+     * SplFileObject does not have children
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.haschildren.php
+     */
     public function hasChildren()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Get line number
      *
-     * @return mixed
+     * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/splfileobject.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Read next line
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/splfileobject.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the file to the first line
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/splfileobject.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Seek to specified line
+     *
      * @param mixed $line_pos
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.seek.php
      */
     public function seek($line_pos)
     {
     }
 
     /**
+     * Set the delimiter, enclosure and escape character for CSV
+     *
      * @param mixed|null $delimiter
      * @param mixed|null $enclosure
      * @param mixed|null $escape
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.setcsvcontrol.php
      */
     public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
     {
     }
 
     /**
+     * Sets flags for the SplFileObject
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.setflags.php
      */
     public function setFlags($flags)
     {
     }
 
     /**
+     * Set maximum line length
+     *
      * @param mixed $max_len
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.setmaxlinelen.php
      */
     public function setMaxLineLen($max_len)
     {
     }
 
+    /**
+     * Not at EOF
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfileobject.valid.php
+     */
     public function valid()
     {
     }
@@ -2967,133 +4672,223 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 class SplFixedArray implements ArrayAccess, Countable, Iterator
 {
     /**
+     * Constructs a new fixed array
+     *
      * @param mixed|null $size
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.construct.php
      */
     public function __construct($size = null)
     {
     }
 
+    /**
+     * Reinitialises the array after being unserialised
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.wakeup.php
+     */
     public function __wakeup()
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Returns the size of the array
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/splfixedarray.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return current array entry
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/splfixedarray.current.php
      */
     public function current()
     {
     }
 
     /**
+     * Import a PHP array in a <code>SplFixedArray</code> instance
+     *
      * @param mixed $data
      * @param mixed|null $save_indexes
+     *
+     * @return SplFixedArray
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.fromarray.php
      */
     public static function fromArray($data, $save_indexes = null)
     {
     }
 
+    /**
+     * Gets the size of the array
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.getsize.php
+     */
     public function getSize()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current array index
      *
-     * @return mixed
+     * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/splfixedarray.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to next entry
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/splfixedarray.next.php
      */
     public function next()
     {
     }
 
     /**
+     * Returns whether the requested index exists
+     *
      * @param mixed $index
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.offsetexists.php
      */
     public function offsetExists($index)
     {
     }
 
     /**
+     * Returns the value at the specified index
+     *
      * @param mixed $index
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.offsetget.php
      */
     public function offsetGet($index)
     {
     }
 
     /**
+     * Sets a new value at a specified index
+     *
      * @param mixed $index
      * @param mixed $newval
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.offsetset.php
      */
     public function offsetSet($index, $newval)
     {
     }
 
     /**
+     * Unsets the value at the specified $index
+     *
      * @param mixed $index
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.offsetunset.php
      */
     public function offsetUnset($index)
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind iterator back to the start
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/splfixedarray.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Change the size of an array
+     *
      * @param mixed $value
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.setsize.php
      */
     public function setSize($value)
     {
     }
 
-    public function toArray()
+    /**
+     * Returns a PHP array from the fixed array
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.toarray.php
+     */
+    public function toArray(): array
     {
     }
 
+    /**
+     * Check whether the array contains more elements
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splfixedarray.valid.php
+     */
     public function valid()
     {
     }
@@ -3108,105 +4903,158 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
  */
 abstract class SplHeap implements Countable, Iterator
 {
-    abstract protected function compare();
-
     /**
-     * Count all elements in an array, or something in an object
+     * Compare elements in order to place them correctly in the heap while sifting up
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/splheap.compare.php
+     */
+    abstract protected function compare();
+
+    /**
+     * Counts the number of elements in the heap
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return current node pointed by the iterator
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/splheap.current.php
      */
     public function current()
     {
     }
 
     /**
-     * Import variables into the current symbol table from an array
+     * Extracts a node from top of the heap and sift up
      *
-     * @return int
+     * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.extract.php
+     * @link http://www.php.net/manual/en/splheap.extract.php
      */
     public function extract()
     {
     }
 
     /**
+     * Inserts an element in the heap by sifting it up
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.insert.php
      */
     public function insert($value)
     {
     }
 
+    /**
+     * Checks whether the heap is empty
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.isempty.php
+     */
     public function isEmpty()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current node index
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/splheap.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to the next node
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/splheap.next.php
      */
     public function next()
     {
     }
 
+    /**
+     * Recover from the corrupted state and allow further actions on the heap
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.recoverfromcorruption.php
+     */
     public function recoverFromCorruption()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind iterator back to the start (no-op)
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/splheap.rewind.php
      */
     public function rewind()
     {
     }
 
+    /**
+     * Peeks at the node from the top of the heap
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.top.php
+     */
     public function top()
     {
     }
 
+    /**
+     * Check whether the heap contains more nodes
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splheap.valid.php
+     */
     public function valid()
     {
     }
@@ -3222,8 +5070,16 @@ abstract class SplHeap implements Countable, Iterator
 class SplMaxHeap extends SplHeap
 {
     /**
+     * Compare elements in order to place them correctly in the heap while sifting up
+     *
      * @param mixed $a
      * @param mixed $b
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splmaxheap.compare.php
      */
     protected function compare($a, $b)
     {
@@ -3240,8 +5096,16 @@ class SplMaxHeap extends SplHeap
 class SplMinHeap extends SplHeap
 {
     /**
+     * Compare elements in order to place them correctly in the heap while sifting up
+     *
      * @param mixed $a
      * @param mixed $b
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splminheap.compare.php
      */
     protected function compare($a, $b)
     {
@@ -3260,188 +5124,302 @@ class SplMinHeap extends SplHeap
 class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 {
     /**
+     * Adds all objects from another storage
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.addall.php
      */
     public function addAll($object)
     {
     }
 
     /**
+     * Adds an object in the storage
+     *
      * @param mixed $object
      * @param mixed|null $inf
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.attach.php
      */
     public function attach($object, $inf = null)
     {
     }
 
     /**
+     * Checks if the storage contains a specific object
+     *
      * @param mixed $object
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.contains.php
      */
     public function contains($object)
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Returns the number of objects in the storage
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/splobjectstorage.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Returns the current storage entry
      *
-     * @return mixed
+     * @return object
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/splobjectstorage.current.php
      */
     public function current()
     {
     }
 
     /**
+     * Removes an <code>object</code> from the storage
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.detach.php
      */
     public function detach($object)
     {
     }
 
     /**
+     * Calculate a unique identifier for the contained objects
+     *
      * @param mixed $object
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.gethash.php
      */
     public function getHash($object)
     {
     }
 
+    /**
+     * Returns the data associated with the current iterator entry
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.getinfo.php
+     */
     public function getInfo()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Returns the index at which the iterator currently is
      *
-     * @return mixed
+     * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/splobjectstorage.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to the next entry
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/splobjectstorage.next.php
      */
     public function next()
     {
     }
 
     /**
+     * Checks whether an object exists in the storage
+     *
      * @param mixed $object
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.offsetexists.php
      */
     public function offsetExists($object)
     {
     }
 
     /**
+     * Returns the data associated with an <code>object</code>
+     *
      * @param mixed $object
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.offsetget.php
      */
     public function offsetGet($object)
     {
     }
 
     /**
+     * Associates data to an object in the storage
+     *
      * @param mixed $object
      * @param mixed|null $inf
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.offsetset.php
      */
     public function offsetSet($object, $inf = null)
     {
     }
 
     /**
+     * Removes an object from the storage
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.offsetunset.php
      */
     public function offsetUnset($object)
     {
     }
 
     /**
+     * Removes objects contained in another storage from the current storage
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.removeall.php
      */
     public function removeAll($object)
     {
     }
 
     /**
+     * Removes all objects except for those contained in another storage from the current storage
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.6, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.removeallexcept.php
      */
     public function removeAllExcept($object)
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind the iterator to the first storage element
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/splobjectstorage.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
-     * Generates a storable representation of a value
+     * Serializes the storage
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.2, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.serialize.php
+     * @link http://www.php.net/manual/en/splobjectstorage.serialize.php
      */
     public function serialize()
     {
     }
 
     /**
+     * Sets the data associated with the current iterator entry
+     *
      * @param mixed $info
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.setinfo.php
      */
     public function setInfo($info)
     {
     }
 
     /**
-     * Creates a PHP value from a stored representation
+     * Unserializes a storage from its string representation
      *
      * @param mixed $serialized
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.2.2, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.unserialize.php
+     * @link http://www.php.net/manual/en/splobjectstorage.unserialize.php
      */
     public function unserialize($serialized)
     {
     }
 
+    /**
+     * Returns if the current iterator entry is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splobjectstorage.valid.php
+     */
     public function valid()
     {
     }
@@ -3458,118 +5436,178 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 class SplPriorityQueue implements Countable, Iterator
 {
     /**
+     * Compare priorities in order to place elements correctly in the heap while sifting up
+     *
      * @param mixed $a
      * @param mixed $b
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.compare.php
      */
     public function compare($a, $b)
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Counts the number of elements in the queue
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.count.php
      */
     public function count()
     {
     }
 
     /**
-     * Return the current element in an array
+     * Return current node pointed by the iterator
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.current.php
      */
     public function current()
     {
     }
 
     /**
-     * Import variables into the current symbol table from an array
+     * Extracts a node from top of the heap and shift up
      *
-     * @return int
+     * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.extract.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.extract.php
      */
     public function extract()
     {
     }
 
     /**
+     * Inserts an element in the queue by sifting it up
+     *
      * @param mixed $value
      * @param mixed $priority
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.insert.php
      */
     public function insert($value, $priority)
     {
     }
 
+    /**
+     * Checks whether the queue is empty
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.isempty.php
+     */
     public function isEmpty()
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current node index
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to the next node
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.next.php
      */
     public function next()
     {
     }
 
+    /**
+     * Recover from the corrupted state and allow further actions on the queue
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.recoverfromcorruption.php
+     */
     public function recoverFromCorruption()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind iterator back to the start (no-op)
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/splpriorityqueue.rewind.php
      */
     public function rewind()
     {
     }
 
     /**
+     * Sets the mode of extraction
+     *
      * @param mixed $flags
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.setextractflags.php
      */
     public function setExtractFlags($flags)
     {
     }
 
+    /**
+     * Peeks at the node from the top of the queue
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.top.php
+     */
     public function top()
     {
     }
 
+    /**
+     * Check whether the queue contains more nodes
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splpriorityqueue.valid.php
+     */
     public function valid()
     {
     }
@@ -3584,12 +5622,29 @@ class SplPriorityQueue implements Countable, Iterator
  */
 class SplQueue extends SplDoublyLinkedList
 {
+    /**
+     * Dequeues a node from the queue
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splqueue.dequeue.php
+     */
     public function dequeue()
     {
     }
 
     /**
+     * Adds an element to the queue
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/splqueue.enqueue.php
      */
     public function enqueue($value)
     {
@@ -3617,7 +5672,13 @@ class SplStack extends SplDoublyLinkedList
 class SplTempFileObject extends SplFileObject
 {
     /**
+     * Construct a new temporary file object
+     *
      * @param mixed|null $max_memory
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/spltempfileobject.construct.php
      */
     public function __construct($max_memory = null)
     {

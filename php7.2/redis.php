@@ -187,14 +187,8 @@ class Redis
     }
 
     /**
-     * See <code>unlink</code> or <code>unset</code>
-     *
      * @param mixed $key
      * @param mixed $other_keys
-     *
-     * @since None
-     *
-     * @link http://www.php.net/manual/en/function.delete.php
      */
     public function delete($key, ...$other_keys)
     {
@@ -212,32 +206,16 @@ class Redis
     }
 
     /**
-     * Output one or more strings
-     *
      * @param mixed $msg
-     *
-     * @return void
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.echo.php
      */
     public function echo($msg)
     {
     }
 
     /**
-     * Evaluate a string as PHP code
-     *
      * @param mixed $script
      * @param mixed|null $args
      * @param mixed|null $num_keys
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.eval.php
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -270,16 +248,7 @@ class Redis
     {
     }
 
-    /**
-     * Execute an external program
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
-     */
-    public function exec(): string
+    public function exec()
     {
     }
 
@@ -752,19 +721,11 @@ class Redis
     }
 
     /**
-     * Strip whitespace (or other characters) from the beginning of a string
-     *
      * @param mixed $key
      * @param mixed $start
      * @param mixed $stop
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.ltrim.php
      */
-    public function ltrim($key, $start, $stop): string
+    public function ltrim($key, $start, $stop)
     {
     }
 
@@ -896,17 +857,9 @@ class Redis
     }
 
     /**
-     * Opens process file pointer
-     *
      * @param mixed $host
      * @param mixed $port
      * @param mixed|null $timeout
-     *
-     * @return resource
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.popen.php
      */
     public function popen($host, $port, $timeout = null)
     {
@@ -972,18 +925,10 @@ class Redis
     }
 
     /**
-     * Renames a file or directory
-     *
      * @param mixed $key
      * @param mixed $newkey
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rename.php
      */
-    public function rename($key, $newkey): bool
+    public function rename($key, $newkey)
     {
     }
 
@@ -1256,18 +1201,10 @@ class Redis
     }
 
     /**
-     * Sort an array
-     *
      * @param mixed $key
      * @param array[]|null $options
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.sort.php
      */
-    public function sort($key, $options = null): bool
+    public function sort($key, $options = null)
     {
     }
 
@@ -1368,17 +1305,9 @@ class Redis
     }
 
     /**
-     * Get string length
-     *
      * @param mixed $key
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.strlen.php
      */
-    public function strlen($key): int
+    public function strlen($key)
     {
     }
 
@@ -1390,19 +1319,11 @@ class Redis
     }
 
     /**
-     * Return part of a string
-     *
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.substr.php
      */
-    public function substr($key, $start, $end): string
+    public function substr($key, $start, $end)
     {
     }
 
@@ -1431,16 +1352,7 @@ class Redis
     {
     }
 
-    /**
-     * Return current Unix timestamp
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.time.php
-     */
-    public function time(): int
+    public function time()
     {
     }
 
@@ -1459,18 +1371,10 @@ class Redis
     }
 
     /**
-     * Deletes a file
-     *
      * @param mixed $key
      * @param mixed $other_keys
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
      */
-    public function unlink($key, ...$other_keys): bool
+    public function unlink($key, ...$other_keys)
     {
     }
 
@@ -1843,13 +1747,7 @@ class RedisArray
     }
 
     /**
-     * See <code>unlink</code> or <code>unset</code>
-     *
      * @param mixed $keys
-     *
-     * @since None
-     *
-     * @link http://www.php.net/manual/en/function.delete.php
      */
     public function delete($keys)
     {
@@ -1859,16 +1757,7 @@ class RedisArray
     {
     }
 
-    /**
-     * Execute an external program
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
-     */
-    public function exec(): string
+    public function exec()
     {
     }
 
@@ -1950,16 +1839,7 @@ class RedisArray
     {
     }
 
-    /**
-     * Deletes a file
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
-     */
-    public function unlink(): bool
+    public function unlink()
     {
     }
 
@@ -2170,32 +2050,16 @@ class RedisCluster
     }
 
     /**
-     * Output one or more strings
-     *
      * @param mixed $msg
-     *
-     * @return void
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.echo.php
      */
     public function echo($msg)
     {
     }
 
     /**
-     * Evaluate a string as PHP code
-     *
      * @param mixed $script
      * @param mixed|null $args
      * @param mixed|null $num_keys
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.eval.php
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -2210,16 +2074,7 @@ class RedisCluster
     {
     }
 
-    /**
-     * Execute an external program
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
-     */
-    public function exec(): string
+    public function exec()
     {
     }
 
@@ -2620,19 +2475,11 @@ class RedisCluster
     }
 
     /**
-     * Strip whitespace (or other characters) from the beginning of a string
-     *
      * @param mixed $key
      * @param mixed $start
      * @param mixed $stop
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.ltrim.php
      */
-    public function ltrim($key, $start, $stop): string
+    public function ltrim($key, $start, $stop)
     {
     }
 
@@ -2786,18 +2633,10 @@ class RedisCluster
     }
 
     /**
-     * Renames a file or directory
-     *
      * @param mixed $key
      * @param mixed $newkey
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rename.php
      */
-    public function rename($key, $newkey): bool
+    public function rename($key, $newkey)
     {
     }
 
@@ -3023,18 +2862,10 @@ class RedisCluster
     }
 
     /**
-     * Sort an array
-     *
      * @param mixed $key
      * @param array[]|null $options
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.sort.php
      */
-    public function sort($key, $options = null): bool
+    public function sort($key, $options = null)
     {
     }
 
@@ -3072,17 +2903,9 @@ class RedisCluster
     }
 
     /**
-     * Get string length
-     *
      * @param mixed $key
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.strlen.php
      */
-    public function strlen($key): int
+    public function strlen($key)
     {
     }
 
@@ -3110,16 +2933,7 @@ class RedisCluster
     {
     }
 
-    /**
-     * Return current Unix timestamp
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.time.php
-     */
-    public function time(): int
+    public function time()
     {
     }
 
@@ -3138,18 +2952,10 @@ class RedisCluster
     }
 
     /**
-     * Deletes a file
-     *
      * @param mixed $key
      * @param mixed $other_keys
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
      */
-    public function unlink($key, ...$other_keys): bool
+    public function unlink($key, ...$other_keys)
     {
     }
 

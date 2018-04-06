@@ -415,14 +415,29 @@ const XML_TEXT_NODE = 3;
 class DOMAttr extends DOMNode
 {
     /**
+     * Creates a new <code>DOMAttr</code> object
+     *
      * @param mixed $name
      * @param mixed|null $value
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domattr.construct.php
      */
     public function __construct($name, $value = null)
     {
     }
 
-    public function isId()
+    /**
+     * Checks if attribute is a defined ID
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domattr.isid.php
+     */
+    public function isId(): bool
     {
     }
 }
@@ -439,7 +454,13 @@ class DOMAttr extends DOMNode
 class DOMCdataSection extends DOMText
 {
     /**
+     * Constructs a new DOMCdataSection object
+     *
      * @param mixed $value
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcdatasection.construct.php
      */
     public function __construct($value)
     {
@@ -457,42 +478,82 @@ class DOMCdataSection extends DOMText
 class DOMCharacterData extends DOMNode
 {
     /**
+     * Append the string to the end of the character data of the node
+     *
      * @param mixed $arg
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcharacterdata.appenddata.php
      */
     public function appendData($arg)
     {
     }
 
     /**
+     * Remove a range of characters from the node
+     *
      * @param mixed $offset
      * @param mixed $count
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcharacterdata.deletedata.php
      */
     public function deleteData($offset, $count)
     {
     }
 
     /**
+     * Insert a string at the specified 16-bit unit offset
+     *
      * @param mixed $offset
      * @param mixed $arg
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcharacterdata.insertdata.php
      */
     public function insertData($offset, $arg)
     {
     }
 
     /**
+     * Replace a substring within the DOMCharacterData node
+     *
      * @param mixed $offset
      * @param mixed $count
      * @param mixed $arg
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcharacterdata.replacedata.php
      */
     public function replaceData($offset, $count, $arg)
     {
     }
 
     /**
+     * Extracts a range of data from the node
+     *
      * @param mixed $offset
      * @param mixed $count
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcharacterdata.substringdata.php
      */
-    public function substringData($offset, $count)
+    public function substringData($offset, $count): string
     {
     }
 }
@@ -508,7 +569,13 @@ class DOMCharacterData extends DOMNode
 class DOMComment extends DOMCharacterData
 {
     /**
+     * Creates a new DOMComment object
+     *
      * @param mixed|null $value
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domcomment.construct.php
      */
     public function __construct($value = null)
     {
@@ -552,8 +619,14 @@ class DOMConfiguration
 class DOMDocument extends DOMNode
 {
     /**
+     * Creates a new DOMDocument object
+     *
      * @param mixed|null $version
      * @param mixed|null $encoding
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.construct.php
      */
     public function __construct($version = null, $encoding = null)
     {
@@ -561,168 +634,348 @@ class DOMDocument extends DOMNode
 
     /**
      * @param DOMNode $source
+     *
+     * @since PHP 5, PHP 7
      */
     public function adoptNode($source)
     {
     }
 
     /**
+     * Create new attribute
+     *
      * @param mixed $name
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createattribute.php
      */
     public function createAttribute($name)
     {
     }
 
     /**
+     * Create new attribute node with an associated namespace
+     *
      * @param mixed $namespaceURI
      * @param mixed $qualifiedName
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createattributens.php
      */
     public function createAttributeNS($namespaceURI, $qualifiedName)
     {
     }
 
     /**
+     * Create new cdata node
+     *
      * @param mixed $data
+     *
+     * @return DOMCDATASection
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createcdatasection.php
      */
     public function createCDATASection($data)
     {
     }
 
     /**
+     * Create new comment node
+     *
      * @param mixed $data
+     *
+     * @return DOMComment
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createcomment.php
      */
     public function createComment($data)
     {
     }
 
+    /**
+     * Create new document fragment
+     *
+     * @return DOMDocumentFragment
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createdocumentfragment.php
+     */
     public function createDocumentFragment()
     {
     }
 
     /**
+     * Create new element node
+     *
      * @param mixed $tagName
      * @param mixed|null $value
+     *
+     * @return DOMElement
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createelement.php
      */
     public function createElement($tagName, $value = null)
     {
     }
 
     /**
+     * Create new element node with an associated namespace
+     *
      * @param mixed $namespaceURI
      * @param mixed $qualifiedName
      * @param mixed|null $value
+     *
+     * @return DOMElement
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createelementns.php
      */
     public function createElementNS($namespaceURI, $qualifiedName, $value = null)
     {
     }
 
     /**
+     * Create new entity reference node
+     *
      * @param mixed $name
+     *
+     * @return DOMEntityReference
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createentityreference.php
      */
     public function createEntityReference($name)
     {
     }
 
     /**
+     * Creates new PI node
+     *
      * @param mixed $target
      * @param mixed $data
+     *
+     * @return DOMProcessingInstruction
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createprocessinginstruction.php
      */
     public function createProcessingInstruction($target, $data)
     {
     }
 
     /**
+     * Create new text node
+     *
      * @param mixed $data
+     *
+     * @return DOMText
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.createtextnode.php
      */
     public function createTextNode($data)
     {
     }
 
     /**
+     * Searches for an element with a certain id
+     *
      * @param mixed $elementId
+     *
+     * @return DOMElement
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.getelementbyid.php
      */
     public function getElementById($elementId)
     {
     }
 
     /**
+     * Searches for all elements with given local tag name
+     *
      * @param mixed $tagName
+     *
+     * @return DOMNodeList
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.getelementsbytagname.php
      */
     public function getElementsByTagName($tagName)
     {
     }
 
     /**
+     * Searches for all elements with given tag name in specified namespace
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return DOMNodeList
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.getelementsbytagnamens.php
      */
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
 
     /**
+     * Import node into current document
+     *
      * @param DOMNode $importedNode
      * @param mixed $deep
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.importnode.php
      */
     public function importNode($importedNode, $deep)
     {
     }
 
     /**
+     * Load XML from a file
+     *
      * @param mixed $source
      * @param mixed|null $options
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.load.php
      */
     public function load($source, $options = null)
     {
     }
 
     /**
+     * Load HTML from a string
+     *
      * @param mixed $source
      * @param mixed|null $options
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.loadhtml.php
      */
-    public function loadHTML($source, $options = null)
+    public function loadHTML($source, $options = null): bool
     {
     }
 
     /**
+     * Load HTML from a file
+     *
      * @param mixed $source
      * @param mixed|null $options
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.loadhtmlfile.php
      */
-    public function loadHTMLFile($source, $options = null)
+    public function loadHTMLFile($source, $options = null): bool
     {
     }
 
     /**
+     * Load XML from a string
+     *
      * @param mixed $source
      * @param mixed|null $options
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.loadxml.php
      */
     public function loadXML($source, $options = null)
     {
     }
 
+    /**
+     * Normalizes the document
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.normalizedocument.php
+     */
     public function normalizeDocument()
     {
     }
 
     /**
+     * Register extended class used to create base node type
+     *
      * @param mixed $baseClass
      * @param mixed $extendedClass
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.registernodeclass.php
      */
-    public function registerNodeClass($baseClass, $extendedClass)
+    public function registerNodeClass($baseClass, $extendedClass): bool
     {
     }
 
     /**
+     * Performs relaxNG validation on the document
+     *
      * @param mixed $filename
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.relaxngvalidate.php
      */
-    public function relaxNGValidate($filename)
+    public function relaxNGValidate($filename): bool
     {
     }
 
     /**
+     * Performs relaxNG validation on the document
+     *
      * @param mixed $source
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.relaxngvalidatesource.php
      */
-    public function relaxNGValidateSource($source)
+    public function relaxNGValidateSource($source): bool
     {
     }
 
@@ -730,59 +983,127 @@ class DOMDocument extends DOMNode
      * @param DOMNode $node
      * @param mixed $namespaceURI
      * @param mixed $qualifiedName
+     *
+     * @since PHP 5, PHP 7
      */
     public function renameNode($node, $namespaceURI, $qualifiedName)
     {
     }
 
     /**
+     * Dumps the internal XML tree back into a file
+     *
      * @param mixed $file
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.save.php
      */
-    public function save($file)
-    {
-    }
-
-    public function saveHTML()
+    public function save($file): int
     {
     }
 
     /**
-     * @param mixed $file
+     * Dumps the internal document into a string using HTML formatting
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.savehtml.php
      */
-    public function saveHTMLFile($file)
+    public function saveHTML(): string
     {
     }
 
     /**
+     * Dumps the internal document into a file using HTML formatting
+     *
+     * @param mixed $file
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.savehtmlfile.php
+     */
+    public function saveHTMLFile($file): int
+    {
+    }
+
+    /**
+     * Dumps the internal XML tree back into a string
+     *
      * @param DOMNode|null $node
      * @param mixed|null $options
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.savexml.php
      */
-    public function saveXML($node = null, $options = null)
+    public function saveXML($node = null, $options = null): string
     {
     }
 
     /**
+     * Validates a document based on a schema
+     *
      * @param mixed $filename
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.schemavalidate.php
      */
-    public function schemaValidate($filename)
+    public function schemaValidate($filename): bool
     {
     }
 
     /**
+     * Validates a document based on a schema
+     *
      * @param mixed $source
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.schemavalidatesource.php
      */
-    public function schemaValidateSource($source)
-    {
-    }
-
-    public function validate()
+    public function schemaValidateSource($source): bool
     {
     }
 
     /**
-     * @param mixed|null $options
+     * Validates the document based on its DTD
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.validate.php
      */
-    public function xinclude($options = null)
+    public function validate(): bool
+    {
+    }
+
+    /**
+     * Substitutes XIncludes in a DOMDocument Object
+     *
+     * @param mixed|null $options
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocument.xinclude.php
+     */
+    public function xinclude($options = null): int
     {
     }
 }
@@ -794,14 +1115,25 @@ class DOMDocument extends DOMNode
  */
 class DOMDocumentFragment extends DOMNode
 {
+    /**
+     * @since PHP 5, PHP 7
+     */
     public function __construct()
     {
     }
 
     /**
+     * Append raw XML data
+     *
      * @param mixed $data
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domdocumentfragment.appendxml.php
      */
-    public function appendXML($data)
+    public function appendXML($data): bool
     {
     }
 }
@@ -830,147 +1162,297 @@ class DOMDomError
 class DOMElement extends DOMNode
 {
     /**
+     * Creates a new DOMElement object
+     *
      * @param mixed $name
      * @param mixed|null $value
      * @param mixed|null $uri
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.construct.php
      */
     public function __construct($name, $value = null, $uri = null)
     {
     }
 
     /**
+     * Returns value of attribute
+     *
      * @param mixed $name
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getattribute.php
      */
-    public function getAttribute($name)
+    public function getAttribute($name): string
     {
     }
 
     /**
+     * Returns attribute node
+     *
      * @param mixed $name
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getattributenode.php
      */
     public function getAttributeNode($name)
     {
     }
 
     /**
+     * Returns attribute node
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getattributenodens.php
      */
     public function getAttributeNodeNS($namespaceURI, $localName)
     {
     }
 
     /**
+     * Returns value of attribute
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getattributens.php
      */
-    public function getAttributeNS($namespaceURI, $localName)
+    public function getAttributeNS($namespaceURI, $localName): string
     {
     }
 
     /**
+     * Gets elements by tagname
+     *
      * @param mixed $name
+     *
+     * @return DOMNodeList
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getelementsbytagname.php
      */
     public function getElementsByTagName($name)
     {
     }
 
     /**
+     * Get elements by namespaceURI and localName
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return DOMNodeList
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.getelementsbytagnamens.php
      */
     public function getElementsByTagNameNS($namespaceURI, $localName)
     {
     }
 
     /**
+     * Checks to see if attribute exists
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.hasattribute.php
      */
-    public function hasAttribute($name)
+    public function hasAttribute($name): bool
     {
     }
 
     /**
+     * Checks to see if attribute exists
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.hasattributens.php
      */
-    public function hasAttributeNS($namespaceURI, $localName)
+    public function hasAttributeNS($namespaceURI, $localName): bool
     {
     }
 
     /**
+     * Removes attribute
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.removeattribute.php
      */
-    public function removeAttribute($name)
+    public function removeAttribute($name): bool
     {
     }
 
     /**
+     * Removes attribute
+     *
      * @param DOMAttr $oldAttr
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.removeattributenode.php
      */
-    public function removeAttributeNode($oldAttr)
+    public function removeAttributeNode($oldAttr): bool
     {
     }
 
     /**
+     * Removes attribute
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.removeattributens.php
      */
-    public function removeAttributeNS($namespaceURI, $localName)
+    public function removeAttributeNS($namespaceURI, $localName): bool
     {
     }
 
     /**
+     * Adds new attribute
+     *
      * @param mixed $name
      * @param mixed $value
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setattribute.php
      */
     public function setAttribute($name, $value)
     {
     }
 
     /**
+     * Adds new attribute node to element
+     *
      * @param DOMAttr $newAttr
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setattributenode.php
      */
     public function setAttributeNode($newAttr)
     {
     }
 
     /**
+     * Adds new attribute node to element
+     *
      * @param DOMAttr $newAttr
+     *
+     * @return DOMAttr
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setattributenodens.php
      */
     public function setAttributeNodeNS($newAttr)
     {
     }
 
     /**
+     * Adds new attribute
+     *
      * @param mixed $namespaceURI
      * @param mixed $qualifiedName
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setattributens.php
      */
     public function setAttributeNS($namespaceURI, $qualifiedName, $value)
     {
     }
 
     /**
+     * Declares the attribute specified by name to be of type ID
+     *
      * @param mixed $name
      * @param mixed $isId
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setidattribute.php
      */
     public function setIdAttribute($name, $isId)
     {
     }
 
     /**
+     * Declares the attribute specified by node to be of type ID
+     *
      * @param DOMAttr $attr
      * @param mixed $isId
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setidattributenode.php
      */
     public function setIdAttributeNode($attr, $isId)
     {
     }
 
     /**
+     * Declares the attribute specified by local name and namespace URI to be of type ID
+     *
      * @param mixed $namespaceURI
      * @param mixed $localName
      * @param mixed $isId
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domelement.setidattributens.php
      */
     public function setIdAttributeNS($namespaceURI, $localName, $isId)
     {
@@ -996,7 +1478,13 @@ class DOMEntity extends DOMNode
 class DOMEntityReference extends DOMNode
 {
     /**
+     * Creates a new DOMEntityReference object
+     *
      * @param mixed $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domentityreference.construct.php
      */
     public function __construct($name)
     {
@@ -1037,18 +1525,34 @@ final class DOMException extends Exception
 class DOMImplementation
 {
     /**
+     * Creates a DOMDocument object of the specified type with its document element
+     *
      * @param mixed $namespaceURI
      * @param mixed $qualifiedName
      * @param DOMDocumentType $docType
+     *
+     * @return DOMDocument
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domimplementation.createdocument.php
      */
     public function createDocument($namespaceURI, $qualifiedName, $docType)
     {
     }
 
     /**
+     * Creates an empty DOMDocumentType object
+     *
      * @param mixed $qualifiedName
      * @param mixed $publicId
      * @param mixed $systemId
+     *
+     * @return DOMDocumentType
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domimplementation.createdocumenttype.php
      */
     public function createDocumentType($qualifiedName, $publicId, $systemId)
     {
@@ -1057,12 +1561,23 @@ class DOMImplementation
     /**
      * @param mixed $feature
      * @param mixed $version
+     *
+     * @since PHP 5, PHP 7
      */
     public function getFeature($feature, $version)
     {
     }
 
-    public function hasFeature()
+    /**
+     * Test if the DOM implementation implements a specific feature
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domimplementation.hasfeature.php
+     */
+    public function hasFeature(): bool
     {
     }
 }
@@ -1106,22 +1621,46 @@ class DOMLocator
 class DOMNamedNodeMap implements Traversable
 {
     /**
+     * Retrieves a node specified by name
+     *
      * @param mixed $name
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnamednodemap.getnameditem.php
      */
     public function getNamedItem($name)
     {
     }
 
     /**
+     * Retrieves a node specified by local name and namespace URI
+     *
      * @param mixed|null $namespaceURI
      * @param mixed|null $localName
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnamednodemap.getnameditemns.php
      */
     public function getNamedItemNS($namespaceURI = null, $localName = null)
     {
     }
 
     /**
+     * Retrieves a node specified by index
+     *
      * @param mixed|null $index
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnamednodemap.item.php
      */
     public function item($index = null)
     {
@@ -1129,6 +1668,8 @@ class DOMNamedNodeMap implements Traversable
 
     /**
      * @param mixed|null $name
+     *
+     * @since PHP 5, PHP 7
      */
     public function removeNamedItem($name = null)
     {
@@ -1137,6 +1678,8 @@ class DOMNamedNodeMap implements Traversable
     /**
      * @param mixed|null $namespaceURI
      * @param mixed|null $localName
+     *
+     * @since PHP 5, PHP 7
      */
     public function removeNamedItemNS($namespaceURI = null, $localName = null)
     {
@@ -1144,6 +1687,8 @@ class DOMNamedNodeMap implements Traversable
 
     /**
      * @param DOMNode $arg
+     *
+     * @since PHP 5, PHP 7
      */
     public function setNamedItem($arg)
     {
@@ -1151,6 +1696,8 @@ class DOMNamedNodeMap implements Traversable
 
     /**
      * @param DOMNode|null $arg
+     *
+     * @since PHP 5, PHP 7
      */
     public function setNamedItemNS($arg = null)
     {
@@ -1204,35 +1751,67 @@ class DOMNameSpaceNode
 class DOMNode
 {
     /**
+     * Adds new child at the end of the children
+     *
      * @param DOMNode $newChild
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.appendchild.php
      */
     public function appendChild($newChild)
     {
     }
 
     /**
+     * Canonicalize nodes to a string
+     *
      * @param mixed|null $exclusive
      * @param mixed|null $with_comments
      * @param array[]|null $xpath
      * @param array[]|null $ns_prefixes
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.c14n.php
      */
-    public function C14N($exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null)
+    public function C14N($exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null): string
     {
     }
 
     /**
+     * Canonicalize nodes to a file
+     *
      * @param mixed $uri
      * @param mixed|null $exclusive
      * @param mixed|null $with_comments
      * @param array[]|null $xpath
      * @param array[]|null $ns_prefixes
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.c14nfile.php
      */
-    public function C14NFile($uri, $exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null)
+    public function C14NFile($uri, $exclusive = null, $with_comments = null, $xpath = null, $ns_prefixes = null): int
     {
     }
 
     /**
+     * Clones a node
+     *
      * @param mixed|null $deep
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.clonenode.php
      */
     public function cloneNode($deep = null)
     {
@@ -1240,6 +1819,8 @@ class DOMNode
 
     /**
      * @param DOMNode $other
+     *
+     * @since PHP 5, PHP 7
      */
     public function compareDocumentPosition($other)
     {
@@ -1248,99 +1829,214 @@ class DOMNode
     /**
      * @param mixed $feature
      * @param mixed $version
+     *
+     * @since PHP 5, PHP 7
      */
     public function getFeature($feature, $version)
     {
     }
 
-    public function getLineNo()
+    /**
+     * Get line number for a node
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.getlineno.php
+     */
+    public function getLineNo(): int
     {
     }
 
-    public function getNodePath()
+    /**
+     * Get an XPath for a node
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.getnodepath.php
+     */
+    public function getNodePath(): string
     {
     }
 
     /**
      * @param mixed $key
+     *
+     * @since PHP 5, PHP 7
      */
     public function getUserData($key)
     {
     }
 
-    public function hasAttributes()
-    {
-    }
-
-    public function hasChildNodes()
+    /**
+     * Checks if node has attributes
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.hasattributes.php
+     */
+    public function hasAttributes(): bool
     {
     }
 
     /**
+     * Checks if node has children
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.haschildnodes.php
+     */
+    public function hasChildNodes(): bool
+    {
+    }
+
+    /**
+     * Adds a new child before a reference node
+     *
      * @param DOMNode $newChild
      * @param DOMNode|null $refChild
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.insertbefore.php
      */
     public function insertBefore($newChild, $refChild = null)
     {
     }
 
     /**
+     * Checks if the specified namespaceURI is the default namespace or not
+     *
      * @param mixed $namespaceURI
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.isdefaultnamespace.php
      */
-    public function isDefaultNamespace($namespaceURI)
+    public function isDefaultNamespace($namespaceURI): bool
     {
     }
 
     /**
      * @param DOMNode $arg
+     *
+     * @since PHP 5, PHP 7
      */
     public function isEqualNode($arg)
     {
     }
 
     /**
+     * Indicates if two nodes are the same node
+     *
      * @param DOMNode $other
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.issamenode.php
      */
-    public function isSameNode($other)
+    public function isSameNode($other): bool
     {
     }
 
     /**
+     * Checks if feature is supported for specified version
+     *
      * @param mixed $feature
      * @param mixed $version
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.issupported.php
      */
-    public function isSupported($feature, $version)
+    public function isSupported($feature, $version): bool
     {
     }
 
     /**
+     * Gets the namespace URI of the node based on the prefix
+     *
      * @param mixed $prefix
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.lookupnamespaceuri.php
      */
-    public function lookupNamespaceUri($prefix)
+    public function lookupNamespaceUri($prefix): string
     {
     }
 
     /**
+     * Gets the namespace prefix of the node based on the namespace URI
+     *
      * @param mixed $namespaceURI
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.lookupprefix.php
      */
-    public function lookupPrefix($namespaceURI)
+    public function lookupPrefix($namespaceURI): string
     {
     }
 
+    /**
+     * Normalizes the node
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.normalize.php
+     */
     public function normalize()
     {
     }
 
     /**
+     * Removes child from list of children
+     *
      * @param DOMNode $oldChild
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.removechild.php
      */
     public function removeChild($oldChild)
     {
     }
 
     /**
+     * Replaces a child
+     *
      * @param DOMNode $newChild
      * @param DOMNode $oldChild
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnode.replacechild.php
      */
     public function replaceChild($newChild, $oldChild)
     {
@@ -1350,6 +2046,8 @@ class DOMNode
      * @param mixed $key
      * @param mixed $data
      * @param mixed $handler
+     *
+     * @since PHP 5, PHP 7
      */
     public function setUserData($key, $data, $handler)
     {
@@ -1368,7 +2066,15 @@ class DOMNode
 class DOMNodeList implements Traversable
 {
     /**
+     * Retrieves a node specified by index
+     *
      * @param mixed $index
+     *
+     * @return DOMNode
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domnodelist.item.php
      */
     public function item($index)
     {
@@ -1392,8 +2098,14 @@ class DOMNotation extends DOMNode
 class DOMProcessingInstruction extends DOMNode
 {
     /**
+     * Creates a new <code>DOMProcessingInstruction</code> object
+     *
      * @param mixed $name
      * @param mixed|null $value
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domprocessinginstruction.construct.php
      */
     public function __construct($name, $value = null)
     {
@@ -1440,29 +2152,61 @@ class DOMStringList
 class DOMText extends DOMCharacterData
 {
     /**
+     * Creates a new <code>DOMText</code> object
+     *
      * @param mixed|null $value
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domtext.construct.php
      */
     public function __construct($value = null)
     {
     }
 
-    public function isElementContentWhitespace()
+    /**
+     * Returns whether this text node contains whitespace in element content
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/domtext.iselementcontentwhitespace.php
+     */
+    public function isElementContentWhitespace(): bool
     {
     }
 
-    public function isWhitespaceInElementContent()
+    /**
+     * Indicates whether this text node contains whitespace
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domtext.iswhitespaceinelementcontent.php
+     */
+    public function isWhitespaceInElementContent(): bool
     {
     }
 
     /**
      * @param mixed $content
+     *
+     * @since PHP 5, PHP 7
      */
     public function replaceWholeText($content)
     {
     }
 
     /**
+     * Breaks this node into two nodes at the specified offset
+     *
      * @param mixed $offset
+     *
+     * @return DOMText
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domtext.splittext.php
      */
     public function splitText($offset)
     {
@@ -1490,38 +2234,77 @@ class DOMUserDataHandler
 class DOMXPath
 {
     /**
+     * Creates a new <code>DOMXPath</code> object
+     *
      * @param DOMDocument $doc
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domxpath.construct.php
      */
     public function __construct($doc)
     {
     }
 
     /**
+     * Evaluates the given XPath expression and returns a typed result if possible
+     *
      * @param mixed $expr
      * @param DOMNode|null $context
      * @param mixed|null $registerNodeNS
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domxpath.evaluate.php
      */
     public function evaluate($expr, $context = null, $registerNodeNS = null)
     {
     }
 
     /**
+     * Evaluates the given XPath expression
+     *
      * @param mixed $expr
      * @param DOMNode|null $context
      * @param mixed|null $registerNodeNS
+     *
+     * @return DOMNodeList
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domxpath.query.php
      */
     public function query($expr, $context = null, $registerNodeNS = null)
     {
     }
 
     /**
+     * Registers the namespace with the <code>DOMXPath</code> object
+     *
      * @param mixed $prefix
      * @param mixed $uri
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domxpath.registernamespace.php
      */
-    public function registerNamespace($prefix, $uri)
+    public function registerNamespace($prefix, $uri): bool
     {
     }
 
+    /**
+     * Register PHP functions as XPath functions
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/domxpath.registerphpfunctions.php
+     */
     public function registerPhpFunctions()
     {
     }

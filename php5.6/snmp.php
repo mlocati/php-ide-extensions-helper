@@ -171,54 +171,114 @@ const SNMP_VALUE_PLAIN = 1;
 class SNMP
 {
     /**
+     * Creates SNMP instance representing session to remote <code>SNMP</code> agent
+     *
      * @param mixed $version
      * @param mixed $host
      * @param mixed $community
      * @param mixed|null $timeout
      * @param mixed|null $retries
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.construct.php
      */
     public function __construct($version, $host, $community, $timeout = null, $retries = null)
     {
     }
 
+    /**
+     * Close <code>SNMP</code> session
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.close.php
+     */
     public function close()
     {
     }
 
     /**
+     * Fetch an <code>SNMP</code> object
+     *
      * @param mixed $object_id
      * @param mixed|null $use_orignames
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.get.php
      */
     public function get($object_id, $use_orignames = null)
     {
     }
 
+    /**
+     * Get last error code
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.geterrno.php
+     */
     public function getErrno()
     {
     }
 
+    /**
+     * Get last error message
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.geterror.php
+     */
     public function getError()
     {
     }
 
     /**
+     * Fetch an <code>SNMP</code> object which
+     * follows the given object id
+     *
      * @param mixed $object_id
      * @param mixed|null $use_orignames
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.getnext.php
      */
     public function getnext($object_id, $use_orignames = null)
     {
     }
 
     /**
+     * Set the value of an SNMP object
+     *
      * @param mixed $object_id
      * @param mixed $type
      * @param mixed $value
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.set.php
      */
     public function set($object_id, $type, $value)
     {
     }
 
     /**
+     * Configures security-related <code>SNMP</code>v3 session parameters
+     *
      * @param mixed $sec_level
      * @param mixed $auth_protocol
      * @param mixed $auth_passphrase
@@ -226,18 +286,32 @@ class SNMP
      * @param mixed $priv_passphrase
      * @param mixed $contextName
      * @param mixed $contextEngineID
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.setsecurity.php
      */
     public function setSecurity($sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID)
     {
     }
 
     /**
+     * Fetch <code>SNMP</code> object subtree
+     *
      * @param mixed $object_id
      * @param mixed $suffix_keys
      * @param mixed $max_repetitions
      * @param mixed $non_repeaters
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/snmp.walk.php
      */
-    public function walk($object_id, $suffix_keys, $max_repetitions, $non_repeaters)
+    public function walk($object_id, $suffix_keys, $max_repetitions, $non_repeaters): array
     {
     }
 }

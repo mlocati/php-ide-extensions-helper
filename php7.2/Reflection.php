@@ -13,9 +13,27 @@
  */
 interface Reflector
 {
-    public function __toString();
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflector.tostring.php
+     */
+    public function __toString(): string;
 
-    public static function export();
+    /**
+     * Exports
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflector.export.php
+     */
+    public static function export(): string;
 }
 
 /**
@@ -28,17 +46,33 @@ interface Reflector
 class Reflection
 {
     /**
+     * Exports
+     *
      * @param Reflector $reflector
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflection.export.php
      */
-    public static function export($reflector, $return = null)
+    public static function export($reflector, $return = null): string
     {
     }
 
     /**
+     * Gets modifier names
+     *
      * @param mixed $modifiers
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflection.getmodifiernames.php
      */
-    public static function getModifierNames($modifiers)
+    public static function getModifierNames($modifiers): array
     {
     }
 }
@@ -58,269 +92,726 @@ class ReflectionClass implements Reflector
     }
 
     /**
+     * Constructs a ReflectionClass
+     *
      * @param mixed $argument
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.construct.php
      */
     public function __construct($argument)
     {
     }
 
-    public function __toString()
+    /**
+     * Returns the string representation of the ReflectionClass object
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Exports a class
+     *
      * @param mixed $argument
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.export.php
      */
-    public static function export($argument, $return = null)
+    public static function export($argument, $return = null): string
     {
     }
 
     /**
+     * Gets defined constant
+     *
      * @param mixed $name
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getconstant.php
      */
     public function getConstant($name)
     {
     }
 
-    public function getConstants()
-    {
-    }
-
-    public function getConstructor()
-    {
-    }
-
-    public function getDefaultProperties()
-    {
-    }
-
-    public function getDocComment()
-    {
-    }
-
-    public function getEndLine()
-    {
-    }
-
-    public function getExtension()
-    {
-    }
-
-    public function getExtensionName()
-    {
-    }
-
-    public function getFileName()
-    {
-    }
-
-    public function getInterfaceNames()
-    {
-    }
-
-    public function getInterfaces()
+    /**
+     * Gets constants
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getconstants.php
+     */
+    public function getConstants(): array
     {
     }
 
     /**
+     * Gets the constructor of the class
+     *
+     * @return ReflectionMethod
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getconstructor.php
+     */
+    public function getConstructor()
+    {
+    }
+
+    /**
+     * Gets default properties
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getdefaultproperties.php
+     */
+    public function getDefaultProperties(): array
+    {
+    }
+
+    /**
+     * Gets doc comments
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getdoccomment.php
+     */
+    public function getDocComment(): string
+    {
+    }
+
+    /**
+     * Gets end line
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getendline.php
+     */
+    public function getEndLine(): int
+    {
+    }
+
+    /**
+     * Gets a <code>ReflectionExtension</code> object for the extension which defined the class
+     *
+     * @return ReflectionExtension
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getextension.php
+     */
+    public function getExtension()
+    {
+    }
+
+    /**
+     * Gets the name of the extension which defined the class
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getextensionname.php
+     */
+    public function getExtensionName(): string
+    {
+    }
+
+    /**
+     * Gets the filename of the file in which the class has been defined
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getfilename.php
+     */
+    public function getFileName(): string
+    {
+    }
+
+    /**
+     * Gets the interface names
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getinterfacenames.php
+     */
+    public function getInterfaceNames(): array
+    {
+    }
+
+    /**
+     * Gets the interfaces
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getinterfaces.php
+     */
+    public function getInterfaces(): array
+    {
+    }
+
+    /**
+     * Gets a <code>ReflectionMethod</code> for a class method
+     *
      * @param mixed $name
+     *
+     * @return ReflectionMethod
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getmethod.php
      */
     public function getMethod($name)
     {
     }
 
     /**
+     * Gets an array of methods
+     *
      * @param mixed|null $filter
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getmethods.php
      */
-    public function getMethods($filter = null)
+    public function getMethods($filter = null): array
     {
     }
 
-    public function getModifiers()
+    /**
+     * Gets the class modifiers
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getmodifiers.php
+     */
+    public function getModifiers(): int
     {
     }
 
-    public function getName()
+    /**
+     * Gets class name
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getname.php
+     */
+    public function getName(): string
     {
     }
 
-    public function getNamespaceName()
+    /**
+     * Gets namespace name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getnamespacename.php
+     */
+    public function getNamespaceName(): string
     {
     }
 
+    /**
+     * Gets parent class
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getparentclass.php
+     */
     public function getParentClass()
     {
     }
 
     /**
+     * Gets properties
+     *
      * @param mixed|null $filter
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getproperties.php
      */
-    public function getProperties($filter = null)
+    public function getProperties($filter = null): array
     {
     }
 
     /**
+     * Gets a <code>ReflectionProperty</code> for a class's property
+     *
      * @param mixed $name
+     *
+     * @return ReflectionProperty
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getproperty.php
      */
     public function getProperty($name)
     {
     }
 
     /**
+     * Gets a <code>ReflectionClassConstant</code> for a class's constant
+     *
      * @param mixed $name
+     *
+     * @return ReflectionClassConstant
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getreflectionconstant.php
      */
     public function getReflectionConstant($name)
     {
     }
 
-    public function getReflectionConstants()
-    {
-    }
-
-    public function getShortName()
-    {
-    }
-
-    public function getStartLine()
-    {
-    }
-
-    public function getStaticProperties()
+    /**
+     * Gets class constants
+     *
+     * @return array
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getreflectionconstants.php
+     */
+    public function getReflectionConstants(): array
     {
     }
 
     /**
+     * Gets short name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getshortname.php
+     */
+    public function getShortName(): string
+    {
+    }
+
+    /**
+     * Gets starting line number
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getstartline.php
+     */
+    public function getStartLine(): int
+    {
+    }
+
+    /**
+     * Gets static properties
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getstaticproperties.php
+     */
+    public function getStaticProperties(): array
+    {
+    }
+
+    /**
+     * Gets static property value
+     *
      * @param mixed $name
      * @param mixed|null $default
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
      */
     public function getStaticPropertyValue($name, $default = null)
     {
     }
 
-    public function getTraitAliases()
-    {
-    }
-
-    public function getTraitNames()
-    {
-    }
-
-    public function getTraits()
-    {
-    }
-
     /**
-     * @param mixed $name
+     * Returns an array of trait aliases
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.gettraitaliases.php
      */
-    public function hasConstant($name)
+    public function getTraitAliases(): array
     {
     }
 
     /**
-     * @param mixed $name
+     * Returns an array of names of traits used by this class
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.gettraitnames.php
      */
-    public function hasMethod($name)
+    public function getTraitNames(): array
     {
     }
 
     /**
-     * @param mixed $name
+     * Returns an array of traits used by this class
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.gettraits.php
      */
-    public function hasProperty($name)
+    public function getTraits(): array
     {
     }
 
     /**
+     * Checks if constant is defined
+     *
+     * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.hasconstant.php
+     */
+    public function hasConstant($name): bool
+    {
+    }
+
+    /**
+     * Checks if method is defined
+     *
+     * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.hasmethod.php
+     */
+    public function hasMethod($name): bool
+    {
+    }
+
+    /**
+     * Checks if property is defined
+     *
+     * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.hasproperty.php
+     */
+    public function hasProperty($name): bool
+    {
+    }
+
+    /**
+     * Implements interface
+     *
      * @param mixed $interface
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.implementsinterface.php
      */
-    public function implementsInterface($interface)
-    {
-    }
-
-    public function inNamespace()
-    {
-    }
-
-    public function isAbstract()
-    {
-    }
-
-    public function isAnonymous()
-    {
-    }
-
-    public function isCloneable()
-    {
-    }
-
-    public function isFinal()
+    public function implementsInterface($interface): bool
     {
     }
 
     /**
+     * Checks if in namespace
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.innamespace.php
+     */
+    public function inNamespace(): bool
+    {
+    }
+
+    /**
+     * Checks if class is abstract
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isabstract.php
+     */
+    public function isAbstract(): bool
+    {
+    }
+
+    /**
+     * Checks if class is anonymous
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isanonymous.php
+     */
+    public function isAnonymous(): bool
+    {
+    }
+
+    /**
+     * Returns whether this class is cloneable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.iscloneable.php
+     */
+    public function isCloneable(): bool
+    {
+    }
+
+    /**
+     * Checks if class is final
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isfinal.php
+     */
+    public function isFinal(): bool
+    {
+    }
+
+    /**
+     * Checks class for instance
+     *
      * @param mixed $object
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isinstance.php
      */
-    public function isInstance($object)
-    {
-    }
-
-    public function isInstantiable()
-    {
-    }
-
-    public function isInterface()
-    {
-    }
-
-    public function isInternal()
-    {
-    }
-
-    public function isIterable()
-    {
-    }
-
-    public function isIterateable()
+    public function isInstance($object): bool
     {
     }
 
     /**
+     * Checks if the class is instantiable
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isinstantiable.php
+     */
+    public function isInstantiable(): bool
+    {
+    }
+
+    /**
+     * Checks if the class is an interface
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isinterface.php
+     */
+    public function isInterface(): bool
+    {
+    }
+
+    /**
+     * Checks if class is defined internally by an extension, or the core
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isinternal.php
+     */
+    public function isInternal(): bool
+    {
+    }
+
+    /**
+     * Check whether this class is iterable
+     *
+     * @return bool
+     *
+     * @since PHP 7 >= 7.2.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isiterable.php
+     */
+    public function isIterable(): bool
+    {
+    }
+
+    /**
+     * Checks if iterateable
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isiterateable.php
+     */
+    public function isIterateable(): bool
+    {
+    }
+
+    /**
+     * Checks if a subclass
+     *
      * @param mixed $class
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.issubclassof.php
      */
-    public function isSubclassOf($class)
-    {
-    }
-
-    public function isTrait()
-    {
-    }
-
-    public function isUserDefined()
+    public function isSubclassOf($class): bool
     {
     }
 
     /**
+     * Returns whether this is a trait
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.istrait.php
+     */
+    public function isTrait(): bool
+    {
+    }
+
+    /**
+     * Checks if user defined
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.isuserdefined.php
+     */
+    public function isUserDefined(): bool
+    {
+    }
+
+    /**
+     * Creates a new class instance from given arguments
+     *
      * @param mixed $args
+     *
+     * @return object
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.newinstance.php
      */
-    public function newInstance($args)
+    public function newInstance($args): object
     {
     }
 
     /**
+     * Creates a new class instance from given arguments
+     *
      * @param array[]|null $args
+     *
+     * @return object
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.newinstanceargs.php
      */
-    public function newInstanceArgs($args = null)
-    {
-    }
-
-    public function newInstanceWithoutConstructor()
+    public function newInstanceArgs($args = null): object
     {
     }
 
     /**
+     * Creates a new class instance without invoking the constructor
+     *
+     * @return object
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
+     */
+    public function newInstanceWithoutConstructor(): object
+    {
+    }
+
+    /**
+     * Sets static property value
+     *
      * @param mixed $name
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionclass.setstaticpropertyvalue.php
      */
     public function setStaticPropertyValue($name, $value)
     {
@@ -342,55 +833,150 @@ class ReflectionClassConstant implements Reflector
     }
 
     /**
+     * Constructs a ReflectionClassConstant
+     *
      * @param mixed $class
      * @param mixed $name
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.construct.php
      */
     public function __construct($class, $name)
     {
     }
 
-    public function __toString()
+    /**
+     * Returns the string representation of the ReflectionClassConstant object
+     *
+     * @return string
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Export
+     *
      * @param mixed $class
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.export.php
      */
-    public static function export($class, $name, $return = null)
+    public static function export($class, $name, $return = null): string
     {
     }
 
+    /**
+     * Gets declaring class
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
+     */
     public function getDeclaringClass()
     {
     }
 
-    public function getDocComment()
+    /**
+     * Gets doc comments
+     *
+     * @return string
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.getdoccomment.php
+     */
+    public function getDocComment(): string
     {
     }
 
-    public function getModifiers()
+    /**
+     * Gets the class constant modifiers
+     *
+     * @return int
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.getmodifiers.php
+     */
+    public function getModifiers(): int
     {
     }
 
-    public function getName()
+    /**
+     * Get name of the constant
+     *
+     * @return string
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.getname.php
+     */
+    public function getName(): string
     {
     }
 
+    /**
+     * Gets value
+     *
+     * @return mixed
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.getvalue.php
+     */
     public function getValue()
     {
     }
 
-    public function isPrivate()
+    /**
+     * Checks if class constant is private
+     *
+     * @return bool
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.isprivate.php
+     */
+    public function isPrivate(): bool
     {
     }
 
-    public function isProtected()
+    /**
+     * Checks if class constant is protected
+     *
+     * @return bool
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.isprotected.php
+     */
+    public function isProtected(): bool
     {
     }
 
-    public function isPublic()
+    /**
+     * Checks if class constant is public
+     *
+     * @return bool
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionclassconstant.ispublic.php
+     */
+    public function isPublic(): bool
     {
     }
 }
@@ -416,69 +1002,200 @@ class ReflectionException extends Exception
  */
 class ReflectionExtension implements Reflector
 {
+    /**
+     * Clones
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.clone.php
+     */
     final private function __clone()
     {
     }
 
     /**
+     * Constructs a ReflectionExtension
+     *
      * @param mixed $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.construct.php
      */
     public function __construct($name)
     {
     }
 
-    public function __toString()
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Export
+     *
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.export.php
      */
-    public static function export($name, $return = null)
+    public static function export($name, $return = null): string
     {
     }
 
-    public function getClasses()
+    /**
+     * Gets classes
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getclasses.php
+     */
+    public function getClasses(): array
     {
     }
 
-    public function getClassNames()
+    /**
+     * Gets class names
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getclassnames.php
+     */
+    public function getClassNames(): array
     {
     }
 
-    public function getConstants()
+    /**
+     * Gets constants
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getconstants.php
+     */
+    public function getConstants(): array
     {
     }
 
-    public function getDependencies()
+    /**
+     * Gets dependencies
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getdependencies.php
+     */
+    public function getDependencies(): array
     {
     }
 
-    public function getFunctions()
+    /**
+     * Gets extension functions
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getfunctions.php
+     */
+    public function getFunctions(): array
     {
     }
 
-    public function getINIEntries()
+    /**
+     * Gets extension ini entries
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getinientries.php
+     */
+    public function getINIEntries(): array
     {
     }
 
-    public function getName()
+    /**
+     * Gets extension name
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getname.php
+     */
+    public function getName(): string
     {
     }
 
-    public function getVersion()
+    /**
+     * Gets extension version
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.getversion.php
+     */
+    public function getVersion(): string
     {
     }
 
+    /**
+     * Print extension info
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.4, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.info.php
+     */
     public function info()
     {
     }
 
+    /**
+     * Returns whether this extension is persistent
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.ispersistent.php
+     */
     public function isPersistent()
     {
     }
 
+    /**
+     * Returns whether this extension is temporary
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionextension.istemporary.php
+     */
     public function isTemporary()
     {
     }
@@ -495,43 +1212,100 @@ class ReflectionExtension implements Reflector
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
+     * Constructs a ReflectionFunction object
+     *
      * @param mixed $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.construct.php
      */
     public function __construct($name)
     {
     }
 
-    public function __toString()
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Exports function
+     *
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.export.php
      */
-    public static function export($name, $return = null)
+    public static function export($name, $return = null): string
     {
     }
 
+    /**
+     * Returns a dynamically created closure for the function
+     *
+     * @return Closure
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.getclosure.php
+     */
     public function getClosure()
     {
     }
 
     /**
+     * Invokes function
+     *
      * @param mixed|null $args
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.invoke.php
      */
     public function invoke($args = null)
     {
     }
 
     /**
+     * Invokes function args
+     *
      * @param array[] $args
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.invokeargs.php
      */
     public function invokeArgs($args)
     {
     }
 
-    public function isDisabled()
+    /**
+     * Checks if function is disabled
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunction.isdisabled.php
+     */
+    public function isDisabled(): bool
     {
     }
 }
@@ -546,107 +1320,341 @@ class ReflectionFunction extends ReflectionFunctionAbstract
  */
 abstract class ReflectionFunctionAbstract implements Reflector
 {
+    /**
+     * Clones function
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.clone.php
+     */
     final private function __clone()
     {
     }
 
+    /**
+     * Returns the scope associated to the closure
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
+     */
     public function getClosureScopeClass()
     {
     }
 
-    public function getClosureThis()
+    /**
+     * Returns this pointer bound to closure
+     *
+     * @return object
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
+     */
+    public function getClosureThis(): object
     {
     }
 
-    public function getDocComment()
+    /**
+     * Gets doc comment
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
+     */
+    public function getDocComment(): string
     {
     }
 
-    public function getEndLine()
+    /**
+     * Gets end line number
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getendline.php
+     */
+    public function getEndLine(): int
     {
     }
 
+    /**
+     * Gets extension info
+     *
+     * @return ReflectionExtension
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getextension.php
+     */
     public function getExtension()
     {
     }
 
-    public function getExtensionName()
+    /**
+     * Gets extension name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getextensionname.php
+     */
+    public function getExtensionName(): string
     {
     }
 
-    public function getFileName()
+    /**
+     * Gets file name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getfilename.php
+     */
+    public function getFileName(): string
     {
     }
 
-    public function getName()
+    /**
+     * Gets function name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getname.php
+     */
+    public function getName(): string
     {
     }
 
-    public function getNamespaceName()
+    /**
+     * Gets namespace name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
+     */
+    public function getNamespaceName(): string
     {
     }
 
-    public function getNumberOfParameters()
+    /**
+     * Gets number of parameters
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
+     */
+    public function getNumberOfParameters(): int
     {
     }
 
-    public function getNumberOfRequiredParameters()
+    /**
+     * Gets number of required parameters
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
+     */
+    public function getNumberOfRequiredParameters(): int
     {
     }
 
-    public function getParameters()
+    /**
+     * Gets parameters
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getparameters.php
+     */
+    public function getParameters(): array
     {
     }
 
+    /**
+     * Gets the specified return type of a function
+     *
+     * @return ReflectionType
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getreturntype.php
+     */
     public function getReturnType()
     {
     }
 
-    public function getShortName()
+    /**
+     * Gets function short name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getshortname.php
+     */
+    public function getShortName(): string
     {
     }
 
-    public function getStartLine()
+    /**
+     * Gets starting line number
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getstartline.php
+     */
+    public function getStartLine(): int
     {
     }
 
-    public function getStaticVariables()
+    /**
+     * Gets static variables
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
+     */
+    public function getStaticVariables(): array
     {
     }
 
-    public function hasReturnType()
+    /**
+     * Checks if the function has a specified return type
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
+     */
+    public function hasReturnType(): bool
     {
     }
 
-    public function inNamespace()
+    /**
+     * Checks if function in namespace
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.innamespace.php
+     */
+    public function inNamespace(): bool
     {
     }
 
-    public function isClosure()
+    /**
+     * Checks if closure
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isclosure.php
+     */
+    public function isClosure(): bool
     {
     }
 
-    public function isDeprecated()
+    /**
+     * Checks if deprecated
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isdeprecated.php
+     */
+    public function isDeprecated(): bool
     {
     }
 
-    public function isGenerator()
+    /**
+     * Returns whether this function is a generator
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+     */
+    public function isGenerator(): bool
     {
     }
 
-    public function isInternal()
+    /**
+     * Checks if is internal
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isinternal.php
+     */
+    public function isInternal(): bool
     {
     }
 
-    public function isUserDefined()
+    /**
+     * Checks if user defined
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
+     */
+    public function isUserDefined(): bool
     {
     }
 
-    public function isVariadic()
+    /**
+     * Checks if the function is variadic
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.isvariadic.php
+     */
+    public function isVariadic(): bool
     {
     }
 
-    public function returnsReference()
+    /**
+     * Checks if returns reference
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionfunctionabstract.returnsreference.php
+     */
+    public function returnsReference(): bool
     {
     }
 }
@@ -662,36 +1670,95 @@ abstract class ReflectionFunctionAbstract implements Reflector
 class ReflectionGenerator
 {
     /**
+     * Constructs a ReflectionGenerator object
+     *
      * @param mixed $generator
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.construct.php
      */
     public function __construct($generator)
     {
     }
 
-    public function getExecutingFile()
-    {
-    }
-
-    public function getExecutingGenerator()
-    {
-    }
-
-    public function getExecutingLine()
-    {
-    }
-
-    public function getFunction()
-    {
-    }
-
-    public function getThis()
+    /**
+     * Gets the file name of the currently executing generator
+     *
+     * @return string
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.getexecutingfile.php
+     */
+    public function getExecutingFile(): string
     {
     }
 
     /**
-     * @param mixed|null $options
+     * Gets the executing <code>Generator</code> object
+     *
+     * @return Generator
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.getexecutinggenerator.php
      */
-    public function getTrace($options = null)
+    public function getExecutingGenerator()
+    {
+    }
+
+    /**
+     * Gets the currently executing line of the generator
+     *
+     * @return int
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.getexecutingline.php
+     */
+    public function getExecutingLine(): int
+    {
+    }
+
+    /**
+     * Gets the function name of the generator
+     *
+     * @return ReflectionFunctionAbstract
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.getfunction.php
+     */
+    public function getFunction()
+    {
+    }
+
+    /**
+     * Gets the <code>$this</code> value of the generator
+     *
+     * @return object
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.getthis.php
+     */
+    public function getThis(): object
+    {
+    }
+
+    /**
+     * Gets the trace of the executing generator
+     *
+     * @param mixed|null $options
+     *
+     * @return array
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiongenerator.gettrace.php
+     */
+    public function getTrace($options = null): array
     {
     }
 }
@@ -707,95 +1774,249 @@ class ReflectionGenerator
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
+     * Constructs a ReflectionMethod
+     *
      * @param mixed $class_or_method
      * @param mixed|null $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.construct.php
      */
     public function __construct($class_or_method, $name = null)
     {
     }
 
-    public function __toString()
+    /**
+     * Returns the string representation of the Reflection method object
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Export a reflection method
+     *
      * @param mixed $class
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.export.php
      */
-    public static function export($class, $name, $return = null)
+    public static function export($class, $name, $return = null): string
     {
     }
 
     /**
+     * Returns a dynamically created closure for the method
+     *
      * @param mixed $object
+     *
+     * @return Closure
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.getclosure.php
      */
     public function getClosure($object)
     {
     }
 
+    /**
+     * Gets declaring class for the reflected method
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.getdeclaringclass.php
+     */
     public function getDeclaringClass()
     {
     }
 
-    public function getModifiers()
+    /**
+     * Gets the method modifiers
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.getmodifiers.php
+     */
+    public function getModifiers(): int
     {
     }
 
+    /**
+     * Gets the method prototype (if there is one)
+     *
+     * @return ReflectionMethod
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.getprototype.php
+     */
     public function getPrototype()
     {
     }
 
     /**
+     * Invoke
+     *
      * @param mixed $object
      * @param mixed $args
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.invoke.php
      */
     public function invoke($object, $args)
     {
     }
 
     /**
+     * Invoke args
+     *
      * @param mixed $object
      * @param array[] $args
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.invokeargs.php
      */
     public function invokeArgs($object, $args)
     {
     }
 
-    public function isAbstract()
-    {
-    }
-
-    public function isConstructor()
-    {
-    }
-
-    public function isDestructor()
-    {
-    }
-
-    public function isFinal()
-    {
-    }
-
-    public function isPrivate()
-    {
-    }
-
-    public function isProtected()
-    {
-    }
-
-    public function isPublic()
-    {
-    }
-
-    public function isStatic()
+    /**
+     * Checks if method is abstract
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isabstract.php
+     */
+    public function isAbstract(): bool
     {
     }
 
     /**
+     * Checks if method is a constructor
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isconstructor.php
+     */
+    public function isConstructor(): bool
+    {
+    }
+
+    /**
+     * Checks if method is a destructor
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isdestructor.php
+     */
+    public function isDestructor(): bool
+    {
+    }
+
+    /**
+     * Checks if method is final
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isfinal.php
+     */
+    public function isFinal(): bool
+    {
+    }
+
+    /**
+     * Checks if method is private
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isprivate.php
+     */
+    public function isPrivate(): bool
+    {
+    }
+
+    /**
+     * Checks if method is protected
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isprotected.php
+     */
+    public function isProtected(): bool
+    {
+    }
+
+    /**
+     * Checks if method is public
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.ispublic.php
+     */
+    public function isPublic(): bool
+    {
+    }
+
+    /**
+     * Checks if method is static
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.isstatic.php
+     */
+    public function isStatic(): bool
+    {
+    }
+
+    /**
+     * Set method accessibility
+     *
      * @param mixed $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionmethod.setaccessible.php
      */
     public function setAccessible($value)
     {
@@ -807,7 +2028,16 @@ class ReflectionMethod extends ReflectionFunctionAbstract
  */
 class ReflectionNamedType extends ReflectionType
 {
-    public function getName()
+    /**
+     * Get the text of the type hint
+     *
+     * @return string
+     *
+     * @since PHP 7 >= 7.1.0
+     *
+     * @link http://www.php.net/manual/en/reflectionnamedtype.getname.php
+     */
+    public function getName(): string
     {
     }
 }
@@ -823,17 +2053,31 @@ class ReflectionNamedType extends ReflectionType
 class ReflectionObject extends ReflectionClass
 {
     /**
+     * Constructs a ReflectionObject
+     *
      * @param mixed $argument
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionobject.construct.php
      */
     public function __construct($argument)
     {
     }
 
     /**
+     * Export
+     *
      * @param mixed $argument
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionobject.export.php
      */
-    public static function export($argument, $return = null)
+    public static function export($argument, $return = null): string
     {
     }
 }
@@ -848,109 +2092,294 @@ class ReflectionObject extends ReflectionClass
  */
 class ReflectionParameter implements Reflector
 {
+    /**
+     * Clone
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.clone.php
+     */
     final private function __clone()
     {
     }
 
     /**
+     * Construct
+     *
      * @param mixed $function
      * @param mixed $parameter
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.construct.php
      */
     public function __construct($function, $parameter)
     {
     }
 
-    public function __toString()
-    {
-    }
-
-    public function allowsNull()
-    {
-    }
-
-    public function canBePassedByValue()
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
-     * @param mixed $function
-     * @param mixed $parameter
-     * @param mixed|null $return
+     * Checks if null is allowed
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.allowsnull.php
      */
-    public static function export($function, $parameter, $return = null)
+    public function allowsNull(): bool
     {
     }
 
+    /**
+     * Returns whether this parameter can be passed by value
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
+     */
+    public function canBePassedByValue(): bool
+    {
+    }
+
+    /**
+     * Exports
+     *
+     * @param mixed $function
+     * @param mixed $parameter
+     * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.export.php
+     */
+    public static function export($function, $parameter, $return = null): string
+    {
+    }
+
+    /**
+     * Get the type hinted class
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getclass.php
+     */
     public function getClass()
     {
     }
 
+    /**
+     * Gets declaring class
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getdeclaringclass.php
+     */
     public function getDeclaringClass()
     {
     }
 
+    /**
+     * Gets declaring function
+     *
+     * @return ReflectionFunctionAbstract
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getdeclaringfunction.php
+     */
     public function getDeclaringFunction()
     {
     }
 
+    /**
+     * Gets default parameter value
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.0.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getdefaultvalue.php
+     */
     public function getDefaultValue()
     {
     }
 
-    public function getDefaultValueConstantName()
-    {
-    }
-
-    public function getName()
-    {
-    }
-
-    public function getPosition()
+    /**
+     * Returns the default value's constant name if default value is constant or null
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.6, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
+     */
+    public function getDefaultValueConstantName(): string
     {
     }
 
     /**
-     * Get the type of a variable
+     * Gets parameter name
      *
      * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.gettype.php
+     * @link http://www.php.net/manual/en/reflectionparameter.getname.php
      */
-    public function getType(): string
+    public function getName(): string
     {
     }
 
-    public function hasType()
+    /**
+     * Gets parameter position
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.getposition.php
+     */
+    public function getPosition(): int
     {
     }
 
-    public function isArray()
+    /**
+     * Gets a parameter's type
+     *
+     * @return ReflectionType
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.gettype.php
+     */
+    public function getType()
     {
     }
 
-    public function isCallable()
+    /**
+     * Checks if parameter has a type
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.hastype.php
+     */
+    public function hasType(): bool
     {
     }
 
-    public function isDefaultValueAvailable()
+    /**
+     * Checks if parameter expects an array
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.isarray.php
+     */
+    public function isArray(): bool
     {
     }
 
-    public function isDefaultValueConstant()
+    /**
+     * Returns whether parameter MUST be callable
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.iscallable.php
+     */
+    public function isCallable(): bool
     {
     }
 
-    public function isOptional()
+    /**
+     * Checks if a default value is available
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.0.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.isdefaultvalueavailable.php
+     */
+    public function isDefaultValueAvailable(): bool
     {
     }
 
-    public function isPassedByReference()
+    /**
+     * Returns whether the default value of this parameter is constant
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.6, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
+     */
+    public function isDefaultValueConstant(): bool
     {
     }
 
-    public function isVariadic()
+    /**
+     * Checks if optional
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.0.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.isoptional.php
+     */
+    public function isOptional(): bool
+    {
+    }
+
+    /**
+     * Checks if passed by reference
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.ispassedbyreference.php
+     */
+    public function isPassedByReference(): bool
+    {
+    }
+
+    /**
+     * Checks if the parameter is variadic
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionparameter.isvariadic.php
+     */
+    public function isVariadic(): bool
     {
     }
 }
@@ -965,84 +2394,221 @@ class ReflectionParameter implements Reflector
  */
 class ReflectionProperty implements Reflector
 {
+    /**
+     * Clone
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.clone.php
+     */
     final private function __clone()
     {
     }
 
     /**
+     * Construct a ReflectionProperty object
+     *
      * @param mixed $class
      * @param mixed $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.construct.php
      */
     public function __construct($class, $name)
     {
     }
 
-    public function __toString()
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Export
+     *
      * @param mixed $class
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.export.php
      */
-    public static function export($class, $name, $return = null)
+    public static function export($class, $name, $return = null): string
     {
     }
 
+    /**
+     * Gets declaring class
+     *
+     * @return ReflectionClass
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.getdeclaringclass.php
+     */
     public function getDeclaringClass()
     {
     }
 
-    public function getDocComment()
-    {
-    }
-
-    public function getModifiers()
-    {
-    }
-
-    public function getName()
+    /**
+     * Gets the property doc comment
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.getdoccomment.php
+     */
+    public function getDocComment(): string
     {
     }
 
     /**
+     * Gets the property modifiers
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.getmodifiers.php
+     */
+    public function getModifiers(): int
+    {
+    }
+
+    /**
+     * Gets property name
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.getname.php
+     */
+    public function getName(): string
+    {
+    }
+
+    /**
+     * Gets value
+     *
      * @param mixed|null $object
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.getvalue.php
      */
     public function getValue($object = null)
     {
     }
 
-    public function isDefault()
-    {
-    }
-
-    public function isPrivate()
-    {
-    }
-
-    public function isProtected()
-    {
-    }
-
-    public function isPublic()
-    {
-    }
-
-    public function isStatic()
+    /**
+     * Checks if property is a default property
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.isdefault.php
+     */
+    public function isDefault(): bool
     {
     }
 
     /**
+     * Checks if property is private
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.isprivate.php
+     */
+    public function isPrivate(): bool
+    {
+    }
+
+    /**
+     * Checks if property is protected
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.isprotected.php
+     */
+    public function isProtected(): bool
+    {
+    }
+
+    /**
+     * Checks if property is public
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.ispublic.php
+     */
+    public function isPublic(): bool
+    {
+    }
+
+    /**
+     * Checks if property is static
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.isstatic.php
+     */
+    public function isStatic(): bool
+    {
+    }
+
+    /**
+     * Set property accessibility
+     *
      * @param mixed $visible
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.setaccessible.php
      */
     public function setAccessible($visible)
     {
     }
 
     /**
+     * Set property value
+     *
      * @param mixed $object
      * @param mixed|null $value
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionproperty.setvalue.php
      */
     public function setValue($object, $value = null)
     {
@@ -1063,15 +2629,42 @@ class ReflectionType
     {
     }
 
-    public function __toString()
+    /**
+     * To string
+     *
+     * @return string
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiontype.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
-    public function allowsNull()
+    /**
+     * Checks if null is allowed
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiontype.allowsnull.php
+     */
+    public function allowsNull(): bool
     {
     }
 
-    public function isBuiltin()
+    /**
+     * Checks if it is a built-in type
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectiontype.isbuiltin.php
+     */
+    public function isBuiltin(): bool
     {
     }
 }
@@ -1083,46 +2676,123 @@ class ReflectionType
  */
 class ReflectionZendExtension implements Reflector
 {
+    /**
+     * Clone handler
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.clone.php
+     */
     final private function __clone()
     {
     }
 
     /**
+     * Constructor
+     *
      * @param mixed $name
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.construct.php
      */
     public function __construct($name)
     {
     }
 
-    public function __toString()
+    /**
+     * To string handler
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Export
+     *
      * @param mixed $name
      * @param mixed|null $return
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.export.php
      */
-    public static function export($name, $return = null)
+    public static function export($name, $return = null): string
     {
     }
 
-    public function getAuthor()
+    /**
+     * Gets author
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.getauthor.php
+     */
+    public function getAuthor(): string
     {
     }
 
-    public function getCopyright()
+    /**
+     * Gets copyright
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.getcopyright.php
+     */
+    public function getCopyright(): string
     {
     }
 
-    public function getName()
+    /**
+     * Gets name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.getname.php
+     */
+    public function getName(): string
     {
     }
 
-    public function getURL()
+    /**
+     * Gets URL
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.geturl.php
+     */
+    public function getURL(): string
     {
     }
 
-    public function getVersion()
+    /**
+     * Gets version
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/reflectionzendextension.getversion.php
+     */
+    public function getVersion(): string
     {
     }
 }

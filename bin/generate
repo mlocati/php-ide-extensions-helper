@@ -764,7 +764,11 @@ EOF
     {
         $name = $functionElement->getAttribute('name');
         $namespace = $parentElement === null ? $functionElement->getAttribute('namespace') : $parentElement->getAttribute('namespace');
-        $fqName = ($namespace === '' ? '' : "{$namespace}\\") . $name;
+        $fqName = ($namespace === '' ? '' : "{$namespace}\\");
+        if ($parentElement !== null) {
+            $fqName .= $parentElement->getAttribute('name') . '::';
+        }
+        $fqName .= $name;
         $info = $this->phpManual->getItem($fqName, $parentElement === null ? PHPManualItem::TYPE_GLOBALFUNCTION : PHPManualItem::TYPE_CLASSMETHOD);
 
         $fullInfo = new PHPManualMergedFunction($extensionElement, $functionElement, $parentElement, $info);

@@ -45,34 +45,83 @@ const PHP_SESSION_NONE = 1;
  */
 interface SessionHandlerInterface
 {
-    public function close();
+    /**
+     * Close the session
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.close.php
+     */
+    public function close(): bool;
 
     /**
+     * Destroy a session
+     *
      * @param mixed $key
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.destroy.php
      */
-    public function destroy($key);
+    public function destroy($key): bool;
 
     /**
+     * Cleanup old sessions
+     *
      * @param mixed $maxlifetime
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.gc.php
      */
-    public function gc($maxlifetime);
+    public function gc($maxlifetime): int;
 
     /**
+     * Initialize session
+     *
      * @param mixed $save_path
      * @param mixed $session_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.open.php
      */
-    public function open($save_path, $session_name);
+    public function open($save_path, $session_name): bool;
 
     /**
+     * Read session data
+     *
      * @param mixed $key
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.read.php
      */
-    public function read($key);
+    public function read($key): string;
 
     /**
+     * Write session data
+     *
      * @param mixed $key
      * @param mixed $val
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.write.php
      */
-    public function write($key, $val);
+    public function write($key, $val): bool;
 }
 
 /**
@@ -82,7 +131,16 @@ interface SessionHandlerInterface
  */
 interface SessionIdInterface
 {
-    public function create_sid();
+    /**
+     * Create session ID
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.1, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionidinterface.create-sid.php
+     */
+    public function create_sid(): string;
 }
 
 /**
@@ -93,15 +151,31 @@ interface SessionIdInterface
 interface SessionUpdateTimestampHandlerInterface
 {
     /**
+     * Update timestamp
+     *
      * @param mixed $key
      * @param mixed $val
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionupdatetimestamphandlerinterface.updatetimestamp.php
      */
-    public function updateTimestamp($key, $val);
+    public function updateTimestamp($key, $val): bool;
 
     /**
+     * Validate ID
+     *
      * @param mixed $key
+     *
+     * @return bool
+     *
+     * @since PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionupdatetimestamphandlerinterface.validateid.php
      */
-    public function validateId($key);
+    public function validateId($key): bool;
 }
 
 /**
@@ -126,48 +200,106 @@ interface SessionUpdateTimestampHandlerInterface
  */
 class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
-    public function close()
-    {
-    }
-
-    public function create_sid()
+    /**
+     * Close the session
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.close.php
+     */
+    public function close(): bool
     {
     }
 
     /**
+     * Return a new session ID
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.1, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.create-sid.php
+     */
+    public function create_sid(): string
+    {
+    }
+
+    /**
+     * Destroy a session
+     *
      * @param mixed $key
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.destroy.php
      */
-    public function destroy($key)
+    public function destroy($key): bool
     {
     }
 
     /**
+     * Cleanup old sessions
+     *
      * @param mixed $maxlifetime
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.gc.php
      */
-    public function gc($maxlifetime)
+    public function gc($maxlifetime): int
     {
     }
 
     /**
+     * Initialize session
+     *
      * @param mixed $save_path
      * @param mixed $session_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.open.php
      */
-    public function open($save_path, $session_name)
+    public function open($save_path, $session_name): bool
     {
     }
 
     /**
+     * Read session data
+     *
      * @param mixed $key
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.read.php
      */
-    public function read($key)
+    public function read($key): string
     {
     }
 
     /**
+     * Write session data
+     *
      * @param mixed $key
      * @param mixed $val
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.write.php
      */
-    public function write($key, $val)
+    public function write($key, $val): bool
     {
     }
 }

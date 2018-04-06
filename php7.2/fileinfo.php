@@ -113,28 +113,36 @@ const FILEINFO_SYMLINK = 2;
 class finfo
 {
     /**
+     * Alias of finfo_buffer()
+     *
      * @param mixed $string
      * @param mixed|null $options
      * @param mixed|null $context
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7, PECL fileinfo >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/finfo.buffer.php
      */
-    public function buffer($string, $options = null, $context = null)
+    public function buffer($string, $options = null, $context = null): string
     {
     }
 
     /**
-     * Reads entire file into an array
+     * Alias of finfo_file()
      *
      * @param mixed $filename
      * @param mixed|null $options
      * @param mixed|null $context
      *
-     * @return array
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
      *
-     * @link http://www.php.net/manual/en/function.file.php
+     * @link http://www.php.net/manual/en/finfo.file.php
      */
-    public function file($filename, $options = null, $context = null): array
+    public function file($filename, $options = null, $context = null): string
     {
     }
 
@@ -147,9 +155,17 @@ class finfo
     }
 
     /**
+     * Alias of finfo_set_flags()
+     *
      * @param mixed $options
+     *
+     * @return bool
+     *
+     * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
+     *
+     * @link http://www.php.net/manual/en/finfo.set-flags.php
      */
-    public function set_flags($options)
+    public function set_flags($options): bool
     {
     }
 }

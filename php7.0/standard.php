@@ -2996,31 +2996,47 @@ class AssertionError extends Error
 class Directory
 {
     /**
+     * Close directory handle
+     *
      * @param mixed|null $dir_handle
+     *
+     * @return void
+     *
+     * @since PHP 4, PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directory.close.php
      */
     public function close($dir_handle = null)
     {
     }
 
     /**
+     * Read entry from directory handle
+     *
      * @param mixed|null $dir_handle
+     *
+     * @return string
+     *
+     * @since PHP 4, PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/directory.read.php
      */
-    public function read($dir_handle = null)
+    public function read($dir_handle = null): string
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind directory handle
      *
      * @param mixed|null $dir_handle
      *
-     * @return bool
+     * @return void
      *
      * @since PHP 4, PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/directory.rewind.php
      */
-    public function rewind($dir_handle = null): bool
+    public function rewind($dir_handle = null)
     {
     }
 }
@@ -3036,20 +3052,46 @@ class Directory
 class php_user_filter
 {
     /**
+     * Called when applying the filter
+     *
      * @param mixed $in
      * @param mixed $out
      * @param mixed $consumed
      * @param mixed $closing
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/php-user-filter.filter.php
      */
-    public function filter($in, $out, &$consumed, $closing)
+    public function filter($in, $out, &$consumed, $closing): int
     {
     }
 
+    /**
+     * Called when closing the filter
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/php-user-filter.onclose.php
+     */
     public function onClose()
     {
     }
 
-    public function onCreate()
+    /**
+     * Called when creating the filter
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/php-user-filter.oncreate.php
+     */
+    public function onCreate(): bool
     {
     }
 }

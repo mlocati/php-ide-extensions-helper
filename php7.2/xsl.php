@@ -134,85 +134,183 @@ const XSL_SECPREF_WRITE_NETWORK = 32;
 class XSLTProcessor
 {
     /**
+     * Get value of a parameter
+     *
      * @param mixed $namespace
      * @param mixed $name
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.getparameter.php
      */
-    public function getParameter($namespace, $name)
-    {
-    }
-
-    public function getSecurityPrefs()
-    {
-    }
-
-    public function hasExsltSupport()
+    public function getParameter($namespace, $name): string
     {
     }
 
     /**
+     * Get security preferences
+     *
+     * @return int
+     *
+     * @since PHP >= 5.4.0
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.getsecurityprefs.php
+     */
+    public function getSecurityPrefs(): int
+    {
+    }
+
+    /**
+     * Determine if PHP has EXSLT support
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.0.4, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.hasexsltsupport.php
+     */
+    public function hasExsltSupport(): bool
+    {
+    }
+
+    /**
+     * Import stylesheet
+     *
      * @param mixed $doc
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.importstylesheet.php
      */
-    public function importStylesheet($doc)
+    public function importStylesheet($doc): bool
     {
     }
 
     /**
+     * Enables the ability to use PHP functions as XSLT functions
+     *
      * @param mixed|null $restrict
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.0.4, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.registerphpfunctions.php
      */
     public function registerPHPFunctions($restrict = null)
     {
     }
 
     /**
+     * Remove parameter
+     *
      * @param mixed $namespace
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.removeparameter.php
      */
-    public function removeParameter($namespace, $name)
+    public function removeParameter($namespace, $name): bool
     {
     }
 
     /**
+     * Set value for a parameter
+     *
      * @param mixed $namespace
      * @param mixed $name
      * @param mixed|null $value
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.setparameter.php
      */
-    public function setParameter($namespace, $name, $value = null)
+    public function setParameter($namespace, $name, $value = null): bool
     {
     }
 
     /**
+     * Sets profiling output file
+     *
      * @param mixed $filename
+     *
+     * @return bool
+     *
+     * @since PHP >= 5.3.0
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.setprofiling.php
      */
-    public function setProfiling($filename)
+    public function setProfiling($filename): bool
     {
     }
 
     /**
+     * Set security preferences
+     *
      * @param mixed $securityPrefs
+     *
+     * @return int
+     *
+     * @since PHP >= 5.4.0
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.setsecurityprefs.php
      */
-    public function setSecurityPrefs($securityPrefs)
+    public function setSecurityPrefs($securityPrefs): int
     {
     }
 
     /**
+     * Transform to a DOMDocument
+     *
      * @param mixed $doc
+     *
+     * @return DOMDocument
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.transformtodoc.php
      */
     public function transformToDoc($doc)
     {
     }
 
     /**
+     * Transform to URI
+     *
      * @param mixed $doc
      * @param mixed $uri
+     *
+     * @return int
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.transformtouri.php
      */
-    public function transformToUri($doc, $uri)
+    public function transformToUri($doc, $uri): int
     {
     }
 
     /**
+     * Transform to XML
+     *
      * @param mixed $doc
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/xsltprocessor.transformtoxml.php
      */
-    public function transformToXml($doc)
+    public function transformToXml($doc): string
     {
     }
 }

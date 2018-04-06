@@ -114,13 +114,6 @@ class Redis
     {
     }
 
-    /**
-     * See <code>unlink</code> or <code>unset</code>
-     *
-     * @since None
-     *
-     * @link http://www.php.net/manual/en/function.delete.php
-     */
     public function delete()
     {
     }
@@ -133,28 +126,10 @@ class Redis
     {
     }
 
-    /**
-     * Output one or more strings
-     *
-     * @return void
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.echo.php
-     */
     public function echo()
     {
     }
 
-    /**
-     * Evaluate a string as PHP code
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.eval.php
-     */
     public function eval()
     {
     }
@@ -171,15 +146,6 @@ class Redis
     {
     }
 
-    /**
-     * Execute an external program
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
-     */
     public function exec()
     {
     }
@@ -498,15 +464,6 @@ class Redis
     {
     }
 
-    /**
-     * Strip whitespace (or other characters) from the beginning of a string
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.ltrim.php
-     */
     public function ltrim()
     {
     }
@@ -579,15 +536,6 @@ class Redis
     {
     }
 
-    /**
-     * Opens process file pointer
-     *
-     * @return resource
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.popen.php
-     */
     public function popen()
     {
     }
@@ -624,15 +572,6 @@ class Redis
     {
     }
 
-    /**
-     * Renames a file or directory
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rename.php
-     */
     public function rename()
     {
     }
@@ -794,15 +733,6 @@ class Redis
     {
     }
 
-    /**
-     * Sort an array
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.sort.php
-     */
     public function sort()
     {
     }
@@ -853,15 +783,6 @@ class Redis
     {
     }
 
-    /**
-     * Get string length
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.strlen.php
-     */
     public function strlen()
     {
     }
@@ -870,15 +791,6 @@ class Redis
     {
     }
 
-    /**
-     * Return part of a string
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.substr.php
-     */
     public function substr()
     {
     }
@@ -901,15 +813,6 @@ class Redis
     {
     }
 
-    /**
-     * Return current Unix timestamp
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.time.php
-     */
     public function time()
     {
     }
@@ -923,18 +826,10 @@ class Redis
     }
 
     /**
-     * Deletes a file
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
      * @param mixed $other_keys
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
      */
     public function unlink($key, ...$other_keys)
     {
@@ -1152,13 +1047,6 @@ class RedisArray
     {
     }
 
-    /**
-     * See <code>unlink</code> or <code>unset</code>
-     *
-     * @since None
-     *
-     * @link http://www.php.net/manual/en/function.delete.php
-     */
     public function delete()
     {
     }
@@ -1167,15 +1055,6 @@ class RedisArray
     {
     }
 
-    /**
-     * Execute an external program
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
-     */
     public function exec()
     {
     }
@@ -1233,15 +1112,7 @@ class RedisArray
     }
 
     /**
-     * Deletes a file
-     *
      * WARNING: this may be available on POSIX but not on Windows
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
      */
     public function unlink()
     {
@@ -1516,36 +1387,20 @@ class RedisCluster
     }
 
     /**
-     * Output one or more strings
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $msg
-     *
-     * @return void
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.echo.php
      */
     public function echo($msg)
     {
     }
 
     /**
-     * Evaluate a string as PHP code
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $script
      * @param mixed|null $args
      * @param mixed|null $num_keys
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.eval.php
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -1563,15 +1418,7 @@ class RedisCluster
     }
 
     /**
-     * Execute an external program
-     *
      * WARNING: this may be available on POSIX but not on Windows
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.exec.php
      */
     public function exec()
     {
@@ -2074,19 +1921,11 @@ class RedisCluster
     }
 
     /**
-     * Strip whitespace (or other characters) from the beginning of a string
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
      * @param mixed $start
      * @param mixed $stop
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.ltrim.php
      */
     public function ltrim($key, $start, $stop)
     {
@@ -2283,18 +2122,10 @@ class RedisCluster
     }
 
     /**
-     * Renames a file or directory
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
      * @param mixed $newkey
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rename.php
      */
     public function rename($key, $newkey)
     {
@@ -2577,18 +2408,10 @@ class RedisCluster
     }
 
     /**
-     * Sort an array
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
      * @param array|null $options
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.sort.php
      */
     public function sort($key, array $options = null)
     {
@@ -2636,17 +2459,9 @@ class RedisCluster
     }
 
     /**
-     * Get string length
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.strlen.php
      */
     public function strlen($key)
     {
@@ -2683,15 +2498,7 @@ class RedisCluster
     }
 
     /**
-     * Return current Unix timestamp
-     *
      * WARNING: this may be available on POSIX but not on Windows
-     *
-     * @return int
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.time.php
      */
     public function time()
     {
@@ -2716,18 +2523,10 @@ class RedisCluster
     }
 
     /**
-     * Deletes a file
-     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
      * @param mixed $other_keys
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unlink.php
      */
     public function unlink($key, ...$other_keys)
     {

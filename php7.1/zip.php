@@ -13,289 +13,587 @@
 class ZipArchive
 {
     /**
+     * Add a new directory
+     *
      * @param mixed $dirname
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.8.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.addemptydir.php
      */
-    public function addEmptyDir($dirname)
+    public function addEmptyDir($dirname): bool
     {
     }
 
     /**
+     * Adds a file to a ZIP archive from the given path
+     *
      * @param mixed $filepath
      * @param mixed|null $entryname
      * @param mixed|null $start
      * @param mixed|null $length
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.addfile.php
      */
-    public function addFile($filepath, $entryname = null, $start = null, $length = null)
+    public function addFile($filepath, $entryname = null, $start = null, $length = null): bool
     {
     }
 
     /**
+     * Add a file to a ZIP archive using its contents
+     *
      * @param mixed $name
      * @param mixed $content
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.addfromstring.php
      */
-    public function addFromString($name, $content)
+    public function addFromString($name, $content): bool
     {
     }
 
     /**
+     * Add files from a directory by glob pattern
+     *
      * @param mixed $pattern
      * @param mixed|null $flags
      * @param mixed|null $options
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7, PECL zip >= 1.9.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.addglob.php
      */
-    public function addGlob($pattern, $flags = null, $options = null)
+    public function addGlob($pattern, $flags = null, $options = null): bool
     {
     }
 
     /**
+     * Add files from a directory by PCRE pattern
+     *
      * @param mixed $pattern
      * @param mixed|null $path
      * @param mixed|null $options
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7, PECL zip >= 1.9.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.addpattern.php
      */
-    public function addPattern($pattern, $path = null, $options = null)
-    {
-    }
-
-    public function close()
+    public function addPattern($pattern, $path = null, $options = null): bool
     {
     }
 
     /**
+     * Close the active archive (opened or newly created)
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.close.php
+     */
+    public function close(): bool
+    {
+    }
+
+    /**
+     * Delete an entry in the archive using its index
+     *
      * @param mixed $index
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.deleteindex.php
      */
-    public function deleteIndex($index)
+    public function deleteIndex($index): bool
     {
     }
 
     /**
+     * Delete an entry in the archive using its name
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.deletename.php
      */
-    public function deleteName($name)
+    public function deleteName($name): bool
     {
     }
 
     /**
+     * Extract the archive contents
+     *
      * @param mixed $pathto
      * @param mixed|null $files
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.extractto.php
      */
-    public function extractTo($pathto, $files = null)
+    public function extractTo($pathto, $files = null): bool
     {
     }
 
     /**
+     * Returns the Zip archive comment
+     *
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getarchivecomment.php
      */
-    public function getArchiveComment($flags = null)
+    public function getArchiveComment($flags = null): string
     {
     }
 
     /**
+     * Returns the comment of an entry using the entry index
+     *
      * @param mixed $index
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getcommentindex.php
      */
-    public function getCommentIndex($index, $flags = null)
+    public function getCommentIndex($index, $flags = null): string
     {
     }
 
     /**
+     * Returns the comment of an entry using the entry name
+     *
      * @param mixed $name
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getcommentname.php
      */
-    public function getCommentName($name, $flags = null)
+    public function getCommentName($name, $flags = null): string
     {
     }
 
     /**
+     * Retrieve the external attributes of an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed $opsys
      * @param mixed $attr
      * @param mixed|null $flags
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7, PECL zip >= 1.12.4
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getexternalattributesindex.php
      */
-    public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null)
+    public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null): bool
     {
     }
 
     /**
+     * Retrieve the external attributes of an entry defined by its name
+     *
      * @param mixed $name
      * @param mixed $opsys
      * @param mixed $attr
      * @param mixed|null $flags
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7, PECL zip >= 1.12.4
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getexternalattributesname.php
      */
-    public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null)
+    public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null): bool
     {
     }
 
     /**
+     * Returns the entry contents using its index
+     *
      * @param mixed $index
      * @param mixed|null $len
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getfromindex.php
      */
-    public function getFromIndex($index, $len = null, $flags = null)
+    public function getFromIndex($index, $len = null, $flags = null): string
     {
     }
 
     /**
+     * Returns the entry contents using its name
+     *
      * @param mixed $entryname
      * @param mixed|null $len
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getfromname.php
      */
-    public function getFromName($entryname, $len = null, $flags = null)
+    public function getFromName($entryname, $len = null, $flags = null): string
     {
     }
 
     /**
+     * Returns the name of an entry using its index
+     *
      * @param mixed $index
      * @param mixed|null $flags
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getnameindex.php
      */
-    public function getNameIndex($index, $flags = null)
-    {
-    }
-
-    public function getStatusString()
+    public function getNameIndex($index, $flags = null): string
     {
     }
 
     /**
+     * Returns the status error message, system and/or zip messages
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.7, PHP 7
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getstatusstring.php
+     */
+    public function getStatusString(): string
+    {
+    }
+
+    /**
+     * Get a file handler to the entry defined by its name (read only)
+     *
      * @param mixed $entryname
+     *
+     * @return resource
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.getstream.php
      */
     public function getStream($entryname)
     {
     }
 
     /**
+     * Returns the index of the entry in the archive
+     *
      * @param mixed $filename
      * @param mixed|null $flags
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.locatename.php
      */
-    public function locateName($filename, $flags = null)
+    public function locateName($filename, $flags = null): int
     {
     }
 
     /**
+     * Open a ZIP file archive
+     *
      * @param mixed $filename
      * @param mixed|null $flags
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.open.php
      */
     public function open($filename, $flags = null)
     {
     }
 
     /**
+     * Renames an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed $new_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.renameindex.php
      */
-    public function renameIndex($index, $new_name)
+    public function renameIndex($index, $new_name): bool
     {
     }
 
     /**
+     * Renames an entry defined by its name
+     *
      * @param mixed $name
      * @param mixed $new_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.renamename.php
      */
-    public function renameName($name, $new_name)
+    public function renameName($name, $new_name): bool
     {
     }
 
     /**
+     * Set the comment of a ZIP archive
+     *
      * @param mixed $comment
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setarchivecomment.php
      */
-    public function setArchiveComment($comment)
+    public function setArchiveComment($comment): bool
     {
     }
 
     /**
+     * Set the comment of an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed $comment
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setcommentindex.php
      */
-    public function setCommentIndex($index, $comment)
+    public function setCommentIndex($index, $comment): bool
     {
     }
 
     /**
+     * Set the comment of an entry defined by its name
+     *
      * @param mixed $name
      * @param mixed $comment
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setcommentname.php
      */
-    public function setCommentName($name, $comment)
+    public function setCommentName($name, $comment): bool
     {
     }
 
     /**
+     * Set the compression method of an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed $method
      * @param mixed|null $compflags
+     *
+     * @return bool
+     *
+     * @since PHP 7, PECL zip >= 1.13.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setcompressionindex.php
      */
-    public function setCompressionIndex($index, $method, $compflags = null)
+    public function setCompressionIndex($index, $method, $compflags = null): bool
     {
     }
 
     /**
+     * Set the compression method of an entry defined by its name
+     *
      * @param mixed $name
      * @param mixed $method
      * @param mixed|null $compflags
+     *
+     * @return bool
+     *
+     * @since PHP 7, PECL zip >= 1.13.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setcompressionname.php
      */
-    public function setCompressionName($name, $method, $compflags = null)
+    public function setCompressionName($name, $method, $compflags = null): bool
     {
     }
 
     /**
+     * Set the external attributes of an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed $opsys
      * @param mixed $attr
      * @param mixed|null $flags
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7, PECL zip >= 1.12.4
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setexternalattributesindex.php
      */
-    public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null)
+    public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null): bool
     {
     }
 
     /**
+     * Set the external attributes of an entry defined by its name
+     *
      * @param mixed $name
      * @param mixed $opsys
      * @param mixed $attr
      * @param mixed|null $flags
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7, PECL zip >= 1.12.4
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setexternalattributesname.php
      */
-    public function setExternalAttributesName($name, $opsys, $attr, $flags = null)
+    public function setExternalAttributesName($name, $opsys, $attr, $flags = null): bool
     {
     }
 
     /**
+     * Set the password for the active archive
+     *
      * @param mixed $password
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7, PECL zip >= 1.12.4
+     *
+     * @link http://www.php.net/manual/en/ziparchive.setpassword.php
      */
-    public function setPassword($password)
+    public function setPassword($password): bool
     {
     }
 
     /**
+     * Get the details of an entry defined by its index
+     *
      * @param mixed $index
      * @param mixed|null $flags
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.statindex.php
      */
-    public function statIndex($index, $flags = null)
+    public function statIndex($index, $flags = null): array
     {
     }
 
     /**
+     * Get the details of an entry defined by its name
+     *
      * @param mixed $filename
      * @param mixed|null $flags
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.statname.php
      */
-    public function statName($filename, $flags = null)
-    {
-    }
-
-    public function unchangeAll()
-    {
-    }
-
-    public function unchangeArchive()
+    public function statName($filename, $flags = null): array
     {
     }
 
     /**
+     * Undo all changes done in the archive
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.unchangeall.php
+     */
+    public function unchangeAll(): bool
+    {
+    }
+
+    /**
+     * Revert all global changes done in the archive
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.unchangearchive.php
+     */
+    public function unchangeArchive(): bool
+    {
+    }
+
+    /**
+     * Revert all changes done to an entry at the given index
+     *
      * @param mixed $index
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.unchangeindex.php
      */
-    public function unchangeIndex($index)
+    public function unchangeIndex($index): bool
     {
     }
 
     /**
+     * Revert all changes done to an entry with the given name
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
+     *
+     * @link http://www.php.net/manual/en/ziparchive.unchangename.php
      */
-    public function unchangeName($name)
+    public function unchangeName($name): bool
     {
     }
 }

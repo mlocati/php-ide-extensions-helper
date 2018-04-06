@@ -924,171 +924,343 @@ const MYSQLI_ZEROFILL_FLAG = 64;
 class mysqli
 {
     /**
+     * Open a new connection to the MySQL server
+     *
      * @param mixed|null $host
      * @param mixed|null $user
      * @param mixed|null $password
      * @param mixed|null $database
      * @param mixed|null $port
      * @param mixed|null $socket
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/mysqli.construct.php
      */
     public function __construct($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
     {
     }
 
     /**
+     * Turns on or off auto-committing database modifications
+     *
      * @param mixed $mode
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.autocommit.php
      */
-    public function autocommit($mode)
+    public function autocommit($mode): bool
     {
     }
 
     /**
+     * Starts a transaction
+     *
      * @param mixed|null $flags
      * @param mixed|null $name
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
      */
-    public function begin_transaction($flags = null, $name = null)
+    public function begin_transaction($flags = null, $name = null): bool
     {
     }
 
     /**
+     * Changes the user of the specified database connection
+     *
      * @param mixed $user
      * @param mixed $password
      * @param mixed $database
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.change-user.php
      */
-    public function change_user($user, $password, $database)
-    {
-    }
-
-    public function character_set_name()
-    {
-    }
-
-    public function close()
+    public function change_user($user, $password, $database): bool
     {
     }
 
     /**
+     * Returns the default character set for the database connection
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/mysqli.character-set-name.php
+     */
+    public function character_set_name(): string
+    {
+    }
+
+    /**
+     * Closes a previously opened database connection
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.close.php
+     */
+    public function close(): bool
+    {
+    }
+
+    /**
+     * Commits the current transaction
+     *
      * @param mixed|null $flags
      * @param mixed|null $name
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.commit.php
      */
-    public function commit($flags = null, $name = null)
+    public function commit($flags = null, $name = null): bool
     {
     }
 
     /**
+     * Open a new connection to the MySQL server
+     *
      * @param mixed|null $host
      * @param mixed|null $user
      * @param mixed|null $password
      * @param mixed|null $database
      * @param mixed|null $port
      * @param mixed|null $socket
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli.construct.php
      */
     public function connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
     {
     }
 
     /**
+     * Performs debugging operations
+     *
      * @param mixed $debug_options
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.debug.php
      */
-    public function debug($debug_options)
-    {
-    }
-
-    public function dump_debug_info()
+    public function debug($debug_options): bool
     {
     }
 
     /**
-     * @param mixed $string_to_escape
+     * Dump debugging information into the log
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.dump-debug-info.php
      */
-    public function escape_string($string_to_escape)
+    public function dump_debug_info(): bool
     {
     }
 
+    /**
+     * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
+     *
+     * @param mixed $string_to_escape
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/mysqli.real-escape-string.php
+     */
+    public function escape_string($string_to_escape): string
+    {
+    }
+
+    /**
+     * Returns a character set object
+     *
+     * @return object
+     *
+     * @link http://www.php.net/manual/en/mysqli.get-charset.php
+     */
     public function get_charset()
     {
     }
 
-    public function get_client_info()
+    /**
+     * Get MySQL client info
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/mysqli.get-client-info.php
+     */
+    public function get_client_info(): string
     {
     }
 
-    public function get_connection_stats()
+    /**
+     * Returns statistics about the client connection
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.get-connection-stats.php
+     */
+    public function get_connection_stats(): bool
     {
     }
 
-    public function get_server_info()
+    /**
+     * Returns the version of the MySQL server
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/mysqli.get-server-info.php
+     */
+    public function get_server_info(): string
     {
     }
 
+    /**
+     * Get result of SHOW WARNINGS
+     *
+     * @return mysqli_warning
+     *
+     * @link http://www.php.net/manual/en/mysqli.get-warnings.php
+     */
     public function get_warnings()
     {
     }
 
+    /**
+     * Initializes MySQLi and returns a resource for use with mysqli_real_connect()
+     *
+     * @return mysqli
+     *
+     * @link http://www.php.net/manual/en/mysqli.init.php
+     */
     public function init()
     {
     }
 
     /**
+     * Asks the server to kill a MySQL thread
+     *
      * @param mixed $connection_id
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.kill.php
      */
-    public function kill($connection_id)
-    {
-    }
-
-    public function more_results()
+    public function kill($connection_id): bool
     {
     }
 
     /**
+     * Check if there are any more query results from a multi query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.more-results.php
+     */
+    public function more_results(): bool
+    {
+    }
+
+    /**
+     * Performs a query on the database
+     *
      * @param mixed $query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.multi-query.php
      */
-    public function multi_query($query)
-    {
-    }
-
-    public function next_result()
+    public function multi_query($query): bool
     {
     }
 
     /**
+     * Prepare next result from multi_query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.next-result.php
+     */
+    public function next_result(): bool
+    {
+    }
+
+    /**
+     * Set options
+     *
      * @param mixed $option
      * @param mixed $value
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.options.php
      */
-    public function options($option, $value)
-    {
-    }
-
-    public function ping()
+    public function options($option, $value): bool
     {
     }
 
     /**
+     * Pings a server connection, or tries to reconnect if the connection has gone down
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.ping.php
+     */
+    public function ping(): bool
+    {
+    }
+
+    /**
+     * Poll connections
+     *
      * @param array[]|null $read
      * @param array[]|null $write
      * @param array[]|null $error
      * @param mixed $sec
      * @param mixed|null $usec
+     *
+     * @return int
+     *
+     * @link http://www.php.net/manual/en/mysqli.poll.php
      */
-    public static function poll(&$read = null, &$write = null, &$error = null, $sec, $usec = null)
+    public static function poll(&$read = null, &$write = null, &$error = null, $sec, $usec = null): int
     {
     }
 
     /**
+     * Prepare an SQL statement for execution
+     *
      * @param mixed $query
+     *
+     * @return mysqli_stmt
+     *
+     * @link http://www.php.net/manual/en/mysqli.prepare.php
      */
     public function prepare($query)
     {
     }
 
     /**
+     * Performs a query on the database
+     *
      * @param mixed $query
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/mysqli.query.php
      */
     public function query($query)
     {
     }
 
     /**
+     * Opens a connection to a mysql server
+     *
      * @param mixed|null $host
      * @param mixed|null $user
      * @param mixed|null $password
@@ -1096,119 +1268,213 @@ class mysqli
      * @param mixed|null $port
      * @param mixed|null $socket
      * @param mixed|null $flags
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.real-connect.php
      */
-    public function real_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null, $flags = null)
+    public function real_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null, $flags = null): bool
     {
     }
 
     /**
+     * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
+     *
      * @param mixed $string_to_escape
+     *
+     * @return string
+     *
+     * @link http://www.php.net/manual/en/mysqli.real-escape-string.php
      */
-    public function real_escape_string($string_to_escape)
+    public function real_escape_string($string_to_escape): string
     {
     }
 
     /**
+     * Execute an SQL query
+     *
      * @param mixed $query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.real-query.php
      */
-    public function real_query($query)
+    public function real_query($query): bool
     {
     }
 
+    /**
+     * Get result from async query
+     *
+     * @return mysqli_result
+     *
+     * @link http://www.php.net/manual/en/mysqli.reap-async-query.php
+     */
     public function reap_async_query()
     {
     }
 
     /**
+     * Refreshes
+     *
      * @param mixed $options
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.refresh.php
      */
-    public function refresh($options)
+    public function refresh($options): bool
     {
     }
 
     /**
+     * Removes the named savepoint from the set of savepoints of the current transaction
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.release-savepoint.php
      */
-    public function release_savepoint($name)
+    public function release_savepoint($name): bool
     {
     }
 
     /**
+     * Rolls back current transaction
+     *
      * @param mixed|null $flags
      * @param mixed|null $name
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.rollback.php
      */
-    public function rollback($flags = null, $name = null)
+    public function rollback($flags = null, $name = null): bool
     {
     }
 
     /**
+     * Set a named transaction savepoint
+     *
      * @param mixed $name
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.savepoint.php
      */
-    public function savepoint($name)
+    public function savepoint($name): bool
     {
     }
 
     /**
+     * Selects the default database for database queries
+     *
      * @param mixed $database
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.select-db.php
      */
-    public function select_db($database)
+    public function select_db($database): bool
     {
     }
 
     /**
+     * Sets the default client character set
+     *
      * @param mixed $charset
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.set-charset.php
      */
-    public function set_charset($charset)
+    public function set_charset($charset): bool
     {
     }
 
     /**
+     * Alias of <code>mysqli_options</code>
+     *
      * @param mixed $option
      * @param mixed $value
+     *
+     * @link http://www.php.net/manual/en/function.mysqli-set-opt.php
      */
     public function set_opt($option, $value)
     {
     }
 
     /**
+     * Used for establishing secure connections using SSL
+     *
      * @param mixed $key
      * @param mixed $cert
      * @param mixed $certificate_authority
      * @param mixed $certificate_authority_path
      * @param mixed $cipher
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.ssl-set.php
      */
-    public function ssl_set($key, $cert, $certificate_authority, $certificate_authority_path, $cipher)
+    public function ssl_set($key, $cert, $certificate_authority, $certificate_authority_path, $cipher): bool
     {
     }
 
     /**
-     * Gives information about a file
+     * Gets the current system status
      *
-     * @return array
+     * @return string
      *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.stat.php
+     * @link http://www.php.net/manual/en/mysqli.stat.php
      */
-    public function stat(): array
+    public function stat(): string
     {
     }
 
+    /**
+     * Initializes a statement and returns an object for use with mysqli_stmt_prepare
+     *
+     * @return mysqli_stmt
+     *
+     * @link http://www.php.net/manual/en/mysqli.stmt-init.php
+     */
     public function stmt_init()
     {
     }
 
     /**
+     * Transfers a result set from the last query
+     *
      * @param mixed|null $flags
+     *
+     * @return mysqli_result
+     *
+     * @link http://www.php.net/manual/en/mysqli.store-result.php
      */
     public function store_result($flags = null)
     {
     }
 
-    public function thread_safe()
+    /**
+     * Returns whether thread safety is given or not
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli.thread-safe.php
+     */
+    public function thread_safe(): bool
     {
     }
 
+    /**
+     * Initiate a result set retrieval
+     *
+     * @return mysqli_result
+     *
+     * @link http://www.php.net/manual/en/mysqli.use-result.php
+     */
     public function use_result()
     {
     }
@@ -1238,73 +1504,158 @@ class mysqli_result implements Traversable
     {
     }
 
+    /**
+     * Frees the memory associated with a result
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.free.php
+     */
     public function close()
     {
     }
 
     /**
+     * Adjusts the result pointer to an arbitrary row in the result
+     *
      * @param mixed $offset
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.data-seek.php
      */
-    public function data_seek($offset)
+    public function data_seek($offset): bool
     {
     }
 
     /**
+     * Fetches all result rows as an associative array, a numeric array, or both
+     *
      * @param mixed|null $result_type
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-all.php
      */
     public function fetch_all($result_type = null)
     {
     }
 
     /**
+     * Fetch a result row as an associative, a numeric array, or both
+     *
      * @param mixed|null $result_type
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-array.php
      */
     public function fetch_array($result_type = null)
     {
     }
 
-    public function fetch_assoc()
+    /**
+     * Fetch a result row as an associative array
+     *
+     * @return array
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-assoc.php
+     */
+    public function fetch_assoc(): array
     {
     }
 
+    /**
+     * Returns the next field in the result set
+     *
+     * @return object
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-field.php
+     */
     public function fetch_field()
     {
     }
 
     /**
+     * Fetch meta-data for a single field
+     *
      * @param mixed $field_nr
+     *
+     * @return object
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-field-direct.php
      */
     public function fetch_field_direct($field_nr)
     {
     }
 
-    public function fetch_fields()
+    /**
+     * Returns an array of objects representing the fields in a result set
+     *
+     * @return array
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-fields.php
+     */
+    public function fetch_fields(): array
     {
     }
 
     /**
+     * Returns the current row of a result set as an object
+     *
      * @param mixed|null $class_name
      * @param array[]|null $params
+     *
+     * @return object
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-object.php
      */
     public function fetch_object($class_name = null, $params = null)
     {
     }
 
+    /**
+     * Get a result row as an enumerated array
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.fetch-row.php
+     */
     public function fetch_row()
     {
     }
 
     /**
+     * Set result pointer to a specified field offset
+     *
      * @param mixed $field_nr
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.field-seek.php
      */
-    public function field_seek($field_nr)
+    public function field_seek($field_nr): bool
     {
     }
 
+    /**
+     * Frees the memory associated with a result
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.free.php
+     */
     public function free()
     {
     }
 
+    /**
+     * Frees the memory associated with a result
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli-result.free.php
+     */
     public function free_result()
     {
     }
@@ -1330,116 +1681,240 @@ final class mysqli_sql_exception extends RuntimeException
  */
 class mysqli_stmt
 {
+    /**
+     * Constructs a new <code>mysqli_stmt</code> object
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.construct.php
+     */
     public function __construct()
     {
     }
 
     /**
+     * Used to get the current value of a statement attribute
+     *
      * @param mixed $attribute
+     *
+     * @return int
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.attr-get.php
      */
-    public function attr_get($attribute)
+    public function attr_get($attribute): int
     {
     }
 
     /**
+     * Used to modify the behavior of a prepared statement
+     *
      * @param mixed $attribute
      * @param mixed $value
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.attr-set.php
      */
-    public function attr_set($attribute, $value)
+    public function attr_set($attribute, $value): bool
     {
     }
 
     /**
+     * Binds variables to a prepared statement as parameters
+     *
      * @param mixed $types
      * @param mixed $vars
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.bind-param.php
      */
-    public function bind_param($types, &...$vars)
+    public function bind_param($types, &...$vars): bool
     {
     }
 
     /**
+     * Binds variables to a prepared statement for result storage
+     *
      * @param mixed $vars
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.bind-result.php
      */
-    public function bind_result(&...$vars)
-    {
-    }
-
-    public function close()
+    public function bind_result(&...$vars): bool
     {
     }
 
     /**
+     * Closes a prepared statement
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.close.php
+     */
+    public function close(): bool
+    {
+    }
+
+    /**
+     * Seeks to an arbitrary row in statement result set
+     *
      * @param mixed $offset
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.data-seek.php
      */
     public function data_seek($offset)
     {
     }
 
-    public function execute()
-    {
-    }
-
-    public function fetch()
-    {
-    }
-
-    public function free_result()
-    {
-    }
-
-    public function get_result()
-    {
-    }
-
-    public function get_warnings()
-    {
-    }
-
-    public function more_results()
-    {
-    }
-
-    public function next_result()
-    {
-    }
-
-    public function num_rows()
+    /**
+     * Executes a prepared Query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.execute.php
+     */
+    public function execute(): bool
     {
     }
 
     /**
+     * Fetch results from a prepared statement into the bound variables
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.fetch.php
+     */
+    public function fetch(): bool
+    {
+    }
+
+    /**
+     * Frees stored result memory for the given statement handle
+     *
+     * @return void
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.free-result.php
+     */
+    public function free_result()
+    {
+    }
+
+    /**
+     * Gets a result set from a prepared statement
+     *
+     * @return mysqli_result
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.get-result.php
+     */
+    public function get_result()
+    {
+    }
+
+    /**
+     * Get result of SHOW WARNINGS
+     *
+     * @return object
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.get-warnings.php
+     */
+    public function get_warnings()
+    {
+    }
+
+    /**
+     * Check if there are more query results from a multiple query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.more-results.php
+     */
+    public function more_results(): bool
+    {
+    }
+
+    /**
+     * Reads the next result from a multiple query
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.next-result.php
+     */
+    public function next_result(): bool
+    {
+    }
+
+    /**
+     * Return the number of rows in statements result set
+     *
+     * @return int
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.num-rows.php
+     */
+    public function num_rows(): int
+    {
+    }
+
+    /**
+     * Prepare an SQL statement for execution
+     *
      * @param mixed $query
+     *
+     * @return mixed
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.prepare.php
      */
     public function prepare($query)
     {
     }
 
     /**
-     * Set the internal pointer of an array to its first element
+     * Resets a prepared statement
      *
-     * @return mixed
+     * @return bool
      *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.reset.php
+     * @link http://www.php.net/manual/en/mysqli-stmt.reset.php
      */
-    public function reset()
+    public function reset(): bool
     {
     }
 
+    /**
+     * Returns result set metadata from a prepared statement
+     *
+     * @return mysqli_result
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.result-metadata.php
+     */
     public function result_metadata()
     {
     }
 
     /**
+     * Send data in blocks
+     *
      * @param mixed $param_nr
      * @param mixed $data
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.send-long-data.php
      */
-    public function send_long_data($param_nr, $data)
+    public function send_long_data($param_nr, $data): bool
     {
     }
 
-    public function store_result()
+    /**
+     * Transfers a result set from a prepared statement
+     *
+     * @return bool
+     *
+     * @link http://www.php.net/manual/en/mysqli-stmt.store-result.php
+     */
+    public function store_result(): bool
     {
     }
 }
@@ -1453,18 +1928,23 @@ class mysqli_stmt
  */
 final class mysqli_warning
 {
+    /**
+     * The __construct purpose
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/mysqli-warning.construct.php
+     */
     protected function __construct()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * The next purpose
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/mysqli-warning.next.php
      */
     public function next()
     {

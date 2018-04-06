@@ -123,79 +123,121 @@ const APC_LIST_DELETED = 2;
 class APCuIterator implements Iterator
 {
     /**
+     * Constructs an APCUIterator iterator object
+     *
      * @param mixed|null $search
      * @param mixed|null $format
      * @param mixed|null $chunk_size
      * @param mixed|null $list
+     *
+     * @since PECL apcu >= 5.0.0
+     *
+     * @link http://www.php.net/manual/en/apcuiterator.construct.php
      */
     public function __construct($search = null, $format = null, $chunk_size = null, $list = null)
     {
     }
 
     /**
-     * Return the current element in an array
+     * Get current item
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL apcu >= 5.0.0
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/apcuiterator.current.php
      */
     public function current()
     {
     }
 
-    public function getTotalCount()
-    {
-    }
-
-    public function getTotalHits()
-    {
-    }
-
-    public function getTotalSize()
-    {
-    }
-
     /**
-     * Fetch a key from an array
+     * Get total count
      *
-     * @return mixed
+     * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL apcu >= 5.0.0
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/apcuiterator.gettotalcount.php
      */
-    public function key()
+    public function getTotalCount(): int
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Get total cache hits
      *
-     * @return mixed
+     * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL apcu >= 5.0.0
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/apcuiterator.gettotalhits.php
+     */
+    public function getTotalHits(): int
+    {
+    }
+
+    /**
+     * Get total cache size
+     *
+     * @return int
+     *
+     * @since PECL apcu >= 5.0.0
+     *
+     * @link http://www.php.net/manual/en/apcuiterator.gettotalsize.php
+     */
+    public function getTotalSize(): int
+    {
+    }
+
+    /**
+     * Get iterator key
+     *
+     * @return string
+     *
+     * @since PECL apcu >= 5.0.0
+     *
+     * @link http://www.php.net/manual/en/apcuiterator.key.php
+     */
+    public function key(): string
+    {
+    }
+
+    /**
+     * Move pointer to next item
+     *
+     * @return void
+     *
+     * @since PECL apcu >= 5.0.0
+     *
+     * @link http://www.php.net/manual/en/apcuiterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewinds iterator
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL apcu >= 5.0.0
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/apcuiterator.rewind.php
      */
-    public function rewind(): bool
+    public function rewind()
     {
     }
 
+    /**
+     * Checks if current position is valid
+     *
+     * @return void
+     *
+     * @since PECL apcu >= 5.0.0
+     *
+     * @link http://www.php.net/manual/en/apcuiterator.valid.php
+     */
     public function valid()
     {
     }

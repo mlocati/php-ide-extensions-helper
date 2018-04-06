@@ -743,88 +743,205 @@ const XSD_UNSIGNEDSHORT = 141;
 class SoapClient
 {
     /**
+     * Calls a SOAP function (deprecated)
+     *
      * @param mixed $function_name
      * @param mixed $arguments
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.call.php
      */
     public function __call($function_name, $arguments)
     {
     }
 
     /**
+     * Performs a SOAP request
+     *
      * @param mixed $request
      * @param mixed $location
      * @param mixed $action
      * @param mixed $version
      * @param mixed|null $one_way
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.dorequest.php
      */
     public function __doRequest($request, $location, $action, $version, $one_way = null)
     {
     }
 
-    public function __getCookies()
-    {
-    }
-
-    public function __getFunctions()
-    {
-    }
-
-    public function __getLastRequest()
-    {
-    }
-
-    public function __getLastRequestHeaders()
-    {
-    }
-
-    public function __getLastResponse()
-    {
-    }
-
-    public function __getLastResponseHeaders()
-    {
-    }
-
-    public function __getTypes()
+    /**
+     * Get list of cookies
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.4.30, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getcookies.php
+     */
+    public function __getCookies(): array
     {
     }
 
     /**
+     * Returns list of available SOAP functions
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getfunctions.php
+     */
+    public function __getFunctions(): array
+    {
+    }
+
+    /**
+     * Returns last SOAP request
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getlastrequest.php
+     */
+    public function __getLastRequest()
+    {
+    }
+
+    /**
+     * Returns the SOAP headers from the last request
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getlastrequestheaders.php
+     */
+    public function __getLastRequestHeaders()
+    {
+    }
+
+    /**
+     * Returns last SOAP response
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getlastresponse.php
+     */
+    public function __getLastResponse()
+    {
+    }
+
+    /**
+     * Returns the SOAP headers from the last response
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.getlastresponseheaders.php
+     */
+    public function __getLastResponseHeaders()
+    {
+    }
+
+    /**
+     * Returns a list of SOAP types
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.gettypes.php
+     */
+    public function __getTypes(): array
+    {
+    }
+
+    /**
+     * The __setCookie purpose
+     *
      * @param mixed $name
      * @param mixed|null $value
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.0.4, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.setcookie.php
      */
     public function __setCookie($name, $value = null)
     {
     }
 
     /**
+     * Sets the location of the Web service to use
+     *
      * @param mixed|null $new_location
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.0.4, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.setlocation.php
      */
     public function __setLocation($new_location = null)
     {
     }
 
     /**
+     * Sets SOAP headers for subsequent calls
+     *
      * @param mixed $soapheaders
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.0.5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.setsoapheaders.php
      */
     public function __setSoapHeaders($soapheaders)
     {
     }
 
     /**
+     * Calls a SOAP function
+     *
      * @param mixed $function_name
      * @param mixed $arguments
      * @param mixed|null $options
      * @param mixed|null $input_headers
      * @param mixed|null $output_headers
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.soapcall.php
      */
     public function __soapCall($function_name, $arguments, $options = null, $input_headers = null, &$output_headers = null)
     {
     }
 
     /**
+     * SoapClient constructor
+     *
      * @param mixed $wsdl
      * @param mixed|null $options
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapclient.soapclient.php
      */
     public function SoapClient($wsdl, $options = null)
     {
@@ -840,17 +957,32 @@ class SoapClient
  */
 class SoapFault extends Exception
 {
+    /**
+     * Obtain a string representation of a SoapFault
+     *
+     * @return string
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapfault.tostring.php
+     */
     public function __toString()
     {
     }
 
     /**
+     * SoapFault constructor
+     *
      * @param mixed $faultcode
      * @param mixed $faultstring
      * @param mixed|null $faultactor
      * @param mixed|null $detail
      * @param mixed|null $faultname
      * @param mixed|null $headerfault
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapfault.soapfault.php
      */
     public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null)
     {
@@ -867,11 +999,17 @@ class SoapFault extends Exception
 class SoapHeader
 {
     /**
+     * SoapHeader constructor
+     *
      * @param mixed $namespace
      * @param mixed $name
      * @param mixed|null $data
      * @param mixed|null $mustunderstand
      * @param mixed|null $actor
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapheader.soapheader.php
      */
     public function SoapHeader($namespace, $name, $data = null, $mustunderstand = null, $actor = null)
     {
@@ -888,8 +1026,14 @@ class SoapHeader
 class SoapParam
 {
     /**
+     * SoapParam constructor
+     *
      * @param mixed $data
      * @param mixed $name
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapparam.soapparam.php
      */
     public function SoapParam($data, $name)
     {
@@ -906,66 +1050,137 @@ class SoapParam
 class SoapServer
 {
     /**
+     * Adds one or more functions to handle SOAP requests
+     *
      * @param mixed $functions
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.addfunction.php
      */
     public function addFunction($functions)
     {
     }
 
     /**
+     * Add a SOAP header to the response
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.addsoapheader.php
      */
     public function addSoapHeader($object)
     {
     }
 
     /**
+     * Issue SoapServer fault indicating an error
+     *
      * @param mixed $code
      * @param mixed $string
      * @param mixed|null $actor
      * @param mixed|null $details
      * @param mixed|null $name
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.fault.php
      */
     public function fault($code, $string, $actor = null, $details = null, $name = null)
     {
     }
 
-    public function getFunctions()
+    /**
+     * Returns list of defined functions
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.getfunctions.php
+     */
+    public function getFunctions(): array
     {
     }
 
     /**
+     * Handles a SOAP request
+     *
      * @param mixed|null $soap_request
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.handle.php
      */
     public function handle($soap_request = null)
     {
     }
 
     /**
+     * Sets the class which handles SOAP requests
+     *
      * @param mixed $class_name
      * @param mixed|null $args
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.setclass.php
      */
     public function setClass($class_name, $args = null)
     {
     }
 
     /**
+     * Sets the object which will be used to handle SOAP requests
+     *
      * @param mixed $object
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.setobject.php
      */
     public function setObject($object)
     {
     }
 
     /**
+     * Sets SoapServer persistence mode
+     *
      * @param mixed $mode
+     *
+     * @return void
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.setpersistence.php
      */
     public function setPersistence($mode)
     {
     }
 
     /**
+     * SoapServer constructor
+     *
      * @param mixed $wsdl
      * @param mixed|null $options
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapserver.soapserver.php
      */
     public function SoapServer($wsdl, $options = null)
     {
@@ -982,12 +1197,18 @@ class SoapServer
 class SoapVar
 {
     /**
+     * SoapVar constructor
+     *
      * @param mixed $data
      * @param mixed $encoding
      * @param mixed|null $type_name
      * @param mixed|null $type_namespace
      * @param mixed|null $node_name
      * @param mixed|null $node_namespace
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/soapvar.soapvar.php
      */
     public function SoapVar($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null)
     {

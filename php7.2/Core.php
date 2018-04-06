@@ -805,22 +805,30 @@ interface ArrayAccess
 {
     /**
      * @param mixed $offset
+     *
+     * @since PHP 5, PHP 7
      */
     public function offsetExists($offset);
 
     /**
      * @param mixed $offset
+     *
+     * @since PHP 5, PHP 7
      */
     public function offsetGet($offset);
 
     /**
      * @param mixed $offset
      * @param mixed $value
+     *
+     * @since PHP 5, PHP 7
      */
     public function offsetSet($offset, $value);
 
     /**
      * @param mixed $offset
+     *
+     * @since PHP 5, PHP 7
      */
     public function offsetUnset($offset);
 }
@@ -836,13 +844,13 @@ interface ArrayAccess
 interface Countable
 {
     /**
-     * Count all elements in an array, or something in an object
+     * Count elements of an object
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.1.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/countable.count.php
      */
     public function count(): int;
 }
@@ -858,49 +866,28 @@ interface Countable
 interface Iterator extends Traversable
 {
     /**
-     * Return the current element in an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @since PHP 5, PHP 7
      */
     public function current();
 
     /**
-     * Fetch a key from an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @since PHP 5, PHP 7
      */
     public function key();
 
     /**
-     * Advance the internal pointer of an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @since PHP 5, PHP 7
      */
     public function next();
 
     /**
-     * Rewind the position of a file pointer
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @since PHP 5, PHP 7
      */
-    public function rewind(): bool;
+    public function rewind();
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     public function valid();
 }
 
@@ -913,6 +900,9 @@ interface Iterator extends Traversable
  */
 interface IteratorAggregate extends Traversable
 {
+    /**
+     * @since PHP 5, PHP 7
+     */
     public function getIterator();
 }
 
@@ -926,26 +916,14 @@ interface IteratorAggregate extends Traversable
 interface Serializable
 {
     /**
-     * Generates a storable representation of a value
-     *
-     * @return string
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.serialize.php
+     * @since PHP 5 >= 5.1.0, PHP 7
      */
-    public function serialize(): string;
+    public function serialize();
 
     /**
-     * Creates a PHP value from a stored representation
-     *
      * @param mixed $serialized
      *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.unserialize.php
+     * @since PHP 5 >= 5.1.0, PHP 7
      */
     public function unserialize($serialized);
 }
@@ -961,20 +939,44 @@ interface Serializable
  */
 interface Throwable
 {
+    /**
+     * @since PHP 7
+     */
     public function __toString();
 
+    /**
+     * @since PHP 7
+     */
     public function getCode();
 
+    /**
+     * @since PHP 7
+     */
     public function getFile();
 
+    /**
+     * @since PHP 7
+     */
     public function getLine();
 
+    /**
+     * @since PHP 7
+     */
     public function getMessage();
 
+    /**
+     * @since PHP 7
+     */
     public function getPrevious();
 
+    /**
+     * @since PHP 7
+     */
     public function getTrace();
 
+    /**
+     * @since PHP 7
+     */
     public function getTraceAsString();
 }
 
@@ -1030,6 +1032,9 @@ class ClosedGeneratorException extends Exception
  */
 final class Closure
 {
+    /**
+     * @since PHP 5 >= 5.3.0, PHP 7
+     */
     private function __construct()
     {
     }
@@ -1038,6 +1043,8 @@ final class Closure
      * @param mixed $closure
      * @param mixed $newthis
      * @param mixed|null $newscope
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
      */
     public static function bind($closure, $newthis, $newscope = null)
     {
@@ -1046,6 +1053,8 @@ final class Closure
     /**
      * @param mixed $newthis
      * @param mixed|null $newscope
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
      */
     public function bindTo($newthis, $newscope = null)
     {
@@ -1054,6 +1063,8 @@ final class Closure
     /**
      * @param mixed $newthis
      * @param mixed $parameters
+     *
+     * @since PHP 7
      */
     public function call($newthis, ...$parameters)
     {
@@ -1061,6 +1072,8 @@ final class Closure
 
     /**
      * @param mixed $callable
+     *
+     * @since PHP 7 >= 7.1.0
      */
     public static function fromCallable($callable)
     {
@@ -1155,11 +1168,16 @@ class ErrorException extends Exception
      * @param mixed|null $filename
      * @param mixed|null $lineno
      * @param mixed|null $previous
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
      */
     public function __construct($message = null, $code = null, $severity = null, $filename = null, $lineno = null, $previous = null)
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.1.0, PHP 7
+     */
     final public function getSeverity()
     {
     }
@@ -1176,6 +1194,9 @@ class ErrorException extends Exception
  */
 class Exception implements Throwable
 {
+    /**
+     * @since PHP 5, PHP 7
+     */
     final private function __clone()
     {
     }
@@ -1184,11 +1205,16 @@ class Exception implements Throwable
      * @param mixed|null $message
      * @param mixed|null $code
      * @param mixed|null $previous
+     *
+     * @since PHP 5, PHP 7
      */
     public function __construct($message = null, $code = null, $previous = null)
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     public function __toString()
     {
     }
@@ -1197,30 +1223,51 @@ class Exception implements Throwable
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getCode()
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getFile()
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getLine()
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getMessage()
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.3.0, PHP 7
+     */
     final public function getPrevious()
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getTrace()
     {
     }
 
+    /**
+     * @since PHP 5, PHP 7
+     */
     final public function getTraceAsString()
     {
     }
@@ -1235,68 +1282,52 @@ class Exception implements Throwable
  */
 final class Generator implements Iterator
 {
+    /**
+     * @since PHP 5 >= 5.5.0, PHP 7
+     */
     public function __wakeup()
     {
     }
 
     /**
-     * Return the current element in an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
     public function current()
     {
     }
 
+    /**
+     * @since PHP 7
+     */
     public function getReturn()
     {
     }
 
     /**
-     * Fetch a key from an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
-     *
-     * @return mixed
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
-     *
-     * @return bool
-     *
-     * @since PHP 4, PHP 5, PHP 7
-     *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
-    public function rewind(): bool
+    public function rewind()
     {
     }
 
     /**
      * @param mixed $value
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
     public function send($value)
     {
@@ -1304,11 +1335,16 @@ final class Generator implements Iterator
 
     /**
      * @param mixed $exception
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
      */
     public function throw($exception)
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.5.0, PHP 7
+     */
     public function valid()
     {
     }

@@ -93,7 +93,13 @@ const PTHREADS_INHERIT_NONE = 0;
 interface Collectable
 {
     /**
+     * Determine whether an object has been marked as garbage
+     *
      * @return bool
+     *
+     * @since PECL pthreads >= 2.0.8
+     *
+     * @link http://www.php.net/manual/en/collectable.isgarbage.php
      */
     public function isGarbage(): bool;
 }
@@ -108,44 +114,93 @@ interface Collectable
 class Pool
 {
     /**
+     * Creates a new Pool of Workers
+     *
      * @param int $size
      * @param string|null $class
      * @param array[]|null $ctor
+     *
+     * @return Pool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.construct.php
      */
     public function __construct(int $size, string $class = null, $ctor = null)
     {
     }
 
     /**
+     * Collect references to completed tasks
+     *
      * @param Closure $collector
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.collect.php
      */
-    public function collect($collector)
+    public function collect($collector): int
     {
     }
 
     /**
+     * Resize the Pool
+     *
      * @param int $size
+     *
+     * @return void
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.resize.php
      */
     public function resize(int $size)
     {
     }
 
+    /**
+     * Shutdown all workers
+     *
+     * @return void
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.shutdown.php
+     */
     public function shutdown()
     {
     }
 
     /**
+     * Submits an object for execution
+     *
      * @param Threaded $task
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.submit.php
      */
-    public function submit($task)
+    public function submit($task): int
     {
     }
 
     /**
+     * Submits a task to a specific worker for execution
+     *
      * @param int $worker
      * @param Threaded $task
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/pool.submitTo.php
      */
-    public function submitTo(int $worker, $task)
+    public function submitTo(int $worker, $task): int
     {
     }
 }
@@ -159,45 +214,109 @@ class Pool
  */
 class Thread extends Threaded
 {
-    public function getCreatorId()
+    /**
+     * Identification
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.getcreatorid.php
+     */
+    public function getCreatorId(): int
     {
     }
 
+    /**
+     * Identification
+     *
+     * @return Thread
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.getcurrentthread.php
+     */
     public static function getCurrentThread()
     {
     }
 
-    public static function getCurrentThreadId()
-    {
-    }
-
-    public function getThreadId()
-    {
-    }
-
-    public function isJoined()
-    {
-    }
-
-    public function isStarted()
-    {
-    }
-
     /**
-     * Alias of <code>implode</code>
+     * Identification
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @return int
      *
-     * @link http://www.php.net/manual/en/function.join.php
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.getcurrentthreadid.php
      */
-    public function join()
+    public static function getCurrentThreadId(): int
     {
     }
 
     /**
+     * Identification
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.getthreadid.php
+     */
+    public function getThreadId(): int
+    {
+    }
+
+    /**
+     * State Detection
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.isjoined.php
+     */
+    public function isJoined(): bool
+    {
+    }
+
+    /**
+     * State Detection
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.isstarted.php
+     */
+    public function isStarted(): bool
+    {
+    }
+
+    /**
+     * Synchronization
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.join.php
+     */
+    public function join(): bool
+    {
+    }
+
+    /**
+     * Execution
+     *
      * @param int|null $options
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.start.php
      */
-    public function start(int $options = null)
+    public function start(int $options = null): bool
     {
     }
 }
@@ -216,21 +335,29 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
+     * Manipulation
+     *
      * @param mixed $size
      * @param mixed|null $preserve
+     *
+     * @return array
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.chunk.php
      */
-    public function chunk($size, $preserve = null)
+    public function chunk($size, $preserve = null): array
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Manipulation
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PECL pthreads >= 2.0.0
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/threaded.count.php
      */
     public function count(): int
     {
@@ -241,9 +368,17 @@ class Threaded implements Collectable, Traversable
     }
 
     /**
+     * Runtime Manipulation
+     *
      * @param mixed $class
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.8
+     *
+     * @link http://www.php.net/manual/en/threaded.extend.php
      */
-    public static function extend($class)
+    public static function extend($class): bool
     {
     }
 
@@ -258,53 +393,140 @@ class Threaded implements Collectable, Traversable
     {
     }
 
-    public function isRunning()
-    {
-    }
-
-    public function isTerminated()
+    /**
+     * State Detection
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/thread.isrunning.php
+     */
+    public function isRunning(): bool
     {
     }
 
     /**
+     * State Detection
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.isterminated.php
+     */
+    public function isTerminated(): bool
+    {
+    }
+
+    /**
+     * Manipulation
+     *
      * @param mixed $from
      * @param mixed|null $overwrite
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.merge.php
      */
-    public function merge($from, $overwrite = null)
+    public function merge($from, $overwrite = null): bool
     {
     }
 
-    public function notify()
+    /**
+     * Synchronization
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.notify.php
+     */
+    public function notify(): bool
     {
     }
 
-    public function notifyOne()
+    /**
+     * Synchronization
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 3.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.notifyone.php
+     */
+    public function notifyOne(): bool
     {
     }
 
-    public function pop()
+    /**
+     * Manipulation
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.pop.php
+     */
+    public function pop(): bool
     {
     }
 
+    /**
+     * Execution
+     *
+     * @return void
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.run.php
+     */
     public function run()
     {
     }
 
+    /**
+     * Manipulation
+     *
+     * @return mixed
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.shift.php
+     */
     public function shift()
     {
     }
 
     /**
+     * Synchronization
+     *
      * @param mixed $function
+     *
+     * @return mixed
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.synchronized.php
      */
     public function synchronized($function)
     {
     }
 
     /**
+     * Synchronization
+     *
      * @param int|null $timeout
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/threaded.wait.php
      */
-    public function wait(int $timeout = null)
+    public function wait(int $timeout = null): bool
     {
     }
 }
@@ -335,9 +557,17 @@ class Volatile extends Threaded
 class Worker extends Thread
 {
     /**
+     * Collect references to completed tasks
+     *
      * @param Closure|null $function
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 3.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.collect.php
      */
-    public function collect($function = null)
+    public function collect($function = null): int
     {
     }
 
@@ -348,26 +578,70 @@ class Worker extends Thread
     {
     }
 
-    public function getStacked()
-    {
-    }
-
-    public function isShutdown()
-    {
-    }
-
-    public function shutdown()
+    /**
+     * Gets the remaining stack size
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.getstacked.php
+     */
+    public function getStacked(): int
     {
     }
 
     /**
-     * @param Threaded $work
+     * State Detection
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.isshutdown.php
      */
-    public function stack($work)
+    public function isShutdown(): bool
     {
     }
 
-    public function unstack()
+    /**
+     * Shutdown the worker
+     *
+     * @return bool
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.shutdown.php
+     */
+    public function shutdown(): bool
+    {
+    }
+
+    /**
+     * Stacking work
+     *
+     * @param Threaded $work
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.stack.php
+     */
+    public function stack($work): int
+    {
+    }
+
+    /**
+     * Unstacking work
+     *
+     * @return int
+     *
+     * @since PECL pthreads >= 2.0.0
+     *
+     * @link http://www.php.net/manual/en/worker.unstack.php
+     */
+    public function unstack(): int
     {
     }
 }

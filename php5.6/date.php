@@ -96,23 +96,73 @@ const SUNFUNCS_RET_TIMESTAMP = 0;
  */
 interface DateTimeInterface
 {
+    /**
+     * The __wakeup handler
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.wakeup.php
+     */
     public function __wakeup();
 
     /**
+     * Returns the difference between two DateTime objects
+     *
      * @param mixed $object
      * @param mixed|null $absolute
+     *
+     * @return DateInterval
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.diff.php
      */
     public function diff($object, $absolute = null);
 
     /**
+     * Returns date formatted according to given format
+     *
      * @param mixed $format
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.format.php
      */
     public function format($format);
 
+    /**
+     * Returns the timezone offset
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.getoffset.php
+     */
     public function getOffset();
 
+    /**
+     * Gets the Unix timestamp
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimestamp.php
+     */
     public function getTimestamp();
 
+    /**
+     * Return time zone relative to given DateTime
+     *
+     * @return DateTimeZone
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimezone.php
+     */
     public function getTimezone();
 }
 
@@ -126,7 +176,13 @@ interface DateTimeInterface
 class DateInterval
 {
     /**
+     * Creates a new DateInterval object
+     *
      * @param mixed $interval_spec
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateinterval.construct.php
      */
     public function __construct($interval_spec)
     {
@@ -141,14 +197,30 @@ class DateInterval
     }
 
     /**
+     * Sets up a DateInterval from the relative parts of the string
+     *
      * @param mixed $time
+     *
+     * @return DateInterval
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateinterval.createfromdatestring.php
      */
     public static function createFromDateString($time)
     {
     }
 
     /**
+     * Formats the interval
+     *
      * @param mixed $format
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateinterval.format.php
      */
     public function format($format)
     {
@@ -165,30 +237,69 @@ class DateInterval
 class DatePeriod implements Traversable
 {
     /**
+     * Creates a new DatePeriod object
+     *
      * @param mixed $start
      * @param mixed $interval
      * @param mixed $end
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateperiod.construct.php
      */
     public function __construct($start, $interval, $end)
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.3.27, PHP 7
+     */
     public static function __set_state()
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.3.27, PHP 7
+     */
     public function __wakeup()
     {
     }
 
+    /**
+     * Gets the interval
+     *
+     * @return DateInterval
+     *
+     * @since PHP 5 >= 5.6.5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateperiod.getdateinterval.php
+     */
     public function getDateInterval()
     {
     }
 
+    /**
+     * Gets the end date
+     *
+     * @return DateTimeInterface
+     *
+     * @since PHP 5 >= 5.6.5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateperiod.getenddate.php
+     */
     public function getEndDate()
     {
     }
 
+    /**
+     * Gets the start date
+     *
+     * @return DateTimeInterface
+     *
+     * @since PHP 5 >= 5.6.5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/dateperiod.getstartdate.php
+     */
     public function getStartDate()
     {
     }
@@ -204,118 +315,268 @@ class DatePeriod implements Traversable
 class DateTime implements DateTimeInterface
 {
     /**
+     * Returns new DateTime object
+     *
      * @param mixed|null $time
      * @param mixed|null $object
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.construct.php
      */
     public function __construct($time = null, $object = null)
     {
     }
 
+    /**
+     * The __set_state handler
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.set-state.php
+     */
     public static function __set_state()
     {
     }
 
+    /**
+     * The __wakeup handler
+     *
+     * @since PHP 5 >= 5.3.0
+     *
+     * @link http://www.php.net/manual/en/datetime.wakeup.php
+     */
     public function __wakeup()
     {
     }
 
     /**
+     * Adds an amount of days, months, years, hours, minutes and seconds to a
+     * DateTime object
+     *
      * @param mixed $interval
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.add.php
      */
     public function add($interval)
     {
     }
 
     /**
+     * Parses a time string according to a specified format
+     *
      * @param mixed $format
      * @param mixed $time
      * @param mixed|null $object
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.createfromformat.php
      */
     public static function createFromFormat($format, $time, $object = null)
     {
     }
 
     /**
+     * Returns the difference between two DateTime objects
+     *
      * @param mixed $object
      * @param mixed|null $absolute
+     *
+     * @return DateInterval
+     *
+     * @since PHP 5 >= 5.3.0 < 5.5.0
+     *
+     * @link http://www.php.net/manual/en/datetime.diff.php
      */
     public function diff($object, $absolute = null)
     {
     }
 
     /**
+     * Returns date formatted according to given format
+     *
      * @param mixed $format
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.1 < 5.5.0
+     *
+     * @link http://www.php.net/manual/en/datetime.format.php
      */
     public function format($format)
     {
     }
 
-    public static function getLastErrors()
+    /**
+     * Returns the warnings and errors
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.getlasterrors.php
+     */
+    public static function getLastErrors(): array
     {
     }
 
+    /**
+     * Returns the timezone offset
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.1 < 5.5.0
+     *
+     * @link http://www.php.net/manual/en/datetime.getoffset.php
+     */
     public function getOffset()
     {
     }
 
+    /**
+     * Gets the Unix timestamp
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.3.0 < 5.5.0
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimestamp.php
+     */
     public function getTimestamp()
     {
     }
 
+    /**
+     * Return time zone relative to given DateTime
+     *
+     * @return DateTimeZone
+     *
+     * @since PHP 5 >= 5.2.1 < 5.5.0
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimezone.php
+     */
     public function getTimezone()
     {
     }
 
     /**
+     * Alters the timestamp
+     *
      * @param mixed $modify
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.modify.php
      */
     public function modify($modify)
     {
     }
 
     /**
+     * Sets the date
+     *
      * @param mixed $year
      * @param mixed $month
      * @param mixed $day
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.setdate.php
      */
     public function setDate($year, $month, $day)
     {
     }
 
     /**
+     * Sets the ISO date
+     *
      * @param mixed $year
      * @param mixed $week
      * @param mixed|null $day
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.setisodate.php
      */
     public function setISODate($year, $week, $day = null)
     {
     }
 
     /**
+     * Sets the time
+     *
      * @param mixed $hour
      * @param mixed $minute
      * @param mixed|null $second
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.settime.php
      */
     public function setTime($hour, $minute, $second = null)
     {
     }
 
     /**
+     * Sets the date and time based on an Unix timestamp
+     *
      * @param mixed $unixtimestamp
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.settimestamp.php
      */
     public function setTimestamp($unixtimestamp)
     {
     }
 
     /**
+     * Sets the time zone for the DateTime object
+     *
      * @param mixed $timezone
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.settimezone.php
      */
     public function setTimezone($timezone)
     {
     }
 
     /**
+     * Subtracts an amount of days, months, years, hours, minutes and seconds from
+     * a DateTime object
+     *
      * @param mixed $interval
+     *
+     * @return DateTime
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.sub.php
      */
     public function sub($interval)
     {
@@ -333,125 +594,281 @@ class DateTime implements DateTimeInterface
 class DateTimeImmutable implements DateTimeInterface
 {
     /**
+     * Returns new DateTimeImmutable object
+     *
      * @param mixed|null $time
      * @param mixed|null $object
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.construct.php
      */
     public function __construct($time = null, $object = null)
     {
     }
 
+    /**
+     * The __set_state handler
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.set-state.php
+     */
     public static function __set_state()
     {
     }
 
+    /**
+     * The __wakeup handler
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.wakeup.php
+     */
     public function __wakeup()
     {
     }
 
     /**
+     * Adds an amount of days, months, years, hours, minutes and seconds
+     *
      * @param mixed $interval
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.add.php
      */
     public function add($interval)
     {
     }
 
     /**
+     * Parses a time string according to a specified format
+     *
      * @param mixed $format
      * @param mixed $time
      * @param mixed|null $object
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.createfromformat.php
      */
     public static function createFromFormat($format, $time, $object = null)
     {
     }
 
     /**
+     * Returns new DateTimeImmutable object encapsulating the given DateTime object
+     *
      * @param mixed $DateTime
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.6.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.createfrommutable.php
      */
     public static function createFromMutable($DateTime)
     {
     }
 
     /**
+     * Returns the difference between two DateTime objects
+     *
      * @param mixed $object
      * @param mixed|null $absolute
+     *
+     * @return DateInterval
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.diff.php
      */
     public function diff($object, $absolute = null)
     {
     }
 
     /**
+     * Returns date formatted according to given format
+     *
      * @param mixed $format
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.format.php
      */
     public function format($format)
     {
     }
 
-    public static function getLastErrors()
+    /**
+     * Returns the warnings and errors
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.getlasterrors.php
+     */
+    public static function getLastErrors(): array
     {
     }
 
+    /**
+     * Returns the timezone offset
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.getoffset.php
+     */
     public function getOffset()
     {
     }
 
+    /**
+     * Gets the Unix timestamp
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimestamp.php
+     */
     public function getTimestamp()
     {
     }
 
+    /**
+     * Return time zone relative to given DateTime
+     *
+     * @return DateTimeZone
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetime.gettimezone.php
+     */
     public function getTimezone()
     {
     }
 
     /**
+     * Creates a new object with modified timestamp
+     *
      * @param mixed $modify
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.modify.php
      */
     public function modify($modify)
     {
     }
 
     /**
+     * Sets the date
+     *
      * @param mixed $year
      * @param mixed $month
      * @param mixed $day
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.setdate.php
      */
     public function setDate($year, $month, $day)
     {
     }
 
     /**
+     * Sets the ISO date
+     *
      * @param mixed $year
      * @param mixed $week
      * @param mixed|null $day
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.setisodate.php
      */
     public function setISODate($year, $week, $day = null)
     {
     }
 
     /**
+     * Sets the time
+     *
      * @param mixed $hour
      * @param mixed $minute
      * @param mixed|null $second
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.settime.php
      */
     public function setTime($hour, $minute, $second = null)
     {
     }
 
     /**
+     * Sets the date and time based on a Unix timestamp
+     *
      * @param mixed $unixtimestamp
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.settimestamp.php
      */
     public function setTimestamp($unixtimestamp)
     {
     }
 
     /**
+     * Sets the time zone
+     *
      * @param mixed $timezone
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.settimezone.php
      */
     public function setTimezone($timezone)
     {
     }
 
     /**
+     * Subtracts an amount of days, months, years, hours, minutes and seconds
+     *
      * @param mixed $interval
+     *
+     * @return DateTimeImmutable
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimeimmutable.sub.php
      */
     public function sub($interval)
     {
@@ -468,52 +885,117 @@ class DateTimeImmutable implements DateTimeInterface
 class DateTimeZone
 {
     /**
+     * Creates new DateTimeZone object
+     *
      * @param mixed $timezone
+     *
+     * @return DateTimeZone
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.construct.php
      */
     public function __construct($timezone)
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.5.0, PHP 7
+     */
     public static function __set_state()
     {
     }
 
+    /**
+     * @since PHP 5 >= 5.5.0, PHP 7
+     */
     public function __wakeup()
     {
     }
 
-    public function getLocation()
+    /**
+     * Returns location information for a timezone
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.getlocation.php
+     */
+    public function getLocation(): array
     {
     }
 
+    /**
+     * Returns the name of the timezone
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.getname.php
+     */
     public function getName()
     {
     }
 
     /**
+     * Returns the timezone offset from GMT
+     *
      * @param mixed $object
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.getoffset.php
      */
     public function getOffset($object)
     {
     }
 
     /**
+     * Returns all transitions for the timezone
+     *
      * @param mixed $timestamp_begin
      * @param mixed $timestamp_end
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.gettransitions.php
      */
-    public function getTransitions($timestamp_begin, $timestamp_end)
-    {
-    }
-
-    public static function listAbbreviations()
+    public function getTransitions($timestamp_begin, $timestamp_end): array
     {
     }
 
     /**
+     * Returns associative array containing dst, offset and the timezone name
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.listabbreviations.php
+     */
+    public static function listAbbreviations(): array
+    {
+    }
+
+    /**
+     * Returns a numerically indexed array containing all defined timezone identifiers
+     *
      * @param mixed|null $what
      * @param mixed|null $country
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/datetimezone.listidentifiers.php
      */
-    public static function listIdentifiers($what = null, $country = null)
+    public static function listIdentifiers($what = null, $country = null): array
     {
     }
 }

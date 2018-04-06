@@ -13,112 +13,214 @@
 class SimpleXMLElement implements Traversable
 {
     /**
+     * Creates a new SimpleXMLElement object
+     *
      * @param mixed $data
      * @param mixed|null $options
      * @param mixed|null $data_is_url
      * @param mixed|null $ns
      * @param mixed|null $is_prefix
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.construct.php
      */
     final public function __construct($data, $options = null, $data_is_url = null, $ns = null, $is_prefix = null)
     {
     }
 
-    public function __toString()
+    /**
+     * Returns the string content
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.3.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.tostring.php
+     */
+    public function __toString(): string
     {
     }
 
     /**
+     * Adds an attribute to the SimpleXML element
+     *
      * @param mixed $name
      * @param mixed|null $value
      * @param mixed|null $ns
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.addattribute.php
      */
     public function addAttribute($name, $value = null, $ns = null)
     {
     }
 
     /**
+     * Adds a child element to the XML node
+     *
      * @param mixed $name
      * @param mixed|null $value
      * @param mixed|null $ns
+     *
+     * @return SimpleXMLElement
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.addchild.php
      */
     public function addChild($name, $value = null, $ns = null)
     {
     }
 
     /**
+     * Return a well-formed XML string based on SimpleXML element
+     *
      * @param mixed|null $filename
+     *
+     * @return mixed
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.asxml.php
      */
     public function asXML($filename = null)
     {
     }
 
     /**
+     * Identifies an element's attributes
+     *
      * @param mixed|null $ns
      * @param mixed|null $is_prefix
+     *
+     * @return SimpleXMLElement
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.attributes.php
      */
     public function attributes($ns = null, $is_prefix = null)
     {
     }
 
     /**
+     * Finds children of given node
+     *
      * @param mixed|null $ns
      * @param mixed|null $is_prefix
+     *
+     * @return SimpleXMLElement
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.children.php
      */
     public function children($ns = null, $is_prefix = null)
     {
     }
 
     /**
-     * Count all elements in an array, or something in an object
+     * Counts the children of an element
      *
      * @return int
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5 >= 5.3.0, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.count.php
+     * @link http://www.php.net/manual/en/simplexmlelement.count.php
      */
     public function count(): int
     {
     }
 
     /**
+     * Returns namespaces declared in document
+     *
      * @param mixed|null $recursve
      * @param mixed|null $from_root
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.getdocnamespaces.php
      */
-    public function getDocNamespaces($recursve = null, $from_root = null)
-    {
-    }
-
-    public function getName()
+    public function getDocNamespaces($recursve = null, $from_root = null): array
     {
     }
 
     /**
+     * Gets the name of the XML element
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.1.3, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.getname.php
+     */
+    public function getName(): string
+    {
+    }
+
+    /**
+     * Returns namespaces used in document
+     *
      * @param mixed|null $recursve
+     *
+     * @return array
+     *
+     * @since PHP 5 >= 5.1.2, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.getnamespaces.php
      */
-    public function getNamespaces($recursve = null)
+    public function getNamespaces($recursve = null): array
     {
     }
 
     /**
+     * Creates a prefix/ns context for the next XPath query
+     *
      * @param mixed $prefix
      * @param mixed $ns
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.1.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.registerxpathnamespace.php
      */
-    public function registerXPathNamespace($prefix, $ns)
+    public function registerXPathNamespace($prefix, $ns): bool
     {
     }
 
     /**
+     * Alias of <code>SimpleXMLElement::asXML</code>
+     *
      * @param mixed|null $filename
+     *
+     * @since PHP 5 >= 5.2.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.savexml.php
      */
     public function saveXML($filename = null)
     {
     }
 
     /**
+     * Runs XPath query on XML data
+     *
      * @param mixed $path
+     *
+     * @return array
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmlelement.xpath.php
      */
-    public function xpath($path)
+    public function xpath($path): array
     {
     }
 }
@@ -133,66 +235,93 @@ class SimpleXMLElement implements Traversable
 class SimpleXMLIterator extends SimpleXMLElement implements Countable, RecursiveIterator
 {
     /**
-     * Return the current element in an array
+     * Returns the current element
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.current.php
+     * @link http://www.php.net/manual/en/simplexmliterator.current.php
      */
     public function current()
     {
     }
 
+    /**
+     * Returns the sub-elements of the current element
+     *
+     * @return SimpleXMLIterator
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmliterator.getchildren.php
+     */
     public function getChildren()
     {
     }
 
-    public function hasChildren()
+    /**
+     * Checks whether the current element has sub elements
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmliterator.haschildren.php
+     */
+    public function hasChildren(): bool
     {
     }
 
     /**
-     * Fetch a key from an array
+     * Return current key
      *
      * @return mixed
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.key.php
+     * @link http://www.php.net/manual/en/simplexmliterator.key.php
      */
     public function key()
     {
     }
 
     /**
-     * Advance the internal pointer of an array
+     * Move to next element
      *
-     * @return mixed
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.next.php
+     * @link http://www.php.net/manual/en/simplexmliterator.next.php
      */
     public function next()
     {
     }
 
     /**
-     * Rewind the position of a file pointer
+     * Rewind to the first element
      *
-     * @return bool
+     * @return void
      *
-     * @since PHP 4, PHP 5, PHP 7
+     * @since PHP 5, PHP 7
      *
-     * @link http://www.php.net/manual/en/function.rewind.php
+     * @link http://www.php.net/manual/en/simplexmliterator.rewind.php
      */
-    public function rewind(): bool
+    public function rewind()
     {
     }
 
-    public function valid()
+    /**
+     * Check whether the current element is valid
+     *
+     * @return bool
+     *
+     * @since PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/simplexmliterator.valid.php
+     */
+    public function valid(): bool
     {
     }
 }

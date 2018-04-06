@@ -45,32 +45,81 @@ const PHP_SESSION_NONE = 1;
  */
 interface SessionHandlerInterface
 {
+    /**
+     * Close the session
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.close.php
+     */
     public function close();
 
     /**
+     * Destroy a session
+     *
      * @param mixed $key
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.destroy.php
      */
     public function destroy($key);
 
     /**
+     * Cleanup old sessions
+     *
      * @param mixed $maxlifetime
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.gc.php
      */
     public function gc($maxlifetime);
 
     /**
+     * Initialize session
+     *
      * @param mixed $save_path
      * @param mixed $session_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.open.php
      */
     public function open($save_path, $session_name);
 
     /**
+     * Read session data
+     *
      * @param mixed $key
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.read.php
      */
     public function read($key);
 
     /**
+     * Write session data
+     *
      * @param mixed $key
      * @param mixed $val
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.write.php
      */
     public function write($key, $val);
 }
@@ -82,6 +131,15 @@ interface SessionHandlerInterface
  */
 interface SessionIdInterface
 {
+    /**
+     * Create session ID
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.1, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionidinterface.create-sid.php
+     */
     public function create_sid();
 }
 
@@ -107,46 +165,104 @@ interface SessionIdInterface
  */
 class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
+    /**
+     * Close the session
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.close.php
+     */
     public function close()
     {
     }
 
+    /**
+     * Return a new session ID
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.1, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.create-sid.php
+     */
     public function create_sid()
     {
     }
 
     /**
+     * Destroy a session
+     *
      * @param mixed $key
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.destroy.php
      */
     public function destroy($key)
     {
     }
 
     /**
+     * Cleanup old sessions
+     *
      * @param mixed $maxlifetime
+     *
+     * @return int
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.gc.php
      */
     public function gc($maxlifetime)
     {
     }
 
     /**
+     * Initialize session
+     *
      * @param mixed $save_path
      * @param mixed $session_name
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.open.php
      */
     public function open($save_path, $session_name)
     {
     }
 
     /**
+     * Read session data
+     *
      * @param mixed $key
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.read.php
      */
     public function read($key)
     {
     }
 
     /**
+     * Write session data
+     *
      * @param mixed $key
      * @param mixed $val
+     *
+     * @return bool
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/sessionhandler.write.php
      */
     public function write($key, $val)
     {

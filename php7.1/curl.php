@@ -3289,39 +3289,97 @@ const CURLVERSION_NOW = 3;
 class CURLFile
 {
     /**
+     * Create a CURLFile object
+     *
      * @param mixed $filename
      * @param mixed|null $mimetype
      * @param mixed|null $postname
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.construct.php
      */
     public function __construct($filename, $mimetype = null, $postname = null)
     {
     }
 
+    /**
+     * Unserialization handler
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.wakeup.php
+     */
     public function __wakeup()
     {
     }
 
-    public function getFilename()
-    {
-    }
-
-    public function getMimeType()
-    {
-    }
-
-    public function getPostFilename()
+    /**
+     * Get file name
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.getfilename.php
+     */
+    public function getFilename(): string
     {
     }
 
     /**
+     * Get MIME type
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.getmimetype.php
+     */
+    public function getMimeType(): string
+    {
+    }
+
+    /**
+     * Get file name for POST
+     *
+     * @return string
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.getpostfilename.php
+     */
+    public function getPostFilename(): string
+    {
+    }
+
+    /**
+     * Set MIME type
+     *
      * @param mixed $name
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.setmimetype.php
      */
     public function setMimeType($name)
     {
     }
 
     /**
+     * Set file name for POST
+     *
      * @param mixed $name
+     *
+     * @return void
+     *
+     * @since PHP 5 >= 5.5.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/curlfile.setpostfilename.php
      */
     public function setPostFilename($name)
     {

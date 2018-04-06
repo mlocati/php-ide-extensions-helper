@@ -296,6 +296,15 @@ const JSON_UNESCAPED_UNICODE = 256;
  */
 interface JsonSerializable
 {
+    /**
+     * Specify data which should be serialized to JSON
+     *
+     * @return mixed
+     *
+     * @since PHP 5 >= 5.4.0, PHP 7
+     *
+     * @link http://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     */
     public function jsonSerialize();
 }
 
