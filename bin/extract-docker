@@ -60,7 +60,7 @@ if ($currentDockerImageId === '') {
 }
 if ($build === true) {
     $rc = - 1;
-    passthru('docker build --file ' . escapeshellarg($dockerFile) . ' --tag ' . escapeshellarg($dockerReference) . ' --rm ' . escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $rootDir)), $rc);
+    passthru('docker build --file ' . escapeshellarg($dockerFile) . ' --tag ' . escapeshellarg($dockerReference) . ' --rm ' . escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $dockerDir)), $rc);
     if ($rc !== 0) {
         exit($rc);
     }
@@ -71,13 +71,11 @@ $commandChunks = array(
     'docker'
 );
 $commandChunks[] = 'run';
-//$commandChunks[] = '--interactive';
 $commandChunks[] = '--tty';
 $commandChunks[] = '--rm';
 $commandChunks[] = '--volume ' . escapeshellarg(str_replace(DIRECTORY_SEPARATOR, '/', $rootDir) . ':/app');
-$commandChunks[] = '--workdir /app';
 $commandChunks[] = $currentDockerImageId;
-$commandChunks[] = './bin/extract';
+$commandChunks[] = '/app/bin/extract';
 foreach ($argv as $arg) {
     $commandChunks[] = escapeshellarg($arg);
 }

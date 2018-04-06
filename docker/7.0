@@ -1,6 +1,6 @@
 FROM php:7.0-cli
 
-COPY docker/install-php-extensions /usr/local/bin/
+COPY install-php-extensions /usr/local/bin/
 
 # Install all extensions listed by docker-php-ext-install (listed with `docker run -ti --rm php:7.0-cli docker-php-ext-install`), except:
 #   Already installed extensions:
