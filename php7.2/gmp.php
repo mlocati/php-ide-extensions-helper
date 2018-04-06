@@ -77,9 +77,9 @@ const GMP_VERSION = '6.1.2';
 
 /**
  * A GMP number. These objects support overloaded
- *     arithmetic,
- *     bitwise and
- *     comparison operators.
+ * arithmetic,
+ * bitwise and
+ * comparison operators.
  *
  * @since PHP 5 >= 5.6.0, PHP 7
  *

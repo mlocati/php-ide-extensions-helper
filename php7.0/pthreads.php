@@ -311,11 +311,11 @@ class Threaded implements Collectable, Traversable
 
 /**
  * The <code>Volatile</code> class is new to pthreads v3. Its
- *     introduction is a consequence of the new immutability semantics of
- *     <code>Threaded</code> members of <code>Threaded</code>
- *     classes. The <code>Volatile</code> class enables for mutability
- *     of its <code>Threaded</code> members, and is also used to store
- *     PHP arrays in <code>Threaded</code> contexts.
+ * introduction is a consequence of the new immutability semantics of
+ * <code>Threaded</code> members of <code>Threaded</code>
+ * classes. The <code>Volatile</code> class enables for mutability
+ * of its <code>Threaded</code> members, and is also used to store
+ * PHP arrays in <code>Threaded</code> contexts.
  *
  * @since PECL pthreads >= 3.0.0
  *

@@ -225,7 +225,7 @@ function pspell_config_runtogether($conf, $runtogether)
 
 /**
  * Determine whether to save a replacement pairs list
- *   along with the wordlist
+ * along with the wordlist
  *
  * @param mixed $conf
  * @param mixed $save

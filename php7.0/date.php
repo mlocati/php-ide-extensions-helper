@@ -97,8 +97,8 @@ const SUNFUNCS_RET_TIMESTAMP = 0;
 
 /**
  * DateTimeInterface is meant so that both DateTime and DateTimeImmutable can
- *     be type hinted for. It is not possible to implement this interface with
- *     userland classes.
+ * be type hinted for. It is not possible to implement this interface with
+ * userland classes.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -334,7 +334,7 @@ class DateTime implements DateTimeInterface
 
 /**
  * This class behaves the same as <code>DateTime</code> except it
- *     never modifies itself but returns a new object instead.
+ * never modifies itself but returns a new object instead.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -563,7 +563,7 @@ function date($format, $timestamp = null): string
 
 /**
  * Adds an amount of days, months, years, hours, minutes and seconds to a
- *    DateTime object
+ * DateTime object
  *
  * @param mixed $object
  * @param mixed $interval
@@ -845,7 +845,7 @@ function date_parse_from_format($format, $date): array
 
 /**
  * Subtracts an amount of days, months, years, hours, minutes and seconds from
- *    a DateTime object
+ * a DateTime object
  *
  * @param mixed $object
  * @param mixed $interval

@@ -4,8 +4,7 @@
 // - parsed on Windows with PHP 7.2.4 (extension version 7.2.4)
 
 /**
- * PCRE version and release date (e.g. "<code>7.0 18-Dec-2006</code>
- * ").
+ * PCRE version and release date (e.g. "<code>7.0 18-Dec-2006</code>").
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.pcre-version
  *
@@ -14,9 +13,7 @@
 const PCRE_VERSION = '8.41 2017-07-05';
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if backtrack limit
- *  was exhausted.
+ * Returned by <code>preg_last_error</code> if backtrack limit was exhausted.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-backtrack-limit-error
  *
@@ -25,10 +22,8 @@ const PCRE_VERSION = '8.41 2017-07-05';
 const PREG_BACKTRACK_LIMIT_ERROR = 2;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if the last error was
- *       caused by malformed UTF-8 data (only when running a regex in UTF-8 mode
- * ).
+ * Returned by <code>preg_last_error</code> if the last error was
+ * caused by malformed UTF-8 data (only when running a regex in UTF-8 mode).
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-bad-utf8-error
  *
@@ -37,12 +32,10 @@ const PREG_BACKTRACK_LIMIT_ERROR = 2;
 const PREG_BAD_UTF8_ERROR = 4;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if the offset didn't
- *       correspond to the begin of a valid UTF-8 code point (only when running
- *       a regex in UTF-8
- *       mode
- * ).
+ * Returned by <code>preg_last_error</code> if the offset didn't
+ * correspond to the begin of a valid UTF-8 code point (only when running
+ * a regex in UTF-8
+ * mode).
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-bad-utf8-offset-error
  *
@@ -56,9 +49,8 @@ const PREG_BAD_UTF8_OFFSET_ERROR = 5;
 const PREG_GREP_INVERT = 1;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if there was an
- *       internal PCRE error.
+ * Returned by <code>preg_last_error</code> if there was an
+ * internal PCRE error.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-internal-error
  *
@@ -67,9 +59,8 @@ const PREG_GREP_INVERT = 1;
 const PREG_INTERNAL_ERROR = 1;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if the last PCRE function
- *       failed due to limited JIT stack space.
+ * Returned by <code>preg_last_error</code> if the last PCRE function
+ * failed due to limited JIT stack space.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-jit-stacklimit-error
  *
@@ -78,9 +69,8 @@ const PREG_INTERNAL_ERROR = 1;
 const PREG_JIT_STACKLIMIT_ERROR = 6;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if there were no
- *       errors.
+ * Returned by <code>preg_last_error</code> if there were no
+ * errors.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-no-error
  *
@@ -90,8 +80,7 @@ const PREG_NO_ERROR = 0;
 
 /**
  * See the description of
- *       <code>PREG_SPLIT_OFFSET_CAPTURE</code>
- * .
+ * <code>PREG_SPLIT_OFFSET_CAPTURE</code>.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-offset-capture
  *
@@ -100,13 +89,10 @@ const PREG_NO_ERROR = 0;
 const PREG_OFFSET_CAPTURE = 256;
 
 /**
- * Orders results so that <code>$matches[0]</code>
- *  is an array of full pattern
- *       matches, <code>$matches[1]</code>
- *  is an array of strings matched by the first
- *       parenthesized subpattern, and so on. This flag is only used with
- *       <code>preg_match_all</code>
- * .
+ * Orders results so that <code>$matches[0]</code> is an array of full pattern
+ * matches, <code>$matches[1]</code> is an array of strings matched by the first
+ * parenthesized subpattern, and so on. This flag is only used with
+ * <code>preg_match_all</code>.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-pattern-order
  *
@@ -115,9 +101,7 @@ const PREG_OFFSET_CAPTURE = 256;
 const PREG_PATTERN_ORDER = 1;
 
 /**
- * Returned by <code>preg_last_error</code>
- *  if recursion limit
- *  was exhausted.
+ * Returned by <code>preg_last_error</code> if recursion limit was exhausted.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-recursion-limit-error
  *
@@ -126,12 +110,9 @@ const PREG_PATTERN_ORDER = 1;
 const PREG_RECURSION_LIMIT_ERROR = 3;
 
 /**
- * Orders results so that <code>$matches[0]</code>
- *  is an array of first set of
- *       matches, <code>$matches[1]</code>
- *  is an array of second set of matches, and so
- *       on. This flag is only used with <code>preg_match_all</code>
- * .
+ * Orders results so that <code>$matches[0]</code> is an array of first set of
+ * matches, <code>$matches[1]</code> is an array of second set of matches, and so
+ * on. This flag is only used with <code>preg_match_all</code>.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-set-order
  *
@@ -140,9 +121,8 @@ const PREG_RECURSION_LIMIT_ERROR = 3;
 const PREG_SET_ORDER = 2;
 
 /**
- * This flag tells <code>preg_split</code>
- *  to capture
- *       parenthesized expression in the delimiter pattern as well.
+ * This flag tells <code>preg_split</code> to capture
+ * parenthesized expression in the delimiter pattern as well.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-split-delim-capture
  *
@@ -151,9 +131,8 @@ const PREG_SET_ORDER = 2;
 const PREG_SPLIT_DELIM_CAPTURE = 2;
 
 /**
- * This flag tells <code>preg_split</code>
- *  to return only non-empty
- *       pieces.
+ * This flag tells <code>preg_split</code> to return only non-empty
+ * pieces.
  *
  * @link http://www.php.net/manual/en/pcre.constants.php#constant.preg-split-no-empty
  *

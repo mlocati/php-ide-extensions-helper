@@ -22,8 +22,8 @@ const POSIX_R_OK = 4;
 
 /**
  * The maximum size of the process's address space in bytes. See also PHP's
- *       memory_limit configuration
- *       directive.
+ * memory_limit configuration
+ * directive.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -33,7 +33,7 @@ const POSIX_RLIMIT_AS = 9;
 
 /**
  * The maximum size of a core file. If the limit is set to 0, no core file
- *       will be generated.
+ * will be generated.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -43,15 +43,12 @@ const POSIX_RLIMIT_CORE = 4;
 
 /**
  * The maximum amount of CPU time that the process can use, in seconds.
- *       When the soft limit is hit, a <code>SIGXCPU</code> signal will be
- *       sent, which can be caught with <code>pcntl_signal</code>.
- *       Depending on the operating system, additional <code>SIGXCPU</code>
- *       signals may be sent each second until the hard limit is hit, at which
- *       point an uncatchable <code>SIGKILL</code> signal is sent.
- *      
- *
- *      
- *       See also <code>set_time_limit</code>.
+ * When the soft limit is hit, a <code>SIGXCPU</code> signal will be
+ * sent, which can be caught with <code>pcntl_signal</code>.
+ * Depending on the operating system, additional <code>SIGXCPU</code>
+ * signals may be sent each second until the hard limit is hit, at which
+ * point an uncatchable <code>SIGKILL</code> signal is sent.
+ * See also <code>set_time_limit</code>.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -61,9 +58,9 @@ const POSIX_RLIMIT_CPU = 0;
 
 /**
  * The maximum size of the process's data segment, in bytes. It is
- *       extremely unlikely that this will have any effect on the execution of
- *       PHP unless an extension is in use that calls <code>brk</code> or
- *       <code>sbrk</code>.
+ * extremely unlikely that this will have any effect on the execution of
+ * PHP unless an extension is in use that calls <code>brk</code> or
+ * <code>sbrk</code>.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -91,7 +88,7 @@ const POSIX_RLIMIT_INFINITY = -1;
 
 /**
  * The maximum number of locks that the process can create. This is only
- *       supported on extremely old Linux kernels.
+ * supported on extremely old Linux kernels.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -110,9 +107,9 @@ const POSIX_RLIMIT_MEMLOCK = 8;
 
 /**
  * The maximum number of bytes that can be allocated for POSIX message
- *       queues. PHP does not ship with support for POSIX message queues, so this
- *       limit will not have any effect unless you are using an extension that
- *       implements that support.
+ * queues. PHP does not ship with support for POSIX message queues, so this
+ * limit will not have any effect unless you are using an extension that
+ * implements that support.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -122,9 +119,9 @@ const POSIX_RLIMIT_MSGQUEUE = 12;
 
 /**
  * The maximum value to which the process can be
- *       reniced to. The value
- *       that will be used will be <code>20 - limit</code>, as resource
- *       limit values cannot be negative.
+ * reniced to. The value
+ * that will be used will be <code>20 - limit</code>, as resource
+ * limit values cannot be negative.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -134,7 +131,7 @@ const POSIX_RLIMIT_NICE = 13;
 
 /**
  * A value one greater than the maximum file descriptor number that can be
- *       opened by this process.
+ * opened by this process.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -144,7 +141,7 @@ const POSIX_RLIMIT_NOFILE = 7;
 
 /**
  * The maximum number of processes (and/or threads, on some operating
- *       systems) that can be created for the real user ID of the process.
+ * systems) that can be created for the real user ID of the process.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -163,8 +160,8 @@ const POSIX_RLIMIT_RSS = 5;
 
 /**
  * The maximum real time priority that can be set via the
- *       <code>sched_setscheduler</code> and
- *       <code>sched_setparam</code> system calls.
+ * <code>sched_setscheduler</code> and
+ * <code>sched_setparam</code> system calls.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -174,8 +171,8 @@ const POSIX_RLIMIT_RTPRIO = 14;
 
 /**
  * The maximum amount of CPU time, in microseconds, that the process can
- *       consume without making a blocking system call if it is using real time
- *       scheduling.
+ * consume without making a blocking system call if it is using real time
+ * scheduling.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *
@@ -185,7 +182,7 @@ const POSIX_RLIMIT_RTTIME = 15;
 
 /**
  * The maximum number of signals that can be queued for the real user ID of
- *       the process.
+ * the process.
  *
  * @link http://www.php.net/manual/en/posix.constants.php#posix.constants.setrlimit
  *

@@ -406,7 +406,7 @@ const XML_TEXT_NODE = 3;
 
 /**
  * <code>DOMAttr</code> represents an attribute in the 
- *     <code>DOMElement</code> object.
+ * <code>DOMElement</code> object.
  *
  * @since PHP 5, PHP 7
  *
@@ -429,8 +429,8 @@ class DOMAttr extends DOMNode
 
 /**
  * The <code>DOMCdataSection</code> inherits from 
- *     <code>DOMText</code> for textural representation 
- *     of CData constructs.
+ * <code>DOMText</code> for textural representation 
+ * of CData constructs.
  *
  * @since PHP 5, PHP 7
  *
@@ -448,7 +448,7 @@ class DOMCdataSection extends DOMText
 
 /**
  * Represents nodes with character data. No nodes directly correspond to
- *     this class, but other nodes do inherit from it.
+ * this class, but other nodes do inherit from it.
  *
  * @since PHP 5, PHP 7
  *
@@ -499,7 +499,7 @@ class DOMCharacterData extends DOMNode
 
 /**
  * Represents comment nodes, characters delimited by <code>&lt;!--</code>
- *     and <code>--&gt;</code>.
+ * and <code>--&gt;</code>.
  *
  * @since PHP 5, PHP 7
  *
@@ -543,7 +543,7 @@ class DOMConfiguration
 
 /**
  * Represents an entire HTML or XML document; serves as the root of the
- *     document tree.
+ * document tree.
  *
  * @since PHP 5, PHP 7
  *
@@ -807,7 +807,7 @@ class DOMDocumentFragment extends DOMNode
 
 /**
  * Each <code>DOMDocument</code> has a <code>doctype</code>
- *     attribute whose value is either <code>NULL</code> or a <code>DOMDocumentType</code> object.
+ * attribute whose value is either <code>NULL</code> or a <code>DOMDocumentType</code> object.
  *
  * @since PHP 5, PHP 7
  *
@@ -1014,7 +1014,7 @@ class DOMErrorHandler
 
 /**
  * DOM operations raise exceptions under particular circumstances, i.e.,
- *     when an operation is impossible to perform for logical reasons.
+ * when an operation is impossible to perform for logical reasons.
  *
  * @since PHP 5, PHP 7
  *
@@ -1026,8 +1026,8 @@ class DOMException extends Exception
 
 /**
  * The <code>DOMImplementation</code> interface provides a number
- *     of methods for performing operations that are independent of any 
- *     particular instance of the document object model.
+ * of methods for performing operations that are independent of any 
+ * particular instance of the document object model.
  *
  * @since PHP 5, PHP 7
  *
@@ -1179,24 +1179,22 @@ class DOMNameSpaceNode
 
 /**
  * <table>
- *     
- *      <thead>
- *       <tr>
- *        <td>Version</td>
- *        <td>Description</td>
- *       </tr>
- *      </thead>
- *      <tbody>
- *       <tr>
- *        <td>5.6.1</td>
- *        <td>
- *         The textContent property has been made writable (formerly it has been
- *         readonly).
- *        </td>
- *       </tr>
- *      </tbody>
- *     
- *    </table>
+ * <thead>
+ * <tr>
+ * <td>Version</td>
+ * <td>Description</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td>5.6.1</td>
+ * <td>
+ * The textContent property has been made writable (formerly it has been
+ * readonly).
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
  * @since PHP 5, PHP 7
  *
@@ -1359,8 +1357,8 @@ class DOMNode
 
 /**
  * <ul>
- *      <li>W3C specification of NodeList</li>
- *     </ul>
+ * <li>W3C specification of NodeList</li>
+ * </ul>
  *
  * @since PHP 5, PHP 7
  *
@@ -1430,9 +1428,9 @@ class DOMStringList
 
 /**
  * The <code>DOMText</code> class inherits from 
- *     <code>DOMCharacterData</code> and represents the textual
- *     content of a <code>DOMElement</code> or 
- *     <code>DOMAttr</code>.
+ * <code>DOMCharacterData</code> and represents the textual
+ * content of a <code>DOMElement</code> or 
+ * <code>DOMAttr</code>.
  *
  * @since PHP 5, PHP 7
  *
@@ -1530,7 +1528,7 @@ class DOMXPath
 
 /**
  * Gets a <code>DOMElement</code> object from a
- *    <code>SimpleXMLElement</code> object
+ * <code>SimpleXMLElement</code> object
  *
  * @param mixed $node
  *

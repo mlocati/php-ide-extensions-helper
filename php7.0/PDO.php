@@ -117,10 +117,10 @@ class PDO
 }
 
 /**
- * Represents an error raised by PDO.  You should not throw a
- *     <code>PDOException</code> from your own code.
- *     See Exceptions for more
- *     information about Exceptions in PHP.
+ * Represents an error raised by PDO. You should not throw a
+ * <code>PDOException</code> from your own code.
+ * See Exceptions for more
+ * information about Exceptions in PHP.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -136,7 +136,7 @@ final class PDORow
 
 /**
  * Represents a prepared statement and, after the statement is executed, an 
- *     associated result set.
+ * associated result set.
  *
  * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0
  *

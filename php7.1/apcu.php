@@ -110,11 +110,11 @@ const APC_LIST_DELETED = 2;
 
 /**
  * The <code>APCUIterator</code> class makes it easier to iterate
- *     over large APCu caches. This is helpful as it allows iterating over large
- *     caches in steps, while grabbing a defined number of entries per lock instance,
- *     so it frees the cache locks for other activities rather than hold up the
- *     entire cache to grab 100 (the default) entries. Also, using regular expression
- *     matching is more efficient as it's been moved to the C level.
+ * over large APCu caches. This is helpful as it allows iterating over large
+ * caches in steps, while grabbing a defined number of entries per lock instance,
+ * so it frees the cache locks for other activities rather than hold up the
+ * entire cache to grab 100 (the default) entries. Also, using regular expression
+ * matching is more efficient as it's been moved to the C level.
  *
  * @since PECL apcu >= 5.0.0
  *

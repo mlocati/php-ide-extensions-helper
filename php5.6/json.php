@@ -5,7 +5,7 @@
 
 /**
  * Decodes large integers as their original string value.
- *      Available since PHP 5.4.0.
+ * Available since PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-bigint-as-string
  *
@@ -15,7 +15,7 @@ const JSON_BIGINT_AS_STRING = 2;
 
 /**
  * Control character error, possibly incorrectly encoded.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-ctrl-char
  *
@@ -25,7 +25,7 @@ const JSON_ERROR_CTRL_CHAR = 3;
 
 /**
  * The maximum stack depth has been exceeded.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-depth
  *
@@ -35,12 +35,12 @@ const JSON_ERROR_DEPTH = 1;
 
 /**
  * The value passed to <code>json_encode</code> includes either
- *      <code>NAN</code>
- *      or <code>INF</code>.
- *      If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
- *      given, <code>0</code> will be encoded in the place of these
- *      special numbers.
- *      Available since PHP 5.5.0.
+ * <code>NAN</code>
+ * or <code>INF</code>.
+ * If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
+ * given, <code>0</code> will be encoded in the place of these
+ * special numbers.
+ * Available since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-inf-or-nan
  *
@@ -50,7 +50,7 @@ const JSON_ERROR_INF_OR_NAN = 7;
 
 /**
  * No error has occurred.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-none
  *
@@ -60,10 +60,10 @@ const JSON_ERROR_NONE = 0;
 
 /**
  * The object or array passed to <code>json_encode</code> include
- *      recursive references and cannot be encoded.
- *      If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
- *      given, <code>NULL</code> will be encoded in the place of the recursive reference.
- *      Available since PHP 5.5.0.
+ * recursive references and cannot be encoded.
+ * If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
+ * given, <code>NULL</code> will be encoded in the place of the recursive reference.
+ * Available since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-recursion
  *
@@ -73,7 +73,7 @@ const JSON_ERROR_RECURSION = 6;
 
 /**
  * Occurs with underflow or with the modes mismatch.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-state-mismatch
  *
@@ -83,7 +83,7 @@ const JSON_ERROR_STATE_MISMATCH = 2;
 
 /**
  * Syntax error.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-syntax
  *
@@ -93,10 +93,10 @@ const JSON_ERROR_SYNTAX = 4;
 
 /**
  * A value of an unsupported type was given to
- *      <code>json_encode</code>, such as a <code>resource</code>.
- *      If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
- *      given, <code>NULL</code> will be encoded in the place of the unsupported value.
- *      Available since PHP 5.5.0.
+ * <code>json_encode</code>, such as a <code>resource</code>.
+ * If the <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code> option was
+ * given, <code>NULL</code> will be encoded in the place of the unsupported value.
+ * Available since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-unsupported-type
  *
@@ -106,7 +106,7 @@ const JSON_ERROR_UNSUPPORTED_TYPE = 8;
 
 /**
  * Malformed UTF-8 characters, possibly incorrectly encoded.
- *      Available since PHP 5.3.3.
+ * Available since PHP 5.3.3.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-error-utf8
  *
@@ -116,9 +116,9 @@ const JSON_ERROR_UTF8 = 5;
 
 /**
  * Outputs an object rather than an array when a non-associative array is
- *      used. Especially useful when the recipient of the output is expecting
- *      an object and the array is empty.
- *      Available since PHP 5.3.0.
+ * used. Especially useful when the recipient of the output is expecting
+ * an object and the array is empty.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-force-object
  *
@@ -128,7 +128,7 @@ const JSON_FORCE_OBJECT = 16;
 
 /**
  * All &amp;s are converted to \u0026.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-hex-amp
  *
@@ -138,7 +138,7 @@ const JSON_HEX_AMP = 2;
 
 /**
  * All ' are converted to \u0027.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-hex-apos
  *
@@ -148,7 +148,7 @@ const JSON_HEX_APOS = 4;
 
 /**
  * All " are converted to \u0022.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-hex-quot
  *
@@ -158,7 +158,7 @@ const JSON_HEX_QUOT = 8;
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-hex-tag
  *
@@ -168,7 +168,7 @@ const JSON_HEX_TAG = 1;
 
 /**
  * Encodes numeric strings as numbers.
- *      Available since PHP 5.3.3.
+ * Available since PHP 5.3.3.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-numeric-check
  *
@@ -178,9 +178,9 @@ const JSON_NUMERIC_CHECK = 32;
 
 /**
  * Decodes JSON objects as PHP array. This option can be added automatically
- *      by calling <code>json_decode</code> with the second parameter
- *      equal to <code>TRUE</code>.
- *      Available since PHP 5.4.0.
+ * by calling <code>json_decode</code> with the second parameter
+ * equal to <code>TRUE</code>.
+ * Available since PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-object-as-array
  *
@@ -190,7 +190,7 @@ const JSON_OBJECT_AS_ARRAY = 1;
 
 /**
  * Substitute some unencodable values instead of failing.
- *      Available since PHP 5.5.0.
+ * Available since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-partial-output-on-error
  *
@@ -200,8 +200,8 @@ const JSON_PARTIAL_OUTPUT_ON_ERROR = 512;
 
 /**
  * Ensures that <code>float</code> values are always encoded as a float
- *      value.
- *      Available since PHP 5.6.6.
+ * value.
+ * Available since PHP 5.6.6.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-preserve-zero-fraction
  *
@@ -211,7 +211,7 @@ const JSON_PRESERVE_ZERO_FRACTION = 1024;
 
 /**
  * Use whitespace in returned data to format it.
- *      Available since PHP 5.4.0.
+ * Available since PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-pretty-print
  *
@@ -221,7 +221,7 @@ const JSON_PRETTY_PRINT = 128;
 
 /**
  * Don't escape <code>/</code>.
- *      Available since PHP 5.4.0.
+ * Available since PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-unescaped-slashes
  *
@@ -231,8 +231,8 @@ const JSON_UNESCAPED_SLASHES = 64;
 
 /**
  * Encode multibyte Unicode characters literally (default is to escape as
- *      \uXXXX).
- *      Available since PHP 5.4.0.
+ * \uXXXX).
+ * Available since PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/json.constants.php#constant.json-unescaped-unicode
  *
@@ -242,8 +242,8 @@ const JSON_UNESCAPED_UNICODE = 256;
 
 /**
  * Objects implementing <code>JsonSerializable</code>
- *     can customize their JSON representation when encoded with
- *     <code>json_encode</code>.
+ * can customize their JSON representation when encoded with
+ * <code>json_encode</code>.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *

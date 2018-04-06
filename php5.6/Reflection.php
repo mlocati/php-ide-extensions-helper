@@ -5,7 +5,7 @@
 
 /**
  * <code>Reflector</code> is an interface implemented by all
- *     exportable Reflection classes.
+ * exportable Reflection classes.
  *
  * @since PHP 5, PHP 7
  *
@@ -45,7 +45,7 @@ class Reflection
 
 /**
  * The <code>ReflectionClass</code> class reports
- *     information about a class.
+ * information about a class.
  *
  * @since PHP 5, PHP 7
  *
@@ -321,7 +321,7 @@ class ReflectionException extends Exception
 
 /**
  * The <code>ReflectionExtension</code> class reports
- *     information about an extension.
+ * information about an extension.
  *
  * @since PHP 5, PHP 7
  *
@@ -399,7 +399,7 @@ class ReflectionExtension implements Reflector
 
 /**
  * The <code>ReflectionFunction</code> class reports
- *     information about a function.
+ * information about a function.
  *
  * @since PHP 5, PHP 7
  *
@@ -451,7 +451,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
 
 /**
  * A parent class to <code>ReflectionFunction</code>, read its
- *     description for details.
+ * description for details.
  *
  * @since PHP 5 >= 5.2.0, PHP 7
  *
@@ -560,7 +560,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
 
 /**
  * The <code>ReflectionMethod</code> class reports
- *     information about a method.
+ * information about a method.
  *
  * @since PHP 5, PHP 7
  *
@@ -666,7 +666,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
 
 /**
  * The <code>ReflectionObject</code> class reports
- *     information about an <code>object</code>.
+ * information about an <code>object</code>.
  *
  * @since PHP 5, PHP 7
  *
@@ -692,7 +692,7 @@ class ReflectionObject extends ReflectionClass
 
 /**
  * The <code>ReflectionParameter</code> class retrieves
- *     information about function's or method's parameters.
+ * information about function's or method's parameters.
  *
  * @since PHP 5, PHP 7
  *
@@ -792,7 +792,7 @@ class ReflectionParameter implements Reflector
 
 /**
  * The <code>ReflectionProperty</code> class reports
- *     information about classes properties.
+ * information about classes properties.
  *
  * @since PHP 5, PHP 7
  *

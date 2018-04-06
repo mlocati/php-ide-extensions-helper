@@ -187,7 +187,7 @@ const XML_OPTION_TARGET_ENCODING = 2;
 
 /**
  * Holds the SAX implementation method.
- *      Can be <code>libxml</code> or <code>expat</code>.
+ * Can be <code>libxml</code> or <code>expat</code>.
  *
  * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-sax-impl
  *

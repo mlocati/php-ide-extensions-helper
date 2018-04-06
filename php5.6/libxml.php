@@ -5,14 +5,10 @@
 
 /**
  * Activate small nodes allocation optimization. This may speed up your
- *      application without needing to change the code.
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.6.21
- *      
- *     </blockquote>
+ * application without needing to change the code.
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.6.21
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-compact
  *
@@ -94,14 +90,10 @@ const LIBXML_ERR_WARNING = 1;
 
 /**
  * Sets HTML_PARSE_NODEFDTD flag, which prevents a default doctype
- *      being added when one is not found.
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.7.8 (as of PHP &gt;= 5.4.0)
- *      
- *     </blockquote>
+ * being added when one is not found.
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.7.8 (as of PHP &gt;= 5.4.0)
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-html-nodefdtd
  *
@@ -111,14 +103,10 @@ const LIBXML_HTML_NODEFDTD = 4;
 
 /**
  * Sets HTML_PARSE_NOIMPLIED flag, which turns off the
- *      automatic adding of implied html/body... elements.
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.7.7 (as of PHP &gt;= 5.4.0)
- *      
- *     </blockquote>
+ * automatic adding of implied html/body... elements.
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.7.7 (as of PHP &gt;= 5.4.0)
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-html-noimplied
  *
@@ -151,16 +139,12 @@ const LIBXML_NOCDATA = 16384;
 
 /**
  * Expand empty tags (e.g. <code>&lt;br/&gt;</code> to
- *      <code>&lt;br&gt;&lt;/br&gt;</code>)
- *     
- *
- *     <blockquote>
- *      
- *       This option is currently just available in the
- *        and
- *        functions.
- *      
- *     </blockquote>
+ * <code>&lt;br&gt;&lt;/br&gt;</code>)
+ * <blockquote>
+ * This option is currently just available in the
+ * and
+ * functions.
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-noemptytag
  *
@@ -206,13 +190,9 @@ const LIBXML_NOWARNING = 64;
 
 /**
  * Drop the XML declaration when saving a document
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.6.21
- *      
- *     </blockquote>
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.6.21
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-noxmldecl
  *
@@ -231,15 +211,11 @@ const LIBXML_NSCLEAN = 8192;
 
 /**
  * Sets XML_PARSE_HUGE flag, which relaxes any hardcoded limit from the parser. This affects 
- *      limits like maximum depth of a document or the entity recursion, as well as limits of the 
- *      size of text nodes.
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.7.0 (as of PHP &gt;= 5.3.2 and PHP &gt;= 5.2.12)
- *      
- *     </blockquote>
+ * limits like maximum depth of a document or the entity recursion, as well as limits of the 
+ * size of text nodes.
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.7.0 (as of PHP &gt;= 5.3.2 and PHP &gt;= 5.2.12)
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-parsehuge
  *
@@ -249,13 +225,9 @@ const LIBXML_PARSEHUGE = 524288;
 
 /**
  * Sets XML_PARSE_PEDANTIC flag, which enables pedantic error reporting.
- *     
- *
- *     <blockquote>
- *      
- *       Available as of PHP &gt;= 5.4.0
- *      
- *     </blockquote>
+ * <blockquote>
+ * Available as of PHP &gt;= 5.4.0
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-pedantic
  *
@@ -265,13 +237,9 @@ const LIBXML_PEDANTIC = 128;
 
 /**
  * Create default/fixed value nodes during XSD schema validation
- *     
- *
- *     <blockquote>
- *      
- *       Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2)
- *      
- *     </blockquote>
+ * <blockquote>
+ * Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2)
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/libxml.constants.php#constant.libxml-schema-create
  *
@@ -299,8 +267,8 @@ const LIBXML_XINCLUDE = 1024;
 
 /**
  * Contains various information about errors thrown by libxml. The error codes
- *     are described within the official 
- *     xmlError API documentation.
+ * are described within the official 
+ * xmlError API documentation.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *

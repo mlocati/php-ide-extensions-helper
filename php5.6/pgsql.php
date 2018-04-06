@@ -4,7 +4,7 @@
 
 /**
  * Passed to <code>pg_fetch_array</code>. Return an associative array of field
- *       names and values.
+ * names and values.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-assoc
  *
@@ -14,7 +14,7 @@ const PGSQL_ASSOC = 1;
 
 /**
  * Returned by <code>pg_result_status</code>. The server's response 
- *      was not understood.
+ * was not understood.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-bad-response
  *
@@ -24,7 +24,7 @@ const PGSQL_BAD_RESPONSE = 5;
 
 /**
  * Passed to <code>pg_fetch_array</code>. Return an array of field values
- *       that is both numerically indexed (by field number) and associated (by field name).
+ * that is both numerically indexed (by field number) and associated (by field name).
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-both
  *
@@ -34,7 +34,7 @@ const PGSQL_BOTH = 3;
 
 /**
  * Returned by <code>pg_result_status</code>. Successful completion of a 
- *      command returning no data.
+ * command returning no data.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-command-ok
  *
@@ -44,7 +44,7 @@ const PGSQL_COMMAND_OK = 1;
 
 /**
  * Passed to <code>pg_connect</code> to create an asynchronous
- *       connection. Added in PHP 5.6.0.
+ * connection. Added in PHP 5.6.0.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-connect-async
  *
@@ -54,7 +54,7 @@ const PGSQL_CONNECT_ASYNC = 4;
 
 /**
  * Passed to <code>pg_connect</code> to force the creation of a new connection,
- *       rather than re-using an existing identical connection.
+ * rather than re-using an existing identical connection.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-connect-force-new
  *
@@ -74,7 +74,7 @@ const PGSQL_CONNECTION_AWAITING_RESPONSE = 4;
 
 /**
  * Returned by <code>pg_connection_status</code> indicating that the database
- *       connection is in an invalid state.
+ * connection is in an invalid state.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-connection-bad
  *
@@ -89,7 +89,7 @@ const PGSQL_CONNECTION_MADE = 3;
 
 /**
  * Returned by <code>pg_connection_status</code> indicating that the database
- *       connection is in a valid state.
+ * connection is in a valid state.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-connection-ok
  *
@@ -109,7 +109,7 @@ const PGSQL_CONNECTION_STARTED = 2;
 
 /**
  * Passed to <code>pg_convert</code>.
- *      Use SQL <code>NULL</code> in place of an empty <code>string</code>.
+ * Use SQL <code>NULL</code> in place of an empty <code>string</code>.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-conv-force-null
  *
@@ -119,7 +119,7 @@ const PGSQL_CONV_FORCE_NULL = 4;
 
 /**
  * Passed to <code>pg_convert</code>.
- *      Ignore default values in the table during conversion.
+ * Ignore default values in the table during conversion.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-conv-ignore-default
  *
@@ -129,7 +129,7 @@ const PGSQL_CONV_IGNORE_DEFAULT = 2;
 
 /**
  * Passed to <code>pg_convert</code>.
- *      Ignore conversion of <code>NULL</code> into SQL <code>NOT NULL</code> columns.
+ * Ignore conversion of <code>NULL</code> into SQL <code>NOT NULL</code> columns.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-conv-ignore-not-null
  *
@@ -139,7 +139,7 @@ const PGSQL_CONV_IGNORE_NOT_NULL = 8;
 
 /**
  * Returned by <code>pg_result_status</code>. Copy In (to server) data 
- *      transfer started.
+ * transfer started.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-copy-in
  *
@@ -149,7 +149,7 @@ const PGSQL_COPY_IN = 4;
 
 /**
  * Returned by <code>pg_result_status</code>. Copy Out (from server) data 
- *      transfer started.
+ * transfer started.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-copy-out
  *
@@ -159,10 +159,10 @@ const PGSQL_COPY_OUT = 3;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      An indication of the context in which the error occurred. Presently 
- *      this includes a call stack traceback of active procedural language 
- *      functions and internally-generated queries. The trace is one entry 
- *      per line, most recent first.
+ * An indication of the context in which the error occurred. Presently 
+ * this includes a call stack traceback of active procedural language 
+ * functions and internally-generated queries. The trace is one entry 
+ * per line, most recent first.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-context
  *
@@ -172,11 +172,11 @@ const PGSQL_DIAG_CONTEXT = 87;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      This is defined the same as the <code>PG_DIAG_STATEMENT_POSITION</code> field, but 
- *      it is used when the cursor position refers to an internally generated 
- *      command rather than the one submitted by the client. The 
- *      <code>PG_DIAG_INTERNAL_QUERY</code> field will always appear when this 
- *      field appears.
+ * This is defined the same as the <code>PG_DIAG_STATEMENT_POSITION</code> field, but 
+ * it is used when the cursor position refers to an internally generated 
+ * command rather than the one submitted by the client. The 
+ * <code>PG_DIAG_INTERNAL_QUERY</code> field will always appear when this 
+ * field appears.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-internal-position
  *
@@ -186,8 +186,8 @@ const PGSQL_DIAG_INTERNAL_POSITION = 112;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The text of a failed internally-generated command. This could be, for example, a 
- *      SQL query issued by a PL/pgSQL function.
+ * The text of a failed internally-generated command. This could be, for example, a 
+ * SQL query issued by a PL/pgSQL function.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-internal-query
  *
@@ -197,7 +197,7 @@ const PGSQL_DIAG_INTERNAL_QUERY = 113;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      Detail: an optional secondary error message carrying more detail about the problem. May run to multiple lines.
+ * Detail: an optional secondary error message carrying more detail about the problem. May run to multiple lines.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-message-detail
  *
@@ -207,8 +207,8 @@ const PGSQL_DIAG_MESSAGE_DETAIL = 68;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      Hint: an optional suggestion what to do about the problem. This is intended to differ from detail in that it
- *      offers advice (potentially inappropriate) rather than hard facts. May run to multiple lines.
+ * Hint: an optional suggestion what to do about the problem. This is intended to differ from detail in that it
+ * offers advice (potentially inappropriate) rather than hard facts. May run to multiple lines.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-message-hint
  *
@@ -218,7 +218,7 @@ const PGSQL_DIAG_MESSAGE_HINT = 72;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The primary human-readable error message (typically one line). Always present.
+ * The primary human-readable error message (typically one line). Always present.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-message-primary
  *
@@ -228,11 +228,11 @@ const PGSQL_DIAG_MESSAGE_PRIMARY = 77;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The severity; the field contents are <code>ERROR</code>, 
- *      <code>FATAL</code>, or <code>PANIC</code> (in an error message), or 
- *      <code>WARNING</code>, <code>NOTICE</code>, <code>DEBUG</code>, 
- *      <code>INFO</code>, or <code>LOG</code> (in a notice message), or a localized 
- *      translation of one of these. Always present.
+ * The severity; the field contents are <code>ERROR</code>, 
+ * <code>FATAL</code>, or <code>PANIC</code> (in an error message), or 
+ * <code>WARNING</code>, <code>NOTICE</code>, <code>DEBUG</code>, 
+ * <code>INFO</code>, or <code>LOG</code> (in a notice message), or a localized 
+ * translation of one of these. Always present.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-severity
  *
@@ -242,8 +242,8 @@ const PGSQL_DIAG_SEVERITY = 83;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The file name of the PostgreSQL source-code location where the error 
- *      was reported.
+ * The file name of the PostgreSQL source-code location where the error 
+ * was reported.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-source-file
  *
@@ -253,7 +253,7 @@ const PGSQL_DIAG_SOURCE_FILE = 70;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The name of the PostgreSQL source-code function reporting the error.
+ * The name of the PostgreSQL source-code function reporting the error.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-source-function
  *
@@ -263,8 +263,8 @@ const PGSQL_DIAG_SOURCE_FUNCTION = 82;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The line number of the PostgreSQL source-code location where the 
- *      error was reported.
+ * The line number of the PostgreSQL source-code location where the 
+ * error was reported.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-source-line
  *
@@ -274,10 +274,10 @@ const PGSQL_DIAG_SOURCE_LINE = 76;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      The SQLSTATE code for the error. The SQLSTATE code identifies the type of error 
- *      that has occurred; it can be used by front-end applications to perform specific 
- *      operations (such as error handling) in response to a particular database error. 
- *      This field is not localizable, and is always present.
+ * The SQLSTATE code for the error. The SQLSTATE code identifies the type of error 
+ * that has occurred; it can be used by front-end applications to perform specific 
+ * operations (such as error handling) in response to a particular database error. 
+ * This field is not localizable, and is always present.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-sqlstate
  *
@@ -287,8 +287,8 @@ const PGSQL_DIAG_SQLSTATE = 67;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- *      A string containing a decimal integer indicating an error cursor position as an index into the original 
- *      statement string. The first character has index 1, and positions are measured in characters not bytes.
+ * A string containing a decimal integer indicating an error cursor position as an index into the original 
+ * statement string. The first character has index 1, and positions are measured in characters not bytes.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-statement-position
  *
@@ -298,8 +298,8 @@ const PGSQL_DIAG_STATEMENT_POSITION = 80;
 
 /**
  * Passed to <code>pg_insert</code>, <code>pg_select</code>,
- *      <code>pg_update</code> and <code>pg_delete</code>.
- *      Execute asynchronous query by these functions.
+ * <code>pg_update</code> and <code>pg_delete</code>.
+ * Execute asynchronous query by these functions.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-dml-async
  *
@@ -309,10 +309,10 @@ const PGSQL_DML_ASYNC = 1024;
 
 /**
  * Passed to <code>pg_insert</code>, <code>pg_select</code>,
- *      <code>pg_update</code> and <code>pg_delete</code>.
- *      Apply escape to all parameters instead of calling <code>pg_convert</code>
- *      internally. This option omits meta data look up. Query could be as fast as
- *      <code>pg_query</code> and <code>pg_send_query</code>.
+ * <code>pg_update</code> and <code>pg_delete</code>.
+ * Apply escape to all parameters instead of calling <code>pg_convert</code>
+ * internally. This option omits meta data look up. Query could be as fast as
+ * <code>pg_query</code> and <code>pg_send_query</code>.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-dml-escape
  *
@@ -322,8 +322,8 @@ const PGSQL_DML_ESCAPE = 4096;
 
 /**
  * Passed to <code>pg_insert</code>, <code>pg_select</code>,
- *      <code>pg_update</code> and <code>pg_delete</code>.
- *      Execute query by these functions.
+ * <code>pg_update</code> and <code>pg_delete</code>.
+ * Execute query by these functions.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-dml-exec
  *
@@ -333,10 +333,10 @@ const PGSQL_DML_EXEC = 512;
 
 /**
  * Passed to <code>pg_insert</code>, <code>pg_select</code>,
- *      <code>pg_update</code> and <code>pg_delete</code>.
- *      All parameters passed as is. Manual escape is required
- *      if parameters contain user supplied data. Use <code>pg_escape_string</code>
- *      for it.
+ * <code>pg_update</code> and <code>pg_delete</code>.
+ * All parameters passed as is. Manual escape is required
+ * if parameters contain user supplied data. Use <code>pg_escape_string</code>
+ * for it.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-dml-no-conv
  *
@@ -346,8 +346,8 @@ const PGSQL_DML_NO_CONV = 256;
 
 /**
  * Passed to <code>pg_insert</code>, <code>pg_select</code>,
- *      <code>pg_update</code> and <code>pg_delete</code>.
- *      Return executed query string.
+ * <code>pg_update</code> and <code>pg_delete</code>.
+ * Return executed query string.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-dml-string
  *
@@ -357,7 +357,7 @@ const PGSQL_DML_STRING = 2048;
 
 /**
  * Returned by <code>pg_result_status</code>. The string sent to the server
- *      was empty.
+ * was empty.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-empty-query
  *
@@ -367,9 +367,9 @@ const PGSQL_EMPTY_QUERY = 0;
 
 /**
  * Passed to <code>pg_set_error_verbosity</code>.
- *      The default mode produces messages that include the above 
- *      plus any detail, hint, or context fields (these may span 
- *      multiple lines).
+ * The default mode produces messages that include the above 
+ * plus any detail, hint, or context fields (these may span 
+ * multiple lines).
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-errors-default
  *
@@ -379,8 +379,8 @@ const PGSQL_ERRORS_DEFAULT = 1;
 
 /**
  * Passed to <code>pg_set_error_verbosity</code>.
- *      Specified that returned messages include severity, primary text, 
- *      and position only; this will normally fit on a single line.
+ * Specified that returned messages include severity, primary text, 
+ * and position only; this will normally fit on a single line.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-errors-terse
  *
@@ -390,7 +390,7 @@ const PGSQL_ERRORS_TERSE = 0;
 
 /**
  * Passed to <code>pg_set_error_verbosity</code>.
- *      The verbose mode includes all available fields.
+ * The verbose mode includes all available fields.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-errors-verbose
  *
@@ -400,7 +400,7 @@ const PGSQL_ERRORS_VERBOSE = 2;
 
 /**
  * Returned by <code>pg_result_status</code>. A fatal error 
- *      occurred.
+ * occurred.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-fatal-error
  *
@@ -428,7 +428,7 @@ const PGSQL_LIBPQ_VERSION_STR = 'PostgreSQL 9.4.15 on x86_64-unknown-linux-gnu, 
 
 /**
  * Returned by <code>pg_result_status</code>. A nonfatal error 
- *      (a notice or warning) occurred.
+ * (a notice or warning) occurred.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-nonfatal-error
  *
@@ -438,7 +438,7 @@ const PGSQL_NONFATAL_ERROR = 6;
 
 /**
  * Passed to <code>pg_fetch_array</code>. Return a numerically indexed array of field
- *       numbers and values.
+ * numbers and values.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-num
  *
@@ -448,7 +448,7 @@ const PGSQL_NUM = 2;
 
 /**
  * Returned by <code>pg_connect_poll</code> to indicate that the
- *      connection is currently active.
+ * connection is currently active.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-polling-active
  *
@@ -458,7 +458,7 @@ const PGSQL_POLLING_ACTIVE = 4;
 
 /**
  * Returned by <code>pg_connect_poll</code> to indicate that the
- *      connection attempt failed.
+ * connection attempt failed.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-polling-failed
  *
@@ -468,7 +468,7 @@ const PGSQL_POLLING_FAILED = 0;
 
 /**
  * Returned by <code>pg_connect_poll</code> to indicate that the
- *      connection is ready to be used.
+ * connection is ready to be used.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-polling-ok
  *
@@ -478,7 +478,7 @@ const PGSQL_POLLING_OK = 3;
 
 /**
  * Returned by <code>pg_connect_poll</code> to indicate that the
- *      connection is waiting for the PostgreSQL socket to be readable.
+ * connection is waiting for the PostgreSQL socket to be readable.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-polling-reading
  *
@@ -488,7 +488,7 @@ const PGSQL_POLLING_READING = 1;
 
 /**
  * Returned by <code>pg_connect_poll</code> to indicate that the
- *      connection is waiting for the PostgreSQL socket to be writable.
+ * connection is waiting for the PostgreSQL socket to be writable.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-polling-writing
  *
@@ -498,7 +498,7 @@ const PGSQL_POLLING_WRITING = 2;
 
 /**
  * Passed to <code>pg_lo_seek</code>. Seek operation is to begin
- *      from the current position.
+ * from the current position.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-seek-cur
  *
@@ -508,7 +508,7 @@ const PGSQL_SEEK_CUR = 1;
 
 /**
  * Passed to <code>pg_lo_seek</code>. Seek operation is to begin
- *      from the end of the object.
+ * from the end of the object.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-seek-end
  *
@@ -518,7 +518,7 @@ const PGSQL_SEEK_END = 2;
 
 /**
  * Passed to <code>pg_lo_seek</code>. Seek operation is to begin
- *      from the start of the object.
+ * from the start of the object.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-seek-set
  *
@@ -527,8 +527,8 @@ const PGSQL_SEEK_END = 2;
 const PGSQL_SEEK_SET = 0;
 
 /**
- * Passed to <code>pg_result_status</code>.  Indicates that
- *      numerical result code is desired.
+ * Passed to <code>pg_result_status</code>. Indicates that
+ * numerical result code is desired.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-status-long
  *
@@ -537,8 +537,8 @@ const PGSQL_SEEK_SET = 0;
 const PGSQL_STATUS_LONG = 1;
 
 /**
- * Passed to <code>pg_result_status</code>.  Indicates that
- *      textual result command tag is desired.
+ * Passed to <code>pg_result_status</code>. Indicates that
+ * textual result command tag is desired.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-status-string
  *
@@ -548,8 +548,8 @@ const PGSQL_STATUS_STRING = 2;
 
 /**
  * Returned by <code>pg_transaction_status</code>. A command
- *      is in progress on the connection.  A query has been sent via the connection
- *      and not yet completed.
+ * is in progress on the connection. A query has been sent via the connection
+ * and not yet completed.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-transaction-active
  *
@@ -559,7 +559,7 @@ const PGSQL_TRANSACTION_ACTIVE = 1;
 
 /**
  * Returned by <code>pg_transaction_status</code>. Connection is
- *      currently idle, not in a transaction.
+ * currently idle, not in a transaction.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-transaction-idle
  *
@@ -569,7 +569,7 @@ const PGSQL_TRANSACTION_IDLE = 0;
 
 /**
  * Returned by <code>pg_transaction_status</code>. The connection
- *      is idle, in a failed transaction block.
+ * is idle, in a failed transaction block.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-transaction-inerror
  *
@@ -579,7 +579,7 @@ const PGSQL_TRANSACTION_INERROR = 3;
 
 /**
  * Returned by <code>pg_transaction_status</code>. The connection
- *      is idle, in a transaction block.
+ * is idle, in a transaction block.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-transaction-intrans
  *
@@ -589,7 +589,7 @@ const PGSQL_TRANSACTION_INTRANS = 2;
 
 /**
  * Returned by <code>pg_transaction_status</code>. The connection
- *      is bad.
+ * is bad.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-transaction-unknown
  *
@@ -599,7 +599,7 @@ const PGSQL_TRANSACTION_UNKNOWN = 4;
 
 /**
  * Returned by <code>pg_result_status</code>. Successful completion of a command 
- *      returning data (such as a <code>SELECT</code> or <code>SHOW</code>).
+ * returning data (such as a <code>SELECT</code> or <code>SHOW</code>).
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-tuples-ok
  *
@@ -708,7 +708,7 @@ function pg_connect($connection_string, $connect_type = null, $host = null, $por
 
 /**
  * Poll the status of an in-progress asynchronous PostgreSQL connection
- *    attempt
+ * attempt
  *
  * @param mixed|null $connection
  *
@@ -1900,7 +1900,7 @@ function pg_port($connection = null)
 
 /**
  * Submits a request to create a prepared statement with the 
- *   given parameters, and waits for completion
+ * given parameters, and waits for completion
  *
  * @param mixed|null $connection
  * @param mixed|null $stmtname
@@ -2140,7 +2140,7 @@ function pg_set_client_encoding($connection = null, $encoding = null)
 
 /**
  * Determines the verbosity of messages returned by <code>pg_last_error</code> 
- *    and <code>pg_result_error</code>
+ * and <code>pg_result_error</code>
  *
  * @param mixed|null $connection
  * @param mixed|null $verbosity

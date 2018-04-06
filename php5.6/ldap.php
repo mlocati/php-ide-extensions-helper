@@ -157,7 +157,7 @@ const LDAP_OPT_MATCHED_DN = 51;
 
 /**
  * Option for <code>ldap_set_option</code> to allow setting network timeout.
- *      (Available as of PHP 5.3.0)
+ * (Available as of PHP 5.3.0)
  *
  * @link http://www.php.net/manual/en/ldap.constants.php#constant.ldap-opt-network-timeout
  *
@@ -176,7 +176,7 @@ const LDAP_OPT_PROTOCOL_VERSION = 17;
 
 /**
  * Specifies whether to automatically follow referrals returned
- *      by the LDAP server.
+ * by the LDAP server.
  *
  * @link http://www.php.net/manual/en/ldap.constants.php#constant.ldap-opt-referrals
  *
@@ -204,16 +204,12 @@ const LDAP_OPT_SERVER_CONTROLS = 18;
 
 /**
  * Specifies the maximum number of entries that can be
- *      returned on a search operation.
- *     
- *
- *     <blockquote>
- *      
- *       The actual size limit for operations is also bounded
- *       by the server's configured maximum number of return entries.
- *       The lesser of these two settings is the actual size limit.
- *      
- *     </blockquote>
+ * returned on a search operation.
+ * <blockquote>
+ * The actual size limit for operations is also bounded
+ * by the server's configured maximum number of return entries.
+ * The lesser of these two settings is the actual size limit.
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/ldap.constants.php#constant.ldap-opt-sizelimit
  *
@@ -223,15 +219,11 @@ const LDAP_OPT_SIZELIMIT = 3;
 
 /**
  * Specifies the number of seconds to wait for search results.
- *     
- *
- *     <blockquote>
- *      
- *       The actual time limit for operations is also bounded
- *       by the server's configured maximum time.
- *       The lesser of these two settings is the actual time limit.
- *      
- *     </blockquote>
+ * <blockquote>
+ * The actual time limit for operations is also bounded
+ * by the server's configured maximum time.
+ * The lesser of these two settings is the actual time limit.
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/ldap.constants.php#constant.ldap-opt-timelimit
  *

@@ -5,8 +5,8 @@
 
 /**
  * Optional flag for <code>hash_init</code>.
- *      Indicates that the HMAC digest-keying algorithm should be
- *      applied to the current hashing context.
+ * Indicates that the HMAC digest-keying algorithm should be
+ * applied to the current hashing context.
  *
  * @link http://www.php.net/manual/en/hash.constants.php#constant.hash-hmac
  *

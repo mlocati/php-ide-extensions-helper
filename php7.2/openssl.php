@@ -26,7 +26,7 @@ const OPENSSL_ALGO_RMD160 = 10;
 
 /**
  * Used as default algorithm by <code>openssl_sign</code> and
- *        <code>openssl_verify</code>.
+ * <code>openssl_verify</code>.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.signature-algos
  *
@@ -221,12 +221,10 @@ const OPENSSL_ZERO_PADDING = 2;
 
 /**
  * Normally the input message is converted to "canonical" format
- *          which is effectively using <code>CR</code>
- *  and <code>LF</code>
- *
- *           as end of line: as required by the S/MIME specification.  When this
- *           option is present, no translation occurs. This is useful when
- *           handling binary data which may not be in MIME format.
+ * which is effectively using <code>CR</code> and <code>LF</code>
+ * as end of line: as required by the S/MIME specification. When this
+ * option is present, no translation occurs. This is useful when
+ * handling binary data which may not be in MIME format.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -236,15 +234,12 @@ const PKCS7_BINARY = 128;
 
 /**
  * When signing a message, use cleartext signing with the MIME
- *          type <code>"multipart/signed"</code>
- * . This is the default
- *          if you do not specify any <code>flags</code>
- *  to
- *          <code>openssl_pkcs7_sign</code>
- * .
- *          If you turn this option off, the message will be signed using
- *          opaque signing, which is more resistant to translation by mail relays
- *          but cannot be read by mail agents that do not support S/MIME.
+ * type <code>"multipart/signed"</code>. This is the default
+ * if you do not specify any <code>flags</code> to
+ * <code>openssl_pkcs7_sign</code>.
+ * If you turn this option off, the message will be signed using
+ * opaque signing, which is more resistant to translation by mail relays
+ * but cannot be read by mail agents that do not support S/MIME.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -254,8 +249,8 @@ const PKCS7_DETACHED = 64;
 
 /**
  * Normally when a message is signed, a set of attributes are
- *          included which include the signing time and the supported symmetric
- *          algorithms.  With this option they are not included.
+ * included which include the signing time and the supported symmetric
+ * algorithms. With this option they are not included.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -265,13 +260,11 @@ const PKCS7_NOATTR = 256;
 
 /**
  * When signing a message the signer's certificate is normally
- *          included - with this option it is excluded.  This will reduce the
- *          size of the signed message but the verifier must have a copy of the
- *          signers certificate available locally (passed using the
- *          <code>extracerts</code>
- *  to
- *          <code>openssl_pkcs7_verify</code>
- *  for example).
+ * included - with this option it is excluded. This will reduce the
+ * size of the signed message but the verifier must have a copy of the
+ * signers certificate available locally (passed using the
+ * <code>extracerts</code> to
+ * <code>openssl_pkcs7_verify</code> for example).
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -281,7 +274,7 @@ const PKCS7_NOCERTS = 2;
 
 /**
  * Do not chain verification of signers certificates: that is
- *          don't use the certificates in the signed message as untrusted CAs.
+ * don't use the certificates in the signed message as untrusted CAs.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -291,14 +284,12 @@ const PKCS7_NOCHAIN = 8;
 
 /**
  * When verifying a message, certificates (if
- *            any) included in the message are normally searched for the
- *            signing certificate. With this option only the
- *            certificates specified in the <code>extracerts</code>
- *
- *            parameter of <code>openssl_pkcs7_verify</code>
- *  are
- *            used.  The supplied certificates can still be used as
- *            untrusted CAs however.
+ * any) included in the message are normally searched for the
+ * signing certificate. With this option only the
+ * certificates specified in the <code>extracerts</code>
+ * parameter of <code>openssl_pkcs7_verify</code> are
+ * used. The supplied certificates can still be used as
+ * untrusted CAs however.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -317,7 +308,7 @@ const PKCS7_NOSIGS = 4;
 
 /**
  * Do not verify the signers certificate of a signed
- *          message.
+ * message.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -327,9 +318,9 @@ const PKCS7_NOVERIFY = 32;
 
 /**
  * Adds text/plain content type headers to encrypted/signed
- *          message. If decrypting or verifying, it strips those headers from
- *          the output - if the decrypted or verified message is not of MIME type
- *          text/plain then an error will occur.
+ * message. If decrypting or verifying, it strips those headers from
+ * the output - if the decrypted or verified message is not of MIME type
+ * text/plain then an error will occur.
  *
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.pkcs7.flags
  *
@@ -1316,7 +1307,7 @@ function openssl_x509_parse($x509, $shortname): array
 
 /**
  * Parse an X.509 certificate and return a resource identifier for
- *   it
+ * it
  *
  * @param mixed $cert
  *

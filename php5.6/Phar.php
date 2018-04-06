@@ -5,7 +5,7 @@
 
 /**
  * The Phar class provides a high-level interface to accessing and creating
- *     phar archives.
+ * phar archives.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
  *
@@ -393,10 +393,10 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 
 /**
  * The PharData class provides a high-level interface to accessing and creating
- *     non-executable tar and zip archives.  Because these archives do not contain
- *     a stub and cannot be executed by the phar extension, it is possible to create
- *     and manipulate regular zip and tar files using the PharData class even if
- *     <code>phar.readonly</code> php.ini setting is <code>1</code>.
+ * non-executable tar and zip archives. Because these archives do not contain
+ * a stub and cannot be executed by the phar extension, it is possible to create
+ * and manipulate regular zip and tar files using the PharData class even if
+ * <code>phar.readonly</code> php.ini setting is <code>1</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
  *
@@ -784,7 +784,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
 
 /**
  * The PharException class provides a phar-specific exception class
- *     for try/catch blocks.
+ * for try/catch blocks.
  *
  * @since Unknown
  *
@@ -796,7 +796,7 @@ class PharException extends Exception
 
 /**
  * The PharFileInfo class provides a high-level interface to the contents
- *     and attributes of a single file within a phar archive.
+ * and attributes of a single file within a phar archive.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
  *

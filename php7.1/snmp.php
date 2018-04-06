@@ -243,10 +243,10 @@ class SNMP
 }
 
 /**
- * Represents an error raised by SNMP.  You should not throw a 
- *     <code>SNMPException</code> from your own code.
- *     See Exceptions for more
- *     information about Exceptions in PHP.
+ * Represents an error raised by SNMP. You should not throw a 
+ * <code>SNMPException</code> from your own code.
+ * See Exceptions for more
+ * information about Exceptions in PHP.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *

@@ -83,10 +83,10 @@ const MYSQLI_CLIENT_IGNORE_SPACE = 256;
 
 /**
  * Allow <code>interactive_timeout</code> seconds
- *       (instead of <code>wait_timeout</code> seconds) of inactivity before
- *       closing the connection.  The client's session
- *       <code>wait_timeout</code> variable will be set to
- *       the value of the session <code>interactive_timeout</code> variable.
+ * (instead of <code>wait_timeout</code> seconds) of inactivity before
+ * closing the connection. The client's session
+ * <code>wait_timeout</code> variable will be set to
+ * the value of the session <code>interactive_timeout</code> variable.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-client-interactive
  *
@@ -105,7 +105,7 @@ const MYSQLI_CLIENT_NO_SCHEMA = 16;
 
 /**
  * Use SSL (encrypted protocol). This option should not be set by application programs; 
- *       it is set internally in the MySQL client library
+ * it is set internally in the MySQL client library
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-client-ssl
  *
@@ -323,7 +323,7 @@ const MYSQLI_READ_DEFAULT_FILE = 4;
 
 /**
  * Read options from the named group from <code>my.cnf</code>
- *       or the file specified with <code>MYSQLI_READ_DEFAULT_FILE</code>
+ * or the file specified with <code>MYSQLI_READ_DEFAULT_FILE</code>
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-read-default-group
  *
@@ -347,7 +347,7 @@ const MYSQLI_REFRESH_GRANT = 1;
 
 /**
  * Flushes the host cache, like executing the
- *       <code>FLUSH HOSTS</code> <code>SQL</code> statement.
+ * <code>FLUSH HOSTS</code> <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-hosts
  *
@@ -357,7 +357,7 @@ const MYSQLI_REFRESH_HOSTS = 8;
 
 /**
  * Flushes the logs, like executing the
- *       <code>FLUSH LOGS</code> <code>SQL</code> statement.
+ * <code>FLUSH LOGS</code> <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-log
  *
@@ -367,8 +367,8 @@ const MYSQLI_REFRESH_LOG = 2;
 
 /**
  * On a master replication server: removes the binary log files listed in the
- *       binary log index, and truncates the index file. Like executing the
- *       <code>RESET MASTER</code> <code>SQL</code> statement.
+ * binary log index, and truncates the index file. Like executing the
+ * <code>RESET MASTER</code> <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-master
  *
@@ -378,8 +378,8 @@ const MYSQLI_REFRESH_MASTER = 128;
 
 /**
  * On a slave replication server: resets the master server information, and 
- *       restarts the slave. Like executing the <code>RESET SLAVE</code>
- *       <code>SQL</code> statement.
+ * restarts the slave. Like executing the <code>RESET SLAVE</code>
+ * <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-slave
  *
@@ -389,7 +389,7 @@ const MYSQLI_REFRESH_SLAVE = 64;
 
 /**
  * Reset the status variables, like executing the
- *       <code>FLUSH STATUS</code> <code>SQL</code> statement.
+ * <code>FLUSH STATUS</code> <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-status
  *
@@ -399,7 +399,7 @@ const MYSQLI_REFRESH_STATUS = 16;
 
 /**
  * Flushes the table cache, like executing the
- *       <code>FLUSH TABLES</code> <code>SQL</code> statement.
+ * <code>FLUSH TABLES</code> <code>SQL</code> statement.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-refresh-tables
  *
@@ -557,7 +557,7 @@ const MYSQLI_TIMESTAMP_FLAG = 1024;
 
 /**
  * Appends "AND CHAIN" to <code>mysqli_commit</code> or
- *       <code>mysqli_rollback</code>.
+ * <code>mysqli_rollback</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-cor-and-chain
  *
@@ -567,7 +567,7 @@ const MYSQLI_TRANS_COR_AND_CHAIN = 1;
 
 /**
  * Appends "AND NO CHAIN" to <code>mysqli_commit</code> or
- *       <code>mysqli_rollback</code>.
+ * <code>mysqli_rollback</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-cor-and-no-chain
  *
@@ -577,7 +577,7 @@ const MYSQLI_TRANS_COR_AND_NO_CHAIN = 2;
 
 /**
  * Appends "NO RELEASE" to <code>mysqli_commit</code> or
- *       <code>mysqli_rollback</code>.
+ * <code>mysqli_rollback</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-cor-no-release
  *
@@ -587,7 +587,7 @@ const MYSQLI_TRANS_COR_NO_RELEASE = 8;
 
 /**
  * Appends "RELEASE" to <code>mysqli_commit</code> or
- *       <code>mysqli_rollback</code>.
+ * <code>mysqli_rollback</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-cor-release
  *
@@ -597,7 +597,7 @@ const MYSQLI_TRANS_COR_RELEASE = 4;
 
 /**
  * Start the transaction as "START TRANSACTION READ ONLY" with
- *       <code>mysqli_begin_transaction</code>.
+ * <code>mysqli_begin_transaction</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-start-read-only
  *
@@ -607,7 +607,7 @@ const MYSQLI_TRANS_START_READ_ONLY = 4;
 
 /**
  * Start the transaction as "START TRANSACTION READ WRITE" with
- *       <code>mysqli_begin_transaction</code>.
+ * <code>mysqli_begin_transaction</code>.
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-trans-start-read-write
  *
@@ -640,7 +640,7 @@ const MYSQLI_TYPE_BLOB = 252;
 
 /**
  * Field is defined as <code>TINYINT</code>.
- *       For <code>CHAR</code>, see <code>MYSQLI_TYPE_STRING</code>
+ * For <code>CHAR</code>, see <code>MYSQLI_TYPE_STRING</code>
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-type-char
  *
@@ -2568,7 +2568,7 @@ function mysqli_stat($link)
 
 /**
  * Returns the total number of rows changed, deleted, or
- *   inserted by the last executed statement
+ * inserted by the last executed statement
  *
  * @param mixed $stmt
  *

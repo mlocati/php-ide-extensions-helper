@@ -5,8 +5,8 @@
 
 /**
  * This constant have a value of <code>1</code> if the 
- *       mbstring is enabled, otherwise 
- *       the value is <code>0</code>.
+ * mbstring is enabled, otherwise 
+ * the value is <code>0</code>.
  *
  * @link http://www.php.net/manual/en/exif.constants.php#constant.exif-use-mbstring
  *

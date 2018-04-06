@@ -31,7 +31,7 @@ const SSH2_DEFAULT_TERM_WIDTH = 80;
 
 /**
  * Default terminal type (e.g. vt102, ansi, xterm, vanilla) requested
- *      by <code>ssh2_shell</code>.
+ * by <code>ssh2_shell</code>.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-default-terminal
  *
@@ -41,7 +41,7 @@ const SSH2_DEFAULT_TERMINAL = 'vanilla';
 
 /**
  * Flag to <code>ssh2_fingerprint</code> requesting hostkey
- *      fingerprint as a string of hexits.
+ * fingerprint as a string of hexits.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-fingerprint-hex
  *
@@ -51,7 +51,7 @@ const SSH2_FINGERPRINT_HEX = 0;
 
 /**
  * Flag to <code>ssh2_fingerprint</code> requesting hostkey
- *      fingerprint as an MD5 hash.
+ * fingerprint as an MD5 hash.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-fingerprint-md5
  *
@@ -61,7 +61,7 @@ const SSH2_FINGERPRINT_MD5 = 0;
 
 /**
  * Flag to <code>ssh2_fingerprint</code> requesting hostkey
- *      fingerprint as a raw string of 8-bit characters.
+ * fingerprint as a raw string of 8-bit characters.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-fingerprint-raw
  *
@@ -71,7 +71,7 @@ const SSH2_FINGERPRINT_RAW = 2;
 
 /**
  * Flag to <code>ssh2_fingerprint</code> requesting hostkey
- *      fingerprint as an SHA1 hash.
+ * fingerprint as an SHA1 hash.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-fingerprint-sha1
  *
@@ -144,8 +144,8 @@ const SSH2_STREAM_STDIO = 0;
 
 /**
  * Flag to <code>ssh2_shell</code> specifying that
- *      <code>width</code> and <code>height</code>
- *      are provided as character sizes.
+ * <code>width</code> and <code>height</code>
+ * are provided as character sizes.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-term-unit-chars
  *
@@ -155,8 +155,8 @@ const SSH2_TERM_UNIT_CHARS = 0;
 
 /**
  * Flag to <code>ssh2_shell</code> specifying that
- *      <code>width</code> and <code>height</code>
- *      are provided in pixel units.
+ * <code>width</code> and <code>height</code>
+ * are provided in pixel units.
  *
  * @link http://www.php.net/manual/en/ssh2.constants.php#constant.ssh2-term-unit-pixels
  *

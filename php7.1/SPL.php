@@ -5,7 +5,7 @@
 
 /**
  * Classes implementing <code>Countable</code> can be used with the
- *     <code>count</code> function.
+ * <code>count</code> function.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -27,7 +27,7 @@ interface Countable
 
 /**
  * Classes implementing <code>OuterIterator</code> can be used to iterate
- *     over iterators.
+ * over iterators.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -40,7 +40,7 @@ interface OuterIterator extends Iterator
 
 /**
  * Classes implementing <code>RecursiveIterator</code> can be used to iterate
- *     over iterators recursively.
+ * over iterators recursively.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -70,7 +70,7 @@ interface SeekableIterator extends Iterator
 
 /**
  * The <code>SplObserver</code> interface is used alongside
- *     <code>SplSubject</code> to implement the Observer Design Pattern.
+ * <code>SplSubject</code> to implement the Observer Design Pattern.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -86,7 +86,7 @@ interface SplObserver
 
 /**
  * The <code>SplSubject</code> interface is used alongside
- *     <code>SplObserver</code> to implement the Observer Design Pattern.
+ * <code>SplObserver</code> to implement the Observer Design Pattern.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -198,7 +198,7 @@ class AppendIterator extends IteratorIterator
 
 /**
  * This iterator allows to unset and modify values and keys while iterating
- *     over Arrays and Objects.
+ * over Arrays and Objects.
  *
  * @since PHP 5, PHP 7
  *
@@ -670,7 +670,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
 
 /**
  * Exception thrown if a callback refers to an undefined function or if some
- *     arguments are missing.
+ * arguments are missing.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -682,7 +682,7 @@ class BadFunctionCallException extends LogicException
 
 /**
  * Exception thrown if a callback refers to an undefined method or if some
- *     arguments are missing.
+ * arguments are missing.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -837,7 +837,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 
 /**
  * The callback should accept up to three arguments:
- *     the current item, the current key and the iterator, respectively.
+ * the current item, the current key and the iterator, respectively.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
@@ -860,7 +860,7 @@ class CallbackFilterIterator extends FilterIterator
 
 /**
  * The DirectoryIterator class provides a simple interface for viewing
- *     the contents of filesystem directories.
+ * the contents of filesystem directories.
  *
  * @since PHP 5, PHP 7
  *
@@ -1122,8 +1122,8 @@ class FilesystemIterator extends DirectoryIterator
 
 /**
  * This abstract iterator filters out unwanted values. This class should be extended to
- *     implement custom iterator filters. The <code>FilterIterator::accept</code>
- *     must be implemented in the subclass.
+ * implement custom iterator filters. The <code>FilterIterator::accept</code>
+ * must be implemented in the subclass.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1203,7 +1203,7 @@ abstract class FilterIterator extends IteratorIterator
 
 /**
  * Iterates through a file system in a similar fashion to 
- *     <code>glob</code>.
+ * <code>glob</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -1235,8 +1235,8 @@ class GlobIterator extends FilesystemIterator implements Countable
 
 /**
  * The <code>InfiniteIterator</code> allows one to
- *     infinitely iterate over an iterator without having to manually
- *     rewind the iterator upon reaching its end.
+ * infinitely iterate over an iterator without having to manually
+ * rewind the iterator upon reaching its end.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1278,11 +1278,11 @@ class InvalidArgumentException extends LogicException
 
 /**
  * This iterator wrapper allows the conversion of anything that is
- *     Traversable into an Iterator.
- *     It is important to understand that most classes that do not implement
- *     Iterators have reasons as most likely they do not allow the full
- *     Iterator feature set. If so, techniques should be provided to prevent
- *     misuse, otherwise expect exceptions or fatal errors.
+ * Traversable into an Iterator.
+ * It is important to understand that most classes that do not implement
+ * Iterators have reasons as most likely they do not allow the full
+ * Iterator feature set. If so, techniques should be provided to prevent
+ * misuse, otherwise expect exceptions or fatal errors.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1371,7 +1371,7 @@ class LengthException extends LogicException
 
 /**
  * The <code>LimitIterator</code> class allows iteration over 
- *     a limited subset of items in an <code>Iterator</code>.
+ * a limited subset of items in an <code>Iterator</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1462,7 +1462,7 @@ class LimitIterator extends IteratorIterator
 
 /**
  * Exception that represents error in the program logic. This kind of
- *     exception should lead directly to a fix in your code.
+ * exception should lead directly to a fix in your code.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1661,7 +1661,7 @@ class NoRewindIterator extends IteratorIterator
 
 /**
  * Exception thrown if a value is not a valid key. This represents errors
- *     that cannot be detected at compile time.
+ * that cannot be detected at compile time.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1673,7 +1673,7 @@ class OutOfBoundsException extends RuntimeException
 
 /**
  * Exception thrown when an illegal index was requested. This represents
- *     errors that should be detected at compile time.
+ * errors that should be detected at compile time.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1696,8 +1696,8 @@ class OverflowException extends RuntimeException
 
 /**
  * This extended <code>FilterIterator</code> allows a recursive
- *     iteration using <code>RecursiveIteratorIterator</code> that only
- *     shows those elements which have children.
+ * iteration using <code>RecursiveIteratorIterator</code> that only
+ * shows those elements which have children.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1719,9 +1719,9 @@ class ParentIterator extends RecursiveFilterIterator
 
 /**
  * Exception thrown to indicate range errors during program execution.
- *     Normally this means there was an arithmetic error other than
- *     under/overflow. This is the runtime version of
- *     <code>DomainException</code>.
+ * Normally this means there was an arithmetic error other than
+ * under/overflow. This is the runtime version of
+ * <code>DomainException</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1733,8 +1733,8 @@ class RangeException extends RuntimeException
 
 /**
  * This iterator allows to unset and modify values and keys while iterating over Arrays and Objects
- *     in the same way as the <code>ArrayIterator</code>. Additionally it is possible to iterate
- *     over the current iterator entry.
+ * in the same way as the <code>ArrayIterator</code>. Additionally it is possible to iterate
+ * over the current iterator entry.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -1779,7 +1779,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
 
 /**
  * The callback should accept up to three arguments:
- *     the current item, the current key and the iterator, respectively.
+ * the current item, the current key and the iterator, respectively.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
@@ -1806,7 +1806,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
 
 /**
  * The <code>RecursiveDirectoryIterator</code> provides
- *     an interface for iterating recursively over filesystem directories.
+ * an interface for iterating recursively over filesystem directories.
  *
  * @since PHP 5, PHP 7
  *
@@ -1844,8 +1844,8 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
 
 /**
  * This abstract iterator filters out unwanted values for a <code>RecursiveIterator</code>.
- *     This class should be extended to implement custom filters. 
- *     The <code>RecursiveFilterIterator::accept</code> must be implemented in the subclass.
+ * This class should be extended to implement custom filters. 
+ * The <code>RecursiveFilterIterator::accept</code> must be implemented in the subclass.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -2436,7 +2436,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
 
 /**
  * The SplFileInfo class offers a high-level object oriented interface to
- *     information for an individual file.
+ * information for an individual file.
  *
  * @since PHP 5 >= 5.1.2, PHP 7
  *
@@ -2959,10 +2959,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 
 /**
  * The SplFixedArray class provides the main functionalities of array. The 
- *     main differences between a SplFixedArray and a normal PHP array is that 
- *     the SplFixedArray is of fixed length and allows only integers within 
- *     the range as indexes. The advantage is that it allows a faster array
- *     implementation.
+ * main differences between a SplFixedArray and a normal PHP array is that 
+ * the SplFixedArray is of fixed length and allows only integers within 
+ * the range as indexes. The advantage is that it allows a faster array
+ * implementation.
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -3258,8 +3258,8 @@ class SplMinHeap extends SplHeap
 
 /**
  * The SplObjectStorage class provides a map from objects to data or, by
- *     ignoring data, an object set. This dual purpose can be useful in many
- *     cases involving the need to uniquely identify objects.
+ * ignoring data, an object set. This dual purpose can be useful in many
+ * cases involving the need to uniquely identify objects.
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -3457,7 +3457,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 
 /**
  * The SplPriorityQueue class provides the main functionalities of a 
- *     prioritized queue, implemented using a max heap.
+ * prioritized queue, implemented using a max heap.
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -3642,7 +3642,7 @@ class SplTempFileObject extends SplFileObject
 
 /**
  * Exception thrown when performing an invalid operation on an empty
- *     container, such as removing an element.
+ * container, such as removing an element.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -3654,9 +3654,9 @@ class UnderflowException extends RuntimeException
 
 /**
  * Exception thrown if a value does not match with a set of values. Typically
- *     this happens when a function calls another function and expects the return
- *     value to be of a certain type or value not including arithmetic or buffer
- *     related errors.
+ * this happens when a function calls another function and expects the return
+ * value to be of a certain type or value not including arithmetic or buffer
+ * related errors.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *

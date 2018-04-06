@@ -14,7 +14,7 @@ const FILTER_CALLBACK = 1024;
 
 /**
  * ID of default ("unsafe_raw") filter. This is equivalent to
- *     <code>FILTER_UNSAFE_RAW</code>.
+ * <code>FILTER_UNSAFE_RAW</code>.
  *
  * @link http://www.php.net/manual/en/filter.constants.php#constant.filter-default
  *
@@ -51,7 +51,7 @@ const FILTER_FLAG_ALLOW_OCTAL = 1;
 
 /**
  * Allow scientific notation (<code>e</code>, <code>E</code>) in
- *      "number_float" filter.
+ * "number_float" filter.
  *
  * @link http://www.php.net/manual/en/filter.constants.php#constant.filter-flag-allow-scientific
  *
@@ -387,7 +387,7 @@ const FILTER_VALIDATE_IP = 275;
 
 /**
  * ID of "validate_mac_address" filter.
- *      (Available as of PHP 5.5.0)
+ * (Available as of PHP 5.5.0)
  *
  * @link http://www.php.net/manual/en/filter.constants.php#constant.filter-validate-mac
  *
@@ -451,7 +451,7 @@ const INPUT_POST = 0;
 
 /**
  * REQUEST variables.
- *     (not implemented yet)
+ * (not implemented yet)
  *
  * @link http://www.php.net/manual/en/filter.constants.php#constant.input-request
  *
@@ -470,7 +470,7 @@ const INPUT_SERVER = 5;
 
 /**
  * SESSION variables.
- *     (not implemented yet)
+ * (not implemented yet)
  *
  * @link http://www.php.net/manual/en/filter.constants.php#constant.input-session
  *

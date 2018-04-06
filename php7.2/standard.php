@@ -152,8 +152,8 @@ const AM_STR = 131110;
 
 /**
  * <code>ARRAY_FILTER_USE_BOTH</code> is used with
- *      <code>array_filter</code> to pass both value and key to the given callback function.
- *      Added in PHP 5.6.0.
+ * <code>array_filter</code> to pass both value and key to the given callback function.
+ * Added in PHP 5.6.0.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.array-filter-use-both
  *
@@ -163,8 +163,8 @@ const ARRAY_FILTER_USE_BOTH = 1;
 
 /**
  * <code>ARRAY_FILTER_USE_KEY</code> is used with
- *      <code>array_filter</code> to pass each key as the first argument to the given callback function.
- *      Added in PHP 5.6.0.
+ * <code>array_filter</code> to pass each key as the first argument to the given callback function.
+ * Added in PHP 5.6.0.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.array-filter-use-key
  *
@@ -224,9 +224,9 @@ const ASSERT_WARNING = 4;
 
 /**
  * <code>CASE_LOWER</code> is used with
- *      <code>array_change_key_case</code> and is used to convert array
- *      keys to lower case. This is also the default case for
- *      <code>array_change_key_case</code>.
+ * <code>array_change_key_case</code> and is used to convert array
+ * keys to lower case. This is also the default case for
+ * <code>array_change_key_case</code>.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.case-lower
  *
@@ -236,8 +236,8 @@ const CASE_LOWER = 0;
 
 /**
  * <code>CASE_UPPER</code> is used with
- *      <code>array_change_key_case</code> and is used to convert array
- *      keys to upper case.
+ * <code>array_change_key_case</code> and is used to convert array
+ * keys to upper case.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.case-upper
  *
@@ -513,7 +513,7 @@ const DNS_AAAA = 134217728;
 
 /**
  * Iteratively query the name server for
- *         each available record type.
+ * each available record type.
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.dns-any
  *
@@ -522,11 +522,10 @@ const DNS_AAAA = 134217728;
 const DNS_ALL = 251721779;
 
 /**
- * Any Resource Record.  On most systems
- *         this returns all resource records, however
- *         it should not be counted upon for critical
- *         uses. Try <code>DNS_ALL</code>
- *  instead.
+ * Any Resource Record. On most systems
+ * this returns all resource records, however
+ * it should not be counted upon for critical
+ * uses. Try <code>DNS_ALL</code> instead.
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.dns-any
  *
@@ -554,9 +553,8 @@ const DNS_CNAME = 16;
 
 /**
  * Host Info Resource (See IANA's
- *        <code>Operating System Names</code>
- *
- *         for the meaning of these values)
+ * <code>Operating System Names</code>
+ * for the meaning of these values)
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.dns-hinfo
  *
@@ -784,12 +782,10 @@ const FILE_APPEND = 8;
 
 /**
  * Binary mode (since PHP 5.2.7).
- *      <blockquote>
- *       
- *        This constant has no effect, and is only available for 
- *        <code>forward compatibility</code>.
- *       
- *      </blockquote>
+ * <blockquote>
+ * This constant has no effect, and is only available for 
+ * <code>forward compatibility</code>.
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/filesystem.constants.php#constant.file-binary
  *
@@ -824,12 +820,10 @@ const FILE_SKIP_EMPTY_LINES = 4;
 
 /**
  * Text mode (since PHP 5.2.7).
- *      <blockquote>
- *       
- *        This constant has no effect, and is only available for 
- *        <code>forward compatibility</code>.
- *       
- *      </blockquote>
+ * <blockquote>
+ * This constant has no effect, and is only available for 
+ * <code>forward compatibility</code>.
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/filesystem.constants.php#constant.file-text
  *
@@ -839,7 +833,7 @@ const FILE_TEXT = 0;
 
 /**
  * Search for <code>filename</code> in
- *      include_path (since PHP 5).
+ * include_path (since PHP 5).
  *
  * @link http://www.php.net/manual/en/filesystem.constants.php#constant.file-use-include-path
  *
@@ -953,7 +947,7 @@ const HTML_SPECIALCHARS = 0;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-bmp
  *
@@ -968,7 +962,7 @@ const IMAGETYPE_COUNT = 19;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-gif
  *
@@ -978,11 +972,8 @@ const IMAGETYPE_GIF = 1;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
- *
- *
- *     
- *      (Available as of PHP 5.3.0)
+ * and <code>image_type_to_extension</code> functions.
+ * (Available as of PHP 5.3.0)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-ico
  *
@@ -992,7 +983,7 @@ const IMAGETYPE_ICO = 17;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-iff
  *
@@ -1002,7 +993,7 @@ const IMAGETYPE_IFF = 14;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jb2
  *
@@ -1012,7 +1003,7 @@ const IMAGETYPE_JB2 = 12;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jp2
  *
@@ -1022,7 +1013,7 @@ const IMAGETYPE_JP2 = 10;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jpc
  *
@@ -1032,7 +1023,7 @@ const IMAGETYPE_JPC = 9;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jpeg
  *
@@ -1042,7 +1033,7 @@ const IMAGETYPE_JPEG = 2;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jpeg2000
  *
@@ -1052,7 +1043,7 @@ const IMAGETYPE_JPEG2000 = 9;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-jpx
  *
@@ -1062,7 +1053,7 @@ const IMAGETYPE_JPX = 11;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-png
  *
@@ -1072,7 +1063,7 @@ const IMAGETYPE_PNG = 3;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-psd
  *
@@ -1082,7 +1073,7 @@ const IMAGETYPE_PSD = 5;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-swc
  *
@@ -1092,7 +1083,7 @@ const IMAGETYPE_SWC = 13;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-swf
  *
@@ -1102,7 +1093,7 @@ const IMAGETYPE_SWF = 4;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-tiff-ii
  *
@@ -1112,7 +1103,7 @@ const IMAGETYPE_TIFF_II = 7;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-tiff-mm
  *
@@ -1127,7 +1118,7 @@ const IMAGETYPE_UNKNOWN = 0;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-wbmp
  *
@@ -1137,11 +1128,8 @@ const IMAGETYPE_WBMP = 15;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
- *
- *
- *     
- *      (Available as of PHP 7.1.0)
+ * and <code>image_type_to_extension</code> functions.
+ * (Available as of PHP 7.1.0)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-webp
  *
@@ -1151,7 +1139,7 @@ const IMAGETYPE_WEBP = 18;
 
 /**
  * Image type constant used by the <code>image_type_to_mime_type</code>
- *     and <code>image_type_to_extension</code> functions.
+ * and <code>image_type_to_extension</code> functions.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.imagetype-xbm
  *
@@ -1376,9 +1364,8 @@ const LOCK_UN = 3;
 const LOG_ALERT = 1;
 
 /**
- * security/authorization messages (use <code>LOG_AUTHPRIV</code>
- *  instead
- *        in systems where that constant is defined)
+ * security/authorization messages (use <code>LOG_AUTHPRIV</code> instead
+ * in systems where that constant is defined)
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.log-auth
  *
@@ -1397,7 +1384,7 @@ const LOG_AUTHPRIV = 80;
 
 /**
  * if there is an error while sending data to the system logger,
- *        write directly to the system console
+ * write directly to the system console
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.log-cons
  *
@@ -1587,7 +1574,7 @@ const LOG_NOWAIT = 16;
 
 /**
  * (default) delay opening the connection until the first
- *        message is logged
+ * message is logged
  *
  * @link http://www.php.net/manual/en/network.constants.php#constant.log-odelay
  *
@@ -1914,11 +1901,8 @@ const NOEXPR = 327681;
 
 /**
  * Default amount of memory in bytes that Argon2lib will use while trying to 
- *       compute a hash.
- *      
- *
- *      
- *       Available as of PHP 7.2.0.
+ * compute a hash.
+ * Available as of PHP 7.2.0.
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-argon2-default-memory-cost
  *
@@ -1928,10 +1912,7 @@ const PASSWORD_ARGON2_DEFAULT_MEMORY_COST = 1024;
 
 /**
  * Default number of threads that Argon2lib will use.
- *      
- *
- *      
- *       Available as of PHP 7.2.0.
+ * Available as of PHP 7.2.0.
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-argon2-default-threads
  *
@@ -1941,10 +1922,7 @@ const PASSWORD_ARGON2_DEFAULT_THREADS = 2;
 
 /**
  * Default amount of time that Argon2lib will spend trying to compute a hash.
- *      
- *
- *      
- *       Available as of PHP 7.2.0.
+ * Available as of PHP 7.2.0.
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-argon2-default-time-cost
  *
@@ -1954,36 +1932,17 @@ const PASSWORD_ARGON2_DEFAULT_TIME_COST = 2;
 
 /**
  * <code>PASSWORD_ARGON2I</code> is used to create new password
- *       hashes using the Argon2 algorithm.
- *      
- *
- *      
- *       Supported Options:
- *      
- *
- *      <ul>
- *       
- *        
- *         <code>memory_cost</code> (<code>integer</code>) - Maximum memory (in bytes) that may 
- *         be used to compute the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_MEMORY_COST</code>.
- *        
- *       
- *       
- *        
- *         <code>time_cost</code> (<code>integer</code>) - Maximum amount of time it may 
- *         take to compute the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_TIME_COST</code>.
- *        
- *       
- *       
- *        
- *         <code>threads</code> (<code>integer</code>) - Number of threads to use for computing 
- *         the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_THREADS</code>.
- *        
- *       
- *      </ul>
- *
- *      
- *       Available as of PHP 7.2.0.
+ * hashes using the Argon2 algorithm.
+ * Supported Options:
+ * <ul>
+ * <code>memory_cost</code> (<code>integer</code>) - Maximum memory (in bytes) that may 
+ * be used to compute the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_MEMORY_COST</code>.
+ * <code>time_cost</code> (<code>integer</code>) - Maximum amount of time it may 
+ * take to compute the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_TIME_COST</code>.
+ * <code>threads</code> (<code>integer</code>) - Number of threads to use for computing 
+ * the Argon2 hash. Defaults to <code>PASSWORD_ARGON2_DEFAULT_THREADS</code>.
+ * </ul>
+ * Available as of PHP 7.2.0.
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-argon2i
  *
@@ -1993,42 +1952,22 @@ const PASSWORD_ARGON2I = 2;
 
 /**
  * <code>PASSWORD_BCRYPT</code> is used to create new password
- *       hashes using the <code>CRYPT_BLOWFISH</code> algorithm.
- *      
- *
- *      
- *       This will always result in a hash using the "$2y$" crypt format, 
- *       which is always 60 characters wide.
- *      
- *
- *      
- *       Supported Options:
- *      
- *
- *      <ul>
- *       
- *        
- *         <code>salt</code> (<code>string</code>) - to manually provide a salt to use when hashing the password.
- *         Note that this will override and prevent a salt from being automatically generated.
- *        
- *        
- *         If omitted, a random salt will be generated by <code>password_hash</code> for
- *         each password hashed. This is the intended mode of operation
- *         and as of PHP 7.0.0 the salt option has been deprecated.
- *        
- *       
- *       
- *        
- *         <code>cost</code> (<code>integer</code>) - which denotes the algorithmic cost that 
- *         should be used. Examples of these values can be found on the <code>crypt</code> 
- *         page.
- *        
- *        
- *         If omitted, a default value of <code>10</code> will be used. This is a good
- *         baseline cost, but you may want to consider increasing it depending on your hardware.
- *        
- *       
- *      </ul>
+ * hashes using the <code>CRYPT_BLOWFISH</code> algorithm.
+ * This will always result in a hash using the "$2y$" crypt format, 
+ * which is always 60 characters wide.
+ * Supported Options:
+ * <ul>
+ * <code>salt</code> (<code>string</code>) - to manually provide a salt to use when hashing the password.
+ * Note that this will override and prevent a salt from being automatically generated.
+ * If omitted, a random salt will be generated by <code>password_hash</code> for
+ * each password hashed. This is the intended mode of operation
+ * and as of PHP 7.0.0 the salt option has been deprecated.
+ * <code>cost</code> (<code>integer</code>) - which denotes the algorithmic cost that 
+ * should be used. Examples of these values can be found on the <code>crypt</code> 
+ * page.
+ * If omitted, a default value of <code>10</code> will be used. This is a good
+ * baseline cost, but you may want to consider increasing it depending on your hardware.
+ * </ul>
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-bcrypt
  *
@@ -2043,29 +1982,17 @@ const PASSWORD_BCRYPT_DEFAULT_COST = 10;
 
 /**
  * The default algorithm to use for hashing if no algorithm is provided.
- *       This may change in newer PHP releases when newer, stronger hashing
- *       algorithms are supported.
- *      
- *
- *      
- *       It is worth noting that over time this constant can (and likely will)
- *       change. Therefore you should be aware that the length of the resulting
- *       hash can change. Therefore, if you use <code>PASSWORD_DEFAULT</code>
- *       you should store the resulting hash in a way that can store more than 60
- *       characters (255 is the recomended width).
- *      
- *
- *      
- *       Values for this constant:
- *      
- *
- *      <ul>
- *       
- *        
- *         PHP 5.5.0 - <code>PASSWORD_BCRYPT</code>
- *        
- *       
- *      </ul>
+ * This may change in newer PHP releases when newer, stronger hashing
+ * algorithms are supported.
+ * It is worth noting that over time this constant can (and likely will)
+ * change. Therefore you should be aware that the length of the resulting
+ * hash can change. Therefore, if you use <code>PASSWORD_DEFAULT</code>
+ * you should store the resulting hash in a way that can store more than 60
+ * characters (255 is the recomended width).
+ * Values for this constant:
+ * <ul>
+ * PHP 5.5.0 - <code>PASSWORD_BCRYPT</code>
+ * </ul>
  *
  * @link http://www.php.net/manual/en/password.constants.php#constant.password-default
  *
@@ -2114,9 +2041,9 @@ const PATHINFO_FILENAME = 8;
 
 /**
  * Encoding is performed per
- *        RFC 1738 and the
- *        <code>application/x-www-form-urlencoded</code> media type, which
- *        implies that spaces are encoded as plus (<code>+</code>) signs.
+ * RFC 1738 and the
+ * <code>application/x-www-form-urlencoded</code> media type, which
+ * implies that spaces are encoded as plus (<code>+</code>) signs.
  *
  * @link http://www.php.net/manual/en/url.constants.php#constant.php-query-rfc1738
  *
@@ -2126,7 +2053,7 @@ const PHP_QUERY_RFC1738 = 1;
 
 /**
  * Encoding is performed according to RFC 3986,
- *       and spaces will be percent encoded (<code>%20</code>).
+ * and spaces will be percent encoded (<code>%20</code>).
  *
  * @link http://www.php.net/manual/en/url.constants.php#constant.php-query-rfc3986
  *
@@ -2248,10 +2175,9 @@ const PHP_URL_USER = 3;
 const PM_STR = 131111;
 
 /**
- * <code>Return Code</code>
- *  indicating that the
- *        userspace filter encountered an unrecoverable error
- *        (i.e. Invalid data received).
+ * <code>Return Code</code> indicating that the
+ * userspace filter encountered an unrecoverable error
+ * (i.e. Invalid data received).
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.psfs-err-fatal
  *
@@ -2260,11 +2186,9 @@ const PM_STR = 131111;
 const PSFS_ERR_FATAL = 0;
 
 /**
- * <code>Return Code</code>
- *  indicating that the
- *        userspace filter did not return buckets in <code>$out</code>
- *
- *        (i.e. No data available).
+ * <code>Return Code</code> indicating that the
+ * userspace filter did not return buckets in <code>$out</code>
+ * (i.e. No data available).
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.psfs-feed-me
  *
@@ -2300,10 +2224,8 @@ const PSFS_FLAG_FLUSH_INC = 1;
 const PSFS_FLAG_NORMAL = 0;
 
 /**
- * <code>Return Code</code>
- *  indicating that the
- *        userspace filter returned buckets in <code>$out</code>
- * .
+ * <code>Return Code</code> indicating that the
+ * userspace filter returned buckets in <code>$out</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.psfs-pass-on
  *
@@ -2368,7 +2290,7 @@ const SEEK_SET = 0;
 
 /**
  * <code>SORT_ASC</code> is used with
- *      <code>array_multisort</code> to sort in ascending order.
+ * <code>array_multisort</code> to sort in ascending order.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.sort-asc
  *
@@ -2378,7 +2300,7 @@ const SORT_ASC = 4;
 
 /**
  * <code>SORT_DESC</code> is used with
- *      <code>array_multisort</code> to sort in descending order.
+ * <code>array_multisort</code> to sort in descending order.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.sort-desc
  *
@@ -2388,9 +2310,9 @@ const SORT_DESC = 3;
 
 /**
  * <code>SORT_FLAG_CASE</code> can be combined
- *          (bitwise OR) with
- *          <code>SORT_STRING</code> or
- *          <code>SORT_NATURAL</code> to sort strings case-insensitively. Added in PHP 5.4.0.
+ * (bitwise OR) with
+ * <code>SORT_STRING</code> or
+ * <code>SORT_NATURAL</code> to sort strings case-insensitively. Added in PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.sort-flag-case
  *
@@ -2400,7 +2322,7 @@ const SORT_FLAG_CASE = 8;
 
 /**
  * <code>SORT_LOCALE_STRING</code> is used to compare items as
- *     strings, based on the current locale. Added in PHP 5.0.2.
+ * strings, based on the current locale. Added in PHP 5.0.2.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.sort-locale-string
  *
@@ -2410,7 +2332,7 @@ const SORT_LOCALE_STRING = 5;
 
 /**
  * <code>SORT_NATURAL</code> is used to compare items as
- *     strings using "natural ordering" like <code>natsort</code>. Added in PHP 5.4.0.
+ * strings using "natural ordering" like <code>natsort</code>. Added in PHP 5.4.0.
  *
  * @link http://www.php.net/manual/en/array.constants.php#constant.sort-natural
  *
@@ -2482,9 +2404,8 @@ const STREAM_BUFFER_LINE = 1;
 const STREAM_BUFFER_NONE = 0;
 
 /**
- * Stream casting, when <code>stream_cast</code>
- *  is called 
- *        otherwise (see above).
+ * Stream casting, when <code>stream_cast</code> is called 
+ * otherwise (see above).
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-cast-as-stream
  *
@@ -2493,10 +2414,8 @@ const STREAM_BUFFER_NONE = 0;
 const STREAM_CAST_AS_STREAM = 0;
 
 /**
- * Stream casting, for when <code>stream_select</code>
- *  is 
- *        calling <code>stream_cast</code>
- * .
+ * Stream casting, for when <code>stream_select</code> is 
+ * calling <code>stream_cast</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-cast-for-select
  *
@@ -2506,10 +2425,8 @@ const STREAM_CAST_FOR_SELECT = 3;
 
 /**
  * Open client socket asynchronously. This option must be used
- *        together with the <code>STREAM_CLIENT_CONNECT</code>
- *  flag.
- *        Used with <code>stream_socket_client</code>
- * .
+ * together with the <code>STREAM_CLIENT_CONNECT</code> flag.
+ * Used with <code>stream_socket_client</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-client-async-connect
  *
@@ -2519,8 +2436,7 @@ const STREAM_CLIENT_ASYNC_CONNECT = 2;
 
 /**
  * Open client socket connection. Client sockets should always
- *        include this flag. Used with <code>stream_socket_client</code>
- * .
+ * include this flag. Used with <code>stream_socket_client</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-client-async-connect
  *
@@ -2530,8 +2446,7 @@ const STREAM_CLIENT_CONNECT = 4;
 
 /**
  * Client socket opened with <code>stream_socket_client</code>
- *
- *        should remain persistent between page loads.
+ * should remain persistent between page loads.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-client-persistent
  *
@@ -2621,7 +2536,7 @@ const STREAM_CRYPTO_METHOD_TLSv1_2_SERVER = 32;
 
 /**
  * This constant is equivalent to 
- *        <code>STREAM_FILTER_READ | STREAM_FILTER_WRITE</code>
+ * <code>STREAM_FILTER_READ | STREAM_FILTER_WRITE</code>
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-filter-all
  *
@@ -2630,12 +2545,10 @@ const STREAM_CRYPTO_METHOD_TLSv1_2_SERVER = 32;
 const STREAM_FILTER_ALL = 3;
 
 /**
- * Used with <code>stream_filter_append</code>
- *  and
- *        <code>stream_filter_prepend</code>
- *  to indicate
- *        that the specified filter should only be applied when
- *        <code>reading</code>
+ * Used with <code>stream_filter_append</code> and
+ * <code>stream_filter_prepend</code> to indicate
+ * that the specified filter should only be applied when
+ * <code>reading</code>
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-filter-read
  *
@@ -2644,12 +2557,10 @@ const STREAM_FILTER_ALL = 3;
 const STREAM_FILTER_READ = 1;
 
 /**
- * Used with <code>stream_filter_append</code>
- *  and
- *        <code>stream_filter_prepend</code>
- *  to indicate
- *        that the specified filter should only be applied when
- *        <code>writing</code>
+ * Used with <code>stream_filter_append</code> and
+ * <code>stream_filter_prepend</code> to indicate
+ * that the specified filter should only be applied when
+ * <code>writing</code>
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-filter-write
  *
@@ -2713,9 +2624,7 @@ const STREAM_IPPROTO_UDP = 17;
 const STREAM_IS_URL = 1;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>chmod</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>chmod</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-access
  *
@@ -2724,9 +2633,7 @@ const STREAM_IS_URL = 1;
 const STREAM_META_ACCESS = 6;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>chgrp</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>chgrp</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-group
  *
@@ -2735,9 +2642,7 @@ const STREAM_META_ACCESS = 6;
 const STREAM_META_GROUP = 5;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>chgrp</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>chgrp</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-group-name
  *
@@ -2746,9 +2651,7 @@ const STREAM_META_GROUP = 5;
 const STREAM_META_GROUP_NAME = 4;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>chown</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>chown</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-owner
  *
@@ -2757,9 +2660,7 @@ const STREAM_META_GROUP_NAME = 4;
 const STREAM_META_OWNER = 3;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>chown</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>chown</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-owner-name
  *
@@ -2768,9 +2669,7 @@ const STREAM_META_OWNER = 3;
 const STREAM_META_OWNER_NAME = 2;
 
 /**
- * Used with <code>stream_metadata</code>
- * , to specify <code>touch</code>
- *  call.
+ * Used with <code>stream_metadata</code>, to specify <code>touch</code> call.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-meta-touch
  *
@@ -2790,10 +2689,8 @@ const STREAM_MUST_SEEK = 16;
 
 /**
  * Additional authorization is required to access the specified resource.
- *        Typical issued with <code>severity</code>
- *  level of
- *        <code>STREAM_NOTIFY_SEVERITY_ERR</code>
- * .
+ * Typical issued with <code>severity</code> level of
+ * <code>STREAM_NOTIFY_SEVERITY_ERR</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-auth-required
  *
@@ -2830,10 +2727,8 @@ const STREAM_NOTIFY_CONNECT = 2;
 
 /**
  * A generic error occurred on the stream, consult
- *        <code>message</code>
- *  and <code>message_code</code>
- *
- *        for details.
+ * <code>message</code> and <code>message_code</code>
+ * for details.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-failure
  *
@@ -2842,8 +2737,7 @@ const STREAM_NOTIFY_CONNECT = 2;
 const STREAM_NOTIFY_FAILURE = 9;
 
 /**
- * The <code>size</code>
- *  of the resource has been discovered.
+ * The <code>size</code> of the resource has been discovered.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-file-size-is
  *
@@ -2852,11 +2746,9 @@ const STREAM_NOTIFY_FAILURE = 9;
 const STREAM_NOTIFY_FILE_SIZE_IS = 5;
 
 /**
- * The <code>mime-type</code>
- *  of resource has been identified,
- *        refer to <code>message</code>
- *  for a description of the
- *        discovered type.
+ * The <code>mime-type</code> of resource has been identified,
+ * refer to <code>message</code> for a description of the
+ * discovered type.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-mime-type-is
  *
@@ -2866,10 +2758,8 @@ const STREAM_NOTIFY_MIME_TYPE_IS = 4;
 
 /**
  * Indicates current progress of the stream transfer in
- *        <code>bytes_transferred</code>
- *  and possibly
- *        <code>bytes_max</code>
- *  as well.
+ * <code>bytes_transferred</code> and possibly
+ * <code>bytes_max</code> as well.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-progress
  *
@@ -2879,8 +2769,7 @@ const STREAM_NOTIFY_PROGRESS = 7;
 
 /**
  * The external resource has redirected the stream to an alternate
- *        location.  Refer to <code>message</code>
- * .
+ * location. Refer to <code>message</code>.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-redirected
  *
@@ -2890,8 +2779,7 @@ const STREAM_NOTIFY_REDIRECTED = 6;
 
 /**
  * A remote address required for this stream has been resolved, or the resolution
- *        failed.  See <code>severity</code>
- *  for an indication of which happened.
+ * failed. See <code>severity</code> for an indication of which happened.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-resolve
  *
@@ -2900,7 +2788,7 @@ const STREAM_NOTIFY_REDIRECTED = 6;
 const STREAM_NOTIFY_RESOLVE = 1;
 
 /**
- * A critical error occurred.  Processing cannot continue.
+ * A critical error occurred. Processing cannot continue.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-auth-required
  *
@@ -2918,7 +2806,7 @@ const STREAM_NOTIFY_SEVERITY_ERR = 2;
 const STREAM_NOTIFY_SEVERITY_INFO = 0;
 
 /**
- * Non critical error condition.  Processing may continue.
+ * Non critical error condition. Processing may continue.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-severity-warn
  *
@@ -2984,13 +2872,10 @@ const STREAM_PF_INET6 = 10;
 const STREAM_PF_UNIX = 1;
 
 /**
- * <code>Flag</code>
- *  indicating if the <code>wrapper</code>
- *
- *        is responsible for raising errors using <code>trigger_error</code>
- *  
- *        during opening of the stream.  If this flag is not set, you
- *        should not raise any errors.
+ * <code>Flag</code> indicating if the <code>wrapper</code>
+ * is responsible for raising errors using <code>trigger_error</code> 
+ * during opening of the stream. If this flag is not set, you
+ * should not raise any errors.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-report-errors
  *
@@ -3000,8 +2885,7 @@ const STREAM_REPORT_ERRORS = 8;
 
 /**
  * Tells a stream created with <code>stream_socket_server</code>
- *
- *        to bind to the specified target.  Server sockets should always include this flag.
+ * to bind to the specified target. Server sockets should always include this flag.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-server-bind
  *
@@ -3011,12 +2895,10 @@ const STREAM_SERVER_BIND = 4;
 
 /**
  * Tells a stream created with <code>stream_socket_server</code>
- *
- *        and bound using the <code>STREAM_SERVER_BIND</code>
- *  flag to start
- *        listening on the socket. Connection-orientated transports (such as TCP)
- *        must use this flag, otherwise the server socket will not be enabled.
- *        Using this flag for connect-less transports (such as UDP) is an error.
+ * and bound using the <code>STREAM_SERVER_BIND</code> flag to start
+ * listening on the socket. Connection-orientated transports (such as TCP)
+ * must use this flag, otherwise the server socket will not be enabled.
+ * Using this flag for connect-less transports (such as UDP) is an error.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-server-listen
  *
@@ -3025,9 +2907,8 @@ const STREAM_SERVER_BIND = 4;
 const STREAM_SERVER_LISTEN = 8;
 
 /**
- * Used with <code>stream_socket_shutdown</code>
- *  to disable
- *        further receptions. Added in PHP 5.2.1.
+ * Used with <code>stream_socket_shutdown</code> to disable
+ * further receptions. Added in PHP 5.2.1.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-shut-rd
  *
@@ -3036,9 +2917,8 @@ const STREAM_SERVER_LISTEN = 8;
 const STREAM_SHUT_RD = 0;
 
 /**
- * Used with <code>stream_socket_shutdown</code>
- *  to disable
- *        further receptions and transmissions. Added in PHP 5.2.1.
+ * Used with <code>stream_socket_shutdown</code> to disable
+ * further receptions and transmissions. Added in PHP 5.2.1.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-shut-rdwr
  *
@@ -3047,9 +2927,8 @@ const STREAM_SHUT_RD = 0;
 const STREAM_SHUT_RDWR = 2;
 
 /**
- * Used with <code>stream_socket_shutdown</code>
- *  to disable
- *        further transmissions. Added in PHP 5.2.1.
+ * Used with <code>stream_socket_shutdown</code> to disable
+ * further transmissions. Added in PHP 5.2.1.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-shut-wr
  *
@@ -3059,7 +2938,7 @@ const STREAM_SHUT_WR = 1;
 
 /**
  * Provides datagrams, which are connectionless messages (UDP, for
- *        example).
+ * example).
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-sock-dgram
  *
@@ -3069,8 +2948,8 @@ const STREAM_SOCK_DGRAM = 2;
 
 /**
  * Provides a raw socket, which provides access to internal network
- *        protocols and interfaces. Usually this type of socket is just available
- *        to the root user.
+ * protocols and interfaces. Usually this type of socket is just available
+ * to the root user.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-sock-raw
  *
@@ -3098,7 +2977,7 @@ const STREAM_SOCK_SEQPACKET = 5;
 
 /**
  * Provides sequenced, two-way byte streams with a transmission mechanism
- *        for out-of-band data (TCP, for example).
+ * for out-of-band data (TCP, for example).
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-sock-stream
  *
@@ -3117,10 +2996,8 @@ const STREAM_URL_STAT_LINK = 1;
 const STREAM_URL_STAT_QUIET = 2;
 
 /**
- * <code>Flag</code>
- *  indicating if the <code>stream</code>
- *
- *        used the include path.
+ * <code>Flag</code> indicating if the <code>stream</code>
+ * used the include path.
  *
  * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-use-path
  *
@@ -3161,10 +3038,8 @@ class __PHP_Incomplete_Class
 }
 
 /**
- * <code>
- *   <code>AssertionError</code>
- * </code> is thrown when
- *     an assertion made via <code>assert</code> fails.
+ * <code><code>AssertionError</code></code> is thrown when
+ * an assertion made via <code>assert</code> fails.
  *
  * @since PHP 7
  *
@@ -3176,7 +3051,7 @@ class AssertionError extends Error
 
 /**
  * Instances of <code>Directory</code> are created by calling the
- *     <code>dir</code> function, not by the new operator.
+ * <code>dir</code> function, not by the new operator.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -3216,7 +3091,7 @@ class Directory
 
 /**
  * Children of this class are passed to
- *     <code>stream_filter_register</code>.
+ * <code>stream_filter_register</code>.
  *
  * @since PHP 5, PHP 7
  *
@@ -5227,7 +5102,7 @@ function explode($separator, $str, $limit = null): array
 
 /**
  * Returns exp(number) - 1, computed in a way that is accurate even
- *    when the value of number is close to zero
+ * when the value of number is close to zero
  *
  * @param mixed $number
  *
@@ -5651,7 +5526,7 @@ function flush()
 
 /**
  * Returns the floating point remainder (modulo) of the division
- *   of the arguments
+ * of the arguments
  *
  * @param mixed $x
  * @param mixed $y
@@ -6141,7 +6016,7 @@ function gethostbyname($hostname): string
 
 /**
  * Get a list of IPv4 addresses corresponding to a given Internet host
- *    name
+ * name
  *
  * @param mixed $hostname
  *
@@ -6756,7 +6631,7 @@ function image_type_to_extension($imagetype, $include_dot = null): string
 
 /**
  * Get Mime-Type for image-type returned by getimagesize,
- *    exif_read_data, exif_thumbnail, exif_imagetype
+ * exif_read_data, exif_thumbnail, exif_imagetype
  *
  * @param mixed $imagetype
  *
@@ -7620,7 +7495,7 @@ function log10($number): float
 
 /**
  * Returns log(1 + number), computed in a way that is accurate even when
- *    the value of number is close to zero
+ * the value of number is close to zero
  *
  * @param mixed $number
  *
@@ -10364,7 +10239,7 @@ function stream_resolve_include_path($filename): string
 
 /**
  * Runs the equivalent of the select() system call on the given
- *    arrays of streams with a timeout specified by tv_sec and tv_usec
+ * arrays of streams with a timeout specified by tv_sec and tv_usec
  *
  * @param mixed $read_streams
  * @param mixed $write_streams
@@ -10914,7 +10789,7 @@ function strrpos($haystack, $needle, $offset = null): int
 
 /**
  * Finds the length of the initial segment of a string consisting
- *    entirely of characters contained within a given mask
+ * entirely of characters contained within a given mask
  *
  * @param mixed $str
  * @param mixed $mask
@@ -11518,7 +11393,7 @@ function usort(&$arg, $cmp_function): bool
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
- *    to single-byte ISO-8859-1
+ * to single-byte ISO-8859-1
  *
  * @param mixed $data
  *

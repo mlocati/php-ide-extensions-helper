@@ -71,9 +71,9 @@ const XSL_SECPREF_CREATE_DIRECTORY = 8;
 
 /**
  * Disallows all write access, i.e. a bitmask of
- *      <code>XSL_SECPREF_WRITE_NETWORK</code> |
- *      <code>XSL_SECPREF_CREATE_DIRECTORY</code> |
- *      <code>XSL_SECPREF_WRITE_FILE</code>.
+ * <code>XSL_SECPREF_WRITE_NETWORK</code> |
+ * <code>XSL_SECPREF_CREATE_DIRECTORY</code> |
+ * <code>XSL_SECPREF_WRITE_FILE</code>.
  *
  * @link http://www.php.net/manual/en/xsl.constants.php#constant.xsl-secpref-default
  *

@@ -11,7 +11,7 @@ const FTP_ASCII = 1;
 
 /**
  * Automatically determine resume position and start position for GET and PUT requests
- *      (only works if FTP_AUTOSEEK is enabled)
+ * (only works if FTP_AUTOSEEK is enabled)
  *
  * @link http://www.php.net/manual/en/ftp.constants.php#constant.ftp-autoresume
  *

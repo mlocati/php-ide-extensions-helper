@@ -187,7 +187,7 @@ const XML_OPTION_TARGET_ENCODING = 2;
 
 /**
  * Holds the SAX implementation method.
- *      Can be <code>libxml</code> or <code>expat</code>.
+ * Can be <code>libxml</code> or <code>expat</code>.
  *
  * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-sax-impl
  *
@@ -197,7 +197,7 @@ const XML_SAX_IMPL = 'libxml';
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
- *    to single-byte ISO-8859-1
+ * to single-byte ISO-8859-1
  *
  * @param mixed $data
  *

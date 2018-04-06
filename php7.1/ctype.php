@@ -110,7 +110,7 @@ function ctype_print($text): bool
 
 /**
  * Check for any printable character which is not whitespace or an
- *    alphanumeric character
+ * alphanumeric character
  *
  * @param mixed $text
  *

@@ -5,8 +5,8 @@
 
 /**
  * For <code>jddayofweek</code>: the day of the week as
- *      <code>integer</code>, where <code>0</code> means Sunday and
- *      <code>6</code> means Saturday.
+ * <code>integer</code>, where <code>0</code> means Sunday and
+ * <code>6</code> means Saturday.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-dow-dayno
  *
@@ -16,7 +16,7 @@ const CAL_DOW_DAYNO = 0;
 
 /**
  * For <code>jddayofweek</code>: the English name of the day of the
- *      week.
+ * week.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-dow-long
  *
@@ -26,7 +26,7 @@ const CAL_DOW_LONG = 1;
 
 /**
  * For <code>jddayofweek</code>: the abbreviated English name of the
- *      day of the week.
+ * day of the week.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-dow-short
  *
@@ -36,7 +36,7 @@ const CAL_DOW_SHORT = 2;
 
 /**
  * For <code>easter_days</code>: calculate Easter according to the
- *      proleptic Gregorian calendar.
+ * proleptic Gregorian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-easter-always-gregorian
  *
@@ -46,7 +46,7 @@ const CAL_EASTER_ALWAYS_GREGORIAN = 2;
 
 /**
  * For <code>easter_days</code>: calculate Easter according to the
- *      Julian calendar.
+ * Julian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-easter-always-julian
  *
@@ -56,8 +56,8 @@ const CAL_EASTER_ALWAYS_JULIAN = 3;
 
 /**
  * For <code>easter_days</code>: calculate Easter for years before
- *      1753 according to the Julian calendar, and for later years according to the
- *      Gregorian calendar.
+ * 1753 according to the Julian calendar, and for later years according to the
+ * Gregorian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-easter-default
  *
@@ -67,8 +67,8 @@ const CAL_EASTER_DEFAULT = 0;
 
 /**
  * For <code>easter_days</code>: calculate Easter for years before
- *      1583 according to the Julian calendar, and for later years according to the
- *      Gregorian calendar.
+ * 1583 according to the Julian calendar, and for later years according to the
+ * Gregorian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-easter-roman
  *
@@ -78,8 +78,8 @@ const CAL_EASTER_ROMAN = 1;
 
 /**
  * For <code>cal_days_in_month</code>,
- *      <code>cal_from_jd</code>, <code>cal_info</code> and
- *      <code>cal_to_jd</code>: use the French Repuclican calendar.
+ * <code>cal_from_jd</code>, <code>cal_info</code> and
+ * <code>cal_to_jd</code>: use the French Repuclican calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-french
  *
@@ -89,8 +89,8 @@ const CAL_FRENCH = 3;
 
 /**
  * For <code>cal_days_in_month</code>,
- *      <code>cal_from_jd</code>, <code>cal_info</code> and
- *      <code>cal_to_jd</code>: use the proleptic Gregorian calendar.
+ * <code>cal_from_jd</code>, <code>cal_info</code> and
+ * <code>cal_to_jd</code>: use the proleptic Gregorian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-gregorian
  *
@@ -100,8 +100,8 @@ const CAL_GREGORIAN = 0;
 
 /**
  * For <code>cal_days_in_month</code>,
- *      <code>cal_from_jd</code>, <code>cal_info</code> and
- *      <code>cal_to_jd</code>: use the Jewish calendar.
+ * <code>cal_from_jd</code>, <code>cal_info</code> and
+ * <code>cal_to_jd</code>: use the Jewish calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-jewish
  *
@@ -111,7 +111,7 @@ const CAL_JEWISH = 2;
 
 /**
  * For <code>jdtojewish</code>: adds the word alafim as thousands
- *      separator to the year number.
+ * separator to the year number.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-jewish-add-alafim
  *
@@ -121,7 +121,7 @@ const CAL_JEWISH_ADD_ALAFIM = 4;
 
 /**
  * For <code>jdtojewish</code>: adds a geresh symbol (which resembles
- *      a single-quote mark) as thousands separator to the year number.
+ * a single-quote mark) as thousands separator to the year number.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-jewish-add-alafim-geresh
  *
@@ -131,7 +131,7 @@ const CAL_JEWISH_ADD_ALAFIM_GERESH = 2;
 
 /**
  * For <code>jdtojewish</code>: add a gershayim symbol (which
- *      resembles a double-quote mark) before the final letter of the day and year numbers.
+ * resembles a double-quote mark) before the final letter of the day and year numbers.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-jewish-add-gereshayim
  *
@@ -141,8 +141,8 @@ const CAL_JEWISH_ADD_GERESHAYIM = 8;
 
 /**
  * For <code>cal_days_in_month</code>,
- *      <code>cal_from_jd</code>, <code>cal_info</code> and
- *      <code>cal_to_jd</code>: use the Julian calendar.
+ * <code>cal_from_jd</code>, <code>cal_info</code> and
+ * <code>cal_to_jd</code>: use the Julian calendar.
  *
  * @link http://www.php.net/manual/en/calendar.constants.php#constant.cal-julian
  *

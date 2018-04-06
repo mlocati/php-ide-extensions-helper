@@ -339,8 +339,8 @@ const SO_REUSEADDR = 2;
 
 /**
  * This constant is only available in PHP 5.4.10 or later on platforms that
- *      support the <code>SO_REUSEPORT</code> socket option: this
- *      includes Mac OS X and FreeBSD, but does not include Linux or Windows.
+ * support the <code>SO_REUSEPORT</code> socket option: this
+ * includes Mac OS X and FreeBSD, but does not include Linux or Windows.
  *
  * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-reuseport
  *
@@ -1344,7 +1344,7 @@ const SOMAXCONN = 128;
 
 /**
  * Used to disable Nagle TCP algorithm.
- *      Added in PHP 5.2.7.
+ * Added in PHP 5.2.7.
  *
  * @link http://www.php.net/manual/en/sockets.constants.php#constant.tcp-nodelay
  *

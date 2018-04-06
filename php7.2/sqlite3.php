@@ -5,8 +5,8 @@
 
 /**
  * Specifies that the <code>Sqlite3Result::fetchArray</code>
- *       method shall return an array indexed by column name as returned in the
- *       corresponding result set.
+ * method shall return an array indexed by column name as returned in the
+ * corresponding result set.
  *
  * @link http://www.php.net/manual/en/sqlite3.constants.php#constant.sqlite3-assoc
  *
@@ -25,8 +25,8 @@ const SQLITE3_BLOB = 4;
 
 /**
  * Specifies that the <code>Sqlite3Result::fetchArray</code>
- *       method shall return an array indexed by both column name and number as
- *       returned in the corresponding result set, starting at column 0.
+ * method shall return an array indexed by both column name and number as
+ * returned in the corresponding result set, starting at column 0.
  *
  * @link http://www.php.net/manual/en/sqlite3.constants.php#constant.sqlite3-both
  *
@@ -36,8 +36,8 @@ const SQLITE3_BOTH = 3;
 
 /**
  * Specifies that a function created with <code>SQLite3::createFunction</code>
- *       is deterministic, i.e. it always returns the same result given the same inputs within
- *       a single SQL statement. (Available as of PHP 7.1.4.)
+ * is deterministic, i.e. it always returns the same result given the same inputs within
+ * a single SQL statement. (Available as of PHP 7.1.4.)
  *
  * @link http://www.php.net/manual/en/sqlite3.constants.php#constant.sqlite3-deterministic
  *
@@ -74,8 +74,8 @@ const SQLITE3_NULL = 5;
 
 /**
  * Specifies that the <code>Sqlite3Result::fetchArray</code>
- *       method shall return an array indexed by column number as returned in the
- *       corresponding result set, starting at column 0.
+ * method shall return an array indexed by column number as returned in the
+ * corresponding result set, starting at column 0.
  *
  * @link http://www.php.net/manual/en/sqlite3.constants.php#constant.sqlite3-num
  *
@@ -85,7 +85,7 @@ const SQLITE3_NUM = 2;
 
 /**
  * Specifies that the SQLite3 database be created if it does not already
- *       exist.
+ * exist.
  *
  * @link http://www.php.net/manual/en/sqlite3.constants.php#constant.sqlite3-open-create
  *

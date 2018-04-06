@@ -29,7 +29,7 @@ const IDNA_ALLOW_UNASSIGNED = 1;
 
 /**
  * Check whether the input conforms to the BiDi rules.
- *       Ignored by the IDNA2003 implementation, which always performs this check.
+ * Ignored by the IDNA2003 implementation, which always performs this check.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-check-bidi
  *
@@ -39,7 +39,7 @@ const IDNA_CHECK_BIDI = 4;
 
 /**
  * Check whether the input conforms to the CONTEXTJ rules.
- *       Ignored by the IDNA2003 implementation, as this check is new in IDNA2008.
+ * Ignored by the IDNA2003 implementation, as this check is new in IDNA2008.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-check-contextj
  *
@@ -49,7 +49,7 @@ const IDNA_CHECK_CONTEXTJ = 8;
 
 /**
  * Prohibit processing of unassigned codepoints in the input for IDN
- *       functions and do not check if the input conforms to domain name ASCII rules.
+ * functions and do not check if the input conforms to domain name ASCII rules.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-default
  *
@@ -59,8 +59,8 @@ const IDNA_DEFAULT = 0;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -70,8 +70,8 @@ const IDNA_ERROR_BIDI = 2048;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -81,8 +81,8 @@ const IDNA_ERROR_CONTEXTJ = 4096;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -92,8 +92,8 @@ const IDNA_ERROR_DISALLOWED = 128;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -103,8 +103,8 @@ const IDNA_ERROR_DOMAIN_NAME_TOO_LONG = 4;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -114,8 +114,8 @@ const IDNA_ERROR_EMPTY_LABEL = 1;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -125,8 +125,8 @@ const IDNA_ERROR_HYPHEN_3_4 = 32;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -136,8 +136,8 @@ const IDNA_ERROR_INVALID_ACE_LABEL = 1024;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -147,8 +147,8 @@ const IDNA_ERROR_LABEL_HAS_DOT = 512;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -158,8 +158,8 @@ const IDNA_ERROR_LABEL_TOO_LONG = 2;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -169,8 +169,8 @@ const IDNA_ERROR_LEADING_COMBINING_MARK = 64;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -180,8 +180,8 @@ const IDNA_ERROR_LEADING_HYPHEN = 8;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -191,8 +191,8 @@ const IDNA_ERROR_PUNYCODE = 256;
 
 /**
  * Errors reported in a bitset returned by the UTS #46 algorithm in
- *       <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_utf8</code> and
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-error-empty-label
  *
@@ -202,8 +202,8 @@ const IDNA_ERROR_TRAILING_HYPHEN = 16;
 
 /**
  * Option for nontransitional processing in
- *       <code>idn_to_ascii</code>. Transitional processing is activated
- *       by default. This option is ignored by the IDNA2003 implementation.
+ * <code>idn_to_ascii</code>. Transitional processing is activated
+ * by default. This option is ignored by the IDNA2003 implementation.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-nontransitional-to-ascii
  *
@@ -213,8 +213,8 @@ const IDNA_NONTRANSITIONAL_TO_ASCII = 16;
 
 /**
  * Option for nontransitional processing in
- *       <code>idn_to_utf8</code>. Transitional processing is activated
- *       by default. This option is ignored by the IDNA2003 implementation.
+ * <code>idn_to_utf8</code>. Transitional processing is activated
+ * by default. This option is ignored by the IDNA2003 implementation.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.idna-nontransitional-to-unicode
  *
@@ -243,8 +243,8 @@ const INTL_ICU_VERSION = '52.1';
 
 /**
  * Use IDNA 2003 algorithm in <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>. This is the default.
- *       This constant and using the default has been deprecated as of PHP 7.2.0.
+ * <code>idn_to_ascii</code>. This is the default.
+ * This constant and using the default has been deprecated as of PHP 7.2.0.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.intl-idna-variant-2003
  *
@@ -254,7 +254,7 @@ const INTL_IDNA_VARIANT_2003 = 0;
 
 /**
  * Use UTS #46 algorithm in <code>idn_to_utf8</code> and
- *       <code>idn_to_ascii</code>.
+ * <code>idn_to_ascii</code>.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.intl-idna-variant-uts46
  *
@@ -264,7 +264,7 @@ const INTL_IDNA_VARIANT_UTS46 = 1;
 
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer 
- *       than this limit will not be accepted.
+ * than this limit will not be accepted.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.intl-max-locale-len
  *
@@ -989,7 +989,7 @@ const ULOC_VALID_LOCALE = 1;
 
 /**
  * Provides string comparison capability with support for appropriate
- *     locale-sensitive sort orderings.
+ * locale-sensitive sort orderings.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -1109,13 +1109,13 @@ class Collator
 
 /**
  * A “break iterator” is an ICU object that exposes methods for locating
- *     boundaries in text (e.g. word or sentence boundaries).
- *     The PHP <code>IntlBreakIterator</code> serves as the base class
- *     for all types of ICU break iterators. Where extra functionality is
- *     available, the intl extension may expose the ICU break iterator with
- *     suitable subclasses, such as
- *     <code>IntlRuleBasedBreakIterator</code> or
- *     <code>IntlCodePointBreaIterator</code>.
+ * boundaries in text (e.g. word or sentence boundaries).
+ * The PHP <code>IntlBreakIterator</code> serves as the base class
+ * for all types of ICU break iterators. Where extra functionality is
+ * available, the intl extension may expose the ICU break iterator with
+ * suitable subclasses, such as
+ * <code>IntlRuleBasedBreakIterator</code> or
+ * <code>IntlCodePointBreaIterator</code>.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -1585,7 +1585,7 @@ class IntlCalendar
 
 /**
  * <code>IntlChar</code> provides access to a number of utility
- *     methods that can be used to access information about Unicode characters.
+ * methods that can be used to access information about Unicode characters.
  *
  * @since PHP 7
  *
@@ -2036,7 +2036,7 @@ class IntlChar
 
 /**
  * This break iterator
- *     identifies the boundaries between UTF-8 code points.
+ * identifies the boundaries between UTF-8 code points.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -2051,15 +2051,15 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 
 /**
  * <ul>
- *      <li>
- *       ICU Date formatter
- *      </li>
- *     </ul>
- *     <ul>
- *      <li>
- *       ICU Date formats
- *      </li>
- *     </ul>
+ * <li>
+ * ICU Date formatter
+ * </li>
+ * </ul>
+ * <ul>
+ * <li>
+ * ICU Date formats
+ * </li>
+ * </ul>
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -2207,7 +2207,7 @@ class IntlDateFormatter
 
 /**
  * This class is used for generating exceptions when errors occur inside intl
- *     functions. Such exceptions are only generated when intl.use_exceptions is enabled.
+ * functions. Such exceptions are only generated when intl.use_exceptions is enabled.
  *
  * @since PHP 5 > 5.5.0, PHP 7, PECL intl > 3.0.0a1
  *
@@ -2257,17 +2257,17 @@ class IntlGregorianCalendar extends IntlCalendar
 
 /**
  * This class represents iterator objects throughout the intl extension
- *     whenever the iterator cannot be identified with any other object provided
- *     by the extension. The distinct iterator object used internally by the
- *     <code>foreach</code>
- *     construct can only be obtained (in the relevant part here) from
- *     objects, so objects of this class serve the purpose of providing the hook
- *     through which this internal object can be obtained. As a convenience, this
- *     class also implements the <code>Iterator</code> interface,
- *     allowing the collection of values to be navigated using the methods
- *     defined in that interface. Both these methods and the internal iterator
- *     objects provided to <code>foreach</code> are backed by the same
- *     state (e.g. the position of the iterator and its current value).
+ * whenever the iterator cannot be identified with any other object provided
+ * by the extension. The distinct iterator object used internally by the
+ * <code>foreach</code>
+ * construct can only be obtained (in the relevant part here) from
+ * objects, so objects of this class serve the purpose of providing the hook
+ * through which this internal object can be obtained. As a convenience, this
+ * class also implements the <code>Iterator</code> interface,
+ * allowing the collection of values to be navigated using the methods
+ * defined in that interface. Both these methods and the internal iterator
+ * objects provided to <code>foreach</code> are backed by the same
+ * state (e.g. the position of the iterator and its current value).
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -2334,11 +2334,11 @@ class IntlIterator implements Iterator
 
 /**
  * Objects of this class can be obtained from
- *     <code>IntlBreakIterator</code> objects. While the break
- *     iterators provide a sequence of boundary positions when iterated,
- *     <code>IntlPartsIterator</code> objects provide, as a
- *     convenience, the text fragments comprehended between two successive
- *     boundaries.
+ * <code>IntlBreakIterator</code> objects. While the break
+ * iterators provide a sequence of boundary positions when iterated,
+ * <code>IntlPartsIterator</code> objects provide, as a
+ * convenience, the text fragments comprehended between two successive
+ * boundaries.
  *
  * @link http://www.php.net/manual/en/class.intlpartsiterator.php
  */
@@ -2351,8 +2351,8 @@ class IntlPartsIterator extends IntlIterator
 
 /**
  * A subclass of <code>IntlBreakIterator</code> that encapsulates
- *     ICU break iterators whose behavior is specified using a set of rules. This
- *     is the most common kind of break iterators.
+ * ICU break iterators whose behavior is specified using a set of rules. This
+ * is the most common kind of break iterators.
  *
  * @link http://www.php.net/manual/en/class.intlrulebasedbreakiterator.php
  */
@@ -2542,11 +2542,11 @@ class IntlTimeZone
 
 /**
  * Examples of identifiers include:
- *     <ul>
- *      <li>en-US (English, United States)</li>
- *      <li>zh-Hant-TW (Chinese, Traditional Script, Taiwan)</li>
- *      <li>fr-CA, fr-FR (French for Canada and France respectively)</li>
- *     </ul>
+ * <ul>
+ * <li>en-US (English, United States)</li>
+ * <li>zh-Hant-TW (Chinese, Traditional Script, Taiwan)</li>
+ * <li>fr-CA, fr-FR (French for Canada and France respectively)</li>
+ * </ul>
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -2690,23 +2690,19 @@ class Locale
 
 /**
  * <ul>
- *      <li>
- *       
- *        ICU formatting documentation
- *       
- *      </li>
- *      <li>
- *       
- *        ICU message formatting description
- *       
- *      </li>
- *      <li>
- *       ICU message formatters
- *      </li>
- *      <li>
- *       ICU choice formatters
- *      </li>
- *     </ul>
+ * <li>
+ * ICU formatting documentation
+ * </li>
+ * <li>
+ * ICU message formatting description
+ * </li>
+ * <li>
+ * ICU message formatters
+ * </li>
+ * <li>
+ * ICU choice formatters
+ * </li>
+ * </ul>
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -2788,24 +2784,24 @@ class MessageFormatter
 
 /**
  * The Unicode Consortium has defined a number of normalization forms
- *     reflecting the various needs of applications:
- *     <ul>
- *      <li>Normalization Form D (NFD) - Canonical Decomposition</li>
- *      <li>
- *       Normalization Form C (NFC) - Canonical Decomposition followed by
- *       Canonical Composition
- *      </li>
- *      <li>
- *       Normalization Form KD (NFKD) - Compatibility Decomposition
- *      </li>
- *      <li>
- *       Normalization Form KC (NFKC) - Compatibility Decomposition followed by
- *       Canonical Composition
- *      </li>
- *     </ul>
- *     The different forms are defined in terms of a set of transformations on
- *     the text, transformations that are expressed by both an algorithm and a
- *     set of data files.
+ * reflecting the various needs of applications:
+ * <ul>
+ * <li>Normalization Form D (NFD) - Canonical Decomposition</li>
+ * <li>
+ * Normalization Form C (NFC) - Canonical Decomposition followed by
+ * Canonical Composition
+ * </li>
+ * <li>
+ * Normalization Form KD (NFKD) - Compatibility Decomposition
+ * </li>
+ * <li>
+ * Normalization Form KC (NFKC) - Compatibility Decomposition followed by
+ * Canonical Composition
+ * </li>
+ * </ul>
+ * The different forms are defined in terms of a set of transformations on
+ * the text, transformations that are expressed by both an algorithm and a
+ * set of data files.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -2832,16 +2828,16 @@ class Normalizer
 
 /**
  * For currencies you can use currency format type to create a formatter that
- *     returns a string with the formatted number and the appropriate currency
- *     sign. Of course, the NumberFormatter class is unaware of exchange rates
- *     so, the number output is the same regardless of the specified currency.
- *     This means that the same number has different monetary values depending on
- *     the currency locale. If the number is 9988776.65 the results will be:
- *     <ul>
- *      <li>9 988 776,65 € in France</li>
- *      <li>9.988.776,65 € in Germany</li>
- *      <li>$9,988,776.65 in the United States</li>
- *     </ul>
+ * returns a string with the formatted number and the appropriate currency
+ * sign. Of course, the NumberFormatter class is unaware of exchange rates
+ * so, the number output is the same regardless of the specified currency.
+ * This means that the same number has different monetary values depending on
+ * the currency locale. If the number is 9988776.65 the results will be:
+ * <ul>
+ * <li>9 988 776,65 € in France</li>
+ * <li>9.988.776,65 € in Germany</li>
+ * <li>$9,988,776.65 in the United States</li>
+ * </ul>
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -2975,15 +2971,13 @@ class NumberFormatter
 
 /**
  * <ul>
- *      <li>
- *       
- *        ICU Resource Management
- *       
- *      </li>
- *      <li>
- *       ICU Data
- *      </li>
- *     </ul>
+ * <li>
+ * ICU Resource Management
+ * </li>
+ * <li>
+ * ICU Data
+ * </li>
+ * </ul>
  *
  * @since PHP 5 >= 5.3.2, PHP 7, PECL intl >= 2.0.0
  *
@@ -3048,9 +3042,9 @@ class ResourceBundle implements Traversable
 
 /**
  * This class is provided because Unicode contains large number of characters
- *     and incorporates the varied writing systems of the world and their incorrect
- *     usage can expose programs or systems to possible security attacks using
- *     characters similarity.
+ * and incorporates the varied writing systems of the world and their incorrect
+ * usage can expose programs or systems to possible security attacks using
+ * characters similarity.
  *
  * @since PHP 5 >= 5.4.0, PHP 7, PECL intl >= 2.0.0
  *
@@ -5027,7 +5021,7 @@ function msgfmt_set_pattern($mf, $pattern): bool
 
 /**
  * Checks if the provided string is already in the specified normalization
- *    form
+ * form
  *
  * @param mixed $input
  * @param mixed|null $form

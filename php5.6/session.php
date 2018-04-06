@@ -5,7 +5,7 @@
 
 /**
  * Since PHP 5.4.0. Return value of <code>session_status</code> if sessions are enabled,
- *      and a session exists.
+ * and a session exists.
  *
  * @link http://www.php.net/manual/en/session.constants.php#constant.php-session-active
  *
@@ -24,7 +24,7 @@ const PHP_SESSION_DISABLED = 0;
 
 /**
  * Since PHP 5.4.0. Return value of <code>session_status</code> if sessions are enabled,
- *      but no session exists.
+ * but no session exists.
  *
  * @link http://www.php.net/manual/en/session.constants.php#constant.php-session-none
  *
@@ -34,10 +34,10 @@ const PHP_SESSION_NONE = 1;
 
 /**
  * <code>SessionHandlerInterface</code> is an
- *     interface which defines a
- *     prototype for creating a custom session handler. In order to pass a custom
- *     session handler to <code>session_set_save_handler</code> using its
- *     <code>OOP</code> invocation, the class must implement this interface.
+ * interface which defines a
+ * prototype for creating a custom session handler. In order to pass a custom
+ * session handler to <code>session_set_save_handler</code> using its
+ * <code>OOP</code> invocation, the class must implement this interface.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
@@ -87,19 +87,19 @@ interface SessionIdInterface
 
 /**
  * <code>SessionHandler</code> is a special class that can be used
- *     to expose the current internal PHP session save handler by inheritance.
- *     There are seven methods which wrap the seven internal session save handler
- *     callbacks (<code>open</code>, <code>close</code>,
- *     <code>read</code>, <code>write</code>,
- *     <code>destroy</code>, <code>gc</code> and
- *     <code>create_sid</code>).  By default, this class will wrap
- *     whatever internal save handler is set as defined by the
- *     session.save_handler
- *     configuration directive which is usually <code>files</code> by
- *     default.  Other internal session save handlers are provided by PHP
- *     extensions such as SQLite (as <code>sqlite</code>), Memcache (as
- *     <code>memcache</code>), and Memcached (as
- *     <code>memcached</code>).
+ * to expose the current internal PHP session save handler by inheritance.
+ * There are seven methods which wrap the seven internal session save handler
+ * callbacks (<code>open</code>, <code>close</code>,
+ * <code>read</code>, <code>write</code>,
+ * <code>destroy</code>, <code>gc</code> and
+ * <code>create_sid</code>). By default, this class will wrap
+ * whatever internal save handler is set as defined by the
+ * session.save_handler
+ * configuration directive which is usually <code>files</code> by
+ * default. Other internal session save handlers are provided by PHP
+ * extensions such as SQLite (as <code>sqlite</code>), Memcache (as
+ * <code>memcache</code>), and Memcached (as
+ * <code>memcached</code>).
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *

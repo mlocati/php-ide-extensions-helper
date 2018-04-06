@@ -734,7 +734,7 @@ const XSD_UNSIGNEDSHORT = 141;
 
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
- *   or non-WSDL mode.
+ * or non-WSDL mode.
  *
  * @since PHP 5, PHP 7
  *

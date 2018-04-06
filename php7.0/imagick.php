@@ -5,12 +5,12 @@
 
 /**
  * The Imagick class has the ability to hold and operate on multiple
- *    images simultaneously. This is achieved through an internal stack. There
- *    is always an internal pointer that points at the current image. Some
- *    functions operate on all images in the Imagick class, but most operate
- *    only on the current image in the internal stack. As a convention, method
- *    names can contain the word Image to denote they affect only the current
- *    image in the stack.
+ * images simultaneously. This is achieved through an internal stack. There
+ * is always an internal pointer that points at the current image. Some
+ * functions operate on all images in the Imagick class, but most operate
+ * only on the current image in the internal stack. As a convention, method
+ * names can contain the word Image to denote they affect only the current
+ * image in the stack.
  *
  * @since PECL imagick 2.0.0
  *

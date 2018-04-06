@@ -1488,7 +1488,7 @@ const CURLOPT_FNMATCH_FUNCTION = 20200;
 
 /**
  * This constant is not available when open_basedir 
- *      or safe_mode are enabled.
+ * or safe_mode are enabled.
  *
  * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-followlocation
  *
@@ -2732,7 +2732,7 @@ const CURLVERSION_NOW = 3;
 
 /**
  * <code>CURLFile</code> should be used to upload a file with
- *     <code>CURLOPT_POSTFIELDS</code>.
+ * <code>CURLOPT_POSTFIELDS</code>.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *

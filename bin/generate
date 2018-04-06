@@ -1373,7 +1373,7 @@ class PHPManual
         encoding="UTF-8"
         omit-xml-declaration="yes"
         standalone="no"
-        indent="yes"
+        indent="no"
     />
     <xsl:template match="@*|node()"><xsl:copy><xsl:apply-templates select="@*|node()" /></xsl:copy></xsl:template>
     <xsl:template match="informaltable"><table><xsl:apply-templates select="@*|node()" /></table></xsl:template>
@@ -1402,81 +1402,24 @@ EOT
     }
 
     /**
-     * Convert an XML string to a PHPDoc text string.
-     *
-     * @param string $str
-     *
-     * @return string
-     */
-    private function xmlToPHPDoc($str)
-    {
-        $str = trim($str);
-        $str = $this->stripTagsSpecial($str);
-        $str = preg_replace('/ +/', " ", $str);
-        $str = preg_replace('/[\r\n][\t ]/', "\n", $str);
-        $str = trim($str);
-        return $str;
-    }
-
-    /**
-     * Strips xml tags from the string like the standard strip_tags() function
-     * would do, but also translates some of the docbook tags (such as tables
-     * an paragraphs) to proper html tags
+     * Simplify the text extracted from XML.
      *
      * @param $str string
      *
      * @return string
      */
-    private function stripTagsSpecial($str)
+    private function simplifyPHPDoc($str)
     {
-        // first mask and translate the tags to preserve
-        $str = preg_replace('@<(/?)(table|tgroup)(?:\s(?:[^>]*?[^/>])?)?>@', '###($1table)###', $str);
-        $str = preg_replace('@<row(?:\s(?:[^>]*?[^/>])?)?>@', "###(tr valign=\"top\")###", $str);
-        $str = str_replace("</row>", "###(/tr)###", $str);
-        // Bug 522585 - Documentation of PHP function header() is misformatted
-        $str = str_replace("<![CDATA[", "###(pre)###", $str);
-        $str = str_replace("]]>", "###(/pre)###", $str);
-        $matches = null;
-        preg_match_all('@(<\?php.*?\?>)@si', $str, $matches);
-        if ($matches) {
-            foreach ($matches[1] as $v) {
-                $str = str_replace($v, "###(code)###" . strtr(htmlspecialchars($v), array(
-                    "/" => "&#47;",
-                    "*" => "&#42;",
-                    "#" => "&#35;"
-                )) . "###(/code)###", $str);
-            }
-        }
-        // handle gracefully inner tags <entry>, </entry>
-        // or inner tag with attributes like <entry align="center">
-        $str = preg_replace('@\s*<(/?)entry(?:\s(?:[^>]*?[^/>])?)?>\s*@', '###($1td)###', $str);
-        // handle gracefully inner tags <para>, </para>
-        // or inner tag with attributes like <para xmlns="http://docbook.org/ns/docbook">
-        $str = preg_replace('@\s*<(/?)para(?:\s(?:[^>]*?[^/>])?)?>\s*@', '###($1p)###', $str);
-        // handle gracefully inner lists <*list>, </*list>
-        $str = preg_replace('@\s*<(/?).*?list(?:\s(?:[^>]*?[^/>])?)?>\s*@', '###($1p)###', $str);
-        // handle gracefully inner tags <listitem>
-        $str = preg_replace('@\s*<listitem(?:\s(?:[^>]*?[^/>])?)?>\s*@', '###(br)###', $str);
-        // now strip the remaining tags
-        $str = strip_tags($str);
-        // and restore the translated ones
-        $str = str_replace("###(", "<", $str);
-        $str = str_replace(")###", ">", $str);
-        // convert some problematic php comment characters
-        $str = strtr($str, array(
-            "*" => "&#42;"
-        ));
-
-        // remove useless surrounding <p></p> tags...
-        preg_match('@^(?:\s*<p>)+(.*?)(?:</p>\s*)+$@s', $str, $matches);
-        if ($matches) {
-            // ...only if there are no remaining <p> or </p> tags
-            if (! preg_match('@</?p>@', $matches[1])) {
-                $str = $matches[1];
-            }
-        }
-        $str = str_replace('</p><p>', "</p>\n<p>", $str);
-
+        // Replace TABs with spaces
+        $str = str_replace("\t", ' ', $str);
+        // Normalize newlines
+        $str = str_replace("\r", "\n", str_replace("\r\n", "\n", $str));
+        // Reduce multiple spaces to 1
+        $str = preg_replace('/  +/', ' ', $str);
+        // Remove spaces at beginning/end of lines
+        $str = preg_replace("/  \n|\n /s", "\n", $str);
+        // Reduce multiple new-lines to 1
+        $str = preg_replace("/\n\n+/s", "\n", $str);
         return $str;
     }
 
@@ -1503,7 +1446,9 @@ EOT
                     break;
             }
         }
-        return trim(implode('', $chunks));
+        $result = implode('', $chunks);
+        $result = $this->simplifyPHPDoc($result);
+        return $result;
     }
 
     /**
@@ -1532,7 +1477,8 @@ EOT
         } catch (ErrorException $x) {
             throw new Exception('Failed to convert XML to PHPDoc: ' . $x->getMessage());
         }
-        return $outputDocument;
+        $result = $this->simplifyPHPDoc($outputDocument);
+        return $result;
     }
 
     /**
@@ -1645,7 +1591,7 @@ EOT
                     if ($item->description === '') {
                         $listItem = $xPath->query($searchPattern[1], $xmlConstant);
                         if ($listItem->length > 0) {
-                            $item->description = $this->innerXmlToPHPDoc($listItem[0]);
+                            $item->description = trim($this->innerXmlToPHPDoc($listItem[0]));
                         }
                     }
                 }

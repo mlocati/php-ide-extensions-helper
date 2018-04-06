@@ -4,7 +4,7 @@
 
 /**
  * silently expunge the mailbox before closing when
- *      calling <code>imap_close</code>
+ * calling <code>imap_close</code>
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.cl-expunge
  *
@@ -14,7 +14,7 @@ const CL_EXPUNGE = 32768;
 
 /**
  * Delete the messages from the current mailbox after copying
- *      with <code>imap_mail_copy</code>
+ * with <code>imap_mail_copy</code>
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.cp-move
  *
@@ -206,7 +206,7 @@ const LATT_MARKED = 4;
 
 /**
  * This mailbox has no "children" (there are no
- *      mailboxes below this one).
+ * mailboxes below this one).
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.latt-noinferiors
  *
@@ -216,7 +216,7 @@ const LATT_NOINFERIORS = 1;
 
 /**
  * This is only a container, not a mailbox - you
- *      cannot open it.
+ * cannot open it.
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.latt-noselect
  *
@@ -233,7 +233,7 @@ const LATT_REFERRAL = 16;
 
 /**
  * This mailbox is not marked. Only used by
- *      UW-IMAPD.
+ * UW-IMAPD.
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.latt-unmarked
  *
@@ -250,7 +250,7 @@ const NIL = 0;
 
 /**
  * Don't use or update a <code>.newsrc</code> for news 
- *      (NNTP only)
+ * (NNTP only)
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.op-anonymous
  *
@@ -274,7 +274,7 @@ const OP_EXPUNGE = 128;
 
 /**
  * For <code>IMAP</code> and <code>NNTP</code>
- *      names, open a connection but don't open a mailbox.
+ * names, open a connection but don't open a mailbox.
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.op-halfopen
  *
@@ -402,7 +402,7 @@ const SO_NOSERVER = 16;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      arrival date
+ * arrival date
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortarrival
  *
@@ -412,7 +412,7 @@ const SORTARRIVAL = 1;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      mailbox in first cc address
+ * mailbox in first cc address
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortcc
  *
@@ -422,7 +422,7 @@ const SORTCC = 5;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      message Date
+ * message Date
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortdate
  *
@@ -432,7 +432,7 @@ const SORTDATE = 0;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      mailbox in first From address
+ * mailbox in first From address
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortfrom
  *
@@ -442,7 +442,7 @@ const SORTFROM = 2;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      size of message in octets
+ * size of message in octets
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortsize
  *
@@ -452,7 +452,7 @@ const SORTSIZE = 6;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      message subject
+ * message subject
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortsubject
  *
@@ -462,7 +462,7 @@ const SORTSUBJECT = 3;
 
 /**
  * Sort criteria for <code>imap_sort</code>:
- *      mailbox in first To address
+ * mailbox in first To address
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.sortto
  *

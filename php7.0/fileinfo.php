@@ -32,10 +32,7 @@ const FILEINFO_MIME = 1040;
 
 /**
  * Return the mime encoding of the file.
- *     
- *
- *     
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/fileinfo.constants.php#constant.fileinfo-mime-encoding
  *
@@ -45,10 +42,7 @@ const FILEINFO_MIME_ENCODING = 1024;
 
 /**
  * Return the mime type.
- *     
- *
- *     
- *      Available since PHP 5.3.0.
+ * Available since PHP 5.3.0.
  *
  * @link http://www.php.net/manual/en/fileinfo.constants.php#constant.fileinfo-mime-type
  *
@@ -76,7 +70,7 @@ const FILEINFO_PRESERVE_ATIME = 128;
 
 /**
  * Don't translate unprintable characters to a <code>\ooo</code> octal
- *      representation.
+ * representation.
  *
  * @link http://www.php.net/manual/en/fileinfo.constants.php#constant.fileinfo-raw
  *
@@ -95,7 +89,7 @@ const FILEINFO_SYMLINK = 2;
 
 /**
  * This class provides an object oriented interface into the fileinfo
- *     functions.
+ * functions.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL fileinfo >= 0.1.0
  *

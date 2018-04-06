@@ -5,7 +5,7 @@
 
 /**
  * When the bundled version of GD is used this is 1 otherwise 
- *      its set to 0.
+ * its set to 0.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-bundled
  *
@@ -15,7 +15,7 @@ const GD_BUNDLED = 1;
 
 /**
  * The GD "extra" version (beta/rc..) PHP was compiled against.
- *      (Available as of PHP 5.2.4)
+ * (Available as of PHP 5.2.4)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-extra-version
  *
@@ -25,7 +25,7 @@ const GD_EXTRA_VERSION = '';
 
 /**
  * The GD major version PHP was compiled against.
- *      (Available as of PHP 5.2.4)
+ * (Available as of PHP 5.2.4)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-major-version
  *
@@ -35,7 +35,7 @@ const GD_MAJOR_VERSION = 2;
 
 /**
  * The GD minor version PHP was compiled against.
- *      (Available as of PHP 5.2.4)
+ * (Available as of PHP 5.2.4)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-minor-version
  *
@@ -45,7 +45,7 @@ const GD_MINOR_VERSION = 0;
 
 /**
  * The GD release version PHP was compiled against.
- *      (Available as of PHP 5.2.4)
+ * (Available as of PHP 5.2.4)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-release-version
  *
@@ -55,7 +55,7 @@ const GD_RELEASE_VERSION = 35;
 
 /**
  * The GD version PHP was compiled against.
- *      (Available as of PHP 5.2.4)
+ * (Available as of PHP 5.2.4)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-version
  *
@@ -146,13 +146,9 @@ const IMG_ARC_PIE = 0;
 
 /**
  * A style constant used by the <code>imagefilledarc</code> function.
- *
- *
- *     <blockquote>
- *      
- *       This constant has the same value as <code>IMG_ARC_PIE</code>
- *      
- *     </blockquote>
+ * <blockquote>
+ * This constant has the same value as <code>IMG_ARC_PIE</code>
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-arc-rounded
  *
@@ -243,8 +239,8 @@ const IMG_CATMULLROM = 9;
 
 /**
  * Special color option which can be used instead of a color allocated with
- *     <code>imagecolorallocate</code> or
- *     <code>imagecolorallocatealpha</code>.
+ * <code>imagecolorallocate</code> or
+ * <code>imagecolorallocatealpha</code>.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-color-brushed
  *
@@ -254,8 +250,8 @@ const IMG_COLOR_BRUSHED = -3;
 
 /**
  * Special color option which can be used instead of a color allocated with
- *     <code>imagecolorallocate</code> or
- *     <code>imagecolorallocatealpha</code>.
+ * <code>imagecolorallocate</code> or
+ * <code>imagecolorallocatealpha</code>.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-color-styled
  *
@@ -265,8 +261,8 @@ const IMG_COLOR_STYLED = -2;
 
 /**
  * Special color option which can be used instead of a color allocated with
- *     <code>imagecolorallocate</code> or
- *     <code>imagecolorallocatealpha</code>.
+ * <code>imagecolorallocate</code> or
+ * <code>imagecolorallocatealpha</code>.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-color-styledbrushed
  *
@@ -276,8 +272,8 @@ const IMG_COLOR_STYLEDBRUSHED = -4;
 
 /**
  * Special color option which can be used instead of a color allocated with
- *     <code>imagecolorallocate</code> or
- *     <code>imagecolorallocatealpha</code>.
+ * <code>imagecolorallocate</code> or
+ * <code>imagecolorallocatealpha</code>.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-color-tiled
  *
@@ -287,8 +283,8 @@ const IMG_COLOR_TILED = -5;
 
 /**
  * Special color option which can be used instead of a color allocated with
- *     <code>imagecolorallocate</code> or
- *     <code>imagecolorallocatealpha</code>.
+ * <code>imagecolorallocate</code> or
+ * <code>imagecolorallocatealpha</code>.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-color-transparent
  *
@@ -445,10 +441,7 @@ const IMG_FILTER_NEGATE = 0;
 
 /**
  * Special GD filter used by the <code>imagefilter</code> function.
- *
- *
- *     
- *      (Available as of PHP 5.3.0)
+ * (Available as of PHP 5.3.0)
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-filter-pixelate
  *
@@ -575,13 +568,9 @@ const IMG_HERMITE = 12;
 
 /**
  * Used as a return value by <code>imagetypes</code>
- *
- *
- *     <blockquote>
- *      
- *       This constant has the same value as <code>IMG_JPG</code>
- *      
- *     </blockquote>
+ * <blockquote>
+ * This constant has the same value as <code>IMG_JPG</code>
+ * </blockquote>
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-jpeg
  *
@@ -672,10 +661,7 @@ const IMG_WBMP = 8;
 
 /**
  * Used as a return value by <code>imagetypes</code>
- *
- *
- *     
- *      Available as of PHP 5.6.25 and PHP 7.0.10, respectively.
+ * Available as of PHP 5.6.25 and PHP 7.0.10, respectively.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.img-webp
  *

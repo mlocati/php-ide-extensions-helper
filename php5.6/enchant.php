@@ -4,8 +4,8 @@
 
 /**
  * Dictionary type for Ispell. Used with
- *       <code>enchant_broker_get_dict_path</code> and
- *       <code>enchant_broker_set_dict_path</code>.
+ * <code>enchant_broker_get_dict_path</code> and
+ * <code>enchant_broker_set_dict_path</code>.
  *
  * @link http://www.php.net/manual/en/enchant.constants.php#constant.enchant-ispell
  *
@@ -15,8 +15,8 @@ const ENCHANT_ISPELL = 2;
 
 /**
  * Dictionary type for MySpell. Used with
- *       <code>enchant_broker_get_dict_path</code> and
- *       <code>enchant_broker_set_dict_path</code>.
+ * <code>enchant_broker_get_dict_path</code> and
+ * <code>enchant_broker_set_dict_path</code>.
  *
  * @link http://www.php.net/manual/en/enchant.constants.php#constant.enchant-myspell
  *
