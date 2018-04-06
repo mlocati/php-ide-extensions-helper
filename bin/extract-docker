@@ -1,14 +1,17 @@
 #!/usr/bin/env php
 <?php
+define('DOCKERHUB_PREFIX', 'mlocati/php-ide-extensions-helper');
+
 set_error_handler(function ($errno, $errstr, $errfile = '', $errline = null) {
-    fprintf(STDERR, trim($errstr) . "\n");
-    fprintf(STDERR, 'Line: ' . $errline . "\n");
+    fwrite(STDERR, trim($errstr) . "\n");
+    fwrite(STDERR, 'Line: ' . $errline . "\n");
     exit(1);
 });
 
 $argv = $_SERVER['argv'];
 array_shift($argv);
 
+$local = false;
 $rebuild = false;
 $phpVersion = null;
 $rootDir = str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__)));
@@ -23,7 +26,11 @@ for (;;) {
         case '--help':
             showHelp(0, $dockerDir);
             break;
+        case '--local':
+            $local = true;
+            break;
         case '--rebuild':
+            $local = true;
             $rebuild = true;
             break;
         default:
@@ -37,34 +44,47 @@ if ($phpVersion === null) {
 
 $dockerFile = $dockerDir . '/' . $phpVersion;
 if (! is_file($dockerFile)) {
-    fprintf(STDERR, "Invalid PHP version: {$phpVersion}\nValid versions are:\n");
+    fwrite(STDERR, "Invalid PHP version: {$phpVersion}\nValid versions are:\n");
     foreach (getDockerImages($dockerDir) as $item) {
-        fprintf(STDERR, "  {$item}\n");
+        fwrite(STDERR, "  {$item}\n");
     }
     exit(1);
 }
-$dockerReference = 'php-ide-extensions-helper:' . $phpVersion;
 
-$currentDockerImageId = getDockerImageId($dockerReference);
-if ($currentDockerImageId === '') {
-    $build = true;
-} elseif ($rebuild === true) {
-    $rc = - 1;
-    passthru('docker rmi --force ' . $currentDockerImageId, $rc);
-    if ($rc !== 0) {
-        exit($rc);
-    }
-    $build = true;
-} else {
-    $build = false;
-}
-if ($build === true) {
-    $rc = - 1;
-    passthru('docker build --file ' . escapeshellarg($dockerFile) . ' --tag ' . escapeshellarg($dockerReference) . ' --rm ' . escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $dockerDir)), $rc);
-    if ($rc !== 0) {
-        exit($rc);
-    }
+if ($local) {
+    $dockerReference = 'php-ide-extensions-helper:' . $phpVersion;
     $currentDockerImageId = getDockerImageId($dockerReference);
+    if ($currentDockerImageId === '') {
+        $build = true;
+    } elseif ($rebuild === true) {
+        $rc = - 1;
+        passthru('docker rmi --force ' . $currentDockerImageId, $rc);
+        if ($rc !== 0) {
+            exit($rc);
+        }
+        $build = true;
+    } else {
+        $build = false;
+    }
+    if ($build === true) {
+        $rc = - 1;
+        passthru('docker build --file ' . escapeshellarg($dockerFile) . ' --tag ' . escapeshellarg($dockerReference) . ' --rm ' . escapeshellarg(str_replace('/', DIRECTORY_SEPARATOR, $dockerDir)), $rc);
+        if ($rc !== 0) {
+            exit($rc);
+        }
+        $currentDockerImageId = getDockerImageId($dockerReference);
+    }
+} else {
+    $dockerReference = DOCKERHUB_PREFIX . ':' . $phpVersion;
+    $currentDockerImageId = getDockerImageId($dockerReference);
+    if ($currentDockerImageId === '') {
+        $rc = - 1;
+        passthru('docker pull ' . $dockerReference, $rc);
+        if ($rc !== 0) {
+            exit($rc);
+        }
+        $currentDockerImageId = getDockerImageId($dockerReference);
+    }
 }
 
 $commandChunks = array(
@@ -74,8 +94,9 @@ $commandChunks[] = 'run';
 $commandChunks[] = '--tty';
 $commandChunks[] = '--rm';
 $commandChunks[] = '--volume ' . escapeshellarg(str_replace(DIRECTORY_SEPARATOR, '/', $rootDir) . ':/app');
+$commandChunks[] = '--workdir /app/bin';
 $commandChunks[] = $currentDockerImageId;
-$commandChunks[] = '/app/bin/extract';
+$commandChunks[] = './extract';
 foreach ($argv as $arg) {
     $commandChunks[] = escapeshellarg($arg);
 }
@@ -90,11 +111,12 @@ function showHelp($exitCode, $dockerDir)
 {
     $scriptName = $_SERVER['argv'][0];
     echo <<<EOF
-USAGE: {$scriptName} [-h | --help] [--rebuild] <docker-image> [arguments for extract]
+USAGE: {$scriptName} [-h | --help] [--local] [--rebuild] <docker-image> [arguments for extract]
 
 Where:
   --help       Show this help.
-  --rebuild    Rebuild the docker container.
+  --local      Use locally built docker images (otherwise we'll fetch them from Docker Hub).
+  --rebuild    Rebuild the docker container (implies --local).
   <phpVersion> The PHP version to be used.
 
 Valid values of <docker-image> are:
@@ -115,7 +137,7 @@ function getDockerImageId($dockerReference)
     $rc = - 1;
     @exec('docker images --all --filter=reference=' . $dockerReference . ' --format "{{.ID}}" 2>&1', $output, $rc);
     if ($rc !== 0) {
-        fprintf(STDERR, implode("\n", $output));
+        fwrite(STDERR, implode("\n", $output));
         exit($rc);
     }
     $output = array_filter($output);
@@ -125,13 +147,13 @@ function getDockerImageId($dockerReference)
             break;
         case 1:
             if (! preg_match('/^[a-f0-9]{12,}$/', $output[0])) {
-                fprintf(STDERR, implode("\n", $output));
+                fwrite(STDERR, implode("\n", $output));
                 exit(1);
             }
             $result = $output[0];
             break;
         default:
-            fprintf(STDERR, implode("\n", $output));
+            fwrite(STDERR, implode("\n", $output));
             exit(1);
     }
     return $result;
