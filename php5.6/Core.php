@@ -963,7 +963,7 @@ class ErrorException extends Exception
 }
 
 /**
- * <code><code>Exception</code></code> is the base class for
+ * <code>Exception</code> is the base class for
  * all Exceptions in PHP 5, and the base class for all user exceptions in PHP
  * 7.
  *

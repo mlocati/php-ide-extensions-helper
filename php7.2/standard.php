@@ -3038,7 +3038,7 @@ class __PHP_Incomplete_Class
 }
 
 /**
- * <code><code>AssertionError</code></code> is thrown when
+ * <code>AssertionError</code> is thrown when
  * an assertion made via <code>assert</code> fails.
  *
  * @since PHP 7

@@ -1383,7 +1383,8 @@ class PHPManual
     <xsl:template match="varlistentry|member"><li><xsl:apply-templates select="@*|node()" /></li></xsl:template>
     <xsl:template match="refpurpose|para|simpara|listitem"><xsl:apply-templates select="@*|node()" />
 </xsl:template>
-    <xsl:template match="ooclass|property|interfacename|filename|emphasis|varname|modifier|classname|literal|constant|option|acronym|function|methodname|type|parameter|term"><code><xsl:apply-templates select="@*|node()" /></code></xsl:template>
+    <xsl:template match="property|interfacename|filename|emphasis|varname|modifier|classname|literal|constant|option|acronym|function|methodname|type|parameter|term"><code><xsl:apply-templates select="@*|node()" /></code></xsl:template>
+    <xsl:template match="ooclass"><xsl:apply-templates select="node()" /></xsl:template>
     <xsl:template match="xref"><xsl:value-of select="@linked" /></xsl:template>
     <xsl:template match="link"><xsl:apply-templates select="node()" /></xsl:template>
     <xsl:template match="tgroup"><xsl:apply-templates select="node()" /></xsl:template>
@@ -1420,6 +1421,8 @@ EOT
         $str = preg_replace("/  \n|\n /s", "\n", $str);
         // Reduce multiple new-lines to 1
         $str = preg_replace("/\n\n+/s", "\n", $str);
+        if (strpos($str, '<code><code>') !== false) xdebug_break();
+            
         return $str;
     }
 

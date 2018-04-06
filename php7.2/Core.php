@@ -990,7 +990,7 @@ interface Traversable
 }
 
 /**
- * <code><code>ArgumentCountError</code></code> is thrown
+ * <code>ArgumentCountError</code> is thrown
  * when too few arguments are passed to a user-defined function or method.
  *
  * @since PHP 7 >= PHP 7.1.0
@@ -1002,7 +1002,7 @@ class ArgumentCountError extends TypeError
 }
 
 /**
- * <code><code>ArithmeticError</code></code> is thrown when
+ * <code>ArithmeticError</code> is thrown when
  * an error occurs while performing mathematical operations. In PHP 7.0,
  * these errors include attempting to perform a bitshift by a negative
  * amount, and any call to <code>intdiv</code> that would result in a
@@ -1068,7 +1068,7 @@ final class Closure
 }
 
 /**
- * <code><code>DivisionByZeroError</code></code> is thrown
+ * <code>DivisionByZeroError</code> is thrown
  * when an attempt is made to divide a number by zero.
  *
  * @since PHP 7
@@ -1080,7 +1080,7 @@ class DivisionByZeroError extends ArithmeticError
 }
 
 /**
- * <code><code>Error</code></code> is the base class for all
+ * <code>Error</code> is the base class for all
  * internal PHP errors.
  *
  * @since PHP 7
@@ -1166,7 +1166,7 @@ class ErrorException extends Exception
 }
 
 /**
- * <code><code>Exception</code></code> is the base class for
+ * <code>Exception</code> is the base class for
  * all Exceptions in PHP 5, and the base class for all user exceptions in PHP
  * 7.
  *
@@ -1315,7 +1315,7 @@ final class Generator implements Iterator
 }
 
 /**
- * <code><code>ParseError</code></code> is thrown when an
+ * <code>ParseError</code> is thrown when an
  * error occurs while parsing PHP code, such as when
  * <code>eval</code> is called.
  *
@@ -1333,7 +1333,7 @@ class stdClass
 
 /**
  * There are three scenarios where a
- * <code><code>TypeError</code></code> may be thrown. The
+ * <code>TypeError</code> may be thrown. The
  * first is where the argument type being passed to a function does not match
  * its corresponding declared parameter type. The second is where a value
  * being returned from a function does not match the declared function return
