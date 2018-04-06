@@ -1,0 +1,789 @@
+<?php
+// Start of extension: mcrypt
+// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+
+/**
+ * @var string
+ */
+const MCRYPT_3DES = 'tripledes';
+
+/**
+ * @var string
+ */
+const MCRYPT_ARCFOUR = 'arcfour';
+
+/**
+ * @var string
+ */
+const MCRYPT_ARCFOUR_IV = 'arcfour-iv';
+
+/**
+ * @var string
+ */
+const MCRYPT_BLOWFISH = 'blowfish';
+
+/**
+ * @var string
+ */
+const MCRYPT_BLOWFISH_COMPAT = 'blowfish-compat';
+
+/**
+ * @var string
+ */
+const MCRYPT_CAST_128 = 'cast-128';
+
+/**
+ * @var string
+ */
+const MCRYPT_CAST_256 = 'cast-256';
+
+/**
+ * @var string
+ */
+const MCRYPT_CRYPT = 'crypt';
+
+/**
+ * @link http://www.php.net/manual/en/mcrypt.constants.php#constant.mcrypt-decrypt
+ *
+ * @var int
+ */
+const MCRYPT_DECRYPT = 1;
+
+/**
+ * @var string
+ */
+const MCRYPT_DES = 'des';
+
+/**
+ * @link http://www.php.net/manual/en/mcrypt.constants.php#constant.mcrypt-dev-random
+ *
+ * @var int
+ */
+const MCRYPT_DEV_RANDOM = 0;
+
+/**
+ * @link http://www.php.net/manual/en/mcrypt.constants.php#constant.mcrypt-dev-urandom
+ *
+ * @var int
+ */
+const MCRYPT_DEV_URANDOM = 1;
+
+/**
+ * @link http://www.php.net/manual/en/mcrypt.constants.php#constant.mcrypt-encrypt
+ *
+ * @var int
+ */
+const MCRYPT_ENCRYPT = 0;
+
+/**
+ * @var string
+ */
+const MCRYPT_ENIGNA = 'crypt';
+
+/**
+ * @var string
+ */
+const MCRYPT_GOST = 'gost';
+
+/**
+ * @var string
+ */
+const MCRYPT_IDEA = 'idea';
+
+/**
+ * @var string
+ */
+const MCRYPT_LOKI97 = 'loki97';
+
+/**
+ * @var string
+ */
+const MCRYPT_MARS = 'mars';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_CBC = 'cbc';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_CFB = 'cfb';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_ECB = 'ecb';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_NOFB = 'nofb';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_OFB = 'ofb';
+
+/**
+ * @var string
+ */
+const MCRYPT_MODE_STREAM = 'stream';
+
+/**
+ * @var string
+ */
+const MCRYPT_PANAMA = 'panama';
+
+/**
+ * @link http://www.php.net/manual/en/mcrypt.constants.php#constant.mcrypt-rand
+ *
+ * @var int
+ */
+const MCRYPT_RAND = 2;
+
+/**
+ * @var string
+ */
+const MCRYPT_RC2 = 'rc2';
+
+/**
+ * @var string
+ */
+const MCRYPT_RC6 = 'rc6';
+
+/**
+ * @var string
+ */
+const MCRYPT_RIJNDAEL_128 = 'rijndael-128';
+
+/**
+ * @var string
+ */
+const MCRYPT_RIJNDAEL_192 = 'rijndael-192';
+
+/**
+ * @var string
+ */
+const MCRYPT_RIJNDAEL_256 = 'rijndael-256';
+
+/**
+ * @var string
+ */
+const MCRYPT_SAFER128 = 'safer-sk128';
+
+/**
+ * @var string
+ */
+const MCRYPT_SAFER64 = 'safer-sk64';
+
+/**
+ * @var string
+ */
+const MCRYPT_SAFERPLUS = 'saferplus';
+
+/**
+ * @var string
+ */
+const MCRYPT_SERPENT = 'serpent';
+
+/**
+ * @var string
+ */
+const MCRYPT_SKIPJACK = 'skipjack';
+
+/**
+ * @var string
+ */
+const MCRYPT_THREEWAY = 'threeway';
+
+/**
+ * @var string
+ */
+const MCRYPT_TRIPLEDES = 'tripledes';
+
+/**
+ * @var string
+ */
+const MCRYPT_TWOFISH = 'twofish';
+
+/**
+ * @var string
+ */
+const MCRYPT_WAKE = 'wake';
+
+/**
+ * @var string
+ */
+const MCRYPT_XTEA = 'xtea';
+
+/**
+ * Creates an initialization vector (IV) from a random source
+ *
+ * mixed $size
+ * mixed|null $source
+ *
+ * @return string
+ *
+ * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-create-iv.php
+ */
+function mcrypt_create_iv($size, $source = null): string
+{
+}
+
+/**
+ * Decrypts crypttext with given parameters
+ *
+ * mixed $cipher
+ * mixed $key
+ * mixed $data
+ * mixed $mode
+ * mixed $iv
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-decrypt.php
+ */
+function mcrypt_decrypt($cipher, $key, $data, $mode, $iv): string
+{
+}
+
+/**
+ * Returns the name of the opened algorithm
+ *
+ * mixed $td
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-algorithms-name.php
+ */
+function mcrypt_enc_get_algorithms_name($td): string
+{
+}
+
+/**
+ * Returns the blocksize of the opened algorithm
+ *
+ * mixed $td
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-block-size.php
+ */
+function mcrypt_enc_get_block_size($td): int
+{
+}
+
+/**
+ * Returns the size of the IV of the opened algorithm
+ *
+ * mixed $td
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-iv-size.php
+ */
+function mcrypt_enc_get_iv_size($td): int
+{
+}
+
+/**
+ * Returns the maximum supported keysize of the opened mode
+ *
+ * mixed $td
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-key-size.php
+ */
+function mcrypt_enc_get_key_size($td): int
+{
+}
+
+/**
+ * Returns the name of the opened mode
+ *
+ * mixed $td
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-modes-name.php
+ */
+function mcrypt_enc_get_modes_name($td): string
+{
+}
+
+/**
+ * Returns an array with the supported keysizes of the opened algorithm
+ *
+ * mixed $td
+ *
+ * @return array
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-get-supported-key-sizes.php
+ */
+function mcrypt_enc_get_supported_key_sizes($td): array
+{
+}
+
+/**
+ * Checks whether the algorithm of the opened mode is a block algorithm
+ *
+ * mixed $td
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-is-block-algorithm.php
+ */
+function mcrypt_enc_is_block_algorithm($td): bool
+{
+}
+
+/**
+ * Checks whether the encryption of the opened mode works on blocks
+ *
+ * mixed $td
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-is-block-algorithm-mode.php
+ */
+function mcrypt_enc_is_block_algorithm_mode($td): bool
+{
+}
+
+/**
+ * Checks whether the opened mode outputs blocks
+ *
+ * mixed $td
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-is-block-mode.php
+ */
+function mcrypt_enc_is_block_mode($td): bool
+{
+}
+
+/**
+ * Runs a self test on the opened module
+ *
+ * mixed $td
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-enc-self-test.php
+ */
+function mcrypt_enc_self_test($td): int
+{
+}
+
+/**
+ * Encrypts plaintext with given parameters
+ *
+ * mixed $cipher
+ * mixed $key
+ * mixed $data
+ * mixed $mode
+ * mixed $iv
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-encrypt.php
+ */
+function mcrypt_encrypt($cipher, $key, $data, $mode, $iv): string
+{
+}
+
+/**
+ * This function encrypts data
+ *
+ * mixed $td
+ * mixed $data
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-generic.php
+ */
+function mcrypt_generic($td, $data): string
+{
+}
+
+/**
+ * This function deinitializes an encryption module
+ *
+ * mixed $td
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.7, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-generic-deinit.php
+ */
+function mcrypt_generic_deinit($td): bool
+{
+}
+
+/**
+ * This function initializes all buffers needed for encryption
+ *
+ * mixed $td
+ * mixed $key
+ * mixed $iv
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-generic-init.php
+ */
+function mcrypt_generic_init($td, $key, $iv): int
+{
+}
+
+/**
+ * Gets the block size of the specified cipher
+ *
+ * mixed $cipher
+ * mixed $module
+ *
+ * @return int
+ *
+ * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-get-block-size.php
+ */
+function mcrypt_get_block_size($cipher, $module): int
+{
+}
+
+/**
+ * Gets the name of the specified cipher
+ *
+ * mixed $cipher
+ *
+ * @return string
+ *
+ * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-get-cipher-name.php
+ */
+function mcrypt_get_cipher_name($cipher): string
+{
+}
+
+/**
+ * Returns the size of the IV belonging to a specific cipher/mode combination
+ *
+ * mixed $cipher
+ * mixed $module
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-get-iv-size.php
+ */
+function mcrypt_get_iv_size($cipher, $module): int
+{
+}
+
+/**
+ * Gets the key size of the specified cipher
+ *
+ * mixed $cipher
+ * mixed $module
+ *
+ * @return int
+ *
+ * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-get-key-size.php
+ */
+function mcrypt_get_key_size($cipher, $module): int
+{
+}
+
+/**
+ * Gets an array of all supported ciphers
+ *
+ * mixed|null $lib_dir
+ *
+ * @return array
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-list-algorithms.php
+ */
+function mcrypt_list_algorithms($lib_dir = null): array
+{
+}
+
+/**
+ * Gets an array of all supported modes
+ *
+ * mixed|null $lib_dir
+ *
+ * @return array
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-list-modes.php
+ */
+function mcrypt_list_modes($lib_dir = null): array
+{
+}
+
+/**
+ * Closes the mcrypt module
+ *
+ * mixed $td
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-close.php
+ */
+function mcrypt_module_close($td): bool
+{
+}
+
+/**
+ * Returns the blocksize of the specified algorithm
+ *
+ * mixed $algorithm
+ * mixed|null $lib_dir
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-get-algo-block-size.php
+ */
+function mcrypt_module_get_algo_block_size($algorithm, $lib_dir = null): int
+{
+}
+
+/**
+ * Returns the maximum supported keysize of the opened mode
+ *
+ * mixed $algorithm
+ * mixed|null $lib_dir
+ *
+ * @return int
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-get-algo-key-size.php
+ */
+function mcrypt_module_get_algo_key_size($algorithm, $lib_dir = null): int
+{
+}
+
+/**
+ * Returns an array with the supported keysizes of the opened algorithm
+ *
+ * mixed $algorithm
+ * mixed|null $lib_dir
+ *
+ * @return array
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-get-supported-key-sizes.php
+ */
+function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null): array
+{
+}
+
+/**
+ * This function checks whether the specified algorithm is a block algorithm
+ *
+ * mixed $algorithm
+ * mixed|null $lib_dir
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-is-block-algorithm.php
+ */
+function mcrypt_module_is_block_algorithm($algorithm, $lib_dir = null): bool
+{
+}
+
+/**
+ * Returns if the specified module is a block algorithm or not
+ *
+ * mixed $mode
+ * mixed|null $lib_dir
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-is-block-algorithm-mode.php
+ */
+function mcrypt_module_is_block_algorithm_mode($mode, $lib_dir = null): bool
+{
+}
+
+/**
+ * Returns if the specified mode outputs blocks or not
+ *
+ * mixed $mode
+ * mixed|null $lib_dir
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-is-block-mode.php
+ */
+function mcrypt_module_is_block_mode($mode, $lib_dir = null): bool
+{
+}
+
+/**
+ * Opens the module of the algorithm and the mode to be used
+ *
+ * mixed $cipher
+ * mixed $cipher_directory
+ * mixed $mode
+ * mixed $mode_directory
+ *
+ * @return resource
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-open.php
+ */
+function mcrypt_module_open($cipher, $cipher_directory, $mode, $mode_directory)
+{
+}
+
+/**
+ * This function runs a self test on the specified module
+ *
+ * mixed $algorithm
+ * mixed|null $lib_dir
+ *
+ * @return bool
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mcrypt-module-self-test.php
+ */
+function mcrypt_module_self_test($algorithm, $lib_dir = null): bool
+{
+}
+
+/**
+ * Decrypts data
+ *
+ * mixed $td
+ * mixed $data
+ *
+ * @return string
+ *
+ * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
+ *
+ * @deprecated
+ *
+ * @link http://www.php.net/manual/en/function.mdecrypt-generic.php
+ */
+function mdecrypt_generic($td, $data): string
+{
+}

@@ -1,0 +1,1436 @@
+<?php
+// Start of extension: tidy
+// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
+
+/**
+ * ASP code
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-asp
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_ASP = 10;
+
+/**
+ * CDATA
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-cdata
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_CDATA = 8;
+
+/**
+ * HTML comment
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-comment
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_COMMENT = 2;
+
+/**
+ * doctype
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-doctype
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_DOCTYPE = 1;
+
+/**
+ * end tag
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-end
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_END = 6;
+
+/**
+ * JSTE code
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-jste
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_JSTE = 11;
+
+/**
+ * PHP code
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-php
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_PHP = 12;
+
+/**
+ * Processing Instruction
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-procins
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_PROCINS = 3;
+
+/**
+ * root node
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-root
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_ROOT = 0;
+
+/**
+ * XML section
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-section
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_SECTION = 9;
+
+/**
+ * start tag
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-start
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_START = 5;
+
+/**
+ * empty tag
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-startend
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_STARTEND = 7;
+
+/**
+ * Text
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-text
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_TEXT = 4;
+
+/**
+ * XML declaration
+ *
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-nodetype-xmldecl
+ *
+ * @var int
+ */
+const TIDY_NODETYPE_XMLDECL = 13;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-a
+ *
+ * @var int
+ */
+const TIDY_TAG_A = 1;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-abbr
+ *
+ * @var int
+ */
+const TIDY_TAG_ABBR = 2;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-acronym
+ *
+ * @var int
+ */
+const TIDY_TAG_ACRONYM = 3;
+
+/**
+ * @var int
+ */
+const TIDY_TAG_ADDRESS = 4;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-align
+ *
+ * @var int
+ */
+const TIDY_TAG_ALIGN = 5;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-applet
+ *
+ * @var int
+ */
+const TIDY_TAG_APPLET = 6;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-area
+ *
+ * @var int
+ */
+const TIDY_TAG_AREA = 7;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-b
+ *
+ * @var int
+ */
+const TIDY_TAG_B = 8;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-base
+ *
+ * @var int
+ */
+const TIDY_TAG_BASE = 9;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-basefont
+ *
+ * @var int
+ */
+const TIDY_TAG_BASEFONT = 10;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-bdo
+ *
+ * @var int
+ */
+const TIDY_TAG_BDO = 11;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-bgsound
+ *
+ * @var int
+ */
+const TIDY_TAG_BGSOUND = 12;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-big
+ *
+ * @var int
+ */
+const TIDY_TAG_BIG = 13;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-blink
+ *
+ * @var int
+ */
+const TIDY_TAG_BLINK = 14;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-blockquote
+ *
+ * @var int
+ */
+const TIDY_TAG_BLOCKQUOTE = 15;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-body
+ *
+ * @var int
+ */
+const TIDY_TAG_BODY = 16;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-br
+ *
+ * @var int
+ */
+const TIDY_TAG_BR = 17;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-button
+ *
+ * @var int
+ */
+const TIDY_TAG_BUTTON = 18;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-caption
+ *
+ * @var int
+ */
+const TIDY_TAG_CAPTION = 19;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-center
+ *
+ * @var int
+ */
+const TIDY_TAG_CENTER = 20;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-cite
+ *
+ * @var int
+ */
+const TIDY_TAG_CITE = 21;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-code
+ *
+ * @var int
+ */
+const TIDY_TAG_CODE = 22;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-col
+ *
+ * @var int
+ */
+const TIDY_TAG_COL = 23;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-colgroup
+ *
+ * @var int
+ */
+const TIDY_TAG_COLGROUP = 24;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-comment
+ *
+ * @var int
+ */
+const TIDY_TAG_COMMENT = 25;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-dd
+ *
+ * @var int
+ */
+const TIDY_TAG_DD = 26;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-del
+ *
+ * @var int
+ */
+const TIDY_TAG_DEL = 27;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-dfn
+ *
+ * @var int
+ */
+const TIDY_TAG_DFN = 28;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-dir
+ *
+ * @var int
+ */
+const TIDY_TAG_DIR = 29;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-div
+ *
+ * @var int
+ */
+const TIDY_TAG_DIV = 30;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-dl
+ *
+ * @var int
+ */
+const TIDY_TAG_DL = 31;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-dt
+ *
+ * @var int
+ */
+const TIDY_TAG_DT = 32;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-em
+ *
+ * @var int
+ */
+const TIDY_TAG_EM = 33;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-embed
+ *
+ * @var int
+ */
+const TIDY_TAG_EMBED = 34;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-fieldset
+ *
+ * @var int
+ */
+const TIDY_TAG_FIELDSET = 35;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-font
+ *
+ * @var int
+ */
+const TIDY_TAG_FONT = 36;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-form
+ *
+ * @var int
+ */
+const TIDY_TAG_FORM = 37;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-frame
+ *
+ * @var int
+ */
+const TIDY_TAG_FRAME = 38;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-frameset
+ *
+ * @var int
+ */
+const TIDY_TAG_FRAMESET = 39;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h1
+ *
+ * @var int
+ */
+const TIDY_TAG_H1 = 40;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h2
+ *
+ * @var int
+ */
+const TIDY_TAG_H2 = 41;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h3
+ *
+ * @var int
+ */
+const TIDY_TAG_H3 = 42;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h4
+ *
+ * @var int
+ */
+const TIDY_TAG_H4 = 43;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h5
+ *
+ * @var int
+ */
+const TIDY_TAG_H5 = 44;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-h6
+ *
+ * @var int
+ */
+const TIDY_TAG_H6 = 45;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-head
+ *
+ * @var int
+ */
+const TIDY_TAG_HEAD = 46;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-hr
+ *
+ * @var int
+ */
+const TIDY_TAG_HR = 47;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-html
+ *
+ * @var int
+ */
+const TIDY_TAG_HTML = 48;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-i
+ *
+ * @var int
+ */
+const TIDY_TAG_I = 49;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-iframe
+ *
+ * @var int
+ */
+const TIDY_TAG_IFRAME = 50;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-ilayer
+ *
+ * @var int
+ */
+const TIDY_TAG_ILAYER = 51;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-img
+ *
+ * @var int
+ */
+const TIDY_TAG_IMG = 52;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-input
+ *
+ * @var int
+ */
+const TIDY_TAG_INPUT = 53;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-ins
+ *
+ * @var int
+ */
+const TIDY_TAG_INS = 54;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-isindex
+ *
+ * @var int
+ */
+const TIDY_TAG_ISINDEX = 55;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-kbd
+ *
+ * @var int
+ */
+const TIDY_TAG_KBD = 56;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-keygen
+ *
+ * @var int
+ */
+const TIDY_TAG_KEYGEN = 57;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-label
+ *
+ * @var int
+ */
+const TIDY_TAG_LABEL = 58;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-layer
+ *
+ * @var int
+ */
+const TIDY_TAG_LAYER = 59;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-legend
+ *
+ * @var int
+ */
+const TIDY_TAG_LEGEND = 60;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-li
+ *
+ * @var int
+ */
+const TIDY_TAG_LI = 61;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-link
+ *
+ * @var int
+ */
+const TIDY_TAG_LINK = 62;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-listing
+ *
+ * @var int
+ */
+const TIDY_TAG_LISTING = 63;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-map
+ *
+ * @var int
+ */
+const TIDY_TAG_MAP = 64;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-marquee
+ *
+ * @var int
+ */
+const TIDY_TAG_MARQUEE = 65;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-menu
+ *
+ * @var int
+ */
+const TIDY_TAG_MENU = 66;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-meta
+ *
+ * @var int
+ */
+const TIDY_TAG_META = 67;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-multicol
+ *
+ * @var int
+ */
+const TIDY_TAG_MULTICOL = 68;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-nobr
+ *
+ * @var int
+ */
+const TIDY_TAG_NOBR = 69;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-noembed
+ *
+ * @var int
+ */
+const TIDY_TAG_NOEMBED = 70;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-noframes
+ *
+ * @var int
+ */
+const TIDY_TAG_NOFRAMES = 71;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-nolayer
+ *
+ * @var int
+ */
+const TIDY_TAG_NOLAYER = 72;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-nosave
+ *
+ * @var int
+ */
+const TIDY_TAG_NOSAVE = 73;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-noscript
+ *
+ * @var int
+ */
+const TIDY_TAG_NOSCRIPT = 74;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-object
+ *
+ * @var int
+ */
+const TIDY_TAG_OBJECT = 75;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-ol
+ *
+ * @var int
+ */
+const TIDY_TAG_OL = 76;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-optgroup
+ *
+ * @var int
+ */
+const TIDY_TAG_OPTGROUP = 77;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-option
+ *
+ * @var int
+ */
+const TIDY_TAG_OPTION = 78;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-p
+ *
+ * @var int
+ */
+const TIDY_TAG_P = 79;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-param
+ *
+ * @var int
+ */
+const TIDY_TAG_PARAM = 80;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-plaintext
+ *
+ * @var int
+ */
+const TIDY_TAG_PLAINTEXT = 81;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-pre
+ *
+ * @var int
+ */
+const TIDY_TAG_PRE = 82;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-q
+ *
+ * @var int
+ */
+const TIDY_TAG_Q = 83;
+
+/**
+ * @var int
+ */
+const TIDY_TAG_RB = 84;
+
+/**
+ * @var int
+ */
+const TIDY_TAG_RBC = 85;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-rp
+ *
+ * @var int
+ */
+const TIDY_TAG_RP = 86;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-rt
+ *
+ * @var int
+ */
+const TIDY_TAG_RT = 87;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-rtc
+ *
+ * @var int
+ */
+const TIDY_TAG_RTC = 88;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-ruby
+ *
+ * @var int
+ */
+const TIDY_TAG_RUBY = 89;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-s
+ *
+ * @var int
+ */
+const TIDY_TAG_S = 90;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-samp
+ *
+ * @var int
+ */
+const TIDY_TAG_SAMP = 91;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-script
+ *
+ * @var int
+ */
+const TIDY_TAG_SCRIPT = 92;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-select
+ *
+ * @var int
+ */
+const TIDY_TAG_SELECT = 93;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-server
+ *
+ * @var int
+ */
+const TIDY_TAG_SERVER = 94;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-servlet
+ *
+ * @var int
+ */
+const TIDY_TAG_SERVLET = 95;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-small
+ *
+ * @var int
+ */
+const TIDY_TAG_SMALL = 96;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-spacer
+ *
+ * @var int
+ */
+const TIDY_TAG_SPACER = 97;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-span
+ *
+ * @var int
+ */
+const TIDY_TAG_SPAN = 98;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-strike
+ *
+ * @var int
+ */
+const TIDY_TAG_STRIKE = 99;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-strong
+ *
+ * @var int
+ */
+const TIDY_TAG_STRONG = 100;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-style
+ *
+ * @var int
+ */
+const TIDY_TAG_STYLE = 101;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-sub
+ *
+ * @var int
+ */
+const TIDY_TAG_SUB = 102;
+
+/**
+ * @var int
+ */
+const TIDY_TAG_SUP = 103;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-table
+ *
+ * @var int
+ */
+const TIDY_TAG_TABLE = 104;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-tbody
+ *
+ * @var int
+ */
+const TIDY_TAG_TBODY = 105;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-td
+ *
+ * @var int
+ */
+const TIDY_TAG_TD = 106;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-textarea
+ *
+ * @var int
+ */
+const TIDY_TAG_TEXTAREA = 107;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-tfoot
+ *
+ * @var int
+ */
+const TIDY_TAG_TFOOT = 108;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-th
+ *
+ * @var int
+ */
+const TIDY_TAG_TH = 109;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-thead
+ *
+ * @var int
+ */
+const TIDY_TAG_THEAD = 110;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-title
+ *
+ * @var int
+ */
+const TIDY_TAG_TITLE = 111;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-tr
+ *
+ * @var int
+ */
+const TIDY_TAG_TR = 112;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-tt
+ *
+ * @var int
+ */
+const TIDY_TAG_TT = 113;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-u
+ *
+ * @var int
+ */
+const TIDY_TAG_U = 114;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-ul
+ *
+ * @var int
+ */
+const TIDY_TAG_UL = 115;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-unknown
+ *
+ * @var int
+ */
+const TIDY_TAG_UNKNOWN = 0;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-var
+ *
+ * @var int
+ */
+const TIDY_TAG_VAR = 116;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-wbr
+ *
+ * @var int
+ */
+const TIDY_TAG_WBR = 117;
+
+/**
+ * @link http://www.php.net/manual/en/tidy.constants.php#constant.tidy-tag-xmp
+ *
+ * @var int
+ */
+const TIDY_TAG_XMP = 118;
+
+/**
+ * An HTML node in an HTML file, as detected by tidy.
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/class.tidy.php
+ */
+class tidy
+{
+    public function __construct()
+    {
+    }
+
+    public function body()
+    {
+    }
+
+    public function cleanRepair()
+    {
+    }
+
+    public function diagnose()
+    {
+    }
+
+    public function getConfig()
+    {
+    }
+
+    public function getHtmlVer()
+    {
+    }
+
+    /**
+     * Gets options from the command line argument list
+     *
+     * @return array
+     *
+     * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+     *
+     * @link http://www.php.net/manual/en/function.getopt.php
+     */
+    public function getOpt(): array
+    {
+    }
+
+    public function getOptDoc()
+    {
+    }
+
+    public function getRelease()
+    {
+    }
+
+    public function getStatus()
+    {
+    }
+
+    public function head()
+    {
+    }
+
+    public function html()
+    {
+    }
+
+    public function isXhtml()
+    {
+    }
+
+    public function isXml()
+    {
+    }
+
+    public function parseFile()
+    {
+    }
+
+    public function parseString()
+    {
+    }
+
+    public function repairFile()
+    {
+    }
+
+    public function repairString()
+    {
+    }
+
+    public function root()
+    {
+    }
+}
+
+/**
+ * An HTML node in an HTML file, as detected by tidy.
+ *
+ * @since PHP 5, PHP 7
+ *
+ * @link http://www.php.net/manual/en/class.tidynode.php
+ */
+final class tidyNode
+{
+    private function __construct()
+    {
+    }
+
+    public function getParent()
+    {
+    }
+
+    public function hasChildren()
+    {
+    }
+
+    public function hasSiblings()
+    {
+    }
+
+    public function isAsp()
+    {
+    }
+
+    public function isComment()
+    {
+    }
+
+    public function isHtml()
+    {
+    }
+
+    public function isJste()
+    {
+    }
+
+    public function isPhp()
+    {
+    }
+
+    public function isText()
+    {
+    }
+}
+
+/**
+ * Returns the Number of Tidy accessibility warnings encountered for specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/function.tidy-access-count.php
+ */
+function tidy_access_count(): int
+{
+}
+
+/**
+ * Execute configured cleanup and repair operations on parsed markup
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.cleanrepair.php
+ */
+function tidy_clean_repair(): bool
+{
+}
+
+/**
+ * Returns the Number of Tidy configuration errors encountered for specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/function.tidy-config-count.php
+ */
+function tidy_config_count(): int
+{
+}
+
+/**
+ * Run configured diagnostics on parsed and repaired markup
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.diagnose.php
+ */
+function tidy_diagnose(): bool
+{
+}
+
+/**
+ * Returns the Number of Tidy errors encountered for specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/function.tidy-error-count.php
+ */
+function tidy_error_count(): int
+{
+}
+
+/**
+ * Returns a <code>tidyNode</code> object starting from the &lt;body&gt; tag of the tidy parse tree
+ *
+ * mixed $tidy
+ *
+ * @return tidyNode
+ *
+ * @since PHP 5, PHP 7, PECL tidy 0.5.2-1.0
+ *
+ * @link http://www.php.net/manual/en/tidy.body.php
+ */
+function tidy_get_body($tidy)
+{
+}
+
+/**
+ * Get current Tidy configuration
+ *
+ * @return array
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
+ *
+ * @link http://www.php.net/manual/en/tidy.getconfig.php
+ */
+function tidy_get_config(): array
+{
+}
+
+/**
+ * Return warnings and errors which occurred parsing the specified document
+ *
+ * @return string
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.props.errorbuffer.php
+ */
+function tidy_get_error_buffer(): string
+{
+}
+
+/**
+ * Returns a <code>tidyNode</code> object starting from the &lt;head&gt; tag of the tidy parse tree
+ *
+ * @return tidyNode
+ *
+ * @since PHP 5, PHP 7, PECL tidy 0.5.2-1.0.0
+ *
+ * @link http://www.php.net/manual/en/tidy.head.php
+ */
+function tidy_get_head()
+{
+}
+
+/**
+ * Returns a <code>tidyNode</code> object starting from the &lt;html&gt; tag of the tidy parse tree
+ *
+ * @return tidyNode
+ *
+ * @since PHP 5, PHP 7, PECL tidy 0.5.2-1.0.0
+ *
+ * @link http://www.php.net/manual/en/tidy.html.php
+ */
+function tidy_get_html()
+{
+}
+
+/**
+ * Get the Detected HTML version for the specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.gethtmlver.php
+ */
+function tidy_get_html_ver(): int
+{
+}
+
+/**
+ * Returns the documentation for the given option name
+ *
+ * mixed $resource
+ * mixed $optname
+ *
+ * @return string
+ *
+ * @since PHP 5 >= 5.1.0, PHP 7
+ *
+ * @link http://www.php.net/manual/en/tidy.getoptdoc.php
+ */
+function tidy_get_opt_doc($resource, $optname): string
+{
+}
+
+/**
+ * Return a string representing the parsed tidy markup
+ *
+ * @return string
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/function.tidy-get-output.php
+ */
+function tidy_get_output(): string
+{
+}
+
+/**
+ * Get release date (version) for Tidy library
+ *
+ * @return string
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.getrelease.php
+ */
+function tidy_get_release(): string
+{
+}
+
+/**
+ * Returns a <code>tidyNode</code> object representing the root of the tidy parse tree
+ *
+ * @return tidyNode
+ *
+ * @since PHP 5, PHP 7, PECL tidy 0.5.2-1.0.0
+ *
+ * @link http://www.php.net/manual/en/tidy.root.php
+ */
+function tidy_get_root()
+{
+}
+
+/**
+ * Get status of specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.getstatus.php
+ */
+function tidy_get_status(): int
+{
+}
+
+/**
+ * Returns the value of the specified configuration option for the tidy document
+ *
+ * mixed $option
+ *
+ * @return mixed
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.getopt.php
+ */
+function tidy_getopt($option)
+{
+}
+
+/**
+ * Indicates if the document is a XHTML document
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.isxhtml.php
+ */
+function tidy_is_xhtml(): bool
+{
+}
+
+/**
+ * Indicates if the document is a generic (non HTML/XHTML) XML document
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.isxml.php
+ */
+function tidy_is_xml(): bool
+{
+}
+
+/**
+ * Parse markup in file or URI
+ *
+ * mixed $file
+ * mixed|null $config_options
+ * mixed|null $encoding
+ * mixed|null $use_include_path
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.parsefile.php
+ */
+function tidy_parse_file($file, $config_options = null, $encoding = null, $use_include_path = null): bool
+{
+}
+
+/**
+ * Parse a document stored in a string
+ *
+ * mixed $input
+ * mixed|null $config_options
+ * mixed|null $encoding
+ *
+ * @return bool
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/tidy.parsestring.php
+ */
+function tidy_parse_string($input, $config_options = null, $encoding = null): bool
+{
+}
+
+/**
+ * Repair a file and return it as a string
+ *
+ * mixed $filename
+ * mixed|null $config_file
+ * mixed|null $encoding
+ * mixed|null $use_include_path
+ *
+ * @return string
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
+ *
+ * @link http://www.php.net/manual/en/tidy.repairfile.php
+ */
+function tidy_repair_file($filename, $config_file = null, $encoding = null, $use_include_path = null): string
+{
+}
+
+/**
+ * Repair a string using an optionally provided configuration file
+ *
+ * mixed $data
+ * mixed|null $config_file
+ * mixed|null $encoding
+ *
+ * @return string
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
+ *
+ * @link http://www.php.net/manual/en/tidy.repairstring.php
+ */
+function tidy_repair_string($data, $config_file = null, $encoding = null): string
+{
+}
+
+/**
+ * Returns the Number of Tidy warnings encountered for specified document
+ *
+ * @return int
+ *
+ * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
+ *
+ * @link http://www.php.net/manual/en/function.tidy-warning-count.php
+ */
+function tidy_warning_count(): int
+{
+}
