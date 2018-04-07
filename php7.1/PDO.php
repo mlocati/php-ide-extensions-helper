@@ -259,7 +259,7 @@ final class PDORow
 }
 
 /**
- * Represents a prepared statement and, after the statement is executed, an 
+ * Represents a prepared statement and, after the statement is executed, an
  * associated result set.
  *
  * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0

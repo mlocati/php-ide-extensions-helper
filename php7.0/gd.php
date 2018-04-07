@@ -4,7 +4,7 @@
 // - parsed on Windows with PHP 7.0.28 (extension version 7.0.28)
 
 /**
- * When the bundled version of GD is used this is 1 otherwise 
+ * When the bundled version of GD is used this is 1 otherwise
  * its set to 0.
  *
  * @link http://www.php.net/manual/en/image.constants.php#constant.gd-bundled

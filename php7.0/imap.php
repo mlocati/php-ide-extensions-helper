@@ -249,7 +249,7 @@ const LATT_UNMARKED = 8;
 const NIL = 0;
 
 /**
- * Don't use or update a <code>.newsrc</code> for news 
+ * Don't use or update a <code>.newsrc</code> for news
  * (NNTP only)
  *
  * @link http://www.php.net/manual/en/imap.constants.php#constant.op-anonymous

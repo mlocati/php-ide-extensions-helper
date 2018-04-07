@@ -22,11 +22,11 @@ const FILEINFO_CONTINUE = 32;
 const FILEINFO_DEVICES = 8;
 
 /**
- * Returns the file extension appropiate for a the MIME type detected in 
+ * Returns the file extension appropiate for a the MIME type detected in
  * the file.
- * For types that commonly have multiple file extensions, such as <code>JPEG</code> 
- * images, then the return value is multiple extensions speparated by a forward slash e.g.: 
- * <code>"jpeg/jpg/jpe/jfif"</code>. For unknown types not available in the 
+ * For types that commonly have multiple file extensions, such as <code>JPEG</code>
+ * images, then the return value is multiple extensions speparated by a forward slash e.g.:
+ * <code>"jpeg/jpg/jpe/jfif"</code>. For unknown types not available in the
  * <code>magic.mime</code> database, then return value is <code>"???"</code>.
  * Available since PHP 7.2.0.
  *

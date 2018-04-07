@@ -1763,7 +1763,7 @@ abstract class FilterIterator extends IteratorIterator
 }
 
 /**
- * Iterates through a file system in a similar fashion to 
+ * Iterates through a file system in a similar fashion to
  * <code>glob</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7
@@ -1967,7 +1967,7 @@ class LengthException extends LogicException
 }
 
 /**
- * The <code>LimitIterator</code> class allows iteration over 
+ * The <code>LimitIterator</code> class allows iteration over
  * a limited subset of items in an <code>Iterator</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
@@ -2693,7 +2693,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
 
 /**
  * This abstract iterator filters out unwanted values for a <code>RecursiveIterator</code>.
- * This class should be extended to implement custom filters. 
+ * This class should be extended to implement custom filters.
  * The <code>RecursiveFilterIterator::accept</code> must be implemented in the subclass.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
@@ -4663,9 +4663,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 }
 
 /**
- * The SplFixedArray class provides the main functionalities of array. The 
- * main differences between a SplFixedArray and a normal PHP array is that 
- * the SplFixedArray is of fixed length and allows only integers within 
+ * The SplFixedArray class provides the main functionalities of array. The
+ * main differences between a SplFixedArray and a normal PHP array is that
+ * the SplFixedArray is of fixed length and allows only integers within
  * the range as indexes. The advantage is that it allows a faster array
  * implementation.
  *
@@ -5443,7 +5443,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
 }
 
 /**
- * The SplPriorityQueue class provides the main functionalities of a 
+ * The SplPriorityQueue class provides the main functionalities of a
  * prioritized queue, implemented using a max heap.
  *
  * @since PHP 5 >= 5.3.0, PHP 7

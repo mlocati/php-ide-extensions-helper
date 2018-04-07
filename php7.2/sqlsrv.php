@@ -8,7 +8,7 @@
 const SQLSRV_CURSOR_CLIENT_BUFFERED = 'buffered';
 
 /**
- * Inidicates a dynamic cursor. For usage information, see 
+ * Inidicates a dynamic cursor. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-dynamic
@@ -18,7 +18,7 @@ const SQLSRV_CURSOR_CLIENT_BUFFERED = 'buffered';
 const SQLSRV_CURSOR_DYNAMIC = 'dynamic';
 
 /**
- * Inidicates a forward-only cursor. For usage information, see 
+ * Inidicates a forward-only cursor. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-cursor-forward
@@ -28,7 +28,7 @@ const SQLSRV_CURSOR_DYNAMIC = 'dynamic';
 const SQLSRV_CURSOR_FORWARD = 'forward';
 
 /**
- * Inidicates a keyset cursor. For usage information, see 
+ * Inidicates a keyset cursor. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-cursor-keyset
@@ -38,7 +38,7 @@ const SQLSRV_CURSOR_FORWARD = 'forward';
 const SQLSRV_CURSOR_KEYSET = 'keyset';
 
 /**
- * Inidicates a static cursor. For usage information, see 
+ * Inidicates a static cursor. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-cursor-static
@@ -48,8 +48,8 @@ const SQLSRV_CURSOR_KEYSET = 'keyset';
 const SQLSRV_CURSOR_STATIC = 'static';
 
 /**
- * Specifies that data is returned as a raw byte stream from the server without 
- * performing encoding or translation. For usage information, see 
+ * Specifies that data is returned as a raw byte stream from the server without
+ * performing encoding or translation. For usage information, see
  * How to: Specify PHP Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-enc-binary
@@ -59,10 +59,10 @@ const SQLSRV_CURSOR_STATIC = 'static';
 const SQLSRV_ENC_BINARY = 'binary';
 
 /**
- * Data is returned in 8-bit characters as specified in the code page of the 
- * Windows locale that is set on the system. Any multi-byte characters or characters 
- * that do not map into this code page are substituted with a single byte question 
- * mark (?) character. This is the default encoding. For usage information, 
+ * Data is returned in 8-bit characters as specified in the code page of the
+ * Windows locale that is set on the system. Any multi-byte characters or characters
+ * that do not map into this code page are substituted with a single byte question
+ * mark (?) character. This is the default encoding. For usage information,
  * see How to: Specify PHP Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-enc-char
@@ -72,7 +72,7 @@ const SQLSRV_ENC_BINARY = 'binary';
 const SQLSRV_ENC_CHAR = 'char';
 
 /**
- * Forces <code>sqlsrv_errors</code> to return both errors and warings 
+ * Forces <code>sqlsrv_errors</code> to return both errors and warings
  * when passed as a parameter (the default behavior).
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-err-all
@@ -82,7 +82,7 @@ const SQLSRV_ENC_CHAR = 'char';
 const SQLSRV_ERR_ALL = 2;
 
 /**
- * Forces <code>sqlsrv_errors</code> to return errors only (no warnings) 
+ * Forces <code>sqlsrv_errors</code> to return errors only (no warnings)
  * when passed as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-err-errors
@@ -92,7 +92,7 @@ const SQLSRV_ERR_ALL = 2;
 const SQLSRV_ERR_ERRORS = 0;
 
 /**
- * Forces <code>sqlsrv_errors</code> to return warnings only (no errors) 
+ * Forces <code>sqlsrv_errors</code> to return warnings only (no errors)
  * when passed as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-err-warnings
@@ -102,7 +102,7 @@ const SQLSRV_ERR_ERRORS = 0;
 const SQLSRV_ERR_WARNINGS = 1;
 
 /**
- * Forces <code>sqlsrv_fetch_array</code> to return an associative 
+ * Forces <code>sqlsrv_fetch_array</code> to return an associative
  * array when passed as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-fetch-assoc
@@ -112,7 +112,7 @@ const SQLSRV_ERR_WARNINGS = 1;
 const SQLSRV_FETCH_ASSOC = 2;
 
 /**
- * Forces <code>sqlsrv_fetch_array</code> to return an array with both 
+ * Forces <code>sqlsrv_fetch_array</code> to return an array with both
  * associative and numeric keys when passed as a parameter (the default behavior).
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-fetch-both
@@ -122,7 +122,7 @@ const SQLSRV_FETCH_ASSOC = 2;
 const SQLSRV_FETCH_BOTH = 3;
 
 /**
- * Forces <code>sqlsrv_fetch_array</code> to return an array with 
+ * Forces <code>sqlsrv_fetch_array</code> to return an array with
  * numeric when passed as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-fetch-numeric
@@ -132,7 +132,7 @@ const SQLSRV_FETCH_BOTH = 3;
 const SQLSRV_FETCH_NUMERIC = 1;
 
 /**
- * Specifies that errors, warnings, and notices will be logged 
+ * Specifies that errors, warnings, and notices will be logged
  * when passed to <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-severity-all
@@ -142,7 +142,7 @@ const SQLSRV_FETCH_NUMERIC = 1;
 const SQLSRV_LOG_SEVERITY_ALL = -1;
 
 /**
- * Specifies that errors will be logged when passed to 
+ * Specifies that errors will be logged when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-severity-error
@@ -152,7 +152,7 @@ const SQLSRV_LOG_SEVERITY_ALL = -1;
 const SQLSRV_LOG_SEVERITY_ERROR = 1;
 
 /**
- * Specifies that notices will be logged when passed to 
+ * Specifies that notices will be logged when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-severity-notice
@@ -162,7 +162,7 @@ const SQLSRV_LOG_SEVERITY_ERROR = 1;
 const SQLSRV_LOG_SEVERITY_NOTICE = 4;
 
 /**
- * Specifies that warnings will be logged when passed to 
+ * Specifies that warnings will be logged when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-severity-warning
@@ -172,7 +172,7 @@ const SQLSRV_LOG_SEVERITY_NOTICE = 4;
 const SQLSRV_LOG_SEVERITY_WARNING = 2;
 
 /**
- * Turns on logging of all subsystems when passed to 
+ * Turns on logging of all subsystems when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-all
@@ -182,7 +182,7 @@ const SQLSRV_LOG_SEVERITY_WARNING = 2;
 const SQLSRV_LOG_SYSTEM_ALL = -1;
 
 /**
- * Turns on logging of connection activity when passed to 
+ * Turns on logging of connection activity when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-conn
@@ -192,7 +192,7 @@ const SQLSRV_LOG_SYSTEM_ALL = -1;
 const SQLSRV_LOG_SYSTEM_CONN = 2;
 
 /**
- * Turns on logging of initialization activity when passed to 
+ * Turns on logging of initialization activity when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-init
@@ -202,7 +202,7 @@ const SQLSRV_LOG_SYSTEM_CONN = 2;
 const SQLSRV_LOG_SYSTEM_INIT = 1;
 
 /**
- * Turns off logging of all subsystems when passed to 
+ * Turns off logging of all subsystems when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-off
@@ -212,7 +212,7 @@ const SQLSRV_LOG_SYSTEM_INIT = 1;
 const SQLSRV_LOG_SYSTEM_OFF = 0;
 
 /**
- * Turns on logging of statement activity when passed to 
+ * Turns on logging of statement activity when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-stmt
@@ -222,7 +222,7 @@ const SQLSRV_LOG_SYSTEM_OFF = 0;
 const SQLSRV_LOG_SYSTEM_STMT = 4;
 
 /**
- * Turns on logging of error function activity when passed to 
+ * Turns on logging of error function activity when passed to
  * <code>sqlsrv_configure</code> as a parameter.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-log-system-util
@@ -259,7 +259,7 @@ const SQLSRV_NULLABLE_UNKNOWN = 2;
 const SQLSRV_NULLABLE_YES = 1;
 
 /**
- * Indicates an input parameter when passed to <code>sqlsrv_query</code> 
+ * Indicates an input parameter when passed to <code>sqlsrv_query</code>
  * or <code>sqlsrv_prepare</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-param-in
@@ -269,7 +269,7 @@ const SQLSRV_NULLABLE_YES = 1;
 const SQLSRV_PARAM_IN = 1;
 
 /**
- * Indicates a bidirectional parameter when passed to <code>sqlsrv_query</code> 
+ * Indicates a bidirectional parameter when passed to <code>sqlsrv_query</code>
  * or <code>sqlsrv_prepare</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-param-inout
@@ -279,7 +279,7 @@ const SQLSRV_PARAM_IN = 1;
 const SQLSRV_PARAM_INOUT = 2;
 
 /**
- * Indicates an output parameter when passed to <code>sqlsrv_query</code> or 
+ * Indicates an output parameter when passed to <code>sqlsrv_query</code> or
  * <code>sqlsrv_prepare</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-param-out
@@ -289,7 +289,7 @@ const SQLSRV_PARAM_INOUT = 2;
 const SQLSRV_PARAM_OUT = 4;
 
 /**
- * Specifies a datetime PHP data type. For usage information, see 
+ * Specifies a datetime PHP data type. For usage information, see
  * How to: Specify PHP Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-phptype-datetime
@@ -299,7 +299,7 @@ const SQLSRV_PARAM_OUT = 4;
 const SQLSRV_PHPTYPE_DATETIME = 5;
 
 /**
- * Specifies a float PHP data type. For usage information, see 
+ * Specifies a float PHP data type. For usage information, see
  * How to: Specify PHP Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-phptype-float
@@ -309,7 +309,7 @@ const SQLSRV_PHPTYPE_DATETIME = 5;
 const SQLSRV_PHPTYPE_FLOAT = 3;
 
 /**
- * Specifies an integer PHP data type. For usage information, see 
+ * Specifies an integer PHP data type. For usage information, see
  * How to: Specify PHP Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-phptype-int
@@ -324,7 +324,7 @@ const SQLSRV_PHPTYPE_INT = 2;
 const SQLSRV_PHPTYPE_NULL = 1;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-absolute
@@ -334,7 +334,7 @@ const SQLSRV_PHPTYPE_NULL = 1;
 const SQLSRV_SCROLL_ABSOLUTE = 5;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-first
@@ -344,7 +344,7 @@ const SQLSRV_SCROLL_ABSOLUTE = 5;
 const SQLSRV_SCROLL_FIRST = 2;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-last
@@ -354,7 +354,7 @@ const SQLSRV_SCROLL_FIRST = 2;
 const SQLSRV_SCROLL_LAST = 3;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-next
@@ -364,7 +364,7 @@ const SQLSRV_SCROLL_LAST = 3;
 const SQLSRV_SCROLL_NEXT = 1;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-prior
@@ -374,7 +374,7 @@ const SQLSRV_SCROLL_NEXT = 1;
 const SQLSRV_SCROLL_PRIOR = 4;
 
 /**
- * Specifies which row to select in a result set. For usage information, see 
+ * Specifies which row to select in a result set. For usage information, see
  * Specifying a Cursor Type and Selecting Rows.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-scroll-relative
@@ -384,7 +384,7 @@ const SQLSRV_SCROLL_PRIOR = 4;
 const SQLSRV_SCROLL_RELATIVE = 6;
 
 /**
- * Describes the bigint SQL Server data type. For usage information, see 
+ * Describes the bigint SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-bigint
@@ -394,7 +394,7 @@ const SQLSRV_SCROLL_RELATIVE = 6;
 const SQLSRV_SQLTYPE_BIGINT = -5;
 
 /**
- * Describes the binary SQL Server data type. For usage information, see 
+ * Describes the binary SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-binary
@@ -404,7 +404,7 @@ const SQLSRV_SQLTYPE_BIGINT = -5;
 const SQLSRV_SQLTYPE_BINARY = -2;
 
 /**
- * Describes the bit SQL Server data type. For usage information, see 
+ * Describes the bit SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-bit
@@ -414,8 +414,8 @@ const SQLSRV_SQLTYPE_BINARY = -2;
 const SQLSRV_SQLTYPE_BIT = -7;
 
 /**
- * Describes the char SQL Server data type. This constant works like a function 
- * and accepts a parameter indicating the number characters. For usage information, 
+ * Describes the char SQL Server data type. This constant works like a function
+ * and accepts a parameter indicating the number characters. For usage information,
  * see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-char
@@ -425,7 +425,7 @@ const SQLSRV_SQLTYPE_BIT = -7;
 const SQLSRV_SQLTYPE_CHAR = 1;
 
 /**
- * Describes the date SQL Server data type. For usage information, see 
+ * Describes the date SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-date
@@ -435,7 +435,7 @@ const SQLSRV_SQLTYPE_CHAR = 1;
 const SQLSRV_SQLTYPE_DATE = 5211;
 
 /**
- * Describes the datetime SQL Server data type. For usage information, see 
+ * Describes the datetime SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-datetime
@@ -445,7 +445,7 @@ const SQLSRV_SQLTYPE_DATE = 5211;
 const SQLSRV_SQLTYPE_DATETIME = 25177693;
 
 /**
- * Describes the datetime2 SQL Server data type. For usage information, see 
+ * Describes the datetime2 SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-datetime2
@@ -455,7 +455,7 @@ const SQLSRV_SQLTYPE_DATETIME = 25177693;
 const SQLSRV_SQLTYPE_DATETIME2 = 58734173;
 
 /**
- * Describes the datetimeoffset SQL Server data type. For usage information, see 
+ * Describes the datetimeoffset SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-datetimeoffset
@@ -465,8 +465,8 @@ const SQLSRV_SQLTYPE_DATETIME2 = 58734173;
 const SQLSRV_SQLTYPE_DATETIMEOFFSET = 58738021;
 
 /**
- * Describes the decimal SQL Server data type. This constant works like a function 
- * and accepts two parameters indicating (in order) precision and scale. For usage information, 
+ * Describes the decimal SQL Server data type. This constant works like a function
+ * and accepts two parameters indicating (in order) precision and scale. For usage information,
  * see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-decimal
@@ -476,7 +476,7 @@ const SQLSRV_SQLTYPE_DATETIMEOFFSET = 58738021;
 const SQLSRV_SQLTYPE_DECIMAL = 3;
 
 /**
- * Describes the float SQL Server data type. For usage information, see 
+ * Describes the float SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-float
@@ -486,7 +486,7 @@ const SQLSRV_SQLTYPE_DECIMAL = 3;
 const SQLSRV_SQLTYPE_FLOAT = 6;
 
 /**
- * Describes the image SQL Server data type. For usage information, see 
+ * Describes the image SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-image
@@ -496,7 +496,7 @@ const SQLSRV_SQLTYPE_FLOAT = 6;
 const SQLSRV_SQLTYPE_IMAGE = -4;
 
 /**
- * Describes the int SQL Server data type. For usage information, see 
+ * Describes the int SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-int
@@ -506,7 +506,7 @@ const SQLSRV_SQLTYPE_IMAGE = -4;
 const SQLSRV_SQLTYPE_INT = 4;
 
 /**
- * Describes the money SQL Server data type. For usage information, see 
+ * Describes the money SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-money
@@ -516,8 +516,8 @@ const SQLSRV_SQLTYPE_INT = 4;
 const SQLSRV_SQLTYPE_MONEY = 33564163;
 
 /**
- * Describes the nchar SQL Server data type. This constant works like a function 
- * and accepts a single parameter indicating the character count. For usage information, 
+ * Describes the nchar SQL Server data type. This constant works like a function
+ * and accepts a single parameter indicating the character count. For usage information,
  * see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-nchar
@@ -527,7 +527,7 @@ const SQLSRV_SQLTYPE_MONEY = 33564163;
 const SQLSRV_SQLTYPE_NCHAR = -8;
 
 /**
- * Describes the ntext SQL Server data type. For usage information, see 
+ * Describes the ntext SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-ntext
@@ -537,8 +537,8 @@ const SQLSRV_SQLTYPE_NCHAR = -8;
 const SQLSRV_SQLTYPE_NTEXT = -10;
 
 /**
- * Describes the numeric SQL Server data type. This constant works like a function 
- * and accepts two parameter indicating (in order) precision and scale. For usage 
+ * Describes the numeric SQL Server data type. This constant works like a function
+ * and accepts two parameter indicating (in order) precision and scale. For usage
  * information, see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-numeric
@@ -548,8 +548,8 @@ const SQLSRV_SQLTYPE_NTEXT = -10;
 const SQLSRV_SQLTYPE_NUMERIC = 2;
 
 /**
- * Describes the nvarchar SQL Server data type. This constant works like a function 
- * and accepts a single parameter indicating the character count. For usage 
+ * Describes the nvarchar SQL Server data type. This constant works like a function
+ * and accepts a single parameter indicating the character count. For usage
  * information, see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-nvarchar
@@ -559,7 +559,7 @@ const SQLSRV_SQLTYPE_NUMERIC = 2;
 const SQLSRV_SQLTYPE_NVARCHAR = -9;
 
 /**
- * Describes the real SQL Server data type. For usage information, see 
+ * Describes the real SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-real
@@ -569,7 +569,7 @@ const SQLSRV_SQLTYPE_NVARCHAR = -9;
 const SQLSRV_SQLTYPE_REAL = 7;
 
 /**
- * Describes the smalldatetime SQL Server data type. For usage information, see 
+ * Describes the smalldatetime SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-smalldatetime
@@ -579,7 +579,7 @@ const SQLSRV_SQLTYPE_REAL = 7;
 const SQLSRV_SQLTYPE_SMALLDATETIME = 8285;
 
 /**
- * Describes the smallint SQL Server data type. For usage information, see 
+ * Describes the smallint SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-smallint
@@ -589,7 +589,7 @@ const SQLSRV_SQLTYPE_SMALLDATETIME = 8285;
 const SQLSRV_SQLTYPE_SMALLINT = 5;
 
 /**
- * Describes the smallmoney SQL Server data type. For usage information, see 
+ * Describes the smallmoney SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-smallmoney
@@ -599,7 +599,7 @@ const SQLSRV_SQLTYPE_SMALLINT = 5;
 const SQLSRV_SQLTYPE_SMALLMONEY = 33559555;
 
 /**
- * Describes the text SQL Server data type. For usage information, see 
+ * Describes the text SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-text
@@ -609,7 +609,7 @@ const SQLSRV_SQLTYPE_SMALLMONEY = 33559555;
 const SQLSRV_SQLTYPE_TEXT = -1;
 
 /**
- * Describes the time SQL Server data type. For usage information, see 
+ * Describes the time SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-time
@@ -619,7 +619,7 @@ const SQLSRV_SQLTYPE_TEXT = -1;
 const SQLSRV_SQLTYPE_TIME = 58728806;
 
 /**
- * Describes the timestamp SQL Server data type. For usage information, see 
+ * Describes the timestamp SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-timestamp
@@ -629,7 +629,7 @@ const SQLSRV_SQLTYPE_TIME = 58728806;
 const SQLSRV_SQLTYPE_TIMESTAMP = 4606;
 
 /**
- * Describes the tinyint SQL Server data type. For usage information, see 
+ * Describes the tinyint SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-tinyint
@@ -639,7 +639,7 @@ const SQLSRV_SQLTYPE_TIMESTAMP = 4606;
 const SQLSRV_SQLTYPE_TINYINT = -6;
 
 /**
- * Describes the UDT SQL Server data type. For usage information, see 
+ * Describes the UDT SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-udt
@@ -649,7 +649,7 @@ const SQLSRV_SQLTYPE_TINYINT = -6;
 const SQLSRV_SQLTYPE_UDT = -151;
 
 /**
- * Describes the uniqueidentifier SQL Server data type. For usage information, see 
+ * Describes the uniqueidentifier SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-uniqueidentifier
@@ -659,8 +659,8 @@ const SQLSRV_SQLTYPE_UDT = -151;
 const SQLSRV_SQLTYPE_UNIQUEIDENTIFIER = -11;
 
 /**
- * Describes the varbinary SQL Server data type. This constant works like a function 
- * and accepts a single parameter indicating the byte count. For usage information, 
+ * Describes the varbinary SQL Server data type. This constant works like a function
+ * and accepts a single parameter indicating the byte count. For usage information,
  * see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-varbinary
@@ -670,8 +670,8 @@ const SQLSRV_SQLTYPE_UNIQUEIDENTIFIER = -11;
 const SQLSRV_SQLTYPE_VARBINARY = -3;
 
 /**
- * Describes the varchar SQL Server data type. This constant works like a function 
- * and accepts a single parameter indicating the character count. For usage information, 
+ * Describes the varchar SQL Server data type. This constant works like a function
+ * and accepts a single parameter indicating the character count. For usage information,
  * see How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-varchar
@@ -681,7 +681,7 @@ const SQLSRV_SQLTYPE_VARBINARY = -3;
 const SQLSRV_SQLTYPE_VARCHAR = 12;
 
 /**
- * Describes the XML SQL Server data type. For usage information, see 
+ * Describes the XML SQL Server data type. For usage information, see
  * How to: Specify SQL Types.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-sqltype-xml
@@ -691,8 +691,8 @@ const SQLSRV_SQLTYPE_VARCHAR = 12;
 const SQLSRV_SQLTYPE_XML = -152;
 
 /**
- * Inidicates a transaction isolation level of READ COMMITTED. This value is 
- * used to set the TransactionIsolation level in the $connectionOptions arrary 
+ * Inidicates a transaction isolation level of READ COMMITTED. This value is
+ * used to set the TransactionIsolation level in the $connectionOptions arrary
  * passed to <code>sqlsrv_connect</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-txn-read-committed
@@ -702,8 +702,8 @@ const SQLSRV_SQLTYPE_XML = -152;
 const SQLSRV_TXN_READ_COMMITTED = 2;
 
 /**
- * Inidicates a transaction isolation level of READ UNCOMMITTED. This value is 
- * used to set the TransactionIsolation level in the $connectionOptions arrary 
+ * Inidicates a transaction isolation level of READ UNCOMMITTED. This value is
+ * used to set the TransactionIsolation level in the $connectionOptions arrary
  * passed to <code>sqlsrv_connect</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-txn-read-uncommitted
@@ -713,8 +713,8 @@ const SQLSRV_TXN_READ_COMMITTED = 2;
 const SQLSRV_TXN_READ_UNCOMMITTED = 1;
 
 /**
- * Inidicates a transaction isolation level of REPEATABLE READ. This value is 
- * used to set the TransactionIsolation level in the $connectionOptions arrary 
+ * Inidicates a transaction isolation level of REPEATABLE READ. This value is
+ * used to set the TransactionIsolation level in the $connectionOptions arrary
  * passed to <code>sqlsrv_connect</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-txn-repeatable-read
@@ -729,8 +729,8 @@ const SQLSRV_TXN_REPEATABLE_READ = 4;
 const SQLSRV_TXN_SERIALIZABLE = 8;
 
 /**
- * Inidicates a transaction isolation level of SNAPSHOT. This value is used to 
- * set the TransactionIsolation level in the $connectionOptions arrary passed 
+ * Inidicates a transaction isolation level of SNAPSHOT. This value is used to
+ * set the TransactionIsolation level in the $connectionOptions arrary passed
  * to <code>sqlsrv_connect</code>.
  *
  * @link http://www.php.net/manual/en/sqlsrv.constants.php#constant.sqlsrv-txn-snapshot
@@ -905,7 +905,7 @@ function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $ro
 }
 
 /**
- * Retrieves metadata for the fields of a statement prepared by 
+ * Retrieves metadata for the fields of a statement prepared by
  * <code>sqlsrv_prepare</code> or <code>sqlsrv_query</code>
  *
  * @param mixed $stmt
@@ -1058,7 +1058,7 @@ function sqlsrv_query($conn, $tsql, $params = null, $options = null)
 }
 
 /**
- * Rolls back a transaction that was begun with 
+ * Rolls back a transaction that was begun with
  * <code>sqlsrv_begin_transaction</code>
  *
  * @param mixed $conn
@@ -1072,7 +1072,7 @@ function sqlsrv_rollback($conn): bool
 }
 
 /**
- * Returns the number of rows modified by the last INSERT, UPDATE, or 
+ * Returns the number of rows modified by the last INSERT, UPDATE, or
  * DELETE query executed
  *
  * @param mixed $stmt

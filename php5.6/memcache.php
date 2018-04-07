@@ -4,7 +4,7 @@
 
 /**
  * Used to turn on-the-fly data compression on with
- * <code>Memcache::set</code>, 
+ * <code>Memcache::set</code>,
  * <code>Memcache::add</code> and
  * <code>Memcache::replace</code>.
  *

@@ -572,7 +572,7 @@ const PHP_VERSION_ID = 70115;
 const PHP_WINDOWS_NT_DOMAIN_CONTROLLER = 2;
 
 /**
- * This is a server system (eg. Server 2008/2003/2000), note that if this is a 
+ * This is a server system (eg. Server 2008/2003/2000), note that if this is a
  * domain controller its reported as <code>PHP_WINDOWS_NT_DOMAIN_CONTROLLER</code>.
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -606,7 +606,7 @@ const PHP_WINDOWS_NT_WORKSTATION = 1;
 const PHP_WINDOWS_VERSION_BUILD = 16299;
 
 /**
- * The major version of Windows, this can be either <code>4</code> (NT4/Me/98/95), 
+ * The major version of Windows, this can be either <code>4</code> (NT4/Me/98/95),
  * <code>5</code> (XP/2003 R2/2003/2000) or <code>6</code> (Vista/2008/7/8/8.1).
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -618,8 +618,8 @@ const PHP_WINDOWS_VERSION_BUILD = 16299;
 const PHP_WINDOWS_VERSION_MAJOR = 10;
 
 /**
- * The minor version of Windows, this can be either <code>0</code> (Vista/2008/2000/NT4/95), 
- * <code>1</code> (XP), <code>2</code> (2003 R2/2003/XP x64), <code>10</code> (98) 
+ * The minor version of Windows, this can be either <code>0</code> (Vista/2008/2000/NT4/95),
+ * <code>1</code> (XP), <code>2</code> (2003 R2/2003/XP x64), <code>10</code> (98)
  * or <code>90</code> (ME).
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -631,7 +631,7 @@ const PHP_WINDOWS_VERSION_MAJOR = 10;
 const PHP_WINDOWS_VERSION_MINOR = 0;
 
 /**
- * The platform that PHP currently is running on, this value is <code>2</code> on Windows 
+ * The platform that PHP currently is running on, this value is <code>2</code> on Windows
  * Vista/XP/2000/NT4, Server 2008/2003 and on Windows ME/98/95 this value is <code>1</code>.
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -644,7 +644,7 @@ const PHP_WINDOWS_VERSION_PLATFORM = 2;
 
 /**
  * This contains the value used to determine the <code>PHP_WINDOWS_NT_*</code>
- * constants. This value may be one of the <code>PHP_WINDOWS_NT_*</code> constants 
+ * constants. This value may be one of the <code>PHP_WINDOWS_NT_*</code> constants
  * indicating the platform type.
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -656,8 +656,8 @@ const PHP_WINDOWS_VERSION_PLATFORM = 2;
 const PHP_WINDOWS_VERSION_PRODUCTTYPE = 1;
 
 /**
- * The major version of the service pack installed, this value is <code>0</code> 
- * if no service pack is installed. For example, Windows XP with service pack 3 installed 
+ * The major version of the service pack installed, this value is <code>0</code>
+ * if no service pack is installed. For example, Windows XP with service pack 3 installed
  * will make this value <code>3</code>.
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -669,7 +669,7 @@ const PHP_WINDOWS_VERSION_PRODUCTTYPE = 1;
 const PHP_WINDOWS_VERSION_SP_MAJOR = 0;
 
 /**
- * The minor version of the service pack installed, this value is <code>0</code> 
+ * The minor version of the service pack installed, this value is <code>0</code>
  * if no service pack is installed.
  *
  * WARNING: this may be available on Windows but not on POSIX
@@ -681,7 +681,7 @@ const PHP_WINDOWS_VERSION_SP_MAJOR = 0;
 const PHP_WINDOWS_VERSION_SP_MINOR = 0;
 
 /**
- * The suitemask is a bitmask that can tell if various features of Windows is installed, 
+ * The suitemask is a bitmask that can tell if various features of Windows is installed,
  * see the table below for possible bitfield values.
  *
  * WARNING: this may be available on Windows but not on POSIX

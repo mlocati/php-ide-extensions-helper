@@ -405,7 +405,7 @@ const XML_PI_NODE = 7;
 const XML_TEXT_NODE = 3;
 
 /**
- * <code>DOMAttr</code> represents an attribute in the 
+ * <code>DOMAttr</code> represents an attribute in the
  * <code>DOMElement</code> object.
  *
  * @since PHP 5, PHP 7
@@ -443,8 +443,8 @@ class DOMAttr extends DOMNode
 }
 
 /**
- * The <code>DOMCdataSection</code> inherits from 
- * <code>DOMText</code> for textural representation 
+ * The <code>DOMCdataSection</code> inherits from
+ * <code>DOMText</code> for textural representation
  * of CData constructs.
  *
  * @since PHP 5, PHP 7
@@ -1514,7 +1514,7 @@ class DOMException extends Exception
 
 /**
  * The <code>DOMImplementation</code> interface provides a number
- * of methods for performing operations that are independent of any 
+ * of methods for performing operations that are independent of any
  * particular instance of the document object model.
  *
  * @since PHP 5, PHP 7
@@ -2139,9 +2139,9 @@ class DOMStringList
 }
 
 /**
- * The <code>DOMText</code> class inherits from 
+ * The <code>DOMText</code> class inherits from
  * <code>DOMCharacterData</code> and represents the textual
- * content of a <code>DOMElement</code> or 
+ * content of a <code>DOMElement</code> or
  * <code>DOMAttr</code>.
  *
  * @since PHP 5, PHP 7

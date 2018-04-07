@@ -104,7 +104,7 @@ const MYSQLI_CLIENT_INTERACTIVE = 1024;
 const MYSQLI_CLIENT_NO_SCHEMA = 16;
 
 /**
- * Use SSL (encrypted protocol). This option should not be set by application programs; 
+ * Use SSL (encrypted protocol). This option should not be set by application programs;
  * it is set internally in the MySQL client library
  *
  * @link http://www.php.net/manual/en/mysqli.constants.php#constantmysqli-client-ssl
@@ -382,7 +382,7 @@ const MYSQLI_REFRESH_LOG = 2;
 const MYSQLI_REFRESH_MASTER = 128;
 
 /**
- * On a slave replication server: resets the master server information, and 
+ * On a slave replication server: resets the master server information, and
  * restarts the slave. Like executing the <code>RESET SLAVE</code>
  * <code>SQL</code> statement.
  *

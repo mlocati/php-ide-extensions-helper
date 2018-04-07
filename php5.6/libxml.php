@@ -210,8 +210,8 @@ const LIBXML_NOXMLDECL = 2;
 const LIBXML_NSCLEAN = 8192;
 
 /**
- * Sets XML_PARSE_HUGE flag, which relaxes any hardcoded limit from the parser. This affects 
- * limits like maximum depth of a document or the entity recursion, as well as limits of the 
+ * Sets XML_PARSE_HUGE flag, which relaxes any hardcoded limit from the parser. This affects
+ * limits like maximum depth of a document or the entity recursion, as well as limits of the
  * size of text nodes.
  * <blockquote>
  * Only available in Libxml &gt;= 2.7.0 (as of PHP &gt;= 5.3.2 and PHP &gt;= 5.2.12)
@@ -267,7 +267,7 @@ const LIBXML_XINCLUDE = 1024;
 
 /**
  * Contains various information about errors thrown by libxml. The error codes
- * are described within the official 
+ * are described within the official
  * xmlError API documentation.
  *
  * @since PHP 5 >= 5.1.0, PHP 7

@@ -1422,12 +1422,11 @@ EOT
         // Reduce multiple spaces to 1
         $str = preg_replace('/  +/', ' ', $str);
         // Remove spaces at beginning/end of lines
-        $str = preg_replace("/  \n|\n /s", "\n", $str);
+        $str = preg_replace('/ ?\n ?/s', "\n", $str);
         // Reduce multiple new-lines to 1
-        $str = preg_replace("/\n\n+/s", "\n", $str);
-        if (strpos($str, '<code><code>') !== false) xdebug_break();
+        $str = preg_replace('/\n\n+/s', "\n", $str);
             
-        return $str;
+        return trim($str);
     }
 
     /**
@@ -1454,7 +1453,7 @@ EOT
             }
         }
         $result = implode('', $chunks);
-        $result = $this->simplifyPHPDoc($result);
+
         return $result;
     }
 
@@ -1484,8 +1483,8 @@ EOT
         } catch (ErrorException $x) {
             throw new Exception('Failed to convert XML to PHPDoc: ' . $x->getMessage());
         }
-        $result = $this->simplifyPHPDoc($outputDocument);
-        return $result;
+
+        return $outputDocument;
     }
 
     /**
@@ -1598,7 +1597,7 @@ EOT
                     if ($item->description === '') {
                         $listItem = $xPath->query($searchPattern[1], $xmlConstant);
                         if ($listItem->length > 0) {
-                            $item->description = trim($this->innerXmlToPHPDoc($listItem[0]));
+                            $item->description = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($listItem[0]));
                         }
                     }
                 }
@@ -1625,7 +1624,7 @@ EOT
                 }
                 if ($item->description === '') {
                     foreach ($xPath->query('//ns:section/ns:para') as $paraElement) {
-                        $item->description = trim($this->outerXmlToPHPDoc($paraElement));
+                        $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($paraElement));
                         if ($item->description !== '') {
                             break;
                         }
@@ -1656,7 +1655,7 @@ EOT
                     }
                     if ($item->description === '') {
                         foreach ($refPurposeList as $refPurpose) {
-                            $item->description = trim($this->outerXmlToPHPDoc($refPurpose));
+                            $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($refPurpose));
                             if ($item->description !== '') {
                                 break;
                             }

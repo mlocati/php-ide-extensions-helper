@@ -3,8 +3,8 @@
 // - parsed on POSIX with PHP 5.6.34 (extension version 1.4 $Id: 1c8772f76be691b7b3f77ca31eb788a2abbcefe5 $)
 
 /**
- * This constant have a value of <code>1</code> if the 
- * mbstring is enabled, otherwise 
+ * This constant have a value of <code>1</code> if the
+ * mbstring is enabled, otherwise
  * the value is <code>0</code>.
  *
  * @link http://www.php.net/manual/en/exif.constants.php#constant.exif-use-mbstring

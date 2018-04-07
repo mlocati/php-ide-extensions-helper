@@ -317,7 +317,7 @@ class SNMP
 }
 
 /**
- * Represents an error raised by SNMP. You should not throw a 
+ * Represents an error raised by SNMP. You should not throw a
  * <code>SNMPException</code> from your own code.
  * See Exceptions for more
  * information about Exceptions in PHP.

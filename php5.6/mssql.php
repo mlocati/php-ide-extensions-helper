@@ -3,8 +3,8 @@
 // - parsed on POSIX with PHP 5.6.34
 
 /**
- * Return an associative array. Used on 
- * <code>mssql_fetch_array</code>'s 
+ * Return an associative array. Used on
+ * <code>mssql_fetch_array</code>'s
  * <code>result_type</code> parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.mssql-assoc
@@ -14,9 +14,9 @@
 const MSSQL_ASSOC = 1;
 
 /**
- * Return an array with both numeric keys and 
- * keys with their field name. This is the 
- * default value for <code>mssql_fetch_array</code>'s 
+ * Return an array with both numeric keys and
+ * keys with their field name. This is the
+ * default value for <code>mssql_fetch_array</code>'s
  * <code>result_type</code> parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.mssql-both
@@ -26,8 +26,8 @@ const MSSQL_ASSOC = 1;
 const MSSQL_BOTH = 3;
 
 /**
- * Return an array with numeric keys. Used on 
- * <code>mssql_fetch_array</code>'s 
+ * Return an array with numeric keys. Used on
+ * <code>mssql_fetch_array</code>'s
  * <code>result_type</code> parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.mssql-num
@@ -37,8 +37,8 @@ const MSSQL_BOTH = 3;
 const MSSQL_NUM = 2;
 
 /**
- * Indicates the '<code>BIT</code>' type in MSSQL, used by 
- * <code>mssql_bind</code>'s <code>type</code> 
+ * Indicates the '<code>BIT</code>' type in MSSQL, used by
+ * <code>mssql_bind</code>'s <code>type</code>
  * parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqlbit
@@ -48,8 +48,8 @@ const MSSQL_NUM = 2;
 const SQLBIT = 50;
 
 /**
- * Indicates the '<code>CHAR</code>' type in MSSQL, used by 
- * <code>mssql_bind</code>'s <code>type</code> 
+ * Indicates the '<code>CHAR</code>' type in MSSQL, used by
+ * <code>mssql_bind</code>'s <code>type</code>
  * parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqlchar
@@ -91,7 +91,7 @@ const SQLFLTN = 109;
 const SQLINT1 = 48;
 
 /**
- * Represents two bytes, with a range of -32768 
+ * Represents two bytes, with a range of -32768
  * to 32767.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqlint2
@@ -101,7 +101,7 @@ const SQLINT1 = 48;
 const SQLINT2 = 52;
 
 /**
- * Represents four bytes, with a range of -2147483648 
+ * Represents four bytes, with a range of -2147483648
  * to 2147483647.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqlint4
@@ -111,8 +111,8 @@ const SQLINT2 = 52;
 const SQLINT4 = 56;
 
 /**
- * Indicates the '<code>TEXT</code>' type in MSSQL, used by 
- * <code>mssql_bind</code>'s <code>type</code> 
+ * Indicates the '<code>TEXT</code>' type in MSSQL, used by
+ * <code>mssql_bind</code>'s <code>type</code>
  * parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqltext
@@ -122,8 +122,8 @@ const SQLINT4 = 56;
 const SQLTEXT = 35;
 
 /**
- * Indicates the '<code>VARCHAR</code>' type in MSSQL, used by 
- * <code>mssql_bind</code>'s <code>type</code> 
+ * Indicates the '<code>VARCHAR</code>' type in MSSQL, used by
+ * <code>mssql_bind</code>'s <code>type</code>
  * parameter.
  *
  * @link http://www.php.net/manual/en/mssql.constants.php#constant.sqlvarchar

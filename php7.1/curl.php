@@ -1767,7 +1767,7 @@ const CURLOPT_FILETIME = 69;
 const CURLOPT_FNMATCH_FUNCTION = 20200;
 
 /**
- * This constant is not available when open_basedir 
+ * This constant is not available when open_basedir
  * or safe_mode are enabled.
  *
  * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-followlocation

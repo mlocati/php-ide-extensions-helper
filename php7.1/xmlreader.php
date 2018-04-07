@@ -4,8 +4,8 @@
 // - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
 
 /**
- * The XMLReader extension is an XML Pull parser. The reader acts as a 
- * cursor going forward on the document stream and stopping at each node 
+ * The XMLReader extension is an XML Pull parser. The reader acts as a
+ * cursor going forward on the document stream and stopping at each node
  * on the way.
  *
  * @since PHP 5 >= 5.1.0, PHP 7

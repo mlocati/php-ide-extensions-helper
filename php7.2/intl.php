@@ -263,7 +263,7 @@ const INTL_IDNA_VARIANT_2003 = 0;
 const INTL_IDNA_VARIANT_UTS46 = 1;
 
 /**
- * Limit on locale length, set to 80 in PHP code. Locale names longer 
+ * Limit on locale length, set to 80 in PHP code. Locale names longer
  * than this limit will not be accepted.
  *
  * @link http://www.php.net/manual/en/intl.constants.php#constant.intl-max-locale-len

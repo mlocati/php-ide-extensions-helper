@@ -13,7 +13,7 @@
 const PGSQL_ASSOC = 1;
 
 /**
- * Returned by <code>pg_result_status</code>. The server's response 
+ * Returned by <code>pg_result_status</code>. The server's response
  * was not understood.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-bad-response
@@ -33,7 +33,7 @@ const PGSQL_BAD_RESPONSE = 5;
 const PGSQL_BOTH = 3;
 
 /**
- * Returned by <code>pg_result_status</code>. Successful completion of a 
+ * Returned by <code>pg_result_status</code>. Successful completion of a
  * command returning no data.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-command-ok
@@ -138,7 +138,7 @@ const PGSQL_CONV_IGNORE_DEFAULT = 2;
 const PGSQL_CONV_IGNORE_NOT_NULL = 8;
 
 /**
- * Returned by <code>pg_result_status</code>. Copy In (to server) data 
+ * Returned by <code>pg_result_status</code>. Copy In (to server) data
  * transfer started.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-copy-in
@@ -148,7 +148,7 @@ const PGSQL_CONV_IGNORE_NOT_NULL = 8;
 const PGSQL_COPY_IN = 4;
 
 /**
- * Returned by <code>pg_result_status</code>. Copy Out (from server) data 
+ * Returned by <code>pg_result_status</code>. Copy Out (from server) data
  * transfer started.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-copy-out
@@ -159,9 +159,9 @@ const PGSQL_COPY_OUT = 3;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * An indication of the context in which the error occurred. Presently 
- * this includes a call stack traceback of active procedural language 
- * functions and internally-generated queries. The trace is one entry 
+ * An indication of the context in which the error occurred. Presently
+ * this includes a call stack traceback of active procedural language
+ * functions and internally-generated queries. The trace is one entry
  * per line, most recent first.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-context
@@ -172,10 +172,10 @@ const PGSQL_DIAG_CONTEXT = 87;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * This is defined the same as the <code>PG_DIAG_STATEMENT_POSITION</code> field, but 
- * it is used when the cursor position refers to an internally generated 
- * command rather than the one submitted by the client. The 
- * <code>PG_DIAG_INTERNAL_QUERY</code> field will always appear when this 
+ * This is defined the same as the <code>PG_DIAG_STATEMENT_POSITION</code> field, but
+ * it is used when the cursor position refers to an internally generated
+ * command rather than the one submitted by the client. The
+ * <code>PG_DIAG_INTERNAL_QUERY</code> field will always appear when this
  * field appears.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-internal-position
@@ -186,7 +186,7 @@ const PGSQL_DIAG_INTERNAL_POSITION = 112;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * The text of a failed internally-generated command. This could be, for example, a 
+ * The text of a failed internally-generated command. This could be, for example, a
  * SQL query issued by a PL/pgSQL function.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-internal-query
@@ -228,10 +228,10 @@ const PGSQL_DIAG_MESSAGE_PRIMARY = 77;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * The severity; the field contents are <code>ERROR</code>, 
- * <code>FATAL</code>, or <code>PANIC</code> (in an error message), or 
- * <code>WARNING</code>, <code>NOTICE</code>, <code>DEBUG</code>, 
- * <code>INFO</code>, or <code>LOG</code> (in a notice message), or a localized 
+ * The severity; the field contents are <code>ERROR</code>,
+ * <code>FATAL</code>, or <code>PANIC</code> (in an error message), or
+ * <code>WARNING</code>, <code>NOTICE</code>, <code>DEBUG</code>,
+ * <code>INFO</code>, or <code>LOG</code> (in a notice message), or a localized
  * translation of one of these. Always present.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-severity
@@ -242,7 +242,7 @@ const PGSQL_DIAG_SEVERITY = 83;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * The file name of the PostgreSQL source-code location where the error 
+ * The file name of the PostgreSQL source-code location where the error
  * was reported.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-source-file
@@ -263,7 +263,7 @@ const PGSQL_DIAG_SOURCE_FUNCTION = 82;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * The line number of the PostgreSQL source-code location where the 
+ * The line number of the PostgreSQL source-code location where the
  * error was reported.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-source-line
@@ -274,9 +274,9 @@ const PGSQL_DIAG_SOURCE_LINE = 76;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * The SQLSTATE code for the error. The SQLSTATE code identifies the type of error 
- * that has occurred; it can be used by front-end applications to perform specific 
- * operations (such as error handling) in response to a particular database error. 
+ * The SQLSTATE code for the error. The SQLSTATE code identifies the type of error
+ * that has occurred; it can be used by front-end applications to perform specific
+ * operations (such as error handling) in response to a particular database error.
  * This field is not localizable, and is always present.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-sqlstate
@@ -287,7 +287,7 @@ const PGSQL_DIAG_SQLSTATE = 67;
 
 /**
  * Passed to <code>pg_result_error_field</code>.
- * A string containing a decimal integer indicating an error cursor position as an index into the original 
+ * A string containing a decimal integer indicating an error cursor position as an index into the original
  * statement string. The first character has index 1, and positions are measured in characters not bytes.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-diag-statement-position
@@ -367,8 +367,8 @@ const PGSQL_EMPTY_QUERY = 0;
 
 /**
  * Passed to <code>pg_set_error_verbosity</code>.
- * The default mode produces messages that include the above 
- * plus any detail, hint, or context fields (these may span 
+ * The default mode produces messages that include the above
+ * plus any detail, hint, or context fields (these may span
  * multiple lines).
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-errors-default
@@ -379,7 +379,7 @@ const PGSQL_ERRORS_DEFAULT = 1;
 
 /**
  * Passed to <code>pg_set_error_verbosity</code>.
- * Specified that returned messages include severity, primary text, 
+ * Specified that returned messages include severity, primary text,
  * and position only; this will normally fit on a single line.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-errors-terse
@@ -399,7 +399,7 @@ const PGSQL_ERRORS_TERSE = 0;
 const PGSQL_ERRORS_VERBOSE = 2;
 
 /**
- * Returned by <code>pg_result_status</code>. A fatal error 
+ * Returned by <code>pg_result_status</code>. A fatal error
  * occurred.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-fatal-error
@@ -427,7 +427,7 @@ const PGSQL_LIBPQ_VERSION = '9.4.15';
 const PGSQL_LIBPQ_VERSION_STR = 'PostgreSQL 9.4.15 on x86_64-unknown-linux-gnu, compiled by gcc (Debian 4.9.2-10) 4.9.2, 64-bit';
 
 /**
- * Returned by <code>pg_result_status</code>. A nonfatal error 
+ * Returned by <code>pg_result_status</code>. A nonfatal error
  * (a notice or warning) occurred.
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-nonfatal-error
@@ -628,7 +628,7 @@ const PGSQL_TRANSACTION_INTRANS = 2;
 const PGSQL_TRANSACTION_UNKNOWN = 4;
 
 /**
- * Returned by <code>pg_result_status</code>. Successful completion of a command 
+ * Returned by <code>pg_result_status</code>. Successful completion of a command
  * returning data (such as a <code>SELECT</code> or <code>SHOW</code>).
  *
  * @link http://www.php.net/manual/en/pgsql.constants.php#constant.pgsql-tuples-ok
@@ -1931,7 +1931,7 @@ function pg_port($connection = null): int
 }
 
 /**
- * Submits a request to create a prepared statement with the 
+ * Submits a request to create a prepared statement with the
  * given parameters, and waits for completion
  *
  * @param mixed|null $connection
@@ -2172,7 +2172,7 @@ function pg_set_client_encoding($connection = null, $encoding = null): int
 }
 
 /**
- * Determines the verbosity of messages returned by <code>pg_last_error</code> 
+ * Determines the verbosity of messages returned by <code>pg_last_error</code>
  * and <code>pg_result_error</code>
  *
  * @param mixed|null $connection
