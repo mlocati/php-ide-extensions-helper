@@ -300,12 +300,25 @@ class StubsGenerator
             throw new UserMessageException('No extensions found in input XML file.');
         }
         if (! $this->splitOutput) {
+            $namespaces = $this->getNamespaces($this->inputXml->documentElement);
             $this->currentWriter = new StubWriter($this->outputPath);
+        } else {
+            $namespaces = array(
+                null
+            );
         }
         $error = null;
         try {
-            foreach ($extensionElements as $extensionElement) {
-                $this->writeExtension($extensionElement);
+            foreach ($namespaces as $namespace) {
+                if ($namespace !== null) {
+                    $this->currentWriter->startNamespace($namespace, count($namespaces) === 1);
+                }
+                foreach ($extensionElements as $extensionElement) {
+                    $this->writeExtension($extensionElement, $namespace);
+                }
+                if ($namespace !== null) {
+                    $this->currentWriter->endNamespace();
+                }
             }
         } catch (Throwable $e) {
             $error = $e;
@@ -418,66 +431,103 @@ EOF
     }
 
     /**
+     * Get a list of all the namespaces used by child elements of a specific element.
+     *
+     * @param DOMElement $parentElement
+     *
+     * @return string[]
+     */
+    private function getNamespaces(DOMElement $parentElement)
+    {
+        $namespaces = array();
+        $extension = './descendant-or-self::ns:extension';
+        foreach ($this->inputXPath->query("({$extension}/ns:constant)|({$extension}/ns:trait)|({$extension}/ns:interface)|({$extension}/ns:class)|({$extension}/ns:function)", $parentElement) as $element) {
+            $namespace = $element->getAttribute('namespace');
+            if (! in_array($namespace, $namespaces, true)) {
+                $namespaces[] = $namespace;
+            }
+        }
+        natcasesort($namespaces);
+        return array_values($namespaces);
+    }
+
+    /**
      * Process an XML element describing an extension.
      *
      * @param DOMElement $extensionElement
      *            The extension XML element
-     *            
+     * @param string|null $namespace
      */
-    private function writeExtension(DOMElement $extensionElement)
+    private function writeExtension(DOMElement $extensionElement, $containingNamespace)
     {
         $extensionName = $extensionElement->getAttribute('name');
         echo "Processing extension {$extensionName}\n";
         if ($this->splitOutput) {
+            $namespaces = $this->getNamespaces($extensionElement);
             $this->currentWriter = new StubWriter($this->outputPath . '/' . $extensionName . '.php');
-        }
-        $this->currentWriter->writeln('// Start of extension: ' . $extensionName);
-        foreach (array(
-            self::OSTAG_POSIX,
-            self::OSTAG_WINDOWS
-        ) as $osTag) {
-            $osInfo = $extensionElement->getAttribute('parsedwith-' . $osTag);
-            $p = strrpos($osInfo, '@');
-            if ($p !== false) {
-                $v = $p === 0 ? '' : substr($osInfo, 0, $p);
-                switch ($osTag) {
-                    case self::OSTAG_POSIX:
-                        $osTagName = 'POSIX';
-                        break;
-                    case self::OSTAG_WINDOWS:
-                        $osTagName = 'Windows';
-                        break;
-                    default:
-                        $osTagName = $osTag;
-                        break;
+            $this->currentWriter->writeln('// Start of extension: ' . $extensionName);
+            foreach (array(
+                self::OSTAG_POSIX,
+                self::OSTAG_WINDOWS
+            ) as $osTag) {
+                $osInfo = $extensionElement->getAttribute('parsedwith-' . $osTag);
+                $p = strrpos($osInfo, '@');
+                if ($p !== false) {
+                    $v = $p === 0 ? '' : substr($osInfo, 0, $p);
+                    switch ($osTag) {
+                        case self::OSTAG_POSIX:
+                            $osTagName = 'POSIX';
+                            break;
+                        case self::OSTAG_WINDOWS:
+                            $osTagName = 'Windows';
+                            break;
+                        default:
+                            $osTagName = $osTag;
+                            break;
+                    }
+                    $this->currentWriter->writeln('// - parsed on ' . $osTagName . ' with PHP ' . substr($osInfo, $p + 1) . ($v === '' ? '' : " (extension version {$v})"));
                 }
-                $this->currentWriter->writeln('// - parsed on ' . $osTagName . ' with PHP ' . substr($osInfo, $p + 1) . ($v === '' ? '' : " (extension version {$v})"));
             }
+        } else {
+            $namespaces = array(
+                null
+            );
         }
-        foreach ($extensionElement->childNodes as $childElement) {
-            if ($childElement->nodeType === XML_ELEMENT_NODE) {
-                switch ($childElement->nodeName) {
-                    case 'iniEntry':
-                        break;
-                    case 'constant':
-                        $this->writeGlobalConstant($extensionElement, $childElement);
-                        break;
-                    case 'trait':
-                        $this->writeTrait($extensionElement, $childElement);
-                        break;
-                    case 'interface':
-                        $this->writeInterface($extensionElement, $childElement);
-                        break;
-                    case 'class':
-                        $this->writeClass($extensionElement, $childElement);
-                        break;
-                    case 'function':
-                        $this->writeGlobalFunction($extensionElement, $childElement);
-                        break;
-                    default:
-                        fwrite(STDERR, 'Unrecognized node name: ' . $childElement->nodeName . "\n");
-                        break;
+        foreach ($namespaces as $namespace) {
+            if ($namespace === null) {
+                $actualNamespace = $containingNamespace;
+            } else {
+                $this->currentWriter->startNamespace($namespace, count($namespaces) === 1);
+                $actualNamespace = $namespace;
+            }
+            foreach ($extensionElement->childNodes as $childElement) {
+                if ($childElement->nodeType === XML_ELEMENT_NODE && $childElement->getAttribute('namespace') === $actualNamespace) {
+                    switch ($childElement->nodeName) {
+                        case 'iniEntry':
+                            break;
+                        case 'constant':
+                            $this->writeGlobalConstant($extensionElement, $childElement);
+                            break;
+                        case 'trait':
+                            $this->writeTrait($extensionElement, $childElement);
+                            break;
+                        case 'interface':
+                            $this->writeInterface($extensionElement, $childElement);
+                            break;
+                        case 'class':
+                            $this->writeClass($extensionElement, $childElement);
+                            break;
+                        case 'function':
+                            $this->writeGlobalFunction($extensionElement, $childElement);
+                            break;
+                        default:
+                            fwrite(STDERR, 'Unrecognized node name: ' . $childElement->nodeName . "\n");
+                            break;
+                    }
                 }
+            }
+            if ($namespace !== null) {
+                $this->currentWriter->endNamespace();
             }
         }
         if ($this->splitOutput) {
@@ -1425,7 +1475,7 @@ EOT
         $str = preg_replace('/ ?\n ?/s', "\n", $str);
         // Reduce multiple new-lines to 1
         $str = preg_replace('/\n\n+/s', "\n", $str);
-            
+
         return trim($str);
     }
 
@@ -2500,6 +2550,13 @@ class StubWriter
     private $indentationLevel = 0;
 
     /**
+     * Are we in a namespace? 0: no, 1: yes (single namespace), 2: yes (multiple namespaces).
+     *
+     * @var int
+     */
+    private $inNamespace = 0;
+
+    /**
      * Are we currently writing a PHPDoc?
      *
      * @var bool
@@ -2588,6 +2645,49 @@ class StubWriter
                 $this->write($indent . ($this->inPHPDoc ? ' * ' : '') . $line . "\n");
             }
         }
+    }
+
+    /**
+     * Start a namespace.
+     *
+     * @param string $name
+     *            The namespace name.
+     * @param bool $singleNamespace
+     *            Is this the only namespace for the whole file?
+     */
+    public function startNamespace($name, $singleNamespace)
+    {
+        if ($this->inNamespace !== 0) {
+            throw new Exception('Namespace already started');
+        }
+        if ($singleNamespace) {
+            $this->inNamespace = 1;
+            if ($name !== '') {
+                $this->writeln();
+                $this->writeln("namespace {$name};");
+                $this->writeln();
+            }
+        } else {
+            $this->inNamespace = 2;
+            $this->writeln();
+            $this->writeln('namespace' . ($name === '' ? '' : " $name") . ' {');
+            $this->increaseIndentation();
+        }
+    }
+
+    /**
+     * End the current namespace.
+     */
+    public function endNamespace()
+    {
+        if ($this->inNamespace === 0) {
+            throw new Exception('Namespace not started');
+        }
+        if ($this->inNamespace === 2) {
+            $this->decreaseIndentation();
+            $this->writeln('}');
+        }
+        $this->inNamespace = 0;
     }
 
     /**
