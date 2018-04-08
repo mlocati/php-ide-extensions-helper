@@ -732,19 +732,31 @@ EOF
      *
      * @param DOMElement $extensionElement
      *            The <extension> XML element corresponding to the extension associated to the global constant.
-     * @param string $name
-     *            The name of the global constant.
+     * @param string $fqName
+     *            The name of the global constant (possibly including namespace).
      * @param mixed $value
      *            The value of the global constant.
      *
      * @throws Exception
      */
-    private function saveGlobalConstant(DOMElement $extensionElement, $name, $value)
+    private function saveGlobalConstant(DOMElement $extensionElement, $fqName, $value)
     {
-        $search = $this->searchExtensionChildElement($extensionElement, 'constant', $name);
+		$fqName = ltrim($fqName, '\\');
+		$p = strrpos($fqName, '\\');
+		if ($p === false) {
+			$name = $fqName;
+			$namespace = '';
+		} else {
+			$name = substr($fqName, $p + 1);
+			$namespace = substr($fqName, 0, $p);
+		}
+        $search = $this->searchExtensionChildElement($extensionElement, 'constant', $name, $namespace);
         if ($search->found === null) {
             $new = $this->createOSTypeElement($extensionElement, 'constant', $search->addBefore);
             $new->setAttribute('name', $name);
+			if ($namespace !== '') {
+				$new->setAttribute('namespace', $namespace);
+			}
             $new->setAttribute('value', self::serializeValue($value));
             $this->sortElementAttributes($new, true);
         } else {
@@ -781,7 +793,6 @@ EOF
             $new = $this->createOSTypeElement($extensionElement, $type, $search->addBefore);
             $new->setAttribute('name', $reflectionClass->getShortName());
             if ((string) $reflectionClass->getNamespaceName() !== '') {
-                throw new Exception('Namespaces aren\'t currently supported');
                 $new->setAttribute('namespace', $reflectionClass->getNamespaceName());
             }
             switch ($type) {
@@ -795,7 +806,7 @@ EOF
                             $extends = $interfaces[0];
                             $parentInterface = new ReflectionClass($interfaces[0]);
                             if ($parentInterface->getNamespaceName() !== $reflectionClass->getNamespaceName()) {
-                                $extends = '\\' . lrtrim($extends, '\\');
+                                $extends = '\\' . ltrim($extends, '\\');
                             }
                             $new->setAttribute('extends', $extends);
                             break;
@@ -811,7 +822,7 @@ EOF
                     if ($parentClass) {
                         $parentClassName = $parentClass->getName();
                         if ($parentClass->getNamespaceName() !== $reflectionClass->getNamespaceName()) {
-                            $parentClassName = '\\' . lrtrim($parentClassName, '\\');
+                            $parentClassName = '\\' . ltrim($parentClassName, '\\');
                         }
                         $parentInterfaces = $parentClass->getInterfaceNames();
                         $interfaces = array_filter($interfaces, function ($interface) use ($parentInterfaces) {
@@ -866,7 +877,6 @@ EOF
         if ($search->found === null) {
             $new = $this->createReflectionFunctionAbstract($reflectionFunction, $extensionElement, 'function', $search->addBefore);
             if ((string) $reflectionFunction->getNamespaceName() !== '') {
-                throw new Exception('Namespaces aren\'t currently supported');
                 $new->setAttribute('namespace', $reflectionFunction->getNamespaceName());
             }
             $this->sortElementAttributes($new, true);

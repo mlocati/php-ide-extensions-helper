@@ -50,6 +50,7 @@
 		<complexContent>
 			<extension base="tns:osType">
 				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="namespace" type="tns:nonEmptyString" use="optional" />
 				<attribute name="value" type="tns:nonEmptyString" use="required" />
 			</extension>
 		</complexContent>

@@ -315,6 +315,205 @@
       <parameter name="timestamp" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
     </function>
   </extension>
+  <extension name="cmark" conflict="" require="" suggest="" parsedwith-posix="1.0.0@7.2.4">
+    <constant namespace="CommonMark" name="Version" value="7171" posix="true" windows="false"/>
+    <constant namespace="CommonMark" name="VersionString" value="'0.28.3'" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Node\Lists\Delimit" name="Paren" value="2" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Node\Lists\Delimit" name="Period" value="1" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Parser" name="Normal" value="0" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Parser" name="Normalize" value="256" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Parser" name="Smart" value="1024" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Parser" name="ValidateUTF8" value="512" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Render" name="HardBreaks" value="4" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Render" name="NoBreaks" value="16" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Render" name="Normal" value="0" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Render" name="Safe" value="8" posix="true" windows="false"/>
+    <constant namespace="CommonMark\Render" name="SourcePos" value="2" posix="true" windows="false"/>
+    <interface namespace="CommonMark\Interfaces" name="IVisitable" extends="" posix="true" windows="false">
+      <method name="accept" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="visitor" allowsNull="false" byReference="false" optional="false" type="CommonMark\Interfaces\IVisitor" variadic="false"/>
+      </method>
+    </interface>
+    <interface namespace="CommonMark\Interfaces" name="IVisitor" extends="" posix="true" windows="false">
+      <method name="enter" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Interfaces\IVisitable" variadic="false"/>
+      </method>
+      <method name="leave" abstract="true" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Interfaces\IVisitable" variadic="false"/>
+      </method>
+      <constant name="Done" value="1" visibility="public" posix="true" windows="false"/>
+      <constant name="Enter" value="2" visibility="public" posix="true" windows="false"/>
+      <constant name="Leave" value="3" visibility="public" posix="true" windows="false"/>
+    </interface>
+    <class namespace="CommonMark" name="Parser" abstract="false" extends="" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+      <method name="finish" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="parse" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="buffer" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark" name="Node" abstract="true" extends="" final="true" posix="true" windows="false">
+      <property name="endColumn" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="endLine" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="firstChild" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="lastChild" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="next" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="parent" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="previous" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="startColumn" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="startLine" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="accept" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="visitor" allowsNull="false" byReference="false" optional="false" type="CommonMark\Interfaces\IVisitor" variadic="false"/>
+      </method>
+      <method name="appendChild" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="CommonMark\Node" returnTypeAllowsNull="false" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="child" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      </method>
+      <method name="insertAfter" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="CommonMark\Node" returnTypeAllowsNull="false" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="sibling" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      </method>
+      <method name="insertBefore" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="CommonMark\Node" returnTypeAllowsNull="false" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="sibling" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      </method>
+      <method name="prependChild" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="CommonMark\Node" returnTypeAllowsNull="false" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="child" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      </method>
+      <method name="replace" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="CommonMark\Node" returnTypeAllowsNull="false" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="target" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      </method>
+      <method name="unlink" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+      <implements name="CommonMark\Interfaces\IVisitable"/>
+      <implements name="Traversable"/>
+    </class>
+    <class namespace="CommonMark\Node" name="BlockQuote" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="OrderedList" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="delimiter" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="start" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="tight" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="tight" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+        <parameter name="delimiter" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+        <parameter name="start" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="BulletList" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="delimiter" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="tight" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Item" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="CodeBlock" abstract="false" extends="CommonMark\Node\Text" final="true" posix="true" windows="false">
+      <property name="fence" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="fence" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+        <parameter name="literal" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="HTMLBlock" abstract="false" extends="CommonMark\Node\Text" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="literal" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="Paragraph" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Heading" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="level" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="ThematicBreak" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="SoftBreak" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="LineBreak" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Code" abstract="false" extends="CommonMark\Node\Text" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="literal" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="HTMLInline" abstract="false" extends="CommonMark\Node\Text" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="literal" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="CustomInline" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="onEnter" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="onLeave" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Link" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="title" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="url" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="url" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+        <parameter name="title" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="Image" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="title" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="url" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="url" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+        <parameter name="title" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node" name="CustomBlock" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="onEnter" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <property name="onLeave" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Document" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node" name="Text" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <property name="literal" defaultValue="null" static="false" visibility="public" posix="true" windows="false"/>
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false">
+        <parameter name="literal" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      </method>
+    </class>
+    <class namespace="CommonMark\Node\Text" name="Strong" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <class namespace="CommonMark\Node\Text" name="Emphasis" abstract="false" extends="\CommonMark\Node" final="true" posix="true" windows="false">
+      <method name="__construct" abstract="false" deprecated="false" final="false" returnsReference="false" returnType="" returnTypeAllowsNull="" static="false" visibility="public" posix="true" windows="false"/>
+    </class>
+    <function namespace="CommonMark" name="Render" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      <parameter name="width" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+    <function namespace="CommonMark" name="Parse" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="content" allowsNull="false" byReference="false" optional="false" type="" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+    <function namespace="CommonMark\Render" name="Man" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      <parameter name="width" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+    <function namespace="CommonMark\Render" name="Latex" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+      <parameter name="width" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+    <function namespace="CommonMark\Render" name="HTML" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+    <function namespace="CommonMark\Render" name="XML" deprecated="false" returnsReference="false" returnType="" returnTypeAllowsNull="" posix="true" windows="false">
+      <parameter name="node" allowsNull="false" byReference="false" optional="false" type="CommonMark\Node" variadic="false"/>
+      <parameter name="options" allowsNull="false" byReference="false" optional="true" type="" variadic="false"/>
+    </function>
+  </extension>
   <extension name="Core" conflict="" require="" suggest="" parsedwith-posix="7.2.3@7.2.3" parsedwith-windows="7.2.4@7.2.4">
     <iniEntry name="allow_url_fopen" value="'1'" posix="true" windows="true"/>
     <iniEntry name="allow_url_include" value="'0'" posix="true" windows="true"/>

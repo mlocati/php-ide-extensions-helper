@@ -117,6 +117,9 @@ getRequiredAptPackages () {
 			bz2)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} libbz2-dev"
 				;;
+			cmark)
+				getRequiredAptPackages_result="${getRequiredAptPackages_result} cmake"
+				;;
 			enchant)
 				getRequiredAptPackages_result="${getRequiredAptPackages_result} libenchant-dev"
 				;;
@@ -296,6 +299,57 @@ installBundledModule () {
 	docker-php-ext-install "${2}"
 }
 
+# Fetch a tar.gz file, extract it and returns the path of the extracted folder.
+#
+# Arguments:
+#   $1: the URL of the file to be downloaded
+#
+# Output:
+#   The path of the extracted directory
+getPackageSource () {
+	mkdir -p /tmp/src
+	getPackageSource_tempFile=$(mktemp -p /tmp/src)
+	curl -L -s -S -o "${getPackageSource_tempFile}" "$1"
+	getPackageSource_tempDir=$(mktemp -p /tmp/src -d)
+	cd "${getPackageSource_tempDir}"
+	tar -xzf "${getPackageSource_tempFile}"
+	cd - >/dev/null
+	unlink "${getPackageSource_tempFile}"
+	getPackageSource_outDir=''
+	for getPackageSource_i in $(ls "${getPackageSource_tempDir}")
+	do
+		if test -n "${getPackageSource_outDir}" -o -f "${getPackageSource_tempDir}/${getPackageSource_i}"
+		then
+			getPackageSource_outDir=''
+			break
+		fi
+		getPackageSource_outDir="${getPackageSource_tempDir}/${getPackageSource_i}"
+	done
+	if test -n "${getPackageSource_outDir}"
+	then
+		printf '%s' "${getPackageSource_outDir}"
+	else
+		printf '%s' "${getPackageSource_tempDir}"
+	fi
+}
+
+# Install a PHP module given its handle from source code
+#
+# Arguments:
+#   $1: the handle of the PHP module
+#   $2: the URL of the module source code
+#   $3: the options of the configure command
+installModuleFromSource () {
+	printf '### INSTALLING MODULE %s FROM SOURCE CODE ###\n' "${1}"
+	installModuleFromSource_dir="$(getPackageSource "${2}")"
+	cd "${installModuleFromSource_dir}"
+	phpize
+	./configure ${3}
+	make -j$(nproc) install
+	cd --
+	docker-php-ext-enable "${1}"
+}
+
 # Install a PECL PHP module given its handle
 #
 # Arguments:
@@ -374,6 +428,7 @@ stringInList () {
 }
 
 resetIFS
+TEMPORARY_DIRS=''
 PHP_MAJMIN_VERSION=$(getPHPMajorMinor)
 case "${PHP_MAJMIN_VERSION}" in
 	506|700|701|702)
@@ -384,12 +439,12 @@ esac
 PHP_MODULES_TO_INSTALL=$(getModulesToInstall "$@")
 if test -n "${PHP_MODULES_TO_INSTALL}"
 then
-	REQUIRED_APT_PACKAEGS=$(getRequiredAptPackages ${PHP_MAJMIN_VERSION} ${PHP_MODULES_TO_INSTALL})
-	if test -n "${REQUIRED_APT_PACKAEGS}"
+	REQUIRED_APT_PACKAGES=$(getRequiredAptPackages ${PHP_MAJMIN_VERSION} ${PHP_MODULES_TO_INSTALL})
+	if test -n "${REQUIRED_APT_PACKAGES}"
 	then
 		printf '### INSTALLING REQUIRED APT PACKAGES ###\n'
 		DEBIAN_FRONTEND=noninteractive apt-get update -y
-		DEBIAN_FRONTEND=noninteractive apt-get install -y ${REQUIRED_APT_PACKAEGS}
+		DEBIAN_FRONTEND=noninteractive apt-get install -y ${REQUIRED_APT_PACKAGES}
 	fi
 	docker-php-source extract
 	BUNDLED_MODULES="$(find /usr/src/php/ext -mindepth 2 -maxdepth 2 -type f -name 'config.m4' | xargs -n1 dirname | xargs -n1 basename | xargs)"
@@ -399,7 +454,23 @@ then
 		then
 			installBundledModule ${PHP_MAJMIN_VERSION} "${PHP_MODULE_TO_INSTALL}"
 		else
-			installPECLModule ${PHP_MAJMIN_VERSION} "${PHP_MODULE_TO_INSTALL}"
+			MODULE_SOURCE=''
+			MODULE_SOURCE_CONFIGOPTIONS=''
+			case "${PHP_MODULE_TO_INSTALL}" in
+				cmark)
+					MODULE_SOURCE=https://github.com/krakjoe/cmark/archive/v1.0.0.tar.gz
+					cd "$(getPackageSource https://github.com/commonmark/cmark/archive/0.28.3.tar.gz)"
+					make install
+					cd -
+					MODULE_SOURCE_CONFIGOPTIONS=--with-cmark
+					;;
+			esac
+			if test -n "${MODULE_SOURCE}"
+			then
+				installModuleFromSource "${PHP_MODULE_TO_INSTALL}" "${MODULE_SOURCE}" "${MODULE_SOURCE_CONFIGOPTIONS}"
+			else
+				installPECLModule ${PHP_MAJMIN_VERSION} "${PHP_MODULE_TO_INSTALL}"
+			fi
 		fi
 	done
 fi
@@ -407,3 +478,4 @@ fi
 docker-php-source delete
 rm -rf /tmp/pear
 rm -rf /var/lib/apt/lists/*
+#rm -rf /tmp/src
