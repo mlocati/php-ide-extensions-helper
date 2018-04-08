@@ -50,6 +50,7 @@
 		<complexContent>
 			<extension base="tns:osType">
 				<attribute name="name" type="tns:nonEmptyString" use="required" />
+				<attribute name="namespace" type="tns:nonEmptyString" use="optional" />
 				<attribute name="value" type="tns:nonEmptyString" use="required" />
 			</extension>
 		</complexContent>
@@ -68,7 +69,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="classType">
 		<complexContent>
 			<extension base="tns:interfaceClassType">
@@ -93,7 +94,7 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
+
 	<complexType name="interfaceClassType" abstract="true">
 		<complexContent>
 			<extension base="tns:traitInterfaceClassType">
@@ -104,7 +105,6 @@
 			</extension>
 		</complexContent>
 	</complexType>
-	
 
 	<complexType name="childConstantType">
 		<complexContent>
@@ -191,7 +191,7 @@
 			<enumeration value="false" />
 		</restriction>
 	</simpleType>
-	
+
 	<simpleType name="extensionVersion">
 		<restriction base="string">
 			<pattern value=".*@\d+.\d+.\d+"/>
