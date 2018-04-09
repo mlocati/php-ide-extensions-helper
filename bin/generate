@@ -359,7 +359,7 @@ class StubsGenerator
      */
     private static function getDefaultOutputPath($phpVersion, $asFile)
     {
-        return str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__))) . '/php' . $phpVersion . ($asFile ? '.php' : '');
+        return str_replace(DIRECTORY_SEPARATOR, '/', dirname(dirname(__FILE__))) . '/stubs/php' . $phpVersion . ($asFile ? '.php' : '');
     }
 
     /**
