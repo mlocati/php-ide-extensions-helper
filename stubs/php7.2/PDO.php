@@ -13,6 +13,717 @@
 class PDO
 {
     /**
+     * @var int
+     */
+    const ATTR_AUTOCOMMIT = 0;
+
+    /**
+     * @var int
+     */
+    const ATTR_CASE = 8;
+
+    /**
+     * @var int
+     */
+    const ATTR_CLIENT_VERSION = 5;
+
+    /**
+     * @var int
+     */
+    const ATTR_CONNECTION_STATUS = 7;
+
+    /**
+     * @var int
+     */
+    const ATTR_CURSOR = 10;
+
+    /**
+     * @var int
+     */
+    const ATTR_CURSOR_NAME = 9;
+
+    /**
+     * @var int
+     */
+    const ATTR_DEFAULT_FETCH_MODE = 19;
+
+    /**
+     * @var int
+     */
+    const ATTR_DEFAULT_STR_PARAM = 21;
+
+    /**
+     * @var int
+     */
+    const ATTR_DRIVER_NAME = 16;
+
+    /**
+     * @var int
+     */
+    const ATTR_EMULATE_PREPARES = 20;
+
+    /**
+     * @var int
+     */
+    const ATTR_ERRMODE = 3;
+
+    /**
+     * @var int
+     */
+    const ATTR_FETCH_CATALOG_NAMES = 15;
+
+    /**
+     * @var int
+     */
+    const ATTR_FETCH_TABLE_NAMES = 14;
+
+    /**
+     * @var int
+     */
+    const ATTR_MAX_COLUMN_LEN = 18;
+
+    /**
+     * @var int
+     */
+    const ATTR_ORACLE_NULLS = 11;
+
+    /**
+     * @var int
+     */
+    const ATTR_PERSISTENT = 12;
+
+    /**
+     * @var int
+     */
+    const ATTR_PREFETCH = 1;
+
+    /**
+     * @var int
+     */
+    const ATTR_SERVER_INFO = 6;
+
+    /**
+     * @var int
+     */
+    const ATTR_SERVER_VERSION = 4;
+
+    /**
+     * @var int
+     */
+    const ATTR_STATEMENT_CLASS = 13;
+
+    /**
+     * @var int
+     */
+    const ATTR_STRINGIFY_FETCHES = 17;
+
+    /**
+     * @var int
+     */
+    const ATTR_TIMEOUT = 2;
+
+    /**
+     * @var int
+     */
+    const CASE_LOWER = 2;
+
+    /**
+     * @var int
+     */
+    const CASE_NATURAL = 0;
+
+    /**
+     * @var int
+     */
+    const CASE_UPPER = 1;
+
+    /**
+     * @var int
+     */
+    const CURSOR_FWDONLY = 0;
+
+    /**
+     * @var int
+     */
+    const CURSOR_SCROLL = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const DBLIB_ATTR_CONNECTION_TIMEOUT = 1000;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const DBLIB_ATTR_QUERY_TIMEOUT = 1001;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const DBLIB_ATTR_VERSION = 1003;
+
+    /**
+     * @var string
+     */
+    const ERR_NONE = '00000';
+
+    /**
+     * @var int
+     */
+    const ERRMODE_EXCEPTION = 2;
+
+    /**
+     * @var int
+     */
+    const ERRMODE_SILENT = 0;
+
+    /**
+     * @var int
+     */
+    const ERRMODE_WARNING = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const FB_ATTR_DATE_FORMAT = 1000;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const FB_ATTR_TIME_FORMAT = 1001;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const FB_ATTR_TIMESTAMP_FORMAT = 1002;
+
+    /**
+     * @var int
+     */
+    const FETCH_ASSOC = 2;
+
+    /**
+     * @var int
+     */
+    const FETCH_BOTH = 4;
+
+    /**
+     * @var int
+     */
+    const FETCH_BOUND = 6;
+
+    /**
+     * @var int
+     */
+    const FETCH_CLASS = 8;
+
+    /**
+     * @var int
+     */
+    const FETCH_CLASSTYPE = 262144;
+
+    /**
+     * @var int
+     */
+    const FETCH_COLUMN = 7;
+
+    /**
+     * @var int
+     */
+    const FETCH_FUNC = 10;
+
+    /**
+     * @var int
+     */
+    const FETCH_GROUP = 65536;
+
+    /**
+     * @var int
+     */
+    const FETCH_INTO = 9;
+
+    /**
+     * @var int
+     */
+    const FETCH_KEY_PAIR = 12;
+
+    /**
+     * @var int
+     */
+    const FETCH_LAZY = 1;
+
+    /**
+     * @var int
+     */
+    const FETCH_NAMED = 11;
+
+    /**
+     * @var int
+     */
+    const FETCH_NUM = 3;
+
+    /**
+     * @var int
+     */
+    const FETCH_OBJ = 5;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_ABS = 4;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_FIRST = 2;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_LAST = 3;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_NEXT = 0;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_PRIOR = 1;
+
+    /**
+     * @var int
+     */
+    const FETCH_ORI_REL = 5;
+
+    /**
+     * @var int
+     */
+    const FETCH_PROPS_LATE = 1048576;
+
+    /**
+     * @var int
+     */
+    const FETCH_SERIALIZE = 524288;
+
+    /**
+     * @var int
+     */
+    const FETCH_UNIQUE = 196608;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_COMPRESS = 1003;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_DIRECT_QUERY = 1004;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_FOUND_ROWS = 1005;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_IGNORE_SPACE = 1006;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_INIT_COMMAND = 1002;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_LOCAL_INFILE = 1001;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_CA = 1009;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_CAPATH = 1010;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_CERT = 1008;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_CIPHER = 1011;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_KEY = 1007;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
+
+    /**
+     * @var int
+     */
+    const MYSQL_ATTR_USE_BUFFERED_QUERY = 1000;
+
+    /**
+     * @var int
+     */
+    const NULL_EMPTY_STRING = 1;
+
+    /**
+     * @var int
+     */
+    const NULL_NATURAL = 0;
+
+    /**
+     * @var int
+     */
+    const NULL_TO_STRING = 2;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const ODBC_ATTR_ASSUME_UTF8 = 1001;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const ODBC_ATTR_USE_CURSOR_LIBRARY = 1000;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const ODBC_SQL_USE_DRIVER = 2;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const ODBC_SQL_USE_IF_NEEDED = 0;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const ODBC_SQL_USE_ODBC = 1;
+
+    /**
+     * @var int
+     */
+    const PARAM_BOOL = 5;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_ALLOC = 0;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_EXEC_POST = 3;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_EXEC_PRE = 2;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_FETCH_POST = 5;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_FETCH_PRE = 4;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_FREE = 1;
+
+    /**
+     * @var int
+     */
+    const PARAM_EVT_NORMALIZE = 6;
+
+    /**
+     * @var float
+     */
+    const PARAM_INPUT_OUTPUT = 2147483648;
+
+    /**
+     * @var int
+     */
+    const PARAM_INT = 1;
+
+    /**
+     * @var int
+     */
+    const PARAM_LOB = 3;
+
+    /**
+     * @var int
+     */
+    const PARAM_NULL = 0;
+
+    /**
+     * @var int
+     */
+    const PARAM_STMT = 4;
+
+    /**
+     * @var int
+     */
+    const PARAM_STR = 2;
+
+    /**
+     * @var int
+     */
+    const PARAM_STR_CHAR = 536870912;
+
+    /**
+     * @var int
+     */
+    const PARAM_STR_NATL = 1073741824;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_ATTR_DISABLE_PREPARES = 1000;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_TRANSACTION_ACTIVE = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_TRANSACTION_IDLE = 0;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_TRANSACTION_INERROR = 3;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_TRANSACTION_INTRANS = 2;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const PGSQL_TRANSACTION_UNKNOWN = 4;
+
+    /**
+     * @var int
+     */
+    const SQLITE_DETERMINISTIC = 2048;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_CLIENT_BUFFER_MAX_KB_SIZE = 1004;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_CURSOR_SCROLL_TYPE = 1003;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_DIRECT_QUERY = 1002;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_ENCODING = 1000;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_FETCHES_NUMERIC_TYPE = 1005;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ATTR_QUERY_TIMEOUT = 1001;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_CURSOR_BUFFERED = 42;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_CURSOR_DYNAMIC = 2;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_CURSOR_KEYSET = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_CURSOR_STATIC = 3;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ENCODING_BINARY = 2;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ENCODING_DEFAULT = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ENCODING_SYSTEM = 3;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_ENCODING_UTF8 = 65001;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const SQLSRV_PARAM_OUT_DEFAULT_SIZE = -1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var string
+     */
+    const SQLSRV_TXN_READ_COMMITTED = 'READ_COMMITTED';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var string
+     */
+    const SQLSRV_TXN_READ_UNCOMMITTED = 'READ_UNCOMMITTED';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var string
+     */
+    const SQLSRV_TXN_REPEATABLE_READ = 'REPEATABLE_READ';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var string
+     */
+    const SQLSRV_TXN_SERIALIZABLE = 'SERIALIZABLE';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var string
+     */
+    const SQLSRV_TXN_SNAPSHOT = 'SNAPSHOT';
+
+    /**
      * Creates a PDO instance representing a connection to a database
      *
      * @param mixed $dsn

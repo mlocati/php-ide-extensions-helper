@@ -40,6 +40,66 @@ const SOLR_PATCH_VERSION = 0;
 class SolrClient
 {
     /**
+     * @var string
+     */
+    const DEFAULT_PING_SERVLET = 'admin/ping';
+
+    /**
+     * @var string
+     */
+    const DEFAULT_SEARCH_SERVLET = 'select';
+
+    /**
+     * @var string
+     */
+    const DEFAULT_SYSTEM_SERVLET = 'admin/system';
+
+    /**
+     * @var string
+     */
+    const DEFAULT_TERMS_SERVLET = 'terms';
+
+    /**
+     * @var string
+     */
+    const DEFAULT_THREADS_SERVLET = 'admin/threads';
+
+    /**
+     * @var string
+     */
+    const DEFAULT_UPDATE_SERVLET = 'update';
+
+    /**
+     * @var int
+     */
+    const PING_SERVLET_TYPE = 8;
+
+    /**
+     * @var int
+     */
+    const SEARCH_SERVLET_TYPE = 1;
+
+    /**
+     * @var int
+     */
+    const SYSTEM_SERVLET_TYPE = 32;
+
+    /**
+     * @var int
+     */
+    const TERMS_SERVLET_TYPE = 16;
+
+    /**
+     * @var int
+     */
+    const THREADS_SERVLET_TYPE = 4;
+
+    /**
+     * @var int
+     */
+    const UPDATE_SERVLET_TYPE = 2;
+
+    /**
      * @since PECL solr >= 0.9.2
      */
     public function __clone()
@@ -414,6 +474,21 @@ class SolrClientException extends SolrException
  */
 class SolrCollapseFunction
 {
+    /**
+     * @var string
+     */
+    const NULLPOLICY_COLLAPSE = 'collapse';
+
+    /**
+     * @var string
+     */
+    const NULLPOLICY_EXPAND = 'expand';
+
+    /**
+     * @var string
+     */
+    const NULLPOLICY_IGNORE = 'ignore';
+
     /**
      * Constructor
      *
@@ -1003,6 +1078,36 @@ class SolrDisMaxQuery extends SolrQuery
  */
 final class SolrDocument implements ArrayAccess, Iterator, Serializable
 {
+    /**
+     * @var int
+     */
+    const SORT_ASC = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_DEFAULT = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_DESC = 2;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_BOOST_VALUE = 4;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_NAME = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_VALUE_COUNT = 2;
+
     /**
      * Creates a copy of a SolrDocument object
      *
@@ -1612,6 +1717,36 @@ class SolrIllegalOperationException extends SolrException
  */
 final class SolrInputDocument
 {
+    /**
+     * @var int
+     */
+    const SORT_ASC = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_DEFAULT = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_DESC = 2;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_BOOST_VALUE = 4;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_NAME = 1;
+
+    /**
+     * @var int
+     */
+    const SORT_FIELD_VALUE_COUNT = 2;
+
     /**
      * Creates a copy of a SolrDocument
      *
@@ -2340,6 +2475,36 @@ final class SolrPingResponse extends SolrResponse
  */
 class SolrQuery extends SolrModifiableParams
 {
+    /**
+     * @var int
+     */
+    const FACET_SORT_COUNT = 1;
+
+    /**
+     * @var int
+     */
+    const FACET_SORT_INDEX = 0;
+
+    /**
+     * @var int
+     */
+    const ORDER_ASC = 0;
+
+    /**
+     * @var int
+     */
+    const ORDER_DESC = 1;
+
+    /**
+     * @var int
+     */
+    const TERMS_SORT_COUNT = 1;
+
+    /**
+     * @var int
+     */
+    const TERMS_SORT_INDEX = 0;
+
     /**
      * Constructor
      *
@@ -5172,6 +5337,16 @@ final class SolrQueryResponse extends SolrResponse
  */
 abstract class SolrResponse
 {
+    /**
+     * @var int
+     */
+    const PARSE_SOLR_DOC = 1;
+
+    /**
+     * @var int
+     */
+    const PARSE_SOLR_OBJ = 0;
+
     public function getArrayResponse()
     {
     }

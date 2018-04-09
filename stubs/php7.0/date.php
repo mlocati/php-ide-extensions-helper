@@ -247,6 +247,11 @@ class DateInterval
 class DatePeriod implements Traversable
 {
     /**
+     * @var int
+     */
+    const EXCLUDE_START_DATE = 1;
+
+    /**
      * Creates a new DatePeriod object
      *
      * @param mixed $start
@@ -324,6 +329,71 @@ class DatePeriod implements Traversable
  */
 class DateTime implements DateTimeInterface
 {
+    /**
+     * @var string
+     */
+    const ATOM = 'Y-m-d\\TH:i:sP';
+
+    /**
+     * @var string
+     */
+    const COOKIE = 'l, d-M-Y H:i:s T';
+
+    /**
+     * @var string
+     */
+    const ISO8601 = 'Y-m-d\\TH:i:sO';
+
+    /**
+     * @var string
+     */
+    const RFC1036 = 'D, d M y H:i:s O';
+
+    /**
+     * @var string
+     */
+    const RFC1123 = 'D, d M Y H:i:s O';
+
+    /**
+     * @var string
+     */
+    const RFC2822 = 'D, d M Y H:i:s O';
+
+    /**
+     * @var string
+     */
+    const RFC3339 = 'Y-m-d\\TH:i:sP';
+
+    /**
+     * @var string
+     */
+    const RFC3339_EXTENDED = 'Y-m-d\\TH:i:s.vP';
+
+    /**
+     * @var string
+     */
+    const RFC7231 = 'D, d M Y H:i:s \\G\\M\\T';
+
+    /**
+     * @var string
+     */
+    const RFC822 = 'D, d M y H:i:s O';
+
+    /**
+     * @var string
+     */
+    const RFC850 = 'l, d-M-y H:i:s T';
+
+    /**
+     * @var string
+     */
+    const RSS = 'D, d M Y H:i:s O';
+
+    /**
+     * @var string
+     */
+    const W3C = 'Y-m-d\\TH:i:sP';
+
     /**
      * Returns new DateTime object
      *
@@ -894,6 +964,76 @@ class DateTimeImmutable implements DateTimeInterface
  */
 class DateTimeZone
 {
+    /**
+     * @var int
+     */
+    const AFRICA = 1;
+
+    /**
+     * @var int
+     */
+    const ALL = 2047;
+
+    /**
+     * @var int
+     */
+    const ALL_WITH_BC = 4095;
+
+    /**
+     * @var int
+     */
+    const AMERICA = 2;
+
+    /**
+     * @var int
+     */
+    const ANTARCTICA = 4;
+
+    /**
+     * @var int
+     */
+    const ARCTIC = 8;
+
+    /**
+     * @var int
+     */
+    const ASIA = 16;
+
+    /**
+     * @var int
+     */
+    const ATLANTIC = 32;
+
+    /**
+     * @var int
+     */
+    const AUSTRALIA = 64;
+
+    /**
+     * @var int
+     */
+    const EUROPE = 128;
+
+    /**
+     * @var int
+     */
+    const INDIAN = 256;
+
+    /**
+     * @var int
+     */
+    const PACIFIC = 512;
+
+    /**
+     * @var int
+     */
+    const PER_COUNTRY = 4096;
+
+    /**
+     * @var int
+     */
+    const UTC = 1024;
+
     /**
      * Creates new DateTimeZone object
      *

@@ -661,7 +661,7 @@ EOF
         $this->currentWriter->writeln($header . "\n{");
         $this->currentWriter->increaseIndentation();
         $firstChildren = true;
-        // @todo $this->writeClassConstants($interfaceElement, $firstChildren);
+        $this->writeClassConstants($extensionElement, $interfaceElement, $firstChildren);
         // @todo $this->writeClassProperties($interfaceElement, $firstChildren);
         $this->writeClassMethods($extensionElement, $interfaceElement, $firstChildren);
         $this->currentWriter->decreaseIndentation();
@@ -716,7 +716,7 @@ EOF
         $this->currentWriter->writeln($header . "\n{");
         $this->currentWriter->increaseIndentation();
         $firstChildren = true;
-        // @todo $this->writeClassConstants($classElement, $firstChildren);
+        $this->writeClassConstants($extensionElement, $classElement, $firstChildren);
         // @todo $this->writeClassProperties($classElement, $firstChildren);
         $this->writeClassMethods($extensionElement, $classElement, $firstChildren);
         $this->currentWriter->decreaseIndentation();
@@ -726,24 +726,38 @@ EOF
     /**
      * Output the interface/class constants.
      *
+     * @param DOMElement $extensionElement
+     *            The extension XML element
      * @param DOMElement $classElement
      *            The interface/class XML element
      * @param bool $firstChildren
      *            Is this the first child of the class?
      */
-    private function writeClassConstants(DOMElement $classElement, &$firstChildren)
+    private function writeClassConstants(DOMElement $extensionElement, DOMElement $classElement, &$firstChildren)
     {
+        $prefix = null;
         foreach ($this->inputXPath->query('./ns:constant', $classElement) as $constantElement) {
             if ($firstChildren) {
                 $firstChildren = false;
             } else {
                 $this->currentWriter->writeln();
             }
+            if ($prefix === null) {
+                $namespace = $classElement->getAttribute('namespace');
+                $className = $classElement->getAttribute('name');
+                $prefix = $namespace === '' ? "{$className}::" : "{$namespace}\\{$className}::";
+            }
+            $name = $constantElement->getAttribute('name');
+            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSCONSTANT);
             $value = new ValueData($constantElement->getAttribute('value'));
-            $this->currentWriter->startPHPDoc();
-            $this->currentWriter->writeln('@var ' . $value->phpDocType);
-            $this->currentWriter->stopPHPDoc();
-            $this->currentWriter->writeln('const ' . $constantElement->getAttribute('name') . ' = ' . $value->phpValue . ';');
+            $this->currentWriter->writePHPDocParts(array(
+                $info !== null ? $info->description : '',
+                $this->getOSTagWarning($extensionElement, $constantElement),
+                $info !== null ? $info->getVersionPHPDoc() : '',
+                '@var ' . $value->phpDocType,
+                $info !== null && $info->url !== '' ? '@link ' . $info->url : ''
+            ));
+            $this->currentWriter->writeln('const ' . $name . ' = ' . $value->phpValue . ';');
         }
     }
 

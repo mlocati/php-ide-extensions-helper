@@ -998,6 +998,126 @@ const ULOC_VALID_LOCALE = 1;
 class Collator
 {
     /**
+     * @var int
+     */
+    const ALTERNATE_HANDLING = 1;
+
+    /**
+     * @var int
+     */
+    const CASE_FIRST = 2;
+
+    /**
+     * @var int
+     */
+    const CASE_LEVEL = 3;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_STRENGTH = 2;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_VALUE = -1;
+
+    /**
+     * @var int
+     */
+    const FRENCH_COLLATION = 0;
+
+    /**
+     * @var int
+     */
+    const HIRAGANA_QUATERNARY_MODE = 6;
+
+    /**
+     * @var int
+     */
+    const IDENTICAL = 15;
+
+    /**
+     * @var int
+     */
+    const LOWER_FIRST = 24;
+
+    /**
+     * @var int
+     */
+    const NON_IGNORABLE = 21;
+
+    /**
+     * @var int
+     */
+    const NORMALIZATION_MODE = 4;
+
+    /**
+     * @var int
+     */
+    const NUMERIC_COLLATION = 7;
+
+    /**
+     * @var int
+     */
+    const OFF = 16;
+
+    /**
+     * @var int
+     */
+    const ON = 17;
+
+    /**
+     * @var int
+     */
+    const PRIMARY = 0;
+
+    /**
+     * @var int
+     */
+    const QUATERNARY = 3;
+
+    /**
+     * @var int
+     */
+    const SECONDARY = 1;
+
+    /**
+     * @var int
+     */
+    const SHIFTED = 20;
+
+    /**
+     * @var int
+     */
+    const SORT_NUMERIC = 2;
+
+    /**
+     * @var int
+     */
+    const SORT_REGULAR = 0;
+
+    /**
+     * @var int
+     */
+    const SORT_STRING = 1;
+
+    /**
+     * @var int
+     */
+    const STRENGTH = 5;
+
+    /**
+     * @var int
+     */
+    const TERTIARY = 2;
+
+    /**
+     * @var int
+     */
+    const UPPER_FIRST = 25;
+
+    /**
      * Create a collator
      *
      * @param mixed $arg1
@@ -1220,6 +1340,101 @@ class Collator
  */
 class IntlBreakIterator implements Traversable
 {
+    /**
+     * @var int
+     */
+    const DONE = -1;
+
+    /**
+     * @var int
+     */
+    const LINE_HARD = 100;
+
+    /**
+     * @var int
+     */
+    const LINE_HARD_LIMIT = 200;
+
+    /**
+     * @var int
+     */
+    const LINE_SOFT = 0;
+
+    /**
+     * @var int
+     */
+    const LINE_SOFT_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_SEP = 100;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_SEP_LIMIT = 200;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_TERM = 0;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_TERM_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_IDEO = 400;
+
+    /**
+     * @var int
+     */
+    const WORD_IDEO_LIMIT = 500;
+
+    /**
+     * @var int
+     */
+    const WORD_KANA = 300;
+
+    /**
+     * @var int
+     */
+    const WORD_KANA_LIMIT = 400;
+
+    /**
+     * @var int
+     */
+    const WORD_LETTER = 200;
+
+    /**
+     * @var int
+     */
+    const WORD_LETTER_LIMIT = 300;
+
+    /**
+     * @var int
+     */
+    const WORD_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const WORD_NONE_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_NUMBER = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_NUMBER_LIMIT = 200;
+
     /**
      * Private constructor for disallowing instantiation
      *
@@ -1523,6 +1738,201 @@ class IntlBreakIterator implements Traversable
  */
 class IntlCalendar
 {
+    /**
+     * @var int
+     */
+    const DOW_FRIDAY = 6;
+
+    /**
+     * @var int
+     */
+    const DOW_MONDAY = 2;
+
+    /**
+     * @var int
+     */
+    const DOW_SATURDAY = 7;
+
+    /**
+     * @var int
+     */
+    const DOW_SUNDAY = 1;
+
+    /**
+     * @var int
+     */
+    const DOW_THURSDAY = 5;
+
+    /**
+     * @var int
+     */
+    const DOW_TUESDAY = 3;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKDAY = 0;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND = 1;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND_CEASE = 3;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND_OFFSET = 2;
+
+    /**
+     * @var int
+     */
+    const DOW_WEDNESDAY = 4;
+
+    /**
+     * @var int
+     */
+    const FIELD_AM_PM = 9;
+
+    /**
+     * @var int
+     */
+    const FIELD_DATE = 5;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_MONTH = 5;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_WEEK = 7;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_YEAR = 6;
+
+    /**
+     * @var int
+     */
+    const FIELD_DOW_LOCAL = 18;
+
+    /**
+     * @var int
+     */
+    const FIELD_DST_OFFSET = 16;
+
+    /**
+     * @var int
+     */
+    const FIELD_ERA = 0;
+
+    /**
+     * @var int
+     */
+    const FIELD_EXTENDED_YEAR = 19;
+
+    /**
+     * @var int
+     */
+    const FIELD_FIELD_COUNT = 23;
+
+    /**
+     * @var int
+     */
+    const FIELD_HOUR = 10;
+
+    /**
+     * @var int
+     */
+    const FIELD_HOUR_OF_DAY = 11;
+
+    /**
+     * @var int
+     */
+    const FIELD_IS_LEAP_MONTH = 22;
+
+    /**
+     * @var int
+     */
+    const FIELD_JULIAN_DAY = 20;
+
+    /**
+     * @var int
+     */
+    const FIELD_MILLISECOND = 14;
+
+    /**
+     * @var int
+     */
+    const FIELD_MILLISECONDS_IN_DAY = 21;
+
+    /**
+     * @var int
+     */
+    const FIELD_MINUTE = 12;
+
+    /**
+     * @var int
+     */
+    const FIELD_MONTH = 2;
+
+    /**
+     * @var int
+     */
+    const FIELD_SECOND = 13;
+
+    /**
+     * @var int
+     */
+    const FIELD_WEEK_OF_MONTH = 4;
+
+    /**
+     * @var int
+     */
+    const FIELD_WEEK_OF_YEAR = 3;
+
+    /**
+     * @var int
+     */
+    const FIELD_YEAR = 1;
+
+    /**
+     * @var int
+     */
+    const FIELD_YEAR_WOY = 17;
+
+    /**
+     * @var int
+     */
+    const FIELD_ZONE_OFFSET = 15;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_FIRST = 1;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_LAST = 0;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_NEXT_VALID = 2;
+
     /**
      * Private constructor for disallowing instantiation
      *
@@ -2203,6 +2613,3321 @@ class IntlCalendar
  */
 class IntlChar
 {
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_AEGEAN_NUMBERS = 119;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ALCHEMICAL_SYMBOLS = 208;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ALPHABETIC_PRESENTATION_FORMS = 80;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ANCIENT_GREEK_MUSICAL_NOTATION = 126;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ANCIENT_GREEK_NUMBERS = 127;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ANCIENT_SYMBOLS = 165;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC = 12;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC_EXTENDED_A = 210;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS = 211;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_A = 81;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_B = 85;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARABIC_SUPPLEMENT = 128;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARMENIAN = 10;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ARROWS = 46;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_AVESTAN = 188;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BALINESE = 147;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BAMUM = 177;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BAMUM_SUPPLEMENT = 202;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BASIC_LATIN = 1;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BASSA_VAH = 221;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BATAK = 199;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BENGALI = 16;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BLOCK_ELEMENTS = 53;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BOPOMOFO = 64;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BOPOMOFO_EXTENDED = 67;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BOX_DRAWING = 52;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BRAHMI = 201;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BRAILLE_PATTERNS = 57;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BUGINESE = 129;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BUHID = 100;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_BYZANTINE_MUSICAL_SYMBOLS = 91;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CARIAN = 168;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CAUCASIAN_ALBANIAN = 222;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CHAKMA = 212;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CHAM = 164;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CHEROKEE = 32;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_COMPATIBILITY = 69;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_COMPATIBILITY_FORMS = 83;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS = 79;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT = 95;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_RADICALS_SUPPLEMENT = 58;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_STROKES = 130;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_SYMBOLS_AND_PUNCTUATION = 61;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS = 71;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A = 70;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B = 94;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C = 197;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D = 209;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS = 7;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_EXTENDED = 224;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT = 131;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMBINING_HALF_MARKS = 82;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMBINING_MARKS_FOR_SYMBOLS = 43;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COMMON_INDIC_NUMBER_FORMS = 178;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CONTROL_PICTURES = 49;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COPTIC = 132;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COPTIC_EPACT_NUMBERS = 223;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COUNT = 263;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_COUNTING_ROD_NUMERALS = 154;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CUNEIFORM = 152;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CUNEIFORM_NUMBERS_AND_PUNCTUATION = 153;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CURRENCY_SYMBOLS = 42;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYPRIOT_SYLLABARY = 123;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYRILLIC = 9;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYRILLIC_EXTENDED_A = 158;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYRILLIC_EXTENDED_B = 160;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYRILLIC_SUPPLEMENT = 97;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_CYRILLIC_SUPPLEMENTARY = 97;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DESERET = 90;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DEVANAGARI = 15;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DEVANAGARI_EXTENDED = 179;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DINGBATS = 56;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DOMINO_TILES = 171;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_DUPLOYAN = 225;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_EGYPTIAN_HIEROGLYPHS = 194;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ELBASAN = 226;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_EMOTICONS = 206;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ENCLOSED_ALPHANUMERIC_SUPPLEMENT = 195;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ENCLOSED_ALPHANUMERICS = 51;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ENCLOSED_CJK_LETTERS_AND_MONTHS = 68;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT = 196;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ETHIOPIC = 31;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ETHIOPIC_EXTENDED = 133;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ETHIOPIC_EXTENDED_A = 200;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ETHIOPIC_SUPPLEMENT = 134;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GENERAL_PUNCTUATION = 40;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GEOMETRIC_SHAPES = 54;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GEOMETRIC_SHAPES_EXTENDED = 227;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GEORGIAN = 29;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GEORGIAN_SUPPLEMENT = 135;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GLAGOLITIC = 136;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GOTHIC = 89;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GRANTHA = 228;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GREEK = 8;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GREEK_EXTENDED = 39;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GUJARATI = 18;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_GURMUKHI = 17;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HALFWIDTH_AND_FULLWIDTH_FORMS = 87;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANGUL_COMPATIBILITY_JAMO = 65;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANGUL_JAMO = 30;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANGUL_JAMO_EXTENDED_A = 180;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANGUL_JAMO_EXTENDED_B = 185;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANGUL_SYLLABLES = 74;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HANUNOO = 99;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HEBREW = 11;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HIGH_PRIVATE_USE_SURROGATES = 76;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HIGH_SURROGATES = 75;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_HIRAGANA = 62;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_IDEOGRAPHIC_DESCRIPTION_CHARACTERS = 60;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_IMPERIAL_ARAMAIC = 186;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_INSCRIPTIONAL_PAHLAVI = 190;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_INSCRIPTIONAL_PARTHIAN = 189;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_INVALID_CODE = -1;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_IPA_EXTENSIONS = 5;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_JAVANESE = 181;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KAITHI = 193;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KANA_SUPPLEMENT = 203;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KANBUN = 66;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KANGXI_RADICALS = 59;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KANNADA = 22;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KATAKANA = 63;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KATAKANA_PHONETIC_EXTENSIONS = 107;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KAYAH_LI = 162;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KHAROSHTHI = 137;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KHMER = 36;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KHMER_SYMBOLS = 113;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KHOJKI = 229;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_KHUDAWADI = 230;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LAO = 26;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_1_SUPPLEMENT = 2;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_A = 3;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_ADDITIONAL = 38;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_B = 4;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_C = 148;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_D = 149;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LATIN_EXTENDED_E = 231;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LEPCHA = 156;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LETTERLIKE_SYMBOLS = 44;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LIMBU = 111;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LINEAR_A = 232;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LINEAR_B_IDEOGRAMS = 118;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LINEAR_B_SYLLABARY = 117;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LISU = 176;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LOW_SURROGATES = 77;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LYCIAN = 167;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_LYDIAN = 169;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MAHAJANI = 233;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MAHJONG_TILES = 170;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MALAYALAM = 23;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MANDAIC = 198;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MANICHAEAN = 234;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MATHEMATICAL_ALPHANUMERIC_SYMBOLS = 93;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MATHEMATICAL_OPERATORS = 47;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MEETEI_MAYEK = 184;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MEETEI_MAYEK_EXTENSIONS = 213;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MENDE_KIKAKUI = 235;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MEROITIC_CURSIVE = 214;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MEROITIC_HIEROGLYPHS = 215;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MIAO = 216;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A = 102;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B = 105;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_SYMBOLS = 55;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_ARROWS = 115;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS = 205;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MISCELLANEOUS_TECHNICAL = 48;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MODI = 236;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MODIFIER_TONE_LETTERS = 138;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MONGOLIAN = 37;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MRO = 237;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MUSICAL_SYMBOLS = 92;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MYANMAR = 28;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MYANMAR_EXTENDED_A = 182;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_MYANMAR_EXTENDED_B = 238;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_NABATAEAN = 239;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_NEW_TAI_LUE = 139;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_NKO = 146;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_NO_BLOCK = 0;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_NUMBER_FORMS = 45;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OGHAM = 34;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OL_CHIKI = 157;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_ITALIC = 88;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_NORTH_ARABIAN = 240;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_PERMIC = 241;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_PERSIAN = 140;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_SOUTH_ARABIAN = 187;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OLD_TURKIC = 191;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OPTICAL_CHARACTER_RECOGNITION = 50;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ORIYA = 19;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_ORNAMENTAL_DINGBATS = 242;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_OSMANYA = 122;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PAHAWH_HMONG = 243;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PALMYRENE = 244;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PAU_CIN_HAU = 245;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PHAGS_PA = 150;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PHAISTOS_DISC = 166;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PHOENICIAN = 151;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PHONETIC_EXTENSIONS = 114;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PHONETIC_EXTENSIONS_SUPPLEMENT = 141;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PLAYING_CARDS = 204;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PRIVATE_USE = 78;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PRIVATE_USE_AREA = 78;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_PSALTER_PAHLAVI = 246;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_REJANG = 163;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_RUMI_NUMERAL_SYMBOLS = 192;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_RUNIC = 35;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SAMARITAN = 172;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SAURASHTRA = 161;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SHARADA = 217;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SHAVIAN = 121;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SHORTHAND_FORMAT_CONTROLS = 247;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SIDDHAM = 248;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SINHALA = 24;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SINHALA_ARCHAIC_NUMBERS = 249;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SMALL_FORM_VARIANTS = 84;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SORA_SOMPENG = 218;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SPACING_MODIFIER_LETTERS = 6;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SPECIALS = 86;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUNDANESE = 155;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUNDANESE_SUPPLEMENT = 219;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPERSCRIPTS_AND_SUBSCRIPTS = 41;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTAL_ARROWS_A = 103;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTAL_ARROWS_B = 104;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTAL_ARROWS_C = 250;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTAL_MATHEMATICAL_OPERATORS = 106;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTAL_PUNCTUATION = 142;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_A = 109;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_B = 110;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SYLOTI_NAGRI = 143;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_SYRIAC = 13;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAGALOG = 98;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAGBANWA = 101;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAGS = 96;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAI_LE = 112;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAI_THAM = 174;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAI_VIET = 183;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAI_XUAN_JING_SYMBOLS = 124;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAKRI = 220;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TAMIL = 20;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TELUGU = 21;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_THAANA = 14;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_THAI = 25;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TIBETAN = 27;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TIFINAGH = 144;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TIRHUTA = 251;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_TRANSPORT_AND_MAP_SYMBOLS = 207;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_UGARITIC = 120;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS = 33;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = 173;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_VAI = 159;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_VARIATION_SELECTORS = 108;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_VARIATION_SELECTORS_SUPPLEMENT = 125;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_VEDIC_EXTENSIONS = 175;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_VERTICAL_FORMS = 145;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_WARANG_CITI = 252;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_YI_RADICALS = 73;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_YI_SYLLABLES = 72;
+
+    /**
+     * @var int
+     */
+    const BLOCK_CODE_YIJING_HEXAGRAM_SYMBOLS = 116;
+
+    /**
+     * @var int
+     */
+    const BPT_CLOSE = 2;
+
+    /**
+     * @var int
+     */
+    const BPT_COUNT = 3;
+
+    /**
+     * @var int
+     */
+    const BPT_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const BPT_OPEN = 1;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_CHAR_CATEGORY_COUNT = 30;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_COMBINING_SPACING_MARK = 8;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_CONNECTOR_PUNCTUATION = 22;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_CONTROL_CHAR = 15;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_CURRENCY_SYMBOL = 25;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_DASH_PUNCTUATION = 19;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER = 9;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_ENCLOSING_MARK = 7;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_END_PUNCTUATION = 21;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_FINAL_PUNCTUATION = 29;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_FORMAT_CHAR = 16;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_GENERAL_OTHER_TYPES = 0;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_INITIAL_PUNCTUATION = 28;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_LETTER_NUMBER = 10;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_LINE_SEPARATOR = 13;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_LOWERCASE_LETTER = 2;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_MATH_SYMBOL = 24;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_MODIFIER_LETTER = 4;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_MODIFIER_SYMBOL = 26;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_NON_SPACING_MARK = 6;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_OTHER_LETTER = 5;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_OTHER_NUMBER = 11;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_OTHER_PUNCTUATION = 23;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_OTHER_SYMBOL = 27;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_PARAGRAPH_SEPARATOR = 14;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_PRIVATE_USE_CHAR = 17;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_SPACE_SEPARATOR = 12;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_START_PUNCTUATION = 20;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_SURROGATE = 18;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_TITLECASE_LETTER = 3;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_UNASSIGNED = 0;
+
+    /**
+     * @var int
+     */
+    const CHAR_CATEGORY_UPPERCASE_LETTER = 1;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_ARABIC_NUMBER = 5;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_BLOCK_SEPARATOR = 7;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_BOUNDARY_NEUTRAL = 18;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_CHAR_DIRECTION_COUNT = 23;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR = 6;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_DIR_NON_SPACING_MARK = 17;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_EUROPEAN_NUMBER = 2;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR = 3;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR = 4;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_FIRST_STRONG_ISOLATE = 19;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_LEFT_TO_RIGHT = 0;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING = 11;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE = 20;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE = 12;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_OTHER_NEUTRAL = 10;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT = 16;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE = 22;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_RIGHT_TO_LEFT = 1;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC = 13;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING = 14;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE = 21;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE = 15;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_SEGMENT_SEPARATOR = 8;
+
+    /**
+     * @var int
+     */
+    const CHAR_DIRECTION_WHITE_SPACE_NEUTRAL = 9;
+
+    /**
+     * @var int
+     */
+    const CHAR_NAME_ALIAS = 3;
+
+    /**
+     * @var int
+     */
+    const CHAR_NAME_CHOICE_COUNT = 4;
+
+    /**
+     * @var int
+     */
+    const CODEPOINT_MAX = 1114111;
+
+    /**
+     * @var int
+     */
+    const CODEPOINT_MIN = 0;
+
+    /**
+     * @var int
+     */
+    const DT_CANONICAL = 1;
+
+    /**
+     * @var int
+     */
+    const DT_CIRCLE = 3;
+
+    /**
+     * @var int
+     */
+    const DT_COMPAT = 2;
+
+    /**
+     * @var int
+     */
+    const DT_COUNT = 18;
+
+    /**
+     * @var int
+     */
+    const DT_FINAL = 4;
+
+    /**
+     * @var int
+     */
+    const DT_FONT = 5;
+
+    /**
+     * @var int
+     */
+    const DT_FRACTION = 6;
+
+    /**
+     * @var int
+     */
+    const DT_INITIAL = 7;
+
+    /**
+     * @var int
+     */
+    const DT_ISOLATED = 8;
+
+    /**
+     * @var int
+     */
+    const DT_MEDIAL = 9;
+
+    /**
+     * @var int
+     */
+    const DT_NARROW = 10;
+
+    /**
+     * @var int
+     */
+    const DT_NOBREAK = 11;
+
+    /**
+     * @var int
+     */
+    const DT_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const DT_SMALL = 12;
+
+    /**
+     * @var int
+     */
+    const DT_SQUARE = 13;
+
+    /**
+     * @var int
+     */
+    const DT_SUB = 14;
+
+    /**
+     * @var int
+     */
+    const DT_SUPER = 15;
+
+    /**
+     * @var int
+     */
+    const DT_VERTICAL = 16;
+
+    /**
+     * @var int
+     */
+    const DT_WIDE = 17;
+
+    /**
+     * @var int
+     */
+    const EA_AMBIGUOUS = 1;
+
+    /**
+     * @var int
+     */
+    const EA_COUNT = 6;
+
+    /**
+     * @var int
+     */
+    const EA_FULLWIDTH = 3;
+
+    /**
+     * @var int
+     */
+    const EA_HALFWIDTH = 2;
+
+    /**
+     * @var int
+     */
+    const EA_NARROW = 4;
+
+    /**
+     * @var int
+     */
+    const EA_NEUTRAL = 0;
+
+    /**
+     * @var int
+     */
+    const EA_WIDE = 5;
+
+    /**
+     * @var int
+     */
+    const EXTENDED_CHAR_NAME = 2;
+
+    /**
+     * @var int
+     */
+    const FOLD_CASE_DEFAULT = 0;
+
+    /**
+     * @var int
+     */
+    const FOLD_CASE_EXCLUDE_SPECIAL_I = 1;
+
+    /**
+     * @var int
+     */
+    const GCB_CONTROL = 1;
+
+    /**
+     * @var int
+     */
+    const GCB_COUNT = 13;
+
+    /**
+     * @var int
+     */
+    const GCB_CR = 2;
+
+    /**
+     * @var int
+     */
+    const GCB_EXTEND = 3;
+
+    /**
+     * @var int
+     */
+    const GCB_L = 4;
+
+    /**
+     * @var int
+     */
+    const GCB_LF = 5;
+
+    /**
+     * @var int
+     */
+    const GCB_LV = 6;
+
+    /**
+     * @var int
+     */
+    const GCB_LVT = 7;
+
+    /**
+     * @var int
+     */
+    const GCB_OTHER = 0;
+
+    /**
+     * @var int
+     */
+    const GCB_PREPEND = 11;
+
+    /**
+     * @var int
+     */
+    const GCB_REGIONAL_INDICATOR = 12;
+
+    /**
+     * @var int
+     */
+    const GCB_SPACING_MARK = 10;
+
+    /**
+     * @var int
+     */
+    const GCB_T = 8;
+
+    /**
+     * @var int
+     */
+    const GCB_V = 9;
+
+    /**
+     * @var int
+     */
+    const HST_COUNT = 6;
+
+    /**
+     * @var int
+     */
+    const HST_LEADING_JAMO = 1;
+
+    /**
+     * @var int
+     */
+    const HST_LV_SYLLABLE = 4;
+
+    /**
+     * @var int
+     */
+    const HST_LVT_SYLLABLE = 5;
+
+    /**
+     * @var int
+     */
+    const HST_NOT_APPLICABLE = 0;
+
+    /**
+     * @var int
+     */
+    const HST_TRAILING_JAMO = 3;
+
+    /**
+     * @var int
+     */
+    const HST_VOWEL_JAMO = 2;
+
+    /**
+     * @var int
+     */
+    const JG_AIN = 1;
+
+    /**
+     * @var int
+     */
+    const JG_ALAPH = 2;
+
+    /**
+     * @var int
+     */
+    const JG_ALEF = 3;
+
+    /**
+     * @var int
+     */
+    const JG_BEH = 4;
+
+    /**
+     * @var int
+     */
+    const JG_BETH = 5;
+
+    /**
+     * @var int
+     */
+    const JG_BURUSHASKI_YEH_BARREE = 54;
+
+    /**
+     * @var int
+     */
+    const JG_COUNT = 86;
+
+    /**
+     * @var int
+     */
+    const JG_DAL = 6;
+
+    /**
+     * @var int
+     */
+    const JG_DALATH_RISH = 7;
+
+    /**
+     * @var int
+     */
+    const JG_E = 8;
+
+    /**
+     * @var int
+     */
+    const JG_FARSI_YEH = 55;
+
+    /**
+     * @var int
+     */
+    const JG_FE = 51;
+
+    /**
+     * @var int
+     */
+    const JG_FEH = 9;
+
+    /**
+     * @var int
+     */
+    const JG_FINAL_SEMKATH = 10;
+
+    /**
+     * @var int
+     */
+    const JG_GAF = 11;
+
+    /**
+     * @var int
+     */
+    const JG_GAMAL = 12;
+
+    /**
+     * @var int
+     */
+    const JG_HAH = 13;
+
+    /**
+     * @var int
+     */
+    const JG_HAMZA_ON_HEH_GOAL = 14;
+
+    /**
+     * @var int
+     */
+    const JG_HE = 15;
+
+    /**
+     * @var int
+     */
+    const JG_HEH = 16;
+
+    /**
+     * @var int
+     */
+    const JG_HEH_GOAL = 17;
+
+    /**
+     * @var int
+     */
+    const JG_HETH = 18;
+
+    /**
+     * @var int
+     */
+    const JG_KAF = 19;
+
+    /**
+     * @var int
+     */
+    const JG_KAPH = 20;
+
+    /**
+     * @var int
+     */
+    const JG_KHAPH = 52;
+
+    /**
+     * @var int
+     */
+    const JG_KNOTTED_HEH = 21;
+
+    /**
+     * @var int
+     */
+    const JG_LAM = 22;
+
+    /**
+     * @var int
+     */
+    const JG_LAMADH = 23;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_ALEPH = 58;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_AYIN = 59;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_BETH = 60;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_DALETH = 61;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_DHAMEDH = 62;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_FIVE = 63;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_GIMEL = 64;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_HETH = 65;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_HUNDRED = 66;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_KAPH = 67;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_LAMEDH = 68;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_MEM = 69;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_NUN = 70;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_ONE = 71;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_PE = 72;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_QOPH = 73;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_RESH = 74;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_SADHE = 75;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_SAMEKH = 76;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_TAW = 77;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_TEN = 78;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_TETH = 79;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_THAMEDH = 80;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_TWENTY = 81;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_WAW = 82;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_YODH = 83;
+
+    /**
+     * @var int
+     */
+    const JG_MANICHAEAN_ZAYIN = 84;
+
+    /**
+     * @var int
+     */
+    const JG_MEEM = 24;
+
+    /**
+     * @var int
+     */
+    const JG_MIM = 25;
+
+    /**
+     * @var int
+     */
+    const JG_NO_JOINING_GROUP = 0;
+
+    /**
+     * @var int
+     */
+    const JG_NOON = 26;
+
+    /**
+     * @var int
+     */
+    const JG_NUN = 27;
+
+    /**
+     * @var int
+     */
+    const JG_NYA = 56;
+
+    /**
+     * @var int
+     */
+    const JG_PE = 28;
+
+    /**
+     * @var int
+     */
+    const JG_QAF = 29;
+
+    /**
+     * @var int
+     */
+    const JG_QAPH = 30;
+
+    /**
+     * @var int
+     */
+    const JG_REH = 31;
+
+    /**
+     * @var int
+     */
+    const JG_REVERSED_PE = 32;
+
+    /**
+     * @var int
+     */
+    const JG_ROHINGYA_YEH = 57;
+
+    /**
+     * @var int
+     */
+    const JG_SAD = 33;
+
+    /**
+     * @var int
+     */
+    const JG_SADHE = 34;
+
+    /**
+     * @var int
+     */
+    const JG_SEEN = 35;
+
+    /**
+     * @var int
+     */
+    const JG_SEMKATH = 36;
+
+    /**
+     * @var int
+     */
+    const JG_SHIN = 37;
+
+    /**
+     * @var int
+     */
+    const JG_STRAIGHT_WAW = 85;
+
+    /**
+     * @var int
+     */
+    const JG_SWASH_KAF = 38;
+
+    /**
+     * @var int
+     */
+    const JG_SYRIAC_WAW = 39;
+
+    /**
+     * @var int
+     */
+    const JG_TAH = 40;
+
+    /**
+     * @var int
+     */
+    const JG_TAW = 41;
+
+    /**
+     * @var int
+     */
+    const JG_TEH_MARBUTA = 42;
+
+    /**
+     * @var int
+     */
+    const JG_TEH_MARBUTA_GOAL = 14;
+
+    /**
+     * @var int
+     */
+    const JG_TETH = 43;
+
+    /**
+     * @var int
+     */
+    const JG_WAW = 44;
+
+    /**
+     * @var int
+     */
+    const JG_YEH = 45;
+
+    /**
+     * @var int
+     */
+    const JG_YEH_BARREE = 46;
+
+    /**
+     * @var int
+     */
+    const JG_YEH_WITH_TAIL = 47;
+
+    /**
+     * @var int
+     */
+    const JG_YUDH = 48;
+
+    /**
+     * @var int
+     */
+    const JG_YUDH_HE = 49;
+
+    /**
+     * @var int
+     */
+    const JG_ZAIN = 50;
+
+    /**
+     * @var int
+     */
+    const JG_ZHAIN = 53;
+
+    /**
+     * @var int
+     */
+    const JT_COUNT = 6;
+
+    /**
+     * @var int
+     */
+    const JT_DUAL_JOINING = 2;
+
+    /**
+     * @var int
+     */
+    const JT_JOIN_CAUSING = 1;
+
+    /**
+     * @var int
+     */
+    const JT_LEFT_JOINING = 3;
+
+    /**
+     * @var int
+     */
+    const JT_NON_JOINING = 0;
+
+    /**
+     * @var int
+     */
+    const JT_RIGHT_JOINING = 4;
+
+    /**
+     * @var int
+     */
+    const JT_TRANSPARENT = 5;
+
+    /**
+     * @var int
+     */
+    const LB_ALPHABETIC = 2;
+
+    /**
+     * @var int
+     */
+    const LB_AMBIGUOUS = 1;
+
+    /**
+     * @var int
+     */
+    const LB_BREAK_AFTER = 4;
+
+    /**
+     * @var int
+     */
+    const LB_BREAK_BEFORE = 5;
+
+    /**
+     * @var int
+     */
+    const LB_BREAK_BOTH = 3;
+
+    /**
+     * @var int
+     */
+    const LB_BREAK_SYMBOLS = 27;
+
+    /**
+     * @var int
+     */
+    const LB_CARRIAGE_RETURN = 10;
+
+    /**
+     * @var int
+     */
+    const LB_CLOSE_PARENTHESIS = 36;
+
+    /**
+     * @var int
+     */
+    const LB_CLOSE_PUNCTUATION = 8;
+
+    /**
+     * @var int
+     */
+    const LB_COMBINING_MARK = 9;
+
+    /**
+     * @var int
+     */
+    const LB_COMPLEX_CONTEXT = 24;
+
+    /**
+     * @var int
+     */
+    const LB_CONDITIONAL_JAPANESE_STARTER = 37;
+
+    /**
+     * @var int
+     */
+    const LB_CONTINGENT_BREAK = 7;
+
+    /**
+     * @var int
+     */
+    const LB_COUNT = 40;
+
+    /**
+     * @var int
+     */
+    const LB_EXCLAMATION = 11;
+
+    /**
+     * @var int
+     */
+    const LB_GLUE = 12;
+
+    /**
+     * @var int
+     */
+    const LB_H2 = 31;
+
+    /**
+     * @var int
+     */
+    const LB_H3 = 32;
+
+    /**
+     * @var int
+     */
+    const LB_HEBREW_LETTER = 38;
+
+    /**
+     * @var int
+     */
+    const LB_HYPHEN = 13;
+
+    /**
+     * @var int
+     */
+    const LB_IDEOGRAPHIC = 14;
+
+    /**
+     * @var int
+     */
+    const LB_INFIX_NUMERIC = 16;
+
+    /**
+     * @var int
+     */
+    const LB_INSEPARABLE = 15;
+
+    /**
+     * @var int
+     */
+    const LB_INSEPERABLE = 15;
+
+    /**
+     * @var int
+     */
+    const LB_JL = 33;
+
+    /**
+     * @var int
+     */
+    const LB_JT = 34;
+
+    /**
+     * @var int
+     */
+    const LB_JV = 35;
+
+    /**
+     * @var int
+     */
+    const LB_LINE_FEED = 17;
+
+    /**
+     * @var int
+     */
+    const LB_MANDATORY_BREAK = 6;
+
+    /**
+     * @var int
+     */
+    const LB_NEXT_LINE = 29;
+
+    /**
+     * @var int
+     */
+    const LB_NONSTARTER = 18;
+
+    /**
+     * @var int
+     */
+    const LB_NUMERIC = 19;
+
+    /**
+     * @var int
+     */
+    const LB_OPEN_PUNCTUATION = 20;
+
+    /**
+     * @var int
+     */
+    const LB_POSTFIX_NUMERIC = 21;
+
+    /**
+     * @var int
+     */
+    const LB_PREFIX_NUMERIC = 22;
+
+    /**
+     * @var int
+     */
+    const LB_QUOTATION = 23;
+
+    /**
+     * @var int
+     */
+    const LB_REGIONAL_INDICATOR = 39;
+
+    /**
+     * @var int
+     */
+    const LB_SPACE = 26;
+
+    /**
+     * @var int
+     */
+    const LB_SURROGATE = 25;
+
+    /**
+     * @var int
+     */
+    const LB_UNKNOWN = 0;
+
+    /**
+     * @var int
+     */
+    const LB_WORD_JOINER = 30;
+
+    /**
+     * @var int
+     */
+    const LB_ZWSPACE = 28;
+
+    /**
+     * @var int
+     */
+    const LONG_PROPERTY_NAME = 1;
+
+    /**
+     * @var int
+     */
+    const NO_NUMERIC_VALUE = -123456789;
+
+    /**
+     * @var int
+     */
+    const NT_COUNT = 4;
+
+    /**
+     * @var int
+     */
+    const NT_DECIMAL = 1;
+
+    /**
+     * @var int
+     */
+    const NT_DIGIT = 2;
+
+    /**
+     * @var int
+     */
+    const NT_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const NT_NUMERIC = 3;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_AGE = 16384;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_ALPHABETIC = 0;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_ASCII_HEX_DIGIT = 1;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_CLASS = 4096;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_CONTROL = 2;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_MIRRORED = 3;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_MIRRORING_GLYPH = 16385;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_PAIRED_BRACKET = 16397;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BINARY_LIMIT = 61;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BINARY_START = 0;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_BLOCK = 4097;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CANONICAL_COMBINING_CLASS = 4098;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CASE_FOLDING = 16386;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CASE_IGNORABLE = 50;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CASE_SENSITIVE = 34;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CASED = 49;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_LOWERCASED = 51;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_TITLECASED = 53;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_CHANGES_WHEN_UPPERCASED = 52;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DASH = 4;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DECOMPOSITION_TYPE = 4099;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DEFAULT_IGNORABLE_CODE_POINT = 5;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DEPRECATED = 6;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DIACRITIC = 7;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DOUBLE_LIMIT = 12289;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_DOUBLE_START = 12288;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_EAST_ASIAN_WIDTH = 4100;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_EXTENDER = 8;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_FULL_COMPOSITION_EXCLUSION = 9;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GENERAL_CATEGORY = 4101;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GRAPHEME_BASE = 10;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GRAPHEME_CLUSTER_BREAK = 4114;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GRAPHEME_EXTEND = 11;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_GRAPHEME_LINK = 12;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_HANGUL_SYLLABLE_TYPE = 4107;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_HEX_DIGIT = 13;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_HYPHEN = 14;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_ID_CONTINUE = 15;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_ID_START = 16;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_IDEOGRAPHIC = 17;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_IDS_BINARY_OPERATOR = 18;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_IDS_TRINARY_OPERATOR = 19;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_INT_LIMIT = 4118;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_INT_START = 4096;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_INVALID_CODE = -1;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_ISO_COMMENT = 16387;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_JOIN_CONTROL = 20;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_JOINING_GROUP = 4102;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_JOINING_TYPE = 4103;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_LEAD_CANONICAL_COMBINING_CLASS = 4112;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_LINE_BREAK = 4104;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_LOGICAL_ORDER_EXCEPTION = 21;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_LOWERCASE = 22;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_LOWERCASE_MAPPING = 16388;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_MASK_LIMIT = 8193;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_MASK_START = 8192;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_MATH = 23;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NAME = 16389;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NAME_CHOICE_COUNT = 2;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFC_INERT = 39;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFC_QUICK_CHECK = 4110;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFD_INERT = 37;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFD_QUICK_CHECK = 4108;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFKC_INERT = 40;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFKC_QUICK_CHECK = 4111;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFKD_INERT = 38;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NFKD_QUICK_CHECK = 4109;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NONCHARACTER_CODE_POINT = 24;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NUMERIC_TYPE = 4105;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_NUMERIC_VALUE = 12288;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_OTHER_PROPERTY_LIMIT = 28673;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_OTHER_PROPERTY_START = 28672;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_PATTERN_SYNTAX = 42;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_PATTERN_WHITE_SPACE = 43;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_POSIX_ALNUM = 44;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_POSIX_BLANK = 45;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_POSIX_GRAPH = 46;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_POSIX_PRINT = 47;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_POSIX_XDIGIT = 48;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_QUOTATION_MARK = 25;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_RADICAL = 26;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_S_TERM = 35;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SCRIPT = 4106;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SCRIPT_EXTENSIONS = 28672;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SEGMENT_STARTER = 41;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SENTENCE_BREAK = 4115;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SIMPLE_CASE_FOLDING = 16390;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SIMPLE_LOWERCASE_MAPPING = 16391;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SIMPLE_TITLECASE_MAPPING = 16392;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SIMPLE_UPPERCASE_MAPPING = 16393;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_SOFT_DOTTED = 27;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_STRING_LIMIT = 16398;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_STRING_START = 16384;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_TERMINAL_PUNCTUATION = 28;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_TITLECASE_MAPPING = 16394;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_TRAIL_CANONICAL_COMBINING_CLASS = 4113;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_UNICODE_1_NAME = 16395;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_UNIFIED_IDEOGRAPH = 29;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_UPPERCASE = 30;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_UPPERCASE_MAPPING = 16396;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_VARIATION_SELECTOR = 36;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_WHITE_SPACE = 31;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_WORD_BREAK = 4116;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_XID_CONTINUE = 32;
+
+    /**
+     * @var int
+     */
+    const PROPERTY_XID_START = 33;
+
+    /**
+     * @var int
+     */
+    const SB_ATERM = 1;
+
+    /**
+     * @var int
+     */
+    const SB_CLOSE = 2;
+
+    /**
+     * @var int
+     */
+    const SB_COUNT = 15;
+
+    /**
+     * @var int
+     */
+    const SB_CR = 11;
+
+    /**
+     * @var int
+     */
+    const SB_EXTEND = 12;
+
+    /**
+     * @var int
+     */
+    const SB_FORMAT = 3;
+
+    /**
+     * @var int
+     */
+    const SB_LF = 13;
+
+    /**
+     * @var int
+     */
+    const SB_LOWER = 4;
+
+    /**
+     * @var int
+     */
+    const SB_NUMERIC = 5;
+
+    /**
+     * @var int
+     */
+    const SB_OLETTER = 6;
+
+    /**
+     * @var int
+     */
+    const SB_OTHER = 0;
+
+    /**
+     * @var int
+     */
+    const SB_SCONTINUE = 14;
+
+    /**
+     * @var int
+     */
+    const SB_SEP = 7;
+
+    /**
+     * @var int
+     */
+    const SB_SP = 8;
+
+    /**
+     * @var int
+     */
+    const SB_STERM = 9;
+
+    /**
+     * @var int
+     */
+    const SB_UPPER = 10;
+
+    /**
+     * @var int
+     */
+    const SHORT_PROPERTY_NAME = 0;
+
+    /**
+     * @var int
+     */
+    const UNICODE_10_CHAR_NAME = 1;
+
+    /**
+     * @var int
+     */
+    const UNICODE_CHAR_NAME = 0;
+
+    /**
+     * @var string
+     */
+    const UNICODE_VERSION = '8.0';
+
+    /**
+     * @var int
+     */
+    const WB_ALETTER = 1;
+
+    /**
+     * @var int
+     */
+    const WB_COUNT = 17;
+
+    /**
+     * @var int
+     */
+    const WB_CR = 8;
+
+    /**
+     * @var int
+     */
+    const WB_DOUBLE_QUOTE = 16;
+
+    /**
+     * @var int
+     */
+    const WB_EXTEND = 9;
+
+    /**
+     * @var int
+     */
+    const WB_EXTENDNUMLET = 7;
+
+    /**
+     * @var int
+     */
+    const WB_FORMAT = 2;
+
+    /**
+     * @var int
+     */
+    const WB_HEBREW_LETTER = 14;
+
+    /**
+     * @var int
+     */
+    const WB_KATAKANA = 3;
+
+    /**
+     * @var int
+     */
+    const WB_LF = 10;
+
+    /**
+     * @var int
+     */
+    const WB_MIDLETTER = 4;
+
+    /**
+     * @var int
+     */
+    const WB_MIDNUM = 5;
+
+    /**
+     * @var int
+     */
+    const WB_MIDNUMLET = 11;
+
+    /**
+     * @var int
+     */
+    const WB_NEWLINE = 12;
+
+    /**
+     * @var int
+     */
+    const WB_NUMERIC = 6;
+
+    /**
+     * @var int
+     */
+    const WB_OTHER = 0;
+
+    /**
+     * @var int
+     */
+    const WB_REGIONAL_INDICATOR = 13;
+
+    /**
+     * @var int
+     */
+    const WB_SINGLE_QUOTE = 15;
+
     /**
      * Get the "age" of the code point
      *
@@ -3142,6 +6867,41 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 class IntlDateFormatter
 {
     /**
+     * @var int
+     */
+    const FULL = 0;
+
+    /**
+     * @var int
+     */
+    const GREGORIAN = 1;
+
+    /**
+     * @var int
+     */
+    const LONG = 1;
+
+    /**
+     * @var int
+     */
+    const MEDIUM = 2;
+
+    /**
+     * @var int
+     */
+    const NONE = -1;
+
+    /**
+     * @var int
+     */
+    const SHORT = 3;
+
+    /**
+     * @var int
+     */
+    const TRADITIONAL = 0;
+
+    /**
      * Create a date formatter
      *
      * @param mixed $locale
@@ -3630,6 +7390,21 @@ class IntlIterator implements Iterator
 class IntlPartsIterator extends IntlIterator
 {
     /**
+     * @var int
+     */
+    const KEY_LEFT = 1;
+
+    /**
+     * @var int
+     */
+    const KEY_RIGHT = 2;
+
+    /**
+     * @var int
+     */
+    const KEY_SEQUENTIAL = 0;
+
+    /**
      * Get IntlBreakIterator backing this parts iterator
      *
      * @return IntlBreakIterator
@@ -3724,6 +7499,61 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator
  */
 class IntlTimeZone
 {
+    /**
+     * @var int
+     */
+    const DISPLAY_GENERIC_LOCATION = 8;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG = 2;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG_GENERIC = 4;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG_GMT = 6;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT = 1;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_COMMONLY_USED = 7;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_GENERIC = 3;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_GMT = 5;
+
+    /**
+     * @var int
+     */
+    const TYPE_ANY = 0;
+
+    /**
+     * @var int
+     */
+    const TYPE_CANONICAL = 1;
+
+    /**
+     * @var int
+     */
+    const TYPE_CANONICAL_LOCATION = 2;
+
     /**
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      */
@@ -4095,6 +7925,56 @@ class IntlTimeZone
  */
 class Locale
 {
+    /**
+     * @var int
+     */
+    const ACTUAL_LOCALE = 0;
+
+    /**
+     * @var null
+     */
+    const DEFAULT_LOCALE = null;
+
+    /**
+     * @var string
+     */
+    const EXTLANG_TAG = 'extlang';
+
+    /**
+     * @var string
+     */
+    const GRANDFATHERED_LANG_TAG = 'grandfathered';
+
+    /**
+     * @var string
+     */
+    const LANG_TAG = 'language';
+
+    /**
+     * @var string
+     */
+    const PRIVATE_TAG = 'private';
+
+    /**
+     * @var string
+     */
+    const REGION_TAG = 'region';
+
+    /**
+     * @var string
+     */
+    const SCRIPT_TAG = 'script';
+
+    /**
+     * @var int
+     */
+    const VALID_LOCALE = 1;
+
+    /**
+     * @var string
+     */
+    const VARIANT_TAG = 'variant';
+
     /**
      * Tries to find out best available locale based on HTTP "Accept-Language" header
      *
@@ -4588,6 +8468,51 @@ class MessageFormatter
 class Normalizer
 {
     /**
+     * @var int
+     */
+    const FORM_C = 4;
+
+    /**
+     * @var int
+     */
+    const FORM_D = 2;
+
+    /**
+     * @var int
+     */
+    const FORM_KC = 5;
+
+    /**
+     * @var int
+     */
+    const FORM_KD = 3;
+
+    /**
+     * @var int
+     */
+    const NFC = 4;
+
+    /**
+     * @var int
+     */
+    const NFD = 2;
+
+    /**
+     * @var int
+     */
+    const NFKC = 5;
+
+    /**
+     * @var int
+     */
+    const NFKD = 3;
+
+    /**
+     * @var int
+     */
+    const NONE = 1;
+
+    /**
      * Checks if the provided string is already in the specified normalization
      * form
      *
@@ -4640,6 +8565,371 @@ class Normalizer
  */
 class NumberFormatter
 {
+    /**
+     * @var int
+     */
+    const CURRENCY = 2;
+
+    /**
+     * @var int
+     */
+    const CURRENCY_CODE = 5;
+
+    /**
+     * @var int
+     */
+    const CURRENCY_SYMBOL = 8;
+
+    /**
+     * @var int
+     */
+    const DECIMAL = 1;
+
+    /**
+     * @var int
+     */
+    const DECIMAL_ALWAYS_SHOWN = 2;
+
+    /**
+     * @var int
+     */
+    const DECIMAL_SEPARATOR_SYMBOL = 0;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_RULESET = 6;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_STYLE = 1;
+
+    /**
+     * @var int
+     */
+    const DIGIT_SYMBOL = 5;
+
+    /**
+     * @var int
+     */
+    const DURATION = 7;
+
+    /**
+     * @var int
+     */
+    const EXPONENTIAL_SYMBOL = 11;
+
+    /**
+     * @var int
+     */
+    const FORMAT_WIDTH = 13;
+
+    /**
+     * @var int
+     */
+    const FRACTION_DIGITS = 8;
+
+    /**
+     * @var int
+     */
+    const GROUPING_SEPARATOR_SYMBOL = 1;
+
+    /**
+     * @var int
+     */
+    const GROUPING_SIZE = 10;
+
+    /**
+     * @var int
+     */
+    const GROUPING_USED = 1;
+
+    /**
+     * @var int
+     */
+    const IGNORE = 0;
+
+    /**
+     * @var int
+     */
+    const INFINITY_SYMBOL = 14;
+
+    /**
+     * @var int
+     */
+    const INTEGER_DIGITS = 5;
+
+    /**
+     * @var int
+     */
+    const INTL_CURRENCY_SYMBOL = 9;
+
+    /**
+     * @var int
+     */
+    const LENIENT_PARSE = 19;
+
+    /**
+     * @var int
+     */
+    const MAX_FRACTION_DIGITS = 6;
+
+    /**
+     * @var int
+     */
+    const MAX_INTEGER_DIGITS = 3;
+
+    /**
+     * @var int
+     */
+    const MAX_SIGNIFICANT_DIGITS = 18;
+
+    /**
+     * @var int
+     */
+    const MIN_FRACTION_DIGITS = 7;
+
+    /**
+     * @var int
+     */
+    const MIN_INTEGER_DIGITS = 4;
+
+    /**
+     * @var int
+     */
+    const MIN_SIGNIFICANT_DIGITS = 17;
+
+    /**
+     * @var int
+     */
+    const MINUS_SIGN_SYMBOL = 6;
+
+    /**
+     * @var int
+     */
+    const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
+
+    /**
+     * @var int
+     */
+    const MONETARY_SEPARATOR_SYMBOL = 10;
+
+    /**
+     * @var int
+     */
+    const MULTIPLIER = 9;
+
+    /**
+     * @var int
+     */
+    const NAN_SYMBOL = 15;
+
+    /**
+     * @var int
+     */
+    const NEGATIVE_PREFIX = 2;
+
+    /**
+     * @var int
+     */
+    const NEGATIVE_SUFFIX = 3;
+
+    /**
+     * @var int
+     */
+    const ORDINAL = 6;
+
+    /**
+     * @var int
+     */
+    const PAD_AFTER_PREFIX = 1;
+
+    /**
+     * @var int
+     */
+    const PAD_AFTER_SUFFIX = 3;
+
+    /**
+     * @var int
+     */
+    const PAD_BEFORE_PREFIX = 0;
+
+    /**
+     * @var int
+     */
+    const PAD_BEFORE_SUFFIX = 2;
+
+    /**
+     * @var int
+     */
+    const PAD_ESCAPE_SYMBOL = 13;
+
+    /**
+     * @var int
+     */
+    const PADDING_CHARACTER = 4;
+
+    /**
+     * @var int
+     */
+    const PADDING_POSITION = 14;
+
+    /**
+     * @var int
+     */
+    const PARSE_INT_ONLY = 0;
+
+    /**
+     * @var int
+     */
+    const PATTERN_DECIMAL = 0;
+
+    /**
+     * @var int
+     */
+    const PATTERN_RULEBASED = 9;
+
+    /**
+     * @var int
+     */
+    const PATTERN_SEPARATOR_SYMBOL = 2;
+
+    /**
+     * @var int
+     */
+    const PERCENT = 3;
+
+    /**
+     * @var int
+     */
+    const PERCENT_SYMBOL = 3;
+
+    /**
+     * @var int
+     */
+    const PERMILL_SYMBOL = 12;
+
+    /**
+     * @var int
+     */
+    const PLUS_SIGN_SYMBOL = 7;
+
+    /**
+     * @var int
+     */
+    const POSITIVE_PREFIX = 0;
+
+    /**
+     * @var int
+     */
+    const POSITIVE_SUFFIX = 1;
+
+    /**
+     * @var int
+     */
+    const PUBLIC_RULESETS = 7;
+
+    /**
+     * @var int
+     */
+    const ROUND_CEILING = 0;
+
+    /**
+     * @var int
+     */
+    const ROUND_DOWN = 2;
+
+    /**
+     * @var int
+     */
+    const ROUND_FLOOR = 1;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFDOWN = 5;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFEVEN = 4;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFUP = 6;
+
+    /**
+     * @var int
+     */
+    const ROUND_UP = 3;
+
+    /**
+     * @var int
+     */
+    const ROUNDING_INCREMENT = 12;
+
+    /**
+     * @var int
+     */
+    const ROUNDING_MODE = 11;
+
+    /**
+     * @var int
+     */
+    const SCIENTIFIC = 4;
+
+    /**
+     * @var int
+     */
+    const SECONDARY_GROUPING_SIZE = 15;
+
+    /**
+     * @var int
+     */
+    const SIGNIFICANT_DIGIT_SYMBOL = 16;
+
+    /**
+     * @var int
+     */
+    const SIGNIFICANT_DIGITS_USED = 16;
+
+    /**
+     * @var int
+     */
+    const SPELLOUT = 5;
+
+    /**
+     * @var int
+     */
+    const TYPE_CURRENCY = 4;
+
+    /**
+     * @var int
+     */
+    const TYPE_DEFAULT = 0;
+
+    /**
+     * @var int
+     */
+    const TYPE_DOUBLE = 3;
+
+    /**
+     * @var int
+     */
+    const TYPE_INT32 = 1;
+
+    /**
+     * @var int
+     */
+    const TYPE_INT64 = 2;
+
+    /**
+     * @var int
+     */
+    const ZERO_DIGIT_SYMBOL = 4;
+
     /**
      * Create a number formatter
      *
@@ -5023,6 +9313,41 @@ class ResourceBundle implements Traversable
 class Spoofchecker
 {
     /**
+     * @var int
+     */
+    const ANY_CASE = 8;
+
+    /**
+     * @var int
+     */
+    const CHAR_LIMIT = 64;
+
+    /**
+     * @var int
+     */
+    const INVISIBLE = 32;
+
+    /**
+     * @var int
+     */
+    const MIXED_SCRIPT_CONFUSABLE = 2;
+
+    /**
+     * @var int
+     */
+    const SINGLE_SCRIPT = 16;
+
+    /**
+     * @var int
+     */
+    const SINGLE_SCRIPT_CONFUSABLE = 1;
+
+    /**
+     * @var int
+     */
+    const WHOLE_SCRIPT_CONFUSABLE = 4;
+
+    /**
      * Constructor
      *
      * @link http://www.php.net/manual/en/spoofchecker.construct.php
@@ -5094,6 +9419,16 @@ class Spoofchecker
  */
 class Transliterator
 {
+    /**
+     * @var int
+     */
+    const FORWARD = 0;
+
+    /**
+     * @var int
+     */
+    const REVERSE = 1;
+
     /**
      * Private constructor to deny instantiation
      *
@@ -5198,6 +9533,211 @@ class Transliterator
  */
 class UConverter
 {
+    /**
+     * @var int
+     */
+    const BOCU1 = 28;
+
+    /**
+     * @var int
+     */
+    const CESU8 = 31;
+
+    /**
+     * @var int
+     */
+    const DBCS = 1;
+
+    /**
+     * @var int
+     */
+    const EBCDIC_STATEFUL = 9;
+
+    /**
+     * @var int
+     */
+    const HZ = 23;
+
+    /**
+     * @var int
+     */
+    const IMAP_MAILBOX = 32;
+
+    /**
+     * @var int
+     */
+    const ISCII = 25;
+
+    /**
+     * @var int
+     */
+    const ISO_2022 = 10;
+
+    /**
+     * @var int
+     */
+    const LATIN_1 = 3;
+
+    /**
+     * @var int
+     */
+    const LMBCS_1 = 11;
+
+    /**
+     * @var int
+     */
+    const LMBCS_11 = 18;
+
+    /**
+     * @var int
+     */
+    const LMBCS_16 = 19;
+
+    /**
+     * @var int
+     */
+    const LMBCS_17 = 20;
+
+    /**
+     * @var int
+     */
+    const LMBCS_18 = 21;
+
+    /**
+     * @var int
+     */
+    const LMBCS_19 = 22;
+
+    /**
+     * @var int
+     */
+    const LMBCS_2 = 12;
+
+    /**
+     * @var int
+     */
+    const LMBCS_3 = 13;
+
+    /**
+     * @var int
+     */
+    const LMBCS_4 = 14;
+
+    /**
+     * @var int
+     */
+    const LMBCS_5 = 15;
+
+    /**
+     * @var int
+     */
+    const LMBCS_6 = 16;
+
+    /**
+     * @var int
+     */
+    const LMBCS_8 = 17;
+
+    /**
+     * @var int
+     */
+    const LMBCS_LAST = 22;
+
+    /**
+     * @var int
+     */
+    const MBCS = 2;
+
+    /**
+     * @var int
+     */
+    const REASON_CLONE = 5;
+
+    /**
+     * @var int
+     */
+    const REASON_CLOSE = 4;
+
+    /**
+     * @var int
+     */
+    const REASON_ILLEGAL = 1;
+
+    /**
+     * @var int
+     */
+    const REASON_IRREGULAR = 2;
+
+    /**
+     * @var int
+     */
+    const REASON_RESET = 3;
+
+    /**
+     * @var int
+     */
+    const REASON_UNASSIGNED = 0;
+
+    /**
+     * @var int
+     */
+    const SBCS = 0;
+
+    /**
+     * @var int
+     */
+    const SCSU = 24;
+
+    /**
+     * @var int
+     */
+    const UNSUPPORTED_CONVERTER = -1;
+
+    /**
+     * @var int
+     */
+    const US_ASCII = 26;
+
+    /**
+     * @var int
+     */
+    const UTF16 = 29;
+
+    /**
+     * @var int
+     */
+    const UTF16_BigEndian = 5;
+
+    /**
+     * @var int
+     */
+    const UTF16_LittleEndian = 6;
+
+    /**
+     * @var int
+     */
+    const UTF32 = 30;
+
+    /**
+     * @var int
+     */
+    const UTF32_BigEndian = 7;
+
+    /**
+     * @var int
+     */
+    const UTF32_LittleEndian = 8;
+
+    /**
+     * @var int
+     */
+    const UTF7 = 27;
+
+    /**
+     * @var int
+     */
+    const UTF8 = 4;
+
     /**
      * Create UConverter object
      *

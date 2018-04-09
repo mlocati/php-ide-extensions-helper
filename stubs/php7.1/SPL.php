@@ -326,6 +326,16 @@ class AppendIterator extends IteratorIterator
 class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Serializable
 {
     /**
+     * @var int
+     */
+    const ARRAY_AS_PROPS = 2;
+
+    /**
+     * @var int
+     */
+    const STD_PROP_LIST = 1;
+
+    /**
      * Construct an ArrayIterator
      *
      * @param mixed|null $array
@@ -671,6 +681,16 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
 class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializable
 {
     /**
+     * @var int
+     */
+    const ARRAY_AS_PROPS = 2;
+
+    /**
+     * @var int
+     */
+    const STD_PROP_LIST = 1;
+
+    /**
      * Construct a new array object
      *
      * @param mixed|null $array
@@ -1015,6 +1035,36 @@ class BadMethodCallException extends BadFunctionCallException
  */
 class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
+    /**
+     * @var int
+     */
+    const CALL_TOSTRING = 1;
+
+    /**
+     * @var int
+     */
+    const CATCH_GET_CHILD = 16;
+
+    /**
+     * @var int
+     */
+    const FULL_CACHE = 256;
+
+    /**
+     * @var int
+     */
+    const TOSTRING_USE_CURRENT = 4;
+
+    /**
+     * @var int
+     */
+    const TOSTRING_USE_INNER = 8;
+
+    /**
+     * @var int
+     */
+    const TOSTRING_USE_KEY = 2;
+
     /**
      * Construct a new CachingIterator object for the iterator
      *
@@ -1553,6 +1603,66 @@ class EmptyIterator implements Iterator
  */
 class FilesystemIterator extends DirectoryIterator
 {
+    /**
+     * @var int
+     */
+    const CURRENT_AS_FILEINFO = 0;
+
+    /**
+     * @var int
+     */
+    const CURRENT_AS_PATHNAME = 32;
+
+    /**
+     * @var int
+     */
+    const CURRENT_AS_SELF = 16;
+
+    /**
+     * @var int
+     */
+    const CURRENT_MODE_MASK = 240;
+
+    /**
+     * @var int
+     */
+    const FOLLOW_SYMLINKS = 512;
+
+    /**
+     * @var int
+     */
+    const KEY_AS_FILENAME = 256;
+
+    /**
+     * @var int
+     */
+    const KEY_AS_PATHNAME = 0;
+
+    /**
+     * @var int
+     */
+    const KEY_MODE_MASK = 3840;
+
+    /**
+     * @var int
+     */
+    const NEW_CURRENT_AND_KEY = 256;
+
+    /**
+     * @var int
+     */
+    const OTHER_MODE_MASK = 12288;
+
+    /**
+     * @var int
+     */
+    const SKIP_DOTS = 4096;
+
+    /**
+     * @var int
+     */
+    const UNIX_PATHS = 8192;
+
     /**
      * Constructs a new filesystem iterator
      *
@@ -2120,6 +2230,26 @@ class LogicException extends Exception
 class MultipleIterator implements Iterator
 {
     /**
+     * @var int
+     */
+    const MIT_KEYS_ASSOC = 2;
+
+    /**
+     * @var int
+     */
+    const MIT_KEYS_NUMERIC = 0;
+
+    /**
+     * @var int
+     */
+    const MIT_NEED_ALL = 1;
+
+    /**
+     * @var int
+     */
+    const MIT_NEED_ANY = 0;
+
+    /**
      * Constructs a new MultipleIterator
      *
      * @param mixed $flags
@@ -2485,6 +2615,11 @@ class RangeException extends RuntimeException
 class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 {
     /**
+     * @var int
+     */
+    const CHILD_ARRAYS_ONLY = 4;
+
+    /**
      * Returns an iterator for the current entry if it is an <code>array</code> or an <code>object</code>
      *
      * @return RecursiveArrayIterator
@@ -2751,6 +2886,26 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
  */
 class RecursiveIteratorIterator implements OuterIterator
 {
+    /**
+     * @var int
+     */
+    const CATCH_GET_CHILD = 16;
+
+    /**
+     * @var int
+     */
+    const CHILD_FIRST = 2;
+
+    /**
+     * @var int
+     */
+    const LEAVES_ONLY = 0;
+
+    /**
+     * @var int
+     */
+    const SELF_FIRST = 1;
+
     /**
      * Construct a RecursiveIteratorIterator
      *
@@ -3062,6 +3217,46 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
 class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     /**
+     * @var int
+     */
+    const BYPASS_CURRENT = 4;
+
+    /**
+     * @var int
+     */
+    const BYPASS_KEY = 8;
+
+    /**
+     * @var int
+     */
+    const PREFIX_END_HAS_NEXT = 3;
+
+    /**
+     * @var int
+     */
+    const PREFIX_END_LAST = 4;
+
+    /**
+     * @var int
+     */
+    const PREFIX_LEFT = 0;
+
+    /**
+     * @var int
+     */
+    const PREFIX_MID_HAS_NEXT = 1;
+
+    /**
+     * @var int
+     */
+    const PREFIX_MID_LAST = 2;
+
+    /**
+     * @var int
+     */
+    const PREFIX_RIGHT = 5;
+
+    /**
      * Construct a RecursiveTreeIterator
      *
      * @param Traversable $iterator
@@ -3312,6 +3507,41 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 class RegexIterator extends FilterIterator
 {
     /**
+     * @var int
+     */
+    const ALL_MATCHES = 2;
+
+    /**
+     * @var int
+     */
+    const GET_MATCH = 1;
+
+    /**
+     * @var int
+     */
+    const INVERT_MATCH = 2;
+
+    /**
+     * @var int
+     */
+    const MATCH = 0;
+
+    /**
+     * @var int
+     */
+    const REPLACE = 4;
+
+    /**
+     * @var int
+     */
+    const SPLIT = 3;
+
+    /**
+     * @var int
+     */
+    const USE_KEY = 1;
+
+    /**
      * Create a new RegexIterator
      *
      * @param Iterator $iterator
@@ -3459,6 +3689,26 @@ class RuntimeException extends Exception
  */
 class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializable
 {
+    /**
+     * @var int
+     */
+    const IT_MODE_DELETE = 1;
+
+    /**
+     * @var int
+     */
+    const IT_MODE_FIFO = 0;
+
+    /**
+     * @var int
+     */
+    const IT_MODE_KEEP = 0;
+
+    /**
+     * @var int
+     */
+    const IT_MODE_LIFO = 2;
+
     /**
      * Add/insert a new value at the specified index
      *
@@ -4194,6 +4444,26 @@ class SplFileInfo
  */
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator
 {
+    /**
+     * @var int
+     */
+    const DROP_NEW_LINE = 1;
+
+    /**
+     * @var int
+     */
+    const READ_AHEAD = 2;
+
+    /**
+     * @var int
+     */
+    const READ_CSV = 8;
+
+    /**
+     * @var int
+     */
+    const SKIP_EMPTY = 4;
+
     /**
      * Construct a new file object
      *
@@ -5450,6 +5720,21 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
  */
 class SplPriorityQueue implements Countable, Iterator
 {
+    /**
+     * @var int
+     */
+    const EXTR_BOTH = 3;
+
+    /**
+     * @var int
+     */
+    const EXTR_DATA = 1;
+
+    /**
+     * @var int
+     */
+    const EXTR_PRIORITY = 2;
+
     /**
      * Compare priorities in order to place elements correctly in the heap while sifting up
      *

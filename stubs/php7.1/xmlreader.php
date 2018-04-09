@@ -15,6 +15,116 @@
 class XMLReader
 {
     /**
+     * @var int
+     */
+    const ATTRIBUTE = 2;
+
+    /**
+     * @var int
+     */
+    const CDATA = 4;
+
+    /**
+     * @var int
+     */
+    const COMMENT = 8;
+
+    /**
+     * @var int
+     */
+    const DEFAULTATTRS = 2;
+
+    /**
+     * @var int
+     */
+    const DOC = 9;
+
+    /**
+     * @var int
+     */
+    const DOC_FRAGMENT = 11;
+
+    /**
+     * @var int
+     */
+    const DOC_TYPE = 10;
+
+    /**
+     * @var int
+     */
+    const ELEMENT = 1;
+
+    /**
+     * @var int
+     */
+    const END_ELEMENT = 15;
+
+    /**
+     * @var int
+     */
+    const END_ENTITY = 16;
+
+    /**
+     * @var int
+     */
+    const ENTITY = 6;
+
+    /**
+     * @var int
+     */
+    const ENTITY_REF = 5;
+
+    /**
+     * @var int
+     */
+    const LOADDTD = 1;
+
+    /**
+     * @var int
+     */
+    const NONE = 0;
+
+    /**
+     * @var int
+     */
+    const NOTATION = 12;
+
+    /**
+     * @var int
+     */
+    const PI = 7;
+
+    /**
+     * @var int
+     */
+    const SIGNIFICANT_WHITESPACE = 14;
+
+    /**
+     * @var int
+     */
+    const SUBST_ENTITIES = 4;
+
+    /**
+     * @var int
+     */
+    const TEXT = 3;
+
+    /**
+     * @var int
+     */
+    const VALIDATE = 3;
+
+    /**
+     * @var int
+     */
+    const WHITESPACE = 13;
+
+    /**
+     * @var int
+     */
+    const XML_DECLARATION = 17;
+
+    /**
      * Close the XMLReader input
      *
      * @return bool

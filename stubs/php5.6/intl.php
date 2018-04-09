@@ -998,6 +998,126 @@ const ULOC_VALID_LOCALE = 1;
 class Collator
 {
     /**
+     * @var int
+     */
+    const ALTERNATE_HANDLING = 1;
+
+    /**
+     * @var int
+     */
+    const CASE_FIRST = 2;
+
+    /**
+     * @var int
+     */
+    const CASE_LEVEL = 3;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_STRENGTH = 2;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_VALUE = -1;
+
+    /**
+     * @var int
+     */
+    const FRENCH_COLLATION = 0;
+
+    /**
+     * @var int
+     */
+    const HIRAGANA_QUATERNARY_MODE = 6;
+
+    /**
+     * @var int
+     */
+    const IDENTICAL = 15;
+
+    /**
+     * @var int
+     */
+    const LOWER_FIRST = 24;
+
+    /**
+     * @var int
+     */
+    const NON_IGNORABLE = 21;
+
+    /**
+     * @var int
+     */
+    const NORMALIZATION_MODE = 4;
+
+    /**
+     * @var int
+     */
+    const NUMERIC_COLLATION = 7;
+
+    /**
+     * @var int
+     */
+    const OFF = 16;
+
+    /**
+     * @var int
+     */
+    const ON = 17;
+
+    /**
+     * @var int
+     */
+    const PRIMARY = 0;
+
+    /**
+     * @var int
+     */
+    const QUATERNARY = 3;
+
+    /**
+     * @var int
+     */
+    const SECONDARY = 1;
+
+    /**
+     * @var int
+     */
+    const SHIFTED = 20;
+
+    /**
+     * @var int
+     */
+    const SORT_NUMERIC = 2;
+
+    /**
+     * @var int
+     */
+    const SORT_REGULAR = 0;
+
+    /**
+     * @var int
+     */
+    const SORT_STRING = 1;
+
+    /**
+     * @var int
+     */
+    const STRENGTH = 5;
+
+    /**
+     * @var int
+     */
+    const TERTIARY = 2;
+
+    /**
+     * @var int
+     */
+    const UPPER_FIRST = 25;
+
+    /**
      * Create a collator
      *
      * @param mixed $arg1
@@ -1222,6 +1342,101 @@ class Collator
  */
 class IntlBreakIterator implements Traversable
 {
+    /**
+     * @var int
+     */
+    const DONE = -1;
+
+    /**
+     * @var int
+     */
+    const LINE_HARD = 100;
+
+    /**
+     * @var int
+     */
+    const LINE_HARD_LIMIT = 200;
+
+    /**
+     * @var int
+     */
+    const LINE_SOFT = 0;
+
+    /**
+     * @var int
+     */
+    const LINE_SOFT_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_SEP = 100;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_SEP_LIMIT = 200;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_TERM = 0;
+
+    /**
+     * @var int
+     */
+    const SENTENCE_TERM_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_IDEO = 400;
+
+    /**
+     * @var int
+     */
+    const WORD_IDEO_LIMIT = 500;
+
+    /**
+     * @var int
+     */
+    const WORD_KANA = 300;
+
+    /**
+     * @var int
+     */
+    const WORD_KANA_LIMIT = 400;
+
+    /**
+     * @var int
+     */
+    const WORD_LETTER = 200;
+
+    /**
+     * @var int
+     */
+    const WORD_LETTER_LIMIT = 300;
+
+    /**
+     * @var int
+     */
+    const WORD_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const WORD_NONE_LIMIT = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_NUMBER = 100;
+
+    /**
+     * @var int
+     */
+    const WORD_NUMBER_LIMIT = 200;
+
     /**
      * Private constructor for disallowing instantiation
      *
@@ -1525,6 +1740,201 @@ class IntlBreakIterator implements Traversable
  */
 class IntlCalendar
 {
+    /**
+     * @var int
+     */
+    const DOW_FRIDAY = 6;
+
+    /**
+     * @var int
+     */
+    const DOW_MONDAY = 2;
+
+    /**
+     * @var int
+     */
+    const DOW_SATURDAY = 7;
+
+    /**
+     * @var int
+     */
+    const DOW_SUNDAY = 1;
+
+    /**
+     * @var int
+     */
+    const DOW_THURSDAY = 5;
+
+    /**
+     * @var int
+     */
+    const DOW_TUESDAY = 3;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKDAY = 0;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND = 1;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND_CEASE = 3;
+
+    /**
+     * @var int
+     */
+    const DOW_TYPE_WEEKEND_OFFSET = 2;
+
+    /**
+     * @var int
+     */
+    const DOW_WEDNESDAY = 4;
+
+    /**
+     * @var int
+     */
+    const FIELD_AM_PM = 9;
+
+    /**
+     * @var int
+     */
+    const FIELD_DATE = 5;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_MONTH = 5;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_WEEK = 7;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
+
+    /**
+     * @var int
+     */
+    const FIELD_DAY_OF_YEAR = 6;
+
+    /**
+     * @var int
+     */
+    const FIELD_DOW_LOCAL = 18;
+
+    /**
+     * @var int
+     */
+    const FIELD_DST_OFFSET = 16;
+
+    /**
+     * @var int
+     */
+    const FIELD_ERA = 0;
+
+    /**
+     * @var int
+     */
+    const FIELD_EXTENDED_YEAR = 19;
+
+    /**
+     * @var int
+     */
+    const FIELD_FIELD_COUNT = 23;
+
+    /**
+     * @var int
+     */
+    const FIELD_HOUR = 10;
+
+    /**
+     * @var int
+     */
+    const FIELD_HOUR_OF_DAY = 11;
+
+    /**
+     * @var int
+     */
+    const FIELD_IS_LEAP_MONTH = 22;
+
+    /**
+     * @var int
+     */
+    const FIELD_JULIAN_DAY = 20;
+
+    /**
+     * @var int
+     */
+    const FIELD_MILLISECOND = 14;
+
+    /**
+     * @var int
+     */
+    const FIELD_MILLISECONDS_IN_DAY = 21;
+
+    /**
+     * @var int
+     */
+    const FIELD_MINUTE = 12;
+
+    /**
+     * @var int
+     */
+    const FIELD_MONTH = 2;
+
+    /**
+     * @var int
+     */
+    const FIELD_SECOND = 13;
+
+    /**
+     * @var int
+     */
+    const FIELD_WEEK_OF_MONTH = 4;
+
+    /**
+     * @var int
+     */
+    const FIELD_WEEK_OF_YEAR = 3;
+
+    /**
+     * @var int
+     */
+    const FIELD_YEAR = 1;
+
+    /**
+     * @var int
+     */
+    const FIELD_YEAR_WOY = 17;
+
+    /**
+     * @var int
+     */
+    const FIELD_ZONE_OFFSET = 15;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_FIRST = 1;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_LAST = 0;
+
+    /**
+     * @var int
+     */
+    const WALLTIME_NEXT_VALID = 2;
+
     /**
      * Private constructor for disallowing instantiation
      *
@@ -2238,6 +2648,41 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 class IntlDateFormatter
 {
     /**
+     * @var int
+     */
+    const FULL = 0;
+
+    /**
+     * @var int
+     */
+    const GREGORIAN = 1;
+
+    /**
+     * @var int
+     */
+    const LONG = 1;
+
+    /**
+     * @var int
+     */
+    const MEDIUM = 2;
+
+    /**
+     * @var int
+     */
+    const NONE = -1;
+
+    /**
+     * @var int
+     */
+    const SHORT = 3;
+
+    /**
+     * @var int
+     */
+    const TRADITIONAL = 0;
+
+    /**
      * Create a date formatter
      *
      * @param mixed $locale
@@ -2743,6 +3188,21 @@ class IntlIterator implements Iterator
 class IntlPartsIterator extends IntlIterator
 {
     /**
+     * @var int
+     */
+    const KEY_LEFT = 1;
+
+    /**
+     * @var int
+     */
+    const KEY_RIGHT = 2;
+
+    /**
+     * @var int
+     */
+    const KEY_SEQUENTIAL = 0;
+
+    /**
      * Get IntlBreakIterator backing this parts iterator
      *
      * @return IntlBreakIterator
@@ -2837,6 +3297,61 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator
  */
 class IntlTimeZone
 {
+    /**
+     * @var int
+     */
+    const DISPLAY_GENERIC_LOCATION = 8;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG = 2;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG_GENERIC = 4;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_LONG_GMT = 6;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT = 1;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_COMMONLY_USED = 7;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_GENERIC = 3;
+
+    /**
+     * @var int
+     */
+    const DISPLAY_SHORT_GMT = 5;
+
+    /**
+     * @var int
+     */
+    const TYPE_ANY = 0;
+
+    /**
+     * @var int
+     */
+    const TYPE_CANONICAL = 1;
+
+    /**
+     * @var int
+     */
+    const TYPE_CANONICAL_LOCATION = 2;
+
     /**
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      */
@@ -3177,6 +3692,56 @@ class IntlTimeZone
  */
 class Locale
 {
+    /**
+     * @var int
+     */
+    const ACTUAL_LOCALE = 0;
+
+    /**
+     * @var null
+     */
+    const DEFAULT_LOCALE = null;
+
+    /**
+     * @var string
+     */
+    const EXTLANG_TAG = 'extlang';
+
+    /**
+     * @var string
+     */
+    const GRANDFATHERED_LANG_TAG = 'grandfathered';
+
+    /**
+     * @var string
+     */
+    const LANG_TAG = 'language';
+
+    /**
+     * @var string
+     */
+    const PRIVATE_TAG = 'private';
+
+    /**
+     * @var string
+     */
+    const REGION_TAG = 'region';
+
+    /**
+     * @var string
+     */
+    const SCRIPT_TAG = 'script';
+
+    /**
+     * @var int
+     */
+    const VALID_LOCALE = 1;
+
+    /**
+     * @var string
+     */
+    const VARIANT_TAG = 'variant';
+
     /**
      * Tries to find out best available locale based on HTTP "Accept-Language" header
      *
@@ -3670,6 +4235,51 @@ class MessageFormatter
 class Normalizer
 {
     /**
+     * @var int
+     */
+    const FORM_C = 4;
+
+    /**
+     * @var int
+     */
+    const FORM_D = 2;
+
+    /**
+     * @var int
+     */
+    const FORM_KC = 5;
+
+    /**
+     * @var int
+     */
+    const FORM_KD = 3;
+
+    /**
+     * @var int
+     */
+    const NFC = 4;
+
+    /**
+     * @var int
+     */
+    const NFD = 2;
+
+    /**
+     * @var int
+     */
+    const NFKC = 5;
+
+    /**
+     * @var int
+     */
+    const NFKD = 3;
+
+    /**
+     * @var int
+     */
+    const NONE = 1;
+
+    /**
      * Checks if the provided string is already in the specified normalization
      * form
      *
@@ -3724,6 +4334,371 @@ class Normalizer
  */
 class NumberFormatter
 {
+    /**
+     * @var int
+     */
+    const CURRENCY = 2;
+
+    /**
+     * @var int
+     */
+    const CURRENCY_CODE = 5;
+
+    /**
+     * @var int
+     */
+    const CURRENCY_SYMBOL = 8;
+
+    /**
+     * @var int
+     */
+    const DECIMAL = 1;
+
+    /**
+     * @var int
+     */
+    const DECIMAL_ALWAYS_SHOWN = 2;
+
+    /**
+     * @var int
+     */
+    const DECIMAL_SEPARATOR_SYMBOL = 0;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_RULESET = 6;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_STYLE = 1;
+
+    /**
+     * @var int
+     */
+    const DIGIT_SYMBOL = 5;
+
+    /**
+     * @var int
+     */
+    const DURATION = 7;
+
+    /**
+     * @var int
+     */
+    const EXPONENTIAL_SYMBOL = 11;
+
+    /**
+     * @var int
+     */
+    const FORMAT_WIDTH = 13;
+
+    /**
+     * @var int
+     */
+    const FRACTION_DIGITS = 8;
+
+    /**
+     * @var int
+     */
+    const GROUPING_SEPARATOR_SYMBOL = 1;
+
+    /**
+     * @var int
+     */
+    const GROUPING_SIZE = 10;
+
+    /**
+     * @var int
+     */
+    const GROUPING_USED = 1;
+
+    /**
+     * @var int
+     */
+    const IGNORE = 0;
+
+    /**
+     * @var int
+     */
+    const INFINITY_SYMBOL = 14;
+
+    /**
+     * @var int
+     */
+    const INTEGER_DIGITS = 5;
+
+    /**
+     * @var int
+     */
+    const INTL_CURRENCY_SYMBOL = 9;
+
+    /**
+     * @var int
+     */
+    const LENIENT_PARSE = 19;
+
+    /**
+     * @var int
+     */
+    const MAX_FRACTION_DIGITS = 6;
+
+    /**
+     * @var int
+     */
+    const MAX_INTEGER_DIGITS = 3;
+
+    /**
+     * @var int
+     */
+    const MAX_SIGNIFICANT_DIGITS = 18;
+
+    /**
+     * @var int
+     */
+    const MIN_FRACTION_DIGITS = 7;
+
+    /**
+     * @var int
+     */
+    const MIN_INTEGER_DIGITS = 4;
+
+    /**
+     * @var int
+     */
+    const MIN_SIGNIFICANT_DIGITS = 17;
+
+    /**
+     * @var int
+     */
+    const MINUS_SIGN_SYMBOL = 6;
+
+    /**
+     * @var int
+     */
+    const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
+
+    /**
+     * @var int
+     */
+    const MONETARY_SEPARATOR_SYMBOL = 10;
+
+    /**
+     * @var int
+     */
+    const MULTIPLIER = 9;
+
+    /**
+     * @var int
+     */
+    const NAN_SYMBOL = 15;
+
+    /**
+     * @var int
+     */
+    const NEGATIVE_PREFIX = 2;
+
+    /**
+     * @var int
+     */
+    const NEGATIVE_SUFFIX = 3;
+
+    /**
+     * @var int
+     */
+    const ORDINAL = 6;
+
+    /**
+     * @var int
+     */
+    const PAD_AFTER_PREFIX = 1;
+
+    /**
+     * @var int
+     */
+    const PAD_AFTER_SUFFIX = 3;
+
+    /**
+     * @var int
+     */
+    const PAD_BEFORE_PREFIX = 0;
+
+    /**
+     * @var int
+     */
+    const PAD_BEFORE_SUFFIX = 2;
+
+    /**
+     * @var int
+     */
+    const PAD_ESCAPE_SYMBOL = 13;
+
+    /**
+     * @var int
+     */
+    const PADDING_CHARACTER = 4;
+
+    /**
+     * @var int
+     */
+    const PADDING_POSITION = 14;
+
+    /**
+     * @var int
+     */
+    const PARSE_INT_ONLY = 0;
+
+    /**
+     * @var int
+     */
+    const PATTERN_DECIMAL = 0;
+
+    /**
+     * @var int
+     */
+    const PATTERN_RULEBASED = 9;
+
+    /**
+     * @var int
+     */
+    const PATTERN_SEPARATOR_SYMBOL = 2;
+
+    /**
+     * @var int
+     */
+    const PERCENT = 3;
+
+    /**
+     * @var int
+     */
+    const PERCENT_SYMBOL = 3;
+
+    /**
+     * @var int
+     */
+    const PERMILL_SYMBOL = 12;
+
+    /**
+     * @var int
+     */
+    const PLUS_SIGN_SYMBOL = 7;
+
+    /**
+     * @var int
+     */
+    const POSITIVE_PREFIX = 0;
+
+    /**
+     * @var int
+     */
+    const POSITIVE_SUFFIX = 1;
+
+    /**
+     * @var int
+     */
+    const PUBLIC_RULESETS = 7;
+
+    /**
+     * @var int
+     */
+    const ROUND_CEILING = 0;
+
+    /**
+     * @var int
+     */
+    const ROUND_DOWN = 2;
+
+    /**
+     * @var int
+     */
+    const ROUND_FLOOR = 1;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFDOWN = 5;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFEVEN = 4;
+
+    /**
+     * @var int
+     */
+    const ROUND_HALFUP = 6;
+
+    /**
+     * @var int
+     */
+    const ROUND_UP = 3;
+
+    /**
+     * @var int
+     */
+    const ROUNDING_INCREMENT = 12;
+
+    /**
+     * @var int
+     */
+    const ROUNDING_MODE = 11;
+
+    /**
+     * @var int
+     */
+    const SCIENTIFIC = 4;
+
+    /**
+     * @var int
+     */
+    const SECONDARY_GROUPING_SIZE = 15;
+
+    /**
+     * @var int
+     */
+    const SIGNIFICANT_DIGIT_SYMBOL = 16;
+
+    /**
+     * @var int
+     */
+    const SIGNIFICANT_DIGITS_USED = 16;
+
+    /**
+     * @var int
+     */
+    const SPELLOUT = 5;
+
+    /**
+     * @var int
+     */
+    const TYPE_CURRENCY = 4;
+
+    /**
+     * @var int
+     */
+    const TYPE_DEFAULT = 0;
+
+    /**
+     * @var int
+     */
+    const TYPE_DOUBLE = 3;
+
+    /**
+     * @var int
+     */
+    const TYPE_INT32 = 1;
+
+    /**
+     * @var int
+     */
+    const TYPE_INT64 = 2;
+
+    /**
+     * @var int
+     */
+    const ZERO_DIGIT_SYMBOL = 4;
+
     /**
      * Create a number formatter
      *
@@ -4107,6 +5082,41 @@ class ResourceBundle implements Traversable
 class Spoofchecker
 {
     /**
+     * @var int
+     */
+    const ANY_CASE = 8;
+
+    /**
+     * @var int
+     */
+    const CHAR_LIMIT = 64;
+
+    /**
+     * @var int
+     */
+    const INVISIBLE = 32;
+
+    /**
+     * @var int
+     */
+    const MIXED_SCRIPT_CONFUSABLE = 2;
+
+    /**
+     * @var int
+     */
+    const SINGLE_SCRIPT = 16;
+
+    /**
+     * @var int
+     */
+    const SINGLE_SCRIPT_CONFUSABLE = 1;
+
+    /**
+     * @var int
+     */
+    const WHOLE_SCRIPT_CONFUSABLE = 4;
+
+    /**
      * Constructor
      *
      * @link http://www.php.net/manual/en/spoofchecker.construct.php
@@ -4178,6 +5188,16 @@ class Spoofchecker
  */
 class Transliterator
 {
+    /**
+     * @var int
+     */
+    const FORWARD = 0;
+
+    /**
+     * @var int
+     */
+    const REVERSE = 1;
+
     /**
      * Private constructor to deny instantiation
      *
@@ -4282,6 +5302,211 @@ class Transliterator
  */
 class UConverter
 {
+    /**
+     * @var int
+     */
+    const BOCU1 = 28;
+
+    /**
+     * @var int
+     */
+    const CESU8 = 31;
+
+    /**
+     * @var int
+     */
+    const DBCS = 1;
+
+    /**
+     * @var int
+     */
+    const EBCDIC_STATEFUL = 9;
+
+    /**
+     * @var int
+     */
+    const HZ = 23;
+
+    /**
+     * @var int
+     */
+    const IMAP_MAILBOX = 32;
+
+    /**
+     * @var int
+     */
+    const ISCII = 25;
+
+    /**
+     * @var int
+     */
+    const ISO_2022 = 10;
+
+    /**
+     * @var int
+     */
+    const LATIN_1 = 3;
+
+    /**
+     * @var int
+     */
+    const LMBCS_1 = 11;
+
+    /**
+     * @var int
+     */
+    const LMBCS_11 = 18;
+
+    /**
+     * @var int
+     */
+    const LMBCS_16 = 19;
+
+    /**
+     * @var int
+     */
+    const LMBCS_17 = 20;
+
+    /**
+     * @var int
+     */
+    const LMBCS_18 = 21;
+
+    /**
+     * @var int
+     */
+    const LMBCS_19 = 22;
+
+    /**
+     * @var int
+     */
+    const LMBCS_2 = 12;
+
+    /**
+     * @var int
+     */
+    const LMBCS_3 = 13;
+
+    /**
+     * @var int
+     */
+    const LMBCS_4 = 14;
+
+    /**
+     * @var int
+     */
+    const LMBCS_5 = 15;
+
+    /**
+     * @var int
+     */
+    const LMBCS_6 = 16;
+
+    /**
+     * @var int
+     */
+    const LMBCS_8 = 17;
+
+    /**
+     * @var int
+     */
+    const LMBCS_LAST = 22;
+
+    /**
+     * @var int
+     */
+    const MBCS = 2;
+
+    /**
+     * @var int
+     */
+    const REASON_CLONE = 5;
+
+    /**
+     * @var int
+     */
+    const REASON_CLOSE = 4;
+
+    /**
+     * @var int
+     */
+    const REASON_ILLEGAL = 1;
+
+    /**
+     * @var int
+     */
+    const REASON_IRREGULAR = 2;
+
+    /**
+     * @var int
+     */
+    const REASON_RESET = 3;
+
+    /**
+     * @var int
+     */
+    const REASON_UNASSIGNED = 0;
+
+    /**
+     * @var int
+     */
+    const SBCS = 0;
+
+    /**
+     * @var int
+     */
+    const SCSU = 24;
+
+    /**
+     * @var int
+     */
+    const UNSUPPORTED_CONVERTER = -1;
+
+    /**
+     * @var int
+     */
+    const US_ASCII = 26;
+
+    /**
+     * @var int
+     */
+    const UTF16 = 29;
+
+    /**
+     * @var int
+     */
+    const UTF16_BigEndian = 5;
+
+    /**
+     * @var int
+     */
+    const UTF16_LittleEndian = 6;
+
+    /**
+     * @var int
+     */
+    const UTF32 = 30;
+
+    /**
+     * @var int
+     */
+    const UTF32_BigEndian = 7;
+
+    /**
+     * @var int
+     */
+    const UTF32_LittleEndian = 8;
+
+    /**
+     * @var int
+     */
+    const UTF7 = 27;
+
+    /**
+     * @var int
+     */
+    const UTF8 = 4;
+
     /**
      * Create UConverter object
      *

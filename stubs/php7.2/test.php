@@ -11,6 +11,10 @@ trait _ZendTestTrait
 
 interface _ZendTestInterface
 {
+    /**
+     * @var int
+     */
+    const DUMMY = 0;
 }
 
 class _ZendTestClass implements _ZendTestInterface

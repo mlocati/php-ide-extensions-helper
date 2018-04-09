@@ -171,6 +171,61 @@ const SNMP_VALUE_PLAIN = 1;
 class SNMP
 {
     /**
+     * @var int
+     */
+    const ERRNO_ANY = 126;
+
+    /**
+     * @var int
+     */
+    const ERRNO_ERROR_IN_REPLY = 8;
+
+    /**
+     * @var int
+     */
+    const ERRNO_GENERIC = 2;
+
+    /**
+     * @var int
+     */
+    const ERRNO_MULTIPLE_SET_QUERIES = 64;
+
+    /**
+     * @var int
+     */
+    const ERRNO_NOERROR = 0;
+
+    /**
+     * @var int
+     */
+    const ERRNO_OID_NOT_INCREASING = 16;
+
+    /**
+     * @var int
+     */
+    const ERRNO_OID_PARSING_ERROR = 32;
+
+    /**
+     * @var int
+     */
+    const ERRNO_TIMEOUT = 4;
+
+    /**
+     * @var int
+     */
+    const VERSION_1 = 0;
+
+    /**
+     * @var int
+     */
+    const VERSION_2c = 1;
+
+    /**
+     * @var int
+     */
+    const VERSION_3 = 3;
+
+    /**
      * Creates SNMP instance representing session to remote <code>SNMP</code> agent
      *
      * @param mixed $version

@@ -13,6 +13,356 @@
 class ZipArchive
 {
     /**
+     * @var int
+     */
+    const CHECKCONS = 4;
+
+    /**
+     * @var int
+     */
+    const CM_BZIP2 = 12;
+
+    /**
+     * @var int
+     */
+    const CM_DEFAULT = -1;
+
+    /**
+     * @var int
+     */
+    const CM_DEFLATE = 8;
+
+    /**
+     * @var int
+     */
+    const CM_DEFLATE64 = 9;
+
+    /**
+     * @var int
+     */
+    const CM_IMPLODE = 6;
+
+    /**
+     * @var int
+     */
+    const CM_LZ77 = 19;
+
+    /**
+     * @var int
+     */
+    const CM_LZMA = 14;
+
+    /**
+     * @var int
+     */
+    const CM_PKWARE_IMPLODE = 10;
+
+    /**
+     * @var int
+     */
+    const CM_PPMD = 98;
+
+    /**
+     * @var int
+     */
+    const CM_REDUCE_1 = 2;
+
+    /**
+     * @var int
+     */
+    const CM_REDUCE_2 = 3;
+
+    /**
+     * @var int
+     */
+    const CM_REDUCE_3 = 4;
+
+    /**
+     * @var int
+     */
+    const CM_REDUCE_4 = 5;
+
+    /**
+     * @var int
+     */
+    const CM_SHRINK = 1;
+
+    /**
+     * @var int
+     */
+    const CM_STORE = 0;
+
+    /**
+     * @var int
+     */
+    const CM_TERSE = 18;
+
+    /**
+     * @var int
+     */
+    const CM_WAVPACK = 97;
+
+    /**
+     * @var int
+     */
+    const CREATE = 1;
+
+    /**
+     * @var int
+     */
+    const ER_CHANGED = 15;
+
+    /**
+     * @var int
+     */
+    const ER_CLOSE = 3;
+
+    /**
+     * @var int
+     */
+    const ER_COMPNOTSUPP = 16;
+
+    /**
+     * @var int
+     */
+    const ER_CRC = 7;
+
+    /**
+     * @var int
+     */
+    const ER_DELETED = 23;
+
+    /**
+     * @var int
+     */
+    const ER_EOF = 17;
+
+    /**
+     * @var int
+     */
+    const ER_EXISTS = 10;
+
+    /**
+     * @var int
+     */
+    const ER_INCONS = 21;
+
+    /**
+     * @var int
+     */
+    const ER_INTERNAL = 20;
+
+    /**
+     * @var int
+     */
+    const ER_INVAL = 18;
+
+    /**
+     * @var int
+     */
+    const ER_MEMORY = 14;
+
+    /**
+     * @var int
+     */
+    const ER_MULTIDISK = 1;
+
+    /**
+     * @var int
+     */
+    const ER_NOENT = 9;
+
+    /**
+     * @var int
+     */
+    const ER_NOZIP = 19;
+
+    /**
+     * @var int
+     */
+    const ER_OK = 0;
+
+    /**
+     * @var int
+     */
+    const ER_OPEN = 11;
+
+    /**
+     * @var int
+     */
+    const ER_READ = 5;
+
+    /**
+     * @var int
+     */
+    const ER_REMOVE = 22;
+
+    /**
+     * @var int
+     */
+    const ER_RENAME = 2;
+
+    /**
+     * @var int
+     */
+    const ER_SEEK = 4;
+
+    /**
+     * @var int
+     */
+    const ER_TMPOPEN = 12;
+
+    /**
+     * @var int
+     */
+    const ER_WRITE = 6;
+
+    /**
+     * @var int
+     */
+    const ER_ZIPCLOSED = 8;
+
+    /**
+     * @var int
+     */
+    const ER_ZLIB = 13;
+
+    /**
+     * @var int
+     */
+    const EXCL = 2;
+
+    /**
+     * @var int
+     */
+    const FL_COMPRESSED = 4;
+
+    /**
+     * @var int
+     */
+    const FL_NOCASE = 1;
+
+    /**
+     * @var int
+     */
+    const FL_NODIR = 2;
+
+    /**
+     * @var int
+     */
+    const FL_UNCHANGED = 8;
+
+    /**
+     * @var int
+     */
+    const OPSYS_ACORN_RISC = 13;
+
+    /**
+     * @var int
+     */
+    const OPSYS_ALTERNATE_MVS = 15;
+
+    /**
+     * @var int
+     */
+    const OPSYS_AMIGA = 1;
+
+    /**
+     * @var int
+     */
+    const OPSYS_ATARI_ST = 5;
+
+    /**
+     * @var int
+     */
+    const OPSYS_BEOS = 16;
+
+    /**
+     * @var int
+     */
+    const OPSYS_DEFAULT = 3;
+
+    /**
+     * @var int
+     */
+    const OPSYS_DOS = 0;
+
+    /**
+     * @var int
+     */
+    const OPSYS_MACINTOSH = 7;
+
+    /**
+     * @var int
+     */
+    const OPSYS_MVS = 11;
+
+    /**
+     * @var int
+     */
+    const OPSYS_OPENVMS = 2;
+
+    /**
+     * @var int
+     */
+    const OPSYS_OS_2 = 6;
+
+    /**
+     * @var int
+     */
+    const OPSYS_OS_400 = 18;
+
+    /**
+     * @var int
+     */
+    const OPSYS_OS_X = 19;
+
+    /**
+     * @var int
+     */
+    const OPSYS_TANDEM = 17;
+
+    /**
+     * @var int
+     */
+    const OPSYS_UNIX = 3;
+
+    /**
+     * @var int
+     */
+    const OPSYS_VFAT = 14;
+
+    /**
+     * @var int
+     */
+    const OPSYS_VM_CMS = 4;
+
+    /**
+     * @var int
+     */
+    const OPSYS_VSE = 12;
+
+    /**
+     * @var int
+     */
+    const OPSYS_WINDOWS_NTFS = 10;
+
+    /**
+     * @var int
+     */
+    const OPSYS_Z_CPM = 9;
+
+    /**
+     * @var int
+     */
+    const OPSYS_Z_SYSTEM = 8;
+
+    /**
+     * @var int
+     */
+    const OVERWRITE = 8;
+
+    /**
      * Add a new directory
      *
      * @param mixed $dirname

@@ -19,6 +19,2886 @@
 class Imagick implements Countable, Iterator
 {
     /**
+     * @var int
+     */
+    const ALIGN_CENTER = 2;
+
+    /**
+     * @var int
+     */
+    const ALIGN_LEFT = 1;
+
+    /**
+     * @var int
+     */
+    const ALIGN_RIGHT = 3;
+
+    /**
+     * @var int
+     */
+    const ALIGN_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_ACTIVATE = 1;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const ALPHACHANNEL_ASSOCIATE = 13;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_BACKGROUND = 2;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_COPY = 3;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_DEACTIVATE = 4;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const ALPHACHANNEL_DISSOCIATE = 14;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_EXTRACT = 5;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_FLATTEN = 11;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_OPAQUE = 6;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_REMOVE = 12;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_RESET = 7;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_SET = 8;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_SHAPE = 9;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_TRANSPARENT = 10;
+
+    /**
+     * @var int
+     */
+    const ALPHACHANNEL_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_ALL = 134217727;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_ALPHA = 8;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_BLACK = 32;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_BLUE = 4;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_COMPOSITES = 47;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_CYAN = 1;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_DEFAULT = 134217719;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_GRAY = 1;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_GRAY_CHANNELS = 128;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_GREEN = 2;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_INDEX = 32;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_MAGENTA = 2;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_MATTE = 8;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_OPACITY = 8;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_RED = 1;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_RGBA = 15;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_RGBS = 128;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_SYNC = 256;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_TRUEALPHA = 64;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const CHANNEL_YELLOW = 4;
+
+    /**
+     * @var int
+     */
+    const COLOR_ALPHA = 19;
+
+    /**
+     * @var int
+     */
+    const COLOR_BLACK = 11;
+
+    /**
+     * @var int
+     */
+    const COLOR_BLUE = 12;
+
+    /**
+     * @var int
+     */
+    const COLOR_CYAN = 13;
+
+    /**
+     * @var int
+     */
+    const COLOR_FUZZ = 20;
+
+    /**
+     * @var int
+     */
+    const COLOR_GREEN = 14;
+
+    /**
+     * @var int
+     */
+    const COLOR_MAGENTA = 17;
+
+    /**
+     * @var int
+     */
+    const COLOR_OPACITY = 18;
+
+    /**
+     * @var int
+     */
+    const COLOR_RED = 15;
+
+    /**
+     * @var int
+     */
+    const COLOR_YELLOW = 16;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_CMY = 22;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_CMYK = 12;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_GRAY = 2;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HCL = 24;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HCLP = 32;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HSB = 14;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HSI = 30;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HSL = 15;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HSV = 31;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_HWB = 16;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LAB = 5;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LCH = 25;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LCHAB = 27;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LCHUV = 28;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LMS = 26;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LOG = 21;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_LUV = 23;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_OHTA = 4;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_REC601LUMA = 17;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_REC601YCBCR = 18;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_REC709LUMA = 19;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_REC709YCBCR = 20;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_RGB = 1;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_SCRGB = 29;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_SRGB = 13;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_TRANSPARENT = 3;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_UNDEFINED = 0;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const COLORSPACE_XYY = 34;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_XYZ = 6;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YCBCR = 7;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YCC = 8;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YDBDR = 33;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YIQ = 9;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YPBPR = 10;
+
+    /**
+     * @var int
+     */
+    const COLORSPACE_YUV = 11;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_ADD = 2;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_ATOP = 3;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_BLEND = 4;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_BLUR = 57;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_BUMPMAP = 5;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_CHANGEMASK = 6;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_CLEAR = 7;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COLORBURN = 8;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COLORDODGE = 9;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COLORIZE = 10;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPY = 13;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYBLACK = 11;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYBLUE = 12;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYCYAN = 14;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYGREEN = 15;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYMAGENTA = 16;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYOPACITY = 17;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYRED = 18;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_COPYYELLOW = 19;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DARKEN = 20;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DARKENINTENSITY = 66;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DEFAULT = 40;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DIFFERENCE = 26;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DISPLACE = 27;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DISSOLVE = 28;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DISTORT = 56;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DIVIDE = 55;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DIVIDEDST = 55;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DIVIDESRC = 64;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DST = 22;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DSTATOP = 21;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DSTIN = 23;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DSTOUT = 24;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_DSTOVER = 25;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_EXCLUSION = 29;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_HARDLIGHT = 30;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const COMPOSITE_HARDMIX = 68;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_HUE = 31;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_IN = 32;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LIGHTEN = 33;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LIGHTENINTENSITY = 67;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LINEARBURN = 62;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LINEARDODGE = 61;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LINEARLIGHT = 34;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_LUMINIZE = 35;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MATHEMATICS = 63;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MINUS = 36;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MINUSDST = 36;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MINUSSRC = 65;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MODULATE = 37;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MODULUSADD = 2;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MODULUSSUBTRACT = 52;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_MULTIPLY = 38;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_NO = 1;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_OUT = 39;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_OVER = 40;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_OVERLAY = 41;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_PEGTOPLIGHT = 58;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_PINLIGHT = 60;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_PLUS = 42;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_REPLACE = 43;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SATURATE = 44;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SCREEN = 45;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SOFTLIGHT = 46;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SRC = 48;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SRCATOP = 47;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SRCIN = 49;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SRCOUT = 50;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SRCOVER = 51;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_SUBTRACT = 52;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_THRESHOLD = 53;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_VIVIDLIGHT = 59;
+
+    /**
+     * @var int
+     */
+    const COMPOSITE_XOR = 54;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_B44 = 17;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_B44A = 18;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_BZIP = 2;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_DXT1 = 3;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_DXT3 = 4;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_DXT5 = 5;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_FAX = 6;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_GROUP4 = 7;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_JBIG1 = 20;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_JBIG2 = 21;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_JPEG = 8;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_JPEG2000 = 9;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_LOSSLESSJPEG = 10;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_LZMA = 19;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_LZW = 11;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_NO = 1;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_PIZ = 15;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_PXR24 = 16;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_RLE = 12;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_ZIP = 13;
+
+    /**
+     * @var int
+     */
+    const COMPRESSION_ZIPS = 14;
+
+    /**
+     * @var int
+     */
+    const DECORATION_LINETHROUGH = 4;
+
+    /**
+     * @var int
+     */
+    const DECORATION_LINETROUGH = 4;
+
+    /**
+     * @var int
+     */
+    const DECORATION_NO = 1;
+
+    /**
+     * @var int
+     */
+    const DECORATION_OVERLINE = 3;
+
+    /**
+     * @var int
+     */
+    const DECORATION_UNDERLINE = 2;
+
+    /**
+     * @var int
+     */
+    const DIRECTION_LEFT_TO_RIGHT = 2;
+
+    /**
+     * @var int
+     */
+    const DIRECTION_RIGHT_TO_LEFT = 1;
+
+    /**
+     * @var int
+     */
+    const DISPOSE_BACKGROUND = 2;
+
+    /**
+     * @var int
+     */
+    const DISPOSE_NONE = 1;
+
+    /**
+     * @var int
+     */
+    const DISPOSE_PREVIOUS = 3;
+
+    /**
+     * @var int
+     */
+    const DISPOSE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const DISPOSE_UNRECOGNIZED = 0;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_AFFINE = 1;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_AFFINEPROJECTION = 2;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_ARC = 9;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_BARREL = 14;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_BARRELINVERSE = 15;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_BILINEAR = 6;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_BILINEARFORWARD = 6;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_BILINEARREVERSE = 7;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_CYLINDER2PLANE = 12;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_DEPOLAR = 11;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_PERSPECTIVE = 4;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_PERSPECTIVEPROJECTION = 5;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_PLANE2CYLINDER = 13;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_POLAR = 10;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_POLYNOMIAL = 8;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_RESIZE = 17;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_SCALEROTATETRANSLATE = 3;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_SENTINEL = 18;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_SHEPARDS = 16;
+
+    /**
+     * @var int
+     */
+    const DISTORTION_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const DITHERMETHOD_FLOYDSTEINBERG = 3;
+
+    /**
+     * @var int
+     */
+    const DITHERMETHOD_NO = 1;
+
+    /**
+     * @var int
+     */
+    const DITHERMETHOD_RIEMERSMA = 2;
+
+    /**
+     * @var int
+     */
+    const DITHERMETHOD_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_ABS = 28;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_ADD = 1;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_ADDMODULUS = 26;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_AND = 2;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_COSINE = 24;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_DIVIDE = 3;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_EXPONENTIAL = 29;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_GAUSSIANNOISE = 18;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_IMPULSENOISE = 19;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_LAPLACIANNOISE = 20;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_LEFTSHIFT = 4;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_LOG = 14;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MAX = 5;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MEAN = 27;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MEDIAN = 30;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MIN = 6;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MULTIPLICATIVENOISE = 21;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_MULTIPLY = 7;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_OR = 8;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_POISSONNOISE = 22;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_POW = 13;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_RIGHTSHIFT = 9;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const EVALUATE_ROOT_MEAN_SQUARE = 32;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_SET = 10;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_SINE = 25;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_SUBTRACT = 11;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_SUM = 31;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_THRESHOLD = 15;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_THRESHOLDBLACK = 16;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_THRESHOLDWHITE = 17;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_UNIFORMNOISE = 23;
+
+    /**
+     * @var int
+     */
+    const EVALUATE_XOR = 12;
+
+    /**
+     * @var int
+     */
+    const FILLRULE_EVENODD = 1;
+
+    /**
+     * @var int
+     */
+    const FILLRULE_NONZERO = 2;
+
+    /**
+     * @var int
+     */
+    const FILLRULE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const FILTER_BARTLETT = 20;
+
+    /**
+     * @var int
+     */
+    const FILTER_BESSEL = 13;
+
+    /**
+     * @var int
+     */
+    const FILTER_BLACKMAN = 7;
+
+    /**
+     * @var int
+     */
+    const FILTER_BOHMAN = 19;
+
+    /**
+     * @var int
+     */
+    const FILTER_BOX = 2;
+
+    /**
+     * @var int
+     */
+    const FILTER_CATROM = 11;
+
+    /**
+     * @var int
+     */
+    const FILTER_COSINE = 28;
+
+    /**
+     * @var int
+     */
+    const FILTER_CUBIC = 10;
+
+    /**
+     * @var int
+     */
+    const FILTER_GAUSSIAN = 8;
+
+    /**
+     * @var int
+     */
+    const FILTER_HAMMING = 6;
+
+    /**
+     * @var int
+     */
+    const FILTER_HANNING = 5;
+
+    /**
+     * @var int
+     */
+    const FILTER_HERMITE = 4;
+
+    /**
+     * @var int
+     */
+    const FILTER_JINC = 13;
+
+    /**
+     * @var int
+     */
+    const FILTER_KAISER = 16;
+
+    /**
+     * @var int
+     */
+    const FILTER_LAGRANGE = 21;
+
+    /**
+     * @var int
+     */
+    const FILTER_LANCZOS = 22;
+
+    /**
+     * @var int
+     */
+    const FILTER_LANCZOS2 = 24;
+
+    /**
+     * @var int
+     */
+    const FILTER_LANCZOS2SHARP = 25;
+
+    /**
+     * @var int
+     */
+    const FILTER_LANCZOSRADIUS = 30;
+
+    /**
+     * @var int
+     */
+    const FILTER_LANCZOSSHARP = 23;
+
+    /**
+     * @var int
+     */
+    const FILTER_MITCHELL = 12;
+
+    /**
+     * @var int
+     */
+    const FILTER_PARZEN = 18;
+
+    /**
+     * @var int
+     */
+    const FILTER_POINT = 1;
+
+    /**
+     * @var int
+     */
+    const FILTER_QUADRATIC = 9;
+
+    /**
+     * @var int
+     */
+    const FILTER_ROBIDOUX = 26;
+
+    /**
+     * @var int
+     */
+    const FILTER_ROBIDOUXSHARP = 27;
+
+    /**
+     * @var int
+     */
+    const FILTER_SENTINEL = 31;
+
+    /**
+     * @var int
+     */
+    const FILTER_SINC = 14;
+
+    /**
+     * @var int
+     */
+    const FILTER_SINCFAST = 15;
+
+    /**
+     * @var int
+     */
+    const FILTER_SPLINE = 29;
+
+    /**
+     * @var int
+     */
+    const FILTER_TRIANGLE = 3;
+
+    /**
+     * @var int
+     */
+    const FILTER_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const FILTER_WELSH = 17;
+
+    /**
+     * @var int
+     */
+    const FUNCTION_ARCSIN = 3;
+
+    /**
+     * @var int
+     */
+    const FUNCTION_ARCTAN = 4;
+
+    /**
+     * @var int
+     */
+    const FUNCTION_POLYNOMIAL = 1;
+
+    /**
+     * @var int
+     */
+    const FUNCTION_SINUSOID = 2;
+
+    /**
+     * @var int
+     */
+    const FUNCTION_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_CENTER = 5;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_EAST = 6;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_FORGET = 0;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_NORTH = 2;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_NORTHEAST = 3;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_NORTHWEST = 1;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_SOUTH = 8;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_SOUTHEAST = 9;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_SOUTHWEST = 7;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_STATIC = 10;
+
+    /**
+     * @var int
+     */
+    const GRAVITY_WEST = 4;
+
+    /**
+     * @var int
+     */
+    const IMAGICK_EXTNUM = 30403;
+
+    /**
+     * @var string
+     */
+    const IMAGICK_EXTVER = '3.4.3';
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_BILEVEL = 1;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_COLORSEPARATION = 8;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_COLORSEPARATIONMATTE = 9;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_GRAYSCALE = 2;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_GRAYSCALEMATTE = 3;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_OPTIMIZE = 10;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_PALETTE = 4;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_PALETTEBILEVELMATTE = 11;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_PALETTEMATTE = 5;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_TRUECOLOR = 6;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_TRUECOLORMATTE = 7;
+
+    /**
+     * @var int
+     */
+    const IMGTYPE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_GIF = 5;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_JPEG = 6;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_LINE = 2;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_NO = 1;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_PARTITION = 4;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_PLANE = 3;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_PNG = 7;
+
+    /**
+     * @var int
+     */
+    const INTERLACE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_AVERAGE = 1;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_AVERAGE_16 = 10;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_AVERAGE_9 = 9;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_BACKGROUND_COLOR = 12;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_BICUBIC = 2;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_BILINEAR = 3;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_BLEND = 11;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_CATROM = 13;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_FILTER = 4;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_INTEGER = 5;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_MESH = 6;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_NEARESTNEIGHBOR = 7;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_SPLINE = 8;
+
+    /**
+     * @var int
+     */
+    const INTERPOLATE_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const KERNEL_BINOMIAL = 37;
+
+    /**
+     * @var int
+     */
+    const KERNEL_BLUR = 5;
+
+    /**
+     * @var int
+     */
+    const KERNEL_CHEBYSHEV = 32;
+
+    /**
+     * @var int
+     */
+    const KERNEL_COMET = 6;
+
+    /**
+     * @var int
+     */
+    const KERNEL_COMPASS = 12;
+
+    /**
+     * @var int
+     */
+    const KERNEL_CONVEX_HULL = 29;
+
+    /**
+     * @var int
+     */
+    const KERNEL_CORNERS = 24;
+
+    /**
+     * @var int
+     */
+    const KERNEL_CROSS = 20;
+
+    /**
+     * @var int
+     */
+    const KERNEL_DIAGONALS = 25;
+
+    /**
+     * @var int
+     */
+    const KERNEL_DIAMOND = 14;
+
+    /**
+     * @var int
+     */
+    const KERNEL_DIFFERENCE_OF_GAUSSIANS = 3;
+
+    /**
+     * @var int
+     */
+    const KERNEL_DISK = 18;
+
+    /**
+     * @var int
+     */
+    const KERNEL_EDGES = 23;
+
+    /**
+     * @var int
+     */
+    const KERNEL_EUCLIDEAN = 35;
+
+    /**
+     * @var int
+     */
+    const KERNEL_FREI_CHEN = 9;
+
+    /**
+     * @var int
+     */
+    const KERNEL_GAUSSIAN = 2;
+
+    /**
+     * @var int
+     */
+    const KERNEL_KIRSCH = 13;
+
+    /**
+     * @var int
+     */
+    const KERNEL_LAPLACIAN = 7;
+
+    /**
+     * @var int
+     */
+    const KERNEL_LAPLACIAN_OF_GAUSSIANS = 4;
+
+    /**
+     * @var int
+     */
+    const KERNEL_LINE_ENDS = 26;
+
+    /**
+     * @var int
+     */
+    const KERNEL_LINE_JUNCTIONS = 27;
+
+    /**
+     * @var int
+     */
+    const KERNEL_MANHATTAN = 33;
+
+    /**
+     * @var int
+     */
+    const KERNEL_OCTAGON = 17;
+
+    /**
+     * @var int
+     */
+    const KERNEL_OCTAGONAL = 34;
+
+    /**
+     * @var int
+     */
+    const KERNEL_PEAKS = 22;
+
+    /**
+     * @var int
+     */
+    const KERNEL_PLUS = 19;
+
+    /**
+     * @var int
+     */
+    const KERNEL_PREWITT = 11;
+
+    /**
+     * @var int
+     */
+    const KERNEL_RECTANGLE = 16;
+
+    /**
+     * @var int
+     */
+    const KERNEL_RIDGES = 28;
+
+    /**
+     * @var int
+     */
+    const KERNEL_RING = 21;
+
+    /**
+     * @var int
+     */
+    const KERNEL_ROBERTS = 10;
+
+    /**
+     * @var int
+     */
+    const KERNEL_SKELETON = 31;
+
+    /**
+     * @var int
+     */
+    const KERNEL_SOBEL = 8;
+
+    /**
+     * @var int
+     */
+    const KERNEL_SQUARE = 15;
+
+    /**
+     * @var int
+     */
+    const KERNEL_THIN_SE = 30;
+
+    /**
+     * @var int
+     */
+    const KERNEL_UNITY = 1;
+
+    /**
+     * @var int
+     */
+    const KERNEL_USER_DEFINED = 36;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_COALESCE = 1;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_COMPAREANY = 2;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_COMPARECLEAR = 3;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_COMPAREOVERLAY = 4;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_COMPOSITE = 12;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_DISPOSE = 5;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_FLATTEN = 14;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_MERGE = 13;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_MOSAIC = 15;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_OPTIMIZE = 6;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_OPTIMIZEIMAGE = 7;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_OPTIMIZEPLUS = 8;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_OPTIMIZETRANS = 9;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_REMOVEDUPS = 10;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_REMOVEZERO = 11;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_TRIMBOUNDS = 16;
+
+    /**
+     * @var int
+     */
+    const LAYERMETHOD_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const LINECAP_BUTT = 1;
+
+    /**
+     * @var int
+     */
+    const LINECAP_ROUND = 2;
+
+    /**
+     * @var int
+     */
+    const LINECAP_SQUARE = 3;
+
+    /**
+     * @var int
+     */
+    const LINECAP_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const LINEJOIN_BEVEL = 3;
+
+    /**
+     * @var int
+     */
+    const LINEJOIN_MITER = 1;
+
+    /**
+     * @var int
+     */
+    const LINEJOIN_ROUND = 2;
+
+    /**
+     * @var int
+     */
+    const LINEJOIN_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const METRIC_ABSOLUTEERRORMETRIC = 1;
+
+    /**
+     * @var int
+     */
+    const METRIC_FUZZERROR = 9;
+
+    /**
+     * @var int
+     */
+    const METRIC_MEANABSOLUTEERROR = 2;
+
+    /**
+     * @var int
+     */
+    const METRIC_MEANERRORPERPIXELMETRIC = 3;
+
+    /**
+     * @var int
+     */
+    const METRIC_MEANSQUAREERROR = 4;
+
+    /**
+     * @var int
+     */
+    const METRIC_NORMALIZEDCROSSCORRELATIONERRORMETRIC = 8;
+
+    /**
+     * @var int
+     */
+    const METRIC_PEAKABSOLUTEERROR = 5;
+
+    /**
+     * @var int
+     */
+    const METRIC_PEAKSIGNALTONOISERATIO = 6;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const METRIC_PERCEPTUALHASH_ERROR = 255;
+
+    /**
+     * @var int
+     */
+    const METRIC_ROOTMEANSQUAREDERROR = 7;
+
+    /**
+     * @var int
+     */
+    const METRIC_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const MONTAGEMODE_CONCATENATE = 3;
+
+    /**
+     * @var int
+     */
+    const MONTAGEMODE_FRAME = 1;
+
+    /**
+     * @var int
+     */
+    const MONTAGEMODE_UNFRAME = 2;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_BOTTOM_HAT = 17;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_CLOSE = 9;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_CLOSE_INTENSITY = 11;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_CONVOLVE = 1;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_CORRELATE = 2;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_DILATE = 4;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_DILATE_INTENSITY = 6;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_DISTANCE = 7;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_EDGE = 15;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_EDGE_IN = 13;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_EDGE_OUT = 14;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_ERODE = 3;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_ERODE_INTENSITY = 5;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_HIT_AND_MISS = 18;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_ITERATIVE = 22;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_OPEN = 8;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_OPEN_INTENSITY = 10;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_SMOOTH = 12;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_THICKEN = 20;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_THINNING = 19;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_TOP_HAT = 16;
+
+    /**
+     * @var int
+     */
+    const MORPHOLOGY_VORONOI = 21;
+
+    /**
+     * @var int
+     */
+    const NOISE_GAUSSIAN = 2;
+
+    /**
+     * @var int
+     */
+    const NOISE_IMPULSE = 4;
+
+    /**
+     * @var int
+     */
+    const NOISE_LAPLACIAN = 5;
+
+    /**
+     * @var int
+     */
+    const NOISE_MULTIPLICATIVEGAUSSIAN = 3;
+
+    /**
+     * @var int
+     */
+    const NOISE_POISSON = 6;
+
+    /**
+     * @var int
+     */
+    const NOISE_RANDOM = 7;
+
+    /**
+     * @var int
+     */
+    const NOISE_UNIFORM = 1;
+
+    /**
+     * @var int
+     */
+    const NORMALIZE_KERNEL_CORRELATE = 65536;
+
+    /**
+     * @var int
+     */
+    const NORMALIZE_KERNEL_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const NORMALIZE_KERNEL_PERCENT = 4096;
+
+    /**
+     * @var int
+     */
+    const NORMALIZE_KERNEL_VALUE = 8192;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_BOTTOMLEFT = 4;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_BOTTOMRIGHT = 3;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_LEFTBOTTOM = 8;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_LEFTTOP = 5;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_RIGHTBOTTOM = 7;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_RIGHTTOP = 6;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_TOPLEFT = 1;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_TOPRIGHT = 2;
+
+    /**
+     * @var int
+     */
+    const ORIENTATION_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const PAINT_FILLTOBORDER = 4;
+
+    /**
+     * @var int
+     */
+    const PAINT_FLOODFILL = 3;
+
+    /**
+     * @var int
+     */
+    const PAINT_POINT = 1;
+
+    /**
+     * @var int
+     */
+    const PAINT_REPLACE = 2;
+
+    /**
+     * @var int
+     */
+    const PAINT_RESET = 5;
+
+    /**
+     * @var int
+     */
+    const PATHUNITS_OBJECTBOUNDINGBOX = 3;
+
+    /**
+     * @var int
+     */
+    const PATHUNITS_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const PATHUNITS_USERSPACE = 1;
+
+    /**
+     * @var int
+     */
+    const PATHUNITS_USERSPACEONUSE = 2;
+
+    /**
+     * @var int
+     */
+    const PIXEL_CHAR = 1;
+
+    /**
+     * @var int
+     */
+    const PIXEL_DOUBLE = 2;
+
+    /**
+     * @var int
+     */
+    const PIXEL_FLOAT = 3;
+
+    /**
+     * @var int
+     */
+    const PIXEL_INTEGER = 4;
+
+    /**
+     * @var int
+     */
+    const PIXEL_LONG = 5;
+
+    /**
+     * @var int
+     */
+    const PIXEL_QUANTUM = 6;
+
+    /**
+     * @var int
+     */
+    const PIXEL_SHORT = 7;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_ADDNOISE = 14;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_BLUR = 16;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_BRIGHTNESS = 6;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_CHARCOALDRAWING = 28;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_DESPECKLE = 12;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_DULL = 9;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_EDGEDETECT = 18;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_GAMMA = 7;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_GRAYSCALE = 10;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_HUE = 4;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_IMPLODE = 25;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_JPEG = 29;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_OILPAINT = 27;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_QUANTIZE = 11;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_RAISE = 22;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_REDUCENOISE = 13;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_ROLL = 3;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_ROTATE = 1;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SATURATION = 5;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SEGMENT = 23;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SHADE = 21;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SHARPEN = 15;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SHEAR = 2;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SOLARIZE = 20;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SPIFF = 8;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SPREAD = 19;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_SWIRL = 24;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_THRESHOLD = 17;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const PREVIEW_WAVE = 26;
+
+    /**
+     * @var int
+     */
+    const QUANTUM_RANGE = 65535;
+
+    /**
+     * @var int
+     */
+    const RENDERINGINTENT_ABSOLUTE = 3;
+
+    /**
+     * @var int
+     */
+    const RENDERINGINTENT_PERCEPTUAL = 2;
+
+    /**
+     * @var int
+     */
+    const RENDERINGINTENT_RELATIVE = 4;
+
+    /**
+     * @var int
+     */
+    const RENDERINGINTENT_SATURATION = 1;
+
+    /**
+     * @var int
+     */
+    const RENDERINGINTENT_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const RESOLUTION_PIXELSPERCENTIMETER = 2;
+
+    /**
+     * @var int
+     */
+    const RESOLUTION_PIXELSPERINCH = 1;
+
+    /**
+     * @var int
+     */
+    const RESOLUTION_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_AREA = 1;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_DISK = 2;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_FILE = 3;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const RESOURCETYPE_HEIGHT = 10;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_MAP = 4;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_MEMORY = 5;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_THREAD = 6;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_THROTTLE = 8;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_TIME = 7;
+
+    /**
+     * @var int
+     */
+    const RESOURCETYPE_UNDEFINED = 0;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const RESOURCETYPE_WIDTH = 9;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_BARYCENTRIC = 1;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_BILINEAR = 7;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_INVERSE = 19;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const SPARSECOLORMETHOD_MANHATTAN = 20;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_POLYNOMIAL = 8;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_SPEPARDS = 16;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const SPARSECOLORMETHOD_VORONOI = 18;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_GRADIENT = 1;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_MAXIMUM = 2;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_MEAN = 3;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_MEDIAN = 4;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_MINIMUM = 5;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_MODE = 6;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_NONPEAK = 7;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const STATISTIC_ROOT_MEAN_SQUARE = 9;
+
+    /**
+     * @var int
+     */
+    const STATISTIC_STANDARD_DEVIATION = 8;
+
+    /**
+     * @var int
+     */
+    const STRETCH_ANY = 10;
+
+    /**
+     * @var int
+     */
+    const STRETCH_CONDENSED = 4;
+
+    /**
+     * @var int
+     */
+    const STRETCH_EXPANDED = 7;
+
+    /**
+     * @var int
+     */
+    const STRETCH_EXTRACONDENSED = 3;
+
+    /**
+     * @var int
+     */
+    const STRETCH_EXTRAEXPANDED = 8;
+
+    /**
+     * @var int
+     */
+    const STRETCH_NORMAL = 1;
+
+    /**
+     * @var int
+     */
+    const STRETCH_SEMICONDENSED = 5;
+
+    /**
+     * @var int
+     */
+    const STRETCH_SEMIEXPANDED = 6;
+
+    /**
+     * @var int
+     */
+    const STRETCH_ULTRACONDENSED = 2;
+
+    /**
+     * @var int
+     */
+    const STRETCH_ULTRAEXPANDED = 9;
+
+    /**
+     * @var int
+     */
+    const STYLE_ANY = 4;
+
+    /**
+     * @var int
+     */
+    const STYLE_ITALIC = 2;
+
+    /**
+     * @var int
+     */
+    const STYLE_NORMAL = 1;
+
+    /**
+     * @var int
+     */
+    const STYLE_OBLIQUE = 3;
+
+    /**
+     * @var int
+     */
+    const USE_ZEND_MM = 0;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_BACKGROUND = 1;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_BLACK = 10;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_CHECKERTILE = 17;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_CONSTANT = 2;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_EDGE = 4;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_GRAY = 11;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_HORIZONTALTILE = 13;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_HORIZONTALTILEEDGE = 15;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_MASK = 9;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_MIRROR = 5;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_TILE = 7;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_TRANSPARENT = 8;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_UNDEFINED = 0;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_VERTICALTILE = 14;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_VERTICALTILEEDGE = 16;
+
+    /**
+     * @var int
+     */
+    const VIRTUALPIXELMETHOD_WHITE = 12;
+
+    /**
      * The Imagick constructor
      *
      * @param mixed|null $files

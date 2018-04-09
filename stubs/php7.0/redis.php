@@ -5,6 +5,122 @@
 
 class Redis
 {
+    /**
+     * @var string
+     */
+    const AFTER = 'after';
+
+    /**
+     * @var int
+     */
+    const ATOMIC = 0;
+
+    /**
+     * @var string
+     */
+    const BEFORE = 'before';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const COMPRESSION_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const MULTI = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const OPT_COMPRESSION = 7;
+
+    /**
+     * @var int
+     */
+    const OPT_PREFIX = 2;
+
+    /**
+     * @var int
+     */
+    const OPT_READ_TIMEOUT = 3;
+
+    /**
+     * @var int
+     */
+    const OPT_SCAN = 4;
+
+    /**
+     * @var int
+     */
+    const OPT_SERIALIZER = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const OPT_TCP_KEEPALIVE = 6;
+
+    /**
+     * @var int
+     */
+    const PIPELINE = 2;
+
+    /**
+     * @var int
+     */
+    const REDIS_HASH = 5;
+
+    /**
+     * @var int
+     */
+    const REDIS_LIST = 3;
+
+    /**
+     * @var int
+     */
+    const REDIS_NOT_FOUND = 0;
+
+    /**
+     * @var int
+     */
+    const REDIS_SET = 2;
+
+    /**
+     * @var int
+     */
+    const REDIS_STRING = 1;
+
+    /**
+     * @var int
+     */
+    const REDIS_ZSET = 4;
+
+    /**
+     * @var int
+     */
+    const SCAN_NORETRY = 0;
+
+    /**
+     * @var int
+     */
+    const SCAN_RETRY = 1;
+
+    /**
+     * @var int
+     */
+    const SERIALIZER_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const SERIALIZER_PHP = 1;
+
     public function __construct()
     {
     }
@@ -1025,6 +1141,142 @@ class RedisArray
 
 class RedisCluster
 {
+    /**
+     * @var string
+     */
+    const AFTER = 'after';
+
+    /**
+     * @var int
+     */
+    const ATOMIC = 0;
+
+    /**
+     * @var string
+     */
+    const BEFORE = 'before';
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const COMPRESSION_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const FAILOVER_DISTRIBUTE = 2;
+
+    /**
+     * @var int
+     */
+    const FAILOVER_DISTRIBUTE_SLAVES = 3;
+
+    /**
+     * @var int
+     */
+    const FAILOVER_ERROR = 1;
+
+    /**
+     * @var int
+     */
+    const FAILOVER_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const MULTI = 1;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const OPT_COMPRESSION = 7;
+
+    /**
+     * @var int
+     */
+    const OPT_PREFIX = 2;
+
+    /**
+     * @var int
+     */
+    const OPT_READ_TIMEOUT = 3;
+
+    /**
+     * @var int
+     */
+    const OPT_SCAN = 4;
+
+    /**
+     * @var int
+     */
+    const OPT_SERIALIZER = 1;
+
+    /**
+     * @var int
+     */
+    const OPT_SLAVE_FAILOVER = 5;
+
+    /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
+     * @var int
+     */
+    const OPT_TCP_KEEPALIVE = 6;
+
+    /**
+     * @var int
+     */
+    const REDIS_HASH = 5;
+
+    /**
+     * @var int
+     */
+    const REDIS_LIST = 3;
+
+    /**
+     * @var int
+     */
+    const REDIS_NOT_FOUND = 0;
+
+    /**
+     * @var int
+     */
+    const REDIS_SET = 2;
+
+    /**
+     * @var int
+     */
+    const REDIS_STRING = 1;
+
+    /**
+     * @var int
+     */
+    const REDIS_ZSET = 4;
+
+    /**
+     * @var int
+     */
+    const SCAN_NORETRY = 0;
+
+    /**
+     * @var int
+     */
+    const SCAN_RETRY = 1;
+
+    /**
+     * @var int
+     */
+    const SERIALIZER_NONE = 0;
+
+    /**
+     * @var int
+     */
+    const SERIALIZER_PHP = 1;
+
     public function __construct()
     {
     }

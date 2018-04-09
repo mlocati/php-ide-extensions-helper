@@ -87,6 +87,21 @@ class Reflection
  */
 class ReflectionClass implements Reflector
 {
+    /**
+     * @var int
+     */
+    const IS_EXPLICIT_ABSTRACT = 32;
+
+    /**
+     * @var int
+     */
+    const IS_FINAL = 4;
+
+    /**
+     * @var int
+     */
+    const IS_IMPLICIT_ABSTRACT = 16;
+
     final private function __clone()
     {
     }
@@ -1212,6 +1227,11 @@ class ReflectionExtension implements Reflector
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
+     * @var int
+     */
+    const IS_DEPRECATED = 262144;
+
+    /**
      * Constructs a ReflectionFunction object
      *
      * @param mixed $name
@@ -1773,6 +1793,36 @@ class ReflectionGenerator
  */
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
+    /**
+     * @var int
+     */
+    const IS_ABSTRACT = 2;
+
+    /**
+     * @var int
+     */
+    const IS_FINAL = 4;
+
+    /**
+     * @var int
+     */
+    const IS_PRIVATE = 1024;
+
+    /**
+     * @var int
+     */
+    const IS_PROTECTED = 512;
+
+    /**
+     * @var int
+     */
+    const IS_PUBLIC = 256;
+
+    /**
+     * @var int
+     */
+    const IS_STATIC = 1;
+
     /**
      * Constructs a ReflectionMethod
      *
@@ -2394,6 +2444,26 @@ class ReflectionParameter implements Reflector
  */
 class ReflectionProperty implements Reflector
 {
+    /**
+     * @var int
+     */
+    const IS_PRIVATE = 1024;
+
+    /**
+     * @var int
+     */
+    const IS_PROTECTED = 512;
+
+    /**
+     * @var int
+     */
+    const IS_PUBLIC = 256;
+
+    /**
+     * @var int
+     */
+    const IS_STATIC = 1;
+
     /**
      * Clone
      *

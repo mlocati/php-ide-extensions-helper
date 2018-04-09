@@ -243,6 +243,21 @@ namespace CommonMark\Interfaces {
     interface IVisitor
     {
         /**
+         * @var int
+         */
+        const Done = 1;
+
+        /**
+         * @var int
+         */
+        const Enter = 2;
+
+        /**
+         * @var int
+         */
+        const Leave = 3;
+
+        /**
          * Visitation
          *
          * @param \CommonMark\Interfaces\IVisitable $node

@@ -14,6 +14,76 @@
 class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     /**
+     * @var int
+     */
+    const BZ2 = 8192;
+
+    /**
+     * @var int
+     */
+    const COMPRESSED = 61440;
+
+    /**
+     * @var int
+     */
+    const GZ = 4096;
+
+    /**
+     * @var int
+     */
+    const MD5 = 1;
+
+    /**
+     * @var int
+     */
+    const NONE = 0;
+
+    /**
+     * @var int
+     */
+    const OPENSSL = 16;
+
+    /**
+     * @var int
+     */
+    const PHAR = 1;
+
+    /**
+     * @var int
+     */
+    const PHP = 0;
+
+    /**
+     * @var int
+     */
+    const PHPS = 1;
+
+    /**
+     * @var int
+     */
+    const SHA1 = 2;
+
+    /**
+     * @var int
+     */
+    const SHA256 = 3;
+
+    /**
+     * @var int
+     */
+    const SHA512 = 4;
+
+    /**
+     * @var int
+     */
+    const TAR = 2;
+
+    /**
+     * @var int
+     */
+    const ZIP = 3;
+
+    /**
      * Construct a Phar archive object
      *
      * @param mixed $filename
