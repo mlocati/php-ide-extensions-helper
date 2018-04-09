@@ -11,7 +11,7 @@ class XMLWriter
     /**
      * End attribute
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -24,7 +24,7 @@ class XMLWriter
     /**
      * End current CDATA
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -37,7 +37,7 @@ class XMLWriter
     /**
      * Create end comment
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
      *
@@ -50,7 +50,7 @@ class XMLWriter
     /**
      * End current document
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -63,7 +63,7 @@ class XMLWriter
     /**
      * End current DTD
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -76,7 +76,7 @@ class XMLWriter
     /**
      * End current DTD AttList
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -89,7 +89,7 @@ class XMLWriter
     /**
      * End current DTD element
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -102,7 +102,7 @@ class XMLWriter
     /**
      * End current DTD Entity
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -115,7 +115,7 @@ class XMLWriter
     /**
      * End current element
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -128,7 +128,7 @@ class XMLWriter
     /**
      * End current PI
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -141,22 +141,24 @@ class XMLWriter
     /**
      * Flush current buffer
      *
-     * @param mixed|null $empty
+     * @param bool|null $empty Whether to empty the buffer or not. Default is <code>TRUE</code>.
      *
-     * @return mixed
+     * @return mixed If you opened the writer in memory, this function returns the generated XML buffer,
+     * Else, if using URI, this function will write the buffer and return the number of
+     * written bytes.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
      *
      * @link http://www.php.net/manual/en/function.xmlwriter-flush.php
      */
-    public function flush($empty = null)
+    public function flush($empty = true)
     {
     }
 
     /**
      * End current element
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
      *
@@ -169,7 +171,9 @@ class XMLWriter
     /**
      * Create new xmlwriter using memory for string output
      *
-     * @return bool
+     * @return bool Object oriented style: Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Procedural style: Returns a new xmlwriter resource for later use with the
+     * xmlwriter functions on success, <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -182,9 +186,11 @@ class XMLWriter
     /**
      * Create new xmlwriter using source uri for output
      *
-     * @param mixed $uri
+     * @param string $uri The URI of the resource for the output.
      *
-     * @return bool
+     * @return bool Object oriented style: Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Procedural style: Returns a new xmlwriter resource for later use with the
+     * xmlwriter functions on success, <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -197,24 +203,24 @@ class XMLWriter
     /**
      * Returns current buffer
      *
-     * @param mixed|null $flush
+     * @param bool|null $flush Whether to flush the output buffer or not. Default is <code>TRUE</code>.
      *
-     * @return string
+     * @return string Returns the current buffer as a string.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
      * @link http://www.php.net/manual/en/function.xmlwriter-output-memory.php
      */
-    public function outputMemory($flush = null)
+    public function outputMemory($flush = true)
     {
     }
 
     /**
      * Toggle indentation on/off
      *
-     * @param mixed $indent
+     * @param bool $indent Whether indentation is enabled.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -227,9 +233,9 @@ class XMLWriter
     /**
      * Set string used for indenting
      *
-     * @param mixed $indentString
+     * @param string $indentString The indentation string.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -242,9 +248,9 @@ class XMLWriter
     /**
      * Create start attribute
      *
-     * @param mixed $name
+     * @param string $name The attribute name.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -257,11 +263,11 @@ class XMLWriter
     /**
      * Create start namespaced attribute
      *
-     * @param mixed $prefix
-     * @param mixed $name
-     * @param mixed $uri
+     * @param string $prefix The namespace prefix.
+     * @param string $name The attribute name.
+     * @param string $uri The namespace URI.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -274,7 +280,7 @@ class XMLWriter
     /**
      * Create start CDATA tag
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -287,7 +293,7 @@ class XMLWriter
     /**
      * Create start comment
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
      *
@@ -300,28 +306,28 @@ class XMLWriter
     /**
      * Create document tag
      *
-     * @param mixed|null $version
-     * @param mixed|null $encoding
-     * @param mixed|null $standalone
+     * @param string|null $version The version number of the document as part of the XML declaration.
+     * @param string|null $encoding The encoding of the document as part of the XML declaration.
+     * @param string $standalone <code>yes</code> or <code>no</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
      * @link http://www.php.net/manual/en/function.xmlwriter-start-document.php
      */
-    public function startDocument($version = null, $encoding = null, $standalone = null)
+    public function startDocument($version = 1.0, $encoding = null, $standalone = null)
     {
     }
 
     /**
      * Create start DTD tag
      *
-     * @param mixed $qualifiedName
-     * @param mixed|null $publicId
-     * @param mixed|null $systemId
+     * @param string $qualifiedName The qualified name of the document type to create.
+     * @param string $publicId The external subset public identifier.
+     * @param string $systemId The external subset system identifier.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -334,9 +340,9 @@ class XMLWriter
     /**
      * Create start DTD AttList
      *
-     * @param mixed $name
+     * @param string $name The attribute list name.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -349,9 +355,9 @@ class XMLWriter
     /**
      * Create start DTD element
      *
-     * @param mixed $qualifiedName
+     * @param string $qualifiedName The qualified name of the document type to create.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -364,10 +370,10 @@ class XMLWriter
     /**
      * Create start DTD Entity
      *
-     * @param mixed $name
-     * @param mixed $isparam
+     * @param string $name The name of the entity.
+     * @param bool $isparam
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -380,9 +386,9 @@ class XMLWriter
     /**
      * Create start element tag
      *
-     * @param mixed $name
+     * @param string $name The element name.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -395,11 +401,11 @@ class XMLWriter
     /**
      * Create start namespaced element tag
      *
-     * @param mixed $prefix
-     * @param mixed $name
-     * @param mixed $uri
+     * @param string $prefix The namespace prefix.
+     * @param string $name The element name.
+     * @param string $uri The namespace URI.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -412,9 +418,9 @@ class XMLWriter
     /**
      * Create start PI tag
      *
-     * @param mixed $target
+     * @param string $target The target of the processing instruction.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -427,9 +433,9 @@ class XMLWriter
     /**
      * Write text
      *
-     * @param mixed $content
+     * @param string $content The contents of the text.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -442,10 +448,10 @@ class XMLWriter
     /**
      * Write full attribute
      *
-     * @param mixed $name
-     * @param mixed $value
+     * @param string $name The name of the attribute.
+     * @param string $value The value of the attribute.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -458,12 +464,12 @@ class XMLWriter
     /**
      * Write full namespaced attribute
      *
-     * @param mixed $prefix
-     * @param mixed $name
-     * @param mixed $uri
-     * @param mixed $content
+     * @param string $prefix The namespace prefix.
+     * @param string $name The attribute name.
+     * @param string $uri The namespace URI.
+     * @param string $content The attribute value.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -476,9 +482,9 @@ class XMLWriter
     /**
      * Write full CDATA tag
      *
-     * @param mixed $content
+     * @param string $content The contents of the CDATA.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -491,9 +497,9 @@ class XMLWriter
     /**
      * Write full comment tag
      *
-     * @param mixed $content
+     * @param string $content The contents of the comment.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -506,12 +512,12 @@ class XMLWriter
     /**
      * Write full DTD tag
      *
-     * @param mixed $name
-     * @param mixed|null $publicId
-     * @param mixed|null $systemId
-     * @param mixed|null $subset
+     * @param string $name The DTD name.
+     * @param string $publicId The external subset public identifier.
+     * @param string $systemId The external subset system identifier.
+     * @param string $subset The content of the DTD.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -524,10 +530,10 @@ class XMLWriter
     /**
      * Write full DTD AttList tag
      *
-     * @param mixed $name
-     * @param mixed $content
+     * @param string $name The name of the DTD attribute list.
+     * @param string $content The content of the DTD attribute list.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -540,10 +546,10 @@ class XMLWriter
     /**
      * Write full DTD element tag
      *
-     * @param mixed $name
-     * @param mixed $content
+     * @param string $name The name of the DTD element.
+     * @param string $content The content of the element.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -556,10 +562,10 @@ class XMLWriter
     /**
      * Write full DTD Entity tag
      *
-     * @param mixed $name
-     * @param mixed $content
+     * @param string $name The name of the entity.
+     * @param string $content The content of the entity.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -572,10 +578,10 @@ class XMLWriter
     /**
      * Write full element tag
      *
-     * @param mixed $name
-     * @param mixed|null $content
+     * @param string $name The element name.
+     * @param string $content The element contents.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -588,12 +594,12 @@ class XMLWriter
     /**
      * Write full namespaced element tag
      *
-     * @param mixed $prefix
-     * @param mixed $name
-     * @param mixed $uri
-     * @param mixed|null $content
+     * @param string $prefix The namespace prefix.
+     * @param string $name The element name.
+     * @param string $uri The namespace URI.
+     * @param string $content The element contents.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -606,10 +612,10 @@ class XMLWriter
     /**
      * Writes a PI
      *
-     * @param mixed $target
-     * @param mixed $content
+     * @param string $target The target of the processing instruction.
+     * @param string $content The content of the processing instruction.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
      *
@@ -622,9 +628,9 @@ class XMLWriter
     /**
      * Write a raw XML text
      *
-     * @param mixed $content
+     * @param string $content The text string to write.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
      *
@@ -640,7 +646,7 @@ class XMLWriter
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -655,7 +661,7 @@ function xmlwriter_end_attribute($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -670,7 +676,7 @@ function xmlwriter_end_cdata($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
  *
@@ -685,7 +691,7 @@ function xmlwriter_end_comment($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -700,7 +706,7 @@ function xmlwriter_end_document($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -715,7 +721,7 @@ function xmlwriter_end_dtd($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -730,7 +736,7 @@ function xmlwriter_end_dtd_attlist($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -745,7 +751,7 @@ function xmlwriter_end_dtd_element($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -760,7 +766,7 @@ function xmlwriter_end_dtd_entity($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -775,7 +781,7 @@ function xmlwriter_end_element($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -788,16 +794,18 @@ function xmlwriter_end_pi($xmlwriter)
 /**
  * Flush current buffer
  *
- * @param mixed $xmlwriter
- * @param mixed|null $empty
+ * @param bool|null $empty Whether to empty the buffer or not. Default is <code>TRUE</code>.
+ * @param mixed $empty
  *
- * @return mixed
+ * @return mixed If you opened the writer in memory, this function returns the generated XML buffer,
+ * Else, if using URI, this function will write the buffer and return the number of
+ * written bytes.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-flush.php
  */
-function xmlwriter_flush($xmlwriter, $empty = null)
+function xmlwriter_flush($empty = true, $empty = null)
 {
 }
 
@@ -806,7 +814,7 @@ function xmlwriter_flush($xmlwriter, $empty = null)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
  *
@@ -819,7 +827,9 @@ function xmlwriter_full_end_element($xmlwriter)
 /**
  * Create new xmlwriter using memory for string output
  *
- * @return bool
+ * @return bool Object oriented style: Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+ * Procedural style: Returns a new xmlwriter resource for later use with the
+ * xmlwriter functions on success, <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -832,9 +842,11 @@ function xmlwriter_open_memory()
 /**
  * Create new xmlwriter using source uri for output
  *
- * @param mixed $uri
+ * @param string $uri The URI of the resource for the output.
  *
- * @return bool
+ * @return bool Object oriented style: Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+ * Procedural style: Returns a new xmlwriter resource for later use with the
+ * xmlwriter functions on success, <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -847,82 +859,82 @@ function xmlwriter_open_uri($uri)
 /**
  * Returns current buffer
  *
- * @param mixed $xmlwriter
- * @param mixed|null $flush
+ * @param bool|null $flush Whether to flush the output buffer or not. Default is <code>TRUE</code>.
+ * @param mixed $flush
  *
- * @return string
+ * @return string Returns the current buffer as a string.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-output-memory.php
  */
-function xmlwriter_output_memory($xmlwriter, $flush = null)
+function xmlwriter_output_memory($flush = true, $flush = null)
 {
 }
 
 /**
  * Toggle indentation on/off
  *
- * @param mixed $xmlwriter
+ * @param bool $indent Whether indentation is enabled.
  * @param mixed $indent
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-set-indent.php
  */
-function xmlwriter_set_indent($xmlwriter, $indent)
+function xmlwriter_set_indent($indent, $indent)
 {
 }
 
 /**
  * Set string used for indenting
  *
- * @param mixed $xmlwriter
+ * @param string $indentString The indentation string.
  * @param mixed $indentString
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-set-indent-string.php
  */
-function xmlwriter_set_indent_string($xmlwriter, $indentString)
+function xmlwriter_set_indent_string($indentString, $indentString)
 {
 }
 
 /**
  * Create start attribute
  *
- * @param mixed $xmlwriter
+ * @param string $name The attribute name.
  * @param mixed $name
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-attribute.php
  */
-function xmlwriter_start_attribute($xmlwriter, $name)
+function xmlwriter_start_attribute($name, $name)
 {
 }
 
 /**
  * Create start namespaced attribute
  *
- * @param mixed $xmlwriter
- * @param mixed $prefix
- * @param mixed $name
+ * @param string $prefix The namespace prefix.
+ * @param string $name The attribute name.
+ * @param string $uri The namespace URI.
  * @param mixed $uri
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-attribute-ns.php
  */
-function xmlwriter_start_attribute_ns($xmlwriter, $prefix, $name, $uri)
+function xmlwriter_start_attribute_ns($prefix, $name, $uri, $uri)
 {
 }
 
@@ -931,7 +943,7 @@ function xmlwriter_start_attribute_ns($xmlwriter, $prefix, $name, $uri)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
@@ -946,7 +958,7 @@ function xmlwriter_start_cdata($xmlwriter)
  *
  * @param mixed $xmlwriter
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
  *
@@ -959,357 +971,357 @@ function xmlwriter_start_comment($xmlwriter)
 /**
  * Create document tag
  *
- * @param mixed $xmlwriter
- * @param mixed|null $version
- * @param mixed|null $encoding
- * @param mixed|null $standalone
+ * @param string|null $version The version number of the document as part of the XML declaration.
+ * @param string|null $encoding The encoding of the document as part of the XML declaration.
+ * @param string $standalone <code>yes</code> or <code>no</code>.
+ * @param mixed $standalone
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-document.php
  */
-function xmlwriter_start_document($xmlwriter, $version = null, $encoding = null, $standalone = null)
+function xmlwriter_start_document($version = 1.0, $encoding = null, $standalone = null, $standalone = null)
 {
 }
 
 /**
  * Create start DTD tag
  *
- * @param mixed $xmlwriter
- * @param mixed $qualifiedName
- * @param mixed|null $publicId
- * @param mixed|null $systemId
+ * @param string $qualifiedName The qualified name of the document type to create.
+ * @param string $publicId The external subset public identifier.
+ * @param string $systemId The external subset system identifier.
+ * @param mixed $systemId
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd.php
  */
-function xmlwriter_start_dtd($xmlwriter, $qualifiedName, $publicId = null, $systemId = null)
+function xmlwriter_start_dtd($qualifiedName, $publicId, $systemId = null, $systemId = null)
 {
 }
 
 /**
  * Create start DTD AttList
  *
- * @param mixed $xmlwriter
+ * @param string $name The attribute list name.
  * @param mixed $name
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-attlist.php
  */
-function xmlwriter_start_dtd_attlist($xmlwriter, $name)
+function xmlwriter_start_dtd_attlist($name, $name)
 {
 }
 
 /**
  * Create start DTD element
  *
- * @param mixed $xmlwriter
+ * @param string $qualifiedName The qualified name of the document type to create.
  * @param mixed $qualifiedName
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-element.php
  */
-function xmlwriter_start_dtd_element($xmlwriter, $qualifiedName)
+function xmlwriter_start_dtd_element($qualifiedName, $qualifiedName)
 {
 }
 
 /**
  * Create start DTD Entity
  *
- * @param mixed $xmlwriter
- * @param mixed $name
+ * @param string $name The name of the entity.
+ * @param bool $isparam
  * @param mixed $isparam
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-dtd-entity.php
  */
-function xmlwriter_start_dtd_entity($xmlwriter, $name, $isparam)
+function xmlwriter_start_dtd_entity($name, $isparam, $isparam)
 {
 }
 
 /**
  * Create start element tag
  *
- * @param mixed $xmlwriter
+ * @param string $name The element name.
  * @param mixed $name
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-element.php
  */
-function xmlwriter_start_element($xmlwriter, $name)
+function xmlwriter_start_element($name, $name)
 {
 }
 
 /**
  * Create start namespaced element tag
  *
- * @param mixed $xmlwriter
- * @param mixed $prefix
- * @param mixed $name
+ * @param string $prefix The namespace prefix.
+ * @param string $name The element name.
+ * @param string $uri The namespace URI.
  * @param mixed $uri
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-element-ns.php
  */
-function xmlwriter_start_element_ns($xmlwriter, $prefix, $name, $uri)
+function xmlwriter_start_element_ns($prefix, $name, $uri, $uri)
 {
 }
 
 /**
  * Create start PI tag
  *
- * @param mixed $xmlwriter
+ * @param string $target The target of the processing instruction.
  * @param mixed $target
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-start-pi.php
  */
-function xmlwriter_start_pi($xmlwriter, $target)
+function xmlwriter_start_pi($target, $target)
 {
 }
 
 /**
  * Write text
  *
- * @param mixed $xmlwriter
+ * @param string $content The contents of the text.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-text.php
  */
-function xmlwriter_text($xmlwriter, $content)
+function xmlwriter_text($content, $content)
 {
 }
 
 /**
  * Write full attribute
  *
- * @param mixed $xmlwriter
- * @param mixed $name
+ * @param string $name The name of the attribute.
+ * @param string $value The value of the attribute.
  * @param mixed $value
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-attribute.php
  */
-function xmlwriter_write_attribute($xmlwriter, $name, $value)
+function xmlwriter_write_attribute($name, $value, $value)
 {
 }
 
 /**
  * Write full namespaced attribute
  *
- * @param mixed $xmlwriter
- * @param mixed $prefix
- * @param mixed $name
- * @param mixed $uri
+ * @param string $prefix The namespace prefix.
+ * @param string $name The attribute name.
+ * @param string $uri The namespace URI.
+ * @param string $content The attribute value.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-attribute-ns.php
  */
-function xmlwriter_write_attribute_ns($xmlwriter, $prefix, $name, $uri, $content)
+function xmlwriter_write_attribute_ns($prefix, $name, $uri, $content, $content)
 {
 }
 
 /**
  * Write full CDATA tag
  *
- * @param mixed $xmlwriter
+ * @param string $content The contents of the CDATA.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-cdata.php
  */
-function xmlwriter_write_cdata($xmlwriter, $content)
+function xmlwriter_write_cdata($content, $content)
 {
 }
 
 /**
  * Write full comment tag
  *
- * @param mixed $xmlwriter
+ * @param string $content The contents of the comment.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-comment.php
  */
-function xmlwriter_write_comment($xmlwriter, $content)
+function xmlwriter_write_comment($content, $content)
 {
 }
 
 /**
  * Write full DTD tag
  *
- * @param mixed $xmlwriter
- * @param mixed $name
- * @param mixed|null $publicId
- * @param mixed|null $systemId
- * @param mixed|null $subset
+ * @param string $name The DTD name.
+ * @param string $publicId The external subset public identifier.
+ * @param string $systemId The external subset system identifier.
+ * @param string $subset The content of the DTD.
+ * @param mixed $subset
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd.php
  */
-function xmlwriter_write_dtd($xmlwriter, $name, $publicId = null, $systemId = null, $subset = null)
+function xmlwriter_write_dtd($name, $publicId, $systemId = null, $subset = null, $subset = null)
 {
 }
 
 /**
  * Write full DTD AttList tag
  *
- * @param mixed $xmlwriter
- * @param mixed $name
+ * @param string $name The name of the DTD attribute list.
+ * @param string $content The content of the DTD attribute list.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-attlist.php
  */
-function xmlwriter_write_dtd_attlist($xmlwriter, $name, $content)
+function xmlwriter_write_dtd_attlist($name, $content, $content)
 {
 }
 
 /**
  * Write full DTD element tag
  *
- * @param mixed $xmlwriter
- * @param mixed $name
+ * @param string $name The name of the DTD element.
+ * @param string $content The content of the element.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-element.php
  */
-function xmlwriter_write_dtd_element($xmlwriter, $name, $content)
+function xmlwriter_write_dtd_element($name, $content, $content)
 {
 }
 
 /**
  * Write full DTD Entity tag
  *
- * @param mixed $xmlwriter
- * @param mixed $name
- * @param mixed $content
+ * @param string $name The name of the entity.
+ * @param string $content The content of the entity.
+ * @param bool $pe
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-dtd-entity.php
  */
-function xmlwriter_write_dtd_entity($xmlwriter, $name, $content)
+function xmlwriter_write_dtd_entity($name, $content, $pe)
 {
 }
 
 /**
  * Write full element tag
  *
- * @param mixed $xmlwriter
- * @param mixed $name
- * @param mixed|null $content
+ * @param string $name The element name.
+ * @param string $content The element contents.
+ * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-element.php
  */
-function xmlwriter_write_element($xmlwriter, $name, $content = null)
+function xmlwriter_write_element($name, $content, $content = null)
 {
 }
 
 /**
  * Write full namespaced element tag
  *
- * @param mixed $xmlwriter
- * @param mixed $prefix
- * @param mixed $name
- * @param mixed $uri
- * @param mixed|null $content
+ * @param string $prefix The namespace prefix.
+ * @param string $name The element name.
+ * @param string $uri The namespace URI.
+ * @param string $content The element contents.
+ * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-element-ns.php
  */
-function xmlwriter_write_element_ns($xmlwriter, $prefix, $name, $uri, $content = null)
+function xmlwriter_write_element_ns($prefix, $name, $uri, $content, $content = null)
 {
 }
 
 /**
  * Writes a PI
  *
- * @param mixed $xmlwriter
- * @param mixed $target
+ * @param string $target The target of the processing instruction.
+ * @param string $content The content of the processing instruction.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-pi.php
  */
-function xmlwriter_write_pi($xmlwriter, $target, $content)
+function xmlwriter_write_pi($target, $content, $content)
 {
 }
 
 /**
  * Write a raw XML text
  *
- * @param mixed $xmlwriter
+ * @param string $content The text string to write.
  * @param mixed $content
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.2.0, PHP 7, PECL xmlwriter >= 2.0.4
  *
  * @link http://www.php.net/manual/en/function.xmlwriter-write-raw.php
  */
-function xmlwriter_write_raw($xmlwriter, $content)
+function xmlwriter_write_raw($content, $content)
 {
 }

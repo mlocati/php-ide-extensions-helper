@@ -2795,7 +2795,7 @@ class Imagick implements Countable, Iterator
     /**
      * The Imagick constructor
      *
-     * @param mixed|null $files
+     * @param mixed $files
      *
      * @link http://www.php.net/manual/en/imagick.construct.php
      */
@@ -2806,7 +2806,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image as a string
      *
-     * @return string
+     * @return string Returns the string content on success or an empty string on failure.
      *
      * @link http://www.php.net/manual/en/imagick.tostring.php
      */
@@ -2817,63 +2817,64 @@ class Imagick implements Countable, Iterator
     /**
      * Adds adaptive blur filter to image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed|null $CHANNEL
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
+     * Provide a value of 0 and the radius will be chosen automagically.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.adaptiveblurimage.php
      */
-    public function adaptiveblurimage($radius, $sigma, $CHANNEL = null)
+    public function adaptiveblurimage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Adaptively resize image with data dependent triangulation
      *
-     * @param mixed $columns
-     * @param mixed $rows
-     * @param mixed|null $bestfit
-     * @param mixed|null $legacy
+     * @param int $columns The number of columns in the scaled image.
+     * @param int $rows The number of rows in the scaled image.
+     * @param bool|null $bestfit Whether to fit the image inside a bounding box.
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.adaptiveresizeimage.php
      */
-    public function adaptiveresizeimage($columns, $rows, $bestfit = null, $legacy = null)
+    public function adaptiveresizeimage($columns, $rows, $bestfit = false, $legacy = false)
     {
     }
 
     /**
      * Adaptively sharpen the image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed|null $CHANNEL
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel. Use 0 for auto-select.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.adaptivesharpenimage.php
      */
-    public function adaptivesharpenimage($radius, $sigma, $CHANNEL = null)
+    public function adaptivesharpenimage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Selects a threshold for each pixel based on a range of intensity
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $offset
+     * @param int $width Width of the local neighborhood.
+     * @param int $height Height of the local neighborhood.
+     * @param int $offset The mean offset
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -2886,93 +2887,96 @@ class Imagick implements Countable, Iterator
     /**
      * Adds new image to Imagick object image list
      *
-     * @param Imagick $Imagick
+     * @param Imagick $source The source Imagick object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.addimage.php
      */
-    public function addimage(Imagick $Imagick)
+    public function addimage(Imagick $source)
     {
     }
 
     /**
      * Adds random noise to the image
      *
-     * @param mixed $NOISE
-     * @param mixed|null $CHANNEL
+     * @param int $noise_type The type of the noise. Refer to this list of
+     * noise constants.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.addnoiseimage.php
      */
-    public function addnoiseimage($NOISE, $CHANNEL = null)
+    public function addnoiseimage($noise_type, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Transforms an image
      *
-     * @param ImagickDraw $ImagickDraw
+     * @param ImagickDraw $matrix The affine matrix
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.affinetransformimage.php
      */
-    public function affinetransformimage(ImagickDraw $ImagickDraw)
+    public function affinetransformimage(ImagickDraw $matrix)
     {
     }
 
     /**
      * Animates an image or images
      *
-     * @param mixed $server_name
+     * @param string $x_server X server address
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.animateimages.php
      */
-    public function animateimages($server_name)
+    public function animateimages($x_server)
     {
     }
 
     /**
      * Annotates an image with text
      *
-     * @param ImagickDraw $ImagickDraw
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $angle
-     * @param mixed $text
+     * @param ImagickDraw $draw_settings The ImagickDraw object that contains settings for drawing the text
+     * @param float $x Horizontal offset in pixels to the left of text
+     * @param float $y Vertical offset in pixels to the baseline of text
+     * @param float $angle The angle at which to write the text
+     * @param string $text The string to draw
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.annotateimage.php
      */
-    public function annotateimage(ImagickDraw $ImagickDraw, $x, $y, $angle, $text)
+    public function annotateimage(ImagickDraw $draw_settings, $x, $y, $angle, $text)
     {
     }
 
     /**
      * Append a set of images
      *
-     * @param mixed $stack
+     * @param bool|null $stack Whether to stack the images vertically.
+     * By default (or if <code>FALSE</code> is specified) images are stacked left-to-right.
+     * If <code>stack</code> is <code>TRUE</code>, images are stacked top-to-bottom.
      *
-     * @return Imagick
+     * @return Imagick Returns Imagick instance on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.appendimages.php
      */
-    public function appendimages($stack)
+    public function appendimages($stack = false)
     {
     }
 
@@ -2986,20 +2990,20 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed|null $CHANNEL
+     * @param int|null $channel Which channel should the auto-levelling should be done on.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.autolevelimage.php
      */
-    public function autolevelimage($CHANNEL = null)
+    public function autolevelimage($channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Average a set of images
      *
-     * @return Imagick
+     * @return Imagick Returns a new Imagick object on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3012,77 +3016,78 @@ class Imagick implements Countable, Iterator
     /**
      * Forces all pixels below the threshold into black
      *
-     * @param mixed $color
+     * @param mixed $threshold The threshold below which everything turns black
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.blackthresholdimage.php
      */
-    public function blackthresholdimage($color)
+    public function blackthresholdimage($threshold)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed|null $factor
+     * @param float|null $factor
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.blueshiftimage.php
      */
-    public function blueshiftimage($factor = null)
+    public function blueshiftimage($factor = 1.5)
     {
     }
 
     /**
      * Adds blur filter to image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed|null $CHANNELTYPE
+     * @param float $radius Blur radius
+     * @param float $sigma Standard deviation
+     * @param int $channel The Channeltype
+     * constant. When not supplied, all channels are blurred.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.blurimage.php
      */
-    public function blurimage($radius, $sigma, $CHANNELTYPE = null)
+    public function blurimage($radius, $sigma, $channel = null)
     {
     }
 
     /**
      * Surrounds the image with a border
      *
-     * @param mixed $color
-     * @param mixed $width
-     * @param mixed $height
+     * @param mixed $bordercolor ImagickPixel object or a string containing the border color
+     * @param int $width Border width
+     * @param int $height Border height
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.borderimage.php
      */
-    public function borderimage($color, $width, $height)
+    public function borderimage($bordercolor, $width, $height)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $brightness
-     * @param mixed $contrast
-     * @param mixed|null $CHANNEL
+     * @param float $brightness
+     * @param float $contrast
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.brightnesscontrastimage.php
      */
-    public function brightnesscontrastimage($brightness, $contrast, $CHANNEL = null)
+    public function brightnesscontrastimage($brightness, $contrast, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
@@ -3091,7 +3096,7 @@ class Imagick implements Countable, Iterator
      * @param mixed $orig_height
      * @param mixed $desired_width
      * @param mixed $desired_height
-     * @param mixed|null $legacy
+     * @param mixed $legacy
      */
     public static function calculatecrop($orig_width, $orig_height, $desired_width, $desired_height, $legacy = null)
     {
@@ -3100,10 +3105,10 @@ class Imagick implements Countable, Iterator
     /**
      * Simulates a charcoal drawing
      *
-     * @param mixed $radius
-     * @param mixed $sigma
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel
+     * @param float $sigma The standard deviation of the Gaussian, in pixels
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3116,12 +3121,12 @@ class Imagick implements Countable, Iterator
     /**
      * Removes a region of an image and trims
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width Width of the chopped area
+     * @param int $height Height of the chopped area
+     * @param int $x X origo of the chopped area
+     * @param int $y Y origo of the chopped area
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3134,20 +3139,20 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed|null $CHANNEL
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @link http://www.php.net/manual/en/imagick.clampimage.php
      */
-    public function clampimage($CHANNEL = null)
+    public function clampimage($channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Clears all resources associated to Imagick object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3160,7 +3165,7 @@ class Imagick implements Countable, Iterator
     /**
      * Clips along the first path from the 8BIM profile
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3173,8 +3178,8 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $pathname
-     * @param mixed $inside
+     * @param string $pathname
+     * @param string $inside
      *
      * @return void
      *
@@ -3187,10 +3192,11 @@ class Imagick implements Countable, Iterator
     /**
      * Clips along the named paths from the 8BIM profile
      *
-     * @param mixed $pathname
-     * @param mixed $inside
+     * @param string $pathname The name of the path
+     * @param bool $inside If <code>TRUE</code> later operations take effect inside clipping path.
+     * Otherwise later operations take effect outside clipping path.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3203,7 +3209,7 @@ class Imagick implements Countable, Iterator
     /**
      * Makes an exact copy of the Imagick object
      *
-     * @return Imagick
+     * @return Imagick A copy of the Imagick object is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3216,23 +3222,24 @@ class Imagick implements Countable, Iterator
     /**
      * Replaces colors in the image
      *
-     * @param Imagick $Imagick
-     * @param mixed|null $CHANNELTYPE
+     * @param Imagick $lookup_table Imagick object containing the color lookup table
+     * @param int|null $channel The Channeltype
+     * constant. When not supplied, default channels are replaced.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.clutimage.php
      */
-    public function clutimage(Imagick $Imagick, $CHANNELTYPE = null)
+    public function clutimage(Imagick $lookup_table, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Composites a set of images
      *
-     * @return Imagick
+     * @return Imagick Returns a new Imagick object on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3252,56 +3259,59 @@ class Imagick implements Countable, Iterator
     /**
      * Changes the color value of any pixel that matches target
      *
-     * @param mixed $fill_color
-     * @param mixed $fuzz
-     * @param mixed $border_color
-     * @param mixed $y
-     * @param mixed $x
+     * @param mixed $fill ImagickPixel object containing the fill color
+     * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at
+     * intensities of 100 and 102 respectively are now interpreted as the
+     * same color for the purposes of the floodfill.
+     * @param mixed $bordercolor ImagickPixel object containing the border color
+     * @param int $x X start position of the floodfill
+     * @param int $y Y start position of the floodfill
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.colorfloodfillimage.php
      */
-    public function colorfloodfillimage($fill_color, $fuzz, $border_color, $y, $x)
+    public function colorfloodfillimage($fill, $fuzz, $bordercolor, $x, $y)
     {
     }
 
     /**
      * Blends the fill color with the image
      *
-     * @param mixed $colorize_color
-     * @param mixed $opacity
-     * @param mixed|null $legacy
+     * @param mixed $colorize ImagickPixel object or a string containing the colorize color
+     * @param mixed $opacity ImagickPixel object or an float containing the opacity value.
+     * 1.0 is fully opaque and 0.0 is fully transparent.
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.colorizeimage.php
      */
-    public function colorizeimage($colorize_color, $opacity, $legacy = null)
+    public function colorizeimage($colorize, $opacity, $legacy = false)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $color_matrix
+     * @param array|null $color_matrix
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.colormatriximage.php
      */
-    public function colormatriximage($color_matrix)
+    public function colormatriximage(array $color_matrix = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Combines one or more images into a single image
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3314,9 +3324,9 @@ class Imagick implements Countable, Iterator
     /**
      * Adds a comment to your image
      *
-     * @param mixed $comment
+     * @param string $comment The comment to add
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3329,76 +3339,83 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the difference in one or more images
      *
-     * @param Imagick $Imagick
-     * @param mixed $CHANNEL
-     * @param mixed $METRIC
+     * @param Imagick $image Imagick object containing the image to compare.
+     * @param int $channelType Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
+     * @param int $metricType One of the metric type constants.
      *
-     * @return array
+     * @return array Array consisting of <code>new_wand</code> and
+     * <code>distortion</code>.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.compareimagechannels.php
      */
-    public function compareimagechannels(Imagick $Imagick, $CHANNEL, $METRIC)
+    public function compareimagechannels(Imagick $image, $channelType, $metricType)
     {
     }
 
     /**
      * Returns the maximum bounding region between images
      *
-     * @param mixed $LAYER
+     * @param int $method One of the layer method constants.
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.compareimagelayers.php
      */
-    public function compareimagelayers($LAYER)
+    public function compareimagelayers($method)
     {
     }
 
     /**
      * Compares an image to a reconstructed image
      *
-     * @param Imagick $Imagick
-     * @param mixed $METRIC
+     * @param Imagick $compare An image to compare to.
+     * @param int $metric Provide a valid metric type constant. Refer to this
+     * list of metric constants.
      *
-     * @return array
+     * @return array Returns an array containing a reconstructed image and the difference between images.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.compareimages.php
      */
-    public function compareimages(Imagick $Imagick, $METRIC)
+    public function compareimages(Imagick $compare, $metric)
     {
     }
 
     /**
      * Composite one image onto another
      *
-     * @param Imagick $Imagick
-     * @param mixed $COMPOSITE
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed|null $CHANNELTYPE
+     * @param Imagick $composite_object Imagick object which holds the composite image
+     * @param int $composite
+     * @param int $x The column offset of the composited image
+     * @param int $y The row offset of the composited image
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.compositeimage.php
      */
-    public function compositeimage(Imagick $Imagick, $COMPOSITE, $x, $y, $CHANNELTYPE = null)
+    public function compositeimage(Imagick $composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Change the contrast of the image
      *
-     * @param mixed $sharpen
+     * @param bool $sharpen The sharpen value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3411,58 +3428,64 @@ class Imagick implements Countable, Iterator
     /**
      * Enhances the contrast of a color image
      *
-     * @param mixed $blackPoint
-     * @param mixed $whitePoint
-     * @param mixed|null $CHANNEL
+     * @param float $black_point The black point.
+     * @param float $white_point The white point.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. <code>Imagick::CHANNEL_ALL</code>. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.contraststretchimage.php
      */
-    public function contraststretchimage($blackPoint, $whitePoint, $CHANNEL = null)
+    public function contraststretchimage($black_point, $white_point, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Applies a custom convolution kernel to the image
      *
-     * @param mixed $kernel
-     * @param mixed|null $CHANNEL
+     * @param array $kernel The convolution kernel
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.convolveimage.php
      */
-    public function convolveimage($kernel, $CHANNEL = null)
+    public function convolveimage(array $kernel, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Get the number of images
      *
-     * @param mixed|null $mode
+     * @param int|null $mode An unused argument. Currently there is a non-particularly well defined feature in PHP where calling count() on a countable object might (or might not) require this method to accept a parameter. This parameter is here to be conformant with the interface of countable, even though the param is not used.
      *
-     * @return int
+     * @return int Returns the number of images.
      *
      * @link http://www.php.net/manual/en/imagick.count.php
      */
-    public function count($mode = null)
+    public function count($mode = 0)
     {
     }
 
     /**
      * Extracts a region of the image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width The width of the crop
+     * @param int $height The height of the crop
+     * @param int $x The X coordinate of the cropped region's top left corner
+     * @param int $y The Y coordinate of the cropped region's top left corner
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3475,24 +3498,24 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a crop thumbnail
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed|null $legacy
+     * @param int $width The width of the thumbnail
+     * @param int $height The Height of the thumbnail
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.cropthumbnailimage.php
      */
-    public function cropthumbnailimage($width, $height, $legacy = null)
+    public function cropthumbnailimage($width, $height, $legacy = false)
     {
     }
 
     /**
      * Returns a reference to the current Imagick object
      *
-     * @return Imagick
+     * @return Imagick Returns self on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3505,9 +3528,9 @@ class Imagick implements Countable, Iterator
     /**
      * Displaces an image's colormap
      *
-     * @param mixed $displace
+     * @param int $displace The amount to displace the colormap.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3520,9 +3543,9 @@ class Imagick implements Countable, Iterator
     /**
      * Deciphers an image
      *
-     * @param mixed $passphrase
+     * @param string $passphrase The passphrase
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.decipherimage.php
      */
@@ -3533,7 +3556,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns certain pixel differences between images
      *
-     * @return Imagick
+     * @return Imagick Returns a new Imagick object on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3546,9 +3569,9 @@ class Imagick implements Countable, Iterator
     /**
      * Delete image artifact
      *
-     * @param mixed $artifact
+     * @param string $artifact The name of the artifact to delete
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.deleteimageartifact.php
      */
@@ -3559,9 +3582,9 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $name
+     * @param string $name The name of the property to delete.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.deleteimageproperty.php
      */
@@ -3572,7 +3595,7 @@ class Imagick implements Countable, Iterator
     /**
      * Removes skew from the image
      *
-     * @param mixed $threshold
+     * @param float $threshold Deskew threshold
      *
      * @return bool
      *
@@ -3585,7 +3608,7 @@ class Imagick implements Countable, Iterator
     /**
      * Reduces the speckle noise in an image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3598,7 +3621,7 @@ class Imagick implements Countable, Iterator
     /**
      * Destroys the Imagick object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3611,71 +3634,71 @@ class Imagick implements Countable, Iterator
     /**
      * Displays an image
      *
-     * @param mixed $serverName
+     * @param string $servername The X server name
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.displayimage.php
      */
-    public function displayimage($serverName)
+    public function displayimage($servername)
     {
     }
 
     /**
      * Displays an image or image sequence
      *
-     * @param mixed $serverName
+     * @param string $servername The X server name
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.displayimages.php
      */
-    public function displayimages($serverName)
+    public function displayimages($servername)
     {
     }
 
     /**
      * Distorts an image using various distortion methods
      *
-     * @param mixed $method
-     * @param mixed $arguments
-     * @param mixed $bestfit
+     * @param int $method The method of image distortion. See distortion constants
+     * @param array $arguments The arguments for this distortion method
+     * @param bool $bestfit Attempt to resize destination to fit distorted source
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.1
      *
      * @link http://www.php.net/manual/en/imagick.distortimage.php
      */
-    public function distortimage($method, $arguments, $bestfit)
+    public function distortimage($method, array $arguments, $bestfit)
     {
     }
 
     /**
      * Renders the ImagickDraw object on the current image
      *
-     * @param ImagickDraw $ImagickDraw
+     * @param ImagickDraw $draw The drawing operations to render on the image.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.drawimage.php
      */
-    public function drawimage(ImagickDraw $ImagickDraw)
+    public function drawimage(ImagickDraw $draw)
     {
     }
 
     /**
      * Enhance edges within the image
      *
-     * @param mixed $radius
+     * @param float $radius The radius of the operation.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3688,10 +3711,10 @@ class Imagick implements Countable, Iterator
     /**
      * Returns a grayscale image with a three-dimensional effect
      *
-     * @param mixed $radius
-     * @param mixed $sigma
+     * @param float $radius The radius of the effect
+     * @param float $sigma The sigma of the effect
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3704,9 +3727,9 @@ class Imagick implements Countable, Iterator
     /**
      * Enciphers an image
      *
-     * @param mixed $passphrase
+     * @param string $passphrase The passphrase
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.encipherimage.php
      */
@@ -3717,7 +3740,7 @@ class Imagick implements Countable, Iterator
     /**
      * Improves the quality of a noisy image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3730,7 +3753,7 @@ class Imagick implements Countable, Iterator
     /**
      * Equalizes the image histogram
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3743,17 +3766,20 @@ class Imagick implements Countable, Iterator
     /**
      * Applies an expression to an image
      *
-     * @param mixed $EVALUATE
-     * @param mixed $constant
-     * @param mixed|null $CHANNEL
+     * @param int $op The evaluation operator
+     * @param float $constant The value of the operator
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.evaluateimage.php
      */
-    public function evaluateimage($EVALUATE, $constant, $CHANNEL = null)
+    public function evaluateimage($op, $constant, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
@@ -3767,14 +3793,15 @@ class Imagick implements Countable, Iterator
     /**
      * Exports raw image pixels
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $map
-     * @param mixed $STORAGE
+     * @param int $x X-coordinate of the exported area
+     * @param int $y Y-coordinate of the exported area
+     * @param int $width Width of the exported aread
+     * @param int $height Height of the exported area
+     * @param string $map Ordering of the exported pixels. For example <code>"RGB"</code>.
+     * Valid characters for the map are R, G, B, A, O, C, Y, M, K, I and P.
+     * @param int $STORAGE Refer to this list of pixel type constants
      *
-     * @return array
+     * @return array Returns an array containing the pixels values.
      *
      * @link http://www.php.net/manual/en/imagick.exportimagepixels.php
      */
@@ -3785,12 +3812,12 @@ class Imagick implements Countable, Iterator
     /**
      * Set image size
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width The new width
+     * @param int $height The new height
+     * @param int $x X position for the new size
+     * @param int $y Y position for the new size
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.extentimage.php
      */
@@ -3801,21 +3828,21 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param ImagickKernel $ImagickKernel
-     * @param mixed|null $CHANNEL
+     * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.filter.php
      */
-    public function filter(ImagickKernel $ImagickKernel, $CHANNEL = null)
+    public function filter(ImagickKernel $ImagickKernel, $channel = Imagick::CHANNEL_UNDEFINED)
     {
     }
 
     /**
      * Merges a sequence of images
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3828,7 +3855,7 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a vertical mirror image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3841,26 +3868,26 @@ class Imagick implements Countable, Iterator
     /**
      * Changes the color value of any pixel that matches target
      *
-     * @param mixed $fill
-     * @param mixed $fuzz
-     * @param mixed $bordercolor
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $invert
-     * @param mixed|null $CHANNEL
+     * @param mixed $fill ImagickPixel object or a string containing the fill color
+     * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at intensities of 100 and 102 respectively are now interpreted as the same color.
+     * @param mixed $target ImagickPixel object or a string containing the target color to paint
+     * @param int $x X start position of the floodfill
+     * @param int $y Y start position of the floodfill
+     * @param bool $invert If <code>TRUE</code> paints any pixel that does not match the target color.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.floodfillpaintimage.php
      */
-    public function floodfillpaintimage($fill, $fuzz, $bordercolor, $x, $y, $invert, $CHANNEL = null)
+    public function floodfillpaintimage($fill, $fuzz, $target, $x, $y, $invert, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Creates a horizontal mirror image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -3873,9 +3900,9 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $magnitude
+     * @param bool $magnitude If true, return as magnitude / phase pair otherwise a real / imaginary image pair.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.forwardfouriertransformimage.php
      */
@@ -3886,82 +3913,91 @@ class Imagick implements Countable, Iterator
     /**
      * Adds a simulated three-dimensional border
      *
-     * @param mixed $color
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $innerBevel
-     * @param mixed $outerBevel
+     * @param mixed $matte_color ImagickPixel object or a string representing the matte color
+     * @param int $width The width of the border
+     * @param int $height The height of the border
+     * @param int $inner_bevel The inner bevel width
+     * @param int $outer_bevel The outer bevel width
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.frameimage.php
      */
-    public function frameimage($color, $width, $height, $innerBevel, $outerBevel)
+    public function frameimage($matte_color, $width, $height, $inner_bevel, $outer_bevel)
     {
     }
 
     /**
      * Applies a function on the image
      *
-     * @param mixed $FUNCTION
-     * @param mixed $arguments
+     * @param int $function Refer to this list of function constants
+     * @param array $arguments Array of arguments to pass to this function.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.functionimage.php
      */
-    public function functionimage($FUNCTION, $arguments)
+    public function functionimage($function, array $arguments)
     {
     }
 
     /**
      * Evaluate expression for each pixel in the image
      *
-     * @param mixed $expression
-     * @param mixed|null $CHANNEL
+     * @param string $expression The expression.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.fximage.php
      */
-    public function fximage($expression, $CHANNEL = null)
+    public function fximage($expression, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Gamma-corrects an image
      *
-     * @param mixed $gamma
-     * @param mixed|null $CHANNEL
+     * @param float $gamma The amount of gamma-correction.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.gammaimage.php
      */
-    public function gammaimage($gamma, $CHANNEL = null)
+    public function gammaimage($gamma, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Blurs an image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed|null $CHANNEL
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.gaussianblurimage.php
      */
-    public function gaussianblurimage($radius, $sigma, $CHANNEL = null)
+    public function gaussianblurimage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
@@ -3972,7 +4008,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the colorspace
      *
-     * @return int
+     * @return int Returns an integer which can be compared against COLORSPACE constants.
      *
      * @link http://www.php.net/manual/en/imagick.getcolorspace.php
      */
@@ -3983,7 +4019,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the object compression type
      *
-     * @return int
+     * @return int Returns the compression constant
      *
      * @since PECL imagick 2.0.0
      *
@@ -3996,7 +4032,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the object compression quality
      *
-     * @return int
+     * @return int Returns integer describing the compression quality
      *
      * @since PECL imagick 2.0.0
      *
@@ -4007,7 +4043,7 @@ class Imagick implements Countable, Iterator
     }
 
     /**
-     * @param mixed|null $pattern
+     * @param mixed $pattern
      */
     public static function getconfigureoptions($pattern = null)
     {
@@ -4016,7 +4052,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the ImageMagick API copyright as a string
      *
-     * @return string
+     * @return string Returns a string containing the copyright notice of Imagemagick and
+     * Magickwand C API.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4033,7 +4070,7 @@ class Imagick implements Countable, Iterator
     /**
      * The filename associated with an image sequence
      *
-     * @return string
+     * @return string Returns a string on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4046,7 +4083,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets font
      *
-     * @return string
+     * @return string Returns the string containing the font name or <code>FALSE</code> if not font is set.
      *
      * @since PECL imagick 2.1.0
      *
@@ -4059,7 +4096,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the format of the Imagick object
      *
-     * @return string
+     * @return string Returns the format of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4072,7 +4109,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the gravity
      *
-     * @return int
+     * @return int Returns the gravity property. Refer to the list of
+     * gravity constants.
      *
      * @link http://www.php.net/manual/en/imagick.getgravity.php
      */
@@ -4087,7 +4125,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the ImageMagick home URL
      *
-     * @return string
+     * @return string Returns a link to the imagemagick homepage.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4100,7 +4138,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns a new Imagick object
      *
-     * @return Imagick
+     * @return Imagick Returns a new Imagick object with the current image sequence.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4113,7 +4151,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image alpha channel
      *
-     * @return int
+     * @return int Returns a constant defining the current alpha channel value. Refer to this
+     * list of alpha channel constants.
      *
      * @link http://www.php.net/manual/en/imagick.getimagealphachannel.php
      */
@@ -4124,9 +4163,9 @@ class Imagick implements Countable, Iterator
     /**
      * Get image artifact
      *
-     * @param mixed $artifact
+     * @param string $artifact The name of the artifact
      *
-     * @return string
+     * @return string Returns the artifact value on success.
      *
      * @link http://www.php.net/manual/en/imagick.getimageartifact.php
      */
@@ -4137,7 +4176,7 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $key
+     * @param string $key The key of the attribute to get.
      *
      * @return string
      *
@@ -4150,7 +4189,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image background color
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns an ImagickPixel set to the background color of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4163,7 +4202,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image sequence as a blob
      *
-     * @return string
+     * @return string Returns a string containing the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4176,7 +4215,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the chromaticy blue primary point
      *
-     * @return array
+     * @return array Array consisting of "x" and "y" coordinates of point.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4189,7 +4228,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image border color
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4202,112 +4241,122 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the depth for a particular image channel
      *
-     * @param mixed $CHANNEL
+     * @param int $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return int
+     * @return int Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimagechanneldepth.php
      */
-    public function getimagechanneldepth($CHANNEL)
+    public function getimagechanneldepth($channel)
     {
     }
 
     /**
      * Compares image channels of an image to a reconstructed image
      *
-     * @param Imagick $Imagick
-     * @param mixed $CHANNEL
-     * @param mixed $METRIC
+     * @param Imagick $reference Imagick object to compare to.
+     * @param int $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
+     * @param int $metric One of the metric type constants.
      *
-     * @return float
+     * @return float Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimagechanneldistortion.php
      */
-    public function getimagechanneldistortion(Imagick $Imagick, $CHANNEL, $METRIC)
+    public function getimagechanneldistortion(Imagick $reference, $channel, $metric)
     {
     }
 
     /**
      * Gets channel distortions
      *
-     * @param Imagick $Imagick
-     * @param mixed|null $METRICTYPE
-     * @param mixed|null $CHANNEL
+     * @param Imagick $reference Imagick object containing the reference image
+     * @param int $metric Refer to this list of metric type constants.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return float
+     * @return float Returns a double describing the channel distortion.
      *
      * @link http://www.php.net/manual/en/imagick.getimagechanneldistortions.php
      */
-    public function getimagechanneldistortions(Imagick $Imagick, $METRICTYPE = null, $CHANNEL = null)
+    public function getimagechanneldistortions(Imagick $reference, $metric = null, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Gets the extrema for one or more image channels
      *
-     * @param mixed $CHANNEL
+     * @param int $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return array
+     * @return array Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelextrema.php
      */
-    public function getimagechannelextrema($CHANNEL)
+    public function getimagechannelextrema($channel)
     {
     }
 
     /**
      * The getImageChannelKurtosis purpose
      *
-     * @param mixed|null $CHANNEL
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return array
+     * @return array Returns an array with <code>kurtosis</code> and <code>skewness</code>
+     * members.
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelkurtosis.php
      */
-    public function getimagechannelkurtosis($CHANNEL = null)
+    public function getimagechannelkurtosis($channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Gets the mean and standard deviation
      *
-     * @param mixed $CHANNEL
+     * @param int $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return array
+     * @return array Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelmean.php
      */
-    public function getimagechannelmean($CHANNEL)
+    public function getimagechannelmean($channel)
     {
     }
 
     /**
      * Gets channel range
      *
-     * @param mixed $CHANNEL
+     * @param int $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return array
+     * @return array Returns an array containing minima and maxima values of the channel(s).
      *
      * @since PECL imagick 2.2.1
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelrange.php
      */
-    public function getimagechannelrange($CHANNEL)
+    public function getimagechannelrange($channel)
     {
     }
 
     /**
      * Returns statistics for each channel in the image
      *
-     * @return array
+     * @return array Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4320,7 +4369,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets image clip mask
      *
-     * @return Imagick
+     * @return Imagick Returns an Imagick object containing the clip mask.
      *
      * @link http://www.php.net/manual/en/imagick.getimageclipmask.php
      */
@@ -4331,9 +4380,9 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the color of the specified colormap index
      *
-     * @param mixed $index
+     * @param int $index The offset into the image colormap.
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4346,7 +4395,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the number of unique colors in the image
      *
-     * @return int
+     * @return int Returns an <code>integer</code>, the number of unique colors in the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4359,7 +4408,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image colorspace
      *
-     * @return int
+     * @return int Returns an integer which can be compared against COLORSPACE constants.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4372,7 +4421,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the composite operator associated with the image
      *
-     * @return int
+     * @return int Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4385,7 +4434,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the current image's compression type
      *
-     * @return int
+     * @return int Returns the compression constant
      *
      * @since PECL imagick 2.2.2
      *
@@ -4398,7 +4447,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the current image's compression quality
      *
-     * @return int
+     * @return int Returns integer describing the images compression quality
      *
      * @since PECL imagick 2.2.2
      *
@@ -4411,7 +4460,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image delay
      *
-     * @return int
+     * @return int Returns the image delay.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4424,7 +4473,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image depth
      *
-     * @return int
+     * @return int The image depth.
      *
      * @link http://www.php.net/manual/en/imagick.getimagedepth.php
      */
@@ -4435,7 +4484,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image disposal method
      *
-     * @return int
+     * @return int Returns the dispose method on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4448,23 +4497,24 @@ class Imagick implements Countable, Iterator
     /**
      * Compares an image to a reconstructed image
      *
-     * @param Imagick $Imagick
-     * @param mixed $METRIC
+     * @param Imagick $reference Imagick object to compare to.
+     * @param int $metric One of the metric type constants.
      *
-     * @return float
+     * @return float Returns the distortion metric used on the image (or the best guess
+     * thereof).
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimagedistortion.php
      */
-    public function getimagedistortion(Imagick $Imagick, $METRIC)
+    public function getimagedistortion(Imagick $reference, $metric)
     {
     }
 
     /**
      * Gets the extrema for the image
      *
-     * @return array
+     * @return array Returns an associative array with the keys "min" and "max".
      *
      * @since PECL imagick 2.0.0
      *
@@ -4477,7 +4527,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the filename of a particular image in a sequence
      *
-     * @return string
+     * @return string Returns a string with the filename of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4490,7 +4540,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the format of a particular image in a sequence
      *
-     * @return string
+     * @return string Returns a string containing the image format on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4503,7 +4553,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image gamma
      *
-     * @return float
+     * @return float Returns the image gamma on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4516,7 +4566,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the width and height as an associative array
      *
-     * @return array
+     * @return array Returns an array with the width/height of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4529,7 +4579,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image gravity
      *
-     * @return int
+     * @return int Returns the images gravity property. Refer to the list of
+     * gravity constants.
      *
      * @link http://www.php.net/manual/en/imagick.getimagegravity.php
      */
@@ -4540,7 +4591,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the chromaticy green primary point
      *
-     * @return array
+     * @return array Returns an array with the keys "x" and "y" on success, throws an
+     * ImagickException on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4553,7 +4605,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image height
      *
-     * @return int
+     * @return int Returns the image height in pixels.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4566,7 +4618,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image histogram
      *
-     * @return array
+     * @return array Returns the image histogram as an array of ImagickPixel objects.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4579,7 +4631,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the index of the current active image
      *
-     * @return int
+     * @return int Returns an integer containing the index of the image in the stack.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4592,7 +4644,9 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image interlace scheme
      *
-     * @return int
+     * @return int Returns the interlace scheme as an integer on success.
+     * Throw an
+     * <code>ImagickException</code> on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4605,7 +4659,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the interpolation method
      *
-     * @return int
+     * @return int Returns the interpolate method on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4618,7 +4672,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image iterations
      *
-     * @return int
+     * @return int Returns the image iterations as an integer.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4631,7 +4685,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image length in bytes
      *
-     * @return int
+     * @return int Returns an int containing the current image size.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4644,7 +4698,7 @@ class Imagick implements Countable, Iterator
     /**
      * Return if the image has a matte channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4657,7 +4711,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image matte color
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns ImagickPixel object on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4681,7 +4735,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image orientation
      *
-     * @return int
+     * @return int Returns an int on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4694,7 +4748,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the page geometry
      *
-     * @return array
+     * @return array Returns the page geometry associated with the image in an array with the
+     * keys "width", "height", "x", and "y".
      *
      * @since PECL imagick 2.0.0
      *
@@ -4707,10 +4762,10 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the color of the specified pixel
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $x The x-coordinate of the pixel
+     * @param int $y The y-coordinate of the pixel
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns an ImagickPixel instance for the color at the coordinates given.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4723,9 +4778,9 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the named image profile
      *
-     * @param mixed $name
+     * @param string $name The name of the profile to return.
      *
-     * @return string
+     * @return string Returns a string containing the image profile.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4738,41 +4793,42 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image profiles
      *
-     * @param mixed|null $pattern
-     * @param mixed|null $values
+     * @param string|null $pattern The pattern for profile names.
+     * @param bool|null $include_values Whether to return only profile names. If <code>FALSE</code> then only profile names will be returned.
      *
-     * @return array
+     * @return array Returns an array containing the image profiles or profile names.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimageprofiles.php
      */
-    public function getimageprofiles($pattern = null, $values = null)
+    public function getimageprofiles($pattern = "*", $include_values = true)
     {
     }
 
     /**
      * Returns the image properties
      *
-     * @param mixed|null $pattern
-     * @param mixed|null $values
+     * @param string|null $pattern The pattern for property names.
+     * @param bool|null $include_values Whether to return only property names. If <code>FALSE</code> then only property names will be returned.
      *
-     * @return array
+     * @return array Returns an array containing the image properties or property names.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getimageproperties.php
      */
-    public function getimageproperties($pattern = null, $values = null)
+    public function getimageproperties($pattern = "*", $include_values = true)
     {
     }
 
     /**
      * Returns the named image property
      *
-     * @param mixed $name
+     * @param string $name name of the property (for example Exif:DateTime)
      *
-     * @return string
+     * @return string Returns a string containing the image property, false if a
+     * property with the given name does not exist.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4785,7 +4841,10 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the chromaticity red primary point
      *
-     * @return array
+     * @return array Returns the chromaticity red primary point as an array with the keys "x"
+     * and "y".
+     * Throw an
+     * <code>ImagickException</code> on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4798,12 +4857,12 @@ class Imagick implements Countable, Iterator
     /**
      * Extracts a region of the image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width The width of the extracted region.
+     * @param int $height The height of the extracted region.
+     * @param int $x X-coordinate of the top-left corner of the extracted region.
+     * @param int $y Y-coordinate of the top-left corner of the extracted region.
      *
-     * @return Imagick
+     * @return Imagick Extracts a region of the image and returns it as a new wand.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4816,7 +4875,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image rendering intent
      *
-     * @return int
+     * @return int Returns the image rendering intent.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4829,7 +4888,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image X and Y resolution
      *
-     * @return array
+     * @return array Returns the resolution as an array.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4842,7 +4901,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns all image sequences as a blob
      *
-     * @return string
+     * @return string Returns a string containing the images. On failure, throws
+     * ImagickException.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4855,7 +4915,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image scene
      *
-     * @return int
+     * @return int Returns the image scene.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4868,7 +4928,7 @@ class Imagick implements Countable, Iterator
     /**
      * Generates an SHA-256 message digest
      *
-     * @return string
+     * @return string Returns a string containing the SHA-256 hash of the file.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4881,7 +4941,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image length in bytes
      *
-     * @return int
+     * @return int Returns an int containing the current image size.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4894,7 +4954,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image ticks-per-second
      *
-     * @return int
+     * @return int Returns the image ticks-per-second.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4907,7 +4967,9 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image total ink density
      *
-     * @return float
+     * @return float Returns the image total ink density of the image.
+     * Throw an
+     * <code>ImagickException</code> on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4920,7 +4982,20 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the potential image type
      *
-     * @return int
+     * @return int Returns the potential image type.
+     * <ul>
+     * <code>imagick::IMGTYPE_UNDEFINED</code>
+     * <code>imagick::IMGTYPE_BILEVEL</code>
+     * <code>imagick::IMGTYPE_GRAYSCALE</code>
+     * <code>imagick::IMGTYPE_GRAYSCALEMATTE</code>
+     * <code>imagick::IMGTYPE_PALETTE</code>
+     * <code>imagick::IMGTYPE_PALETTEMATTE</code>
+     * <code>imagick::IMGTYPE_TRUECOLOR</code>
+     * <code>imagick::IMGTYPE_TRUECOLORMATTE</code>
+     * <code>imagick::IMGTYPE_COLORSEPARATION</code>
+     * <code>imagick::IMGTYPE_COLORSEPARATIONMATTE</code>
+     * <code>imagick::IMGTYPE_OPTIMIZE</code>
+     * </ul>
      *
      * @link http://www.php.net/manual/en/imagick.getimagetype.php
      */
@@ -4931,7 +5006,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the image units of resolution
      *
-     * @return int
+     * @return int Returns the image units of resolution.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4944,7 +5019,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the virtual pixel method
      *
-     * @return int
+     * @return int Returns the virtual pixel method on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4957,7 +5032,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the chromaticity white point
      *
-     * @return array
+     * @return array Returns the chromaticity white point as an associative array with the keys
+     * "x" and "y".
      *
      * @since PECL imagick 2.0.0
      *
@@ -4970,7 +5046,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the image width
      *
-     * @return int
+     * @return int Returns the image width.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4983,7 +5059,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the object interlace scheme
      *
-     * @return int
+     * @return int Gets the wand interlace
+     * scheme.
      *
      * @since PECL imagick 2.0.0
      *
@@ -4996,7 +5073,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the index of the current active image
      *
-     * @return int
+     * @return int Returns an integer containing the index of the image in the stack.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5009,7 +5086,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the number of images in the object
      *
-     * @return int
+     * @return int Returns the number of images associated with Imagick object.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5022,9 +5099,9 @@ class Imagick implements Countable, Iterator
     /**
      * Returns a value associated with the specified key
      *
-     * @param mixed $key
+     * @param string $key The name of the option
      *
-     * @return string
+     * @return string Returns a value associated with a wand and the specified key.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5037,7 +5114,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the ImageMagick package name
      *
-     * @return string
+     * @return string Returns the ImageMagick package name as a string.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5050,7 +5127,9 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the page geometry
      *
-     * @return array
+     * @return array Returns the page geometry associated with the Imagick object in
+     * an associative array with the keys "width", "height", "x", and "y",
+     * throwing ImagickException on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5063,7 +5142,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns a MagickPixelIterator
      *
-     * @return ImagickPixelIterator
+     * @return ImagickPixelIterator Returns an ImagickPixelIterator on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5076,13 +5155,13 @@ class Imagick implements Countable, Iterator
     /**
      * Get an ImagickPixelIterator for an image section
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $columns
-     * @param mixed $rows
+     * @param int $x The x-coordinate of the region.
+     * @param int $y The y-coordinate of the region.
+     * @param int $columns The width of the region.
+     * @param int $rows The height of the region.
      * @param mixed $modify
      *
-     * @return ImagickPixelIterator
+     * @return ImagickPixelIterator Returns an ImagickPixelIterator for an image section.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5095,7 +5174,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets point size
      *
-     * @return float
+     * @return float Returns a <code>float</code> containing the point size.
      *
      * @link http://www.php.net/manual/en/imagick.getpointsize.php
      */
@@ -5117,7 +5196,7 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the quantum depth
      *
-     * @return array
+     * @return array Returns the Imagick quantum depth as a string.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5130,7 +5209,9 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the Imagick quantum range
      *
-     * @return array
+     * @return array Returns an associative array containing the quantum range as an
+     * <code>integer</code> (<code>"quantumRangeLong"</code>) and as a
+     * <code>string</code> (<code>"quantumRangeString"</code>).
      *
      * @since PECL imagick 2.0.0
      *
@@ -5143,7 +5224,7 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $key
+     * @param string $key The entry to get.
      *
      * @return string
      *
@@ -5156,7 +5237,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the ImageMagick release date
      *
-     * @return string
+     * @return string Returns the ImageMagick release date as a string.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5169,37 +5250,38 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the specified resource's memory usage
      *
-     * @param mixed $resource_type
+     * @param int $type Refer to the list of resourcetype constants.
      *
-     * @return int
+     * @return int Returns the specified resource's memory usage in megabytes.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getresource.php
      */
-    public static function getresource($resource_type)
+    public static function getresource($type)
     {
     }
 
     /**
      * Returns the specified resource limit
      *
-     * @param mixed $resource_type
+     * @param int $type Refer to the list of resourcetype constants.
      *
-     * @return int
+     * @return int Returns the specified resource limit in megabytes.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.getresourcelimit.php
      */
-    public static function getresourcelimit($resource_type)
+    public static function getresourcelimit($type)
     {
     }
 
     /**
      * Gets the horizontal and vertical sampling factor
      *
-     * @return array
+     * @return array Returns an associative array with the horizontal and vertical sampling
+     * factors of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5212,7 +5294,8 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the size associated with the Imagick object
      *
-     * @return array
+     * @return array Returns the size associated with the Imagick object as an array with the
+     * keys "columns" and "rows".
      *
      * @since PECL imagick 2.0.0
      *
@@ -5225,7 +5308,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the size offset
      *
-     * @return int
+     * @return int Returns the size offset associated with the Imagick object.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5238,7 +5321,7 @@ class Imagick implements Countable, Iterator
     /**
      * Returns the ImageMagick API version
      *
-     * @return array
+     * @return array Returns the ImageMagick API version as a string and as a number.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5251,21 +5334,22 @@ class Imagick implements Countable, Iterator
     /**
      * Replaces colors in the image
      *
-     * @param Imagick $Imagick
-     * @param mixed|null $CHANNEL
+     * @param Imagick $clut Imagick object containing the Hald lookup image.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.haldclutimage.php
      */
-    public function haldclutimage(Imagick $Imagick, $CHANNEL = null)
+    public function haldclutimage(Imagick $clut, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Checks if the object has more images
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the object has more images when traversing the list in the
+     * forward direction, returns <code>FALSE</code> if there are none.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5278,7 +5362,8 @@ class Imagick implements Countable, Iterator
     /**
      * Checks if the object has a previous image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the object has more images when traversing the list in the
+     * reverse direction, returns <code>FALSE</code> if there are none.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5291,9 +5376,9 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $embedText
+     * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
      *
-     * @return string
+     * @return string Returns format or <code>FALSE</code> on failure.
      *
      * @link http://www.php.net/manual/en/imagick.identifyformat.php
      */
@@ -5304,24 +5389,25 @@ class Imagick implements Countable, Iterator
     /**
      * Identifies an image and fetches attributes
      *
-     * @param mixed|null $appendRawOutput
+     * @param bool|null $appendRawOutput If <code>TRUE</code> then the raw output is appended to the array.
      *
-     * @return array
+     * @return array Identifies an image and returns the attributes. Attributes include
+     * the image width, height, size, and others.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.identifyimage.php
      */
-    public function identifyimage($appendRawOutput = null)
+    public function identifyimage($appendRawOutput = false)
     {
     }
 
     /**
      * Creates a new image as a copy
      *
-     * @param mixed $radius
+     * @param float $radius The radius of the implode
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5334,33 +5420,36 @@ class Imagick implements Countable, Iterator
     /**
      * Imports image pixels
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $map
-     * @param mixed $storage
-     * @param mixed $PIXEL
+     * @param int $x The image x position
+     * @param int $y The image y position
+     * @param int $width The image width
+     * @param int $height The image height
+     * @param string $map Map of pixel ordering as a string. This can be for example <code>RGB</code>.
+     * The value can be any combination or order of R = red, G = green, B = blue, A = alpha (0 is transparent),
+     * O = opacity (0 is opaque), C = cyan, Y = yellow, M = magenta, K = black, I = intensity (for grayscale), P = pad.
+     * @param int $storage The pixel storage method.
+     * Refer to this list of pixel constants.
+     * @param array $pixels The array of pixels
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.importimagepixels.php
      */
-    public function importimagepixels($x, $y, $width, $height, $map, $storage, $PIXEL)
+    public function importimagepixels($x, $y, $width, $height, $map, $storage, array $pixels)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $complement
-     * @param mixed $magnitude
+     * @param Imagick $complement The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.
+     * @param bool $magnitude If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.inversefouriertransformimage.php
      */
-    public function inversefouriertransformimage($complement, $magnitude)
+    public function inversefouriertransformimage(Imagick $complement, $magnitude)
     {
     }
 
@@ -5371,9 +5460,9 @@ class Imagick implements Countable, Iterator
     /**
      * Adds a label to an image
      *
-     * @param mixed $label
+     * @param string $label The label to add
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5386,28 +5475,31 @@ class Imagick implements Countable, Iterator
     /**
      * Adjusts the levels of an image
      *
-     * @param mixed $blackPoint
-     * @param mixed $gamma
-     * @param mixed $whitePoint
-     * @param mixed|null $CHANNEL
+     * @param float $blackPoint The image black point
+     * @param float $gamma The gamma value
+     * @param float $whitePoint The image white point
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.levelimage.php
      */
-    public function levelimage($blackPoint, $gamma, $whitePoint, $CHANNEL = null)
+    public function levelimage($blackPoint, $gamma, $whitePoint, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Stretches with saturation the image intensity
      *
-     * @param mixed $blackPoint
-     * @param mixed $whitePoint
+     * @param float $blackPoint The image black point
+     * @param float $whitePoint The image white point
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5420,23 +5512,25 @@ class Imagick implements Countable, Iterator
     /**
      * Animates an image or images
      *
-     * @param mixed $columns
-     * @param mixed $rows
-     * @param mixed $delta_x
-     * @param mixed $rigidity
+     * @param int $width The width of the target size
+     * @param int $height The height of the target size
+     * @param float $delta_x How much the seam can traverse on x-axis.
+     * Passing 0 causes the seams to be straight.
+     * @param float $rigidity Introduces a bias for non-straight seams. This parameter is
+     * typically 0.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.liquidrescaleimage.php
      */
-    public function liquidrescaleimage($columns, $rows, $delta_x, $rigidity)
+    public function liquidrescaleimage($width, $height, $delta_x, $rigidity)
     {
     }
 
     /**
      * Description
      *
-     * @return array
+     * @return array An array containing the key/values from the registry.
      *
      * @link http://www.php.net/manual/en/imagick.listregistry.php
      */
@@ -5447,7 +5541,7 @@ class Imagick implements Countable, Iterator
     /**
      * Scales an image proportionally 2x
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5460,44 +5554,46 @@ class Imagick implements Countable, Iterator
     /**
      * Replaces the colors of an image with the closest color from a reference image
      *
-     * @param Imagick $Imagick
-     * @param mixed $dither
+     * @param Imagick $map
+     * @param bool $dither
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.mapimage.php
      */
-    public function mapimage(Imagick $Imagick, $dither)
+    public function mapimage(Imagick $map, $dither)
     {
     }
 
     /**
      * Changes the transparency value of a color
      *
-     * @param mixed $alpha
-     * @param mixed $fuzz
-     * @param mixed $color
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $alpha The level of transparency: 1.0 is fully opaque and 0.0 is fully
+     * transparent.
+     * @param float $fuzz The fuzz member of image defines how much tolerance is acceptable to
+     * consider two colors as the same.
+     * @param mixed $bordercolor An <code>ImagickPixel</code> object or string representing the border color.
+     * @param int $x The starting x coordinate of the operation.
+     * @param int $y The starting y coordinate of the operation.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.mattefloodfillimage.php
      */
-    public function mattefloodfillimage($alpha, $fuzz, $color, $x, $y)
+    public function mattefloodfillimage($alpha, $fuzz, $bordercolor, $x, $y)
     {
     }
 
     /**
      * Applies a digital filter
      *
-     * @param mixed $radius
+     * @param float $radius The radius of the pixel neighborhood.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5510,22 +5606,22 @@ class Imagick implements Countable, Iterator
     /**
      * Merges image layers
      *
-     * @param mixed $LAYERMETHOD
+     * @param int $layer_method One of the <code>Imagick::LAYERMETHOD_*</code> constants
      *
-     * @return Imagick
+     * @return Imagick Returns an Imagick object containing the merged image.
      *
      * @since PECL imagick 2.1.0
      *
      * @link http://www.php.net/manual/en/imagick.mergeimagelayers.php
      */
-    public function mergeimagelayers($LAYERMETHOD)
+    public function mergeimagelayers($layer_method)
     {
     }
 
     /**
      * Scales an image proportionally to half its size
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5538,11 +5634,11 @@ class Imagick implements Countable, Iterator
     /**
      * Control the brightness, saturation, and hue
      *
-     * @param mixed $brightness
-     * @param mixed $saturation
-     * @param mixed $hue
+     * @param float $brightness
+     * @param float $saturation
+     * @param float $hue
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5555,57 +5651,61 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a composite image
      *
-     * @param ImagickDraw $ImagickDraw
-     * @param mixed $tileGeometry
-     * @param mixed $thumbnailGeometry
-     * @param mixed $MONTAGEMODE
-     * @param mixed $frame
+     * @param ImagickDraw $draw The font name, size, and color are obtained from this object.
+     * @param string $tile_geometry The number of tiles per row and page (e.g. 6x4+0+0).
+     * @param string $thumbnail_geometry Preferred image size and border size of each thumbnail
+     * (e.g. 120x120+4+3&gt;).
+     * @param int $mode Thumbnail framing mode, see Montage Mode constants.
+     * @param string $frame Surround the image with an ornamental border (e.g. 15x15+3+3). The
+     * frame color is that of the thumbnail's matte color.
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.montageimage.php
      */
-    public function montageimage(ImagickDraw $ImagickDraw, $tileGeometry, $thumbnailGeometry, $MONTAGEMODE, $frame)
+    public function montageimage(ImagickDraw $draw, $tile_geometry, $thumbnail_geometry, $mode, $frame)
     {
     }
 
     /**
      * Method morphs a set of images
      *
-     * @param mixed $frames
+     * @param int $number_frames The number of in-between images to generate.
      *
-     * @return Imagick
+     * @return Imagick This method returns a new Imagick object on success.
+     * Throw an
+     * <code>ImagickException</code> on error.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.morphimages.php
      */
-    public function morphimages($frames)
+    public function morphimages($number_frames)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $morphologyMethod
-     * @param mixed $iterations
+     * @param int $morphologyMethod Which morphology method to use one of the \Imagick::MORPHOLOGY_* constants.
+     * @param int $iterations The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.
      * @param ImagickKernel $ImagickKernel
-     * @param mixed|null $CHANNEL
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.morphology.php
      */
-    public function morphology($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $CHANNEL = null)
+    public function morphology($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Forms a mosaic from images
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5618,63 +5718,71 @@ class Imagick implements Countable, Iterator
     /**
      * Simulates motion blur
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed $angle
-     * @param mixed|null $CHANNEL
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param float $angle Apply the effect along this angle.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
+     * The channel argument affects only if Imagick is compiled against ImageMagick version
+     * 6.4.4 or greater.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.motionblurimage.php
      */
-    public function motionblurimage($radius, $sigma, $angle, $CHANNEL = null)
+    public function motionblurimage($radius, $sigma, $angle, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Negates the colors in the reference image
      *
-     * @param mixed $gray
-     * @param mixed|null $CHANNEL
+     * @param bool $gray Whether to only negate grayscale pixels within the image.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.negateimage.php
      */
-    public function negateimage($gray, $CHANNEL = null)
+    public function negateimage($gray, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Creates a new image
      *
-     * @param mixed $columns
-     * @param mixed $rows
-     * @param mixed $background_color
-     * @param mixed|null $format
+     * @param int $cols Columns in the new image
+     * @param int $rows Rows in the new image
+     * @param mixed $background The background color used for this image
+     * @param string $format Image format. This parameter was added in Imagick version 2.0.1.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.newimage.php
      */
-    public function newimage($columns, $rows, $background_color, $format = null)
+    public function newimage($cols, $rows, $background, $format = null)
     {
     }
 
     /**
      * Creates a new image
      *
-     * @param mixed $columns
-     * @param mixed $rows
-     * @param mixed $pseudoString
+     * @param int $columns columns in the new image
+     * @param int $rows rows in the new image
+     * @param string $pseudoString string containing pseudo image definition.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5691,7 +5799,7 @@ class Imagick implements Countable, Iterator
     /**
      * Moves to the next image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5704,24 +5812,27 @@ class Imagick implements Countable, Iterator
     /**
      * Enhances the contrast of a color image
      *
-     * @param mixed|null $CHANNEL
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.normalizeimage.php
      */
-    public function normalizeimage($CHANNEL = null)
+    public function normalizeimage($channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Simulates an oil painting
      *
-     * @param mixed $radius
+     * @param float $radius The radius of the circular neighborhood.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5734,24 +5845,24 @@ class Imagick implements Countable, Iterator
     /**
      * Changes the color value of any pixel that matches target
      *
-     * @param mixed $target
-     * @param mixed $fill
-     * @param mixed $fuzz
-     * @param mixed $invert
-     * @param mixed|null $CHANNEL
+     * @param mixed $target ImagickPixel object or a string containing the color to change
+     * @param mixed $fill The replacement color
+     * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at intensities of 100 and 102 respectively are now interpreted as the same color.
+     * @param bool $invert If <code>TRUE</code> paints any pixel that does not match the target color.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.opaquepaintimage.php
      */
-    public function opaquepaintimage($target, $fill, $fuzz, $invert, $CHANNEL = null)
+    public function opaquepaintimage($target, $fill, $fuzz, $invert, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Removes repeated portions of images to optimize
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5764,80 +5875,92 @@ class Imagick implements Countable, Iterator
     /**
      * Performs an ordered dither
      *
-     * @param mixed $threshold_map
-     * @param mixed|null $CHANNEL
+     * @param string $threshold_map A string containing the name of the threshold dither map to use
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.2.2
      *
      * @link http://www.php.net/manual/en/imagick.orderedposterizeimage.php
      */
-    public function orderedposterizeimage($threshold_map, $CHANNEL = null)
+    public function orderedposterizeimage($threshold_map, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Changes the color value of any pixel that matches target
      *
-     * @param mixed $CHANNEL
-     * @param mixed $fill
-     * @param mixed $fuzz
-     * @param mixed $bordercolor
-     * @param mixed $x
-     * @param mixed $y
+     * @param mixed $fill ImagickPixel object or a string containing the fill color
+     * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at
+     * intensities of 100 and 102 respectively are now interpreted as the
+     * same color for the purposes of the floodfill.
+     * @param mixed $bordercolor ImagickPixel object or a string containing the border color
+     * @param int $x X start position of the floodfill
+     * @param int $y Y start position of the floodfill
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.1.0
      *
      * @link http://www.php.net/manual/en/imagick.paintfloodfillimage.php
      */
-    public function paintfloodfillimage($CHANNEL, $fill, $fuzz, $bordercolor, $x, $y)
+    public function paintfloodfillimage($fill, $fuzz, $bordercolor, $x, $y, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Change any pixel that matches color
      *
-     * @param mixed $target_color
-     * @param mixed $fill_color
-     * @param mixed $fuzz
-     * @param mixed|null $CHANNEL
+     * @param mixed $target Change this target color to the fill color within the image. An
+     * ImagickPixel object or a string representing the target color.
+     * @param mixed $fill An ImagickPixel object or a string representing the fill color.
+     * @param float $fuzz The fuzz member of image defines how much tolerance is acceptable to
+     * consider two colors as the same.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.paintopaqueimage.php
      */
-    public function paintopaqueimage($target_color, $fill_color, $fuzz, $CHANNEL = null)
+    public function paintopaqueimage($target, $fill, $fuzz, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Changes any pixel that matches color with the color defined by fill
      *
-     * @param mixed $target_color
-     * @param mixed $alpha
-     * @param mixed $fuzz
+     * @param mixed $target Change this target color to specified opacity value within the image.
+     * @param float $alpha The level of transparency: 1.0 is fully opaque and 0.0 is fully
+     * transparent.
+     * @param float $fuzz The fuzz member of image defines how much tolerance is acceptable to
+     * consider two colors as the same.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.painttransparentimage.php
      */
-    public function painttransparentimage($target_color, $alpha, $fuzz)
+    public function painttransparentimage($target, $alpha, $fuzz)
     {
     }
 
     /**
      * Fetch basic attributes about the image
      *
-     * @param mixed $filename
+     * @param string $filename The filename to read the information from.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5850,56 +5973,56 @@ class Imagick implements Countable, Iterator
     /**
      * Quickly fetch attributes
      *
-     * @param mixed $imageContents
+     * @param string $image A string containing the image.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.pingimageblob.php
      */
-    public function pingimageblob($imageContents)
+    public function pingimageblob($image)
     {
     }
 
     /**
      * Get basic image attributes in a lightweight manner
      *
-     * @param mixed $fp
+     * @param resource $filehandle An open filehandle to the image.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.pingimagefile.php
      */
-    public function pingimagefile($fp)
+    public function pingimagefile($filehandle)
     {
     }
 
     /**
      * Simulates a Polaroid picture
      *
-     * @param ImagickDraw $ImagickDraw
-     * @param mixed $angle
+     * @param ImagickDraw $properties The polaroid properties
+     * @param float $angle The polaroid angle
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.polaroidimage.php
      */
-    public function polaroidimage(ImagickDraw $ImagickDraw, $angle)
+    public function polaroidimage(ImagickDraw $properties, $angle)
     {
     }
 
     /**
      * Reduces the image to a limited number of color level
      *
-     * @param mixed $levels
-     * @param mixed $dither
+     * @param int $levels
+     * @param bool $dither
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5912,22 +6035,22 @@ class Imagick implements Countable, Iterator
     /**
      * Quickly pin-point appropriate parameters for image processing
      *
-     * @param mixed $PREVIEW
+     * @param int $preview Preview type. See Preview type constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.previewimages.php
      */
-    public function previewimages($PREVIEW)
+    public function previewimages($preview)
     {
     }
 
     /**
      * Move to the previous image in the object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5940,10 +6063,10 @@ class Imagick implements Countable, Iterator
     /**
      * Adds or removes a profile from an image
      *
-     * @param mixed $name
-     * @param mixed $profile
+     * @param string $name
+     * @param string $profile
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -5956,114 +6079,114 @@ class Imagick implements Countable, Iterator
     /**
      * Analyzes the colors within a reference image
      *
-     * @param mixed $numColors
-     * @param mixed $COLORSPACE
-     * @param mixed $treeDepth
-     * @param mixed $dither
-     * @param mixed $measureError
+     * @param int $numberColors
+     * @param int $colorspace
+     * @param int $treedepth
+     * @param bool $dither
+     * @param bool $measureError
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.quantizeimage.php
      */
-    public function quantizeimage($numColors, $COLORSPACE, $treeDepth, $dither, $measureError)
+    public function quantizeimage($numberColors, $colorspace, $treedepth, $dither, $measureError)
     {
     }
 
     /**
      * Analyzes the colors within a sequence of images
      *
-     * @param mixed $numColors
-     * @param mixed $COLORSPACE
-     * @param mixed $treeDepth
-     * @param mixed $dither
-     * @param mixed $measureError
+     * @param int $numberColors
+     * @param int $colorspace
+     * @param int $treedepth
+     * @param bool $dither
+     * @param bool $measureError
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.quantizeimages.php
      */
-    public function quantizeimages($numColors, $COLORSPACE, $treeDepth, $dither, $measureError)
+    public function quantizeimages($numberColors, $colorspace, $treedepth, $dither, $measureError)
     {
     }
 
     /**
      * Returns an array representing the font metrics
      *
-     * @param ImagickDraw $ImagickDraw
-     * @param mixed $text
-     * @param mixed|null $multiline
+     * @param ImagickDraw $properties ImagickDraw object containing font properties
+     * @param string $text The text
+     * @param bool $multiline Multiline parameter. If left empty it is autodetected
      *
-     * @return array
+     * @return array Returns a multi-dimensional array representing the font metrics.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.queryfontmetrics.php
      */
-    public function queryfontmetrics(ImagickDraw $ImagickDraw, $text, $multiline = null)
+    public function queryfontmetrics(ImagickDraw $properties, $text, $multiline = null)
     {
     }
 
     /**
      * Returns the configured fonts
      *
-     * @param mixed $pattern
+     * @param string|null $pattern The query pattern
      *
-     * @return array
+     * @return array Returns an array containing the configured fonts.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.queryfonts.php
      */
-    public static function queryfonts($pattern)
+    public static function queryfonts($pattern = "*")
     {
     }
 
     /**
      * Returns formats supported by Imagick
      *
-     * @param mixed $pattern
+     * @param string|null $pattern
      *
-     * @return array
+     * @return array Returns an array containing the formats supported by Imagick.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.queryformats.php
      */
-    public static function queryformats($pattern)
+    public static function queryformats($pattern = "*")
     {
     }
 
     /**
      * Radial blurs an image
      *
-     * @param mixed $angle
-     * @param mixed|null $CHANNEL
+     * @param float $angle
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.radialblurimage.php
      */
-    public function radialblurimage($angle, $CHANNEL = null)
+    public function radialblurimage($angle, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Creates a simulated 3d button-like effect
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $raise
+     * @param int $width
+     * @param int $height
+     * @param int $x
+     * @param int $y
+     * @param bool $raise
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6076,26 +6199,29 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a high-contrast, two-color image
      *
-     * @param mixed $low
-     * @param mixed $high
-     * @param mixed|null $CHANNELTYPE
+     * @param float $low The low point
+     * @param float $high The high point
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
+     * apply to more than one channel, combine channeltype constants using
+     * bitwise operators. Refer to this
+     * list of channel constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.randomthresholdimage.php
      */
-    public function randomthresholdimage($low, $high, $CHANNELTYPE = null)
+    public function randomthresholdimage($low, $high, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Reads image from filename
      *
-     * @param mixed $filename
+     * @param string $filename
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.readimage.php
      */
@@ -6106,66 +6232,66 @@ class Imagick implements Countable, Iterator
     /**
      * Reads image from a binary string
      *
-     * @param mixed $imageContents
-     * @param mixed|null $filename
+     * @param string $image
+     * @param string $filename
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.readimageblob.php
      */
-    public function readimageblob($imageContents, $filename = null)
+    public function readimageblob($image, $filename = null)
     {
     }
 
     /**
      * Reads image from open filehandle
      *
-     * @param mixed $fp
+     * @param resource $filehandle
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.readimagefile.php
      */
-    public function readimagefile($fp)
+    public function readimagefile($filehandle)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $filenames
+     * @param array $filenames
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.readimages.php
      */
-    public function readimages($filenames)
+    public function readimages(array $filenames)
     {
     }
 
     /**
      * Recolors image
      *
-     * @param mixed $matrix
+     * @param array $matrix The matrix containing the color values
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.recolorimage.php
      */
-    public function recolorimage($matrix)
+    public function recolorimage(array $matrix)
     {
     }
 
     /**
      * Smooths the contours of an image
      *
-     * @param mixed $radius
+     * @param float $radius
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6178,21 +6304,21 @@ class Imagick implements Countable, Iterator
     /**
      * Remaps image colors
      *
-     * @param Imagick $Imagick
-     * @param mixed $DITHER
+     * @param Imagick $replacement An Imagick object containing the replacement colors
+     * @param int $DITHER Refer to this list of dither method constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.remapimage.php
      */
-    public function remapimage(Imagick $Imagick, $DITHER)
+    public function remapimage(Imagick $replacement, $DITHER)
     {
     }
 
     /**
      * Removes an image from the image list
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6205,9 +6331,9 @@ class Imagick implements Countable, Iterator
     /**
      * Removes the named image profile and returns it
      *
-     * @param mixed $name
+     * @param string $name
      *
-     * @return string
+     * @return string Returns a string containing the profile of the image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6220,27 +6346,27 @@ class Imagick implements Countable, Iterator
     /**
      * Resample image to desired resolution
      *
-     * @param mixed $xResolution
-     * @param mixed $yResolution
-     * @param mixed $FILTER
-     * @param mixed $blur
+     * @param float $x_resolution
+     * @param float $y_resolution
+     * @param int $filter
+     * @param float $blur
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.resampleimage.php
      */
-    public function resampleimage($xResolution, $yResolution, $FILTER, $blur)
+    public function resampleimage($x_resolution, $y_resolution, $filter, $blur)
     {
     }
 
     /**
      * Reset image page
      *
-     * @param mixed $page
+     * @param string $page The page definition. For example <code>7168x5147+0+0</code>
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.resetimagepage.php
      */
@@ -6255,20 +6381,20 @@ class Imagick implements Countable, Iterator
     /**
      * Scales an image
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed|null $filter
-     * @param mixed|null $blur
-     * @param mixed|null $bestfit
-     * @param mixed|null $legacy
+     * @param int $columns Width of the image
+     * @param int $rows Height of the image
+     * @param int $filter Refer to the list of filter constants.
+     * @param float $blur The blur factor where &gt; 1 is blurry, &lt; 1 is sharp.
+     * @param bool|null $bestfit Optional fit parameter.
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.resizeimage.php
      */
-    public function resizeimage($x, $y, $filter = null, $blur = null, $bestfit = null, $legacy = null)
+    public function resizeimage($columns, $rows, $filter = null, $blur = null, $bestfit = false, $legacy = false)
     {
     }
 
@@ -6279,10 +6405,10 @@ class Imagick implements Countable, Iterator
     /**
      * Offsets an image
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $x The X offset.
+     * @param int $y The Y offset.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6295,58 +6421,59 @@ class Imagick implements Countable, Iterator
     /**
      * Rotates an image
      *
-     * @param mixed $color
-     * @param mixed $degrees
+     * @param mixed $background The background color
+     * @param float $degrees Rotation angle, in degrees. The rotation angle is interpreted as the
+     * number of degrees to rotate the image clockwise.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.rotateimage.php
      */
-    public function rotateimage($color, $degrees)
+    public function rotateimage($background, $degrees)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $angle
-     * @param mixed|null $CHANNEL
+     * @param float $angle The angle to apply the blur over.
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.rotationalblurimage.php
      */
-    public function rotationalblurimage($angle, $CHANNEL = null)
+    public function rotationalblurimage($angle, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Rounds image corners
      *
-     * @param mixed $xRounding
-     * @param mixed $yRounding
-     * @param mixed|null $strokeWidth
-     * @param mixed|null $displace
-     * @param mixed|null $sizeCorrection
+     * @param float $x_rounding x rounding
+     * @param float $y_rounding y rounding
+     * @param float|null $stroke_width stroke width
+     * @param float|null $displace image displace
+     * @param float|null $size_correction size correction
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.roundcorners.php
      */
-    public function roundcorners($xRounding, $yRounding, $strokeWidth = null, $displace = null, $sizeCorrection = null)
+    public function roundcorners($x_rounding, $y_rounding, $stroke_width = 10, $displace = 5, $size_correction = -6)
     {
     }
 
     /**
      * @param mixed $xRounding
      * @param mixed $yRounding
-     * @param mixed|null $strokeWidth
-     * @param mixed|null $displace
-     * @param mixed|null $sizeCorrection
+     * @param mixed $strokeWidth
+     * @param mixed $displace
+     * @param mixed $sizeCorrection
      */
     public function roundcornersimage($xRounding, $yRounding, $strokeWidth = null, $displace = null, $sizeCorrection = null)
     {
@@ -6355,10 +6482,10 @@ class Imagick implements Countable, Iterator
     /**
      * Scales an image with pixel sampling
      *
-     * @param mixed $columns
-     * @param mixed $rows
+     * @param int $columns
+     * @param int $rows
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6371,74 +6498,75 @@ class Imagick implements Countable, Iterator
     /**
      * Scales the size of an image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed|null $bestfit
-     * @param mixed|null $legacy
+     * @param int $cols
+     * @param int $rows
+     * @param bool|null $bestfit
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.scaleimage.php
      */
-    public function scaleimage($width, $height, $bestfit = null, $legacy = null)
+    public function scaleimage($cols, $rows, $bestfit = false, $legacy = false)
     {
     }
 
     /**
      * Segments an image
      *
-     * @param mixed $COLORSPACE
-     * @param mixed $cluster_threshold
-     * @param mixed $smooth_threshold
-     * @param mixed|null $verbose
+     * @param int $COLORSPACE One of the COLORSPACE constants.
+     * @param float $cluster_threshold A percentage describing minimum number of pixels
+     * contained in hexedra before it is considered valid.
+     * @param float $smooth_threshold Eliminates noise from the histogram.
+     * @param bool|null $verbose Whether to output detailed information about recognised classes.
      *
      * @return bool
      *
      * @link http://www.php.net/manual/en/imagick.segmentimage.php
      */
-    public function segmentimage($COLORSPACE, $cluster_threshold, $smooth_threshold, $verbose = null)
+    public function segmentimage($COLORSPACE, $cluster_threshold, $smooth_threshold, $verbose = false)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed $threshold
-     * @param mixed $CHANNEL
+     * @param float $radius
+     * @param float $sigma
+     * @param float $threshold
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.selectiveblurimage.php
      */
-    public function selectiveblurimage($radius, $sigma, $threshold, $CHANNEL)
+    public function selectiveblurimage($radius, $sigma, $threshold, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Separates a channel from the image
      *
-     * @param mixed $CHANNEL
+     * @param int $channel Which 'channel' to return. For colorspaces other than RGB, you can still use the CHANNEL_RED, CHANNEL_GREEN, CHANNEL_BLUE constants to indicate the 1st, 2nd and 3rd channels.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.separateimagechannel.php
      */
-    public function separateimagechannel($CHANNEL)
+    public function separateimagechannel($channel)
     {
     }
 
     /**
      * Sepia tones an image
      *
-     * @param mixed $threshold
+     * @param float $threshold
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6458,24 +6586,24 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the object's default background color
      *
-     * @param mixed $color
+     * @param mixed $background
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setbackgroundcolor.php
      */
-    public function setbackgroundcolor($color)
+    public function setbackgroundcolor($background)
     {
     }
 
     /**
      * Set colorspace
      *
-     * @param mixed $COLORSPACE
+     * @param int $COLORSPACE One of the COLORSPACE constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setcolorspace.php
      */
@@ -6486,9 +6614,9 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the object's default compression type
      *
-     * @param mixed $compression
+     * @param int $compression The compression type. See the Imagick::COMPRESSION_* constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6501,22 +6629,22 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the object's default compression quality
      *
-     * @param mixed $compressionquality
+     * @param int $quality
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setcompressionquality.php
      */
-    public function setcompressionquality($compressionquality)
+    public function setcompressionquality($quality)
     {
     }
 
     /**
      * Sets the filename before you read or write the image
      *
-     * @param mixed $filename
+     * @param string $filename
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6529,7 +6657,7 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the Imagick iterator to the first image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6542,9 +6670,9 @@ class Imagick implements Countable, Iterator
     /**
      * Sets font
      *
-     * @param mixed $font
+     * @param string $font Font name or a filename
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.1.0
      *
@@ -6557,9 +6685,9 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the format of the Imagick object
      *
-     * @param mixed $format
+     * @param string $format
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6572,51 +6700,52 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the gravity
      *
-     * @param mixed $GRAVITY
+     * @param int $gravity The gravity property. Refer to the list of
+     * gravity constants.
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @link http://www.php.net/manual/en/imagick.setgravity.php
      */
-    public function setgravity($GRAVITY)
+    public function setgravity($gravity)
     {
     }
 
     /**
      * Replaces image in the object
      *
-     * @param Imagick $Imagick
+     * @param Imagick $replace The replace Imagick object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimage.php
      */
-    public function setimage(Imagick $Imagick)
+    public function setimage(Imagick $replace)
     {
     }
 
     /**
      * Sets image alpha channel
      *
-     * @param mixed $ALPHACHANNELTYPE
+     * @param int $mode One of the <code>Imagick::ALPHACHANNEL_*</code> constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setimagealphachannel.php
      */
-    public function setimagealphachannel($ALPHACHANNELTYPE)
+    public function setimagealphachannel($mode)
     {
     }
 
     /**
      * Set image artifact
      *
-     * @param mixed $artifact
-     * @param mixed $value
+     * @param string $artifact The name of the artifact
+     * @param string $value The value of the artifact
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setimageartifact.php
      */
@@ -6627,10 +6756,10 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $key
-     * @param mixed $value
+     * @param string $key
+     * @param string $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setimageattribute.php
      */
@@ -6641,24 +6770,24 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image background color
      *
-     * @param mixed $color
+     * @param mixed $background
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagebackgroundcolor.php
      */
-    public function setimagebackgroundcolor($color)
+    public function setimagebackgroundcolor($background)
     {
     }
 
     /**
      * Sets the image bias for any method that convolves an image
      *
-     * @param mixed $bias
+     * @param float $bias
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6671,7 +6800,7 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $bias
+     * @param string $bias
      *
      * @return void
      *
@@ -6684,10 +6813,10 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image chromaticity blue primary point
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x
+     * @param float $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6700,114 +6829,114 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image border color
      *
-     * @param mixed $color
+     * @param mixed $border The border color
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagebordercolor.php
      */
-    public function setimagebordercolor($color)
+    public function setimagebordercolor($border)
     {
     }
 
     /**
      * Sets the depth of a particular image channel
      *
-     * @param mixed $CHANNEL
-     * @param mixed $depth
+     * @param int $channel
+     * @param int $depth
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagechanneldepth.php
      */
-    public function setimagechanneldepth($CHANNEL, $depth)
+    public function setimagechanneldepth($channel, $depth)
     {
     }
 
     /**
      * Sets image clip mask
      *
-     * @param Imagick $Imagick
+     * @param Imagick $clip_mask The Imagick object containing the clip mask
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setimageclipmask.php
      */
-    public function setimageclipmask(Imagick $Imagick)
+    public function setimageclipmask(Imagick $clip_mask)
     {
     }
 
     /**
      * Sets the color of the specified colormap index
      *
-     * @param mixed $index
-     * @param mixed $color
+     * @param int $index
+     * @param ImagickPixel $color
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagecolormapcolor.php
      */
-    public function setimagecolormapcolor($index, $color)
+    public function setimagecolormapcolor($index, ImagickPixel $color)
     {
     }
 
     /**
      * Sets the image colorspace
      *
-     * @param mixed $COLORSPACE
+     * @param int $colorspace One of the COLORSPACE constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagecolorspace.php
      */
-    public function setimagecolorspace($COLORSPACE)
+    public function setimagecolorspace($colorspace)
     {
     }
 
     /**
      * Sets the image composite operator
      *
-     * @param mixed $COMPOSITE
+     * @param int $compose
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagecompose.php
      */
-    public function setimagecompose($COMPOSITE)
+    public function setimagecompose($compose)
     {
     }
 
     /**
      * Sets the image compression
      *
-     * @param mixed $COMPRESSION
+     * @param int $compression One of the <code>COMPRESSION</code> constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagecompression.php
      */
-    public function setimagecompression($COMPRESSION)
+    public function setimagecompression($compression)
     {
     }
 
     /**
      * Sets the image compression quality
      *
-     * @param mixed $quality
+     * @param int $quality The image compression quality as an integer
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setimagecompressionquality.php
      */
@@ -6818,9 +6947,11 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image delay
      *
-     * @param mixed $delay
+     * @param int $delay The amount of time expressed in 'ticks' that the image should be
+     * displayed for. For animated GIFs there are 100 ticks per second, so a
+     * value of 20 would be 20/100 of a second aka 1/5th of a second.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6833,9 +6964,9 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image depth
      *
-     * @param mixed $depth
+     * @param int $depth
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6848,25 +6979,25 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image disposal method
      *
-     * @param mixed $DISPOSETYPE
+     * @param int $dispose
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagedispose.php
      */
-    public function setimagedispose($DISPOSETYPE)
+    public function setimagedispose($dispose)
     {
     }
 
     /**
      * Sets the image size
      *
-     * @param mixed $columns
-     * @param mixed $rows
+     * @param int $columns
+     * @param int $rows
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6879,9 +7010,9 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the filename of a particular image
      *
-     * @param mixed $filename
+     * @param string $filename
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6894,24 +7025,25 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the format of a particular image
      *
-     * @param mixed $imageFormat
+     * @param string $format String presentation of the image format. Format support
+     * depends on the ImageMagick installation.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageformat.php
      */
-    public function setimageformat($imageFormat)
+    public function setimageformat($format)
     {
     }
 
     /**
      * Sets the image gamma
      *
-     * @param mixed $gamma
+     * @param float $gamma
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6924,23 +7056,24 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image gravity
      *
-     * @param mixed $GRAVITY
+     * @param int $gravity The gravity property. Refer to the list of
+     * gravity constants.
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @link http://www.php.net/manual/en/imagick.setimagegravity.php
      */
-    public function setimagegravity($GRAVITY)
+    public function setimagegravity($gravity)
     {
     }
 
     /**
      * Sets the image chromaticity green primary point
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x
+     * @param float $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6953,9 +7086,9 @@ class Imagick implements Countable, Iterator
     /**
      * Set the iterator position
      *
-     * @param mixed $index
+     * @param int $index The position to set the iterator to
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -6968,39 +7101,40 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image compression
      *
-     * @param mixed $INTERLACE
+     * @param int $interlace_scheme
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageinterlacescheme.php
      */
-    public function setimageinterlacescheme($INTERLACE)
+    public function setimageinterlacescheme($interlace_scheme)
     {
     }
 
     /**
      * Sets the image interpolate pixel method
      *
-     * @param mixed $INTERPOLATE
+     * @param int $method The method is one of the <code>Imagick::INTERPOLATE_*</code> constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageinterpolatemethod.php
      */
-    public function setimageinterpolatemethod($INTERPOLATE)
+    public function setimageinterpolatemethod($method)
     {
     }
 
     /**
      * Sets the image iterations
      *
-     * @param mixed $iterations
+     * @param int $iterations The number of iterations the image should loop over. Set to '0' to loop
+     * continuously.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7013,39 +7147,40 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image matte channel
      *
-     * @param mixed $enable
+     * @param bool $matte True activates the matte channel and false disables it.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagematte.php
      */
-    public function setimagematte($enable)
+    public function setimagematte($matte)
     {
     }
 
     /**
      * Sets the image matte color
      *
-     * @param mixed $color
+     * @param mixed $matte
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagemattecolor.php
      */
-    public function setimagemattecolor($color)
+    public function setimagemattecolor($matte)
     {
     }
 
     /**
      * Sets the image opacity level
      *
-     * @param mixed $opacity
+     * @param float $opacity The level of transparency: 1.0 is fully opaque and 0.0 is fully
+     * transparent.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7058,27 +7193,27 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image orientation
      *
-     * @param mixed $ORIENTATION
+     * @param int $orientation One of the orientation constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageorientation.php
      */
-    public function setimageorientation($ORIENTATION)
+    public function setimageorientation($orientation)
     {
     }
 
     /**
      * Sets the page geometry of the image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width
+     * @param int $height
+     * @param int $x
+     * @param int $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7091,10 +7226,10 @@ class Imagick implements Countable, Iterator
     /**
      * Adds a named profile to the Imagick object
      *
-     * @param mixed $name
-     * @param mixed $profile
+     * @param string $name
+     * @param string $profile
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7114,10 +7249,10 @@ class Imagick implements Countable, Iterator
     /**
      * Sets an image property
      *
-     * @param mixed $name
-     * @param mixed $value
+     * @param string $name
+     * @param string $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7130,10 +7265,10 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image chromaticity red primary point
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x
+     * @param float $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7146,40 +7281,40 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image rendering intent
      *
-     * @param mixed $RENDERINGINTENT
+     * @param int $rendering_intent
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagerenderingintent.php
      */
-    public function setimagerenderingintent($RENDERINGINTENT)
+    public function setimagerenderingintent($rendering_intent)
     {
     }
 
     /**
      * Sets the image resolution
      *
-     * @param mixed $xResolution
-     * @param mixed $yResolution
+     * @param float $x_resolution
+     * @param float $y_resolution
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageresolution.php
      */
-    public function setimageresolution($xResolution, $yResolution)
+    public function setimageresolution($x_resolution, $y_resolution)
     {
     }
 
     /**
      * Sets the image scene
      *
-     * @param mixed $scene
+     * @param int $scene
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7192,70 +7327,71 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image ticks-per-second
      *
-     * @param mixed $ticksPerSecond
+     * @param int $ticks_per_second The duration for which an image should be displayed expressed in ticks
+     * per second.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagetickspersecond.php
      */
-    public function setimagetickspersecond($ticksPerSecond)
+    public function setimagetickspersecond($ticks_per_second)
     {
     }
 
     /**
      * Sets the image type
      *
-     * @param mixed $IMGTYPE
+     * @param int $image_type
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagetype.php
      */
-    public function setimagetype($IMGTYPE)
+    public function setimagetype($image_type)
     {
     }
 
     /**
      * Sets the image units of resolution
      *
-     * @param mixed $RESOLUTION
+     * @param int $units
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimageunits.php
      */
-    public function setimageunits($RESOLUTION)
+    public function setimageunits($units)
     {
     }
 
     /**
      * Sets the image virtual pixel method
      *
-     * @param mixed $VIRTUALPIXELMETHOD
+     * @param int $method
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setimagevirtualpixelmethod.php
      */
-    public function setimagevirtualpixelmethod($VIRTUALPIXELMETHOD)
+    public function setimagevirtualpixelmethod($method)
     {
     }
 
     /**
      * Sets the image chromaticity white point
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x
+     * @param float $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7268,24 +7404,24 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image compression
      *
-     * @param mixed $INTERLACE
+     * @param int $interlace_scheme
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setinterlacescheme.php
      */
-    public function setinterlacescheme($INTERLACE)
+    public function setinterlacescheme($interlace_scheme)
     {
     }
 
     /**
      * Set the iterator position
      *
-     * @param mixed $index
+     * @param int $index The position to set the iterator to
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7298,7 +7434,7 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the Imagick iterator to the last image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.1
      *
@@ -7311,10 +7447,10 @@ class Imagick implements Countable, Iterator
     /**
      * Set an option
      *
-     * @param mixed $key
-     * @param mixed $value
+     * @param string $key
+     * @param string $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7327,12 +7463,12 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the page geometry of the Imagick object
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width
+     * @param int $height
+     * @param int $x
+     * @param int $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7345,38 +7481,38 @@ class Imagick implements Countable, Iterator
     /**
      * Sets point size
      *
-     * @param mixed $pointsize
+     * @param float $point_size Point size
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.1.0
      *
      * @link http://www.php.net/manual/en/imagick.setpointsize.php
      */
-    public function setpointsize($pointsize)
+    public function setpointsize($point_size)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $callback
+     * @param callable $callback The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setprogressmonitor.php
      */
-    public function setprogressmonitor($callback)
+    public function setprogressmonitor(callable $callback)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $key
-     * @param mixed $value
+     * @param string $key
+     * @param string $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.setregistry.php
      */
@@ -7387,57 +7523,57 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image resolution
      *
-     * @param mixed $xResolution
-     * @param mixed $yResolution
+     * @param float $x_resolution The horizontal resolution.
+     * @param float $y_resolution The vertical resolution.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setresolution.php
      */
-    public function setresolution($xResolution, $yResolution)
+    public function setresolution($x_resolution, $y_resolution)
     {
     }
 
     /**
      * Sets the limit for a particular resource in megabytes
      *
-     * @param mixed $RESOURCETYPE
-     * @param mixed $limit
+     * @param int $type Refer to the list of resourcetype constants.
+     * @param int $limit The resource limit. The unit depends on the type of the resource being limited.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setresourcelimit.php
      */
-    public static function setresourcelimit($RESOURCETYPE, $limit)
+    public static function setresourcelimit($type, $limit)
     {
     }
 
     /**
      * Sets the image sampling factors
      *
-     * @param mixed $factors
+     * @param array $factors
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.setsamplingfactors.php
      */
-    public function setsamplingfactors($factors)
+    public function setsamplingfactors(array $factors)
     {
     }
 
     /**
      * Sets the size of the Imagick object
      *
-     * @param mixed $columns
-     * @param mixed $rows
+     * @param int $columns
+     * @param int $rows
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7450,11 +7586,11 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the size and offset of the Imagick object
      *
-     * @param mixed $columns
-     * @param mixed $rows
-     * @param mixed $offset
+     * @param int $columns The width in pixels.
+     * @param int $rows The height in pixels.
+     * @param int $offset The image offset.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7467,26 +7603,26 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image type attribute
      *
-     * @param mixed $IMGTYPE
+     * @param int $image_type
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.settype.php
      */
-    public function settype($IMGTYPE)
+    public function settype($image_type)
     {
     }
 
     /**
      * Creates a 3D effect
      *
-     * @param mixed $gray
-     * @param mixed $azimuth
-     * @param mixed $elevation
+     * @param bool $gray A value other than zero shades the intensity of each pixel.
+     * @param float $azimuth Defines the light source direction.
+     * @param float $elevation Defines the light source direction.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7499,12 +7635,12 @@ class Imagick implements Countable, Iterator
     /**
      * Simulates an image shadow
      *
-     * @param mixed $opacity
-     * @param mixed $sigma
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $opacity
+     * @param float $sigma
+     * @param int $x
+     * @param int $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7517,27 +7653,27 @@ class Imagick implements Countable, Iterator
     /**
      * Sharpens an image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed|null $CHANNEL
+     * @param float $radius
+     * @param float $sigma
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.sharpenimage.php
      */
-    public function sharpenimage($radius, $sigma, $CHANNEL = null)
+    public function sharpenimage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Shaves pixels from the image edges
      *
-     * @param mixed $columns
-     * @param mixed $rows
+     * @param int $columns
+     * @param int $rows
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7550,44 +7686,44 @@ class Imagick implements Countable, Iterator
     /**
      * Creating a parallelogram
      *
-     * @param mixed $color
-     * @param mixed $xShear
-     * @param mixed $yShear
+     * @param mixed $background The background color
+     * @param float $x_shear The number of degrees to shear on the x axis
+     * @param float $y_shear The number of degrees to shear on the y axis
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.shearimage.php
      */
-    public function shearimage($color, $xShear, $yShear)
+    public function shearimage($background, $x_shear, $y_shear)
     {
     }
 
     /**
      * Adjusts the contrast of an image
      *
-     * @param mixed $sharpen
-     * @param mixed $contrast
-     * @param mixed $midpoint
-     * @param mixed|null $CHANNEL
+     * @param bool $sharpen If true increase the contrast, if false decrease the contrast.
+     * @param float $alpha The amount of contrast to apply. 1 is very little, 5 is a significant amount, 20 is extreme.
+     * @param float $beta Where the midpoint of the gradient will be. This value should be in the range 0 to 1 - mutliplied by the quantum value for ImageMagick.
+     * @param int|null $channel Which color channels the contrast will be applied to.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.sigmoidalcontrastimage.php
      */
-    public function sigmoidalcontrastimage($sharpen, $contrast, $midpoint, $CHANNEL = null)
+    public function sigmoidalcontrastimage($sharpen, $alpha, $beta, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * @param Imagick $Imagick
-     * @param mixed|null $offset
-     * @param mixed|null $similarity
-     * @param mixed|null $similarity_threshold
-     * @param mixed|null $metric
+     * @param mixed $offset
+     * @param mixed $similarity
+     * @param mixed $similarity_threshold
+     * @param mixed $metric
      */
     public function similarityimage(Imagick $Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
@@ -7596,11 +7732,11 @@ class Imagick implements Countable, Iterator
     /**
      * Simulates a pencil sketch
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed $angle
+     * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel
+     * @param float $sigma The standard deviation of the Gaussian, in pixels.
+     * @param float $angle Apply the effect along this angle.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7613,10 +7749,10 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $stack
-     * @param mixed $offset
+     * @param bool $stack
+     * @param int $offset
      *
-     * @return Imagick
+     * @return Imagick The new smushed image.
      *
      * @link http://www.php.net/manual/en/imagick.smushimages.php
      */
@@ -7627,9 +7763,9 @@ class Imagick implements Countable, Iterator
     /**
      * Applies a solarizing effect to the image
      *
-     * @param mixed $threshold
+     * @param int $threshold
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7642,27 +7778,28 @@ class Imagick implements Countable, Iterator
     /**
      * Interpolates colors
      *
-     * @param mixed $SPARSE_METHOD
-     * @param mixed $arguments
-     * @param mixed|null $CHANNEL
+     * @param int $SPARSE_METHOD Refer to this list of sparse method constants
+     * @param array $arguments An array containing the coordinates.
+     * The array is in format <code>array(1,1, 2,45)</code>
+     * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.sparsecolorimage.php
      */
-    public function sparsecolorimage($SPARSE_METHOD, $arguments, $CHANNEL = null)
+    public function sparsecolorimage($SPARSE_METHOD, array $arguments, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Splices a solid color into the image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed $x
-     * @param mixed $y
+     * @param int $width
+     * @param int $height
+     * @param int $x
+     * @param int $y
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7675,9 +7812,9 @@ class Imagick implements Countable, Iterator
     /**
      * Randomly displaces each pixel in a block
      *
-     * @param mixed $radius
+     * @param float $radius
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7690,54 +7827,54 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
-     * @param mixed $type
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed|null $CHANNEL
+     * @param int $type
+     * @param int $width
+     * @param int $height
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.statisticimage.php
      */
-    public function statisticimage($type, $width, $height, $CHANNEL = null)
+    public function statisticimage($type, $width, $height, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Hides a digital watermark within the image
      *
-     * @param Imagick $Imagick
-     * @param mixed $offset
+     * @param Imagick $watermark_wand
+     * @param int $offset
      *
-     * @return Imagick
+     * @return Imagick Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.steganoimage.php
      */
-    public function steganoimage(Imagick $Imagick, $offset)
+    public function steganoimage(Imagick $watermark_wand, $offset)
     {
     }
 
     /**
      * Composites two images
      *
-     * @param Imagick $Imagick
+     * @param Imagick $offset_wand
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.stereoimage.php
      */
-    public function stereoimage(Imagick $Imagick)
+    public function stereoimage(Imagick $offset_wand)
     {
     }
 
     /**
      * Strips an image of all profiles and comments
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7751,25 +7888,25 @@ class Imagick implements Countable, Iterator
      * Description
      *
      * @param Imagick $Imagick
-     * @param mixed|null $offset
-     * @param mixed|null $similarity
-     * @param mixed|null $similarity_threshold
-     * @param mixed|null $metric
+     * @param array $offset
+     * @param float $similarity A new image that displays the amount of similarity at each pixel.
+     * @param mixed $similarity_threshold
+     * @param mixed $metric
      *
      * @return Imagick
      *
      * @link http://www.php.net/manual/en/imagick.subimagematch.php
      */
-    public function subimagematch(Imagick $Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
+    public function subimagematch(Imagick $Imagick, array &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
     }
 
     /**
      * Swirls the pixels about the center of the image
      *
-     * @param mixed $degrees
+     * @param float $degrees
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7782,77 +7919,77 @@ class Imagick implements Countable, Iterator
     /**
      * Repeatedly tiles the texture image
      *
-     * @param Imagick $Imagick
+     * @param Imagick $texture_wand Imagick object to use as texture image
      *
-     * @return Imagick
+     * @return Imagick Returns a new Imagick object that has the repeated texture applied.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.textureimage.php
      */
-    public function textureimage(Imagick $Imagick)
+    public function textureimage(Imagick $texture_wand)
     {
     }
 
     /**
      * Changes the value of individual pixels based on a threshold
      *
-     * @param mixed $threshold
-     * @param mixed|null $CHANNELTYPE
+     * @param float $threshold
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.thresholdimage.php
      */
-    public function thresholdimage($threshold, $CHANNELTYPE = null)
+    public function thresholdimage($threshold, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Changes the size of an image
      *
-     * @param mixed $width
-     * @param mixed $height
-     * @param mixed|null $bestfit
-     * @param mixed|null $fill
-     * @param mixed|null $legacy
+     * @param int $columns Image width
+     * @param int $rows Image height
+     * @param bool|null $bestfit Whether to force maximum values
+     * @param bool|null $fill
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.thumbnailimage.php
      */
-    public function thumbnailimage($width, $height, $bestfit = null, $fill = null, $legacy = null)
+    public function thumbnailimage($columns, $rows, $bestfit = false, $fill = false, $legacy = false)
     {
     }
 
     /**
      * Applies a color vector to each pixel in the image
      *
-     * @param mixed $tint_color
+     * @param mixed $tint
      * @param mixed $opacity
-     * @param mixed|null $legacy
+     * @param bool|null $legacy
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.tintimage.php
      */
-    public function tintimage($tint_color, $opacity, $legacy = null)
+    public function tintimage($tint, $opacity, $legacy = false)
     {
     }
 
     /**
      * Convenience method for setting crop size and the image geometry
      *
-     * @param mixed $crop
-     * @param mixed $geometry
+     * @param string $crop A crop geometry string. This geometry defines a subregion of the image to crop.
+     * @param string $geometry An image geometry string. This geometry defines the final size of the image.
      *
-     * @return Imagick
+     * @return Imagick Returns an Imagick object containing the transformed image.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7865,25 +8002,25 @@ class Imagick implements Countable, Iterator
     /**
      * Transforms an image to a new colorspace
      *
-     * @param mixed $COLORSPACE
+     * @param int $colorspace The colorspace the image should be transformed to, one of the COLORSPACE constants e.g. Imagick::COLORSPACE_CMYK.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.transformimagecolorspace.php
      */
-    public function transformimagecolorspace($COLORSPACE)
+    public function transformimagecolorspace($colorspace)
     {
     }
 
     /**
      * Paints pixels transparent
      *
-     * @param mixed $target
-     * @param mixed $alpha
-     * @param mixed $fuzz
-     * @param mixed $invert
+     * @param mixed $target The target color to paint
+     * @param float $alpha The level of transparency: 1.0 is fully opaque and 0.0 is fully transparent.
+     * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at intensities of 100 and 102 respectively are now interpreted as the same color.
+     * @param bool $invert If <code>TRUE</code> paints any pixel that does not match the target color.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.transparentpaintimage.php
      */
@@ -7894,7 +8031,7 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a vertical mirror image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7907,7 +8044,7 @@ class Imagick implements Countable, Iterator
     /**
      * Creates a horizontal mirror image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7920,9 +8057,13 @@ class Imagick implements Countable, Iterator
     /**
      * Remove edges from the image
      *
-     * @param mixed $fuzz
+     * @param float $fuzz By default target must match a particular pixel color exactly.
+     * However, in many cases two colors may differ by a small amount.
+     * The fuzz member of image defines how much tolerance is acceptable
+     * to consider two colors as the same. This parameter represents the variation
+     * on the quantum range.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7935,7 +8076,7 @@ class Imagick implements Countable, Iterator
     /**
      * Discards all but one of any pixel color
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7948,26 +8089,26 @@ class Imagick implements Countable, Iterator
     /**
      * Sharpens an image
      *
-     * @param mixed $radius
-     * @param mixed $sigma
-     * @param mixed $amount
-     * @param mixed $threshold
-     * @param mixed|null $CHANNEL
+     * @param float $radius
+     * @param float $sigma
+     * @param float $amount
+     * @param float $threshold
+     * @param int|null $channel
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.unsharpmaskimage.php
      */
-    public function unsharpmaskimage($radius, $sigma, $amount, $threshold, $CHANNEL = null)
+    public function unsharpmaskimage($radius, $sigma, $amount, $threshold, $channel = Imagick::CHANNEL_DEFAULT)
     {
     }
 
     /**
      * Checks if the current item is valid
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7980,12 +8121,12 @@ class Imagick implements Countable, Iterator
     /**
      * Adds vignette filter to the image
      *
-     * @param mixed $blackPoint
-     * @param mixed $whitePoint
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $blackPoint The black point.
+     * @param float $whitePoint The white point
+     * @param int $x X offset of the ellipse
+     * @param int $y Y offset of the ellipse
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -7998,40 +8139,43 @@ class Imagick implements Countable, Iterator
     /**
      * Applies wave filter to the image
      *
-     * @param mixed $amplitude
-     * @param mixed $waveLenght
+     * @param float $amplitude The amplitude of the wave.
+     * @param float $length The length of the wave.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.waveimage.php
      */
-    public function waveimage($amplitude, $waveLenght)
+    public function waveimage($amplitude, $length)
     {
     }
 
     /**
      * Force all pixels above the threshold into white
      *
-     * @param mixed $color
+     * @param mixed $threshold
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagick.whitethresholdimage.php
      */
-    public function whitethresholdimage($color)
+    public function whitethresholdimage($threshold)
     {
     }
 
     /**
      * Writes an image to the specified filename
      *
-     * @param mixed|null $filename
+     * @param string|null $filename Filename where to write the image. The extension of the filename
+     * defines the type of the file.
+     * Format can be forced regardless of file extension using format: prefix,
+     * for example "jpg:test.png".
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.writeimage.php
      */
@@ -8042,24 +8186,24 @@ class Imagick implements Countable, Iterator
     /**
      * Writes an image to a filehandle
      *
-     * @param mixed $handle
-     * @param mixed|null $format
+     * @param resource $filehandle Filehandle where to write the image
+     * @param string $format
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.writeimagefile.php
      */
-    public function writeimagefile($handle, $format = null)
+    public function writeimagefile($filehandle, $format = null)
     {
     }
 
     /**
      * Writes an image or image sequence
      *
-     * @param mixed $filename
-     * @param mixed $adjoin
+     * @param string $filename
+     * @param bool $adjoin
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.writeimages.php
      */
@@ -8070,14 +8214,14 @@ class Imagick implements Countable, Iterator
     /**
      * Writes frames to a filehandle
      *
-     * @param mixed $handle
-     * @param mixed|null $format
+     * @param resource $filehandle Filehandle where to write the images
+     * @param string $format
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagick.writeimagesfile.php
      */
-    public function writeimagesfile($handle, $format = null)
+    public function writeimagesfile($filehandle, $format = null)
     {
     }
 }
@@ -8101,26 +8245,26 @@ class ImagickDraw
     /**
      * Adjusts the current affine transformation matrix
      *
-     * @param mixed $affineMatrix
+     * @param array $affine Affine matrix parameters
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.affine.php
      */
-    public function affine($affineMatrix)
+    public function affine(array $affine)
     {
     }
 
     /**
      * Draws text on the image
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $text
+     * @param float $x The x coordinate where text is drawn
+     * @param float $y The y coordinate where text is drawn
+     * @param string $text The text to draw on the image
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8133,14 +8277,14 @@ class ImagickDraw
     /**
      * Draws an arc
      *
-     * @param mixed $sx
-     * @param mixed $sy
-     * @param mixed $ex
-     * @param mixed $ey
-     * @param mixed $sd
-     * @param mixed $ed
+     * @param float $sx Starting x ordinate of bounding rectangle
+     * @param float $sy starting y ordinate of bounding rectangle
+     * @param float $ex ending x ordinate of bounding rectangle
+     * @param float $ey ending y ordinate of bounding rectangle
+     * @param float $sd starting degrees of rotation
+     * @param float $ed ending degrees of rotation
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8153,27 +8297,28 @@ class ImagickDraw
     /**
      * Draws a bezier curve
      *
-     * @param mixed $coordinateArray
+     * @param array $coordinates Multidimensional array like array( array( 'x' =&gt; 1, 'y' =&gt; 2 ),
+     * array( 'x' =&gt; 3, 'y' =&gt; 4 ) )
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.bezier.php
      */
-    public function bezier($coordinateArray)
+    public function bezier(array $coordinates)
     {
     }
 
     /**
      * Draws a circle
      *
-     * @param mixed $ox
-     * @param mixed $oy
-     * @param mixed $px
-     * @param mixed $py
+     * @param float $ox origin x coordinate
+     * @param float $oy origin y coordinate
+     * @param float $px perimeter x coordinate
+     * @param float $py perimeter y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8186,7 +8331,7 @@ class ImagickDraw
     /**
      * Clears the ImagickDraw
      *
-     * @return bool
+     * @return bool Returns an ImagickDraw object.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8199,7 +8344,8 @@ class ImagickDraw
     /**
      * Makes an exact copy of the specified ImagickDraw object
      *
-     * @return ImagickDraw
+     * @return ImagickDraw What the function returns, first on success, then on failure. See
+     * also the &return.success; entity
      *
      * @since PECL imagick 2.0.0
      *
@@ -8212,26 +8358,26 @@ class ImagickDraw
     /**
      * Draws color on image
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $PAINTMETHOD
+     * @param float $x x coordinate of the paint
+     * @param float $y y coordinate of the paint
+     * @param int $paintMethod one of the PAINT_ constants
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.color.php
      */
-    public function color($x, $y, $PAINTMETHOD)
+    public function color($x, $y, $paintMethod)
     {
     }
 
     /**
      * Adds a comment
      *
-     * @param mixed $comment
+     * @param string $comment The comment string to add to vector output stream
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8244,27 +8390,27 @@ class ImagickDraw
     /**
      * Composites an image onto the current image
      *
-     * @param mixed $COMPOSE
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $width
-     * @param mixed $height
-     * @param Imagick $Imagick
+     * @param int $compose composition operator. One of COMPOSITE_ constants
+     * @param float $x x coordinate of the top left corner
+     * @param float $y y coordinate of the top left corner
+     * @param float $width width of the composition image
+     * @param float $height height of the composition image
+     * @param Imagick $compositeWand the Imagick object where composition image is taken from
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.composite.php
      */
-    public function composite($COMPOSE, $x, $y, $width, $height, Imagick $Imagick)
+    public function composite($compose, $x, $y, $width, $height, Imagick $compositeWand)
     {
     }
 
     /**
      * Frees all associated resources
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8277,20 +8423,20 @@ class ImagickDraw
     /**
      * Draws an ellipse on the image
      *
-     * @param mixed $ox
-     * @param mixed $oy
-     * @param mixed $px
-     * @param mixed $py
-     * @param mixed $start
-     * @param mixed $end
+     * @param float $ox
+     * @param float $oy
+     * @param float $rx
+     * @param float $ry
+     * @param float $start
+     * @param float $end
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.ellipse.php
      */
-    public function ellipse($ox, $oy, $px, $py, $start, $end)
+    public function ellipse($ox, $oy, $rx, $ry, $start, $end)
     {
     }
 
@@ -8301,7 +8447,7 @@ class ImagickDraw
     /**
      * Obtains the current clipping path ID
      *
-     * @return string
+     * @return string Returns a string containing the clip path ID or false if no clip path exists.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8314,7 +8460,7 @@ class ImagickDraw
     /**
      * Returns the current polygon fill rule
      *
-     * @return int
+     * @return int Returns one of the FILLRULE_ constants.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8327,7 +8473,7 @@ class ImagickDraw
     /**
      * Returns the interpretation of clip path units
      *
-     * @return int
+     * @return int Returns an int on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8340,7 +8486,7 @@ class ImagickDraw
     /**
      * Returns the fill color
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns an ImagickPixel object.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8353,7 +8499,7 @@ class ImagickDraw
     /**
      * Returns the opacity used when drawing
      *
-     * @return float
+     * @return float The opacity.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8366,7 +8512,7 @@ class ImagickDraw
     /**
      * Returns the fill rule
      *
-     * @return int
+     * @return int Returns a FILLRULE_ constant
      *
      * @since PECL imagick 2.0.0
      *
@@ -8379,7 +8525,7 @@ class ImagickDraw
     /**
      * Returns the font
      *
-     * @return string
+     * @return string Returns a string on success and false if no font is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8392,7 +8538,7 @@ class ImagickDraw
     /**
      * Returns the font family
      *
-     * @return string
+     * @return string Returns the font family currently selected or false if font family is not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8409,7 +8555,7 @@ class ImagickDraw
     /**
      * Returns the font pointsize
      *
-     * @return float
+     * @return float Returns the font size associated with the current ImagickDraw object.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8433,7 +8579,8 @@ class ImagickDraw
     /**
      * Returns the font style
      *
-     * @return int
+     * @return int Returns the font style constant (STYLE_) associated with the ImagickDraw object
+     * or 0 if no style is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8446,7 +8593,7 @@ class ImagickDraw
     /**
      * Returns the font weight
      *
-     * @return int
+     * @return int Returns an int on success and 0 if no weight is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8459,7 +8606,7 @@ class ImagickDraw
     /**
      * Returns the text placement gravity
      *
-     * @return int
+     * @return int Returns a GRAVITY_ constant on success and 0 if no gravity is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8472,7 +8619,7 @@ class ImagickDraw
     /**
      * Returns the current stroke antialias setting
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if antialiasing is on and false if it is off.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8485,7 +8632,7 @@ class ImagickDraw
     /**
      * Returns the color used for stroking object outlines
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns an ImagickPixel object which describes the color.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8498,7 +8645,7 @@ class ImagickDraw
     /**
      * Returns an array representing the pattern of dashes and gaps used to stroke paths
      *
-     * @return array
+     * @return array Returns an array on success and empty array if not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8511,7 +8658,7 @@ class ImagickDraw
     /**
      * Returns the offset into the dash pattern to start the dash
      *
-     * @return float
+     * @return float Returns a float representing the offset and 0 if it's not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8524,7 +8671,7 @@ class ImagickDraw
     /**
      * Returns the shape to be used at the end of open subpaths when they are stroked
      *
-     * @return int
+     * @return int Returns one of the LINECAP_ constants or 0 if stroke linecap is not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8537,7 +8684,7 @@ class ImagickDraw
     /**
      * Returns the shape to be used at the corners of paths when they are stroked
      *
-     * @return int
+     * @return int Returns one of the LINEJOIN_ constants or 0 if stroke line join is not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8550,7 +8697,8 @@ class ImagickDraw
     /**
      * Returns the stroke miter limit
      *
-     * @return int
+     * @return int Returns an int describing the miter limit
+     * and 0 if no miter limit is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8563,7 +8711,7 @@ class ImagickDraw
     /**
      * Returns the opacity of stroked object outlines
      *
-     * @return float
+     * @return float Returns a double describing the opacity.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8576,7 +8724,7 @@ class ImagickDraw
     /**
      * Returns the width of the stroke used to draw object outlines
      *
-     * @return float
+     * @return float Returns a double describing the stroke width.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8589,7 +8737,7 @@ class ImagickDraw
     /**
      * Returns the text alignment
      *
-     * @return int
+     * @return int Returns one of the ALIGN_ constants and 0 if no align is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8602,7 +8750,7 @@ class ImagickDraw
     /**
      * Returns the current text antialias setting
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if text is antialiased and false if not.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8615,7 +8763,8 @@ class ImagickDraw
     /**
      * Returns the text decoration
      *
-     * @return int
+     * @return int Returns one of the DECORATION_ constants
+     * and 0 if no decoration is set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8628,7 +8777,8 @@ class ImagickDraw
     /**
      * Returns the code set used for text annotations
      *
-     * @return string
+     * @return string Returns a string specifying the code set
+     * or false if text encoding is not set.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8674,7 +8824,7 @@ class ImagickDraw
     /**
      * Returns the text under color
      *
-     * @return ImagickPixel
+     * @return ImagickPixel Returns an ImagickPixel object describing the color.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8687,7 +8837,7 @@ class ImagickDraw
     /**
      * Returns a string containing vector graphics
      *
-     * @return string
+     * @return string Returns a string containing the vector graphics.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8700,12 +8850,12 @@ class ImagickDraw
     /**
      * Draws a line
      *
-     * @param mixed $sx
-     * @param mixed $sy
-     * @param mixed $ex
-     * @param mixed $ey
+     * @param float $sx starting x coordinate
+     * @param float $sy starting y coordinate
+     * @param float $ex ending x coordinate
+     * @param float $ey ending y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8718,24 +8868,24 @@ class ImagickDraw
     /**
      * Paints on the image's opacity channel
      *
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $METHOD
+     * @param float $x x coordinate of the matte
+     * @param float $y y coordinate of the matte
+     * @param int $paintMethod PAINT_ constant
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.matte.php
      */
-    public function matte($x, $y, $METHOD)
+    public function matte($x, $y, $paintMethod)
     {
     }
 
     /**
      * Adds a path element to the current path
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8748,14 +8898,14 @@ class ImagickDraw
     /**
      * Draws a cubic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x2
-     * @param mixed $y2
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x1 x coordinate of the first control point
+     * @param float $y1 y coordinate of the first control point
+     * @param float $x2 x coordinate of the second control point
+     * @param float $y2 y coordinate of the first control point
+     * @param float $x x coordinate of the curve end
+     * @param float $y y coordinate of the curve end
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8768,12 +8918,12 @@ class ImagickDraw
     /**
      * Draws a quadratic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x1 x coordinate of the control point
+     * @param float $y1 y coordinate of the control point
+     * @param float $x x coordinate of the end point
+     * @param float $y y coordinate of the end point
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8786,12 +8936,12 @@ class ImagickDraw
     /**
      * Draws a quadratic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x1 starting x coordinate
+     * @param float $y1 starting y coordinate
+     * @param float $x ending x coordinate
+     * @param float $y ending y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8804,10 +8954,10 @@ class ImagickDraw
     /**
      * Draws a quadratic Bezier curve
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x ending x coordinate
+     * @param float $y ending y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8820,10 +8970,10 @@ class ImagickDraw
     /**
      * Draws a quadratic Bezier curve
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x ending x coordinate
+     * @param float $y ending y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8836,14 +8986,14 @@ class ImagickDraw
     /**
      * Draws a cubic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x2
-     * @param mixed $y2
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x1 x coordinate of starting control point
+     * @param float $y1 y coordinate of starting control point
+     * @param float $x2 x coordinate of ending control point
+     * @param float $y2 y coordinate of ending control point
+     * @param float $x ending x coordinate
+     * @param float $y ending y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8856,85 +9006,85 @@ class ImagickDraw
     /**
      * Draws a cubic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x2 x coordinate of the second control point
+     * @param float $y2 y coordinate of the second control point
+     * @param float $x x coordinate of the ending point
+     * @param float $y y coordinate of the ending point
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathcurvetosmoothabsolute.php
      */
-    public function pathcurvetosmoothabsolute($x1, $y1, $x, $y)
+    public function pathcurvetosmoothabsolute($x2, $y2, $x, $y)
     {
     }
 
     /**
      * Draws a cubic Bezier curve
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x2 x coordinate of the second control point
+     * @param float $y2 y coordinate of the second control point
+     * @param float $x x coordinate of the ending point
+     * @param float $y y coordinate of the ending point
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathcurvetosmoothrelative.php
      */
-    public function pathcurvetosmoothrelative($x1, $y1, $x, $y)
+    public function pathcurvetosmoothrelative($x2, $y2, $x, $y)
     {
     }
 
     /**
      * Draws an elliptical arc
      *
-     * @param mixed $rx
-     * @param mixed $ry
-     * @param mixed $xAxisRotation
-     * @param mixed $largeArc
-     * @param mixed $sweep
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $rx x radius
+     * @param float $ry y radius
+     * @param float $x_axis_rotation x axis rotation
+     * @param bool $large_arc_flag large arc flag
+     * @param bool $sweep_flag sweep flag
+     * @param float $x x coordinate
+     * @param float $y y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathellipticarcabsolute.php
      */
-    public function pathellipticarcabsolute($rx, $ry, $xAxisRotation, $largeArc, $sweep, $x, $y)
+    public function pathellipticarcabsolute($rx, $ry, $x_axis_rotation, $large_arc_flag, $sweep_flag, $x, $y)
     {
     }
 
     /**
      * Draws an elliptical arc
      *
-     * @param mixed $rx
-     * @param mixed $ry
-     * @param mixed $xAxisRotation
-     * @param mixed $largeArc
-     * @param mixed $sweep
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $rx x radius
+     * @param float $ry y radius
+     * @param float $x_axis_rotation x axis rotation
+     * @param bool $large_arc_flag large arc flag
+     * @param bool $sweep_flag sweep flag
+     * @param float $x x coordinate
+     * @param float $y y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathellipticarcrelative.php
      */
-    public function pathellipticarcrelative($rx, $ry, $xAxisRotation, $largeArc, $sweep, $x, $y)
+    public function pathellipticarcrelative($rx, $ry, $x_axis_rotation, $large_arc_flag, $sweep_flag, $x, $y)
     {
     }
 
     /**
      * Terminates the current path
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8947,10 +9097,10 @@ class ImagickDraw
     /**
      * Draws a line path
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x starting x coordinate
+     * @param float $y ending x coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8963,24 +9113,24 @@ class ImagickDraw
     /**
      * Draws a horizontal line path
      *
-     * @param mixed $y
+     * @param float $x x coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathlinetohorizontalabsolute.php
      */
-    public function pathlinetohorizontalabsolute($y)
+    public function pathlinetohorizontalabsolute($x)
     {
     }
 
     /**
      * Draws a horizontal line
      *
-     * @param mixed $x
+     * @param float $x x coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -8993,10 +9143,10 @@ class ImagickDraw
     /**
      * Draws a line path
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x starting x coordinate
+     * @param float $y starting y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9009,9 +9159,9 @@ class ImagickDraw
     /**
      * Draws a vertical line
      *
-     * @param mixed $y
+     * @param float $y y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9024,25 +9174,25 @@ class ImagickDraw
     /**
      * Draws a vertical line path
      *
-     * @param mixed $x
+     * @param float $y y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pathlinetoverticalrelative.php
      */
-    public function pathlinetoverticalrelative($x)
+    public function pathlinetoverticalrelative($y)
     {
     }
 
     /**
      * Starts a new sub-path
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x x coordinate of the starting point
+     * @param float $y y coordinate of the starting point
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9055,10 +9205,10 @@ class ImagickDraw
     /**
      * Starts a new sub-path
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x target x coordinate
+     * @param float $y target y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9071,7 +9221,7 @@ class ImagickDraw
     /**
      * Declares the start of a path drawing list
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9084,10 +9234,10 @@ class ImagickDraw
     /**
      * Draws a point
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x point's x coordinate
+     * @param float $y point's y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9100,37 +9250,37 @@ class ImagickDraw
     /**
      * Draws a polygon
      *
-     * @param mixed $coordinates
+     * @param array $coordinates multidimensional array like array( array( 'x' =&gt; 3, 'y' =&gt; 4 ), array( 'x' =&gt; 2, 'y' =&gt; 6 ) );
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.polygon.php
      */
-    public function polygon($coordinates)
+    public function polygon(array $coordinates)
     {
     }
 
     /**
      * Draws a polyline
      *
-     * @param mixed $coordinateArray
+     * @param array $coordinates array of x and y coordinates: array( array( 'x' =&gt; 4, 'y' =&gt; 6 ), array( 'x' =&gt; 8, 'y' =&gt; 10 ) )
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.polyline.php
      */
-    public function polyline($coordinateArray)
+    public function polyline(array $coordinates)
     {
     }
 
     /**
      * Destroys the current ImagickDraw in the stack, and returns to the previously pushed ImagickDraw
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success and false on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9143,7 +9293,7 @@ class ImagickDraw
     /**
      * Terminates a clip path definition
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9156,7 +9306,7 @@ class ImagickDraw
     /**
      * Terminates a definition list
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9169,7 +9319,7 @@ class ImagickDraw
     /**
      * Terminates a pattern definition
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9182,7 +9332,7 @@ class ImagickDraw
     /**
      * Clones the current ImagickDraw and pushes it to the stack
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9195,22 +9345,22 @@ class ImagickDraw
     /**
      * Starts a clip path definition
      *
-     * @param mixed $clipMask
+     * @param string $clip_mask_id Clip mask Id
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.pushclippath.php
      */
-    public function pushclippath($clipMask)
+    public function pushclippath($clip_mask_id)
     {
     }
 
     /**
      * Indicates that following commands create named elements for early processing
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9223,13 +9373,13 @@ class ImagickDraw
     /**
      * Indicates that subsequent commands up to a ImagickDraw::opPattern() command comprise the definition of a named pattern
      *
-     * @param mixed $pattern_id
-     * @param mixed $x
-     * @param mixed $y
-     * @param mixed $width
-     * @param mixed $height
+     * @param string $pattern_id the pattern Id
+     * @param float $x x coordinate of the top-left corner
+     * @param float $y y coordinate of the top-left corner
+     * @param float $width width of the pattern
+     * @param float $height height of the pattern
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9242,12 +9392,12 @@ class ImagickDraw
     /**
      * Draws a rectangle
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x2
-     * @param mixed $y2
+     * @param float $x1 x coordinate of the top left corner
+     * @param float $y1 y coordinate of the top left corner
+     * @param float $x2 x coordinate of the bottom right corner
+     * @param float $y2 y coordinate of the bottom right corner
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9260,7 +9410,7 @@ class ImagickDraw
     /**
      * Renders all preceding drawing commands onto the image
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9273,7 +9423,7 @@ class ImagickDraw
     /**
      * Description
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickdraw.resetvectorgraphics.php
      */
@@ -9284,9 +9434,9 @@ class ImagickDraw
     /**
      * Applies the specified rotation to the current coordinate space
      *
-     * @param mixed $degrees
+     * @param float $degrees degrees to rotate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9299,14 +9449,14 @@ class ImagickDraw
     /**
      * Draws a rounded rectangle
      *
-     * @param mixed $x1
-     * @param mixed $y1
-     * @param mixed $x2
-     * @param mixed $y2
-     * @param mixed $rx
-     * @param mixed $ry
+     * @param float $x1 x coordinate of the top left corner
+     * @param float $y1 y coordinate of the top left corner
+     * @param float $x2 x coordinate of the bottom right
+     * @param float $y2 y coordinate of the bottom right
+     * @param float $rx x rounding
+     * @param float $ry y rounding
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9319,10 +9469,10 @@ class ImagickDraw
     /**
      * Adjusts the scaling factor
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x horizontal factor
+     * @param float $y vertical factor
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9342,84 +9492,84 @@ class ImagickDraw
     /**
      * Associates a named clipping path with the image
      *
-     * @param mixed $clipMask
+     * @param string $clip_mask the clipping path name
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setclippath.php
      */
-    public function setclippath($clipMask)
+    public function setclippath($clip_mask)
     {
     }
 
     /**
      * Set the polygon fill rule to be used by the clipping path
      *
-     * @param mixed $FILLRULE
+     * @param int $fill_rule FILLRULE_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setcliprule.php
      */
-    public function setcliprule($FILLRULE)
+    public function setcliprule($fill_rule)
     {
     }
 
     /**
      * Sets the interpretation of clip path units
      *
-     * @param mixed $PATHUNITS
+     * @param int $clip_units the number of clip units
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setclipunits.php
      */
-    public function setclipunits($PATHUNITS)
+    public function setclipunits($clip_units)
     {
     }
 
     /**
      * Sets the opacity to use when drawing using the fill color or fill texture
      *
-     * @param mixed $alpha
+     * @param float $opacity fill alpha
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfillalpha.php
      */
-    public function setfillalpha($alpha)
+    public function setfillalpha($opacity)
     {
     }
 
     /**
      * Sets the fill color to be used for drawing filled objects
      *
-     * @param mixed $color
+     * @param ImagickPixel $fill_pixel ImagickPixel to use to set the color
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfillcolor.php
      */
-    public function setfillcolor($color)
+    public function setfillcolor(ImagickPixel $fill_pixel)
     {
     }
 
     /**
      * Sets the opacity to use when drawing using the fill color or fill texture
      *
-     * @param mixed $fillOpacity
+     * @param float $fillOpacity the fill opacity
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9432,60 +9582,60 @@ class ImagickDraw
     /**
      * Sets the URL to use as a fill pattern for filling objects
      *
-     * @param mixed $url
+     * @param string $fill_url URL to use to obtain fill pattern.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfillpatternurl.php
      */
-    public function setfillpatternurl($url)
+    public function setfillpatternurl($fill_url)
     {
     }
 
     /**
      * Sets the fill rule to use while drawing polygons
      *
-     * @param mixed $FILLRULE
+     * @param int $fill_rule FILLRULE_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfillrule.php
      */
-    public function setfillrule($FILLRULE)
+    public function setfillrule($fill_rule)
     {
     }
 
     /**
      * Sets the fully-specified font to use when annotating with text
      *
-     * @param mixed $font
+     * @param string $font_name
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfont.php
      */
-    public function setfont($font)
+    public function setfont($font_name)
     {
     }
 
     /**
      * Sets the font family to use when annotating with text
      *
-     * @param mixed $fontfamily
+     * @param string $font_family the font family
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfontfamily.php
      */
-    public function setfontfamily($fontfamily)
+    public function setfontfamily($font_family)
     {
     }
 
@@ -9500,9 +9650,9 @@ class ImagickDraw
     /**
      * Sets the font pointsize to use when annotating with text
      *
-     * @param mixed $pointsize
+     * @param float $pointsize the point size
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9515,37 +9665,37 @@ class ImagickDraw
     /**
      * Sets the font stretch to use when annotating with text
      *
-     * @param mixed $STRETCH
+     * @param int $fontStretch STRETCH_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfontstretch.php
      */
-    public function setfontstretch($STRETCH)
+    public function setfontstretch($fontStretch)
     {
     }
 
     /**
      * Sets the font style to use when annotating with text
      *
-     * @param mixed $STYLE
+     * @param int $style STYLETYPE_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfontstyle.php
      */
-    public function setfontstyle($STYLE)
+    public function setfontstyle($style)
     {
     }
 
     /**
      * Sets the font weight
      *
-     * @param mixed $weight
+     * @param int $font_weight
      *
      * @return bool
      *
@@ -9553,32 +9703,32 @@ class ImagickDraw
      *
      * @link http://www.php.net/manual/en/imagickdraw.setfontweight.php
      */
-    public function setfontweight($weight)
+    public function setfontweight($font_weight)
     {
     }
 
     /**
      * Sets the text placement gravity
      *
-     * @param mixed $GRAVITY
+     * @param int $gravity GRAVITY_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setgravity.php
      */
-    public function setgravity($GRAVITY)
+    public function setgravity($gravity)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $x_resolution
-     * @param mixed $y_resolution
+     * @param float $x_resolution
+     * @param float $y_resolution
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickdraw.setresolution.php
      */
@@ -9589,219 +9739,219 @@ class ImagickDraw
     /**
      * Specifies the opacity of stroked object outlines
      *
-     * @param mixed $alpha
+     * @param float $opacity opacity
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokealpha.php
      */
-    public function setstrokealpha($alpha)
+    public function setstrokealpha($opacity)
     {
     }
 
     /**
      * Controls whether stroked outlines are antialiased
      *
-     * @param mixed $antialias
+     * @param bool $stroke_antialias the antialias setting
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokeantialias.php
      */
-    public function setstrokeantialias($antialias)
+    public function setstrokeantialias($stroke_antialias)
     {
     }
 
     /**
      * Sets the color used for stroking object outlines
      *
-     * @param mixed $color
+     * @param ImagickPixel $stroke_pixel the stroke color
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokecolor.php
      */
-    public function setstrokecolor($color)
+    public function setstrokecolor(ImagickPixel $stroke_pixel)
     {
     }
 
     /**
      * Specifies the pattern of dashes and gaps used to stroke paths
      *
-     * @param mixed $dashArray
+     * @param array $dashArray array of floats
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokedasharray.php
      */
-    public function setstrokedasharray($dashArray)
+    public function setstrokedasharray(array $dashArray)
     {
     }
 
     /**
      * Specifies the offset into the dash pattern to start the dash
      *
-     * @param mixed $offset
+     * @param float $dash_offset dash offset
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokedashoffset.php
      */
-    public function setstrokedashoffset($offset)
+    public function setstrokedashoffset($dash_offset)
     {
     }
 
     /**
      * Specifies the shape to be used at the end of open subpaths when they are stroked
      *
-     * @param mixed $LINECAP
+     * @param int $linecap LINECAP_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokelinecap.php
      */
-    public function setstrokelinecap($LINECAP)
+    public function setstrokelinecap($linecap)
     {
     }
 
     /**
      * Specifies the shape to be used at the corners of paths when they are stroked
      *
-     * @param mixed $LINEJOIN
+     * @param int $linejoin LINEJOIN_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokelinejoin.php
      */
-    public function setstrokelinejoin($LINEJOIN)
+    public function setstrokelinejoin($linejoin)
     {
     }
 
     /**
      * Specifies the miter limit
      *
-     * @param mixed $miterLimit
+     * @param int $miterlimit the miter limit
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokemiterlimit.php
      */
-    public function setstrokemiterlimit($miterLimit)
+    public function setstrokemiterlimit($miterlimit)
     {
     }
 
     /**
      * Specifies the opacity of stroked object outlines
      *
-     * @param mixed $strokeOpacity
+     * @param float $stroke_opacity stroke opacity. 1.0 is fully opaque
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokeopacity.php
      */
-    public function setstrokeopacity($strokeOpacity)
+    public function setstrokeopacity($stroke_opacity)
     {
     }
 
     /**
      * Sets the pattern used for stroking object outlines
      *
-     * @param mixed $url
+     * @param string $stroke_url stroke URL
      *
-     * @return bool
+     * @return bool imagick.imagickdraw.return.success;
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokepatternurl.php
      */
-    public function setstrokepatternurl($url)
+    public function setstrokepatternurl($stroke_url)
     {
     }
 
     /**
      * Sets the width of the stroke used to draw object outlines
      *
-     * @param mixed $width
+     * @param float $stroke_width stroke width
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setstrokewidth.php
      */
-    public function setstrokewidth($width)
+    public function setstrokewidth($stroke_width)
     {
     }
 
     /**
      * Specifies a text alignment
      *
-     * @param mixed $ALIGN
+     * @param int $alignment ALIGN_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextalignment.php
      */
-    public function settextalignment($ALIGN)
+    public function settextalignment($alignment)
     {
     }
 
     /**
      * Controls whether text is antialiased
      *
-     * @param mixed $antialias
+     * @param bool $antiAlias
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextantialias.php
      */
-    public function settextantialias($antialias)
+    public function settextantialias($antiAlias)
     {
     }
 
     /**
      * Specifies a decoration
      *
-     * @param mixed $DECORATION
+     * @param int $decoration DECORATION_ constant
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextdecoration.php
      */
-    public function settextdecoration($DECORATION)
+    public function settextdecoration($decoration)
     {
     }
 
     /**
      * Specifies the text code set
      *
-     * @param mixed $encoding
+     * @param string $encoding the encoding name
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9814,9 +9964,9 @@ class ImagickDraw
     /**
      * Description
      *
-     * @param mixed $spacing
+     * @param float $spacing
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextinterlinespacing.php
      */
@@ -9827,9 +9977,9 @@ class ImagickDraw
     /**
      * Description
      *
-     * @param mixed $spacing
+     * @param float $spacing
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextinterwordspacing.php
      */
@@ -9840,9 +9990,9 @@ class ImagickDraw
     /**
      * Description
      *
-     * @param mixed $kerning
+     * @param float $kerning
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextkerning.php
      */
@@ -9853,24 +10003,24 @@ class ImagickDraw
     /**
      * Specifies the color of a background rectangle
      *
-     * @param mixed $color
+     * @param ImagickPixel $under_color the under color
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.settextundercolor.php
      */
-    public function settextundercolor($color)
+    public function settextundercolor(ImagickPixel $under_color)
     {
     }
 
     /**
      * Sets the vector graphics
      *
-     * @param mixed $xml
+     * @param string $xml xml containing the vector graphics
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9883,27 +10033,27 @@ class ImagickDraw
     /**
      * Sets the overall canvas size
      *
-     * @param mixed $sx
-     * @param mixed $sy
-     * @param mixed $ex
-     * @param mixed $ey
+     * @param int $x1 left x coordinate
+     * @param int $y1 left y coordinate
+     * @param int $x2 right x coordinate
+     * @param int $y2 right y coordinate
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickdraw.setviewbox.php
      */
-    public function setviewbox($sx, $sy, $ex, $ey)
+    public function setviewbox($x1, $y1, $x2, $y2)
     {
     }
 
     /**
      * Skews the current coordinate system in the horizontal direction
      *
-     * @param mixed $degrees
+     * @param float $degrees degrees to skew
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9916,9 +10066,9 @@ class ImagickDraw
     /**
      * Skews the current coordinate system in the vertical direction
      *
-     * @param mixed $degrees
+     * @param float $degrees degrees to skew
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9931,10 +10081,10 @@ class ImagickDraw
     /**
      * Applies a translation to the current coordinate system
      *
-     * @param mixed $x
-     * @param mixed $y
+     * @param float $x horizontal translation
+     * @param float $y vertical translation
      *
-     * @return bool
+     * @return bool No value is returned.
      *
      * @since PECL imagick 2.0.0
      *
@@ -9995,8 +10145,8 @@ class ImagickKernel
     /**
      * Description
      *
-     * @param mixed $kerneltype
-     * @param mixed $paramstring
+     * @param int $kernelType
+     * @param string $kernelString A string that describes the parameters e.g. "4,2.5"
      *
      * @return ImagickKernel
      *
@@ -10004,30 +10154,30 @@ class ImagickKernel
      *
      * @link http://www.php.net/manual/en/imagickkernel.frombuiltin.php
      */
-    public static function frombuiltin($kerneltype, $paramstring)
+    public static function frombuiltin($kernelType, $kernelString)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $array
-     * @param mixed|null $array
+     * @param array $matrix
+     * @param array $origin
      *
-     * @return ImagickKernel
+     * @return ImagickKernel The generated ImagickKernel.
      *
      * @since PECL imagick >= 3.3.0
      *
      * @link http://www.php.net/manual/en/imagickkernel.frommatrix.php
      */
-    public static function frommatrix($array, $array = null)
+    public static function frommatrix(array $matrix, array $origin = null)
     {
     }
 
     /**
      * Description
      *
-     * @return array
+     * @return array A matrix (2d array) of the values that represent the kernel.
      *
      * @since PECL imagick >= 3.3.0
      *
@@ -10081,7 +10231,7 @@ class ImagickPixel
     /**
      * The ImagickPixel constructor
      *
-     * @param mixed|null $color
+     * @param mixed $color
      *
      * @since PECL imagick 2.0.0
      *
@@ -10094,7 +10244,7 @@ class ImagickPixel
     /**
      * Clears resources associated with this object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10114,7 +10264,7 @@ class ImagickPixel
     /**
      * Deallocates resources associated with this object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10127,22 +10277,23 @@ class ImagickPixel
     /**
      * Returns the color
      *
-     * @param mixed|null $normalized
+     * @param int|null $normalized Normalize the color values
      *
-     * @return array
+     * @return array An array of channel values, each normalized if <code>TRUE</code> is given as param. Throws
+     * ImagickPixelException on error.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolor.php
      */
-    public function getcolor($normalized = null)
+    public function getcolor($normalized = 0)
     {
     }
 
     /**
      * Returns the color as a string
      *
-     * @return string
+     * @return string Returns the color of the ImagickPixel object as a string.
      *
      * @since PECL imagick 2.1.0
      *
@@ -10155,7 +10306,8 @@ class ImagickPixel
     /**
      * Returns the color count associated with this color
      *
-     * @return int
+     * @return int Returns the color count as an integer on success, throws
+     * ImagickPixelException on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10168,7 +10320,8 @@ class ImagickPixel
     /**
      * Description
      *
-     * @return array
+     * @return array Returns an array with keys <code>"r"</code>, <code>"g"</code>,
+     * <code>"b"</code>, <code>"a"</code>.
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolorquantum.php
      */
@@ -10179,9 +10332,12 @@ class ImagickPixel
     /**
      * Gets the normalized value of the provided color channel
      *
-     * @param mixed $color
+     * @param int $color The color to get the value of, specified as one of the Imagick color
+     * constants. This can be one of the RGB colors, CMYK colors, alpha and
+     * opacity e.g (Imagick::COLOR_BLUE, Imagick::COLOR_MAGENTA).
      *
-     * @return float
+     * @return float The value of the channel, as a normalized floating-point number, throwing
+     * ImagickPixelException on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10194,9 +10350,9 @@ class ImagickPixel
     /**
      * Description
      *
-     * @param mixed $color
+     * @param int $color
      *
-     * @return float
+     * @return float The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolorvaluequantum.php
      */
@@ -10207,7 +10363,8 @@ class ImagickPixel
     /**
      * Returns the normalized HSL color of the ImagickPixel object
      *
-     * @return array
+     * @return array Returns the HSL value in an array with the keys "hue",
+     * "saturation", and "luminosity". Throws ImagickPixelException on failure.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10231,22 +10388,24 @@ class ImagickPixel
     /**
      * Check the distance between this color and another
      *
-     * @param mixed $color
-     * @param mixed|null $fuzz
+     * @param ImagickPixel $color The ImagickPixel object to compare this object against.
+     * @param float $fuzz The maximum distance within which to consider these colors as similar.
+     * The theoretical maximum for this value is the square root of three
+     * (1.732).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickpixel.ispixelsimilar.php
      */
-    public function ispixelsimilar($color, $fuzz = null)
+    public function ispixelsimilar(ImagickPixel $color, $fuzz = null)
     {
     }
 
     /**
      * Description
      *
-     * @param mixed $color
-     * @param mixed|null $fuzz
+     * @param string $color
+     * @param string $fuzz
      *
      * @return bool
      *
@@ -10259,25 +10418,28 @@ class ImagickPixel
     /**
      * Check the distance between this color and another
      *
-     * @param mixed $color
-     * @param mixed|null $fuzz
+     * @param ImagickPixel $color The ImagickPixel object to compare this object against.
+     * @param float $fuzz The maximum distance within which to consider these colors as similar.
+     * The theoretical maximum for this value is the square root of three
+     * (1.732).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
      * @link http://www.php.net/manual/en/imagickpixel.issimilar.php
      */
-    public function issimilar($color, $fuzz = null)
+    public function issimilar(ImagickPixel $color, $fuzz = null)
     {
     }
 
     /**
      * Sets the color
      *
-     * @param mixed $color
+     * @param string $color The color definition to use in order to initialise the
+     * ImagickPixel object.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the specified color was set, <code>FALSE</code> otherwise.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10290,9 +10452,9 @@ class ImagickPixel
     /**
      * Description
      *
-     * @param mixed $colorCount
+     * @param int $colorCount
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickpixel.setcolorcount.php
      */
@@ -10303,10 +10465,10 @@ class ImagickPixel
     /**
      * Sets the normalized value of one of the channels
      *
-     * @param mixed $color
-     * @param mixed $value
+     * @param int $color One of the Imagick color constants e.g. \Imagick::COLOR_GREEN or \Imagick::COLOR_ALPHA.
+     * @param float $value The value to set this channel to, ranging from 0 to 1.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10319,24 +10481,27 @@ class ImagickPixel
     /**
      * Description
      *
-     * @param mixed $color_value
+     * @param int $color Which color element to set e.g. \Imagick::COLOR_GREEN.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickpixel.setcolorvaluequantum.php
      */
-    public function setcolorvaluequantum($color_value)
+    public function setcolorvaluequantum($color)
     {
     }
 
     /**
      * Sets the normalized HSL color
      *
-     * @param mixed $hue
-     * @param mixed $saturation
-     * @param mixed $luminosity
+     * @param float $hue The normalized value for hue, described as a fractional arc
+     * (between 0 and 1) of the hue circle, where the zero value is
+     * red.
+     * @param float $saturation The normalized value for saturation, with 1 as full saturation.
+     * @param float $luminosity The normalized value for luminosity, on a scale from black at
+     * 0 to white at 1, with the full HS value at 0.5 luminosity.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10349,9 +10514,9 @@ class ImagickPixel
     /**
      * Description
      *
-     * @param mixed $index
+     * @param int $index
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @link http://www.php.net/manual/en/imagickpixel.setindex.php
      */
@@ -10387,7 +10552,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Clear resources associated with a PixelIterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10404,7 +10569,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Deallocates resources associated with a PixelIterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10417,7 +10582,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns the current row of ImagickPixel objects
      *
-     * @return array
+     * @return array Returns a row as an array of ImagickPixel objects that can themselves be iterated.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10430,7 +10595,8 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns the current pixel iterator row
      *
-     * @return int
+     * @return int Returns the integer offset of the row, throwing
+     * ImagickPixelIteratorException on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10443,7 +10609,8 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns the next row of the pixel iterator
      *
-     * @return array
+     * @return array Returns the next row as an array of ImagickPixel objects, throwing
+     * ImagickPixelIteratorException on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10474,7 +10641,8 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns the previous row
      *
-     * @return array
+     * @return array Returns the previous row as an array of ImagickPixelWand objects from the
+     * ImagickPixelIterator, throwing ImagickPixelIteratorException on error.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10491,7 +10659,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns a new pixel iterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success. Throwing ImagickPixelIteratorException.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10504,7 +10672,8 @@ class ImagickPixelIterator implements Iterator
     /**
      * Returns a new pixel iterator
      *
-     * @return bool
+     * @return bool Returns a new ImagickPixelIterator on success; on failure, throws
+     * ImagickPixelIteratorException.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10521,7 +10690,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Resets the pixel iterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10538,7 +10707,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Sets the pixel iterator to the first pixel row
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10551,7 +10720,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Sets the pixel iterator to the last pixel row
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10564,9 +10733,9 @@ class ImagickPixelIterator implements Iterator
     /**
      * Set the pixel iterator row
      *
-     * @param mixed $row
+     * @param int $row
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *
@@ -10579,7 +10748,7 @@ class ImagickPixelIterator implements Iterator
     /**
      * Syncs the pixel iterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
      *

@@ -145,22 +145,22 @@ class Pool
      * @param string|null $class
      * @param array|null $ctor
      *
-     * @return Pool
-     *
      * @since PECL pthreads >= 2.0.0
      *
      * @link http://www.php.net/manual/en/pool.construct.php
      */
-    public function __construct(int $size, string $class = null, array $ctor = null): Pool
+    public function __construct(int $size, string $class = null, array $ctor = null)
     {
     }
 
     /**
      * Collect references to completed tasks
      *
-     * @param Closure $collector
+     * @param Closure $collector A Callable collector that returns a boolean on whether the task can be
+     * collected or not. Only in rare cases should a custom collector need to
+     * be used.
      *
-     * @return int
+     * @return int The number of remaining tasks in the pool to be collected.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -173,9 +173,9 @@ class Pool
     /**
      * Resize the Pool
      *
-     * @param int $size
+     * @param int $size The maximum number of Workers this Pool can create
      *
-     * @return void
+     * @return void void
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -188,7 +188,7 @@ class Pool
     /**
      * Shutdown all workers
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -203,7 +203,7 @@ class Pool
      *
      * @param Threaded $task
      *
-     * @return int
+     * @return int the identifier of the Worker executing the object
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -216,10 +216,10 @@ class Pool
     /**
      * Submits a task to a specific worker for execution
      *
-     * @param int $worker
-     * @param Threaded $task
+     * @param int $worker The worker to stack the task onto, indexed from <code>0</code>.
+     * @param Threaded $task The task for execution.
      *
-     * @return int
+     * @return int The identifier of the worker that accepted the task.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -242,7 +242,7 @@ class Thread extends Threaded
     /**
      * Identification
      *
-     * @return int
+     * @return int A numeric identity
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -255,7 +255,7 @@ class Thread extends Threaded
     /**
      * Identification
      *
-     * @return Thread
+     * @return Thread An object representing the currently executing Thread
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -268,7 +268,7 @@ class Thread extends Threaded
     /**
      * Identification
      *
-     * @return int
+     * @return int A numeric identity
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -281,7 +281,7 @@ class Thread extends Threaded
     /**
      * Identification
      *
-     * @return int
+     * @return int A numeric identity
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -294,7 +294,7 @@ class Thread extends Threaded
     /**
      * State Detection
      *
-     * @return bool
+     * @return bool A boolean indication of state
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -307,7 +307,7 @@ class Thread extends Threaded
     /**
      * State Detection
      *
-     * @return bool
+     * @return bool boolean indication of state
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -320,7 +320,7 @@ class Thread extends Threaded
     /**
      * Synchronization
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -333,9 +333,9 @@ class Thread extends Threaded
     /**
      * Execution
      *
-     * @param int|null $options
+     * @param int|null $options An optional mask of inheritance constants, by default PTHREADS_INHERIT_ALL
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -362,16 +362,16 @@ class Threaded implements Collectable, Traversable
     /**
      * Manipulation
      *
-     * @param mixed $size
-     * @param mixed|null $preserve
+     * @param int $size The number of items to fetch
+     * @param bool $preserve Preserve the keys of members, by default false
      *
-     * @return array
+     * @return array An array of items from the objects property table
      *
      * @since PECL pthreads >= 2.0.0
      *
      * @link http://www.php.net/manual/en/threaded.chunk.php
      */
-    public function chunk($size, $preserve = null): array
+    public function chunk(int $size, bool $preserve = null): array
     {
     }
 
@@ -395,15 +395,15 @@ class Threaded implements Collectable, Traversable
     /**
      * Runtime Manipulation
      *
-     * @param mixed $class
+     * @param string $class The class to extend
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.8
      *
      * @link http://www.php.net/manual/en/threaded.extend.php
      */
-    public static function extend($class): bool
+    public static function extend(string $class): bool
     {
     }
 
@@ -421,7 +421,10 @@ class Threaded implements Collectable, Traversable
     /**
      * State Detection
      *
-     * @return bool
+     * @return bool A boolean indication of state
+     * <blockquote>
+     * A object is considered running while executing the run method
+     * </blockquote>
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -434,7 +437,7 @@ class Threaded implements Collectable, Traversable
     /**
      * State Detection
      *
-     * @return bool
+     * @return bool A boolean indication of state
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -447,23 +450,23 @@ class Threaded implements Collectable, Traversable
     /**
      * Manipulation
      *
-     * @param mixed $from
-     * @param mixed|null $overwrite
+     * @param mixed $from The data to merge
+     * @param bool $overwrite Overwrite existing keys, by default true
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.0
      *
      * @link http://www.php.net/manual/en/threaded.merge.php
      */
-    public function merge($from, $overwrite = null): bool
+    public function merge($from, bool $overwrite = null): bool
     {
     }
 
     /**
      * Synchronization
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -476,7 +479,7 @@ class Threaded implements Collectable, Traversable
     /**
      * Synchronization
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 3.0.0
      *
@@ -489,7 +492,7 @@ class Threaded implements Collectable, Traversable
     /**
      * Manipulation
      *
-     * @return bool
+     * @return bool The last item from the objects property table
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -502,7 +505,7 @@ class Threaded implements Collectable, Traversable
     /**
      * Execution
      *
-     * @return void
+     * @return void The methods return value, if used, will be ignored
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -515,7 +518,7 @@ class Threaded implements Collectable, Traversable
     /**
      * Manipulation
      *
-     * @return mixed
+     * @return mixed The first item from the objects property table
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -528,24 +531,24 @@ class Threaded implements Collectable, Traversable
     /**
      * Synchronization
      *
-     * @param mixed $function
+     * @param Closure $block The block of code to execute
      *
-     * @return mixed
+     * @return mixed The return value from the block
      *
      * @since PECL pthreads >= 2.0.0
      *
      * @link http://www.php.net/manual/en/threaded.synchronized.php
      */
-    public function synchronized($function)
+    public function synchronized(Closure $block)
     {
     }
 
     /**
      * Synchronization
      *
-     * @param int|null $timeout
+     * @param int|null $timeout An optional timeout in microseconds
      *
-     * @return bool
+     * @return bool A boolean indication of success
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -584,15 +587,17 @@ class Worker extends Thread
     /**
      * Collect references to completed tasks
      *
-     * @param Closure|null $function
+     * @param Closure $collector A Callable collector that returns a boolean on whether the task can be
+     * collected or not. Only in rare cases should a custom collector need to
+     * be used.
      *
-     * @return int
+     * @return int The number of remaining tasks on the worker's stack to be collected.
      *
      * @since PECL pthreads >= 3.0.0
      *
      * @link http://www.php.net/manual/en/worker.collect.php
      */
-    public function collect(Closure $function = null): int
+    public function collect(Closure $collector = null): int
     {
     }
 
@@ -606,7 +611,7 @@ class Worker extends Thread
     /**
      * Gets the remaining stack size
      *
-     * @return int
+     * @return int Returns the number of tasks currently waiting to be executed by the worker
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -619,7 +624,7 @@ class Worker extends Thread
     /**
      * State Detection
      *
-     * @return bool
+     * @return bool Returns whether the worker has been shutdown or not.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -632,7 +637,7 @@ class Worker extends Thread
     /**
      * Shutdown the worker
      *
-     * @return bool
+     * @return bool Whether the worker was successfully shutdown or not.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -645,9 +650,9 @@ class Worker extends Thread
     /**
      * Stacking work
      *
-     * @param Threaded $work
+     * @param Threaded $work A <code>Threaded</code> object to be executed by the worker.
      *
-     * @return int
+     * @return int The new size of the stack.
      *
      * @since PECL pthreads >= 2.0.0
      *
@@ -660,7 +665,7 @@ class Worker extends Thread
     /**
      * Unstacking work
      *
-     * @return int
+     * @return int The new size of the stack.
      *
      * @since PECL pthreads >= 2.0.0
      *

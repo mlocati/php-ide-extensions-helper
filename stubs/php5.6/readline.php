@@ -10,9 +10,10 @@ const READLINE_LIB = 'libedit';
 /**
  * Reads a line
  *
- * @param mixed|null $prompt
+ * @param string $prompt You may specify a string with which to prompt the user.
  *
- * @return string
+ * @return string Returns a single string from the user. The line returned has the ending
+ * newline removed.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -25,38 +26,40 @@ function readline($prompt = null)
 /**
  * Adds a line to the history
  *
- * @param mixed $prompt
+ * @param string $line The line to be added in the history.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.readline-add-history.php
  */
-function readline_add_history($prompt)
+function readline_add_history($line)
 {
 }
 
 /**
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately
  *
- * @param mixed $prompt
- * @param mixed $callback
+ * @param string $prompt The prompt message.
+ * @param callable $callback The <code>callback</code> function takes one parameter; the
+ * user input returned.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.readline-callback-handler-install.php
  */
-function readline_callback_handler_install($prompt, $callback)
+function readline_callback_handler_install($prompt, callable $callback)
 {
 }
 
 /**
  * Removes a previously installed callback handler and restores terminal settings
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if a previously installed callback handler was removed, or
+ * <code>FALSE</code> if one could not be found.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -69,7 +72,7 @@ function readline_callback_handler_remove()
 /**
  * Reads a character and informs the readline callback interface when a line is received
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -82,7 +85,7 @@ function readline_callback_read_char()
 /**
  * Clears the history
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -95,25 +98,31 @@ function readline_clear_history()
 /**
  * Registers a completion function
  *
- * @param mixed $funcname
+ * @param callable $function You must supply the name of an existing function which accepts a
+ * partial command line and returns an array of possible matches.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.readline-completion-function.php
  */
-function readline_completion_function($funcname)
+function readline_completion_function(callable $function)
 {
 }
 
 /**
  * Gets/sets various internal readline variables
  *
- * @param mixed|null $varname
- * @param mixed|null $newvalue
+ * @param string $varname A variable name.
+ * @param string $newvalue If provided, this will be the new value of the setting.
  *
- * @return mixed
+ * @return mixed If called with no parameters, this function returns an array of
+ * values for all the setting readline uses. The elements will
+ * be indexed by the following values: done, end, erase_empty_line,
+ * library_version, line_buffer, mark, pending_input, point, prompt,
+ * readline_name, and terminal_name.
+ * If called with one or two parameters, the old value is returned.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -126,7 +135,7 @@ function readline_info($varname = null, $newvalue = null)
 /**
  * Inform readline that the cursor has moved to a new line
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -139,9 +148,9 @@ function readline_on_new_line()
 /**
  * Reads the history
  *
- * @param mixed|null $filename
+ * @param string $filename Path to the filename containing the command history.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -154,7 +163,7 @@ function readline_read_history($filename = null)
 /**
  * Redraws the display
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -167,9 +176,9 @@ function readline_redisplay()
 /**
  * Writes the history
  *
- * @param mixed|null $filename
+ * @param string $filename Path to the saved file.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4, PHP 5, PHP 7
  *

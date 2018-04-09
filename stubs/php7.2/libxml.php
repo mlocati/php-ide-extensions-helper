@@ -293,7 +293,7 @@ class LibXMLError
 /**
  * Clear libxml error buffer
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -306,22 +306,25 @@ function libxml_clear_errors(): void
 /**
  * Disable the ability to load external entities
  *
- * @param mixed|null $disable
+ * @param bool|null $disable Disable (<code>TRUE</code>) or enable (<code>FALSE</code>) libxml extensions (such as
+ * ,
+ * and ) to load external entities.
  *
- * @return bool
+ * @return bool Returns the previous value.
  *
  * @since PHP 5 >= 5.2.11, PHP 7
  *
  * @link http://www.php.net/manual/en/function.libxml-disable-entity-loader.php
  */
-function libxml_disable_entity_loader($disable = null): bool
+function libxml_disable_entity_loader(bool $disable = true): bool
 {
 }
 
 /**
  * Retrieve array of errors
  *
- * @return array
+ * @return array Returns an array with <code>LibXMLError</code> objects if there are any
+ * errors in the buffer, or an empty array otherwise.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -334,7 +337,8 @@ function libxml_get_errors(): array
 /**
  * Retrieve last error from libxml
  *
- * @return LibXMLError
+ * @return LibXMLError Returns a <code>LibXMLError</code> object if there is any error in the
+ * buffer, <code>FALSE</code> otherwise.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -347,44 +351,49 @@ function libxml_get_last_error(): LibXMLError
 /**
  * Changes the default external entity loader
  *
- * @param mixed $resolver_function
+ * @param callable $resolver_function A <code>callable</code> that takes three arguments. Two strings, a public id
+ * and system id, and a context (an array with four keys) as the third argument.
+ * This callback should return a resource, a string from which a resource can be
+ * opened, or <code>NULL</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.libxml-set-external-entity-loader.php
  */
-function libxml_set_external_entity_loader($resolver_function): bool
+function libxml_set_external_entity_loader(callable $resolver_function): bool
 {
 }
 
 /**
  * Set the streams context for the next libxml document load or write
  *
- * @param mixed $context
+ * @param resource $streams_context The stream context resource (created with
+ * <code>stream_context_create</code>)
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.libxml-set-streams-context.php
  */
-function libxml_set_streams_context($context): void
+function libxml_set_streams_context($streams_context): void
 {
 }
 
 /**
  * Disable libxml errors and allow user to fetch error information as needed
  *
- * @param mixed|null $use_errors
+ * @param bool|null $use_errors Enable (<code>TRUE</code>) user error handling or disable (<code>FALSE</code>) user error handling. Disabling will also clear any existing libxml errors.
  *
- * @return bool
+ * @return bool This function returns the previous value of
+ * <code>use_errors</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.libxml-use-internal-errors.php
  */
-function libxml_use_internal_errors($use_errors = null): bool
+function libxml_use_internal_errors(bool $use_errors = false): bool
 {
 }

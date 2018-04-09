@@ -26,13 +26,13 @@ namespace CommonMark {
         /**
          * Parsing
          *
-         * @param mixed|null $options
+         * @param int $options A mask of:
          *
          * @since cmark >= 1.0.0
          *
          * @link http://www.php.net/manual/en/commonmark-parser.construct.php
          */
-        public function __construct($options = null)
+        public function __construct(int $options = null)
         {
         }
 
@@ -52,7 +52,7 @@ namespace CommonMark {
         /**
          * Parsing
          *
-         * @param mixed $buffer
+         * @param string $buffer
          *
          * @return void
          *
@@ -60,7 +60,7 @@ namespace CommonMark {
          *
          * @link http://www.php.net/manual/en/commonmark-parser.parse.php
          */
-        public function parse($buffer)
+        public function parse(string $buffer)
         {
         }
     }
@@ -122,7 +122,7 @@ namespace CommonMark {
         /**
          * Visitation
          *
-         * @param \CommonMark\Interfaces\IVisitor $visitor
+         * @param \CommonMark\Interfaces\IVisitor $visitor An object implementing <code>CommonMark\Interfaces\IVisitor</code>
          *
          * @return void
          *
@@ -227,8 +227,8 @@ namespace CommonMark {
      * Rendering
      *
      * @param \CommonMark\Node $node
-     * @param mixed|null $options
-     * @param mixed|null $width
+     * @param int $options A mask of:
+     * @param int $width
      *
      * @return string
      *
@@ -236,23 +236,23 @@ namespace CommonMark {
      *
      * @link http://www.php.net/manual/en/function.commonmark-render.php
      */
-    function Render(\CommonMark\Node $node, $options = null, $width = null): string
+    function Render(\CommonMark\Node $node, int $options = null, int $width = null): string
     {
     }
 
     /**
      * Parsing
      *
-     * @param mixed $content
-     * @param mixed|null $options
+     * @param string $content markdown string
+     * @param int $options A mask of:
      *
-     * @return \CommonMark\Node
+     * @return \CommonMark\Node Shall return root CommonMark\Node
      *
      * @since cmark >= 1.0.0
      *
      * @link http://www.php.net/manual/en/function.commonmark-parse.php
      */
-    function Parse($content, $options = null): \CommonMark\Node
+    function Parse(string $content, int $options = null): \CommonMark\Node
     {
     }
 }
@@ -269,7 +269,7 @@ namespace CommonMark\Interfaces {
         /**
          * Visitation
          *
-         * @param \CommonMark\Interfaces\IVisitor $visitor
+         * @param \CommonMark\Interfaces\IVisitor $visitor An object implementing <code>CommonMark\Interfaces\IVisitor</code>
          *
          * @return void
          *
@@ -305,24 +305,24 @@ namespace CommonMark\Interfaces {
         /**
          * Visitation
          *
-         * @param \CommonMark\Interfaces\IVisitable $node
+         * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being entered
          *
          * @since cmark >= 1.0.0
          *
          * @link http://www.php.net/manual/en/commonmark-interfaces-ivisitor.enter.php
          */
-        public function enter(\CommonMark\Interfaces\IVisitable $node);
+        public function enter(\CommonMark\Interfaces\IVisitable $visitable);
 
         /**
          * Visitation
          *
-         * @param \CommonMark\Interfaces\IVisitable $node
+         * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being exited
          *
          * @since cmark >= 1.0.0
          *
          * @link http://www.php.net/manual/en/commonmark-interfaces-ivisitor.leave.php
          */
-        public function leave(\CommonMark\Interfaces\IVisitable $node);
+        public function leave(\CommonMark\Interfaces\IVisitable $visitable);
     }
 }
 
@@ -365,9 +365,9 @@ namespace CommonMark\Node {
         /**
          * OrderedList Construction
          *
-         * @param mixed|null $tight
-         * @param mixed|null $delimiter
-         * @param mixed|null $start
+         * @param mixed $tight
+         * @param mixed $delimiter
+         * @param mixed $start
          *
          * @since cmark >= 1.0.0
          *
@@ -434,14 +434,14 @@ namespace CommonMark\Node {
         /**
          * CodeBlock Construction
          *
-         * @param mixed|null $fence
-         * @param mixed|null $literal
+         * @param string $fence
+         * @param string $literal
          *
          * @since cmark >= 1.0.0
          *
          * @link http://www.php.net/manual/en/commonmark-node-codeblock.construct.php
          */
-        public function __construct($fence = null, $literal = null)
+        public function __construct(string $fence = null, string $literal = null)
         {
         }
     }
@@ -454,7 +454,7 @@ namespace CommonMark\Node {
     final class HTMLBlock extends \CommonMark\Node\Text
     {
         /**
-         * @param mixed|null $literal
+         * @param mixed $literal
          *
          * @since cmark >= 1.0.0
          */
@@ -543,7 +543,7 @@ namespace CommonMark\Node {
     final class Code extends \CommonMark\Node\Text
     {
         /**
-         * @param mixed|null $literal
+         * @param mixed $literal
          *
          * @since cmark >= 1.0.0
          */
@@ -560,7 +560,7 @@ namespace CommonMark\Node {
     final class HTMLInline extends \CommonMark\Node\Text
     {
         /**
-         * @param mixed|null $literal
+         * @param mixed $literal
          *
          * @since cmark >= 1.0.0
          */
@@ -611,8 +611,8 @@ namespace CommonMark\Node {
         /**
          * Link Construction
          *
-         * @param mixed|null $url
-         * @param mixed|null $title
+         * @param mixed $url
+         * @param mixed $title
          *
          * @since cmark >= 1.0.0
          *
@@ -643,8 +643,8 @@ namespace CommonMark\Node {
         /**
          * Image Construction
          *
-         * @param mixed|null $url
-         * @param mixed|null $title
+         * @param mixed $url
+         * @param mixed $title
          *
          * @since cmark >= 1.0.0
          *
@@ -704,7 +704,7 @@ namespace CommonMark\Node {
         /**
          * Text Construction
          *
-         * @param mixed|null $literal
+         * @param mixed $literal
          *
          * @since cmark >= 1.0.0
          *
@@ -810,8 +810,8 @@ namespace CommonMark\Render {
      * Rendering
      *
      * @param \CommonMark\Node $node
-     * @param mixed|null $options
-     * @param mixed|null $width
+     * @param int $options A mask of:
+     * @param int $width
      *
      * @return string
      *
@@ -819,7 +819,7 @@ namespace CommonMark\Render {
      *
      * @link http://www.php.net/manual/en/function.commonmark-render-man.php
      */
-    function Man(\CommonMark\Node $node, $options = null, $width = null): string
+    function Man(\CommonMark\Node $node, int $options = null, int $width = null): string
     {
     }
 
@@ -827,8 +827,8 @@ namespace CommonMark\Render {
      * Rendering
      *
      * @param \CommonMark\Node $node
-     * @param mixed|null $options
-     * @param mixed|null $width
+     * @param int $options A mask of:
+     * @param int $width
      *
      * @return string
      *
@@ -836,7 +836,7 @@ namespace CommonMark\Render {
      *
      * @link http://www.php.net/manual/en/function.commonmark-render-latex.php
      */
-    function Latex(\CommonMark\Node $node, $options = null, $width = null): string
+    function Latex(\CommonMark\Node $node, int $options = null, int $width = null): string
     {
     }
 
@@ -844,7 +844,7 @@ namespace CommonMark\Render {
      * Rendering
      *
      * @param \CommonMark\Node $node
-     * @param mixed|null $options
+     * @param int $options A mask of:
      *
      * @return string
      *
@@ -852,7 +852,7 @@ namespace CommonMark\Render {
      *
      * @link http://www.php.net/manual/en/function.commonmark-render-html.php
      */
-    function HTML(\CommonMark\Node $node, $options = null): string
+    function HTML(\CommonMark\Node $node, int $options = null): string
     {
     }
 
@@ -860,7 +860,7 @@ namespace CommonMark\Render {
      * Rendering
      *
      * @param \CommonMark\Node $node
-     * @param mixed|null $options
+     * @param int $options A mask of:
      *
      * @return string
      *
@@ -868,7 +868,7 @@ namespace CommonMark\Render {
      *
      * @link http://www.php.net/manual/en/function.commonmark-render-xml.php
      */
-    function XML(\CommonMark\Node $node, $options = null): string
+    function XML(\CommonMark\Node $node, int $options = null): string
     {
     }
 }

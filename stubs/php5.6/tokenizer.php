@@ -671,9 +671,13 @@ const T_YIELD = 267;
 /**
  * Split given source into PHP tokens
  *
- * @param mixed $source
+ * @param string $source The PHP source to parse.
  *
- * @return array
+ * @return array An array of token identifiers. Each individual token identifier is either
+ * a single character (i.e.: <code>;</code>, <code>.</code>,
+ * <code>&gt;</code>, <code>!</code>, etc...),
+ * or a three element array containing the token index in element 0, the string
+ * content of the original token in element 1 and the line number in element 2.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
@@ -686,9 +690,9 @@ function token_get_all($source)
 /**
  * Get the symbolic name of a given PHP token
  *
- * @param mixed $token
+ * @param int $token The token value.
  *
- * @return string
+ * @return string The symbolic name of the given <code>token</code>.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *

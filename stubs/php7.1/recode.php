@@ -19,32 +19,35 @@ function recode($request, $str)
 /**
  * Recode from file to file according to recode request
  *
- * @param mixed $request
- * @param mixed $input
- * @param mixed $output
+ * @param string $request The desired recode request type
+ * @param resource $input A local file handle <code>resource</code> for
+ * the <code>input</code>
+ * @param resource $output A local file handle <code>resource</code> for
+ * the <code>output</code>
  *
- * @return bool
+ * @return bool Returns <code>FALSE</code>, if unable to comply, <code>TRUE</code> otherwise.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.recode-file.php
  */
-function recode_file($request, $input, $output): bool
+function recode_file(string $request, $input, $output): bool
 {
 }
 
 /**
  * Recode a string according to a recode request
  *
- * @param mixed $request
- * @param mixed $str
+ * @param string $request The desired recode request type
+ * @param string $string The <code>string</code> to be recoded
  *
- * @return string
+ * @return string Returns the recoded <code>string</code> or <code>FALSE</code>, if unable to
+ * perform the recode request.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.recode-string.php
  */
-function recode_string($request, $str): string
+function recode_string(string $request, string $string): string
 {
 }

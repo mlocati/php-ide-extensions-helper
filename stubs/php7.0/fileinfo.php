@@ -100,40 +100,42 @@ class finfo
     /**
      * Alias of finfo_buffer()
      *
-     * @param mixed $string
-     * @param mixed|null $options
-     * @param mixed|null $context
+     * @param string|null $string
+     * @param int|null $options
+     * @param resource|null $context
      *
-     * @return string
+     * @return string Returns a textual description of the <code>string</code>
+     * argument, or <code>FALSE</code> if an error occurred.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL fileinfo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/finfo.buffer.php
      */
-    public function buffer($string, $options = null, $context = null): string
+    public function buffer(string $string = null, int $options = FILEINFO_NONE, $context = null): string
     {
     }
 
     /**
      * Alias of finfo_file()
      *
-     * @param mixed $filename
-     * @param mixed|null $options
-     * @param mixed|null $context
+     * @param string|null $file_name
+     * @param int|null $options
+     * @param resource|null $context
      *
-     * @return string
+     * @return string Returns a textual description of the contents of the
+     * <code>file_name</code> argument, or <code>FALSE</code> if an error occurred.
      *
      * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/finfo.file.php
      */
-    public function file($filename, $options = null, $context = null): string
+    public function file(string $file_name = null, int $options = FILEINFO_NONE, $context = null): string
     {
     }
 
     /**
-     * @param mixed|null $options
-     * @param mixed|null $arg
+     * @param mixed $options
+     * @param mixed $arg
      */
     public function finfo($options = null, $arg = null)
     {
@@ -142,15 +144,15 @@ class finfo
     /**
      * Alias of finfo_set_flags()
      *
-     * @param mixed $options
+     * @param int $options
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/finfo.set-flags.php
      */
-    public function set_flags($options): bool
+    public function set_flags(int $options): bool
     {
     }
 }
@@ -158,27 +160,29 @@ class finfo
 /**
  * Return information about a string buffer
  *
- * @param mixed $finfo
- * @param mixed $string
- * @param mixed|null $options
- * @param mixed|null $context
+ * @param resource $finfo Fileinfo resource returned by <code>finfo_open</code>.
+ * @param string|null $string Content of a file to be checked.
+ * @param int|null $options One or disjunction of more Fileinfo
+ * constants.
+ * @param resource|null $context
  *
- * @return string
+ * @return string Returns a textual description of the <code>string</code>
+ * argument, or <code>FALSE</code> if an error occurred.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL fileinfo >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.finfo-buffer.php
  */
-function finfo_buffer($finfo, $string, $options = null, $context = null): string
+function finfo_buffer($finfo, string $string = null, int $options = FILEINFO_NONE, $context = null): string
 {
 }
 
 /**
  * Close fileinfo resource
  *
- * @param mixed $finfo
+ * @param resource $finfo Fileinfo resource returned by <code>finfo_open</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
  *
@@ -191,64 +195,74 @@ function finfo_close($finfo): bool
 /**
  * Return information about a file
  *
- * @param mixed $finfo
- * @param mixed $filename
- * @param mixed|null $options
- * @param mixed|null $context
+ * @param resource $finfo Fileinfo resource returned by <code>finfo_open</code>.
+ * @param string|null $file_name Name of a file to be checked.
+ * @param int|null $options One or disjunction of more Fileinfo
+ * constants.
+ * @param resource|null $context For a description of <code>contexts</code>, refer to .
  *
- * @return string
+ * @return string Returns a textual description of the contents of the
+ * <code>file_name</code> argument, or <code>FALSE</code> if an error occurred.
  *
  * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.finfo-file.php
  */
-function finfo_file($finfo, $filename, $options = null, $context = null): string
+function finfo_file($finfo, string $file_name = null, int $options = FILEINFO_NONE, $context = null): string
 {
 }
 
 /**
  * Create a new fileinfo resource
  *
- * @param mixed|null $options
- * @param mixed|null $arg
+ * @param int|null $options One or disjunction of more Fileinfo
+ * constants.
+ * @param string|null $magic_file Name of a magic database file, usually something like
+ * <code>/path/to/magic.mime</code>. If not specified, the
+ * <code>MAGIC</code> environment variable is used. If the
+ * environment variable isn't set, then PHP's bundled magic database will
+ * be used.
  *
- * @return resource
+ * @return resource (Procedural style only)
+ * Returns a magic database resource on success or <code>FALSE</code> on failure.
  *
  * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.finfo-open.php
  */
-function finfo_open($options = null, $arg = null)
+function finfo_open(int $options = FILEINFO_NONE, string $magic_file = null)
 {
 }
 
 /**
  * Set libmagic configuration options
  *
- * @param mixed $finfo
- * @param mixed $options
+ * @param resource $finfo Fileinfo resource returned by <code>finfo_open</code>.
+ * @param int $options One or disjunction of more Fileinfo
+ * constants.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
  *
  * @link http://www.php.net/manual/en/function.finfo-set-flags.php
  */
-function finfo_set_flags($finfo, $options): bool
+function finfo_set_flags($finfo, int $options): bool
 {
 }
 
 /**
  * Detect MIME Content-type for a file
  *
- * @param mixed $string
+ * @param string $filename Path to the tested file.
  *
- * @return string
+ * @return string Returns the content type in MIME format, like
+ * <code>text/plain</code> or <code>application/octet-stream</code>.
  *
  * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.mime-content-type.php
  */
-function mime_content_type($string): string
+function mime_content_type(string $filename): string
 {
 }

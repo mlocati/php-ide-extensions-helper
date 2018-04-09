@@ -5,9 +5,10 @@
 /**
  * Compiles and caches a PHP script without executing it
  *
- * @param mixed $file
+ * @param string $file The path to the PHP script to be compiled.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if <code>file</code> was compiled successfully
+ * or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.5, PHP 7, PECL ZendOpcache > 7.0.2
  *
@@ -20,7 +21,7 @@ function opcache_compile_file($file)
 /**
  * Get configuration information about the cache
  *
- * @return array
+ * @return array Returns an array of information, including ini, blacklist and version
  *
  * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
  *
@@ -33,53 +34,58 @@ function opcache_get_configuration()
 /**
  * Get status information about the cache
  *
- * @param mixed|null $fetch_scripts
+ * @param bool|null $get_scripts Include script specific state information
  *
- * @return array
+ * @return array Returns an array of information, optionally containing script specific state information
  *
  * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
  *
  * @link http://www.php.net/manual/en/function.opcache-get-status.php
  */
-function opcache_get_status($fetch_scripts = null)
+function opcache_get_status($get_scripts = true)
 {
 }
 
 /**
  * Invalidates a cached script
  *
- * @param mixed $script
- * @param mixed|null $force
+ * @param string $script The path to the script being invalidated.
+ * @param bool|null $force If set to <code>TRUE</code>, the script will be invalidated regardless of whether
+ * invalidation is necessary.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if the opcode cache for <code>script</code> was
+ * invalidated or if there was nothing to invalidate, or <code>FALSE</code> if the opcode
+ * cache is disabled.
  *
  * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache >= 7.0.0
  *
  * @link http://www.php.net/manual/en/function.opcache-invalidate.php
  */
-function opcache_invalidate($script, $force = null)
+function opcache_invalidate($script, $force = false)
 {
 }
 
 /**
  * Tells whether a script is cached in OPCache
  *
- * @param mixed $script
+ * @param string $file The path to the PHP script to be checked.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if <code>file</code> is cached in OPCache,
+ * <code>FALSE</code> otherwise.
  *
  * @since PHP 5 >= 5.5.11, PHP 7, PECL ZendOpcache >= 7.0.4
  *
  * @link http://www.php.net/manual/en/function.opcache-is-script-cached.php
  */
-function opcache_is_script_cached($script)
+function opcache_is_script_cached($file)
 {
 }
 
 /**
  * Resets the contents of the opcode cache
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if the opcode cache was reset, or <code>FALSE</code> if the opcode
+ * cache is disabled.
  *
  * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache >= 7.0.0
  *

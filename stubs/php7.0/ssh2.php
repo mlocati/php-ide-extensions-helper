@@ -167,105 +167,114 @@ const SSH2_TERM_UNIT_PIXELS = 1;
 /**
  * Authenticate over SSH using the ssh agent
  *
- * @param mixed $session
- * @param mixed $username
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $username Remote user name.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.12
  *
  * @link http://www.php.net/manual/en/function.ssh2-auth-agent.php
  */
-function ssh2_auth_agent($session, $username): bool
+function ssh2_auth_agent($session, string $username): bool
 {
 }
 
 /**
  * Authenticate using a public hostkey
  *
- * @param mixed $session
- * @param mixed $username
- * @param mixed $hostname
- * @param mixed $pubkeyfile
- * @param mixed $privkeyfile
- * @param mixed|null $passphrase
- * @param mixed|null $local_username
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $username
+ * @param string $hostname
+ * @param string $pubkeyfile
+ * @param string $privkeyfile
+ * @param string $passphrase If <code>privkeyfile</code> is encrypted (which it should
+ * be), the passphrase must be provided.
+ * @param string $local_username If <code>local_username</code> is omitted, then the value
+ * for <code>username</code> will be used for it.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-auth-hostbased-file.php
  */
-function ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $privkeyfile, $passphrase = null, $local_username = null): bool
+function ssh2_auth_hostbased_file($session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = null, string $local_username = null): bool
 {
 }
 
 /**
  * Authenticate as "none"
  *
- * @param mixed $session
- * @param mixed $username
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $username Remote user name.
  *
- * @return mixed
+ * @return mixed Returns <code>TRUE</code> if the server does accept "none" as an authentication
+ * method, or an array of accepted authentication methods on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-auth-none.php
  */
-function ssh2_auth_none($session, $username)
+function ssh2_auth_none($session, string $username)
 {
 }
 
 /**
  * Authenticate over SSH using a plain password
  *
- * @param mixed $session
- * @param mixed $username
- * @param mixed $password
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $username Remote user name.
+ * @param string $password Password for <code>username</code>
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-auth-password.php
  */
-function ssh2_auth_password($session, $username, $password): bool
+function ssh2_auth_password($session, string $username, string $password): bool
 {
 }
 
 /**
  * Authenticate using a public key
  *
- * @param mixed $session
- * @param mixed $username
- * @param mixed $pubkeyfile
- * @param mixed $privkeyfile
- * @param mixed|null $passphrase
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $username
+ * @param string $pubkeyfile The public key file needs to be in OpenSSH's format. It should look something like:
+ * @param string $privkeyfile
+ * @param string $passphrase If <code>privkeyfile</code> is encrypted (which it should
+ * be), the <code>passphrase</code> must be provided.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-auth-pubkey-file.php
  */
-function ssh2_auth_pubkey_file($session, $username, $pubkeyfile, $privkeyfile, $passphrase = null): bool
+function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = null): bool
 {
 }
 
 /**
  * Connect to an SSH server
  *
- * @param mixed $host
- * @param mixed $port
+ * @param string $host
+ * @param int|null $port
  *
- * @return resource
+ * @return resource Returns a resource on success, or <code>FALSE</code> on error.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-connect.php
  */
-function ssh2_connect($host, $port)
+function ssh2_connect(string $host, int $port = 22)
 {
 }
 
@@ -281,53 +290,62 @@ function ssh2_disconnect($resource)
 /**
  * Execute a command on a remote server
  *
- * @param mixed $session
- * @param mixed $command
- * @param mixed|null $pty
- * @param mixed|null $env
- * @param mixed|null $width
- * @param mixed|null $height
- * @param mixed|null $width_height_type
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $command
+ * @param string $pty
+ * @param array $env <code>env</code> may be passed as an associative array of
+ * name/value pairs to set in the target environment.
+ * @param int|null $width Width of the virtual terminal.
+ * @param int|null $height Height of the virtual terminal.
+ * @param int|null $width_height_type <code>width_height_type</code> should be one of
+ * <code>SSH2_TERM_UNIT_CHARS</code> or
+ * <code>SSH2_TERM_UNIT_PIXELS</code>.
  *
- * @return resource
+ * @return resource Returns a stream on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-exec.php
  */
-function ssh2_exec($session, $command, $pty = null, $env = null, $width = null, $height = null, $width_height_type = null)
+function ssh2_exec($session, string $command, string $pty = null, array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {
 }
 
 /**
  * Fetch an extended data stream
  *
- * @param mixed $channel
- * @param mixed $stream_id
+ * @param resource $channel
+ * @param int $streamid An SSH2 channel stream.
  *
- * @return resource
+ * @return resource Returns the requested stream resource.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-fetch-stream.php
  */
-function ssh2_fetch_stream($channel, $stream_id)
+function ssh2_fetch_stream($channel, int $streamid)
 {
 }
 
 /**
  * Retrieve fingerprint of remote server
  *
- * @param mixed $resource
- * @param mixed $flags
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param int|null $flags <code>flags</code> may be either of
+ * <code>SSH2_FINGERPRINT_MD5</code> or
+ * <code>SSH2_FINGERPRINT_SHA1</code> logically ORed with
+ * <code>SSH2_FINGERPRINT_HEX</code> or
+ * <code>SSH2_FINGERPRINT_RAW</code>.
  *
- * @return string
+ * @return string Returns the hostkey hash as a string.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-fingerprint.php
  */
-function ssh2_fingerprint($resource, $flags): string
+function ssh2_fingerprint($session, int $flags = SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX): string
 {
 }
 
@@ -348,7 +366,8 @@ function ssh2_forward_listen()
 /**
  * Return list of negotiated methods
  *
- * @param mixed $resource
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
  *
  * @return array
  *
@@ -356,7 +375,7 @@ function ssh2_forward_listen()
  *
  * @link http://www.php.net/manual/en/function.ssh2-methods-negotiated.php
  */
-function ssh2_methods_negotiated($resource): array
+function ssh2_methods_negotiated($session): array
 {
 }
 
@@ -372,28 +391,33 @@ function ssh2_poll(&$foo1)
 /**
  * Add an authorized publickey
  *
- * @param mixed $pkey
- * @param mixed $algoname
- * @param mixed $blob
- * @param mixed|null $overwrite
- * @param mixed|null $attributes
+ * @param resource $pkey Publickey Subsystem resource created by <code>ssh2_publickey_init</code>.
+ * @param string $algoname Publickey algorithm (e.g.): ssh-dss, ssh-rsa
+ * @param string $blob Publickey blob as raw binary data
+ * @param bool|null $overwrite If the specified key already exists, should it be overwritten?
+ * @param array $attributes Associative array of attributes to assign to this public key.
+ * Refer to ietf-secsh-publickey-subsystem for a list of supported attributes.
+ * To mark an attribute as mandatory, precede its name with an asterisk.
+ * If the server is unable to support an attribute marked mandatory,
+ * it will abort the add process.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.10
  *
  * @link http://www.php.net/manual/en/function.ssh2-publickey-add.php
  */
-function ssh2_publickey_add($pkey, $algoname, $blob, $overwrite = null, $attributes = null): bool
+function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwrite = false, array $attributes = null): bool
 {
 }
 
 /**
  * Initialize Publickey subsystem
  *
- * @param mixed $session
+ * @param resource $session
  *
- * @return resource
+ * @return resource Returns an <code>SSH2 Publickey Subsystem</code> resource for use
+ * with all other ssh2_publickey_*() methods or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.10
  *
@@ -406,9 +430,34 @@ function ssh2_publickey_init($session)
 /**
  * List currently authorized publickeys
  *
- * @param mixed $pkey
+ * @param resource $pkey Publickey Subsystem resource
  *
- * @return array
+ * @return array Returns a numerically indexed array of keys,
+ * each of which is an associative array containing:
+ * name, blob, and attrs elements.
+ * <table>
+ * <title>Publickey elements</title>
+ * <thead>
+ * <tr>
+ * <td>Array Key</td><td>Meaning</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td>name</td><td>Name of algorithm used by this publickey, for example:
+ * <code>ssh-dss</code> or <code>ssh-rsa</code>.</td>
+ * </tr>
+ * <tr>
+ * <td>blob</td><td>Publickey blob as raw binary data.</td>
+ * </tr>
+ * <tr>
+ * <td>attrs</td><td>Attributes assigned to this publickey. The most common
+ * attribute, and the only one supported by publickey version 1
+ * servers, is <code>comment</code>, which may be any freeform
+ * string.</td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
  * @since PECL ssh2 >= 0.10
  *
@@ -421,61 +470,67 @@ function ssh2_publickey_list($pkey): array
 /**
  * Remove an authorized publickey
  *
- * @param mixed $pkey
- * @param mixed $algoname
- * @param mixed $blob
+ * @param resource $pkey Publickey Subsystem Resource
+ * @param string $algoname Publickey algorithm (e.g.): ssh-dss, ssh-rsa
+ * @param string $blob Publickey blob as raw binary data
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.10
  *
  * @link http://www.php.net/manual/en/function.ssh2-publickey-remove.php
  */
-function ssh2_publickey_remove($pkey, $algoname, $blob): bool
+function ssh2_publickey_remove($pkey, string $algoname, string $blob): bool
 {
 }
 
 /**
  * Request a file via SCP
  *
- * @param mixed $session
- * @param mixed $remote_file
- * @param mixed $local_file
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $remote_file Path to the remote file.
+ * @param string $local_file Path to the local file.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-scp-recv.php
  */
-function ssh2_scp_recv($session, $remote_file, $local_file): bool
+function ssh2_scp_recv($session, string $remote_file, string $local_file): bool
 {
 }
 
 /**
  * Send a file via SCP
  *
- * @param mixed $session
- * @param mixed $remote_file
- * @param mixed $local_file
- * @param mixed|null $create_mode
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $local_file Path to the local file.
+ * @param string $remote_file Path to the remote file.
+ * @param int|null $create_mode The file will be created with the mode specified by
+ * <code>create_mode</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-scp-send.php
  */
-function ssh2_scp_send($session, $remote_file, $local_file, $create_mode = null): bool
+function ssh2_scp_send($session, string $local_file, string $remote_file, int $create_mode = 0644): bool
 {
 }
 
 /**
  * Initialize SFTP subsystem
  *
- * @param mixed $session
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
  *
- * @return resource
+ * @return resource This method returns an <code>SSH2 SFTP</code> resource for use with
+ * all other ssh2_sftp_*() methods and the
+ * ssh2.sftp:// fopen wrapper.
  *
  * @since PECL ssh2 >= 0.9.0
  *
@@ -488,177 +543,185 @@ function ssh2_sftp($session)
 /**
  * Changes file mode
  *
- * @param mixed $sftp
- * @param mixed $filename
- * @param mixed $mode
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $filename Path to the file.
+ * @param int $mode Permissions on the file. See the <code>chmod</code> for more details on this parameter.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.12
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-chmod.php
  */
-function ssh2_sftp_chmod($sftp, $filename, $mode): bool
+function ssh2_sftp_chmod($sftp, string $filename, int $mode): bool
 {
 }
 
 /**
  * Stat a symbolic link
  *
- * @param mixed $sftp
- * @param mixed $path
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $path Path to the remote symbolic link.
  *
- * @return array
+ * @return array See the documentation for <code>stat</code> for details on the
+ * values which may be returned.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-lstat.php
  */
-function ssh2_sftp_lstat($sftp, $path): array
+function ssh2_sftp_lstat($sftp, string $path): array
 {
 }
 
 /**
  * Create a directory
  *
- * @param mixed $sftp
- * @param mixed $dirname
- * @param mixed|null $mode
- * @param mixed|null $recursive
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $dirname Path of the new directory.
+ * @param int|null $mode Permissions on the new directory.
+ * @param bool|null $recursive If <code>recursive</code> is <code>TRUE</code> any parent directories
+ * required for <code>dirname</code> will be automatically created as well.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-mkdir.php
  */
-function ssh2_sftp_mkdir($sftp, $dirname, $mode = null, $recursive = null): bool
+function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursive = false): bool
 {
 }
 
 /**
  * Return the target of a symbolic link
  *
- * @param mixed $sftp
- * @param mixed $link
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $link Path of the symbolic link.
  *
- * @return string
+ * @return string Returns the target of the symbolic <code>link</code>.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-readlink.php
  */
-function ssh2_sftp_readlink($sftp, $link): string
+function ssh2_sftp_readlink($sftp, string $link): string
 {
 }
 
 /**
  * Resolve the realpath of a provided path string
  *
- * @param mixed $sftp
- * @param mixed $filename
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $filename
  *
- * @return string
+ * @return string Returns the real path as a string.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-realpath.php
  */
-function ssh2_sftp_realpath($sftp, $filename): string
+function ssh2_sftp_realpath($sftp, string $filename): string
 {
 }
 
 /**
  * Rename a remote file
  *
- * @param mixed $sftp
- * @param mixed $from
- * @param mixed $to
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $from The current file that is being renamed.
+ * @param string $to The new file name that replaces <code>from</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-rename.php
  */
-function ssh2_sftp_rename($sftp, $from, $to): bool
+function ssh2_sftp_rename($sftp, string $from, string $to): bool
 {
 }
 
 /**
  * Remove a directory
  *
- * @param mixed $sftp
- * @param mixed $dirname
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $dirname
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-rmdir.php
  */
-function ssh2_sftp_rmdir($sftp, $dirname): bool
+function ssh2_sftp_rmdir($sftp, string $dirname): bool
 {
 }
 
 /**
  * Stat a file on a remote filesystem
  *
- * @param mixed $sftp
- * @param mixed $path
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $path
  *
- * @return array
+ * @return array See the documentation for <code>stat</code> for details on the
+ * values which may be returned.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-stat.php
  */
-function ssh2_sftp_stat($sftp, $path): array
+function ssh2_sftp_stat($sftp, string $path): array
 {
 }
 
 /**
  * Create a symlink
  *
- * @param mixed $sftp
- * @param mixed $target
- * @param mixed $link
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $target Target of the symbolic link.
+ * @param string $link
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-symlink.php
  */
-function ssh2_sftp_symlink($sftp, $target, $link): bool
+function ssh2_sftp_symlink($sftp, string $target, string $link): bool
 {
 }
 
 /**
  * Delete a file
  *
- * @param mixed $sftp
- * @param mixed $filename
+ * @param resource $sftp An SSH2 SFTP resource opened by <code>ssh2_sftp</code>.
+ * @param string $filename
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PECL ssh2 >= 0.9.0
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-unlink.php
  */
-function ssh2_sftp_unlink($sftp, $filename): bool
+function ssh2_sftp_unlink($sftp, string $filename): bool
 {
 }
 
 /**
  * Request an interactive shell
  *
- * @param mixed $session
- * @param mixed|null $termtype
- * @param mixed|null $env
- * @param mixed|null $width
- * @param mixed|null $height
- * @param mixed|null $width_height_type
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string|null $term_type <code>term_type</code> should correspond to one of the
+ * entries in the target system's <code>/etc/termcap</code> file.
+ * @param array $env <code>env</code> may be passed as an associative array of
+ * name/value pairs to set in the target environment.
+ * @param int|null $width Width of the virtual terminal.
+ * @param int|null $height Height of the virtual terminal.
+ * @param int|null $width_height_type <code>width_height_type</code> should be one of
+ * <code>SSH2_TERM_UNIT_CHARS</code> or
+ * <code>SSH2_TERM_UNIT_PIXELS</code>.
  *
  * @return resource
  *
@@ -666,16 +729,17 @@ function ssh2_sftp_unlink($sftp, $filename): bool
  *
  * @link http://www.php.net/manual/en/function.ssh2-shell.php
  */
-function ssh2_shell($session, $termtype = null, $env = null, $width = null, $height = null, $width_height_type = null)
+function ssh2_shell($session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {
 }
 
 /**
  * Open a tunnel through a remote server
  *
- * @param mixed $session
- * @param mixed $host
- * @param mixed $port
+ * @param resource $session An SSH connection link identifier, obtained from a call to
+ * <code>ssh2_connect</code>.
+ * @param string $host
+ * @param int $port
  *
  * @return resource
  *
@@ -683,6 +747,6 @@ function ssh2_shell($session, $termtype = null, $env = null, $width = null, $hei
  *
  * @link http://www.php.net/manual/en/function.ssh2-tunnel.php
  */
-function ssh2_tunnel($session, $host, $port)
+function ssh2_tunnel($session, string $host, int $port)
 {
 }

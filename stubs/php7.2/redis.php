@@ -186,8 +186,8 @@ class Redis
     /**
      * @param mixed $key
      * @param mixed $bit
-     * @param mixed|null $start
-     * @param mixed|null $end
+     * @param mixed $start
+     * @param mixed $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
@@ -246,7 +246,7 @@ class Redis
     /**
      * @param mixed $cmd
      * @param mixed $key
-     * @param mixed|null $value
+     * @param mixed $value
      */
     public function config($cmd, $key, $value = null)
     {
@@ -255,8 +255,8 @@ class Redis
     /**
      * @param mixed $host
      * @param mixed $port
-     * @param mixed|null $timeout
-     * @param mixed|null $retry_interval
+     * @param mixed $timeout
+     * @param mixed $retry_interval
      */
     public function connect($host, $port, $timeout = null, $retry_interval = null)
     {
@@ -324,8 +324,8 @@ class Redis
 
     /**
      * @param mixed $script
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -333,8 +333,8 @@ class Redis
 
     /**
      * @param mixed $script_sha
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
@@ -342,8 +342,8 @@ class Redis
 
     /**
      * @param mixed $script
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function evaluate($script, $args = null, $num_keys = null)
     {
@@ -351,8 +351,8 @@ class Redis
 
     /**
      * @param mixed $script_sha
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function evaluateSha($script_sha, $args = null, $num_keys = null)
     {
@@ -409,7 +409,7 @@ class Redis
      * @param mixed $key
      * @param mixed $src
      * @param mixed $dst
-     * @param mixed|null $unit
+     * @param mixed $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -439,7 +439,7 @@ class Redis
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -450,7 +450,7 @@ class Redis
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -628,8 +628,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -692,7 +692,7 @@ class Redis
     }
 
     /**
-     * @param mixed|null $option
+     * @param mixed $option
      */
     public function info($option = null)
     {
@@ -852,8 +852,8 @@ class Redis
      * @param mixed $key
      * @param mixed $db
      * @param mixed $timeout
-     * @param mixed|null $copy
-     * @param mixed|null $replace
+     * @param mixed $copy
+     * @param mixed $replace
      */
     public function migrate($host, $port, $key, $db, $timeout, $copy = null, $replace = null)
     {
@@ -896,8 +896,8 @@ class Redis
     /**
      * @param mixed $host
      * @param mixed $port
-     * @param mixed|null $timeout
-     * @param mixed|null $retry_interval
+     * @param mixed $timeout
+     * @param mixed $retry_interval
      */
     public function open($host, $port, $timeout = null, $retry_interval = null)
     {
@@ -906,7 +906,7 @@ class Redis
     /**
      * @param mixed $host
      * @param mixed $port
-     * @param mixed|null $timeout
+     * @param mixed $timeout
      */
     public function pconnect($host, $port, $timeout = null)
     {
@@ -969,7 +969,7 @@ class Redis
     /**
      * @param mixed $host
      * @param mixed $port
-     * @param mixed|null $timeout
+     * @param mixed $timeout
      */
     public function popen($host, $port, $timeout = null)
     {
@@ -1124,8 +1124,8 @@ class Redis
 
     /**
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1188,8 +1188,8 @@ class Redis
     /**
      * @param mixed $key
      * @param mixed $value
-     * @param mixed|null $timeout
-     * @param mixed|null $opt
+     * @param mixed $timeout
+     * @param mixed $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
@@ -1279,8 +1279,8 @@ class Redis
     }
 
     /**
-     * @param mixed|null $host
-     * @param mixed|null $port
+     * @param mixed $host
+     * @param mixed $port
      */
     public function slaveof($host = null, $port = null)
     {
@@ -1288,7 +1288,7 @@ class Redis
 
     /**
      * @param mixed $arg
-     * @param mixed|null $option
+     * @param mixed $option
      */
     public function slowlog($arg, $option = null)
     {
@@ -1312,7 +1312,7 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array|null $options
+     * @param array $options
      */
     public function sort($key, array $options = null)
     {
@@ -1320,11 +1320,11 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param mixed|null $pattern
-     * @param mixed|null $get
-     * @param mixed|null $start
-     * @param mixed|null $end
-     * @param mixed|null $getList
+     * @param mixed $pattern
+     * @param mixed $get
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed $getList
      */
     public function sortAsc($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
@@ -1332,11 +1332,11 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param mixed|null $pattern
-     * @param mixed|null $get
-     * @param mixed|null $start
-     * @param mixed|null $end
-     * @param mixed|null $getList
+     * @param mixed $pattern
+     * @param mixed $get
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed $getList
      */
     public function sortAscAlpha($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
@@ -1344,11 +1344,11 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param mixed|null $pattern
-     * @param mixed|null $get
-     * @param mixed|null $start
-     * @param mixed|null $end
-     * @param mixed|null $getList
+     * @param mixed $pattern
+     * @param mixed $get
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed $getList
      */
     public function sortDesc($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
@@ -1356,11 +1356,11 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param mixed|null $pattern
-     * @param mixed|null $get
-     * @param mixed|null $start
-     * @param mixed|null $end
-     * @param mixed|null $getList
+     * @param mixed $pattern
+     * @param mixed $get
+     * @param mixed $start
+     * @param mixed $end
+     * @param mixed $getList
      */
     public function sortDescAlpha($key, $pattern = null, $get = null, $start = null, $end = null, $getList = null)
     {
@@ -1375,7 +1375,7 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param mixed|null $count
+     * @param mixed $count
      */
     public function sRandMember($key, $count = null)
     {
@@ -1400,8 +1400,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1581,7 +1581,7 @@ class Redis
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zInter($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -1591,7 +1591,7 @@ class Redis
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -1610,7 +1610,7 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zRange($key, $start, $end, $scores = null)
     {
@@ -1620,8 +1620,8 @@ class Redis
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -1631,7 +1631,7 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zRangeByScore($key, $start, $end, array $options = null)
     {
@@ -1703,7 +1703,7 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zReverseRange($key, $start, $end, $scores = null)
     {
@@ -1713,7 +1713,7 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zRevRange($key, $start, $end, $scores = null)
     {
@@ -1723,8 +1723,8 @@ class Redis
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -1734,7 +1734,7 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zRevRangeByScore($key, $start, $end, array $options = null)
     {
@@ -1751,8 +1751,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1777,7 +1777,7 @@ class Redis
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zUnion($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -1787,7 +1787,7 @@ class Redis
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -1806,7 +1806,7 @@ class RedisArray
 
     /**
      * @param mixed $name_or_hosts
-     * @param array|null $options
+     * @param array $options
      */
     public function __construct($name_or_hosts, array $options = null)
     {
@@ -1832,7 +1832,7 @@ class RedisArray
     }
 
     /**
-     * @param mixed|null $callable
+     * @param mixed $callable
      */
     public function _rehash($callable = null)
     {
@@ -1920,7 +1920,7 @@ class RedisArray
 
     /**
      * @param mixed $host
-     * @param mixed|null $mode
+     * @param mixed $mode
      */
     public function multi($host, $mode = null)
     {
@@ -2092,10 +2092,10 @@ class RedisCluster
 
     /**
      * @param mixed $name
-     * @param array|null $seeds
-     * @param mixed|null $timeout
-     * @param mixed|null $read_timeout
-     * @param mixed|null $persistent
+     * @param array $seeds
+     * @param mixed $timeout
+     * @param mixed $read_timeout
+     * @param mixed $persistent
      */
     public function __construct($name, array $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
     {
@@ -2172,8 +2172,8 @@ class RedisCluster
     /**
      * @param mixed $key
      * @param mixed $bit
-     * @param mixed|null $start
-     * @param mixed|null $end
+     * @param mixed $start
+     * @param mixed $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
@@ -2212,7 +2212,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function client($key_or_address, $arg = null, ...$other_args)
@@ -2225,7 +2225,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function cluster($key_or_address, $arg = null, ...$other_args)
@@ -2241,7 +2241,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function config($key_or_address, $arg = null, ...$other_args)
@@ -2298,8 +2298,8 @@ class RedisCluster
 
     /**
      * @param mixed $script
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -2307,8 +2307,8 @@ class RedisCluster
 
     /**
      * @param mixed $script_sha
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
@@ -2370,7 +2370,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $src
      * @param mixed $dst
-     * @param mixed|null $unit
+     * @param mixed $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -2400,7 +2400,7 @@ class RedisCluster
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -2411,7 +2411,7 @@ class RedisCluster
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -2547,8 +2547,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -2612,7 +2612,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $option
+     * @param mixed $option
      */
     public function info($key_or_address, $option = null)
     {
@@ -2842,7 +2842,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function pubsub($key_or_address, $arg = null, ...$other_args)
@@ -2958,8 +2958,8 @@ class RedisCluster
     /**
      * @param mixed $i_iterator
      * @param mixed $str_node
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
@@ -2974,7 +2974,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function script($key_or_address, $arg = null, ...$other_args)
@@ -3001,8 +3001,8 @@ class RedisCluster
     /**
      * @param mixed $key
      * @param mixed $value
-     * @param mixed|null $timeout
-     * @param mixed|null $opt
+     * @param mixed $timeout
+     * @param mixed $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
@@ -3078,7 +3078,7 @@ class RedisCluster
 
     /**
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function slowlog($key_or_address, $arg = null, ...$other_args)
@@ -3103,7 +3103,7 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array|null $options
+     * @param array $options
      */
     public function sort($key, array $options = null)
     {
@@ -3118,7 +3118,7 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param mixed|null $count
+     * @param mixed $count
      */
     public function srandmember($key, $count = null)
     {
@@ -3135,8 +3135,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -3257,7 +3257,7 @@ class RedisCluster
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -3276,7 +3276,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zrange($key, $start, $end, $scores = null)
     {
@@ -3286,8 +3286,8 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -3297,7 +3297,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zrangebyscore($key, $start, $end, array $options = null)
     {
@@ -3351,7 +3351,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zrevrange($key, $start, $end, $scores = null)
     {
@@ -3361,8 +3361,8 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zrevrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -3372,7 +3372,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zrevrangebyscore($key, $start, $end, array $options = null)
     {
@@ -3389,8 +3389,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -3408,7 +3408,7 @@ class RedisCluster
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {

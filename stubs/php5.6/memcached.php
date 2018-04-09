@@ -509,8 +509,12 @@ class Memcached
     /**
      * Create a Memcached instance
      *
-     * @param mixed|null $persistent_id
-     * @param mixed|null $callback
+     * @param string $persistent_id By default the Memcached instances are destroyed at the end of the
+     * request. To create an instance that persists between requests, use
+     * <code>persistent_id</code> to specify a unique ID for the
+     * instance. All instances created with the same
+     * <code>persistent_id</code> will share the same connection.
+     * @param mixed $callback
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -523,12 +527,14 @@ class Memcached
     /**
      * Add an item under a new key
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key already exists.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -541,13 +547,15 @@ class Memcached
     /**
      * Add an item under a new key on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key already exists.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -560,17 +568,29 @@ class Memcached
     /**
      * Add a server to the server pool
      *
-     * @param mixed $host
-     * @param mixed $port
-     * @param mixed|null $weight
+     * @param string $host The hostname of the memcache server. If the hostname is invalid,
+     * data-related operations will set
+     * <code>Memcached::RES_HOST_LOOKUP_FAILURE</code> result code. As
+     * of version 2.0.0b1, this parameter may also specify the path of a unix
+     * socket filepath ex. <code>/path/to/memcached.sock</code>
+     * to use UNIX domain sockets, in this case <code>port</code>
+     * must also be set to <code>0</code>.
+     * @param int $port The port on which memcache is running. Usually, this is
+     * <code>11211</code>. As of version 2.0.0b1, set this parameter to <code>0</code> when
+     * using UNIX domain sockets.
+     * @param int|null $weight The weight of the server relative to the total weight of all the
+     * servers in the pool. This controls the probability of the server being
+     * selected for operations. This is used only with consistent distribution
+     * option and usually corresponds to the amount of memory available to
+     * memcache on that server.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.addserver.php
      */
-    public function addServer($host, $port, $weight = null)
+    public function addServer($host, $port, $weight = 0)
     {
     }
 
@@ -579,7 +599,7 @@ class Memcached
      *
      * @param array $servers
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 0.1.1
      *
@@ -592,11 +612,13 @@ class Memcached
     /**
      * Append data to an existing item
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
+     * @param string $key The key under which to store the value.
+     * @param string $value The string to append.
+     * @param mixed $expiration
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -609,12 +631,14 @@ class Memcached
     /**
      * Append data to an existing item on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param string $value The string to append.
+     * @param mixed $expiration
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -627,13 +651,16 @@ class Memcached
     /**
      * Compare and swap an item
      *
-     * @param mixed $cas_token
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param float $cas_token Unique value associated with the existing item. Generated by memcache.
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_DATA_EXISTS</code> if the item you are trying
+     * to store has been modified since you last fetched it.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -646,14 +673,17 @@ class Memcached
     /**
      * Compare and swap an item on a specific server
      *
-     * @param mixed $cas_token
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param float $cas_token Unique value associated with the existing item. Generated by memcache.
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_DATA_EXISTS</code> if the item you are trying
+     * to store has been modified since you last fetched it.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -666,110 +696,120 @@ class Memcached
     /**
      * Decrement numeric item's value
      *
-     * @param mixed $key
-     * @param mixed|null $offset
-     * @param mixed|null $initial_value
-     * @param mixed|null $expiry
+     * @param string $key The key of the item to decrement.
+     * @param int|null $offset The amount by which to decrement the item's value.
+     * @param int|null $initial_value The value to set the item to if it doesn't currently exist.
+     * @param int|null $expiry The expiry time to set on the item.
      *
-     * @return int
+     * @return int Returns item's new value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.decrement.php
      */
-    public function decrement($key, $offset = null, $initial_value = null, $expiry = null)
+    public function decrement($key, $offset = 1, $initial_value = 0, $expiry = 0)
     {
     }
 
     /**
      * Decrement numeric item's value, stored on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed|null $offset
-     * @param mixed|null $initial_value
-     * @param mixed|null $expiry
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key of the item to decrement.
+     * @param int|null $offset The amount by which to decrement the item's value.
+     * @param int|null $initial_value The value to set the item to if it doesn't currently exist.
+     * @param int|null $expiry The expiry time to set on the item.
      *
-     * @return int
+     * @return int Returns item's new value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
      * @link http://www.php.net/manual/en/memcached.decrementbykey.php
      */
-    public function decrementByKey($server_key, $key, $offset = null, $initial_value = null, $expiry = null)
+    public function decrementByKey($server_key, $key, $offset = 1, $initial_value = 0, $expiry = 0)
     {
     }
 
     /**
      * Delete an item
      *
-     * @param mixed $key
-     * @param mixed|null $time
+     * @param string $key The key to be deleted.
+     * @param int|null $time The amount of time the server will wait to delete the item.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.delete.php
      */
-    public function delete($key, $time = null)
+    public function delete($key, $time = 0)
     {
     }
 
     /**
      * Delete an item from a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed|null $time
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key to be deleted.
+     * @param int|null $time The amount of time the server will wait to delete the item.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.deletebykey.php
      */
-    public function deleteByKey($server_key, $key, $time = null)
+    public function deleteByKey($server_key, $key, $time = 0)
     {
     }
 
     /**
      * Delete multiple items
      *
-     * @param mixed $keys
-     * @param mixed|null $time
+     * @param array $keys The keys to be deleted.
+     * @param int|null $time The amount of time the server will wait to delete the items.
      *
-     * @return array
+     * @return array Returns array indexed by <code>keys</code> and where values are indicating whether operation succeeded or not.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 2.0.0
      *
      * @link http://www.php.net/manual/en/memcached.deletemulti.php
      */
-    public function deleteMulti($keys, $time = null)
+    public function deleteMulti(array $keys, $time = 0)
     {
     }
 
     /**
      * Delete multiple items from a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $keys
-     * @param mixed|null $time
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param array $keys The keys to be deleted.
+     * @param int|null $time The amount of time the server will wait to delete the items.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 2.0.0
      *
      * @link http://www.php.net/manual/en/memcached.deletemultibykey.php
      */
-    public function deleteMultiByKey($server_key, $keys, $time = null)
+    public function deleteMultiByKey($server_key, array $keys, $time = 0)
     {
     }
 
     /**
      * Fetch the next result
      *
-     * @return array
+     * @return array Returns the next result or <code>FALSE</code> otherwise.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_END</code> if result set is exhausted.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -782,7 +822,8 @@ class Memcached
     /**
      * Fetch all the remaining results
      *
-     * @return array
+     * @return array Returns the results or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -795,15 +836,16 @@ class Memcached
     /**
      * Invalidate all items in the cache
      *
-     * @param mixed|null $delay
+     * @param int|null $delay Number of seconds to wait before invalidating the items.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.flush.php
      */
-    public function flush($delay = null)
+    public function flush($delay = 0)
     {
     }
 
@@ -814,25 +856,28 @@ class Memcached
     /**
      * Retrieve an item
      *
-     * @param mixed $key
-     * @param mixed|null $cache_cb
-     * @param mixed|null $cas_token
-     * @param mixed|null $udf_flags
+     * @param string $key The key of the item to retrieve.
+     * @param callable $cache_cb Read-through caching callback or <code>NULL</code>.
+     * @param int $flags Flags to control the returned result. When value of <code>Memcached::GET_EXTENDED</code>
+     * is given will return the CAS token.
+     * @param mixed $udf_flags
      *
-     * @return mixed
+     * @return mixed Returns the value stored in the cache or <code>FALSE</code> otherwise.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.get.php
      */
-    public function get($key, $cache_cb = null, &$cas_token = null, &$udf_flags = null)
+    public function get($key, callable $cache_cb = null, &$flags = null, &$udf_flags = null)
     {
     }
 
     /**
      * Gets the keys stored on all the servers
      *
-     * @return array
+     * @return array Returns the keys stored on all the servers on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -845,54 +890,59 @@ class Memcached
     /**
      * Retrieve an item from a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed|null $cache_cb
-     * @param mixed|null $cas_token
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key of the item to fetch.
+     * @param callable $cache_cb Read-through caching callback or <code>NULL</code>
+     * @param int $flags Flags to control the returned result. When value of <code>Memcached::GET_EXTENDED</code>
+     * is given will return the CAS token.
+     * @param mixed $udf_flags
      *
-     * @return mixed
+     * @return mixed Returns the value stored in the cache or <code>FALSE</code> otherwise.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTFOUND</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.getbykey.php
      */
-    public function getByKey($server_key, $key, $cache_cb = null, &$cas_token = null, &$udf_flags = null)
+    public function getByKey($server_key, $key, callable $cache_cb = null, &$flags = null, &$udf_flags = null)
     {
     }
 
     /**
      * Request multiple items
      *
-     * @param array $keys
-     * @param mixed|null $with_cas
-     * @param mixed|null $value_cb
+     * @param array $keys Array of keys to request.
+     * @param bool $with_cas Whether to request CAS token values also.
+     * @param callable $value_cb The result callback or <code>NULL</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.getdelayed.php
      */
-    public function getDelayed(array $keys, $with_cas = null, $value_cb = null)
+    public function getDelayed(array $keys, $with_cas = null, callable $value_cb = null)
     {
     }
 
     /**
      * Request multiple items from a specific server
      *
-     * @param mixed $server_key
-     * @param array $keys
-     * @param mixed|null $with_cas
-     * @param mixed|null $value_cb
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param array $keys Array of keys to request.
+     * @param bool $with_cas Whether to request CAS token values also.
+     * @param callable $value_cb The result callback or <code>NULL</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.getdelayedbykey.php
      */
-    public function getDelayedByKey($server_key, array $keys, $with_cas = null, $value_cb = null)
+    public function getDelayedByKey($server_key, array $keys, $with_cas = null, callable $value_cb = null)
     {
     }
 
@@ -915,46 +965,49 @@ class Memcached
     /**
      * Retrieve multiple items
      *
-     * @param array $keys
-     * @param mixed|null $cas_tokens
-     * @param mixed|null $flags
-     * @param mixed|null $udf_flags
+     * @param array $keys Array of keys to retrieve.
+     * @param int $flags The flags for the get operation.
+     * @param mixed $flags
+     * @param mixed $udf_flags
      *
-     * @return mixed
+     * @return mixed Returns the array of found items or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.getmulti.php
      */
-    public function getMulti(array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null)
+    public function getMulti(array $keys, &$flags = null, $flags = null, &$udf_flags = null)
     {
     }
 
     /**
      * Retrieve multiple items from a specific server
      *
-     * @param mixed $server_key
-     * @param array $keys
-     * @param mixed|null $cas_tokens
-     * @param mixed|null $flags
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param array $keys Array of keys to retrieve.
+     * @param int $flags The flags for the get operation.
+     * @param mixed $flags
+     * @param mixed $udf_flags
      *
-     * @return array
+     * @return array Returns the array of found items or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.getmultibykey.php
      */
-    public function getMultiByKey($server_key, array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null)
+    public function getMultiByKey($server_key, array $keys, &$flags = null, $flags = null, &$udf_flags = null)
     {
     }
 
     /**
      * Retrieve a Memcached option value
      *
-     * @param mixed $option
+     * @param int $option One of the <code>Memcached::OPT_*</code> constants.
      *
-     * @return mixed
+     * @return mixed Returns the value of the requested option, or <code>FALSE</code> on
+     * error.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -967,7 +1020,7 @@ class Memcached
     /**
      * Return the result code of the last operation
      *
-     * @return int
+     * @return int Result code of the last Memcached operation.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -980,7 +1033,7 @@ class Memcached
     /**
      * Return the message describing the result of the last operation
      *
-     * @return string
+     * @return string Message describing the result of the last Memcached operation.
      *
      * @since PECL memcached >= 1.0.0
      *
@@ -993,9 +1046,12 @@ class Memcached
     /**
      * Map a key to a server
      *
-     * @param mixed $server_key
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
      *
-     * @return array
+     * @return array Returns an array containing three keys of <code>host</code>,
+     * <code>port</code>, and <code>weight</code> on success or <code>FALSE</code>
+     * on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1008,7 +1064,7 @@ class Memcached
     /**
      * Get the list of the servers in the pool
      *
-     * @return array
+     * @return array The list of all servers in the server pool.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1021,7 +1077,7 @@ class Memcached
     /**
      * Get server pool statistics
      *
-     * @return array
+     * @return array Array of server statistics, one entry per server.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1034,7 +1090,7 @@ class Memcached
     /**
      * Get server pool version info
      *
-     * @return array
+     * @return array Array of server versions, one entry per server.
      *
      * @since PECL memcached >= 0.1.5
      *
@@ -1047,44 +1103,44 @@ class Memcached
     /**
      * Increment numeric item's value
      *
-     * @param mixed $key
-     * @param mixed|null $offset
-     * @param mixed|null $initial_value
-     * @param mixed|null $expiry
+     * @param string $key The key of the item to increment.
+     * @param int|null $offset The amount by which to increment the item's value.
+     * @param int|null $initial_value The value to set the item to if it doesn't currently exist.
+     * @param int|null $expiry The expiry time to set on the item.
      *
-     * @return int
+     * @return int Returns new item's value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 0.1.0
      *
      * @link http://www.php.net/manual/en/memcached.increment.php
      */
-    public function increment($key, $offset = null, $initial_value = null, $expiry = null)
+    public function increment($key, $offset = 1, $initial_value = 0, $expiry = 0)
     {
     }
 
     /**
      * Increment numeric item's value, stored on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed|null $offset
-     * @param mixed|null $initial_value
-     * @param mixed|null $expiry
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key of the item to increment.
+     * @param int|null $offset The amount by which to increment the item's value.
+     * @param int|null $initial_value The value to set the item to if it doesn't currently exist.
+     * @param int|null $expiry The expiry time to set on the item.
      *
-     * @return int
+     * @return int Returns new item's value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
      * @link http://www.php.net/manual/en/memcached.incrementbykey.php
      */
-    public function incrementByKey($server_key, $key, $offset = null, $initial_value = null, $expiry = null)
+    public function incrementByKey($server_key, $key, $offset = 1, $initial_value = 0, $expiry = 0)
     {
     }
 
     /**
      * Check if a persitent connection to memcache is being used
      *
-     * @return bool
+     * @return bool Returns true if Memcache instance uses a persistent connection, false otherwise.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1097,7 +1153,7 @@ class Memcached
     /**
      * Check if the instance was recently created
      *
-     * @return bool
+     * @return bool Returns the true if instance is recently created, false otherwise.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1110,11 +1166,13 @@ class Memcached
     /**
      * Prepend data to an existing item
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
+     * @param string $key The key of the item to prepend the data to.
+     * @param string $value The string to prepend.
+     * @param mixed $expiration
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1127,12 +1185,14 @@ class Memcached
     /**
      * Prepend data to an existing item on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key of the item to prepend the data to.
+     * @param string $value The string to prepend.
+     * @param mixed $expiration
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1145,7 +1205,7 @@ class Memcached
     /**
      * Close any open connections
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1158,12 +1218,14 @@ class Memcached
     /**
      * Replace the item under an existing key
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1176,13 +1238,15 @@ class Memcached
     /**
      * Replace the item under an existing key on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * The <code>Memcached::getResultCode</code> will return
+     * <code>Memcached::RES_NOTSTORED</code> if the key does not exist.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1195,7 +1259,7 @@ class Memcached
     /**
      * Clears all servers from the server list
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1208,12 +1272,13 @@ class Memcached
     /**
      * Store an item
      *
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1235,13 +1300,14 @@ class Memcached
     /**
      * Store an item on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $value
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param mixed $value The value to store.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1254,11 +1320,12 @@ class Memcached
     /**
      * Store multiple items
      *
-     * @param array $items
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param array $items An array of key/value pairs to store on the server.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1271,12 +1338,13 @@ class Memcached
     /**
      * Store multiple items on a specific server
      *
-     * @param mixed $server_key
-     * @param array $items
-     * @param mixed|null $expiration
-     * @param mixed|null $udf_flags
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param array $items An array of key/value pairs to store on the server.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
+     * @param mixed $udf_flags
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1289,10 +1357,10 @@ class Memcached
     /**
      * Set a Memcached option
      *
-     * @param mixed $option
+     * @param int $option
      * @param mixed $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 0.1.0
      *
@@ -1305,25 +1373,26 @@ class Memcached
     /**
      * Set Memcached options
      *
-     * @param mixed $options
+     * @param array $options An associative array of options where the key is the option to set and
+     * the value is the new value for the option.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcached >= 2.0.0
      *
      * @link http://www.php.net/manual/en/memcached.setoptions.php
      */
-    public function setOptions($options)
+    public function setOptions(array $options)
     {
     }
 
     /**
      * Set the credentials to use for authentication
      *
-     * @param mixed $username
-     * @param mixed $password
+     * @param string $username The username to use for authentication.
+     * @param string $password The password to use for authentication.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1336,10 +1405,11 @@ class Memcached
     /**
      * Set a new expiration on an item
      *
-     * @param mixed $key
-     * @param mixed $expiration
+     * @param string $key The key under which to store the value.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 2.0.0
      *
@@ -1352,11 +1422,12 @@ class Memcached
     /**
      * Set a new expiration on an item on a specific server
      *
-     * @param mixed $server_key
-     * @param mixed $key
-     * @param mixed $expiration
+     * @param string $server_key The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+     * @param string $key The key under which to store the value.
+     * @param int $expiration The expiration time, defaults to 0. See Expiration Times for more info.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Use <code>Memcached::getResultCode</code> if necessary.
      *
      * @since PECL memcached >= 2.0.0
      *

@@ -35,7 +35,10 @@ class Memcache
     /**
      * Add an item to the server
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Returns <code>FALSE</code> if such key already exist. For the rest
+     * <code>Memcache::add</code> behaves similarly to
+     * <code>Memcache::set</code>.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -48,7 +51,7 @@ class Memcache
     /**
      * Add a memcached server to connection pool
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 2.0.0
      *
@@ -61,7 +64,7 @@ class Memcache
     /**
      * Close memcached server connection
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.4.0
      *
@@ -74,7 +77,7 @@ class Memcache
     /**
      * Open memcached server connection
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -87,7 +90,7 @@ class Memcache
     /**
      * Decrement item's value
      *
-     * @return int
+     * @return int Returns item's new value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -100,7 +103,7 @@ class Memcache
     /**
      * Delete item from the server
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -113,7 +116,7 @@ class Memcache
     /**
      * Flush all existing items at the server
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 1.0.0
      *
@@ -126,7 +129,10 @@ class Memcache
     /**
      * Retrieve item from the server
      *
-     * @return string
+     * @return string Returns the value associated with the <code>key</code> or
+     * an array of found key-value pairs when <code>key</code> is an <code>array</code>.
+     * Returns <code>FALSE</code> on failure, <code>key</code> is not found or
+     * <code>key</code> is an empty <code>array</code>.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -139,7 +145,8 @@ class Memcache
     /**
      * Get statistics from all servers in pool
      *
-     * @return array
+     * @return array Returns a two-dimensional associative array of server statistics or <code>FALSE</code>
+     * on failure.
      *
      * @since PECL memcache >= 2.0.0
      *
@@ -152,7 +159,7 @@ class Memcache
     /**
      * Returns server status
      *
-     * @return int
+     * @return int Returns a the servers status. 0 if server is failed, non-zero otherwise
      *
      * @since PECL memcache >= 2.1.0
      *
@@ -165,7 +172,7 @@ class Memcache
     /**
      * Get statistics of the server
      *
-     * @return array
+     * @return array Returns an associative array of server statistics or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -178,7 +185,7 @@ class Memcache
     /**
      * Return version of the server
      *
-     * @return string
+     * @return string Returns a string of server version number or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -191,7 +198,7 @@ class Memcache
     /**
      * Increment item's value
      *
-     * @return int
+     * @return int Returns new items value on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -204,7 +211,7 @@ class Memcache
     /**
      * Open memcached server persistent connection
      *
-     * @return mixed
+     * @return mixed Returns a Memcache object or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.4.0
      *
@@ -217,7 +224,7 @@ class Memcache
     /**
      * Replace value of the existing item
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -230,7 +237,7 @@ class Memcache
     /**
      * Store data at the server
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 0.2.0
      *
@@ -243,7 +250,7 @@ class Memcache
     /**
      * Enable automatic compression of large values
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 2.0.0
      *
@@ -260,7 +267,7 @@ class Memcache
     /**
      * Changes server parameters and status at runtime
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PECL memcache >= 2.1.0
      *
@@ -290,7 +297,8 @@ function memcache_connect()
 /**
  * Turn debug output on/off
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if PHP was built with --enable-debug option, otherwise
+ * returns <code>FALSE</code>.
  *
  * @link http://www.php.net/manual/en/function.memcache-debug.php
  */

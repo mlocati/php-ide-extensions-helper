@@ -136,23 +136,27 @@ class XSLTProcessor
     /**
      * Get value of a parameter
      *
-     * @param mixed $namespace
-     * @param mixed $name
+     * @param string $namespaceURI The namespace URI of the XSLT parameter.
+     * @param string $localName The local name of the XSLT parameter.
      *
-     * @return string
+     * @return string The value of the parameter (as a string), or <code>FALSE</code> if it's not set.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.getparameter.php
      */
-    public function getParameter($namespace, $name): string
+    public function getParameter(string $namespaceURI, string $localName): string
     {
     }
 
     /**
      * Get security preferences
      *
-     * @return int
+     * @return int A bitmask consisting of <code>XSL_SECPREF_READ_FILE</code>,
+     * <code>XSL_SECPREF_WRITE_FILE</code>,
+     * <code>XSL_SECPREF_CREATE_DIRECTORY</code>,
+     * <code>XSL_SECPREF_READ_NETWORK</code>,
+     * <code>XSL_SECPREF_WRITE_NETWORK</code>.
      *
      * @since PHP >= 5.4.0
      *
@@ -165,7 +169,7 @@ class XSLTProcessor
     /**
      * Determine if PHP has EXSLT support
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.0.4, PHP 7
      *
@@ -178,24 +182,26 @@ class XSLTProcessor
     /**
      * Import stylesheet
      *
-     * @param mixed $doc
+     * @param mixed $stylesheet The imported style sheet as a <code>DOMDocument</code> or
+     * <code>SimpleXMLElement</code> object.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.importstylesheet.php
      */
-    public function importStylesheet($doc): bool
+    public function importStylesheet($stylesheet): bool
     {
     }
 
     /**
      * Enables the ability to use PHP functions as XSLT functions
      *
-     * @param mixed|null $restrict
+     * @param mixed $restrict Use this parameter to only allow certain functions to be called from
+     * XSLT.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.0.4, PHP 7
      *
@@ -208,103 +214,111 @@ class XSLTProcessor
     /**
      * Remove parameter
      *
-     * @param mixed $namespace
-     * @param mixed $name
+     * @param string $namespaceURI The namespace URI of the XSLT parameter.
+     * @param string $localName The local name of the XSLT parameter.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.removeparameter.php
      */
-    public function removeParameter($namespace, $name): bool
+    public function removeParameter(string $namespaceURI, string $localName): bool
     {
     }
 
     /**
      * Set value for a parameter
      *
-     * @param mixed $namespace
-     * @param mixed $name
-     * @param mixed|null $value
+     * @param string $namespace The namespace URI of the XSLT parameter.
+     * @param string $name The local name of the XSLT parameter.
+     * @param string $value The new value of the XSLT parameter.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.setparameter.php
      */
-    public function setParameter($namespace, $name, $value = null): bool
+    public function setParameter(string $namespace, string $name, string $value = null): bool
     {
     }
 
     /**
      * Sets profiling output file
      *
-     * @param mixed $filename
+     * @param string $filename Path to the file to dump profiling information.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP >= 5.3.0
      *
      * @link http://www.php.net/manual/en/xsltprocessor.setprofiling.php
      */
-    public function setProfiling($filename): bool
+    public function setProfiling(string $filename): bool
     {
     }
 
     /**
      * Set security preferences
      *
-     * @param mixed $securityPrefs
+     * @param int $securityPrefs The new security preferences. The following constants can be ORed:
+     * <code>XSL_SECPREF_READ_FILE</code>,
+     * <code>XSL_SECPREF_WRITE_FILE</code>,
+     * <code>XSL_SECPREF_CREATE_DIRECTORY</code>,
+     * <code>XSL_SECPREF_READ_NETWORK</code>,
+     * <code>XSL_SECPREF_WRITE_NETWORK</code>. Alternatively,
+     * <code>XSL_SECPREF_NONE</code> or
+     * <code>XSL_SECPREF_DEFAULT</code> can be passed.
      *
-     * @return int
+     * @return int Returns the old security preferences.
      *
      * @since PHP >= 5.4.0
      *
      * @link http://www.php.net/manual/en/xsltprocessor.setsecurityprefs.php
      */
-    public function setSecurityPrefs($securityPrefs): int
+    public function setSecurityPrefs(int $securityPrefs): int
     {
     }
 
     /**
      * Transform to a DOMDocument
      *
-     * @param mixed $doc
+     * @param DOMNode $doc The node to be transformed.
      *
-     * @return DOMDocument
+     * @return DOMDocument The resulting <code>DOMDocument</code> or <code>FALSE</code> on error.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.transformtodoc.php
      */
-    public function transformToDoc($doc): DOMDocument
+    public function transformToDoc(DOMNode $doc): DOMDocument
     {
     }
 
     /**
      * Transform to URI
      *
-     * @param mixed $doc
-     * @param mixed $uri
+     * @param DOMDocument $doc The document to transform.
+     * @param string $uri The target URI for the transformation.
      *
-     * @return int
+     * @return int Returns the number of bytes written or <code>FALSE</code> if an error occurred.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/xsltprocessor.transformtouri.php
      */
-    public function transformToUri($doc, $uri): int
+    public function transformToUri(DOMDocument $doc, string $uri): int
     {
     }
 
     /**
      * Transform to XML
      *
-     * @param mixed $doc
+     * @param mixed $doc The <code>DOMDocument</code> or <code>SimpleXMLElement</code> object to
+     * be transformed.
      *
-     * @return string
+     * @return string The result of the transformation as a string or <code>FALSE</code> on error.
      *
      * @since PHP 5, PHP 7
      *

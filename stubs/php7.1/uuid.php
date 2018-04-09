@@ -61,7 +61,7 @@ function uuid_compare($uuid1, $uuid2)
 }
 
 /**
- * @param mixed|null $uuid_type
+ * @param mixed $uuid_type
  */
 function uuid_create($uuid_type = null)
 {

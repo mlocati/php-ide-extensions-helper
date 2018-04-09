@@ -540,16 +540,16 @@ class PDO
     /**
      * Creates a PDO instance representing a connection to a database
      *
-     * @param mixed $dsn
-     * @param mixed|null $username
-     * @param mixed|null $passwd
-     * @param mixed|null $options
+     * @param string $dsn
+     * @param string $username
+     * @param string $passwd
+     * @param array $options
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdo.construct.php
      */
-    public function __construct($dsn, $username = null, $passwd = null, $options = null)
+    public function __construct($dsn, $username = null, $passwd = null, array $options = null)
     {
     }
 
@@ -570,7 +570,7 @@ class PDO
     /**
      * Initiates a transaction
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -583,7 +583,7 @@ class PDO
     /**
      * Commits a transaction
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -596,7 +596,23 @@ class PDO
     /**
      * Fetch the SQLSTATE associated with the last operation on the database handle
      *
-     * @return string
+     * @return string Returns an SQLSTATE, a five characters alphanumeric identifier defined in
+     * the ANSI SQL-92 standard. Briefly, an SQLSTATE consists of a
+     * two characters class value followed by a three characters subclass value. A
+     * class value of 01 indicates a warning and is accompanied by a return code
+     * of SQL_SUCCESS_WITH_INFO. Class values other than '01', except for the
+     * class 'IM', indicate an error. The class 'IM' is specific to warnings
+     * and errors that derive from the implementation of PDO (or perhaps ODBC,
+     * if you're using the ODBC driver) itself. The subclass value '000' in any
+     * class indicates that there is no subclass for that SQLSTATE.
+     * <code>PDO::errorCode</code> only retrieves error codes for operations
+     * performed directly on the database handle. If you create a PDOStatement
+     * object through <code>PDO::prepare</code> or
+     * <code>PDO::query</code> and invoke an error on the statement
+     * handle, <code>PDO::errorCode</code> will not reflect that error.
+     * You must call <code>PDOStatement::errorCode</code> to return the error
+     * code for an operation performed on a particular statement handle.
+     * Returns <code>NULL</code> if no operation has been run on the database handle.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -609,7 +625,36 @@ class PDO
     /**
      * Fetch extended error information associated with the last operation on the database handle
      *
-     * @return array
+     * @return array <code>PDO::errorInfo</code> returns an array of error information
+     * about the last operation performed by this database handle. The array
+     * consists of the following fields:
+     * <table>
+     * <thead>
+     * <tr>
+     * <td>Element</td><td>Information</td>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>0</td><td>SQLSTATE error code (a five characters alphanumeric identifier defined
+     * in the ANSI SQL standard).</td>
+     * </tr>
+     * <tr>
+     * <td>1</td><td>Driver-specific error code.</td>
+     * </tr>
+     * <tr>
+     * <td>2</td><td>Driver-specific error message.</td>
+     * </tr>
+     * </tbody>
+     * </table>
+     * <code>PDO::errorInfo</code> only retrieves error information for
+     * operations performed directly on the database handle. If you create a
+     * PDOStatement object through <code>PDO::prepare</code> or
+     * <code>PDO::query</code> and invoke an error on the statement
+     * handle, <code>PDO::errorInfo</code> will not reflect the error
+     * from the statement handle. You must call
+     * <code>PDOStatement::errorInfo</code> to return the error
+     * information for an operation performed on a particular statement handle.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -622,24 +667,50 @@ class PDO
     /**
      * Execute an SQL statement and return the number of affected rows
      *
-     * @param mixed $query
+     * @param string $statement The SQL statement to prepare and execute.
      *
-     * @return int
+     * @return int <code>PDO::exec</code> returns the number of rows that were modified
+     * or deleted by the SQL statement you issued. If no rows were affected,
+     * <code>PDO::exec</code> returns <code>0</code>.
+     * The following example incorrectly relies on the return value of
+     * <code>PDO::exec</code>, wherein a statement that affected 0 rows
+     * results in a call to <code>die</code>:
+     * <blockquote><pre>
+     * &lt;?php
+     * $db-&gt;exec() or die(print_r($db-&gt;errorInfo(), true)); // incorrect
+     * ?&gt;
+     * </pre></blockquote>
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdo.exec.php
      */
-    public function exec($query)
+    public function exec($statement)
     {
     }
 
     /**
      * Retrieve a database connection attribute
      *
-     * @param mixed $attribute
+     * @param int $attribute One of the <code>PDO::ATTR_*</code> constants. The constants that
+     * apply to database connections are as follows:
+     * <ul>
+     * <li><code>PDO::ATTR_AUTOCOMMIT</code></li>
+     * <li><code>PDO::ATTR_CASE</code></li>
+     * <li><code>PDO::ATTR_CLIENT_VERSION</code></li>
+     * <li><code>PDO::ATTR_CONNECTION_STATUS</code></li>
+     * <li><code>PDO::ATTR_DRIVER_NAME</code></li>
+     * <li><code>PDO::ATTR_ERRMODE</code></li>
+     * <li><code>PDO::ATTR_ORACLE_NULLS</code></li>
+     * <li><code>PDO::ATTR_PERSISTENT</code></li>
+     * <li><code>PDO::ATTR_PREFETCH</code></li>
+     * <li><code>PDO::ATTR_SERVER_INFO</code></li>
+     * <li><code>PDO::ATTR_SERVER_VERSION</code></li>
+     * <li><code>PDO::ATTR_TIMEOUT</code></li>
+     * </ul>
      *
-     * @return mixed
+     * @return mixed A successful call returns the value of the requested PDO attribute.
+     * An unsuccessful call returns <code>null</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -652,7 +723,8 @@ class PDO
     /**
      * Return an array of available PDO drivers
      *
-     * @return array
+     * @return array <code>PDO::getAvailableDrivers</code> returns an array of PDO driver names. If
+     * no drivers are available, it returns an empty array.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.3
      *
@@ -665,7 +737,7 @@ class PDO
     /**
      * Checks if inside a transaction
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if a transaction is currently active, and <code>FALSE</code> if not.
      *
      * @since PHP 5 >= 5.3.3, Bundled pdo_pgsql, PHP 7
      *
@@ -678,38 +750,60 @@ class PDO
     /**
      * Returns the ID of the last inserted row or sequence value
      *
-     * @param mixed|null $seqname
+     * @param string|null $name Name of the sequence object from which the ID should be returned.
      *
-     * @return string
+     * @return string If a sequence name was not specified for the <code>name</code>
+     * parameter, <code>PDO::lastInsertId</code> returns a
+     * string representing the row ID of the last row that was inserted into
+     * the database.
+     * If a sequence name was specified for the <code>name</code>
+     * parameter, <code>PDO::lastInsertId</code> returns a
+     * string representing the last value retrieved from the specified sequence
+     * object.
+     * If the PDO driver does not support this capability,
+     * <code>PDO::lastInsertId</code> triggers an
+     * <code>IM001</code> SQLSTATE.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdo.lastinsertid.php
      */
-    public function lastInsertId($seqname = null)
+    public function lastInsertId($name = null)
     {
     }
 
     /**
      * Prepares a statement for execution and returns a statement object
      *
-     * @param mixed $statement
-     * @param mixed|null $options
+     * @param string $statement This must be a valid SQL statement template for the target database server.
+     * @param array|null $driver_options This array holds one or more key=&gt;value pairs to set
+     * attribute values for the PDOStatement object that this method
+     * returns. You would most commonly use this to set the
+     * <code>PDO::ATTR_CURSOR</code> value to
+     * <code>PDO::CURSOR_SCROLL</code> to request a scrollable cursor.
+     * Some drivers have driver specific options that may be set at
+     * prepare-time.
      *
-     * @return PDOStatement
+     * @return PDOStatement If the database server successfully prepares the statement,
+     * <code>PDO::prepare</code> returns a
+     * <code>PDOStatement</code> object.
+     * If the database server cannot successfully prepare the statement,
+     * <code>PDO::prepare</code> returns <code>FALSE</code> or emits
+     * <code>PDOException</code> (depending on error handling).
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdo.prepare.php
      */
-    public function prepare($statement, $options = null)
+    public function prepare($statement, array $driver_options = /* array() */ null)
     {
     }
 
     /**
      * Executes an SQL statement, returning a result set as a PDOStatement object
      *
-     * @return PDOStatement
+     * @return PDOStatement <code>PDO::query</code> returns a PDOStatement object, or <code>FALSE</code>
+     * on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -722,23 +816,25 @@ class PDO
     /**
      * Quotes a string for use in a query
      *
-     * @param mixed $string
-     * @param mixed|null $paramtype
+     * @param string $string The string to be quoted.
+     * @param int|null $parameter_type Provides a data type hint for drivers that have alternate quoting styles.
      *
-     * @return string
+     * @return string Returns a quoted string that is theoretically safe to pass into an
+     * SQL statement. Returns <code>FALSE</code> if the driver does not support quoting in
+     * this way.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.1
      *
      * @link http://www.php.net/manual/en/pdo.quote.php
      */
-    public function quote($string, $paramtype = null)
+    public function quote($string, $parameter_type = PDO::PARAM_STR)
     {
     }
 
     /**
      * Rolls back a transaction
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -751,10 +847,10 @@ class PDO
     /**
      * Set an attribute
      *
-     * @param mixed $attribute
+     * @param int $attribute
      * @param mixed $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -819,13 +915,16 @@ class PDOStatement implements Traversable
     /**
      * Bind a column to a PHP variable
      *
-     * @param mixed $column
-     * @param mixed $param
-     * @param mixed|null $type
-     * @param mixed|null $maxlen
-     * @param mixed|null $driverdata
+     * @param mixed $column Number of the column (1-indexed) or name of the column in the result set.
+     * If using the column name, be aware that the name should match the
+     * case of the column, as returned by the driver.
+     * @param mixed $param Name of the PHP variable to which the column will be bound.
+     * @param int $type Data type of the parameter, specified by the <code>PDO::PARAM_*</code>
+     * constants.
+     * @param int $maxlen A hint for pre-allocation.
+     * @param mixed $driverdata Optional parameter(s) for the driver.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -838,43 +937,58 @@ class PDOStatement implements Traversable
     /**
      * Binds a parameter to the specified variable name
      *
-     * @param mixed $paramno
-     * @param mixed $param
-     * @param mixed|null $type
-     * @param mixed|null $maxlen
-     * @param mixed|null $driverdata
+     * @param mixed $parameter Parameter identifier. For a prepared statement using named
+     * placeholders, this will be a parameter name of the form
+     * <code>:name</code>. For a prepared statement using
+     * question mark placeholders, this will be the 1-indexed position of
+     * the parameter.
+     * @param mixed $variable Name of the PHP variable to bind to the SQL statement parameter.
+     * @param int|null $data_type Explicit data type for the parameter using the <code>PDO::PARAM_*</code>
+     * constants.
+     * To return an INOUT parameter from a stored procedure,
+     * use the bitwise OR operator to set the PDO::PARAM_INPUT_OUTPUT bits
+     * for the <code>data_type</code> parameter.
+     * @param int $length Length of the data type. To indicate that a parameter is an OUT
+     * parameter from a stored procedure, you must explicitly set the
+     * length.
+     * @param mixed $driver_options
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdostatement.bindparam.php
      */
-    public function bindParam($paramno, &$param, $type = null, $maxlen = null, $driverdata = null)
+    public function bindParam($parameter, &$variable, $data_type = PDO::PARAM_STR, $length = null, $driver_options = null)
     {
     }
 
     /**
      * Binds a value to a parameter
      *
-     * @param mixed $paramno
-     * @param mixed $param
-     * @param mixed|null $type
+     * @param mixed $parameter Parameter identifier. For a prepared statement using named
+     * placeholders, this will be a parameter name of the form
+     * <code>:name</code>. For a prepared statement using
+     * question mark placeholders, this will be the 1-indexed position of
+     * the parameter.
+     * @param mixed $value The value to bind to the parameter.
+     * @param int|null $data_type Explicit data type for the parameter using the <code>PDO::PARAM_*</code>
+     * constants.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0
      *
      * @link http://www.php.net/manual/en/pdostatement.bindvalue.php
      */
-    public function bindValue($paramno, $param, $type = null)
+    public function bindValue($parameter, $value, $data_type = PDO::PARAM_STR)
     {
     }
 
     /**
      * Closes the cursor, enabling the statement to be executed again
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0
      *
@@ -887,7 +1001,9 @@ class PDOStatement implements Traversable
     /**
      * Returns the number of columns in the result set
      *
-     * @return int
+     * @return int Returns the number of columns in the result set represented by the
+     * PDOStatement object, even if the result set is empty. If there is no result set,
+     * <code>PDOStatement::columnCount</code> returns <code>0</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -900,7 +1016,7 @@ class PDOStatement implements Traversable
     /**
      * Dump an SQL prepared command
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0
      *
@@ -913,7 +1029,9 @@ class PDOStatement implements Traversable
     /**
      * Fetch the SQLSTATE associated with the last operation on the statement handle
      *
-     * @return string
+     * @return string Identical to <code>PDO::errorCode</code>, except that
+     * <code>PDOStatement::errorCode</code> only retrieves error codes
+     * for operations performed with PDOStatement objects.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -926,7 +1044,28 @@ class PDOStatement implements Traversable
     /**
      * Fetch extended error information associated with the last operation on the statement handle
      *
-     * @return array
+     * @return array <code>PDOStatement::errorInfo</code> returns an array of
+     * error information about the last operation performed by this
+     * statement handle. The array consists of the following fields:
+     * <table>
+     * <thead>
+     * <tr>
+     * <td>Element</td><td>Information</td>
+     * </tr>
+     * </thead>
+     * <tbody>
+     * <tr>
+     * <td>0</td><td>SQLSTATE error code (a five characters alphanumeric identifier defined
+     * in the ANSI SQL standard).</td>
+     * </tr>
+     * <tr>
+     * <td>1</td><td>Driver specific error code.</td>
+     * </tr>
+     * <tr>
+     * <td>2</td><td>Driver specific error message.</td>
+     * </tr>
+     * </tbody>
+     * </table>
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -939,89 +1078,168 @@ class PDOStatement implements Traversable
     /**
      * Executes a prepared statement
      *
-     * @param mixed|null $bound_input_params
+     * @param array $input_parameters An array of values with as many elements as there are bound
+     * parameters in the SQL statement being executed.
+     * All values are treated as <code>PDO::PARAM_STR</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdostatement.execute.php
      */
-    public function execute($bound_input_params = null)
+    public function execute(array $input_parameters = null)
     {
     }
 
     /**
      * Fetches the next row from a result set
      *
-     * @param mixed|null $how
-     * @param mixed|null $orientation
-     * @param mixed|null $offset
+     * @param int $fetch_style Controls how the next row will be returned to the caller. This value
+     * must be one of the <code>PDO::FETCH_*</code> constants,
+     * defaulting to value of <code>PDO::ATTR_DEFAULT_FETCH_MODE</code>
+     * (which defaults to <code>PDO::FETCH_BOTH</code>).
+     * <ul>
+     * <code>PDO::FETCH_ASSOC</code>: returns an array indexed by column
+     * name as returned in your result set
+     * <code>PDO::FETCH_BOTH</code> (default): returns an array indexed by
+     * both column name and 0-indexed column number as returned in your
+     * result set
+     * <code>PDO::FETCH_BOUND</code>: returns <code>TRUE</code> and assigns the
+     * values of the columns in your result set to the PHP variables to which
+     * they were bound with the <code>PDOStatement::bindColumn</code>
+     * method
+     * <code>PDO::FETCH_CLASS</code>: returns a new instance of the
+     * requested class, mapping the columns of the result set to named
+     * properties in the class, and calling the constructor afterwards, unless
+     * <code>PDO::FETCH_PROPS_LATE</code> is also given.
+     * If <code>fetch_style</code>
+     * includes PDO::FETCH_CLASSTYPE (e.g. <code>PDO::FETCH_CLASS |
+     * PDO::FETCH_CLASSTYPE</code>) then the name of the class is
+     * determined from a value of the first column.
+     * <code>PDO::FETCH_INTO</code>: updates an existing instance
+     * of the requested class, mapping the columns of the result set to
+     * named properties in the class
+     * <code>PDO::FETCH_LAZY</code>: combines
+     * <code>PDO::FETCH_BOTH</code> and <code>PDO::FETCH_OBJ</code>,
+     * creating the object variable names as they are accessed
+     * <code>PDO::FETCH_NAMED</code>: returns an array with the same
+     * form as <code>PDO::FETCH_ASSOC</code>, except that if there are
+     * multiple columns with the same name, the value referred to by that
+     * key will be an array of all the values in the row that had that
+     * column name
+     * <code>PDO::FETCH_NUM</code>: returns an array indexed by column
+     * number as returned in your result set, starting at column 0
+     * <code>PDO::FETCH_OBJ</code>: returns an anonymous object with
+     * property names that correspond to the column names returned in your
+     * result set
+     * <code>PDO::FETCH_PROPS_LATE</code>: when used with
+     * <code>PDO::FETCH_CLASS</code>, the constructor of the class is
+     * called before the properties are assigned from the respective column
+     * values.
+     * </ul>
+     * @param int|null $cursor_orientation For a PDOStatement object representing a scrollable cursor, this
+     * value determines which row will be returned to the caller. This value
+     * must be one of the <code>PDO::FETCH_ORI_*</code> constants,
+     * defaulting to <code>PDO::FETCH_ORI_NEXT</code>. To request a
+     * scrollable cursor for your PDOStatement object, you must set the
+     * <code>PDO::ATTR_CURSOR</code> attribute to
+     * <code>PDO::CURSOR_SCROLL</code> when you prepare the SQL
+     * statement with <code>PDO::prepare</code>.
+     * @param int|null $cursor_offset
      *
-     * @return mixed
+     * @return mixed The return value of this function on success depends on the fetch type. In
+     * all cases, <code>FALSE</code> is returned on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdostatement.fetch.php
      */
-    public function fetch($how = null, $orientation = null, $offset = null)
+    public function fetch($fetch_style = null, $cursor_orientation = PDO::FETCH_ORI_NEXT, $cursor_offset = 0)
     {
     }
 
     /**
      * Returns an array containing all of the result set rows
      *
-     * @param mixed|null $how
-     * @param mixed|null $class_name
-     * @param mixed|null $ctor_args
+     * @param int $fetch_style Controls the contents of the returned array as documented in
+     * <code>PDOStatement::fetch</code>.
+     * Defaults to value of <code>PDO::ATTR_DEFAULT_FETCH_MODE</code>
+     * (which defaults to <code>PDO::FETCH_BOTH</code>)
+     * @param mixed $fetch_argument This argument has a different meaning depending on the value of
+     * the <code>fetch_style</code> parameter:
+     * <ul>
+     * <code>PDO::FETCH_COLUMN</code>: Returns the indicated 0-indexed
+     * column.
+     * <code>PDO::FETCH_CLASS</code>: Returns instances of the specified
+     * class, mapping the columns of each row to named properties in the class.
+     * <code>PDO::FETCH_FUNC</code>: Returns the results of calling the
+     * specified function, using each row's columns as parameters in the call.
+     * </ul>
+     * @param array|null $ctor_args Arguments of custom class constructor when the <code>fetch_style</code>
+     * parameter is <code>PDO::FETCH_CLASS</code>.
      *
-     * @return array
+     * @return array <code>PDOStatement::fetchAll</code> returns an array containing
+     * all of the remaining rows in the result set. The array represents each
+     * row as either an array of column values or an object with properties
+     * corresponding to each column name. An empty array is returned if there
+     * are zero results to fetch, or <code>FALSE</code> on failure.
+     * Using this method to fetch large result sets will result in a heavy
+     * demand on system and possibly network resources. Rather than retrieving
+     * all of the data and manipulating it in PHP, consider using the database
+     * server to manipulate the result sets. For example, use the WHERE and
+     * ORDER BY clauses in SQL to restrict results before retrieving and
+     * processing them with PHP.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
      * @link http://www.php.net/manual/en/pdostatement.fetchall.php
      */
-    public function fetchAll($how = null, $class_name = null, $ctor_args = null)
+    public function fetchAll($fetch_style = null, $fetch_argument = null, array $ctor_args = /* array() */ null)
     {
     }
 
     /**
      * Returns a single column from the next row of a result set
      *
-     * @param mixed|null $column_number
+     * @param int|null $column_number 0-indexed number of the column you wish to retrieve from the row. If
+     * no value is supplied, <code>PDOStatement::fetchColumn</code>
+     * fetches the first column.
      *
-     * @return mixed
+     * @return mixed <code>PDOStatement::fetchColumn</code> returns a single column
+     * from the next row of a result set or <code>FALSE</code> if there are no more rows.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0
      *
      * @link http://www.php.net/manual/en/pdostatement.fetchcolumn.php
      */
-    public function fetchColumn($column_number = null)
+    public function fetchColumn($column_number = 0)
     {
     }
 
     /**
      * Fetches the next row and returns it as an object
      *
-     * @param mixed|null $class_name
-     * @param mixed|null $ctor_args
+     * @param string|null $class_name Name of the created class.
+     * @param array $ctor_args Elements of this array are passed to the constructor.
      *
-     * @return mixed
+     * @return mixed Returns an instance of the required class with property names that
+     * correspond to the column names or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.4
      *
      * @link http://www.php.net/manual/en/pdostatement.fetchobject.php
      */
-    public function fetchObject($class_name = null, $ctor_args = null)
+    public function fetchObject($class_name = "stdClass", array $ctor_args = null)
     {
     }
 
     /**
      * Retrieve a statement attribute
      *
-     * @param mixed $attribute
+     * @param int $attribute
      *
-     * @return mixed
+     * @return mixed Returns the attribute value.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -1034,9 +1252,12 @@ class PDOStatement implements Traversable
     /**
      * Returns metadata for a column in a result set
      *
-     * @param mixed $column
+     * @param int $column The 0-indexed column in the result set.
      *
-     * @return array
+     * @return array Returns an associative array containing the following values representing
+     * the metadata for a single column:
+     * Returns <code>FALSE</code> if the requested column does not exist in the result set,
+     * or if no result set exists.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -1049,7 +1270,7 @@ class PDOStatement implements Traversable
     /**
      * Advances to the next rowset in a multi-rowset statement handle
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -1062,7 +1283,7 @@ class PDOStatement implements Traversable
     /**
      * Returns the number of rows affected by the last SQL statement
      *
-     * @return int
+     * @return int Returns the number of rows.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
      *
@@ -1075,10 +1296,10 @@ class PDOStatement implements Traversable
     /**
      * Set a statement attribute
      *
-     * @param mixed $attribute
+     * @param int $attribute
      * @param mixed $value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -1091,10 +1312,10 @@ class PDOStatement implements Traversable
     /**
      * Set the default fetch mode for this statement
      *
-     * @param mixed $mode
-     * @param mixed|null $params
+     * @param int $mode The fetch mode must be one of the <code>PDO::FETCH_*</code> constants.
+     * @param mixed $params
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
      *
@@ -1108,7 +1329,8 @@ class PDOStatement implements Traversable
 /**
  * Return an array of available PDO drivers
  *
- * @return array
+ * @return array <code>PDO::getAvailableDrivers</code> returns an array of PDO driver names. If
+ * no drivers are available, it returns an empty array.
  *
  * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0
  *

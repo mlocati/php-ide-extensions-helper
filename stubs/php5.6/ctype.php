@@ -6,9 +6,10 @@
 /**
  * Check for alphanumeric character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is either
+ * a letter or a digit, <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -21,9 +22,10 @@ function ctype_alnum($text)
 /**
  * Check for alphabetic character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * a letter from the current locale, <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -36,9 +38,10 @@ function ctype_alpha($text)
 /**
  * Check for control character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * a control character from the current locale, <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -51,9 +54,10 @@ function ctype_cntrl($text)
 /**
  * Check for numeric character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in the string
+ * <code>text</code> is a decimal digit, <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -66,9 +70,11 @@ function ctype_digit($text)
 /**
  * Check for any printable character(s) except space
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * printable and actually creates visible output (no white space), <code>FALSE</code>
+ * otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -81,9 +87,10 @@ function ctype_graph($text)
 /**
  * Check for lowercase character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * a lowercase letter in the current locale.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -96,9 +103,12 @@ function ctype_lower($text)
 /**
  * Check for printable character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code>
+ * will actually create output (including blanks). Returns <code>FALSE</code> if
+ * <code>text</code> contains control characters or characters
+ * that do not have any output or control function at all.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -112,9 +122,10 @@ function ctype_print($text)
  * Check for any printable character which is not whitespace or an
  * alphanumeric character
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code>
+ * is printable, but neither letter, digit or blank, <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -127,9 +138,12 @@ function ctype_punct($text)
 /**
  * Check for whitespace character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code>
+ * creates some sort of white space, <code>FALSE</code> otherwise. Besides the
+ * blank character this also includes tab, vertical tab, line feed,
+ * carriage return and form feed characters.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -142,9 +156,10 @@ function ctype_space($text)
 /**
  * Check for uppercase character(s)
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * an uppercase letter in the current locale.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -157,9 +172,11 @@ function ctype_upper($text)
 /**
  * Check for character(s) representing a hexadecimal digit
  *
- * @param mixed $text
+ * @param string $text The tested string.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if every character in <code>text</code> is
+ * a hexadecimal 'digit', that is a decimal digit or a character from
+ * <code>[A-Fa-f]</code> , <code>FALSE</code> otherwise.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *

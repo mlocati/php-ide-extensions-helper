@@ -48,28 +48,28 @@ function xdebug_break()
 }
 
 /**
- * @param mixed|null $depth
+ * @param mixed $depth
  */
 function xdebug_call_class($depth = null)
 {
 }
 
 /**
- * @param mixed|null $depth
+ * @param mixed $depth
  */
 function xdebug_call_file($depth = null)
 {
 }
 
 /**
- * @param mixed|null $depth
+ * @param mixed $depth
  */
 function xdebug_call_function($depth = null)
 {
 }
 
 /**
- * @param mixed|null $depth
+ * @param mixed $depth
  */
 function xdebug_call_line($depth = null)
 {
@@ -102,7 +102,7 @@ function xdebug_disable()
 }
 
 /**
- * @param mixed|null $prefix
+ * @param mixed $prefix
  */
 function xdebug_dump_aggr_profiling_data($prefix = null)
 {
@@ -121,7 +121,7 @@ function xdebug_get_code_coverage()
 }
 
 /**
- * @param mixed|null $clear
+ * @param mixed $clear
  */
 function xdebug_get_collected_errors($clear = null)
 {
@@ -148,7 +148,7 @@ function xdebug_get_headers()
 }
 
 /**
- * @param mixed|null $clear
+ * @param mixed $clear
  */
 function xdebug_get_monitored_functions($clear = null)
 {
@@ -179,15 +179,15 @@ function xdebug_peak_memory_usage()
 }
 
 /**
- * @param mixed|null $message
- * @param mixed|null $options
+ * @param mixed $message
+ * @param mixed $options
  */
 function xdebug_print_function_stack($message = null, $options = null)
 {
 }
 
 /**
- * @param mixed|null $options
+ * @param mixed $options
  */
 function xdebug_start_code_coverage($options = null)
 {
@@ -205,15 +205,15 @@ function xdebug_start_function_monitor($functions_to_monitor)
 }
 
 /**
- * @param mixed|null $fname
- * @param mixed|null $options
+ * @param mixed $fname
+ * @param mixed $options
  */
 function xdebug_start_trace($fname = null, $options = null)
 {
 }
 
 /**
- * @param mixed|null $cleanup
+ * @param mixed $cleanup
  */
 function xdebug_stop_code_coverage($cleanup = null)
 {

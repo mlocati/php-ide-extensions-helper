@@ -862,13 +862,20 @@ EOF
 
         $fullInfo = new PHPManualMergedFunction($extensionElement, $functionElement, $parentElement, $info);
 
+        $returnPHPDoc = '';
         $returnType = $this->typeFormatter->format($fullInfo->rawReturnType, $fullInfo->returnTypeAllowsNull, $namespace, TypeFormatter::PLACE_DOC_RETURNTYPE);
+        if ($returnType !== '') {
+            $returnPHPDoc = "@return $returnType";
+            if ($info !== null && $info->functionReturnDescription !== '') {
+                $returnPHPDoc .= ' ' . $info->functionReturnDescription;
+            }
+        }
 
         $this->currentWriter->writePHPDocParts(array(
             $info !== null ? $info->description : '',
             $this->getOSTagWarning($extensionElement, $functionElement),
             $fullInfo->getParametersPHPDoc($namespace, $this->typeFormatter),
-            $returnType === '' ? '' : "@return $returnType",
+            $returnPHPDoc,
             $fullInfo->getVersionPHPDoc(),
             $info !== null && $info->url !== '' ? '@link ' . $info->url : ''
         ));
@@ -1406,7 +1413,7 @@ class PHPManual
     <xsl:template match="entry"><td><xsl:apply-templates select="@*|node()" /></td></xsl:template>
     <xsl:template match="variablelist|simplelist|itemizedlist"><ul><xsl:apply-templates select="@*|node()" /></ul></xsl:template>
     <xsl:template match="varlistentry|member"><li><xsl:apply-templates select="@*|node()" /></li></xsl:template>
-    <xsl:template match="refpurpose|para|simpara|listitem"><xsl:apply-templates select="@*|node()" />
+    <xsl:template match="refpurpose|para|simpara|listitem"><xsl:apply-templates select="node()" />
 </xsl:template>
     <xsl:template match="property|interfacename|filename|emphasis|varname|modifier|classname|literal|constant|option|acronym|function|methodname|type|parameter|term"><code><xsl:apply-templates select="@*|node()" /></code></xsl:template>
     <xsl:template match="ooclass"><xsl:apply-templates select="node()" /></xsl:template>
@@ -1416,7 +1423,7 @@ class PHPManual
     <xsl:template match="note|example"><blockquote><xsl:apply-templates select="node()" /></blockquote></xsl:template>
     <xsl:template match="programlisting|screen"><blockquote><pre><xsl:apply-templates select="node()" /></pre></blockquote></xsl:template>
     <xsl:template match="quote"><q><xsl:apply-templates select="node()" /></q></xsl:template>
-
+    <xsl:template match="warning">WARNING: <xsl:apply-templates select="node()" /></xsl:template>
 </xsl:stylesheet>
 EOT
 );
@@ -1446,6 +1453,11 @@ EOT
         $str = preg_replace('/ ?\n ?/s', "\n", $str);
         // Reduce multiple new-lines to 1
         $str = preg_replace('/\n\n+/s', "\n", $str);
+        // Table cells on same line
+        $str = preg_replace('%</td>\n<td%s', '</td><td', $str);
+        // Escape comments
+        $str = str_replace('/*', '&#47;&#42;', $str);
+        $str = str_replace('*/', '&#42;&#47;', $str);
 
         return trim($str);
     }
@@ -1533,8 +1545,7 @@ EOT
                             continue 2;
                     }
                     $xmlDocument = $this->loadXmlFile($xmlFile);
-                    $xPath = new DOMXPath($xmlDocument);
-                    $xPath->registerNamespace('ns', 'http://docbook.org/ns/docbook');
+                    $xPath = new MyDOMXPath($xmlDocument, 'http://docbook.org/ns/docbook');
                     $this->parseVersions($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                     $this->parseConstants($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                     $this->parseClasses($xmlFileRelativePath, $xmlDocument, $xPath, $result);
@@ -1554,7 +1565,7 @@ EOT
      * @param $xmlDocument $xPath
      * @param PHPManualItems $items
      */
-    private function parseVersions($xmlFileRelativePath, DOMDocument $xmlDocument, DOMXPath $xPath, PHPManualItems $items)
+    private function parseVersions($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
         if ($xmlDocument->documentElement->nodeName === 'versions') {
             foreach ($xmlDocument->documentElement->childNodes as $xmlVersion) {
@@ -1595,7 +1606,7 @@ EOT
      * @param $xmlDocument $xPath
      * @param PHPManualItems $items
      */
-    private function parseConstants($xmlFileRelativePath, DOMDocument $xmlDocument, DOMXPath $xPath, PHPManualItems $items)
+    private function parseConstants($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
         if (preg_match('/[^a-zA-Z0-9]constants([-.]\w+)?\.xml$/', $xmlFileRelativePath) || substr($xmlFileRelativePath, - strlen('/file-upload.xml')) === '/file-upload.xml' || substr($xmlFileRelativePath, - strlen('/appendices/tokens.xml')) === '/appendices/tokens.xml') {
             foreach (array(
@@ -1616,9 +1627,9 @@ EOT
                         $item->url = $this->getManualURL($xmlConstant, $xPath);
                     }
                     if ($item->description === '') {
-                        $listItem = $xPath->query($searchPattern[1], $xmlConstant);
-                        if ($listItem->length > 0) {
-                            $item->description = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($listItem[0]));
+                        $listItem = $xPath->queryFirstElement($searchPattern[1], $xmlConstant);
+                        if ($listItem !== null) {
+                            $item->description = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($listItem));
                         }
                     }
                 }
@@ -1634,7 +1645,7 @@ EOT
      * @param $xmlDocument $xPath
      * @param PHPManualItems $items
      */
-    private function parseClasses($xmlFileRelativePath, DOMDocument $xmlDocument, DOMXPath $xPath, PHPManualItems $items)
+    private function parseClasses($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
         if ((strpos($xmlFileRelativePath, '/language/') === 0 || strpos($xmlFileRelativePath, '/reference/') === 0) && $xmlDocument->documentElement->localName !== 'book') {
             foreach ($xPath->query('//ns:titleabbrev') as $titleAbbrevElement) {
@@ -1663,39 +1674,95 @@ EOT
      * @param $xmlDocument $xPath
      * @param PHPManualItems $items
      */
-    private function parseFunctions($xmlFileRelativePath, DOMDocument $xmlDocument, DOMXPath $xPath, PHPManualItems $items)
+    private function parseFunctions($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
-        if (strpos($xmlFileRelativePath, '/reference/') === 0) {
-            foreach ($xPath->query('//ns:refentry//ns:refname') as $refNameElement) {
-                $refPurposeList = $xPath->query('../ns:refpurpose', $refNameElement);
-                if ($refPurposeList->length > 0) {
-                    $name = $this->normalizeFunctionName($refNameElement->nodeValue);
-                    $item = $items->getOrCreate($name, PHPManualItem::TYPE_CLASSMETHOD | PHPManualItem::TYPE_GLOBALFUNCTION, true);
-                    if ($item->url === '') {
-                        $item->url = $this->getManualURL($refNameElement, $xPath);
-                    }
-                    if ($item->description === '') {
-                        foreach ($refPurposeList as $refPurpose) {
-                            $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($refPurpose));
-                            if ($item->description !== '') {
-                                break;
+        foreach ($xPath->query('//ns:refentry//ns:refname') as $refName) {
+            $refPurpose = $xPath->queryFirstElement('../ns:refpurpose', $refName);
+            if ($refPurpose !== null) {
+                $refEntry = $xPath->queryFirstElement('./ancestor::ns:refentry', $refName);
+                $name = $this->normalizeFunctionName($refName->nodeValue);
+                $item = $items->getOrCreate($name, PHPManualItem::TYPE_CLASSMETHOD | PHPManualItem::TYPE_GLOBALFUNCTION, true);
+                if ($item->url === '') {
+                    $item->url = $this->getManualURL($refName, $xPath);
+                }
+                if ($item->description === '') {
+                    $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($refPurpose));
+                }
+                if (substr($name, - strlen('::__construct')) === '::__construct') {
+                    $synopsisName = 'constructorsynopsis';
+                } elseif (substr($name, - strlen('::__destruct')) === '::__destruct') {
+                    $synopsisName = 'destructorsynopsis';
+                } else {
+                    $synopsisName = 'methodsynopsis';
+                }
+                $synopsis = $xPath->queryFirstElement('.//ns:refsect1[@role="description"]//ns:' . $synopsisName, $refEntry);
+                if ($synopsis !== null && $item->functionParameters === []) {
+                    foreach ($xPath->query('.//ns:methodparam', $synopsis) as $xmlParam) {
+                        $parameterItem = new PHPManualFunctionParameter();
+                        $xmlType = $xPath->queryFirstElement('.//ns:type', $xmlParam);
+                        if ($xmlType !== null) {
+                            $parameterItem->type = trim($xmlType->nodeValue);
+                        }
+                        $xmlName = $xPath->queryFirstElement('.//ns:parameter', $xmlParam);
+                        if ($xmlName !== null) {
+                            $parameterItem->name = str_replace('...', '', ltrim(trim($xmlName->nodeValue), '$'));
+                        }
+                        $xmlDefaultValue = $xPath->queryFirstElement('.//ns:initializer', $xmlParam);
+                        if ($xmlDefaultValue !== null) {
+                            $defaultValue = trim($xmlDefaultValue->nodeValue);
+                            switch ($defaultValue) {
+                                case 'FALSE':
+                                    $parameterItem->defaultValue = 'false';
+                                    break;
+                                case 'TRUE':
+                                    $parameterItem->defaultValue = 'true';
+                                    break;
+                                case 'NULL':
+                                    $parameterItem->defaultValue = 'null';
+                                    break;
+                                default:
+                                    $parameterItem->defaultValue = $defaultValue;
+                                    break;
                             }
                         }
+                        $item->functionParameters[] = $parameterItem;
                     }
-                    if ($item->functionReturnType === '') {
-                        $refSect1List = $xPath->query('//ns:refsect1[@role="description"]');
-                        if ($refSect1List->length > 0) {
-                            $refSect1 = $refSect1List->item(0);
-                            $methodSynopsisTypes = $xPath->query('./ns:methodsynopsis//ns:type', $refSect1);
-                            if ($methodSynopsisTypes->length > 0) {
-                                $methodSynopsisType = $methodSynopsisTypes->item(0);
-                                $methodNames = $xPath->query('../ns:methodname', $methodSynopsisType);
-                                if ($methodNames->length > 0) {
-                                    $item->functionReturnType = $methodSynopsisType->nodeValue;
+                    $parametersSection = $xPath->queryFirstElement('.//ns:refsect1[@role="parameters"]', $refEntry);
+                    if ($parametersSection !== null) {
+                        $index = 0;
+                        foreach ($xPath->query('.//ns:varlistentry', $parametersSection) as $varListEntry) {
+                            $termParameter = $xPath->queryFirstElement('.//ns:term/ns:parameter', $varListEntry);
+                            if ($termParameter !== null) {
+                                $parameterName = str_replace('...', '', ltrim(trim($termParameter->nodeValue), '$'));
+                                foreach ($item->functionParameters as $parameterItemIndex => $parameterItem) {
+                                    if ($parameterItem->name === $parameterName && ($parameterName !== '' || $index === $parameterItemIndex)) {
+                                        $para = $xPath->queryFirstElement('../../ns:listitem//ns:para', $termParameter);
+                                        if ($para !== null) {
+                                            $parameterItem->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($para));
+                                        }
+                                        break;
+                                    }
                                 }
                             }
+                            $index ++;
                         }
                     }
+                }
+                if ($synopsis !== null && $item->functionReturnType === '') {
+                    $synopsisType = $xPath->queryFirstElement('./ns:type', $synopsis);
+                    if ($synopsisType !== null) {
+                        $methodNames = $xPath->query('../ns:methodname', $synopsisType);
+                        if ($methodNames->length > 0) {
+                            $item->functionReturnType = $synopsisType->nodeValue;
+                        }
+                    }
+                }
+                if ($item->functionReturnDescription === '') {
+                    $parts = array();
+                    foreach ($xPath->query('.//ns:refsect1[@role="returnvalues"]/ns:para', $refEntry) as $para) {
+                        $parts[] = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($para));
+                    }
+                    $item->functionReturnDescription = implode("\n", $parts);
                 }
             }
         }
@@ -1717,15 +1784,14 @@ EOT
      * Get the URL of the PHP manual corresponding to an XML element.
      *
      * @param DOMElement $xmlElement
-     * @param DOMXPath $xPath
+     * @param MyDOMXPath $xPath
      *
      * @return string
      */
-    private function getManualURL(DOMElement $xmlElement, DOMXPath $xPath = null)
+    private function getManualURL(DOMElement $xmlElement, MyDOMXPath $xPath = null)
     {
         if ($xPath === null) {
-            $xPath = new DOMXPath($xmlElement->ownerDocument);
-            $xPath->registerNamespace('ns', 'http://docbook.org/ns/docbook');
+            $xPath = new MyDOMXPath($xmlElement->ownerDocument, 'http://docbook.org/ns/docbook');
         }
         $result = '';
         $rootID = '';
@@ -2043,6 +2109,13 @@ class PHPManualItem
     public $functionReturnTypeAllowsNull;
 
     /**
+     * A description of the function/method result.
+     *
+     * @var string
+     */
+    public $functionReturnDescription = '';
+
+    /**
      * Generate the PHPDoc for since/deprecated data.
      *
      * @param bool $forceDeprecated
@@ -2255,7 +2328,14 @@ class PHPManualMergedFunctionParameter
     public $variadic;
 
     /**
-     * The default parameter value (set if and only if the parameter is optional).
+     * Is this parameter optional?
+     *
+     * @var bool
+     */
+    public $isOptional;
+
+    /**
+     * The default parameter value (set if the parameter is optional).
      *
      * @property-read
      *
@@ -2269,23 +2349,24 @@ class PHPManualMergedFunctionParameter
         if ($this->name === '') {
             $this->name = $xmlParameter->getAttribute('name');
         }
-        $this->description = $manualParameter === null ? '' : $manualParameter->name;
+        $this->description = $manualParameter === null ? '' : $manualParameter->description;
         $this->rawType = $xmlParameter->getAttribute('type');
         if ($this->rawType === '' && $manualParameter !== null) {
             $this->rawType = $manualParameter->type;
         }
         $this->byReference = $xmlParameter->getAttribute('byReference') === 'true';
         $this->variadic = $xmlParameter->getAttribute('variadic') === 'true';
-        $this->rawDefaultValue = '';
         $this->defaultValue = '';
         if ($this->variadic === false) {
             // Variadic parameter cannot have a default value
-            if ($xmlParameter->getAttribute('allowsNull') === 'true' || $xmlParameter->getAttribute('optional') === 'true') {
+            $this->isOptional = $xmlParameter->getAttribute('optional') === 'true';
+            if ($manualParameter !== null && $manualParameter->defaultValue !== '') {
+                $this->defaultValue = $manualParameter->defaultValue;
+            } else if ($xmlParameter->getAttribute('allowsNull') === 'true') {
                 $this->defaultValue = 'null';
-                if ($manualParameter !== null && $manualParameter->defaultValue !== '') {
-                    $this->defaultValue = $manualParameter->defaultValue;
-                }
             }
+        } else {
+            $this->isOptional = false;
         }
     }
 
@@ -2324,7 +2405,14 @@ class PHPManualMergedFunctionParameter
         }
         $result .= '$' . $this->name;
         if ($this->defaultValue !== '') {
-            $result .= ' = ' . $this->defaultValue;
+            $result .= ' = ';
+            if (strpos($this->defaultValue, '(') === false) {
+                $result .= $this->defaultValue;
+            } else {
+                $result .= "/* {$this->defaultValue} */ null";
+            }
+        } elseif ($this->isOptional) {
+            $result .= ' = null';
         }
         return $result;
     }
@@ -2577,7 +2665,7 @@ class TypeFormatter
                     case self::PLACE_DOC_PARAMETER:
                         $parts = array();
                         foreach ($chunks as $chunk) {
-                            $parts = array_merge($parts, $this->format($chunk, $allowsNull, $currentNamespace, $place));
+                            $parts = array_merge($parts, explode('|', $this->format($chunk, $allowsNull, $currentNamespace, $place)));
                         }
                         $parts = array_unique($parts);
                         $result = implode('|', $parts);
@@ -3065,6 +3153,64 @@ trait VerboseTrait
 
 class UserMessageException extends Exception
 {
+}
+
+/**
+ * Wrapper class for DOMXPath
+ */
+class MyDOMXPath
+{
+
+    /**
+     *
+     * @var DOMXPath
+     */
+    private $xPath;
+
+    /**
+     * Initialize the instance.
+     *
+     * @param DOMDocument $document
+     * @param string $namespace
+     */
+    public function __construct(DOMDocument $document, $namespace)
+    {
+        $this->xPath = new DOMXPath($document);
+        $this->xPath->registerNamespace('ns', $namespace);
+    }
+
+    /**
+     * Evaluates the given XPath expression.
+     *
+     * @param string $expression
+     * @param DOMNode $contextNode
+     * @return DOMNodeList|DOMNode[]
+     */
+    public function query($expression, DOMNode $contextNode = null)
+    {
+        return $this->xPath->query($expression, $contextNode);
+    }
+
+    /**
+     * Evaluates the given XPath expression.
+     *
+     * @param string $expression
+     * @param DOMNode $contextNode
+     * @return DOMElement|null
+     */
+    public function queryFirstElement($expression, DOMNode $contextNode = null)
+    {
+        $result = null;
+        $list = $this->query($expression, $contextNode);
+        if ($list->length > 0) {
+            $item = $list->item(0);
+            if ($item->nodeType === XML_ELEMENT_NODE) {
+                $result = $item;
+            }
+        }
+
+        return $result;
+    }
 }
 
 $error = null;

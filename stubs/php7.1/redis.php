@@ -412,8 +412,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -677,8 +677,8 @@ class Redis
 
     /**
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -811,8 +811,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -993,8 +993,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1516,8 +1516,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1734,8 +1734,8 @@ class RedisCluster
     /**
      * @param mixed $i_iterator
      * @param mixed $str_node
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
@@ -1824,8 +1824,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1956,8 +1956,8 @@ class RedisCluster
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {

@@ -3307,8 +3307,8 @@ class CURLFile
      * Create a CURLFile object
      *
      * @param mixed $filename
-     * @param mixed|null $mimetype
-     * @param mixed|null $postname
+     * @param mixed $mimetype
+     * @param mixed $postname
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3321,7 +3321,7 @@ class CURLFile
     /**
      * Unserialization handler
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3334,7 +3334,7 @@ class CURLFile
     /**
      * Get file name
      *
-     * @return string
+     * @return string Returns file name.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3347,7 +3347,7 @@ class CURLFile
     /**
      * Get MIME type
      *
-     * @return string
+     * @return string Returns MIME type.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3360,7 +3360,7 @@ class CURLFile
     /**
      * Get file name for POST
      *
-     * @return string
+     * @return string Returns file name for POST.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3373,30 +3373,30 @@ class CURLFile
     /**
      * Set MIME type
      *
-     * @param mixed $name
+     * @param string $mime MIME type to be used in POST data.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/curlfile.setmimetype.php
      */
-    public function setMimeType($name): void
+    public function setMimeType(string $mime): void
     {
     }
 
     /**
      * Set file name for POST
      *
-     * @param mixed $name
+     * @param string $postname Filename to be used in POST data.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/curlfile.setpostfilename.php
      */
-    public function setPostFilename($name): void
+    public function setPostFilename(string $postname): void
     {
     }
 }
@@ -3404,9 +3404,10 @@ class CURLFile
 /**
  * Close a cURL session
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *
@@ -3419,9 +3420,10 @@ function curl_close($ch): void
 /**
  * Copy a cURL handle along with all of its preferences
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return resource
+ * @return resource Returns a new cURL handle.
  *
  * @since PHP 5, PHP 7
  *
@@ -3434,9 +3436,11 @@ function curl_copy_handle($ch)
 /**
  * Return the last error number
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return int
+ * @return int Returns the error number or <code>0</code> (zero) if no error
+ * occurred.
  *
  * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
  *
@@ -3449,9 +3453,11 @@ function curl_errno($ch): int
 /**
  * Return a string containing the last error for the current session
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return string
+ * @return string Returns the error message or <code>''</code> (the empty string) if no
+ * error occurred.
  *
  * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
  *
@@ -3464,25 +3470,29 @@ function curl_error($ch): string
 /**
  * URL encodes the given string
  *
- * @param mixed $ch
- * @param mixed $str
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param string $str The string to be encoded.
  *
- * @return string
+ * @return string Returns escaped string or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-escape.php
  */
-function curl_escape($ch, $str): string
+function curl_escape($ch, string $str): string
 {
 }
 
 /**
  * Perform a cURL session
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return mixed
+ * @return mixed Returns <code>TRUE</code> on success or <code>FALSE</code> on failure. However, if the <code>CURLOPT_RETURNTRANSFER</code>
+ * option is set, it will return
+ * the result on success, <code>FALSE</code> on failure.
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *
@@ -3495,56 +3505,142 @@ function curl_exec($ch)
 /**
  * Create a CURLFile object
  *
- * @param mixed $filename
- * @param mixed|null $mimetype
- * @param mixed|null $postname
+ * @param string $filename Path to the file which will be uploaded.
+ * @param string $mimetype Mimetype of the file.
+ * @param string $postname Name of the file to be used in the upload data.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/curlfile.construct.php
  */
-function curl_file_create($filename, $mimetype = null, $postname = null)
+function curl_file_create(string $filename, string $mimetype = null, string $postname = null)
 {
 }
 
 /**
  * Get information regarding a specific transfer
  *
- * @param mixed $ch
- * @param mixed|null $option
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param int $opt This may be one of the following constants:
+ * <ul>
+ * <code>CURLINFO_EFFECTIVE_URL</code> - Last effective URL
+ * <code>CURLINFO_HTTP_CODE</code> - Last received HTTP code
+ * <code>CURLINFO_FILETIME</code> - Remote time of the retrieved document, with the <code>CURLOPT_FILETIME</code> enabled; if -1 is returned the time of the document is unknown
+ * <code>CURLINFO_TOTAL_TIME</code> - Total transaction time in seconds for last transfer
+ * <code>CURLINFO_NAMELOOKUP_TIME</code> - Time in seconds until name resolving was complete
+ * <code>CURLINFO_CONNECT_TIME</code> - Time in seconds it took to establish the connection
+ * <code>CURLINFO_PRETRANSFER_TIME</code> - Time in seconds from start until just before file transfer begins
+ * <code>CURLINFO_STARTTRANSFER_TIME</code> - Time in seconds until the first byte is about to be transferred
+ * <code>CURLINFO_REDIRECT_COUNT</code> - Number of redirects, with the <code>CURLOPT_FOLLOWLOCATION</code> option enabled
+ * <code>CURLINFO_REDIRECT_TIME</code> - Time in seconds of all redirection steps before final transaction was started, with the <code>CURLOPT_FOLLOWLOCATION</code> option enabled
+ * <code>CURLINFO_REDIRECT_URL</code> - With the <code>CURLOPT_FOLLOWLOCATION</code> option disabled: redirect URL found in the last transaction, that should be requested manually next. With the <code>CURLOPT_FOLLOWLOCATION</code> option enabled: this is empty. The redirect URL in this case is available in <code>CURLINFO_EFFECTIVE_URL</code>
+ * <code>CURLINFO_PRIMARY_IP</code> - IP address of the most recent connection
+ * <code>CURLINFO_PRIMARY_PORT</code> - Destination port of the most recent connection
+ * <code>CURLINFO_LOCAL_IP</code> - Local (source) IP address of the most recent connection
+ * <code>CURLINFO_LOCAL_PORT</code> - Local (source) port of the most recent connection
+ * <code>CURLINFO_SIZE_UPLOAD</code> - Total number of bytes uploaded
+ * <code>CURLINFO_SIZE_DOWNLOAD</code> - Total number of bytes downloaded
+ * <code>CURLINFO_SPEED_DOWNLOAD</code> - Average download speed
+ * <code>CURLINFO_SPEED_UPLOAD</code> - Average upload speed
+ * <code>CURLINFO_HEADER_SIZE</code> - Total size of all headers received
+ * <code>CURLINFO_HEADER_OUT</code> - The request string sent. For this to
+ * work, add the <code>CURLINFO_HEADER_OUT</code> option to the handle by calling
+ * <code>curl_setopt</code>
+ * <code>CURLINFO_REQUEST_SIZE</code> - Total size of issued requests, currently only for HTTP requests
+ * <code>CURLINFO_SSL_VERIFYRESULT</code> - Result of SSL certification verification requested by setting <code>CURLOPT_SSL_VERIFYPEER</code>
+ * <code>CURLINFO_CONTENT_LENGTH_DOWNLOAD</code> - Content length of download, read from <code>Content-Length:</code> field
+ * <code>CURLINFO_CONTENT_LENGTH_UPLOAD</code> - Specified size of upload
+ * <code>CURLINFO_CONTENT_TYPE</code> - <code>Content-Type:</code> of the requested document. NULL indicates server did not send valid <code>Content-Type:</code> header
+ * <code>CURLINFO_PRIVATE</code> - Private data associated with this cURL handle, previously set with the <code>CURLOPT_PRIVATE</code> option of <code>curl_setopt</code>
+ * <code>CURLINFO_RESPONSE_CODE</code> - The last response code
+ * <code>CURLINFO_HTTP_CONNECTCODE</code> - The CONNECT response code
+ * <code>CURLINFO_HTTPAUTH_AVAIL</code> - Bitmask indicating the authentication method(s) available according to the previous response
+ * <code>CURLINFO_PROXYAUTH_AVAIL</code> - Bitmask indicating the proxy authentication method(s) available according to the previous response
+ * <code>CURLINFO_OS_ERRNO</code> - Errno from a connect failure. The number is OS and system specific.
+ * <code>CURLINFO_NUM_CONNECTS</code> - Number of connections curl had to create to achieve the previous transfer
+ * <code>CURLINFO_SSL_ENGINES</code> - OpenSSL crypto-engines supported
+ * <code>CURLINFO_COOKIELIST</code> - All known cookies
+ * <code>CURLINFO_FTP_ENTRY_PATH</code> - Entry path in FTP server
+ * <code>CURLINFO_APPCONNECT_TIME</code> - Time in seconds it took from the start until the SSL/SSH connect/handshake to the remote host was completed
+ * <code>CURLINFO_CERTINFO</code> - TLS certificate chain
+ * <code>CURLINFO_CONDITION_UNMET</code> - Info on unmet time conditional
+ * <code>CURLINFO_RTSP_CLIENT_CSEQ</code> - Next RTSP client CSeq
+ * <code>CURLINFO_RTSP_CSEQ_RECV</code> - Recently received CSeq
+ * <code>CURLINFO_RTSP_SERVER_CSEQ</code> - Next RTSP server CSeq
+ * <code>CURLINFO_RTSP_SESSION_ID</code> - RTSP session ID
+ * </ul>
  *
- * @return mixed
+ * @return mixed If <code>opt</code> is given, returns its value.
+ * Otherwise, returns an associative array with the following elements
+ * (which correspond to <code>opt</code>), or <code>FALSE</code> on failure:
+ * <ul>
+ * "url"
+ * "content_type"
+ * "http_code"
+ * "header_size"
+ * "request_size"
+ * "filetime"
+ * "ssl_verify_result"
+ * "redirect_count"
+ * "total_time"
+ * "namelookup_time"
+ * "connect_time"
+ * "pretransfer_time"
+ * "size_upload"
+ * "size_download"
+ * "speed_download"
+ * "speed_upload"
+ * "download_content_length"
+ * "upload_content_length"
+ * "starttransfer_time"
+ * "redirect_time"
+ * "certinfo"
+ * "primary_ip"
+ * "primary_port"
+ * "local_ip"
+ * "local_port"
+ * "redirect_url"
+ * "request_header" (This is only set if the <code>CURLINFO_HEADER_OUT</code>
+ * is set by a previous call to <code>curl_setopt</code>)
+ * </ul>
+ * Note that private data is not included in the associative array and must be retrieved individually with the <code>CURLINFO_PRIVATE</code> option.
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-getinfo.php
  */
-function curl_getinfo($ch, $option = null)
+function curl_getinfo($ch, int $opt = null)
 {
 }
 
 /**
  * Initialize a cURL session
  *
- * @param mixed|null $url
+ * @param string|null $url If provided, the <code>CURLOPT_URL</code> option will be set
+ * to its value. You can manually set this using the
+ * <code>curl_setopt</code> function.
  *
- * @return resource
+ * @return resource Returns a cURL handle on success, <code>FALSE</code> on errors.
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-init.php
  */
-function curl_init($url = null)
+function curl_init(string $url = null)
 {
 }
 
 /**
  * Add a normal cURL handle to a cURL multi handle
  *
- * @param mixed $mh
- * @param mixed $ch
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return int
+ * @return int Returns 0 on success, or one of the <code>CURLM_XXX</code> errors
+ * code.
  *
  * @since PHP 5, PHP 7
  *
@@ -3557,9 +3653,10 @@ function curl_multi_add_handle($mh, $ch): int
 /**
  * Close a set of cURL handles
  *
- * @param mixed $mh
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5, PHP 7
  *
@@ -3572,9 +3669,11 @@ function curl_multi_close($mh): void
 /**
  * Return the last multi curl error number
  *
- * @param mixed $mh
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
  *
- * @return int
+ * @return int Return an integer containing the last multi curl error number,
+ * or <code>FALSE</code> on failure.
  *
  * @since PHP 7 >= 7.1.0
  *
@@ -3587,25 +3686,27 @@ function curl_multi_errno($mh): int
 /**
  * Run the sub-connections of the current cURL handle
  *
- * @param mixed $mh
- * @param mixed|null $still_running
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
+ * @param int $still_running A reference to a flag to tell whether the operations are still running.
  *
- * @return int
+ * @return int A cURL code defined in the cURL Predefined Constants.
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-multi-exec.php
  */
-function curl_multi_exec($mh, &$still_running = null): int
+function curl_multi_exec($mh, int &$still_running = null): int
 {
 }
 
 /**
  * Return the content of a cURL handle if <code>CURLOPT_RETURNTRANSFER</code> is set
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return string
+ * @return string Return the content of a cURL handle if <code>CURLOPT_RETURNTRANSFER</code> is set.
  *
  * @since PHP 5, PHP 7
  *
@@ -3618,23 +3719,45 @@ function curl_multi_getcontent($ch): string
 /**
  * Get information about the current transfers
  *
- * @param mixed $mh
- * @param mixed|null $msgs_in_queue
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
+ * @param int|null $msgs_in_queue Number of messages that are still in the queue
  *
- * @return array
+ * @return array On success, returns an associative array for the message, <code>FALSE</code> on failure.
+ * <table>
+ * <title>Contents of the returned array</title>
+ * <thead>
+ * <tr>
+ * <td>Key:</td><td>Value:</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td><code>msg</code></td><td>The <code>CURLMSG_DONE</code> constant. Other return values
+ * are currently not available.</td>
+ * </tr>
+ * <tr>
+ * <td><code>result</code></td><td>One of the <code>CURLE_*</code> constants. If everything is
+ * OK, the <code>CURLE_OK</code> will be the result.</td>
+ * </tr>
+ * <tr>
+ * <td><code>handle</code></td><td>Resource of type curl indicates the handle which it concerns.</td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-multi-info-read.php
  */
-function curl_multi_info_read($mh, &$msgs_in_queue = null): array
+function curl_multi_info_read($mh, int &$msgs_in_queue = null): array
 {
 }
 
 /**
  * Returns a new cURL multi handle
  *
- * @return resource
+ * @return resource Returns a cURL multi handle resource on success, <code>FALSE</code> on failure.
  *
  * @since PHP 5, PHP 7
  *
@@ -3647,10 +3770,13 @@ function curl_multi_init()
 /**
  * Remove a multi handle from a set of cURL handles
  *
- * @param mixed $mh
- * @param mixed $ch
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return int
+ * @return int Returns 0 on success, or one of the <code>CURLM_XXX</code> error
+ * codes.
  *
  * @since PHP 5, PHP 7
  *
@@ -3663,73 +3789,79 @@ function curl_multi_remove_handle($mh, $ch): int
 /**
  * Wait for activity on any curl_multi connection
  *
- * @param mixed $mh
- * @param mixed|null $timeout
+ * @param resource $mh A cURL multi handle returned by
+ * <code>curl_multi_init</code>.
+ * @param float|null $timeout Time, in seconds, to wait for a response.
  *
- * @return int
+ * @return int On success, returns the number of descriptors contained in
+ * the descriptor sets. This may be 0 if there was no activity on any
+ * of the descriptors. On failure, this function will return -1 on a select
+ * failure (from the underlying select system call).
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-multi-select.php
  */
-function curl_multi_select($mh, $timeout = null): int
+function curl_multi_select($mh, float $timeout = 1.0): int
 {
 }
 
 /**
  * Set an option for the cURL multi handle
  *
- * @param mixed $sh
- * @param mixed $option
- * @param mixed $value
+ * @param resource $mh
+ * @param int $option One of the <code>CURLMOPT_*</code> constants.
+ * @param mixed $value The value to be set on <code>option</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-multi-setopt.php
  */
-function curl_multi_setopt($sh, $option, $value): bool
+function curl_multi_setopt($mh, int $option, $value): bool
 {
 }
 
 /**
  * Return string describing error code
  *
- * @param mixed $errornum
+ * @param int $errornum One of the CURLM error codes constants.
  *
- * @return string
+ * @return string Returns error string for valid error code, <code>NULL</code> otherwise.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-multi-strerror.php
  */
-function curl_multi_strerror($errornum): string
+function curl_multi_strerror(int $errornum): string
 {
 }
 
 /**
  * Pause and unpause a connection
  *
- * @param mixed $ch
- * @param mixed $bitmask
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param int $bitmask One of <code>CURLPAUSE_*</code> constants.
  *
- * @return int
+ * @return int Returns an error code (<code>CURLE_OK</code> for no error).
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-pause.php
  */
-function curl_pause($ch, $bitmask): int
+function curl_pause($ch, int $bitmask): int
 {
 }
 
 /**
  * Reset all options of a libcurl session handle
  *
- * @param mixed $ch
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -3742,27 +3874,33 @@ function curl_reset($ch): void
 /**
  * Set an option for a cURL transfer
  *
- * @param mixed $ch
- * @param mixed $option
- * @param mixed $value
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param int $option The <code>CURLOPT_XXX</code> option to set.
+ * @param mixed $value The value to be set on <code>option</code>.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-setopt.php
  */
-function curl_setopt($ch, $option, $value): bool
+function curl_setopt($ch, int $option, $value): bool
 {
 }
 
 /**
  * Set multiple options for a cURL transfer
  *
- * @param mixed $ch
- * @param array $options
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param array $options An <code>array</code> specifying which options to set and their values.
+ * The keys should be valid <code>curl_setopt</code> constants or
+ * their integer equivalents.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> if all options were successfully set. If an option could
+ * not be successfully set, <code>FALSE</code> is immediately returned, ignoring any
+ * future options in the <code>options</code> array.
  *
  * @since PHP 5 >= 5.1.3, PHP 7
  *
@@ -3775,9 +3913,9 @@ function curl_setopt_array($ch, array $options): bool
 /**
  * Close a cURL share handle
  *
- * @param mixed $sh
+ * @param resource $sh A cURL share handle returned by <code>curl_share_init</code>
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -3790,9 +3928,10 @@ function curl_share_close($sh): void
 /**
  * Return the last share curl error number
  *
- * @param mixed $sh
+ * @param resource $sh A cURL share handle returned by <code>curl_share_init</code>.
  *
- * @return int
+ * @return int Returns an integer containing the last share curl error number,
+ * or <code>FALSE</code> on failure.
  *
  * @since PHP 7 >= 7.1.0
  *
@@ -3805,7 +3944,7 @@ function curl_share_errno($sh): int
 /**
  * Initialize a cURL share handle
  *
- * @return resource
+ * @return resource Returns resource of type "cURL Share Handle".
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -3818,77 +3957,159 @@ function curl_share_init()
 /**
  * Set an option for a cURL share handle
  *
- * @param mixed $sh
- * @param mixed $option
- * @param mixed $value
+ * @param resource $sh A cURL share handle returned by <code>curl_share_init</code>.
+ * @param int $option <table>
+ * <thead>
+ * <tr>
+ * <td valign="top">Option</td><td valign="top">Description</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td valign="top"><code>CURLSHOPT_SHARE</code></td><td valign="top">
+ * Specifies a type of data that should be shared.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td valign="top"><code>CURLSHOPT_UNSHARE</code></td><td valign="top">
+ * Specifies a type of data that will be no longer shared.
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
+ * @param string $value <table>
+ * <thead>
+ * <tr>
+ * <td valign="top">Value</td><td valign="top">Description</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td valign="top"><code>CURL_LOCK_DATA_COOKIE</code></td><td valign="top">
+ * Shares cookie data.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td valign="top"><code>CURL_LOCK_DATA_DNS</code></td><td valign="top">
+ * Shares DNS cache. Note that when you use cURL multi handles,
+ * all handles added to the same multi handle will share DNS cache
+ * by default.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td valign="top"><code>CURL_LOCK_DATA_SSL_SESSION</code></td><td valign="top">
+ * Shares SSL session IDs, reducing the time spent on the SSL
+ * handshake when reconnecting to the same server. Note that SSL
+ * session IDs are reused within the same handle by default.
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-share-setopt.php
  */
-function curl_share_setopt($sh, $option, $value): bool
+function curl_share_setopt($sh, int $option, string $value): bool
 {
 }
 
 /**
  * Return string describing the given error code
  *
- * @param mixed $errornum
+ * @param int $errornum One of the cURL error codes constants.
  *
- * @return string
+ * @return string Returns error description or <code>NULL</code> for invalid error code.
  *
  * @since PHP 7 >= 7.1.0
  *
  * @link http://www.php.net/manual/en/function.curl-share-strerror.php
  */
-function curl_share_strerror($errornum): string
+function curl_share_strerror(int $errornum): string
 {
 }
 
 /**
  * Return string describing the given error code
  *
- * @param mixed $errornum
+ * @param int $errornum One of the cURL error codes constants.
  *
- * @return string
+ * @return string Returns error description or <code>NULL</code> for invalid error code.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-strerror.php
  */
-function curl_strerror($errornum): string
+function curl_strerror(int $errornum): string
 {
 }
 
 /**
  * Decodes the given URL encoded string
  *
- * @param mixed $ch
- * @param mixed $str
+ * @param resource $ch A cURL handle returned by
+ * <code>curl_init</code>.
+ * @param string $str The URL encoded string to be decoded.
  *
- * @return string
+ * @return string Returns decoded string or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-unescape.php
  */
-function curl_unescape($ch, $str): string
+function curl_unescape($ch, string $str): string
 {
 }
 
 /**
  * Gets cURL version information
  *
- * @param mixed|null $version
+ * @param int|null $age
  *
- * @return array
+ * @return array Returns an associative array with the following elements:
+ * <table>
+ * <thead>
+ * <tr>
+ * <td>Indice</td><td>Value description</td>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <td>version_number</td><td>cURL 24 bit version number</td>
+ * </tr>
+ * <tr>
+ * <td>version</td><td>cURL version number, as a string</td>
+ * </tr>
+ * <tr>
+ * <td>ssl_version_number</td><td>OpenSSL 24 bit version number</td>
+ * </tr>
+ * <tr>
+ * <td>ssl_version</td><td>OpenSSL version number, as a string</td>
+ * </tr>
+ * <tr>
+ * <td>libz_version</td><td>zlib version number, as a string</td>
+ * </tr>
+ * <tr>
+ * <td>host</td><td>Information about the host where cURL was built</td>
+ * </tr>
+ * <tr>
+ * <td>age</td><td/>
+ * </tr>
+ * <tr>
+ * <td>features</td><td>A bitmask of the <code>CURL_VERSION_XXX</code> constants</td>
+ * </tr>
+ * <tr>
+ * <td>protocols</td><td>An array of protocols names supported by cURL</td>
+ * </tr>
+ * </tbody>
+ * </table>
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.curl-version.php
  */
-function curl_version($version = null): array
+function curl_version(int $age = CURLVERSION_NOW): array
 {
 }

@@ -16,7 +16,7 @@ interface Countable
     /**
      * Count elements of an object
      *
-     * @return int
+     * @return int The custom count as an <code>integer</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -38,7 +38,7 @@ interface OuterIterator extends Iterator
     /**
      * Returns the inner iterator for the current entry
      *
-     * @return Iterator
+     * @return Iterator The inner iterator for the current entry.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -60,7 +60,7 @@ interface RecursiveIterator extends Iterator
     /**
      * Returns an iterator for the current entry
      *
-     * @return RecursiveIterator
+     * @return RecursiveIterator An iterator for the current entry.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -71,7 +71,7 @@ interface RecursiveIterator extends Iterator
     /**
      * Returns if an iterator can be created for the current entry
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the current entry can be iterated over, otherwise returns <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -92,9 +92,9 @@ interface SeekableIterator extends Iterator
     /**
      * Seeks to a position
      *
-     * @param mixed $position
+     * @param int $position The position to seek to.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -116,15 +116,15 @@ interface SplObserver
     /**
      * Receive update from subject
      *
-     * @param SplSubject $SplSubject
+     * @param SplSubject $subject The <code>SplSubject</code> notifying the observer of an update.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobserver.update.php
      */
-    public function update(SplSubject $SplSubject);
+    public function update(SplSubject $subject);
 }
 
 /**
@@ -140,33 +140,33 @@ interface SplSubject
     /**
      * Attach an SplObserver
      *
-     * @param SplObserver $SplObserver
+     * @param SplObserver $observer The <code>SplObserver</code> to attach.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splsubject.attach.php
      */
-    public function attach(SplObserver $SplObserver);
+    public function attach(SplObserver $observer);
 
     /**
      * Detach an observer
      *
-     * @param SplObserver $SplObserver
+     * @param SplObserver $observer The <code>SplObserver</code> to detach.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splsubject.detach.php
      */
-    public function detach(SplObserver $SplObserver);
+    public function detach(SplObserver $observer);
 
     /**
      * Notify an observer
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -198,9 +198,9 @@ class AppendIterator extends IteratorIterator
     /**
      * Appends an iterator
      *
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator to append.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -213,7 +213,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current value
      *
-     * @return mixed
+     * @return mixed The current value if it is valid or <code>NULL</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -226,7 +226,8 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the ArrayIterator
      *
-     * @return ArrayIterator
+     * @return ArrayIterator Returns an <code>ArrayIterator</code> containing
+     * the appended iterators.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -239,7 +240,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the inner iterator
      *
-     * @return Iterator
+     * @return Iterator The current inner iterator, or <code>NULL</code> if there is not one.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -252,7 +253,8 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets an index of iterators
      *
-     * @return int
+     * @return int Returns an <code>integer</code>, which is the zero-based index
+     * of the current inner iterator.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -265,7 +267,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current key
      *
-     * @return mixed
+     * @return mixed The current key if it is valid or <code>NULL</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -278,7 +280,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Moves to the next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -291,7 +293,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Rewinds the Iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -304,7 +306,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Checks validity of the current element
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the current iteration is valid, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -338,7 +340,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Construct an ArrayIterator
      *
-     * @param mixed|null $array
+     * @param mixed $array
      *
      * @since PHP 5, PHP 7
      *
@@ -351,9 +353,9 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Append an element
      *
-     * @param mixed $value
+     * @param mixed $value The value to append.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -366,7 +368,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort array by values
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -379,7 +381,8 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Count elements
      *
-     * @return int
+     * @return int The number of elements or public properties in the associated
+     * <code>array</code> or <code>object</code>, respectively.
      *
      * @since PHP 5, PHP 7
      *
@@ -392,7 +395,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Return current array entry
      *
-     * @return mixed
+     * @return mixed The current <code>array</code> entry.
      *
      * @since PHP 5, PHP 7
      *
@@ -405,7 +408,8 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Get array copy
      *
-     * @return array
+     * @return array A copy of the <code>array</code>, or array of public properties
+     * if ArrayIterator refers to an <code>object</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -418,7 +422,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Get flags
      *
-     * @return void
+     * @return void The current flags.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -431,7 +435,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Return current array key
      *
-     * @return mixed
+     * @return mixed The current <code>array</code> key.
      *
      * @since PHP 5, PHP 7
      *
@@ -444,7 +448,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort array by keys
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -457,7 +461,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort an array naturally, case insensitive
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -470,7 +474,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort an array naturally
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -483,7 +487,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Move to next entry
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -496,9 +500,9 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Check if offset exists
      *
-     * @param mixed $index
+     * @param string $index The offset being checked.
      *
-     * @return void
+     * @return void <code>TRUE</code> if the offset exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -511,9 +515,9 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Get value for an offset
      *
-     * @param mixed $index
+     * @param string $index The offset to get the value from.
      *
-     * @return mixed
+     * @return mixed The value at offset <code>index</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -526,10 +530,10 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Set value for an offset
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param string $index The index to set for.
+     * @param string $newval The new value to store at the index.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -542,9 +546,9 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Unset value for an offset
      *
-     * @param mixed $index
+     * @param string $index The offset to unset.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -557,7 +561,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Rewind array back to the start
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -570,9 +574,9 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Seek to position
      *
-     * @param mixed $position
+     * @param int $position The position to seek to.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -585,7 +589,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Serialize
      *
-     * @return string
+     * @return string The serialized <code>ArrayIterator</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -598,9 +602,18 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Set behaviour flags
      *
-     * @param mixed $flags
+     * @param string $flags A bitmask as follows:
+     * <ul>
+     * <li>
+     * 0 = Properties of the object have their normal functionality
+     * when accessed as list (var_dump, foreach, etc.).
+     * </li>
+     * <li>
+     * 1 = Array indices can be accessed as properties in read/write.
+     * </li>
+     * </ul>
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -613,39 +626,41 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Sort with a user-defined comparison function and maintain index association
      *
-     * @param mixed $cmp_function
+     * @param callable $cmp_function The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
+     * Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayiterator.uasort.php
      */
-    public function uasort($cmp_function)
+    public function uasort(callable $cmp_function)
     {
     }
 
     /**
      * Sort by keys using a user-defined comparison function
      *
-     * @param mixed $cmp_function
+     * @param callable $cmp_function The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
+     * Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayiterator.uksort.php
      */
-    public function uksort($cmp_function)
+    public function uksort(callable $cmp_function)
     {
     }
 
     /**
      * Unserialize
      *
-     * @param mixed $serialized
+     * @param string $serialized The serialized ArrayIterator object to be unserialized.
      *
-     * @return string
+     * @return string The <code>ArrayIterator</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -658,7 +673,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
     /**
      * Check whether array contains more entries
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the iterator is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -691,22 +706,23 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Construct a new array object
      *
-     * @param mixed|null $array
+     * @param mixed|null $input The <code>input</code> parameter accepts an
+     * <code>array</code> or an <code>Object</code>.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayobject.construct.php
      */
-    public function __construct($array = null)
+    public function __construct($input = /* array() */ null)
     {
     }
 
     /**
      * Appends the value
      *
-     * @param mixed $value
+     * @param mixed $value The value being appended.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -719,7 +735,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort the entries by value
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -732,7 +748,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Get the number of public properties in the ArrayObject
      *
-     * @return int
+     * @return int The number of public properties in the <code>ArrayObject</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -745,22 +761,23 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Exchange the array for another one
      *
-     * @param mixed $array
+     * @param mixed $input The new <code>array</code> or <code>object</code> to exchange with the current array.
      *
-     * @return array
+     * @return array Returns the old <code>array</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayobject.exchangearray.php
      */
-    public function exchangeArray($array)
+    public function exchangeArray($input)
     {
     }
 
     /**
      * Creates a copy of the ArrayObject
      *
-     * @return array
+     * @return array Returns a copy of the array. When the <code>ArrayObject</code> refers to an object,
+     * an array of the public properties of that object will be returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -773,7 +790,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Gets the behavior flags
      *
-     * @return int
+     * @return int Returns the behavior flags of the ArrayObject.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -786,7 +803,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Create a new iterator from an ArrayObject instance
      *
-     * @return ArrayIterator
+     * @return ArrayIterator An iterator from an <code>ArrayObject</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -799,7 +816,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Gets the iterator classname for the ArrayObject
      *
-     * @return string
+     * @return string Returns the iterator class name that is used to iterate over this object.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -812,7 +829,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort the entries by key
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -825,7 +842,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort an array using a case insensitive "natural order" algorithm
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -838,7 +855,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sort entries using a "natural order" algorithm
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -851,9 +868,9 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Returns whether the requested index exists
      *
-     * @param mixed $index
+     * @param mixed $index The index being checked.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the requested index exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -866,9 +883,9 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Returns the value at the specified index
      *
-     * @param mixed $index
+     * @param mixed $index The index with the value.
      *
-     * @return mixed
+     * @return mixed The value at the specified index or <code>NULL</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -881,10 +898,10 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sets the value at the specified index to newval
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param mixed $index The index being set.
+     * @param mixed $newval The new value for the <code>index</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -897,9 +914,9 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Unsets the value at the specified index
      *
-     * @param mixed $index
+     * @param mixed $index The index being unset.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -912,7 +929,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Serialize an ArrayObject
      *
-     * @return string
+     * @return string The serialized representation of the <code>ArrayObject</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -925,9 +942,12 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sets the behavior flags
      *
-     * @param mixed $flags
+     * @param int $flags The new ArrayObject behavior.
+     * It takes on either a bitmask, or named constants. Using named
+     * constants is strongly encouraged to ensure compatibility for future
+     * versions.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -940,54 +960,59 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
     /**
      * Sets the iterator classname for the ArrayObject
      *
-     * @param mixed $iteratorClass
+     * @param string $iterator_class The classname of the array iterator to use when iterating over this object.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayobject.setiteratorclass.php
      */
-    public function setIteratorClass($iteratorClass)
+    public function setIteratorClass($iterator_class)
     {
     }
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
      *
-     * @param mixed $cmp_function
+     * @param callable $cmp_function Function <code>cmp_function</code> should accept two
+     * parameters which will be filled by pairs of entries.
+     * The comparison function must return an integer less than, equal
+     * to, or greater than zero if the first argument is considered to
+     * be respectively less than, equal to, or greater than the
+     * second.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayobject.uasort.php
      */
-    public function uasort($cmp_function)
+    public function uasort(callable $cmp_function)
     {
     }
 
     /**
      * Sort the entries by keys using a user-defined comparison function
      *
-     * @param mixed $cmp_function
+     * @param callable $cmp_function The callback comparison function.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/arrayobject.uksort.php
      */
-    public function uksort($cmp_function)
+    public function uksort(callable $cmp_function)
     {
     }
 
     /**
      * Unserialize an ArrayObject
      *
-     * @param mixed $serialized
+     * @param string $serialized The serialized <code>ArrayObject</code>.
      *
-     * @return void
+     * @return void The unserialized <code>ArrayObject</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1065,7 +1090,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      * Construct a new CachingIterator object for the iterator
      *
      * @param Iterator $iterator
-     * @param mixed|null $flags
+     * @param mixed $flags
      *
      * @since PHP 5, PHP 7
      *
@@ -1078,7 +1103,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the string representation of the current element
      *
-     * @return void
+     * @return void The <code>string</code> representation of the current element.
      *
      * @since PHP 5, PHP 7
      *
@@ -1091,7 +1116,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The number of elements in the iterator
      *
-     * @return int
+     * @return int The count of the elements iterated over.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -1104,7 +1129,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the current element
      *
-     * @return void
+     * @return void Mixed
      *
      * @since PHP 5, PHP 7
      *
@@ -1117,7 +1142,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Retrieve the contents of the cache
      *
-     * @return array
+     * @return array An <code>array</code> containing the cache items.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1130,7 +1155,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Get flags used
      *
-     * @return int
+     * @return int Description...
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1143,7 +1168,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Returns the inner iterator
      *
-     * @return Iterator
+     * @return Iterator Returns an object implementing the Iterator interface.
      *
      * @since PHP 5, PHP 7
      *
@@ -1156,7 +1181,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Check whether the inner iterator has a valid next element
      *
-     * @return void
+     * @return void Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -1182,7 +1207,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Move the iterator forward
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -1195,9 +1220,9 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The offsetExists purpose
      *
-     * @param mixed $index
+     * @param string $index The index being checked.
      *
-     * @return void
+     * @return void Returns <code>TRUE</code> if an entry referenced by the offset exists, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1210,9 +1235,9 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The offsetGet purpose
      *
-     * @param mixed $index
+     * @param string $index Description...
      *
-     * @return void
+     * @return void Description...
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1225,10 +1250,10 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The offsetSet purpose
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param string $index The index of the element to be set.
+     * @param string $newval The new value for the <code>index</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1241,9 +1266,9 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The offsetUnset purpose
      *
-     * @param mixed $index
+     * @param string $index The index of the element to be unset.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1256,7 +1281,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Rewind the iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -1269,9 +1294,9 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The setFlags purpose
      *
-     * @param mixed $flags
+     * @param int $flags Bitmask of the flags to set.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1284,7 +1309,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Check whether the current element is valid
      *
-     * @return void
+     * @return void Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -1308,21 +1333,23 @@ class CallbackFilterIterator extends FilterIterator
     /**
      * Create a filtered iterator from another iterator
      *
-     * @param Iterator $iterator
-     * @param mixed $callback
+     * @param Iterator $iterator The iterator to be filtered.
+     * @param callable $callback The callback, which should return <code>TRUE</code> to accept the current item
+     * or <code>FALSE</code> otherwise.
+     * See Examples.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
      * @link http://www.php.net/manual/en/callbackfilteriterator.construct.php
      */
-    public function __construct(Iterator $iterator, $callback)
+    public function __construct(Iterator $iterator, callable $callback)
     {
     }
 
     /**
      * Calls the callback with the current value, the current key and the inner iterator as arguments
      *
-     * @return string
+     * @return string Returns <code>TRUE</code> to accept the current item, or <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1346,7 +1373,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Constructs a new directory iterator from a path
      *
-     * @param mixed $path
+     * @param string $path The path of the directory to traverse.
      *
      * @since PHP 5, PHP 7
      *
@@ -1359,7 +1386,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Get file name as a string
      *
-     * @return string
+     * @return string Returns the file name of the current <code>DirectoryIterator</code> item.
      *
      * @since PHP 5, PHP 7
      *
@@ -1372,7 +1399,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Return the current DirectoryIterator item
      *
-     * @return DirectoryIterator
+     * @return DirectoryIterator The current <code>DirectoryIterator</code> item.
      *
      * @since PHP 5, PHP 7
      *
@@ -1385,9 +1412,10 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Get base name of current DirectoryIterator item
      *
-     * @param mixed|null $suffix
+     * @param string $suffix If the base name ends in <code>suffix</code>,
+     * this will be cut.
      *
-     * @return string
+     * @return string The base name of the current <code>DirectoryIterator</code> item.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -1400,7 +1428,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Gets the file extension
      *
-     * @return string
+     * @return string Returns a <code>string</code> containing the file extension, or an
+     * empty <code>string</code> if the file has no extension.
      *
      * @since PHP 5 >= 5.3.6, PHP 7
      *
@@ -1413,7 +1442,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Return file name of current DirectoryIterator item
      *
-     * @return string
+     * @return string Returns the file name of the current <code>DirectoryIterator</code> item.
      *
      * @since PHP 5, PHP 7
      *
@@ -1426,7 +1455,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Determine if current DirectoryIterator item is '.' or '..'
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the entry is <code>.</code> or <code>..</code>,
+     * otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1439,7 +1469,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Return the key for the current DirectoryIterator item
      *
-     * @return string
+     * @return string The key for the current <code>DirectoryIterator</code> item.
      *
      * @since PHP 5, PHP 7
      *
@@ -1452,7 +1482,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Move forward to next DirectoryIterator item
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -1465,7 +1495,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Rewind the DirectoryIterator back to the start
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -1478,9 +1508,9 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Seek to a DirectoryIterator item
      *
-     * @param mixed $position
+     * @param int $position The zero-based numeric position to seek to.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1493,7 +1523,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
     /**
      * Check whether current DirectoryIterator position is a valid file
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the position is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1527,7 +1557,7 @@ class EmptyIterator implements Iterator
     /**
      * The current() method
      *
-     * @return mixed
+     * @return mixed No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1540,7 +1570,7 @@ class EmptyIterator implements Iterator
     /**
      * The key() method
      *
-     * @return mixed
+     * @return mixed No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1553,7 +1583,7 @@ class EmptyIterator implements Iterator
     /**
      * The next() method
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1566,7 +1596,7 @@ class EmptyIterator implements Iterator
     /**
      * The rewind() method
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1579,7 +1609,7 @@ class EmptyIterator implements Iterator
     /**
      * The valid() method
      *
-     * @return bool
+     * @return bool <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1663,7 +1693,7 @@ class FilesystemIterator extends DirectoryIterator
      * Constructs a new filesystem iterator
      *
      * @param mixed $path
-     * @param mixed|null $flags
+     * @param mixed $flags
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1676,7 +1706,8 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * The current file
      *
-     * @return mixed
+     * @return mixed The filename, file information, or $this depending on the set flags.
+     * See the FilesystemIterator constants.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1689,7 +1720,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Get the handling flags
      *
-     * @return int
+     * @return int The integer value of the set flags.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1702,7 +1733,8 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Retrieve the key for the current file
      *
-     * @return string
+     * @return string Returns the pathname or filename depending on the set flags.
+     * See the FilesystemIterator constants.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1715,7 +1747,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Move to the next file
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1728,7 +1760,7 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Rewinds back to the beginning
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1741,9 +1773,10 @@ class FilesystemIterator extends DirectoryIterator
     /**
      * Sets handling flags
      *
-     * @param mixed|null $flags
+     * @param int $flags The handling flags to set.
+     * See the FilesystemIterator constants.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1781,7 +1814,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Check whether the current element of the iterator is acceptable
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the current element is acceptable, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1792,7 +1825,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Get the current element value
      *
-     * @return mixed
+     * @return mixed The current element value.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1805,7 +1838,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Get the inner iterator
      *
-     * @return Iterator
+     * @return Iterator The inner iterator.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1818,7 +1851,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Get the current key
      *
-     * @return mixed
+     * @return mixed The current key.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1831,7 +1864,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Move the iterator forward
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1844,7 +1877,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Rewind the iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1857,7 +1890,7 @@ abstract class FilterIterator extends IteratorIterator
     /**
      * Check whether the current element is valid
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the current element is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1882,7 +1915,7 @@ class GlobIterator extends FilesystemIterator implements Countable
      * Construct a directory using glob
      *
      * @param mixed $path
-     * @param mixed|null $flags
+     * @param mixed $flags
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1895,7 +1928,8 @@ class GlobIterator extends FilesystemIterator implements Countable
     /**
      * Get the number of directories and files
      *
-     * @return int
+     * @return int The number of returned directories and files, as an
+     * <code>integer</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1933,7 +1967,7 @@ class InfiniteIterator extends IteratorIterator
     /**
      * Moves the inner Iterator forward or rewinds it
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1985,7 +2019,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Get the current value
      *
-     * @return mixed
+     * @return mixed The value of the current element.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1998,7 +2032,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Get the inner iterator
      *
-     * @return Traversable
+     * @return Traversable The inner iterator as passed to <code>IteratorIterator::__construct</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2011,7 +2045,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Get the key of the current element
      *
-     * @return mixed
+     * @return mixed The key of the current element.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2024,7 +2058,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Forward to the next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2037,7 +2071,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Rewind to the first element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2050,7 +2084,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Checks if the iterator is valid
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the iterator is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2086,8 +2120,8 @@ class LimitIterator extends IteratorIterator
      * Construct a LimitIterator
      *
      * @param Iterator $iterator
-     * @param mixed|null $offset
-     * @param mixed|null $count
+     * @param mixed $offset
+     * @param mixed $count
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2100,7 +2134,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Get current element
      *
-     * @return mixed
+     * @return mixed Returns the current element or <code>NULL</code> if there is none.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2113,7 +2147,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Get inner iterator
      *
-     * @return Iterator
+     * @return Iterator The inner iterator passed to <code>LimitIterator::__construct</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2126,7 +2160,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Return the current position
      *
-     * @return int
+     * @return int The current position.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2139,7 +2173,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Get current key
      *
-     * @return mixed
+     * @return mixed Returns the key for the current item.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2152,7 +2186,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Move the iterator forward
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2165,7 +2199,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Rewind the iterator to the specified starting offset
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2178,9 +2212,9 @@ class LimitIterator extends IteratorIterator
     /**
      * Seek to the given position
      *
-     * @param mixed $position
+     * @param int $position The position to seek to.
      *
-     * @return int
+     * @return int Returns the offset position after seeking.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2193,7 +2227,7 @@ class LimitIterator extends IteratorIterator
     /**
      * Check whether the current element is valid
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2248,23 +2282,33 @@ class MultipleIterator implements Iterator
     /**
      * Constructs a new MultipleIterator
      *
-     * @param mixed $flags
+     * @param int|null $flags The flags to set, according to the
+     * Flag Constants.
+     * <ul>
+     * <li>
+     * <code>MultipleIterator::MIT_NEED_ALL</code> or <code>MultipleIterator::MIT_NEED_ANY</code>
+     * </li>
+     * <li>
+     * <code>MultipleIterator::MIT_KEYS_NUMERIC</code> or <code>MultipleIterator::MIT_KEYS_ASSOC</code>
+     * </li>
+     * </ul>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/multipleiterator.construct.php
      */
-    public function __construct($flags)
+    public function __construct($flags = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC)
     {
     }
 
     /**
      * Attaches iterator information
      *
-     * @param Iterator $iterator
-     * @param mixed|null $infos
+     * @param Iterator $iterator The new iterator to attach.
+     * @param string $infos The associative information for the Iterator, which must be an
+     * <code>integer</code>, a <code>string</code>, or <code>NULL</code>.
      *
-     * @return void
+     * @return void Description...
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2277,9 +2321,9 @@ class MultipleIterator implements Iterator
     /**
      * Checks if an iterator is attached
      *
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator to check.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2292,7 +2336,7 @@ class MultipleIterator implements Iterator
     /**
      * Gets the number of attached iterator instances
      *
-     * @return int
+     * @return int The number of attached iterator instances (as an <code>integer</code>).
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2305,7 +2349,8 @@ class MultipleIterator implements Iterator
     /**
      * Gets the registered iterator instances
      *
-     * @return array
+     * @return array An <code>array</code> containing the current values of each attached iterator,
+     * or <code>FALSE</code> if no iterators are attached.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2318,9 +2363,9 @@ class MultipleIterator implements Iterator
     /**
      * Detaches an iterator
      *
-     * @param Iterator $iterator
+     * @param Iterator $iterator The iterator to detach.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2333,7 +2378,7 @@ class MultipleIterator implements Iterator
     /**
      * Gets the flag information
      *
-     * @return int
+     * @return int Information about the flags, as an <code>integer</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2346,7 +2391,8 @@ class MultipleIterator implements Iterator
     /**
      * Gets the registered iterator instances
      *
-     * @return array
+     * @return array An <code>array</code> of all registered iterator instances,
+     * or <code>FALSE</code> if no sub iterator is attached.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2359,7 +2405,7 @@ class MultipleIterator implements Iterator
     /**
      * Moves all attached iterator instances forward
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2372,7 +2418,7 @@ class MultipleIterator implements Iterator
     /**
      * Rewinds all attached iterator instances
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2385,9 +2431,10 @@ class MultipleIterator implements Iterator
     /**
      * Sets flags
      *
-     * @param mixed $flags
+     * @param int $flags The flags to set, according to the
+     * Flag Constants
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2400,7 +2447,8 @@ class MultipleIterator implements Iterator
     /**
      * Checks the validity of sub iterators
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if one or all sub iterators are valid depending on flags,
+     * otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -2436,7 +2484,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Get the current value
      *
-     * @return mixed
+     * @return mixed The current value.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2449,7 +2497,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Get the inner iterator
      *
-     * @return iterator
+     * @return iterator The inner iterator, as passed to <code>NoRewindIterator::__construct</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2462,7 +2510,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Get the current key
      *
-     * @return mixed
+     * @return mixed The current key.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2475,7 +2523,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Forward to the next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2488,7 +2536,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Prevents the rewind operation on the inner iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2501,7 +2549,7 @@ class NoRewindIterator extends IteratorIterator
     /**
      * Validates the iterator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2574,7 +2622,7 @@ class ParentIterator extends RecursiveFilterIterator
     /**
      * Determines acceptability
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the current element is acceptable, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2618,7 +2666,7 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
     /**
      * Returns an iterator for the current entry if it is an <code>array</code> or an <code>object</code>
      *
-     * @return RecursiveArrayIterator
+     * @return RecursiveArrayIterator An iterator for the current entry, if it is an <code>array</code> or <code>object</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2631,7 +2679,8 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
     /**
      * Returns whether current entry is an array or an object
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the current entry is an <code>array</code> or an <code>object</code>,
+     * otherwise <code>FALSE</code> is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2655,7 +2704,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      * Construct
      *
      * @param Iterator $iterator
-     * @param mixed|null $flags
+     * @param mixed $flags
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2668,7 +2717,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
     /**
      * Return the inner iterator's children as a RecursiveCachingIterator
      *
-     * @return RecursiveCachingIterator
+     * @return RecursiveCachingIterator The inner iterator's children, as a RecursiveCachingIterator.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2681,7 +2730,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
     /**
      * Check whether the current element of the inner iterator has children
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the inner iterator has children, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2705,8 +2754,10 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     /**
      * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
      *
-     * @param RecursiveIterator $iterator
-     * @param mixed $callback
+     * @param RecursiveIterator $iterator The recursive iterator to be filtered.
+     * @param string $callback The callback, which should return <code>TRUE</code> to accept the current item
+     * or <code>FALSE</code> otherwise.
+     * See Examples.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -2719,7 +2770,8 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     /**
      * Return the inner iterator's children contained in a RecursiveCallbackFilterIterator
      *
-     * @return RecursiveCallbackFilterIterator
+     * @return RecursiveCallbackFilterIterator Returns a <code>RecursiveCallbackFilterIterator</code> containing
+     * the children.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -2732,7 +2784,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
     /**
      * Check whether the inner iterator's current element has children
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the current element has children, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -2757,7 +2809,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
      * Constructs a RecursiveDirectoryIterator
      *
      * @param mixed $path
-     * @param mixed|null $flags
+     * @param mixed $flags
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -2770,7 +2822,9 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     /**
      * Returns an iterator for the current entry if it is a directory
      *
-     * @return mixed
+     * @return mixed The filename, file information, or $this depending on the set flags.
+     * See the FilesystemIterator
+     * constants.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2783,7 +2837,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     /**
      * Get sub path
      *
-     * @return string
+     * @return string The sub path.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2796,7 +2850,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     /**
      * Get sub path and name
      *
-     * @return string
+     * @return string The sub path (sub directory) and filename.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2809,15 +2863,15 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
     /**
      * Returns whether current entry is a directory and not '.' or '..'
      *
-     * @param mixed|null $allow_links
+     * @param bool|null $allow_links <!-- FIXME -->
      *
-     * @return bool
+     * @return bool Returns whether the current entry is a directory, but not '.' or '..'
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/recursivedirectoryiterator.haschildren.php
      */
-    public function hasChildren($allow_links = null)
+    public function hasChildren($allow_links = false)
     {
     }
 }
@@ -2849,7 +2903,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
     /**
      * Return the inner iterator's children contained in a RecursiveFilterIterator
      *
-     * @return RecursiveFilterIterator
+     * @return RecursiveFilterIterator Returns a <code>RecursiveFilterIterator</code> containing the inner iterator's children.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2862,7 +2916,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
     /**
      * Check whether the inner iterator's current element has children
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the inner iterator has children, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2906,8 +2960,8 @@ class RecursiveIteratorIterator implements OuterIterator
      * Construct a RecursiveIteratorIterator
      *
      * @param Traversable $iterator
-     * @param mixed|null $mode
-     * @param mixed|null $flags
+     * @param mixed $mode
+     * @param mixed $flags
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -2920,7 +2974,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Begin children
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2933,7 +2987,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Begin Iteration
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2946,7 +3000,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Get children
      *
-     * @return RecursiveIterator
+     * @return RecursiveIterator A <code>RecursiveIterator</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2959,7 +3013,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Has children
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the element has children, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2972,7 +3026,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Access the current element value
      *
-     * @return mixed
+     * @return mixed The current elements value.
      *
      * @since PHP 5, PHP 7
      *
@@ -2985,7 +3039,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * End children
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2998,7 +3052,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * End Iteration
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -3011,7 +3065,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Get the current depth of the recursive iteration
      *
-     * @return int
+     * @return int The current depth of the recursive iteration.
      *
      * @since PHP 5, PHP 7
      *
@@ -3024,7 +3078,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Get inner iterator
      *
-     * @return iterator
+     * @return iterator The current active sub iterator.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -3037,7 +3091,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Get max depth
      *
-     * @return mixed
+     * @return mixed The maximum accepted depth, or <code>FALSE</code> if any depth is allowed.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -3050,9 +3104,9 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * The current active sub iterator
      *
-     * @param mixed|null $level
+     * @param int $level
      *
-     * @return RecursiveIterator
+     * @return RecursiveIterator The current active sub iterator.
      *
      * @since PHP 5, PHP 7
      *
@@ -3065,7 +3119,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Access the current key
      *
-     * @return mixed
+     * @return mixed The current key.
      *
      * @since PHP 5, PHP 7
      *
@@ -3078,7 +3132,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Move forward to the next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -3091,7 +3145,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -3104,7 +3158,7 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Rewind the iterator to the first element of the top level inner iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -3117,22 +3171,23 @@ class RecursiveIteratorIterator implements OuterIterator
     /**
      * Set max depth
      *
-     * @param mixed|null $max_depth
+     * @param int|null $max_depth The maximum allowed depth. <code>-1</code> is used
+     * for any depth.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
      */
-    public function setMaxDepth($max_depth = null)
+    public function setMaxDepth($max_depth = -1)
     {
     }
 
     /**
      * Check whether the current position is valid
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the current position is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -3155,17 +3210,19 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
     /**
      * Creates a new RecursiveRegexIterator
      *
-     * @param RecursiveIterator $iterator
-     * @param mixed $regex
-     * @param mixed|null $mode
-     * @param mixed|null $flags
-     * @param mixed|null $preg_flags
+     * @param RecursiveIterator $iterator The recursive iterator to apply this regex filter to.
+     * @param string $regex The regular expression to match.
+     * @param int|null $mode Operation mode, see <code>RegexIterator::setMode</code> for a list
+     * of modes.
+     * @param int|null $flags Special flags, see <code>RegexIterator::setFlags</code> for a list
+     * of available flags.
+     * @param int|null $preg_flags The regular expression flags. These flags depend on the operation mode parameter:
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/recursiveregexiterator.construct.php
      */
-    public function __construct(RecursiveIterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(RecursiveIterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0)
     {
     }
 
@@ -3179,7 +3236,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
     /**
      * Returns an iterator for the current entry
      *
-     * @return RecursiveRegexIterator
+     * @return RecursiveRegexIterator An iterator for the current entry, if it can be iterated over by the inner iterator.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3192,7 +3249,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
     /**
      * Returns whether an iterator can be obtained for the current entry
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if an iterator can be obtained for the current entry, otherwise returns <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3256,9 +3313,9 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      * Construct a RecursiveTreeIterator
      *
      * @param Traversable $iterator
-     * @param mixed|null $flags
-     * @param mixed|null $caching_it_flags
-     * @param mixed|null $mode
+     * @param mixed $flags
+     * @param mixed $caching_it_flags
+     * @param mixed $mode
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3271,7 +3328,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Begin children
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3284,7 +3341,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Begin iteration
      *
-     * @return RecursiveIterator
+     * @return RecursiveIterator A <code>RecursiveIterator</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3297,7 +3354,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get children
      *
-     * @return RecursiveIterator
+     * @return RecursiveIterator A <code>RecursiveIterator</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3310,7 +3367,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Has children
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if there are children, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3323,7 +3380,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get current element
      *
-     * @return string
+     * @return string Returns the current element prefixed and postfixed.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3336,7 +3393,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * End children
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3349,7 +3406,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * End iteration
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3362,7 +3419,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get current entry
      *
-     * @return string
+     * @return string Returns the part of the tree built for the current element.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3375,7 +3432,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get the postfix
      *
-     * @return string
+     * @return string Returns the string to place after the current element.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3388,7 +3445,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get the prefix
      *
-     * @return string
+     * @return string Returns the string to place in front of current element
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3401,7 +3458,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Get the key of the current element
      *
-     * @return string
+     * @return string Returns the current key prefixed and postfixed.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3414,7 +3471,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Move to next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3427,7 +3484,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Next element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3440,7 +3497,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Rewind iterator
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3453,7 +3510,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Set postfix
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.3, PHP 7
      *
@@ -3466,10 +3523,10 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Set a part of the prefix
      *
-     * @param mixed $part
-     * @param mixed $value
+     * @param int $part One of the RecursiveTreeIterator::PREFIX_* constants.
+     * @param string $value The value to assign to the part of the prefix specified in <code>part</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3482,7 +3539,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
     /**
      * Check validity
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the current position is valid, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3545,24 +3602,26 @@ class RegexIterator extends FilterIterator
     /**
      * Create a new RegexIterator
      *
-     * @param Iterator $iterator
-     * @param mixed $regex
-     * @param mixed|null $mode
-     * @param mixed|null $flags
-     * @param mixed|null $preg_flags
+     * @param Iterator $iterator The iterator to apply this regex filter to.
+     * @param string $regex The regular expression to match.
+     * @param int|null $mode Operation mode, see <code>RegexIterator::setMode</code> for a list
+     * of modes.
+     * @param int|null $flags Special flags, see <code>RegexIterator::setFlags</code> for a list
+     * of available flags.
+     * @param int|null $preg_flags The regular expression flags. These flags depend on the operation mode parameter:
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/regexiterator.construct.php
      */
-    public function __construct(Iterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(Iterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0)
     {
     }
 
     /**
      * Get accept status
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if a match, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3575,7 +3634,7 @@ class RegexIterator extends FilterIterator
     /**
      * Get flags
      *
-     * @return int
+     * @return int Returns the set flags.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3588,7 +3647,7 @@ class RegexIterator extends FilterIterator
     /**
      * Returns operation mode
      *
-     * @return int
+     * @return int Returns the operation mode.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3601,7 +3660,7 @@ class RegexIterator extends FilterIterator
     /**
      * Returns the regular expression flags
      *
-     * @return int
+     * @return int Returns a bitmask of the regular expression flags.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3627,9 +3686,9 @@ class RegexIterator extends FilterIterator
     /**
      * Sets the flags
      *
-     * @param mixed $flags
+     * @param int $flags The flags to set, a bitmask of class constants.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3642,9 +3701,9 @@ class RegexIterator extends FilterIterator
     /**
      * Sets the operation mode
      *
-     * @param mixed $mode
+     * @param int $mode The operation mode.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3657,9 +3716,10 @@ class RegexIterator extends FilterIterator
     /**
      * Sets the regular expression flags
      *
-     * @param mixed $preg_flags
+     * @param int $preg_flags The regular expression flags. See <code>RegexIterator::__construct</code>
+     * for an overview of available flags.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -3713,10 +3773,10 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Add/insert a new value at the specified index
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param mixed $index The index where the new value is to be inserted.
+     * @param mixed $newval The new value for the <code>index</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -3729,7 +3789,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Peeks at the node from the beginning of the doubly linked list
      *
-     * @return mixed
+     * @return mixed The value of the first node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3742,7 +3802,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Counts the number of elements in the doubly linked list
      *
-     * @return int
+     * @return int Returns the number of elements in the doubly linked list.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3755,7 +3815,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Return current array entry
      *
-     * @return mixed
+     * @return mixed The current node value.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3768,7 +3828,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Returns the mode of iteration
      *
-     * @return int
+     * @return int Returns the different modes and flags that affect the iteration.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3781,7 +3841,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Checks whether the doubly linked list is empty
      *
-     * @return bool
+     * @return bool Returns whether the doubly linked list is empty.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3794,7 +3854,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Return current node index
      *
-     * @return mixed
+     * @return mixed The current node index.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3807,7 +3867,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Move to next entry
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3820,9 +3880,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Returns whether the requested $index exists
      *
-     * @param mixed $index
+     * @param mixed $index The index being checked.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the requested <code>index</code> exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3835,9 +3895,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Returns the value at the specified $index
      *
-     * @param mixed $index
+     * @param mixed $index The index with the value.
      *
-     * @return mixed
+     * @return mixed The value at the specified <code>index</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3850,10 +3910,10 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Sets the value at the specified $index to $newval
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param mixed $index The index being set.
+     * @param mixed $newval The new value for the <code>index</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3866,9 +3926,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Unsets the value at the specified $index
      *
-     * @param mixed $index
+     * @param mixed $index The index being unset.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3881,7 +3941,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Pops a node from the end of the doubly linked list
      *
-     * @return mixed
+     * @return mixed The value of the popped node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3894,7 +3954,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Move to previous entry
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3907,9 +3967,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Pushes an element at the end of the doubly linked list
      *
-     * @param mixed $value
+     * @param mixed $value The value to push.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3922,7 +3982,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Rewind iterator back to the start
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3935,7 +3995,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Serializes the storage
      *
-     * @return string
+     * @return string The serialized string.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -3948,22 +4008,22 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Sets the mode of iteration
      *
-     * @param mixed $flags
+     * @param int $mode There are two orthogonal sets of modes that can be set:
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.setiteratormode.php
      */
-    public function setIteratorMode($flags)
+    public function setIteratorMode($mode)
     {
     }
 
     /**
      * Shifts a node from the beginning of the doubly linked list
      *
-     * @return mixed
+     * @return mixed The value of the shifted node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3976,7 +4036,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Peeks at the node from the end of the doubly linked list
      *
-     * @return mixed
+     * @return mixed The value of the last node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -3989,9 +4049,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Unserializes the storage
      *
-     * @param mixed $serialized
+     * @param string $serialized The serialized string.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -4004,9 +4064,9 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Prepends the doubly linked list with an element
      *
-     * @param mixed $value
+     * @param mixed $value The value to unshift.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -4019,7 +4079,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
     /**
      * Check whether the doubly linked list contains more nodes
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the doubly linked list contains any more nodes, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -4056,7 +4116,7 @@ class SplFileInfo
     /**
      * Returns the path to the file as a string
      *
-     * @return void
+     * @return void Returns the path to the file.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4073,7 +4133,7 @@ class SplFileInfo
     /**
      * Gets last access time of the file
      *
-     * @return int
+     * @return int Returns the time the file was last accessed.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4086,9 +4146,9 @@ class SplFileInfo
     /**
      * Gets the base name of the file
      *
-     * @param mixed|null $suffix
+     * @param string $suffix Optional suffix to omit from the base name returned.
      *
-     * @return string
+     * @return string Returns the base name without path information.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -4101,7 +4161,7 @@ class SplFileInfo
     /**
      * Gets the inode change time
      *
-     * @return int
+     * @return int The last change time, in a Unix timestamp.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4114,7 +4174,8 @@ class SplFileInfo
     /**
      * Gets the file extension
      *
-     * @return string
+     * @return string Returns a <code>string</code> containing the file extension, or an
+     * empty <code>string</code> if the file has no extension.
      *
      * @since PHP 5 >= 5.3.6, PHP 7
      *
@@ -4127,9 +4188,9 @@ class SplFileInfo
     /**
      * Gets an SplFileInfo object for the file
      *
-     * @param mixed|null $class_name
+     * @param string $class_name Name of an <code>SplFileInfo</code> derived class to use.
      *
-     * @return SplFileInfo
+     * @return SplFileInfo An <code>SplFileInfo</code> object created for the file.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4142,7 +4203,7 @@ class SplFileInfo
     /**
      * Gets the filename
      *
-     * @return string
+     * @return string The filename.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4155,7 +4216,7 @@ class SplFileInfo
     /**
      * Gets the file group
      *
-     * @return int
+     * @return int The group id in numerical format.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4168,7 +4229,7 @@ class SplFileInfo
     /**
      * Gets the inode for the file
      *
-     * @return int
+     * @return int Returns the inode number for the filesystem object.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4181,7 +4242,7 @@ class SplFileInfo
     /**
      * Gets the target of a link
      *
-     * @return string
+     * @return string Returns the target of the filesystem link.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -4194,7 +4255,7 @@ class SplFileInfo
     /**
      * Gets the last modified time
      *
-     * @return int
+     * @return int Returns the last modified time for the file, in a Unix timestamp.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4207,7 +4268,7 @@ class SplFileInfo
     /**
      * Gets the owner of the file
      *
-     * @return int
+     * @return int The owner id in numerical format.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4220,7 +4281,7 @@ class SplFileInfo
     /**
      * Gets the path without filename
      *
-     * @return string
+     * @return string Returns the path to the file.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4233,9 +4294,9 @@ class SplFileInfo
     /**
      * Gets an SplFileInfo object for the path
      *
-     * @param mixed|null $class_name
+     * @param string $class_name Name of an <code>SplFileInfo</code> derived class to use.
      *
-     * @return SplFileInfo
+     * @return SplFileInfo Returns an <code>SplFileInfo</code> object for the parent path of the file.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4248,7 +4309,7 @@ class SplFileInfo
     /**
      * Gets the path to the file
      *
-     * @return string
+     * @return string The path to the file.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4261,7 +4322,7 @@ class SplFileInfo
     /**
      * Gets file permissions
      *
-     * @return int
+     * @return int Returns the file permissions.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4274,7 +4335,7 @@ class SplFileInfo
     /**
      * Gets absolute path to file
      *
-     * @return string
+     * @return string Returns the path to the file, or <code>FALSE</code> if the file does not exist.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -4287,7 +4348,7 @@ class SplFileInfo
     /**
      * Gets file size
      *
-     * @return int
+     * @return int The filesize in bytes.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4300,7 +4361,9 @@ class SplFileInfo
     /**
      * Gets file type
      *
-     * @return string
+     * @return string A <code>string</code> representing the type of the entry.
+     * May be one of <code>file</code>, <code>link</code>,
+     * or <code>dir</code>
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4313,7 +4376,7 @@ class SplFileInfo
     /**
      * Tells if the file is a directory
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if a directory, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4326,7 +4389,7 @@ class SplFileInfo
     /**
      * Tells if the file is executable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if executable, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4339,7 +4402,7 @@ class SplFileInfo
     /**
      * Tells if the object references a regular file
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the file exists and is a regular file (not a link), <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4352,7 +4415,7 @@ class SplFileInfo
     /**
      * Tells if the file is a link
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the file is a link, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4365,7 +4428,7 @@ class SplFileInfo
     /**
      * Tells if file is readable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if readable, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4378,7 +4441,7 @@ class SplFileInfo
     /**
      * Tells if the entry is writable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if writable, <code>FALSE</code> otherwise;
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4391,47 +4454,54 @@ class SplFileInfo
     /**
      * Gets an SplFileObject object for the file
      *
-     * @param mixed|null $open_mode
-     * @param mixed|null $use_include_path
-     * @param mixed|null $context
+     * @param string|null $open_mode The mode for opening the file. See the <code>fopen</code>
+     * documentation for descriptions of possible modes. The default
+     * is read only.
+     * @param bool|null $use_include_path When set to <code>TRUE</code>, the filename is also
+     * searched for within the include_path
+     * @param resource|null $context Refer to the context
+     * section of the manual for a description of <code>contexts</code>.
      *
-     * @return SplFileObject
+     * @return SplFileObject The opened file as an <code>SplFileObject</code> <code>object</code>.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileinfo.openfile.php
      */
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
+    public function openFile($open_mode = "r", $use_include_path = false, $context = null)
     {
     }
 
     /**
      * Sets the class used with <code>SplFileInfo::openFile</code>
      *
-     * @param mixed|null $class_name
+     * @param string|null $class_name The class name to use when <code>SplFileInfo::openFile</code>
+     * is called.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileinfo.setfileclass.php
      */
-    public function setFileClass($class_name = null)
+    public function setFileClass($class_name = "SplFileObject")
     {
     }
 
     /**
      * Sets the class used with <code>SplFileInfo::getFileInfo</code> and <code>SplFileInfo::getPathInfo</code>
      *
-     * @param mixed|null $class_name
+     * @param string|null $class_name The class name to use when
+     * <code>SplFileInfo::getFileInfo</code> and
+     * <code>SplFileInfo::getPathInfo</code> are called.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileinfo.setinfoclass.php
      */
-    public function setInfoClass($class_name = null)
+    public function setInfoClass($class_name = "SplFileInfo")
     {
     }
 }
@@ -4468,16 +4538,16 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Construct a new file object
      *
-     * @param mixed $file_name
-     * @param mixed|null $open_mode
-     * @param mixed|null $use_include_path
-     * @param mixed|null $context
+     * @param string $filename The file to read.
+     * @param string|null $open_mode The mode in which to open the file. See <code>fopen</code> for a list of allowed modes.
+     * @param bool|null $use_include_path Whether to search in the include_path for <code>filename</code>.
+     * @param resource $context A valid context resource created with <code>stream_context_create</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.construct.php
      */
-    public function __construct($file_name, $open_mode = null, $use_include_path = null, $context = null)
+    public function __construct($filename, $open_mode = "r", $use_include_path = false, $context = null)
     {
     }
 
@@ -4508,7 +4578,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Reached end of file
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if file is at EOF, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4521,7 +4591,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Flushes the output to the file
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4534,7 +4604,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets character from file
      *
-     * @return string
+     * @return string Returns a string containing a single character read from the file or <code>FALSE</code> on EOF.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4547,24 +4617,24 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets line from file and parse as CSV fields
      *
-     * @param mixed|null $delimiter
-     * @param mixed|null $enclosure
-     * @param mixed|null $escape
+     * @param string|null $delimiter The field delimiter (one character only). Defaults as a comma or the value set using <code>SplFileObject::setCsvControl</code>.
+     * @param string|null $enclosure The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <code>SplFileObject::setCsvControl</code>.
+     * @param string|null $escape The escape character (one character only). Defaults as a backslash (<code>\</code>) or the value set using <code>SplFileObject::setCsvControl</code>.
      *
-     * @return array
+     * @return array Returns an indexed array containing the fields read, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.fgetcsv.php
      */
-    public function fgetcsv($delimiter = null, $enclosure = null, $escape = null)
+    public function fgetcsv($delimiter = ",", $enclosure = "\"", $escape = "\\")
     {
     }
 
     /**
      * Gets line from file
      *
-     * @return string
+     * @return string Returns a string containing the next line from the file, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4577,9 +4647,10 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets line from file and strip HTML tags
      *
-     * @param mixed|null $allowable_tags
+     * @param string $allowable_tags Optional parameter to specify tags which should not be stripped.
      *
-     * @return string
+     * @return string Returns a string containing the next line of the file with HTML and PHP
+     * code stripped, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4592,10 +4663,16 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Portable file locking
      *
-     * @param mixed $operation
-     * @param mixed|null $wouldblock
+     * @param int $operation <code>operation</code> is one of the following:
+     * <ul>
+     * <code>LOCK_SH</code> to acquire a shared lock (reader).
+     * <code>LOCK_EX</code> to acquire an exclusive lock (writer).
+     * <code>LOCK_UN</code> to release a lock (shared or exclusive).
+     * <code>LOCK_NB</code> to not block while locking.
+     * </ul>
+     * @param int $wouldblock Set to <code>TRUE</code> if the lock would block (EWOULDBLOCK errno condition).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4608,7 +4685,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Output all remaining data on a file pointer
      *
-     * @return int
+     * @return int Returns the number of characters read from <code>handle</code>
+     * and passed through to the output.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4621,27 +4699,33 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Write a field array as a CSV line
      *
-     * @param mixed $fields
-     * @param mixed|null $delimiter
-     * @param mixed|null $enclosure
-     * @param mixed|null $escape
+     * @param array $fields An array of values.
+     * @param string|null $delimiter The optional <code>delimiter</code> parameter sets the field
+     * delimiter (one character only).
+     * @param string|null $enclosure The optional <code>enclosure</code> parameter sets the field
+     * enclosure (one character only).
+     * @param string|null $escape The optional <code>escape</code> parameter sets the
+     * escape character (one character only).
      *
-     * @return int
+     * @return int Returns the length of the written string or <code>FALSE</code> on failure.
+     * Returns <code>FALSE</code>, and does not write the CSV line to the file, if the
+     * <code>delimiter</code> or <code>enclosure</code>
+     * parameter is not a single character.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.fputcsv.php
      */
-    public function fputcsv($fields, $delimiter = null, $enclosure = null, $escape = null)
+    public function fputcsv(array $fields, $delimiter = ",", $enclosure = '"', $escape = "\\")
     {
     }
 
     /**
      * Read from file
      *
-     * @param mixed $length
+     * @param int $length The number of bytes to read.
      *
-     * @return string
+     * @return string Returns the string read from the file or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.11, PHP 7
      *
@@ -4654,10 +4738,13 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Parses input from file according to a format
      *
-     * @param mixed $format
-     * @param mixed $vars
+     * @param string $format The specified format as described in the <code>sprintf</code> documentation.
+     * @param mixed $vars The optional assigned values.
      *
-     * @return mixed
+     * @return mixed If only one parameter is passed to this method, the values parsed will be
+     * returned as an array. Otherwise, if optional parameters are passed, the
+     * function will return the number of assigned values. The optional
+     * parameters must be passed by reference.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4670,23 +4757,31 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Seek to a position
      *
-     * @param mixed $pos
-     * @param mixed|null $whence
+     * @param int $offset The offset. A negative value can be used to move backwards through the file which
+     * is useful when SEEK_END is used as the <code>whence</code> value.
+     * @param int|null $whence <code>whence</code> values are:
+     * <ul>
+     * <li><code>SEEK_SET</code> - Set position equal to <code>offset</code> bytes.</li>
+     * <li><code>SEEK_CUR</code> - Set position to current location plus <code>offset</code>.</li>
+     * <li><code>SEEK_END</code> - Set position to end-of-file plus <code>offset</code>.</li>
+     * </ul>
      *
-     * @return int
+     * @return int Returns 0 if the seek was successful, -1 otherwise. Note that seeking
+     * past EOF is not considered an error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.fseek.php
      */
-    public function fseek($pos, $whence = null)
+    public function fseek($offset, $whence = SEEK_SET)
     {
     }
 
     /**
      * Gets information about the file
      *
-     * @return array
+     * @return array Returns an array with the statistics of the file; the format of the array
+     * is described in detail on the <code>stat</code> manual page.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4699,7 +4794,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Return current file position
      *
-     * @return int
+     * @return int Returns the position of the file pointer as an integer, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4712,9 +4807,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Truncates the file to a given length
      *
-     * @param mixed $size
+     * @param int $size The size to truncate to.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4727,10 +4822,13 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Write to file
      *
-     * @param mixed $str
-     * @param mixed|null $length
+     * @param string $str The string to be written to the file.
+     * @param int $length If the <code>length</code> argument is given, writing will
+     * stop after <code>length</code> bytes have been written or
+     * the end of <code>string</code> is reached, whichever comes
+     * first.
      *
-     * @return int
+     * @return int Returns the number of bytes written, or 0 on error.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4743,7 +4841,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * No purpose
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4756,7 +4854,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Get the delimiter, enclosure and escape character for CSV
      *
-     * @return array
+     * @return array Returns an indexed array containing the delimiter, enclosure and escape character.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -4780,7 +4878,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Gets flags for the SplFileObject
      *
-     * @return int
+     * @return int Returns an <code>integer</code> representing the flags.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4793,7 +4891,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Get maximum line length
      *
-     * @return int
+     * @return int Returns the maximum line length if one has been set with
+     * <code>SplFileObject::setMaxLineLen</code>, default is <code>0</code>.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4806,7 +4905,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * SplFileObject does not have children
      *
-     * @return bool
+     * @return bool Returns <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -4819,7 +4918,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Get line number
      *
-     * @return int
+     * @return int Returns the current line number.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4832,7 +4931,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Read next line
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4845,7 +4944,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Rewind the file to the first line
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4858,9 +4957,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Seek to specified line
      *
-     * @param mixed $line_pos
+     * @param int $line_pos The zero-based line number to seek to.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4873,26 +4972,28 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Set the delimiter, enclosure and escape character for CSV
      *
-     * @param mixed|null $delimiter
-     * @param mixed|null $enclosure
-     * @param mixed|null $escape
+     * @param string|null $delimiter The field delimiter (one character only).
+     * @param string|null $enclosure The field enclosure character (one character only).
+     * @param string|null $escape The field escape character (one character only).
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.setcsvcontrol.php
      */
-    public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
+    public function setCsvControl($delimiter = ",", $enclosure = "\"", $escape = "\\")
     {
     }
 
     /**
      * Sets flags for the SplFileObject
      *
-     * @param mixed $flags
+     * @param int $flags Bit mask of the flags to set. See
+     * SplFileObject constants
+     * for the available flags.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4905,9 +5006,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Set maximum line length
      *
-     * @param mixed $max_len
+     * @param int $max_len The maximum length of a line.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4920,7 +5021,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Not at EOF
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if not reached EOF, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4947,20 +5048,21 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Constructs a new fixed array
      *
-     * @param mixed|null $size
+     * @param int|null $size The size of the fixed array.
+     * This expects a number between <code>0</code> and <code>PHP_INT_MAX</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfixedarray.construct.php
      */
-    public function __construct($size = null)
+    public function __construct($size = 0)
     {
     }
 
     /**
      * Reinitialises the array after being unserialised
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -4973,7 +5075,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Returns the size of the array
      *
-     * @return int
+     * @return int Returns the size of the array.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -4986,7 +5088,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Return current array entry
      *
-     * @return mixed
+     * @return mixed The current element value.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -4999,23 +5101,24 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Import a PHP array in a <code>SplFixedArray</code> instance
      *
-     * @param mixed $data
-     * @param mixed|null $save_indexes
+     * @param array $array The array to import.
+     * @param bool|null $save_indexes Try to save the numeric indexes used in the original array.
      *
-     * @return SplFixedArray
+     * @return SplFixedArray Returns an instance of <code>SplFixedArray</code>
+     * containing the array content.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfixedarray.fromarray.php
      */
-    public static function fromArray($data, $save_indexes = null)
+    public static function fromArray(array $array, $save_indexes = true)
     {
     }
 
     /**
      * Gets the size of the array
      *
-     * @return int
+     * @return int Returns the size of the array, as an <code>integer</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5028,7 +5131,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Return current array index
      *
-     * @return int
+     * @return int The current array index.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5041,7 +5144,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Move to next entry
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5054,9 +5157,9 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Returns whether the requested index exists
      *
-     * @param mixed $index
+     * @param int $index The index being checked.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the requested <code>index</code> exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5069,9 +5172,9 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Returns the value at the specified index
      *
-     * @param mixed $index
+     * @param int $index The index with the value.
      *
-     * @return mixed
+     * @return mixed The value at the specified <code>index</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5084,10 +5187,10 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Sets a new value at a specified index
      *
-     * @param mixed $index
-     * @param mixed $newval
+     * @param int $index The index being set.
+     * @param mixed $newval The new value for the <code>index</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5100,9 +5203,9 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Unsets the value at the specified $index
      *
-     * @param mixed $index
+     * @param int $index The index being unset.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5115,7 +5218,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Rewind iterator back to the start
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5128,22 +5231,22 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Change the size of an array
      *
-     * @param mixed $value
+     * @param int $size The new array size. This should be a value between <code>0</code> and <code>PHP_INT_MAX</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfixedarray.setsize.php
      */
-    public function setSize($value)
+    public function setSize($size)
     {
     }
 
     /**
      * Returns a PHP array from the fixed array
      *
-     * @return array
+     * @return array Returns a PHP <code>array</code>, similar to the fixed array.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5156,7 +5259,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
     /**
      * Check whether the array contains more elements
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the array contains any more elements, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5179,7 +5282,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Compare elements in order to place them correctly in the heap while sifting up
      *
-     * @return int
+     * @return int Result of the comparison, positive integer if <code>value1</code> is greater than <code>value2</code>, 0 if they are equal, negative integer otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5190,7 +5293,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Counts the number of elements in the heap
      *
-     * @return int
+     * @return int Returns the number of elements in the heap.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5203,7 +5306,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Return current node pointed by the iterator
      *
-     * @return mixed
+     * @return mixed The current node value.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5216,7 +5319,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Extracts a node from top of the heap and sift up
      *
-     * @return mixed
+     * @return mixed The value of the extracted node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5229,9 +5332,9 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Inserts an element in the heap by sifting it up
      *
-     * @param mixed $value
+     * @param mixed $value The value to insert.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5244,7 +5347,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Checks whether the heap is empty
      *
-     * @return bool
+     * @return bool Returns whether the heap is empty.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5257,7 +5360,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Return current node index
      *
-     * @return mixed
+     * @return mixed The current node index.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5270,7 +5373,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Move to the next node
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5283,7 +5386,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Recover from the corrupted state and allow further actions on the heap
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5296,7 +5399,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Rewind iterator back to the start (no-op)
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5309,7 +5412,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Peeks at the node from the top of the heap
      *
-     * @return mixed
+     * @return mixed The value of the node on the top.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5322,7 +5425,7 @@ abstract class SplHeap implements Countable, Iterator
     /**
      * Check whether the heap contains more nodes
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the heap contains any more nodes, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5345,16 +5448,16 @@ class SplMaxHeap extends SplHeap
     /**
      * Compare elements in order to place them correctly in the heap while sifting up
      *
-     * @param mixed $a
-     * @param mixed $b
+     * @param mixed $value1 The value of the first node being compared.
+     * @param mixed $value2 The value of the second node being compared.
      *
-     * @return int
+     * @return int Result of the comparison, positive integer if <code>value1</code> is greater than <code>value2</code>, 0 if they are equal, negative integer otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splmaxheap.compare.php
      */
-    protected function compare($a, $b)
+    protected function compare($value1, $value2)
     {
     }
 }
@@ -5371,16 +5474,16 @@ class SplMinHeap extends SplHeap
     /**
      * Compare elements in order to place them correctly in the heap while sifting up
      *
-     * @param mixed $a
-     * @param mixed $b
+     * @param mixed $value1 The value of the first node being compared.
+     * @param mixed $value2 The value of the second node being compared.
      *
-     * @return int
+     * @return int Result of the comparison, positive integer if <code>value1</code> is lower than <code>value2</code>, 0 if they are equal, negative integer otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splminheap.compare.php
      */
-    protected function compare($a, $b)
+    protected function compare($value1, $value2)
     {
     }
 }
@@ -5399,40 +5502,40 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Adds all objects from another storage
      *
-     * @param mixed $object
+     * @param SplObjectStorage $storage The storage you want to import.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.addall.php
      */
-    public function addAll($object)
+    public function addAll(SplObjectStorage $storage)
     {
     }
 
     /**
      * Adds an object in the storage
      *
-     * @param mixed $object
-     * @param mixed|null $inf
+     * @param mixed $object The <code>object</code> to add.
+     * @param mixed|null $data The data to associate with the <code>object</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.attach.php
      */
-    public function attach($object, $inf = null)
+    public function attach($object, $data = null)
     {
     }
 
     /**
      * Checks if the storage contains a specific object
      *
-     * @param mixed $object
+     * @param mixed $object The <code>object</code> to look for.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the <code>object</code> is in the storage, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5445,7 +5548,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the number of objects in the storage
      *
-     * @return int
+     * @return int The number of objects in the storage.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5458,7 +5561,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the current storage entry
      *
-     * @return mixed
+     * @return mixed The <code>object</code> at the current iterator position.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5471,9 +5574,9 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Removes an <code>object</code> from the storage
      *
-     * @param mixed $object
+     * @param mixed $object The <code>object</code> to remove.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5486,9 +5589,9 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Calculate a unique identifier for the contained objects
      *
-     * @param mixed $object
+     * @param mixed $object The object whose identifier is to be calculated.
      *
-     * @return string
+     * @return string A <code>string</code> with the calculated identifier.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -5501,7 +5604,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the data associated with the current iterator entry
      *
-     * @return mixed
+     * @return mixed The data associated with the current iterator position.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5514,7 +5617,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the index at which the iterator currently is
      *
-     * @return int
+     * @return int The index corresponding to the position of the iterator.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5527,7 +5630,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Move to the next entry
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5540,9 +5643,10 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Checks whether an object exists in the storage
      *
-     * @param mixed $object
+     * @param mixed $object The <code>object</code> to look for.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the <code>object</code> exists in the storage,
+     * and <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5555,9 +5659,9 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the data associated with an <code>object</code>
      *
-     * @param mixed $object
+     * @param mixed $object The <code>object</code> to look for.
      *
-     * @return mixed
+     * @return mixed The data previously associated with the <code>object</code> in the storage.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5570,25 +5674,25 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Associates data to an object in the storage
      *
-     * @param mixed $object
-     * @param mixed|null $inf
+     * @param mixed $object The <code>object</code> to associate data with.
+     * @param mixed|null $data The data to associate with the <code>object</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.offsetset.php
      */
-    public function offsetSet($object, $inf = null)
+    public function offsetSet($object, $data = null)
     {
     }
 
     /**
      * Removes an object from the storage
      *
-     * @param mixed $object
+     * @param mixed $object The <code>object</code> to remove.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5601,37 +5705,37 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Removes objects contained in another storage from the current storage
      *
-     * @param mixed $object
+     * @param SplObjectStorage $storage The storage containing the elements to remove.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.removeall.php
      */
-    public function removeAll($object)
+    public function removeAll(SplObjectStorage $storage)
     {
     }
 
     /**
      * Removes all objects except for those contained in another storage from the current storage
      *
-     * @param mixed $object
+     * @param SplObjectStorage $storage The storage containing the elements to retain in the current storage.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.6, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.removeallexcept.php
      */
-    public function removeAllExcept($object)
+    public function removeAllExcept(SplObjectStorage $storage)
     {
     }
 
     /**
      * Rewind the iterator to the first storage element
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5644,7 +5748,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Serializes the storage
      *
-     * @return string
+     * @return string A string representing the storage.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -5657,24 +5761,24 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Sets the data associated with the current iterator entry
      *
-     * @param mixed $info
+     * @param mixed $data The data to associate with the current iterator entry.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splobjectstorage.setinfo.php
      */
-    public function setInfo($info)
+    public function setInfo($data)
     {
     }
 
     /**
      * Unserializes a storage from its string representation
      *
-     * @param mixed $serialized
+     * @param string $serialized The serialized representation of a storage.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.2.2, PHP 7
      *
@@ -5687,7 +5791,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns if the current iterator entry is valid
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the iterator entry is valid, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5726,23 +5830,23 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Compare priorities in order to place elements correctly in the heap while sifting up
      *
-     * @param mixed $a
-     * @param mixed $b
+     * @param mixed $priority1 The priority of the first node being compared.
+     * @param mixed $priority2 The priority of the second node being compared.
      *
-     * @return int
+     * @return int Result of the comparison, positive integer if <code>priority1</code> is greater than <code>priority2</code>, 0 if they are equal, negative integer otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.compare.php
      */
-    public function compare($a, $b)
+    public function compare($priority1, $priority2)
     {
     }
 
     /**
      * Counts the number of elements in the queue
      *
-     * @return int
+     * @return int Returns the number of elements in the queue.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5755,7 +5859,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Return current node pointed by the iterator
      *
-     * @return mixed
+     * @return mixed The value or priority (or both) of the current node, depending on the extract flag.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5768,7 +5872,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Extracts a node from top of the heap and shift up
      *
-     * @return mixed
+     * @return mixed The value or priority (or both) of the extracted node, depending on the extract flag.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5781,10 +5885,10 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Inserts an element in the queue by sifting it up
      *
-     * @param mixed $value
-     * @param mixed $priority
+     * @param mixed $value The value to insert.
+     * @param mixed $priority The associated priority.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5797,7 +5901,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Checks whether the queue is empty
      *
-     * @return bool
+     * @return bool Returns whether the queue is empty.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5810,7 +5914,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Return current node index
      *
-     * @return mixed
+     * @return mixed The current node index.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5823,7 +5927,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Move to the next node
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5836,7 +5940,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Recover from the corrupted state and allow further actions on the queue
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5849,7 +5953,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Rewind iterator back to the start (no-op)
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5862,9 +5966,11 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Sets the mode of extraction
      *
-     * @param mixed $flags
+     * @param int $flags Defines what is extracted by <code>SplPriorityQueue::current</code>,
+     * <code>SplPriorityQueue::top</code> and
+     * <code>SplPriorityQueue::extract</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5877,7 +5983,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Peeks at the node from the top of the queue
      *
-     * @return mixed
+     * @return mixed The value or priority (or both) of the top node, depending on the extract flag.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5890,7 +5996,7 @@ class SplPriorityQueue implements Countable, Iterator
     /**
      * Check whether the queue contains more nodes
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the queue contains any more nodes, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5913,7 +6019,7 @@ class SplQueue extends SplDoublyLinkedList
     /**
      * Dequeues a node from the queue
      *
-     * @return mixed
+     * @return mixed The value of the dequeued node.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5926,9 +6032,9 @@ class SplQueue extends SplDoublyLinkedList
     /**
      * Adds an element to the queue
      *
-     * @param mixed $value
+     * @param mixed $value The value to enqueue.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -5962,7 +6068,7 @@ class SplTempFileObject extends SplFileObject
     /**
      * Construct a new temporary file object
      *
-     * @param mixed|null $max_memory
+     * @param mixed $max_memory
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -6002,74 +6108,81 @@ class UnexpectedValueException extends RuntimeException
 /**
  * Return the interfaces which are implemented by the given class or interface
  *
- * @param mixed $what
- * @param mixed|null $autoload
+ * @param mixed $class An object (class instance) or a string (class or interface name).
+ * @param bool|null $autoload Whether to allow this function to load the class automatically through
+ * the <code>__autoload</code> magic method.
  *
- * @return array
+ * @return array An array on success, or <code>FALSE</code> on error.
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.class-implements.php
  */
-function class_implements($what, $autoload = null)
+function class_implements($class, $autoload = true)
 {
 }
 
 /**
  * Return the parent classes of the given class
  *
- * @param mixed $instance
- * @param mixed|null $autoload
+ * @param mixed $class An object (class instance) or a string (class name).
+ * @param bool|null $autoload Whether to allow this function to load the class automatically through
+ * the <code>__autoload</code> magic method.
  *
- * @return array
+ * @return array An array on success, or <code>FALSE</code> on error.
  *
  * @since PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.class-parents.php
  */
-function class_parents($instance, $autoload = null)
+function class_parents($class, $autoload = true)
 {
 }
 
 /**
  * Return the traits used by the given class
  *
- * @param mixed $what
- * @param mixed|null $autoload
+ * @param mixed $class An object (class instance) or a string (class name).
+ * @param bool|null $autoload Whether to allow this function to load the class automatically through
+ * the <code>__autoload</code> magic method.
  *
- * @return array
+ * @return array An array on success, or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.class-uses.php
  */
-function class_uses($what, $autoload = null)
+function class_uses($class, $autoload = true)
 {
 }
 
 /**
  * Call a function for every element in an iterator
  *
- * @param Traversable $iterator
- * @param mixed $function
- * @param array|null $args
+ * @param Traversable $iterator The class to iterate over.
+ * @param callable $function The callback function to call on every element.
+ * <blockquote>
+ * The function must return <code>TRUE</code> in order to
+ * continue iterating over the <code>iterator</code>.
+ * </blockquote>
+ * @param array|null $args Arguments to pass to the callback function.
  *
- * @return int
+ * @return int Returns the iteration count.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.iterator-apply.php
  */
-function iterator_apply(Traversable $iterator, $function, array $args = null)
+function iterator_apply(Traversable $iterator, callable $function, array $args = null)
 {
 }
 
 /**
  * Count the elements in an iterator
  *
- * @param Traversable $iterator
+ * @param Traversable $iterator The iterator being counted.
  *
- * @return int
+ * @return int The number of elements in <code>iterator</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -6082,41 +6195,43 @@ function iterator_count(Traversable $iterator)
 /**
  * Copy the iterator into an array
  *
- * @param Traversable $iterator
- * @param mixed|null $use_keys
+ * @param Traversable $iterator The iterator being copied.
+ * @param bool|null $use_keys Whether to use the iterator element keys as index.
  *
- * @return array
+ * @return array An <code>array</code> containing the elements of the <code>iterator</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.iterator-to-array.php
  */
-function iterator_to_array(Traversable $iterator, $use_keys = null)
+function iterator_to_array(Traversable $iterator, $use_keys = true)
 {
 }
 
 /**
  * Default implementation for __autoload()
  *
- * @param mixed $class_name
- * @param mixed|null $file_extensions
+ * @param string $class_name The lowercased name of the class (and namespace) being instantiated.
+ * @param string|null $file_extensions By default it checks all include paths to
+ * contain filenames built up by the lowercase class name appended by the
+ * filename extensions .inc and .php.
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.spl-autoload.php
  */
-function spl_autoload($class_name, $file_extensions = null)
+function spl_autoload($class_name, $file_extensions = /* spl_autoload_extensions() */ null)
 {
 }
 
 /**
  * Try all registered __autoload() functions to load the requested class
  *
- * @param mixed $class_name
+ * @param string $class_name The class name being searched.
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -6129,9 +6244,14 @@ function spl_autoload_call($class_name)
 /**
  * Register and return default file extensions for spl_autoload
  *
- * @param mixed|null $file_extensions
+ * @param string $file_extensions When calling without an argument, it simply returns the current list
+ * of extensions each separated by comma. To modify the list of file
+ * extensions, simply invoke the functions with the new list of file
+ * extensions to use in a single string with each extensions separated
+ * by comma.
  *
- * @return string
+ * @return string A comma delimited list of default file extensions for
+ * <code>spl_autoload</code>.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -6144,7 +6264,9 @@ function spl_autoload_extensions($file_extensions = null)
 /**
  * Return all registered __autoload() functions
  *
- * @return array
+ * @return array An <code>array</code> of all registered __autoload functions.
+ * If the autoload queue is not activated then the return value is <code>FALSE</code>.
+ * If no function is registered the return value will be an empty array.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -6157,26 +6279,32 @@ function spl_autoload_functions()
 /**
  * Register given function as __autoload() implementation
  *
- * @param mixed|null $autoload_function
- * @param mixed|null $throw
- * @param mixed|null $prepend
+ * @param callable $autoload_function The autoload function being registered.
+ * If no parameter is provided, then the default implementation of
+ * <code>spl_autoload</code> will be registered.
+ * @param bool|null $throw This parameter specifies whether
+ * <code>spl_autoload_register</code> should throw
+ * exceptions when the <code>autoload_function</code>
+ * cannot be registered.
+ * @param bool|null $prepend If true, <code>spl_autoload_register</code> will prepend
+ * the autoloader on the autoload queue instead of appending it.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.spl-autoload-register.php
  */
-function spl_autoload_register($autoload_function = null, $throw = null, $prepend = null)
+function spl_autoload_register(callable $autoload_function = null, $throw = true, $prepend = false)
 {
 }
 
 /**
  * Unregister given function as __autoload() implementation
  *
- * @param mixed $autoload_function
+ * @param mixed $autoload_function The autoload function being unregistered.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -6189,7 +6317,7 @@ function spl_autoload_unregister($autoload_function)
 /**
  * Return available SPL classes
  *
- * @return array
+ * @return array Returns an <code>array</code> containing the currently available SPL classes.
  *
  * @since PHP 5, PHP 7
  *
@@ -6204,7 +6332,8 @@ function spl_classes()
  *
  * @param mixed $obj
  *
- * @return string
+ * @return string A string that is unique for each currently existing object and is always
+ * the same for each object.
  *
  * @since PHP 5 >= 5.2.0, PHP 7
  *

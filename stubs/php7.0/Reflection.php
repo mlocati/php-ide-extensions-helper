@@ -48,31 +48,34 @@ class Reflection
     /**
      * Exports
      *
-     * @param Reflector $reflector
-     * @param mixed|null $return
+     * @param Reflector $reflector The reflection to export.
+     * @param bool|null $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflection.export.php
      */
-    public static function export(Reflector $reflector, $return = null): string
+    public static function export(Reflector $reflector, bool $return = false): string
     {
     }
 
     /**
      * Gets modifier names
      *
-     * @param mixed $modifiers
+     * @param int $modifiers Bitfield of the modifiers to get.
      *
-     * @return array
+     * @return array An array of modifier names.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflection.getmodifiernames.php
      */
-    public static function getModifierNames($modifiers): array
+    public static function getModifierNames(int $modifiers): array
     {
     }
 }
@@ -127,7 +130,7 @@ class ReflectionClass implements Reflector
     /**
      * Returns the string representation of the ReflectionClass object
      *
-     * @return string
+     * @return string A string representation of this <code>ReflectionClass</code> instance.
      *
      * @since PHP 5, PHP 7
      *
@@ -140,38 +143,42 @@ class ReflectionClass implements Reflector
     /**
      * Exports a class
      *
-     * @param mixed $argument
-     * @param mixed|null $return
+     * @param mixed $argument The reflection to export.
+     * @param bool|null $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.export.php
      */
-    public static function export($argument, $return = null): string
+    public static function export($argument, bool $return = false): string
     {
     }
 
     /**
      * Gets defined constant
      *
-     * @param mixed $name
+     * @param string $name Name of the constant.
      *
-     * @return mixed
+     * @return mixed Value of the constant.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getconstant.php
      */
-    public function getConstant($name)
+    public function getConstant(string $name)
     {
     }
 
     /**
      * Gets constants
      *
-     * @return array
+     * @return array An <code>array</code> of constants, where the keys hold the name
+     * and the values the value of the constants.
      *
      * @since PHP 5, PHP 7
      *
@@ -184,7 +191,8 @@ class ReflectionClass implements Reflector
     /**
      * Gets the constructor of the class
      *
-     * @return ReflectionMethod
+     * @return ReflectionMethod A <code>ReflectionMethod</code> object reflecting the class' constructor, or <code>NULL</code> if the class
+     * has no constructor.
      *
      * @since PHP 5, PHP 7
      *
@@ -197,7 +205,11 @@ class ReflectionClass implements Reflector
     /**
      * Gets default properties
      *
-     * @return array
+     * @return array An <code>array</code> of default properties, with the key being the name of
+     * the property and the value being the default value of the property or <code>NULL</code>
+     * if the property doesn't have a default value. The function does not distinguish
+     * between static and non static properties and does not take visibility modifiers
+     * into account.
      *
      * @since PHP 5, PHP 7
      *
@@ -210,7 +222,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets doc comments
      *
-     * @return string
+     * @return string The doc comment if it exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -223,7 +235,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets end line
      *
-     * @return int
+     * @return int The ending line number of the user defined class, or <code>FALSE</code> if unknown.
      *
      * @since PHP 5, PHP 7
      *
@@ -236,7 +248,8 @@ class ReflectionClass implements Reflector
     /**
      * Gets a <code>ReflectionExtension</code> object for the extension which defined the class
      *
-     * @return ReflectionExtension
+     * @return ReflectionExtension A <code>ReflectionExtension</code> object representing the extension which defined the class,
+     * or <code>NULL</code> for user-defined classes.
      *
      * @since PHP 5, PHP 7
      *
@@ -249,7 +262,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets the name of the extension which defined the class
      *
-     * @return string
+     * @return string The name of the extension which defined the class, or <code>FALSE</code> for user-defined classes.
      *
      * @since PHP 5, PHP 7
      *
@@ -262,7 +275,9 @@ class ReflectionClass implements Reflector
     /**
      * Gets the filename of the file in which the class has been defined
      *
-     * @return string
+     * @return string Returns the filename of the file in which the class has been defined.
+     * If the class is defined in the PHP core or in a PHP extension, <code>FALSE</code>
+     * is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -275,7 +290,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets the interface names
      *
-     * @return array
+     * @return array A numerical array with interface names as the values.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -288,7 +303,8 @@ class ReflectionClass implements Reflector
     /**
      * Gets the interfaces
      *
-     * @return array
+     * @return array An associative <code>array</code> of interfaces, with keys as interface
+     * names and the array values as <code>ReflectionClass</code> objects.
      *
      * @since PHP 5, PHP 7
      *
@@ -301,37 +317,40 @@ class ReflectionClass implements Reflector
     /**
      * Gets a <code>ReflectionMethod</code> for a class method
      *
-     * @param mixed $name
+     * @param string $name The method name to reflect.
      *
-     * @return ReflectionMethod
+     * @return ReflectionMethod A <code>ReflectionMethod</code>.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getmethod.php
      */
-    public function getMethod($name): ReflectionMethod
+    public function getMethod(string $name): ReflectionMethod
     {
     }
 
     /**
      * Gets an array of methods
      *
-     * @param mixed|null $filter
+     * @param int $filter Filter the results to include only methods with certain attributes. Defaults
+     * to no filtering.
      *
-     * @return array
+     * @return array An <code>array</code> of <code>ReflectionMethod</code> objects
+     * reflecting each method.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getmethods.php
      */
-    public function getMethods($filter = null): array
+    public function getMethods(int $filter = null): array
     {
     }
 
     /**
      * Gets the class modifiers
      *
-     * @return int
+     * @return int Returns bitmask of
+     * modifier constants.
      *
      * @since PHP 5, PHP 7
      *
@@ -344,7 +363,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets class name
      *
-     * @return string
+     * @return string The class name.
      *
      * @since PHP 5, PHP 7
      *
@@ -357,7 +376,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets namespace name
      *
-     * @return string
+     * @return string The namespace name.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -370,7 +389,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets parent class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A <code>ReflectionClass</code> or <code>NULL</code> if there's no parent.
      *
      * @since PHP 5, PHP 7
      *
@@ -383,37 +402,39 @@ class ReflectionClass implements Reflector
     /**
      * Gets properties
      *
-     * @param mixed|null $filter
+     * @param int $filter The optional filter, for filtering desired property types. It's configured using
+     * the ReflectionProperty constants,
+     * and defaults to all property types.
      *
-     * @return array
+     * @return array An array of <code>ReflectionProperty</code> objects.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getproperties.php
      */
-    public function getProperties($filter = null): array
+    public function getProperties(int $filter = null): array
     {
     }
 
     /**
      * Gets a <code>ReflectionProperty</code> for a class's property
      *
-     * @param mixed $name
+     * @param string $name The property name.
      *
-     * @return ReflectionProperty
+     * @return ReflectionProperty A <code>ReflectionProperty</code>.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getproperty.php
      */
-    public function getProperty($name): ReflectionProperty
+    public function getProperty(string $name): ReflectionProperty
     {
     }
 
     /**
      * Gets short name
      *
-     * @return string
+     * @return string The class short name.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -426,7 +447,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets starting line number
      *
-     * @return int
+     * @return int The starting line number, as an <code>integer</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -439,7 +460,7 @@ class ReflectionClass implements Reflector
     /**
      * Gets static properties
      *
-     * @return array
+     * @return array The static properties, as an <code>array</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -452,23 +473,28 @@ class ReflectionClass implements Reflector
     /**
      * Gets static property value
      *
-     * @param mixed $name
-     * @param mixed|null $default
+     * @param string $name The name of the static property for which to return a value.
+     * @param mixed $def_value A default value to return in case the class does not declare a static
+     * property with the given <code>name</code>. If the property does
+     * not exist and this argument is omitted, a
+     * <code>ReflectionException</code> is thrown.
      *
-     * @return mixed
+     * @return mixed The value of the static property.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
      */
-    public function getStaticPropertyValue($name, $default = null)
+    public function getStaticPropertyValue(string $name, $def_value = null)
     {
     }
 
     /**
      * Returns an array of trait aliases
      *
-     * @return array
+     * @return array Returns an array with new method names in keys and original names (in the
+     * format <code>"TraitName::original"</code>) in values.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -481,7 +507,8 @@ class ReflectionClass implements Reflector
     /**
      * Returns an array of names of traits used by this class
      *
-     * @return array
+     * @return array Returns an array with trait names in values.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -494,7 +521,9 @@ class ReflectionClass implements Reflector
     /**
      * Returns an array of traits used by this class
      *
-     * @return array
+     * @return array Returns an array with trait names in keys and instances of trait's
+     * <code>ReflectionClass</code> in values.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -507,67 +536,67 @@ class ReflectionClass implements Reflector
     /**
      * Checks if constant is defined
      *
-     * @param mixed $name
+     * @param string $name The name of the constant being checked for.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the constant is defined, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.hasconstant.php
      */
-    public function hasConstant($name): bool
+    public function hasConstant(string $name): bool
     {
     }
 
     /**
      * Checks if method is defined
      *
-     * @param mixed $name
+     * @param string $name Name of the method being checked for.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it has the method, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.hasmethod.php
      */
-    public function hasMethod($name): bool
+    public function hasMethod(string $name): bool
     {
     }
 
     /**
      * Checks if property is defined
      *
-     * @param mixed $name
+     * @param string $name Name of the property being checked for.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it has the property, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.hasproperty.php
      */
-    public function hasProperty($name): bool
+    public function hasProperty(string $name): bool
     {
     }
 
     /**
      * Implements interface
      *
-     * @param mixed $interface
+     * @param string $interface The interface name.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.implementsinterface.php
      */
-    public function implementsInterface($interface): bool
+    public function implementsInterface(string $interface): bool
     {
     }
 
     /**
      * Checks if in namespace
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -580,7 +609,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if class is abstract
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -593,7 +622,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if class is anonymous
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 7
      *
@@ -606,7 +635,7 @@ class ReflectionClass implements Reflector
     /**
      * Returns whether this class is cloneable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the class is cloneable, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -619,7 +648,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if class is final
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -632,9 +661,9 @@ class ReflectionClass implements Reflector
     /**
      * Checks class for instance
      *
-     * @param mixed $object
+     * @param mixed $object The object being compared to.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -647,7 +676,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if the class is instantiable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -660,7 +689,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if the class is an interface
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -673,7 +702,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if class is defined internally by an extension, or the core
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -686,7 +715,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if iterateable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -699,22 +728,23 @@ class ReflectionClass implements Reflector
     /**
      * Checks if a subclass
      *
-     * @param mixed $class
+     * @param string $class The class name being checked against.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.issubclassof.php
      */
-    public function isSubclassOf($class): bool
+    public function isSubclassOf(string $class): bool
     {
     }
 
     /**
      * Returns whether this is a trait
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if this is a trait, <code>FALSE</code> otherwise.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -727,7 +757,7 @@ class ReflectionClass implements Reflector
     /**
      * Checks if user defined
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5, PHP 7
      *
@@ -740,7 +770,8 @@ class ReflectionClass implements Reflector
     /**
      * Creates a new class instance from given arguments
      *
-     * @param mixed $args
+     * @param mixed $args Accepts a variable number of arguments which are passed to the class
+     * constructor, much like <code>call_user_func</code>.
      *
      * @return mixed
      *
@@ -755,9 +786,9 @@ class ReflectionClass implements Reflector
     /**
      * Creates a new class instance from given arguments
      *
-     * @param array|null $args
+     * @param array $args The parameters to be passed to the class constructor as an <code>array</code>.
      *
-     * @return mixed
+     * @return mixed Returns a new instance of the class.
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -783,16 +814,16 @@ class ReflectionClass implements Reflector
     /**
      * Sets static property value
      *
-     * @param mixed $name
-     * @param mixed $value
+     * @param string $name Property name.
+     * @param mixed $value New property value.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.setstaticpropertyvalue.php
      */
-    public function setStaticPropertyValue($name, $value)
+    public function setStaticPropertyValue(string $name, $value)
     {
     }
 }
@@ -826,7 +857,7 @@ class ReflectionExtension implements Reflector
     /**
      * Clones
      *
-     * @return void
+     * @return void No value is returned, if called a fatal error will occur.
      *
      * @since PHP 5, PHP 7
      *
@@ -852,7 +883,8 @@ class ReflectionExtension implements Reflector
     /**
      * To string
      *
-     * @return string
+     * @return string Returns the exported extension as a string, in the same way as the
+     * <code>ReflectionExtension::export</code>.
      *
      * @since PHP 5, PHP 7
      *
@@ -865,23 +897,28 @@ class ReflectionExtension implements Reflector
     /**
      * Export
      *
-     * @param mixed $name
-     * @param mixed|null $return
+     * @param string $name The reflection to export.
+     * @param string|null $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionextension.export.php
      */
-    public static function export($name, $return = null): string
+    public static function export(string $name, string $return = false): string
     {
     }
 
     /**
      * Gets classes
      *
-     * @return array
+     * @return array An array of <code>ReflectionClass</code> objects, one
+     * for each class within the extension. If no classes are defined,
+     * an empty array is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -894,7 +931,8 @@ class ReflectionExtension implements Reflector
     /**
      * Gets class names
      *
-     * @return array
+     * @return array An <code>array</code> of class names, as defined in the extension.
+     * If no classes are defined, an empty array is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -907,7 +945,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets constants
      *
-     * @return array
+     * @return array An associative array with constant names as keys.
      *
      * @since PHP 5, PHP 7
      *
@@ -920,7 +958,9 @@ class ReflectionExtension implements Reflector
     /**
      * Gets dependencies
      *
-     * @return array
+     * @return array An associative <code>array</code> with dependencies as keys and
+     * either <code>Required</code>, <code>Optional</code>
+     * or <code>Conflicts</code> as the values.
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -933,7 +973,9 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension functions
      *
-     * @return array
+     * @return array An associative array of <code>ReflectionFunction</code> objects,
+     * for each function defined in the extension with the keys being the function
+     * names. If no function are defined, an empty array is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -946,7 +988,8 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension ini entries
      *
-     * @return array
+     * @return array An associative <code>array</code> with the ini entries as keys,
+     * with their defined values as values.
      *
      * @since PHP 5, PHP 7
      *
@@ -959,7 +1002,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension name
      *
-     * @return string
+     * @return string The extensions name.
      *
      * @since PHP 5, PHP 7
      *
@@ -972,7 +1015,7 @@ class ReflectionExtension implements Reflector
     /**
      * Gets extension version
      *
-     * @return string
+     * @return string The version of the extension.
      *
      * @since PHP 5, PHP 7
      *
@@ -985,7 +1028,7 @@ class ReflectionExtension implements Reflector
     /**
      * Print extension info
      *
-     * @return void
+     * @return void Information about the extension.
      *
      * @since PHP 5 >= 5.2.4, PHP 7
      *
@@ -998,7 +1041,8 @@ class ReflectionExtension implements Reflector
     /**
      * Returns whether this extension is persistent
      *
-     * @return void
+     * @return void Returns <code>TRUE</code> for extensions loaded by <code>extension</code>, <code>FALSE</code>
+     * otherwise.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1011,7 +1055,8 @@ class ReflectionExtension implements Reflector
     /**
      * Returns whether this extension is temporary
      *
-     * @return void
+     * @return void Returns <code>TRUE</code> for extensions loaded by <code>dl</code>,
+     * <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1058,7 +1103,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     /**
      * To string
      *
-     * @return string
+     * @return string Returns <code>ReflectionFunction::export</code>-like output for
+     * the function.
      *
      * @since PHP 5, PHP 7
      *
@@ -1071,23 +1117,27 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     /**
      * Exports function
      *
-     * @param mixed $name
-     * @param mixed|null $return
+     * @param string $name The reflection to export.
+     * @param string $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionfunction.export.php
      */
-    public static function export($name, $return = null): string
+    public static function export(string $name, string $return = null): string
     {
     }
 
     /**
      * Returns a dynamically created closure for the function
      *
-     * @return Closure
+     * @return Closure Returns <code>Closure</code>.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1100,24 +1150,25 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     /**
      * Invokes function
      *
-     * @param mixed|null $args
+     * @param mixed $parameter
      *
-     * @return mixed
+     * @return mixed Returns the result of the invoked function call.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionfunction.invoke.php
      */
-    public function invoke($args = null)
+    public function invoke($parameter = null)
     {
     }
 
     /**
      * Invokes function args
      *
-     * @param array $args
+     * @param array $args The passed arguments to the function as an array, much like
+     * <code>call_user_func_array</code> works.
      *
-     * @return mixed
+     * @return mixed Returns the result of the invoked function
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -1130,7 +1181,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     /**
      * Checks if function is disabled
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's disable, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1172,7 +1223,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns the scope associated to the closure
      *
-     * @return ReflectionClass
+     * @return ReflectionClass Returns the class on success or <code>NULL</code> on failure.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1185,7 +1236,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns this pointer bound to closure
      *
-     * @return mixed
+     * @return mixed Returns <code>$this</code> pointer.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1198,7 +1250,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets doc comment
      *
-     * @return string
+     * @return string The doc comment if it exists, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1211,7 +1263,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets end line number
      *
-     * @return int
+     * @return int The ending line number of the user defined function, or <code>FALSE</code> if unknown.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1224,7 +1276,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets extension info
      *
-     * @return ReflectionExtension
+     * @return ReflectionExtension The extension information, as a <code>ReflectionExtension</code> object.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1237,7 +1289,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets extension name
      *
-     * @return string
+     * @return string The extensions name.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1250,7 +1302,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets file name
      *
-     * @return string
+     * @return string The file name.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1263,7 +1315,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets function name
      *
-     * @return string
+     * @return string The name of the function.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1276,7 +1328,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets namespace name
      *
-     * @return string
+     * @return string The namespace name.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1289,7 +1341,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets number of parameters
      *
-     * @return int
+     * @return int The number of parameters.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1302,7 +1354,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets number of required parameters
      *
-     * @return int
+     * @return int The number of required parameters.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1315,7 +1367,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets parameters
      *
-     * @return array
+     * @return array The parameters, as a <code>ReflectionParameter</code> object.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1328,7 +1380,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets the specified return type of a function
      *
-     * @return ReflectionType
+     * @return ReflectionType Returns a <code>ReflectionType</code> object if a return type is
+     * specified, <code>NULL</code> otherwise.
      *
      * @since PHP 7
      *
@@ -1341,7 +1394,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets function short name
      *
-     * @return string
+     * @return string The short name of the function.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1354,7 +1407,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets starting line number
      *
-     * @return int
+     * @return int The starting line number.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1367,7 +1420,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets static variables
      *
-     * @return array
+     * @return array An <code>array</code> of static variables.
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1380,7 +1433,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if the function has a specified return type
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the function is a specified return type, otherwise <code>FALSE</code>.
      *
      * @since PHP 7
      *
@@ -1393,7 +1446,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if function in namespace
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's in a namespace, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1406,7 +1459,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if closure
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the function is a <code>Closure</code>, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
@@ -1419,7 +1472,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if deprecated
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's deprecated, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1432,7 +1485,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns whether this function is a generator
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the function is generator, <code>FALSE</code> if it is not or <code>NULL</code>
+     * on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -1445,7 +1499,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if is internal
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's internal, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1458,7 +1512,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if user defined
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's user-defined, otherwise false;
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1471,7 +1525,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if the function is variadic
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the function is variadic, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.6.0, PHP 7
      *
@@ -1484,7 +1538,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if returns reference
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it returns a reference, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.2.0, PHP 7
      *
@@ -1521,7 +1575,7 @@ class ReflectionGenerator
     /**
      * Gets the file name of the currently executing generator
      *
-     * @return string
+     * @return string Returns the full path and file name of the currently executing generator.
      *
      * @since PHP 7
      *
@@ -1534,7 +1588,7 @@ class ReflectionGenerator
     /**
      * Gets the executing <code>Generator</code> object
      *
-     * @return Generator
+     * @return Generator Returns the currently executing <code>Generator</code> object.
      *
      * @since PHP 7
      *
@@ -1547,7 +1601,7 @@ class ReflectionGenerator
     /**
      * Gets the currently executing line of the generator
      *
-     * @return int
+     * @return int Returns the line number of the currently executing statement in the generator.
      *
      * @since PHP 7
      *
@@ -1560,7 +1614,9 @@ class ReflectionGenerator
     /**
      * Gets the function name of the generator
      *
-     * @return ReflectionFunctionAbstract
+     * @return ReflectionFunctionAbstract Returns a <code>ReflectionFunctionAbstract</code> class. This will
+     * be <code>ReflectionFunction</code> for functions, or
+     * <code>ReflectionMethod</code> for methods.
      *
      * @since PHP 7
      *
@@ -1573,7 +1629,8 @@ class ReflectionGenerator
     /**
      * Gets the <code>$this</code> value of the generator
      *
-     * @return mixed
+     * @return mixed Returns the <code>$this</code> value, or <code>NULL</code> if the generator was
+     * not created in a class context.
      *
      * @since PHP 7
      *
@@ -1586,15 +1643,16 @@ class ReflectionGenerator
     /**
      * Gets the trace of the executing generator
      *
-     * @param mixed|null $options
+     * @param int|null $options The value of <code>options</code> can be any of the following
+     * the following flags.
      *
-     * @return array
+     * @return array Returns the trace of the currently executing generator.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/reflectiongenerator.gettrace.php
      */
-    public function getTrace($options = null): array
+    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array
     {
     }
 }
@@ -1653,7 +1711,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * Constructs a ReflectionMethod
      *
      * @param mixed $class_or_method
-     * @param mixed|null $name
+     * @param mixed $name
      *
      * @since PHP 5, PHP 7
      *
@@ -1666,7 +1724,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Returns the string representation of the Reflection method object
      *
-     * @return string
+     * @return string A string representation of this <code>ReflectionMethod</code> instance.
      *
      * @since PHP 5, PHP 7
      *
@@ -1679,26 +1737,30 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Export a reflection method
      *
-     * @param mixed $class
-     * @param mixed $name
-     * @param mixed|null $return
+     * @param string $class The class name.
+     * @param string $name The name of the method.
+     * @param bool|null $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionmethod.export.php
      */
-    public static function export($class, $name, $return = null): string
+    public static function export(string $class, string $name, bool $return = false): string
     {
     }
 
     /**
      * Returns a dynamically created closure for the method
      *
-     * @param mixed $object
+     * @param mixed $object Forbidden for static methods, required for other methods.
      *
-     * @return Closure
+     * @return Closure Returns <code>Closure</code>.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1711,7 +1773,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets declaring class for the reflected method
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A <code>ReflectionClass</code> object of the class that the
+     * reflected method is part of.
      *
      * @since PHP 5, PHP 7
      *
@@ -1724,7 +1787,9 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets the method modifiers
      *
-     * @return int
+     * @return int A numeric representation of the modifiers. The modifiers are listed below.
+     * The actual meanings of these modifiers are described in the
+     * predefined constants.
      *
      * @since PHP 5, PHP 7
      *
@@ -1737,7 +1802,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets the method prototype (if there is one)
      *
-     * @return ReflectionMethod
+     * @return ReflectionMethod A <code>ReflectionMethod</code> instance of the method prototype.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -1750,26 +1815,29 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Invoke
      *
-     * @param mixed $object
-     * @param mixed $args
+     * @param mixed $object The object to invoke the method on. For static methods, pass
+     * <code>null</code> to this parameter.
+     * @param mixed $parameter Zero or more parameters to be passed to the method.
+     * It accepts a variable number of parameters which are passed to the method.
      *
-     * @return mixed
+     * @return mixed Returns the method result.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionmethod.invoke.php
      */
-    public function invoke($object, $args)
+    public function invoke($object, $parameter)
     {
     }
 
     /**
      * Invoke args
      *
-     * @param mixed $object
-     * @param array $args
+     * @param mixed $object The object to invoke the method on. In case of static methods, you can pass
+     * <code>null</code> to this parameter.
+     * @param array $args The parameters to be passed to the function, as an <code>array</code>.
      *
-     * @return mixed
+     * @return mixed Returns the method result.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -1782,7 +1850,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is abstract
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is abstract, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1795,7 +1863,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is a constructor
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is a constructor, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1808,7 +1876,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is a destructor
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is a destructor, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1821,7 +1889,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is final
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is final, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1834,7 +1902,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is private
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is private, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1847,7 +1915,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is protected
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is protected, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1860,7 +1928,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is public
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is public, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1873,7 +1941,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is static
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the method is static, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -1886,15 +1954,15 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Set method accessibility
      *
-     * @param mixed $value
+     * @param bool $accessible <code>TRUE</code> to allow accessibility, or <code>FALSE</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.2, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionmethod.setaccessible.php
      */
-    public function setAccessible($value)
+    public function setAccessible(bool $accessible)
     {
     }
 }
@@ -1925,16 +1993,19 @@ class ReflectionObject extends ReflectionClass
     /**
      * Export
      *
-     * @param mixed $argument
-     * @param mixed|null $return
+     * @param string $argument The reflection to export.
+     * @param bool $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string If the <code>return</code> parameter
+     * is set to <code>TRUE</code>, then the export is returned as a <code>string</code>,
+     * otherwise <code>NULL</code> is returned.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionobject.export.php
      */
-    public static function export($argument, $return = null): string
+    public static function export(string $argument, bool $return = null): string
     {
     }
 }
@@ -1997,7 +2068,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if null is allowed
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if <code>NULL</code> is allowed, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -2010,7 +2081,8 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether this parameter can be passed by value
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the parameter can be passed by value, <code>FALSE</code> otherwise.
+     * Returns <code>NULL</code> in case of an error.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -2023,24 +2095,25 @@ class ReflectionParameter implements Reflector
     /**
      * Exports
      *
-     * @param mixed $function
-     * @param mixed $parameter
-     * @param mixed|null $return
+     * @param string $function The function name.
+     * @param string $parameter The parameter name.
+     * @param bool $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
-     * @return string
+     * @return string The exported reflection.
      *
      * @since PHP 5, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionparameter.export.php
      */
-    public static function export($function, $parameter, $return = null): string
+    public static function export(string $function, string $parameter, bool $return = null): string
     {
     }
 
     /**
      * Get the type hinted class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A <code>ReflectionClass</code> object.
      *
      * @since PHP 5, PHP 7
      *
@@ -2053,7 +2126,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets declaring class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A <code>ReflectionClass</code> object or <code>NULL</code> if called on function.
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -2066,7 +2139,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets declaring function
      *
-     * @return ReflectionFunctionAbstract
+     * @return ReflectionFunctionAbstract A <code>ReflectionFunction</code> object.
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -2079,7 +2152,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets default parameter value
      *
-     * @return mixed
+     * @return mixed The parameters default value.
      *
      * @since PHP 5 >= 5.0.3, PHP 7
      *
@@ -2092,7 +2165,7 @@ class ReflectionParameter implements Reflector
     /**
      * Returns the default value's constant name if default value is constant or null
      *
-     * @return string
+     * @return string Returns string on success or <code>NULL</code> on failure.
      *
      * @since PHP 5 >= 5.4.6, PHP 7
      *
@@ -2105,7 +2178,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets parameter name
      *
-     * @return string
+     * @return string The name of the reflected parameter.
      *
      * @since PHP 5, PHP 7
      *
@@ -2118,7 +2191,7 @@ class ReflectionParameter implements Reflector
     /**
      * Gets parameter position
      *
-     * @return int
+     * @return int The position of the parameter, left to right, starting at position #0.
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -2131,7 +2204,8 @@ class ReflectionParameter implements Reflector
     /**
      * Gets a parameter's type
      *
-     * @return ReflectionType
+     * @return ReflectionType Returns a <code>ReflectionType</code> object if a parameter type is
+     * specified, <code>NULL</code> otherwise.
      *
      * @since PHP 7
      *
@@ -2144,7 +2218,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if parameter has a type
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if a type is specified, <code>FALSE</code> otherwise.
      *
      * @since PHP 7
      *
@@ -2157,7 +2231,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if parameter expects an array
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if an <code>array</code> is expected, <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.1.2, PHP 7
      *
@@ -2170,7 +2244,8 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether parameter MUST be callable
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the parameter is <code>callable</code>, <code>FALSE</code> if it is
+     * not or <code>NULL</code> on failure.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -2183,7 +2258,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if a default value is available
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if a default value is available, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.0.3, PHP 7
      *
@@ -2196,7 +2271,8 @@ class ReflectionParameter implements Reflector
     /**
      * Returns whether the default value of this parameter is constant
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the default value is constant, <code>FALSE</code> if it is not or
+     * <code>NULL</code> on failure.
      *
      * @since PHP 5 >= 5.4.6, PHP 7
      *
@@ -2209,7 +2285,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if optional
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the parameter is optional, otherwise <code>FALSE</code>
      *
      * @since PHP 5 >= 5.0.3, PHP 7
      *
@@ -2222,7 +2298,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if passed by reference
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the parameter is passed in by reference, otherwise <code>FALSE</code>
      *
      * @since PHP 5, PHP 7
      *
@@ -2235,7 +2311,7 @@ class ReflectionParameter implements Reflector
     /**
      * Checks if the parameter is variadic
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the parameter is variadic, otherwise <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.6.0, PHP 7
      *
@@ -2330,8 +2406,9 @@ class ReflectionProperty implements Reflector
      * Export
      *
      * @param mixed $class
-     * @param mixed $name
-     * @param mixed|null $return
+     * @param string $name The property name.
+     * @param bool $return Setting to <code>TRUE</code> will return the export,
+     * as opposed to emitting it. Setting to <code>FALSE</code> (the default) will do the opposite.
      *
      * @return string
      *
@@ -2339,14 +2416,14 @@ class ReflectionProperty implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionproperty.export.php
      */
-    public static function export($class, $name, $return = null): string
+    public static function export($class, string $name, bool $return = null): string
     {
     }
 
     /**
      * Gets declaring class
      *
-     * @return ReflectionClass
+     * @return ReflectionClass A <code>ReflectionClass</code> object.
      *
      * @since PHP 5, PHP 7
      *
@@ -2359,7 +2436,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets the property doc comment
      *
-     * @return string
+     * @return string The property doc comment.
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -2372,7 +2449,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets the property modifiers
      *
-     * @return int
+     * @return int A numeric representation of the modifiers.
      *
      * @since PHP 5, PHP 7
      *
@@ -2385,7 +2462,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets property name
      *
-     * @return string
+     * @return string The name of the reflected property.
      *
      * @since PHP 5, PHP 7
      *
@@ -2398,9 +2475,12 @@ class ReflectionProperty implements Reflector
     /**
      * Gets value
      *
-     * @param mixed|null $object
+     * @param mixed $object If the property is non-static an object must be provided to fetch the
+     * property from. If you want to fetch the default property without
+     * providing an object use <code>ReflectionClass::getDefaultProperties</code>
+     * instead.
      *
-     * @return mixed
+     * @return mixed The current value of the property.
      *
      * @since PHP 5, PHP 7
      *
@@ -2413,7 +2493,8 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is a default property
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the property was declared at compile-time, or <code>FALSE</code> if
+     * it was created at run-time.
      *
      * @since PHP 5, PHP 7
      *
@@ -2426,7 +2507,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is private
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the property is private, <code>FALSE</code> otherwise.
      *
      * @since PHP 5, PHP 7
      *
@@ -2439,7 +2520,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is protected
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the property is protected, <code>FALSE</code> otherwise.
      *
      * @since PHP 5, PHP 7
      *
@@ -2452,7 +2533,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is public
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the property is public, <code>FALSE</code> otherwise.
      *
      * @since PHP 5, PHP 7
      *
@@ -2465,7 +2546,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is static
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if the property is static, <code>FALSE</code> otherwise.
      *
      * @since PHP 5, PHP 7
      *
@@ -2478,25 +2559,27 @@ class ReflectionProperty implements Reflector
     /**
      * Set property accessibility
      *
-     * @param mixed $visible
+     * @param bool $accessible <code>TRUE</code> to allow accessibility, or <code>FALSE</code>.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionproperty.setaccessible.php
      */
-    public function setAccessible($visible)
+    public function setAccessible(bool $accessible)
     {
     }
 
     /**
      * Set property value
      *
-     * @param mixed $object
-     * @param mixed|null $value
+     * @param mixed $object If the property is non-static an object must be provided to change
+     * the property on. If the property is static this parameter is left
+     * out and only <code>value</code> needs to be provided.
+     * @param mixed $value The new value.
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 5, PHP 7
      *
@@ -2524,7 +2607,7 @@ class ReflectionType
     /**
      * To string
      *
-     * @return string
+     * @return string Returns the type of the parameter.
      *
      * @since PHP 7
      *
@@ -2537,7 +2620,7 @@ class ReflectionType
     /**
      * Checks if null is allowed
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if <code>NULL</code> is allowed, otherwise <code>FALSE</code>
      *
      * @since PHP 7
      *
@@ -2550,7 +2633,7 @@ class ReflectionType
     /**
      * Checks if it is a built-in type
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if it's a built-in type, otherwise <code>FALSE</code>
      *
      * @since PHP 7
      *
@@ -2615,8 +2698,8 @@ class ReflectionZendExtension implements Reflector
     /**
      * Export
      *
-     * @param mixed $name
-     * @param mixed|null $return
+     * @param string $name
+     * @param bool $return
      *
      * @return string
      *
@@ -2624,7 +2707,7 @@ class ReflectionZendExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionzendextension.export.php
      */
-    public static function export($name, $return = null): string
+    public static function export(string $name, bool $return = null): string
     {
     }
 

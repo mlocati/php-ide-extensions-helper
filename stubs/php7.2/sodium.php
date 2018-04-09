@@ -497,23 +497,23 @@ class SodiumException extends Exception
 /**
  * Add large numbers
  *
- * @param mixed $string_1
- * @param mixed $string_2
+ * @param string $val
+ * @param string $addv
  *
- * @return void
+ * @return void No value is returned.
  *
  * @since PHP 7 >= 7.2.0
  *
  * @link http://www.php.net/manual/en/function.sodium-add.php
  */
-function sodium_add(&$string_1, $string_2): void
+function sodium_add(string &$val, string $addv): void
 {
 }
 
 /**
  * Encode to hexadecimal
  *
- * @param mixed $string
+ * @param string $bin
  *
  * @return string
  *
@@ -521,15 +521,15 @@ function sodium_add(&$string_1, $string_2): void
  *
  * @link http://www.php.net/manual/en/function.sodium-bin2hex.php
  */
-function sodium_bin2hex($string): string
+function sodium_bin2hex(string $bin): string
 {
 }
 
 /**
  * Compare large numbers
  *
- * @param mixed $string_1
- * @param mixed $string_2
+ * @param string $buf1
+ * @param string $buf2
  *
  * @return int
  *
@@ -537,17 +537,17 @@ function sodium_bin2hex($string): string
  *
  * @link http://www.php.net/manual/en/function.sodium-compare.php
  */
-function sodium_compare($string_1, $string_2): int
+function sodium_compare(string $buf1, string $buf2): int
 {
 }
 
 /**
  * Decrypt in combined mode with precalculation
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -555,17 +555,17 @@ function sodium_compare($string_1, $string_2): int
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-decrypt.php
  */
-function sodium_crypto_aead_aes256gcm_decrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_aes256gcm_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string
 {
 }
 
 /**
  * Encrypt in combined mode with precalculation
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $msg
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -573,7 +573,7 @@ function sodium_crypto_aead_aes256gcm_decrypt($string, $ad, $nonce, $key): strin
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-encrypt.php
  */
-function sodium_crypto_aead_aes256gcm_encrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_aes256gcm_encrypt(string $msg, string $ad, string $nonce, string $key): string
 {
 }
 
@@ -606,10 +606,10 @@ function sodium_crypto_aead_aes256gcm_keygen(): string
 /**
  * Verify that the ciphertext includes a valid tag
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -617,17 +617,17 @@ function sodium_crypto_aead_aes256gcm_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-decrypt.php
  */
-function sodium_crypto_aead_chacha20poly1305_decrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_chacha20poly1305_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string
 {
 }
 
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $msg
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -635,17 +635,17 @@ function sodium_crypto_aead_chacha20poly1305_decrypt($string, $ad, $nonce, $key)
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-encrypt.php
  */
-function sodium_crypto_aead_chacha20poly1305_encrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_chacha20poly1305_encrypt(string $msg, string $ad, string $nonce, string $key): string
 {
 }
 
 /**
  * Verify that the ciphertext includes a valid tag
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -653,17 +653,17 @@ function sodium_crypto_aead_chacha20poly1305_encrypt($string, $ad, $nonce, $key)
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-decrypt.php
  */
-function sodium_crypto_aead_chacha20poly1305_ietf_decrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string
 {
 }
 
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $ad
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $msg
+ * @param string $ad
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -671,7 +671,7 @@ function sodium_crypto_aead_chacha20poly1305_ietf_decrypt($string, $ad, $nonce, 
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-encrypt.php
  */
-function sodium_crypto_aead_chacha20poly1305_ietf_encrypt($string, $ad, $nonce, $key): string
+function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(string $msg, string $ad, string $nonce, string $key): string
 {
 }
 
@@ -704,8 +704,8 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string
 /**
  * Compute a tag for the message
  *
- * @param mixed $string
- * @param mixed $key
+ * @param string $msg
+ * @param string $key
  *
  * @return string
  *
@@ -713,7 +713,7 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-auth.php
  */
-function sodium_crypto_auth($string, $key): string
+function sodium_crypto_auth(string $msg, string $key): string
 {
 }
 
@@ -733,9 +733,9 @@ function sodium_crypto_auth_keygen(): string
 /**
  * Verifies that the tag is valid for the message
  *
- * @param mixed $signature
- * @param mixed $string
- * @param mixed $key
+ * @param string $signature
+ * @param string $msg
+ * @param string $key
  *
  * @return bool
  *
@@ -743,16 +743,16 @@ function sodium_crypto_auth_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-auth-verify.php
  */
-function sodium_crypto_auth_verify($signature, $string, $key): bool
+function sodium_crypto_auth_verify(string $signature, string $msg, string $key): bool
 {
 }
 
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $msg
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -760,7 +760,7 @@ function sodium_crypto_auth_verify($signature, $string, $key): bool
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box.php
  */
-function sodium_crypto_box($string, $nonce, $key): string
+function sodium_crypto_box(string $msg, string $nonce, string $key): string
 {
 }
 
@@ -780,8 +780,8 @@ function sodium_crypto_box_keypair(): string
 /**
  * Description
  *
- * @param mixed $secret_key
- * @param mixed $public_key
+ * @param string $secret_key
+ * @param string $public_key
  *
  * @return string
  *
@@ -789,16 +789,16 @@ function sodium_crypto_box_keypair(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-keypair-from-secretkey-and-publickey.php
  */
-function sodium_crypto_box_keypair_from_secretkey_and_publickey($secret_key, $public_key): string
+function sodium_crypto_box_keypair_from_secretkey_and_publickey(string $secret_key, string $public_key): string
 {
 }
 
 /**
  * Verify and decrypt a ciphertext
  *
- * @param mixed $string
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -806,14 +806,14 @@ function sodium_crypto_box_keypair_from_secretkey_and_publickey($secret_key, $pu
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-open.php
  */
-function sodium_crypto_box_open($string, $nonce, $key): string
+function sodium_crypto_box_open(string $ciphertext, string $nonce, string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -821,14 +821,14 @@ function sodium_crypto_box_open($string, $nonce, $key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-publickey.php
  */
-function sodium_crypto_box_publickey($key): string
+function sodium_crypto_box_publickey(string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -836,15 +836,15 @@ function sodium_crypto_box_publickey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-publickey-from-secretkey.php
  */
-function sodium_crypto_box_publickey_from_secretkey($key): string
+function sodium_crypto_box_publickey_from_secretkey(string $key): string
 {
 }
 
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $key
+ * @param string $msg
+ * @param string $key
  *
  * @return string
  *
@@ -852,15 +852,15 @@ function sodium_crypto_box_publickey_from_secretkey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-seal.php
  */
-function sodium_crypto_box_seal($string, $key): string
+function sodium_crypto_box_seal(string $msg, string $key): string
 {
 }
 
 /**
  * Decrypt the ciphertext
  *
- * @param mixed $string
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $key
  *
  * @return string
  *
@@ -868,14 +868,14 @@ function sodium_crypto_box_seal($string, $key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-seal-open.php
  */
-function sodium_crypto_box_seal_open($string, $key): string
+function sodium_crypto_box_seal_open(string $ciphertext, string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -883,14 +883,14 @@ function sodium_crypto_box_seal_open($string, $key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-secretkey.php
  */
-function sodium_crypto_box_secretkey($key): string
+function sodium_crypto_box_secretkey(string $key): string
 {
 }
 
 /**
  * Deterministically derive the key pair from a single key
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -898,16 +898,16 @@ function sodium_crypto_box_secretkey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-box-seed-keypair.php
  */
-function sodium_crypto_box_seed_keypair($key): string
+function sodium_crypto_box_seed_keypair(string $key): string
 {
 }
 
 /**
  * Get a hash of the message
  *
- * @param mixed $string
- * @param mixed|null $key
- * @param mixed|null $length
+ * @param string $msg
+ * @param string $key
+ * @param int|null $length
  *
  * @return string
  *
@@ -915,15 +915,15 @@ function sodium_crypto_box_seed_keypair($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-generichash.php
  */
-function sodium_crypto_generichash($string, $key = null, $length = null): string
+function sodium_crypto_generichash(string $msg, string $key = null, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string
 {
 }
 
 /**
  * Complete the hash
  *
- * @param mixed $state
- * @param mixed|null $length
+ * @param string $state
+ * @param int|null $length
  *
  * @return string
  *
@@ -931,15 +931,15 @@ function sodium_crypto_generichash($string, $key = null, $length = null): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-generichash-final.php
  */
-function sodium_crypto_generichash_final(&$state, $length = null): string
+function sodium_crypto_generichash_final(string &$state, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string
 {
 }
 
 /**
  * Initialize a hash
  *
- * @param mixed|null $key
- * @param mixed|null $length
+ * @param string $key
+ * @param int|null $length
  *
  * @return string
  *
@@ -947,7 +947,7 @@ function sodium_crypto_generichash_final(&$state, $length = null): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-generichash-init.php
  */
-function sodium_crypto_generichash_init($key = null, $length = null): string
+function sodium_crypto_generichash_init(string $key = null, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string
 {
 }
 
@@ -967,8 +967,8 @@ function sodium_crypto_generichash_keygen(): string
 /**
  * Add message to a hash
  *
- * @param mixed $state
- * @param mixed $string
+ * @param string $state
+ * @param string $msg
  *
  * @return bool
  *
@@ -976,17 +976,17 @@ function sodium_crypto_generichash_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-generichash-update.php
  */
-function sodium_crypto_generichash_update(&$state, $string): bool
+function sodium_crypto_generichash_update(string &$state, string $msg): bool
 {
 }
 
 /**
  * Derive a subkey
  *
- * @param mixed $subkey_len
- * @param mixed $subkey_id
- * @param mixed $context
- * @param mixed $key
+ * @param int $subkey_len
+ * @param int $subkey_id
+ * @param string $context
+ * @param string $key
  *
  * @return string
  *
@@ -994,7 +994,7 @@ function sodium_crypto_generichash_update(&$state, $string): bool
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
  */
-function sodium_crypto_kdf_derive_from_key($subkey_len, $subkey_id, $context, $key): string
+function sodium_crypto_kdf_derive_from_key(int $subkey_len, int $subkey_id, string $context, string $key): string
 {
 }
 
@@ -1014,8 +1014,8 @@ function sodium_crypto_kdf_keygen(): string
 /**
  * Description
  *
- * @param mixed $client_keypair
- * @param mixed $server_key
+ * @param string $client_keypair
+ * @param string $server_key
  *
  * @return array
  *
@@ -1023,7 +1023,7 @@ function sodium_crypto_kdf_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  */
-function sodium_crypto_kx_client_session_keys($client_keypair, $server_key): array
+function sodium_crypto_kx_client_session_keys(string $client_keypair, string $server_key): array
 {
 }
 
@@ -1043,7 +1043,7 @@ function sodium_crypto_kx_keypair(): string
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1051,14 +1051,14 @@ function sodium_crypto_kx_keypair(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kx-publickey.php
  */
-function sodium_crypto_kx_publickey($key): string
+function sodium_crypto_kx_publickey(string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1066,14 +1066,14 @@ function sodium_crypto_kx_publickey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kx-secretkey.php
  */
-function sodium_crypto_kx_secretkey($key): string
+function sodium_crypto_kx_secretkey(string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $string
+ * @param string $string
  *
  * @return string
  *
@@ -1081,15 +1081,15 @@ function sodium_crypto_kx_secretkey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
  */
-function sodium_crypto_kx_seed_keypair($string): string
+function sodium_crypto_kx_seed_keypair(string $string): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $server_keypair
- * @param mixed $client_key
+ * @param string $server_keypair
+ * @param string $client_key
  *
  * @return array
  *
@@ -1097,19 +1097,19 @@ function sodium_crypto_kx_seed_keypair($string): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
  */
-function sodium_crypto_kx_server_session_keys($server_keypair, $client_key): array
+function sodium_crypto_kx_server_session_keys(string $server_keypair, string $client_key): array
 {
 }
 
 /**
  * Derive a key from a password
  *
- * @param mixed $length
- * @param mixed $password
- * @param mixed $salt
- * @param mixed $opslimit
- * @param mixed $memlimit
- * @param mixed|null $alg
+ * @param int $length
+ * @param string $password
+ * @param string $salt
+ * @param int $opslimit
+ * @param int $memlimit
+ * @param int $alg
  *
  * @return string
  *
@@ -1117,19 +1117,19 @@ function sodium_crypto_kx_server_session_keys($server_keypair, $client_key): arr
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash.php
  */
-function sodium_crypto_pwhash($length, $password, $salt, $opslimit, $memlimit, $alg = null): string
+function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = null): string
 {
 }
 
 /**
  * Derives a key from a password
  *
- * @param mixed $length
- * @param mixed $password
- * @param mixed $salt
- * @param mixed $opslimit
- * @param mixed $memlimit
- * @param mixed|null $alg
+ * @param int $length
+ * @param string $password
+ * @param string $salt
+ * @param int $opslimit
+ * @param int $memlimit
+ * @param mixed $alg
  *
  * @return string
  *
@@ -1137,16 +1137,16 @@ function sodium_crypto_pwhash($length, $password, $salt, $opslimit, $memlimit, $
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256.php
  */
-function sodium_crypto_pwhash_scryptsalsa208sha256($length, $password, $salt, $opslimit, $memlimit, $alg = null): string
+function sodium_crypto_pwhash_scryptsalsa208sha256(int $length, string $password, string $salt, int $opslimit, int $memlimit, $alg = null): string
 {
 }
 
 /**
  * Get an ASCII encoded hash
  *
- * @param mixed $password
- * @param mixed $opslimit
- * @param mixed $memlimit
+ * @param string $password
+ * @param int $opslimit
+ * @param int $memlimit
  *
  * @return string
  *
@@ -1154,15 +1154,15 @@ function sodium_crypto_pwhash_scryptsalsa208sha256($length, $password, $salt, $o
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str.php
  */
-function sodium_crypto_pwhash_scryptsalsa208sha256_str($password, $opslimit, $memlimit): string
+function sodium_crypto_pwhash_scryptsalsa208sha256_str(string $password, int $opslimit, int $memlimit): string
 {
 }
 
 /**
  * Verify that the password is a valid password verification string
  *
- * @param mixed $hash
- * @param mixed $password
+ * @param string $hash
+ * @param string $password
  *
  * @return bool
  *
@@ -1170,16 +1170,16 @@ function sodium_crypto_pwhash_scryptsalsa208sha256_str($password, $opslimit, $me
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str-verify.php
  */
-function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify($hash, $password): bool
+function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify(string $hash, string $password): bool
 {
 }
 
 /**
  * Get an ASCII encoded hash
  *
- * @param mixed $password
- * @param mixed $opslimit
- * @param mixed $memlimit
+ * @param string $password
+ * @param int $opslimit
+ * @param int $memlimit
  *
  * @return string
  *
@@ -1187,15 +1187,15 @@ function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify($hash, $password):
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash-str.php
  */
-function sodium_crypto_pwhash_str($password, $opslimit, $memlimit): string
+function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit): string
 {
 }
 
 /**
  * Verify that hash is a valid password verification string
  *
- * @param mixed $hash
- * @param mixed $password
+ * @param string $hash
+ * @param string $password
  *
  * @return bool
  *
@@ -1203,15 +1203,15 @@ function sodium_crypto_pwhash_str($password, $opslimit, $memlimit): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-pwhash-str-verify.php
  */
-function sodium_crypto_pwhash_str_verify($hash, $password): bool
+function sodium_crypto_pwhash_str_verify(string $hash, string $password): bool
 {
 }
 
 /**
  * Compute a shared secret given a user's secret key and another user's public key
  *
- * @param mixed $string_1
- * @param mixed $string_2
+ * @param string $n
+ * @param string $p
  *
  * @return string
  *
@@ -1219,7 +1219,7 @@ function sodium_crypto_pwhash_str_verify($hash, $password): bool
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-scalarmult.php
  */
-function sodium_crypto_scalarmult($string_1, $string_2): string
+function sodium_crypto_scalarmult(string $n, string $p): string
 {
 }
 
@@ -1240,9 +1240,9 @@ function sodium_crypto_scalarmult_base($string_1, $string_2)
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $string
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -1250,7 +1250,7 @@ function sodium_crypto_scalarmult_base($string_1, $string_2)
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-secretbox.php
  */
-function sodium_crypto_secretbox($string, $nonce, $key): string
+function sodium_crypto_secretbox(string $string, string $nonce, string $key): string
 {
 }
 
@@ -1270,9 +1270,9 @@ function sodium_crypto_secretbox_keygen(): string
 /**
  * Verify and decrypt a ciphertext
  *
- * @param mixed $string
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $ciphertext
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -1280,15 +1280,15 @@ function sodium_crypto_secretbox_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-secretbox-open.php
  */
-function sodium_crypto_secretbox_open($string, $nonce, $key): string
+function sodium_crypto_secretbox_open(string $ciphertext, string $nonce, string $key): string
 {
 }
 
 /**
  * Compute a fixed-size fingerprint for the message
  *
- * @param mixed $string
- * @param mixed $key
+ * @param string $msg
+ * @param string $key
  *
  * @return string
  *
@@ -1296,7 +1296,7 @@ function sodium_crypto_secretbox_open($string, $nonce, $key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-shorthash.php
  */
-function sodium_crypto_shorthash($string, $key): string
+function sodium_crypto_shorthash(string $msg, string $key): string
 {
 }
 
@@ -1316,8 +1316,8 @@ function sodium_crypto_shorthash_keygen(): string
 /**
  * Sign a message
  *
- * @param mixed $string
- * @param mixed $keypair
+ * @param string $msg
+ * @param string $secret_key
  *
  * @return string
  *
@@ -1325,15 +1325,15 @@ function sodium_crypto_shorthash_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign.php
  */
-function sodium_crypto_sign($string, $keypair): string
+function sodium_crypto_sign(string $msg, string $secret_key): string
 {
 }
 
 /**
  * Sign the message
  *
- * @param mixed $string
- * @param mixed $keypair
+ * @param string $msg
+ * @param string $keypair
  *
  * @return string
  *
@@ -1341,14 +1341,14 @@ function sodium_crypto_sign($string, $keypair): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-detached.php
  */
-function sodium_crypto_sign_detached($string, $keypair): string
+function sodium_crypto_sign_detached(string $msg, string $keypair): string
 {
 }
 
 /**
  * Convert an Ed25519 public key to a Curve25519 public key
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1356,14 +1356,14 @@ function sodium_crypto_sign_detached($string, $keypair): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-pk-to-curve25519.php
  */
-function sodium_crypto_sign_ed25519_pk_to_curve25519($key): string
+function sodium_crypto_sign_ed25519_pk_to_curve25519(string $key): string
 {
 }
 
 /**
  * Convert an Ed25519 secret key to a Curve25519 secret key
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1371,7 +1371,7 @@ function sodium_crypto_sign_ed25519_pk_to_curve25519($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-sk-to-curve25519.php
  */
-function sodium_crypto_sign_ed25519_sk_to_curve25519($key): string
+function sodium_crypto_sign_ed25519_sk_to_curve25519(string $key): string
 {
 }
 
@@ -1391,8 +1391,8 @@ function sodium_crypto_sign_keypair(): string
 /**
  * Description
  *
- * @param mixed $secret_key
- * @param mixed $public_key
+ * @param string $secret_key
+ * @param string $public_key
  *
  * @return string
  *
@@ -1400,15 +1400,15 @@ function sodium_crypto_sign_keypair(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
  */
-function sodium_crypto_sign_keypair_from_secretkey_and_publickey($secret_key, $public_key): string
+function sodium_crypto_sign_keypair_from_secretkey_and_publickey(string $secret_key, string $public_key): string
 {
 }
 
 /**
  * Check that the signed message has a valid signature
  *
- * @param mixed $string
- * @param mixed $keypair
+ * @param string $string
+ * @param string $keypair
  *
  * @return string
  *
@@ -1416,14 +1416,14 @@ function sodium_crypto_sign_keypair_from_secretkey_and_publickey($secret_key, $p
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-open.php
  */
-function sodium_crypto_sign_open($string, $keypair): string
+function sodium_crypto_sign_open(string $string, string $keypair): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $keypair
  *
  * @return string
  *
@@ -1431,14 +1431,14 @@ function sodium_crypto_sign_open($string, $keypair): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-publickey.php
  */
-function sodium_crypto_sign_publickey($key): string
+function sodium_crypto_sign_publickey(string $keypair): string
 {
 }
 
 /**
  * Extract the public key from the secret key
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1446,14 +1446,14 @@ function sodium_crypto_sign_publickey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-publickey-from-secretkey.php
  */
-function sodium_crypto_sign_publickey_from_secretkey($key): string
+function sodium_crypto_sign_publickey_from_secretkey(string $key): string
 {
 }
 
 /**
  * Description
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1461,14 +1461,14 @@ function sodium_crypto_sign_publickey_from_secretkey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-secretkey.php
  */
-function sodium_crypto_sign_secretkey($key): string
+function sodium_crypto_sign_secretkey(string $key): string
 {
 }
 
 /**
  * Deterministically derive the key pair from a single key
  *
- * @param mixed $key
+ * @param string $key
  *
  * @return string
  *
@@ -1476,16 +1476,16 @@ function sodium_crypto_sign_secretkey($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-seed-keypair.php
  */
-function sodium_crypto_sign_seed_keypair($key): string
+function sodium_crypto_sign_seed_keypair(string $key): string
 {
 }
 
 /**
  * Verify signature for the message
  *
- * @param mixed $signature
- * @param mixed $string
- * @param mixed $key
+ * @param string $signature
+ * @param string $msg
+ * @param string $key
  *
  * @return bool
  *
@@ -1493,16 +1493,16 @@ function sodium_crypto_sign_seed_keypair($key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-sign-verify-detached.php
  */
-function sodium_crypto_sign_verify_detached($signature, $string, $key): bool
+function sodium_crypto_sign_verify_detached(string $signature, string $msg, string $key): bool
 {
 }
 
 /**
  * Generate a deterministic sequence of bytes from a seed
  *
- * @param mixed $length
- * @param mixed $nonce
- * @param mixed $key
+ * @param int $length
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -1510,7 +1510,7 @@ function sodium_crypto_sign_verify_detached($signature, $string, $key): bool
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-stream.php
  */
-function sodium_crypto_stream($length, $nonce, $key): string
+function sodium_crypto_stream(int $length, string $nonce, string $key): string
 {
 }
 
@@ -1530,9 +1530,9 @@ function sodium_crypto_stream_keygen(): string
 /**
  * Encrypt a message
  *
- * @param mixed $string
- * @param mixed $nonce
- * @param mixed $key
+ * @param string $msg
+ * @param string $nonce
+ * @param string $key
  *
  * @return string
  *
@@ -1540,15 +1540,15 @@ function sodium_crypto_stream_keygen(): string
  *
  * @link http://www.php.net/manual/en/function.sodium-crypto-stream-xor.php
  */
-function sodium_crypto_stream_xor($string, $nonce, $key): string
+function sodium_crypto_stream_xor(string $msg, string $nonce, string $key): string
 {
 }
 
 /**
  * Decode from hexadecimal
  *
- * @param mixed $string_1
- * @param mixed|null $string_2
+ * @param string $hex
+ * @param string $ignore
  *
  * @return string
  *
@@ -1556,14 +1556,14 @@ function sodium_crypto_stream_xor($string, $nonce, $key): string
  *
  * @link http://www.php.net/manual/en/function.sodium-hex2bin.php
  */
-function sodium_hex2bin($string_1, $string_2 = null): string
+function sodium_hex2bin(string $hex, string $ignore = null): string
 {
 }
 
 /**
  * Increment large number
  *
- * @param mixed $string
+ * @param string $val
  *
  * @return void
  *
@@ -1571,15 +1571,15 @@ function sodium_hex2bin($string_1, $string_2 = null): string
  *
  * @link http://www.php.net/manual/en/function.sodium-increment.php
  */
-function sodium_increment(&$string): void
+function sodium_increment(string &$val): void
 {
 }
 
 /**
  * Test for equality in constant-time
  *
- * @param mixed $string_1
- * @param mixed $string_2
+ * @param string $buf1
+ * @param string $buf2
  *
  * @return int
  *
@@ -1587,14 +1587,14 @@ function sodium_increment(&$string): void
  *
  * @link http://www.php.net/manual/en/function.sodium-memcmp.php
  */
-function sodium_memcmp($string_1, $string_2): int
+function sodium_memcmp(string $buf1, string $buf2): int
 {
 }
 
 /**
  * Overwrite buf with zeros
  *
- * @param mixed $reference
+ * @param string $buf
  * @param mixed $length
  *
  * @return void
@@ -1603,15 +1603,15 @@ function sodium_memcmp($string_1, $string_2): int
  *
  * @link http://www.php.net/manual/en/function.sodium-memzero.php
  */
-function sodium_memzero(&$reference, $length): void
+function sodium_memzero(string &$buf, $length): void
 {
 }
 
 /**
  * Add padding data
  *
- * @param mixed $string
- * @param mixed $length
+ * @param string $unpadded
+ * @param int $length
  *
  * @return string
  *
@@ -1619,15 +1619,15 @@ function sodium_memzero(&$reference, $length): void
  *
  * @link http://www.php.net/manual/en/function.sodium-pad.php
  */
-function sodium_pad($string, $length): string
+function sodium_pad(string $unpadded, int $length): string
 {
 }
 
 /**
  * Remove padding data
  *
- * @param mixed $string
- * @param mixed $length
+ * @param string $padded
+ * @param int $length
  *
  * @return string
  *
@@ -1635,6 +1635,6 @@ function sodium_pad($string, $length): string
  *
  * @link http://www.php.net/manual/en/function.sodium-unpad.php
  */
-function sodium_unpad($string, $length): string
+function sodium_unpad(string $padded, int $length): string
 {
 }

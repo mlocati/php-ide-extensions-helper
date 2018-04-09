@@ -681,30 +681,38 @@ const TOKEN_PARSE = 1;
 /**
  * Split given source into PHP tokens
  *
- * @param mixed $source
- * @param mixed|null $flags
+ * @param string $source The PHP source to parse.
+ * @param int|null $flags Valid flags:
+ * <ul>
+ * <code>TOKEN_PARSE</code> - Recognises the ability to use
+ * reserved words in specific contexts.
+ * </ul>
  *
- * @return array
+ * @return array An array of token identifiers. Each individual token identifier is either
+ * a single character (i.e.: <code>;</code>, <code>.</code>,
+ * <code>&gt;</code>, <code>!</code>, etc...),
+ * or a three element array containing the token index in element 0, the string
+ * content of the original token in element 1 and the line number in element 2.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.token-get-all.php
  */
-function token_get_all($source, $flags = null): array
+function token_get_all(string $source, int $flags = 0): array
 {
 }
 
 /**
  * Get the symbolic name of a given PHP token
  *
- * @param mixed $token
+ * @param int $token The token value.
  *
- * @return string
+ * @return string The symbolic name of the given <code>token</code>.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.token-name.php
  */
-function token_name($token): string
+function token_name(int $token): string
 {
 }

@@ -12,148 +12,154 @@ function _($msgid)
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
  *
- * @param mixed $domain
- * @param mixed $codeset
+ * @param string $domain The domain
+ * @param string $codeset The code set
  *
- * @return string
+ * @return string A <code>string</code> on success.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.bind-textdomain-codeset.php
  */
-function bind_textdomain_codeset($domain, $codeset): string
+function bind_textdomain_codeset(string $domain, string $codeset): string
 {
 }
 
 /**
  * Sets the path for a domain
  *
- * @param mixed $domain_name
- * @param mixed $dir
+ * @param string $domain The domain
+ * @param string $directory The directory path
  *
- * @return string
+ * @return string The full pathname for the <code>domain</code> currently being set.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.bindtextdomain.php
  */
-function bindtextdomain($domain_name, $dir): string
+function bindtextdomain(string $domain, string $directory): string
 {
 }
 
 /**
  * Overrides the domain for a single lookup
  *
- * @param mixed $domain_name
- * @param mixed $msgid
- * @param mixed $category
+ * @param string $domain The domain
+ * @param string $message The message
+ * @param int $category The category
  *
- * @return string
+ * @return string A <code>string</code> on success.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.dcgettext.php
  */
-function dcgettext($domain_name, $msgid, $category): string
+function dcgettext(string $domain, string $message, int $category): string
 {
 }
 
 /**
  * Plural version of dcgettext
  *
- * @param mixed $domain
- * @param mixed $msgid1
- * @param mixed $msgid2
- * @param mixed $count
- * @param mixed $category
+ * @param string $domain The domain
+ * @param string $msgid1
+ * @param string $msgid2
+ * @param int $n
+ * @param int $category
  *
- * @return string
+ * @return string A <code>string</code> on success.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.dcngettext.php
  */
-function dcngettext($domain, $msgid1, $msgid2, $count, $category): string
+function dcngettext(string $domain, string $msgid1, string $msgid2, int $n, int $category): string
 {
 }
 
 /**
  * Override the current domain
  *
- * @param mixed $domain_name
- * @param mixed $msgid
+ * @param string $domain The domain
+ * @param string $message The message
  *
- * @return string
+ * @return string A <code>string</code> on success.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.dgettext.php
  */
-function dgettext($domain_name, $msgid): string
+function dgettext(string $domain, string $message): string
 {
 }
 
 /**
  * Plural version of dgettext
  *
- * @param mixed $domain
- * @param mixed $msgid1
- * @param mixed $msgid2
- * @param mixed $count
+ * @param string $domain The domain
+ * @param string $msgid1
+ * @param string $msgid2
+ * @param int $n
  *
- * @return string
+ * @return string A <code>string</code> on success.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.dngettext.php
  */
-function dngettext($domain, $msgid1, $msgid2, $count): string
+function dngettext(string $domain, string $msgid1, string $msgid2, int $n): string
 {
 }
 
 /**
  * Lookup a message in the current domain
  *
- * @param mixed $msgid
+ * @param string $message The message being translated.
  *
- * @return string
+ * @return string Returns a translated <code>string</code> if one is found in the
+ * translation table, or the submitted message if not found.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.gettext.php
  */
-function gettext($msgid): string
+function gettext(string $message): string
 {
 }
 
 /**
  * Plural version of gettext
  *
- * @param mixed $msgid1
- * @param mixed $msgid2
- * @param mixed $count
+ * @param string $msgid1 The singular message ID.
+ * @param string $msgid2 The plural message ID.
+ * @param int $n The number (e.g. item count) to determine the translation for the
+ * respective grammatical number.
  *
- * @return string
+ * @return string Returns correct plural form of message identified by
+ * <code>msgid1</code> and <code>msgid2</code>
+ * for count <code>n</code>.
  *
  * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.ngettext.php
  */
-function ngettext($msgid1, $msgid2, $count): string
+function ngettext(string $msgid1, string $msgid2, int $n): string
 {
 }
 
 /**
  * Sets the default domain
  *
- * @param mixed $domain
+ * @param string|null $text_domain The new message domain, or <code>NULL</code> to get the current setting without
+ * changing it
  *
- * @return string
+ * @return string If successful, this function returns the current message
+ * domain, after possibly changing it.
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.textdomain.php
  */
-function textdomain($domain): string
+function textdomain(string $text_domain = null): string
 {
 }

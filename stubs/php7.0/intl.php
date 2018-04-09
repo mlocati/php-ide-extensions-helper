@@ -1120,82 +1120,109 @@ class Collator
     /**
      * Create a collator
      *
-     * @param mixed $arg1
+     * @param string $locale The locale whose collation rules should be used. Special values for
+     * locales can be passed in - if null is passed for the locale, the
+     * default locale's collation rules will be used. If "root" is passed,
+     * UCA rules will be used.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.construct.php
      */
-    public function __construct($arg1)
+    public function __construct(string $locale)
     {
     }
 
     /**
      * Sort array maintaining index association
      *
-     * @param array $arr
-     * @param mixed|null $flags
+     * @param array $arr Array of strings to sort.
+     * @param int $sort_flag Optional sorting type, one of the following:
+     * <ul>
+     * <code>Collator::SORT_REGULAR</code>
+     * - compare items normally (don't change types)
+     * <code>Collator::SORT_NUMERIC</code>
+     * - compare items numerically
+     * <code>Collator::SORT_STRING</code>
+     * - compare items as strings
+     * </ul>
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.asort.php
      */
-    public function asort(array &$arr, $flags = null): bool
+    public function asort(array &$arr, int $sort_flag = null): bool
     {
     }
 
     /**
      * Compare two Unicode strings
      *
-     * @param mixed $arg1
-     * @param mixed $arg2
+     * @param string $str1 The first string to compare.
+     * @param string $str2 The second string to compare.
      *
-     * @return int
+     * @return int Return comparison result:
+     * <ul>
+     * 1 if <code>str1</code> is <code>greater</code> than
+     * <code>str2</code> ;
+     * 0 if <code>str1</code> is <code>equal</code> to
+     * <code>str2</code>;
+     * -1 if <code>str1</code> is <code>less</code> than
+     * <code>str2</code> .
+     * </ul>
+     * On error
+     * <code>boolean</code>
+     * <code>FALSE</code>
+     * is returned.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.compare.php
      */
-    public function compare($arg1, $arg2): int
+    public function compare(string $str1, string $str2): int
     {
     }
 
     /**
      * Create a collator
      *
-     * @param mixed $arg1
+     * @param string $locale The locale containing the required collation rules. Special values for
+     * locales can be passed in - if null is passed for the locale, the
+     * default locale collation rules will be used. If empty string ("") or
+     * "root" are passed, UCA rules will be used.
      *
-     * @return Collator
+     * @return Collator Return new instance of <code>Collator</code> object, or <code>NULL</code>
+     * on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.create.php
      */
-    public static function create($arg1): Collator
+    public static function create(string $locale): Collator
     {
     }
 
     /**
      * Get collation attribute value
      *
-     * @param mixed $arg1
+     * @param int $attr Attribute to get value for.
      *
-     * @return int
+     * @return int Attribute value, or <code>boolean</code> <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.getattribute.php
      */
-    public function getAttribute($arg1): int
+    public function getAttribute(int $attr): int
     {
     }
 
     /**
      * Get collator's last error code
      *
-     * @return int
+     * @return int Error code returned by the last Collator <code>API</code> function call.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -1208,7 +1235,7 @@ class Collator
     /**
      * Get text for collator's last error code
      *
-     * @return string
+     * @return string Description of an error occurred in the last Collator <code>API</code> function call.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -1221,37 +1248,42 @@ class Collator
     /**
      * Get the locale name of the collator
      *
-     * @param mixed $arg1
+     * @param int $type You can choose between valid and actual locale (
+     * <code>Locale::VALID_LOCALE</code> and
+     * <code>Locale::ACTUAL_LOCALE</code>,
+     * respectively).
      *
-     * @return string
+     * @return string Real locale name from which the collation data comes. If the collator was
+     * instantiated from rules or an error occurred, returns
+     * <code>boolean</code> <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.getlocale.php
      */
-    public function getLocale($arg1): string
+    public function getLocale(int $type): string
     {
     }
 
     /**
      * Get sorting key for a string
      *
-     * @param mixed $arg1
+     * @param string $str The string to produce the key from.
      *
-     * @return string
+     * @return string Returns the collation key for the string. Collation keys can be compared directly instead of strings.
      *
      * @since PHP 5 >= 5.3.11, PHP 7, PECL intl >= 1.0.3
      *
      * @link http://www.php.net/manual/en/collator.getsortkey.php
      */
-    public function getSortKey($arg1): string
+    public function getSortKey(string $str): string
     {
     }
 
     /**
      * Get current collation strength
      *
-     * @return int
+     * @return int Returns current collation strength, or <code>boolean</code> <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -1264,56 +1296,56 @@ class Collator
     /**
      * Set collation attribute
      *
-     * @param mixed $arg1
-     * @param mixed $arg2
+     * @param int $attr Attribute.
+     * @param int $val Attribute value.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.setattribute.php
      */
-    public function setAttribute($arg1, $arg2): bool
+    public function setAttribute(int $attr, int $val): bool
     {
     }
 
     /**
      * Set collation strength
      *
-     * @param mixed $arg1
+     * @param int $strength Strength to set.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.setstrength.php
      */
-    public function setStrength($arg1): bool
+    public function setStrength(int $strength): bool
     {
     }
 
     /**
      * Sort array using specified collator
      *
-     * @param array $arr
-     * @param mixed|null $flags
+     * @param array $arr Array of strings to sort.
+     * @param int $sort_flag Optional sorting type, one of the following:
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/collator.sort.php
      */
-    public function sort(array &$arr, $flags = null): bool
+    public function sort(array &$arr, int $sort_flag = null): bool
     {
     }
 
     /**
      * Sort array using specified collator and sort keys
      *
-     * @param array $arr
+     * @param array $arr Array of strings to sort
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -1449,7 +1481,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Create break iterator for boundaries of combining character sequences
      *
-     * @param mixed|null $locale
+     * @param string $locale
      *
      * @return IntlBreakIterator
      *
@@ -1457,7 +1489,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
      */
-    public static function createCharacterInstance($locale = null): IntlBreakIterator
+    public static function createCharacterInstance(string $locale = null): IntlBreakIterator
     {
     }
 
@@ -1477,7 +1509,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Create break iterator for logically possible line breaks
      *
-     * @param mixed|null $locale
+     * @param string $locale
      *
      * @return IntlBreakIterator
      *
@@ -1485,14 +1517,14 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
      */
-    public static function createLineInstance($locale = null): IntlBreakIterator
+    public static function createLineInstance(string $locale = null): IntlBreakIterator
     {
     }
 
     /**
      * Create break iterator for sentence breaks
      *
-     * @param mixed|null $locale
+     * @param string $locale
      *
      * @return IntlBreakIterator
      *
@@ -1500,14 +1532,14 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
      */
-    public static function createSentenceInstance($locale = null): IntlBreakIterator
+    public static function createSentenceInstance(string $locale = null): IntlBreakIterator
     {
     }
 
     /**
      * Create break iterator for title-casing breaks
      *
-     * @param mixed|null $locale
+     * @param string $locale
      *
      * @return IntlBreakIterator
      *
@@ -1515,14 +1547,14 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
      */
-    public static function createTitleInstance($locale = null): IntlBreakIterator
+    public static function createTitleInstance(string $locale = null): IntlBreakIterator
     {
     }
 
     /**
      * Create break iterator for word breaks
      *
-     * @param mixed|null $locale
+     * @param string $locale
      *
      * @return IntlBreakIterator
      *
@@ -1530,7 +1562,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
      */
-    public static function createWordInstance($locale = null): IntlBreakIterator
+    public static function createWordInstance(string $locale = null): IntlBreakIterator
     {
     }
 
@@ -1563,7 +1595,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Advance the iterator to the first boundary following specified offset
      *
-     * @param mixed $offset
+     * @param int $offset
      *
      * @return int
      *
@@ -1571,7 +1603,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.following.php
      */
-    public function following($offset): int
+    public function following(int $offset): int
     {
     }
 
@@ -1604,7 +1636,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Get the locale associated with the object
      *
-     * @param mixed $locale_type
+     * @param string $locale_type
      *
      * @return string
      *
@@ -1612,14 +1644,14 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.getlocale.php
      */
-    public function getLocale($locale_type): string
+    public function getLocale(string $locale_type): string
     {
     }
 
     /**
      * Create iterator for navigating fragments between boundaries
      *
-     * @param mixed|null $key_type
+     * @param string $key_type
      *
      * @return IntlPartsIterator
      *
@@ -1627,7 +1659,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.getpartsiterator.php
      */
-    public function getPartsIterator($key_type = null): IntlPartsIterator
+    public function getPartsIterator(string $key_type = null): IntlPartsIterator
     {
     }
 
@@ -1647,7 +1679,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Tell whether an offset is a boundaryʼs offset
      *
-     * @param mixed $offset
+     * @param int $offset
      *
      * @return bool
      *
@@ -1655,7 +1687,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.isboundary.php
      */
-    public function isBoundary($offset): bool
+    public function isBoundary(int $offset): bool
     {
     }
 
@@ -1675,7 +1707,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Advance the iterator the next boundary
      *
-     * @param mixed|null $offset
+     * @param int $offset
      *
      * @return int
      *
@@ -1683,14 +1715,14 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.next.php
      */
-    public function next($offset = null): int
+    public function next(int $offset = null): int
     {
     }
 
     /**
      * Set the iterator position to the first boundary before an offset
      *
-     * @param mixed $offset
+     * @param int $offset
      *
      * @return int
      *
@@ -1698,7 +1730,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.preceding.php
      */
-    public function preceding($offset): int
+    public function preceding(int $offset): int
     {
     }
 
@@ -1718,7 +1750,7 @@ class IntlBreakIterator implements Traversable
     /**
      * Set the text being scanned
      *
-     * @param mixed $text
+     * @param string $text
      *
      * @return bool
      *
@@ -1726,7 +1758,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.settext.php
      */
-    public function setText($text): bool
+    public function setText(string $text): bool
     {
     }
 }
@@ -1947,117 +1979,139 @@ class IntlCalendar
     /**
      * Add a (signed) amount of time to a field
      *
-     * @param mixed $field
-     * @param mixed $amount
+     * @param int $field
+     * @param int $amount The signed amount to add to the current field. If the amount is positive,
+     * the instant will be moved forward; if it is negative, the instant wil be
+     * moved into the past. The unit is implicit to the field type. For instance,
+     * hours for <code>IntlCalendar::FIELD_HOUR_OF_DAY</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.add.php
      */
-    public function add($field, $amount): bool
+    public function add(int $field, int $amount): bool
     {
     }
 
     /**
      * Whether this objectʼs time is after that of the passed object
      *
-     * @param IntlCalendar $calendar
+     * @param IntlCalendar $other The calendar whose time will be checked against the primary objectʼs time.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if this objectʼs current time is after that of the
+     * <code>calendar</code> argumentʼs time. Returns <code>FALSE</code> otherwise.
+     * Also returns <code>FALSE</code> on failure. You can use exceptions or
+     * <code>intl_get_error_code</code> to detect error conditions.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.after.php
      */
-    public function after(IntlCalendar $calendar): bool
+    public function after(IntlCalendar $other): bool
     {
     }
 
     /**
      * Whether this objectʼs time is before that of the passed object
      *
-     * @param IntlCalendar $calendar
+     * @param IntlCalendar $other The calendar whose time will be checked against the primary objectʼs time.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if this objectʼs current time is before that of the
+     * <code>calendar</code> argumentʼs time. Returns <code>FALSE</code> otherwise.
+     * Also returns <code>FALSE</code> on failure. You can use exceptions or
+     * <code>intl_get_error_code</code> to detect error conditions.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.before.php
      */
-    public function before(IntlCalendar $calendar): bool
+    public function before(IntlCalendar $other): bool
     {
     }
 
     /**
      * Clear a field or all fields
      *
-     * @param mixed|null $field
+     * @param int|null $field
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure. Failure can only occur is
+     * invalid arguments are provided.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.clear.php
      */
-    public function clear($field = null): bool
+    public function clear(int $field = null): bool
     {
     }
 
     /**
      * Create a new IntlCalendar
      *
-     * @param mixed|null $timeZone
-     * @param mixed|null $locale
+     * @param mixed|null $timeZone The timezone to use.
+     * @param string|null $locale A locale to use or <code>NULL</code> to use the default locale.
      *
-     * @return IntlCalendar
+     * @return IntlCalendar The created <code>IntlCalendar</code> instance or <code>NULL</code> on
+     * failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.createinstance.php
      */
-    public static function createInstance($timeZone = null, $locale = null): IntlCalendar
+    public static function createInstance($timeZone = null, string $locale = ""): IntlCalendar
     {
     }
 
     /**
      * Compare time of two IntlCalendar objects for equality
      *
-     * @param IntlCalendar $calendar
+     * @param IntlCalendar $other The calendar to compare with the primary object.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the current time of both this and the passed in
+     * <code>IntlCalendar</code> object are the same, or <code>FALSE</code>
+     * otherwise. The value <code>FALSE</code> can also be returned on failure. This can only
+     * happen if bad arguments are passed in. In any case, the two cases can be
+     * distinguished by calling <code>intl_get_error_code</code>.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.equals.php
      */
-    public function equals(IntlCalendar $calendar): bool
+    public function equals(IntlCalendar $other): bool
     {
     }
 
     /**
      * Calculate difference between given time and this objectʼs time
      *
-     * @param mixed $when
-     * @param mixed $field
+     * @param float $when The time against which to compare the quantity represented by the
+     * <code>field</code>. For the result to be positive, the time
+     * given for this parameter must be ahead of the time of the object the
+     * method is being invoked on.
+     * @param int $field The field that represents the quantity being compared.
      *
-     * @return int
+     * @return int Returns a (signed) difference of time in the unit associated with the
+     * specified field or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.fielddifference.php
      */
-    public function fieldDifference($when, $field): int
+    public function fieldDifference(float $when, int $field): int
     {
     }
 
     /**
      * Create an IntlCalendar from a DateTime object or string
      *
-     * @param mixed $dateTime
+     * @param mixed $dateTime A <code>DateTime</code> object or a <code>string</code> that
+     * can be passed to <code>DateTime::__construct</code>.
      *
-     * @return IntlCalendar
+     * @return IntlCalendar The created <code>IntlCalendar</code> object or <code>NULL</code> in case of
+     * failure. If a <code>string</code> is passed, any exception that occurs
+     * inside the <code>DateTime</code> constructor is propagated.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a2
      *
@@ -2070,52 +2124,54 @@ class IntlCalendar
     /**
      * Get the value for a field
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An integer with the value of the time field.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.get.php
      */
-    public function get($field): int
+    public function get(int $field): int
     {
     }
 
     /**
      * The maximum value for a field, considering the objectʼs current time
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing the maximum value in the units associated
+     * with the given <code>field</code> or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getactualmaximum.php
      */
-    public function getActualMaximum($field): int
+    public function getActualMaximum(int $field): int
     {
     }
 
     /**
      * The minimum value for a field, considering the objectʼs current time
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing the minimum value in the fieldʼs
+     * unit or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getactualminimum.php
      */
-    public function getActualMinimum($field): int
+    public function getActualMinimum(int $field): int
     {
     }
 
     /**
      * Get array of locales for which there is data
      *
-     * @return array
+     * @return array An <code>array</code> of <code>string</code>s, one for which locale.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2128,22 +2184,28 @@ class IntlCalendar
     /**
      * Tell whether a day is a weekday, weekend or a day that has a transition between the two
      *
-     * @param mixed $dayOfWeek
+     * @param int $dayOfWeek One of the constants <code>IntlCalendar::DOW_SUNDAY</code>,
+     * <code>IntlCalendar::DOW_MONDAY</code>, …,
+     * <code>IntlCalendar::DOW_SATURDAY</code>.
      *
-     * @return int
+     * @return int Returns one of the constants
+     * <code>IntlCalendar::DOW_TYPE_WEEKDAY</code>,
+     * <code>IntlCalendar::DOW_TYPE_WEEKEND</code>,
+     * <code>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</code> or
+     * <code>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</code> or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getdayofweektype.php
      */
-    public function getDayOfWeekType($dayOfWeek): int
+    public function getDayOfWeekType(int $dayOfWeek): int
     {
     }
 
     /**
      * Get last error code on the object
      *
-     * @return int
+     * @return int An ICU error code indicating either success, failure or a warning.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2156,7 +2218,8 @@ class IntlCalendar
     /**
      * Get last error message on the object
      *
-     * @return string
+     * @return string The error message associated with last error that occurred in a function call
+     * on this object, or a string indicating the non-existance of an error.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2169,7 +2232,9 @@ class IntlCalendar
     /**
      * Get the first day of the week for the calendarʼs locale
      *
-     * @return int
+     * @return int One of the constants <code>IntlCalendar::DOW_SUNDAY</code>,
+     * <code>IntlCalendar::DOW_MONDAY</code>, …,
+     * <code>IntlCalendar::DOW_SATURDAY</code> or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2182,84 +2247,94 @@ class IntlCalendar
     /**
      * Get the largest local minimum value for a field
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing a field value, in the fieldʼs
+     * unit, or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getgreatestminimum.php
      */
-    public function getGreatestMinimum($field): int
+    public function getGreatestMinimum(int $field): int
     {
     }
 
     /**
      * Get set of locale keyword values
      *
-     * @param mixed $key
-     * @param mixed $locale
-     * @param mixed $commonlyUsed
+     * @param string $key The locale keyword for which relevant values are to be queried. Only
+     * <code>'calendar'</code> is supported.
+     * @param string $locale The locale onto which the keyword/value pair are to be appended.
+     * @param bool $commonlyUsed Whether to show only the values commonly used for the specified locale.
      *
-     * @return Iterator
+     * @return Iterator An iterator that yields strings with the locale keyword
+     * values or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getkeywordvaluesforlocale.php
      */
-    public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed): Iterator
+    public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed): Iterator
     {
     }
 
     /**
      * Get the smallest local maximum for a field
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing a field value in the fieldʼs
+     * unit or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getleastmaximum.php
      */
-    public function getLeastMaximum($field): int
+    public function getLeastMaximum(int $field): int
     {
     }
 
     /**
      * Get the locale associated with the object
      *
-     * @param mixed $localeType
+     * @param int $localeType Whether to fetch the actual locale (the locale from which the calendar
+     * data originates, with <code>Locale::ACTUAL_LOCALE</code>) or the
+     * valid locale, i.e., the most specific locale supported by ICU relatively
+     * to the requested locale – see <code>Locale::VALID_LOCALE</code>.
+     * From the most general to the most specific, the locales are ordered in
+     * this fashion – actual locale, valid locale, requested locale.
      *
-     * @return string
+     * @return string A locale string or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getlocale.php
      */
-    public function getLocale($localeType): string
+    public function getLocale(int $localeType): string
     {
     }
 
     /**
      * Get the global maximum value for a field
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing a field value in the fieldʼs
+     * unit or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getmaximum.php
      */
-    public function getMaximum($field): int
+    public function getMaximum(int $field): int
     {
     }
 
     /**
      * Get minimal number of days the first week in a year or month can have
      *
-     * @return int
+     * @return int An <code>int</code> representing a number of days or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2272,22 +2347,24 @@ class IntlCalendar
     /**
      * Get the global minimum value for a field
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return int
+     * @return int An <code>int</code> representing a value for the given
+     * field in the fieldʼs unit or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getminimum.php
      */
-    public function getMinimum($field): int
+    public function getMinimum(int $field): int
     {
     }
 
     /**
      * Get number representing the current time
      *
-     * @return float
+     * @return float A <code>float</code> representing a number of milliseconds since the epoch,
+     * not counting leap seconds.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2300,7 +2377,8 @@ class IntlCalendar
     /**
      * Get behavior for handling repeating wall time
      *
-     * @return int
+     * @return int One of the constants <code>IntlCalendar::WALLTIME_FIRST</code> or
+     * <code>IntlCalendar::WALLTIME_LAST</code>.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2313,7 +2391,9 @@ class IntlCalendar
     /**
      * Get behavior for handling skipped wall time
      *
-     * @return int
+     * @return int One of the constants <code>IntlCalendar::WALLTIME_FIRST</code>,
+     * <code>IntlCalendar::WALLTIME_LAST</code> or
+     * <code>IntlCalendar::WALLTIME_NEXT_VALID</code>.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2326,7 +2406,8 @@ class IntlCalendar
     /**
      * Get time currently represented by the object
      *
-     * @return float
+     * @return float A <code>float</code> representing the number of milliseconds elapsed since the
+     * reference time (1 Jan 1970 00:00:00 UTC).
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2339,7 +2420,8 @@ class IntlCalendar
     /**
      * Get the objectʼs timezone
      *
-     * @return IntlTimeZone
+     * @return IntlTimeZone An <code>IntlTimeZone</code> object corresponding to the one used
+     * internally in this object.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2352,7 +2434,8 @@ class IntlCalendar
     /**
      * Get the calendar type
      *
-     * @return string
+     * @return string A <code>string</code> representing the calendar type, such as
+     * <code>'gregorian'</code>, <code>'islamic'</code>, etc.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2365,22 +2448,28 @@ class IntlCalendar
     /**
      * Get time of the day at which weekend begins or ends
      *
-     * @param mixed $dayOfWeek
+     * @param string $dayOfWeek One of the constants <code>IntlCalendar::DOW_SUNDAY</code>,
+     * <code>IntlCalendar::DOW_MONDAY</code>, …,
+     * <code>IntlCalendar::DOW_SATURDAY</code>.
      *
-     * @return int
+     * @return int The number of milliseconds into the day at which the weekend begins or
+     * ends or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.getweekendtransition.php
      */
-    public function getWeekendTransition($dayOfWeek): int
+    public function getWeekendTransition(string $dayOfWeek): int
     {
     }
 
     /**
      * Whether the objectʼs time is in Daylight Savings Time
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if the date is in Daylight Savings Time, <code>FALSE</code> otherwise.
+     * The value <code>FALSE</code> may also be returned on failure, for instance after
+     * specifying invalid field values on non-lenient mode; use exceptions or query
+     * <code>intl_get_error_code</code> to disambiguate.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2393,22 +2482,23 @@ class IntlCalendar
     /**
      * Whether another calendar is equal but for a different time
      *
-     * @param IntlCalendar $calendar
+     * @param IntlCalendar $other The other calendar against which the comparison is to be made.
      *
-     * @return bool
+     * @return bool Assuming there are no argument errors, returns <code>TRUE</code> iif the calendars are
+     * equivalent except possibly for their set time.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.isequivalentto.php
      */
-    public function isEquivalentTo(IntlCalendar $calendar): bool
+    public function isEquivalentTo(IntlCalendar $other): bool
     {
     }
 
     /**
      * Whether date/time interpretation is in lenient mode
      *
-     * @return bool
+     * @return bool A <code>bool</code> representing whether the calendar is set to lenient mode.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2421,165 +2511,181 @@ class IntlCalendar
     /**
      * Whether a field is set
      *
-     * @param mixed $field
+     * @param int $field
      *
-     * @return bool
+     * @return bool Assuming there are no argument errors, returns <code>TRUE</code> iif the field is set.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.isset.php
      */
-    public function isSet($field): bool
+    public function isSet(int $field): bool
     {
     }
 
     /**
      * Whether a certain date/time is in the weekend
      *
-     * @param mixed|null $date
+     * @param float|null $date An optional timestamp representing the number of milliseconds since the
+     * epoch, excluding leap seconds. If <code>NULL</code>, this objectʼs current time is
+     * used instead.
      *
-     * @return bool
+     * @return bool A <code>bool</code> indicating whether the given or this objectʼs time occurs
+     * in a weekend.
+     * The value <code>FALSE</code> may also be returned on failure, for instance after giving
+     * a date out of bounds on non-lenient mode; use exceptions or query
+     * <code>intl_get_error_code</code> to disambiguate.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.isweekend.php
      */
-    public function isWeekend($date = null): bool
+    public function isWeekend(float $date = null): bool
     {
     }
 
     /**
      * Add value to field without carrying into more significant fields
      *
-     * @param mixed $field
-     * @param mixed $amountOrUpOrDown
+     * @param int $field
+     * @param mixed $amountOrUpOrDown The (signed) amount to add to the field, <code>TRUE</code> for rolling up (adding
+     * <code>1</code>), or <code>FALSE</code> for rolling down (subtracting
+     * <code>1</code>).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.roll.php
      */
-    public function roll($field, $amountOrUpOrDown): bool
+    public function roll(int $field, $amountOrUpOrDown): bool
     {
     }
 
     /**
      * Set a time field or several common fields at once
      *
-     * @param mixed $fieldOrYear
-     * @param mixed $valueOrMonth
-     * @param mixed|null $dayOfMonth
-     * @param mixed|null $hour
-     * @param mixed|null $minute
-     * @param mixed|null $second
+     * @param int $field
+     * @param int $value The new value of the given field.
+     * @param mixed $dayOfMonth
+     * @param mixed $hour
+     * @param mixed $minute
+     * @param mixed $second
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success and <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.set.php
      */
-    public function set($fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null): bool
+    public function set(int $field, int $value, $dayOfMonth = null, $hour = null, $minute = null, $second = null): bool
     {
     }
 
     /**
      * Set the day on which the week is deemed to start
      *
-     * @param mixed $dayOfWeek
+     * @param int $dayOfWeek One of the constants <code>IntlCalendar::DOW_SUNDAY</code>,
+     * <code>IntlCalendar::DOW_MONDAY</code>, …,
+     * <code>IntlCalendar::DOW_SATURDAY</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success. Failure can only happen due to invalid parameters.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.setfirstdayofweek.php
      */
-    public function setFirstDayOfWeek($dayOfWeek): bool
+    public function setFirstDayOfWeek(int $dayOfWeek): bool
     {
     }
 
     /**
      * Set whether date/time interpretation is to be lenient
      *
-     * @param mixed $isLenient
+     * @param bool $isLenient Use <code>TRUE</code> to activate the lenient mode; <code>FALSE</code> otherwise.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success. Failure can only happen due to invalid parameters.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.setlenient.php
      */
-    public function setLenient($isLenient): bool
+    public function setLenient(bool $isLenient): bool
     {
     }
 
     /**
      * Set minimal number of days the first week in a year or month can have
      *
-     * @param mixed $numberOfDays
+     * @param int $minimalDays The number of minimal days to set.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> on success, <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.1, PHP 7
      *
      * @link http://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
      */
-    public function setMinimalDaysInFirstWeek($numberOfDays): bool
+    public function setMinimalDaysInFirstWeek(int $minimalDays): bool
     {
     }
 
     /**
      * Set behavior for handling repeating wall times at negative timezone offset transitions
      *
-     * @param mixed $wallTimeOption
+     * @param int $wallTimeOption One of the constants <code>IntlCalendar::WALLTIME_FIRST</code> or
+     * <code>IntlCalendar::WALLTIME_LAST</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success. Failure can only happen due to invalid parameters.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
      */
-    public function setRepeatedWallTimeOption($wallTimeOption): bool
+    public function setRepeatedWallTimeOption(int $wallTimeOption): bool
     {
     }
 
     /**
      * Set behavior for handling skipped wall times at positive timezone offset transitions
      *
-     * @param mixed $wallTimeOption
+     * @param int $wallTimeOption One of the constants <code>IntlCalendar::WALLTIME_FIRST</code>,
+     * <code>IntlCalendar::WALLTIME_LAST</code> or
+     * <code>IntlCalendar::WALLTIME_NEXT_VALID</code>.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success. Failure can only happen due to invalid parameters.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
      */
-    public function setSkippedWallTimeOption($wallTimeOption): bool
+    public function setSkippedWallTimeOption(int $wallTimeOption): bool
     {
     }
 
     /**
      * Set the calendar time in milliseconds since the epoch
      *
-     * @param mixed $date
+     * @param float $date An instant represented by the number of number of milliseconds between
+     * such instant and the epoch, ignoring leap seconds.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success and <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
      * @link http://www.php.net/manual/en/intlcalendar.settime.php
      */
-    public function setTime($date): bool
+    public function setTime(float $date): bool
     {
     }
 
     /**
      * Set the timezone used by this calendar
      *
-     * @param mixed $timeZone
+     * @param mixed $timeZone The new timezone to be used by this calendar. It can be specified in the
+     * following ways:
+     * [[FILE:reference/intl/inctimezoneparam.xml]]
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success and <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -2592,7 +2698,10 @@ class IntlCalendar
     /**
      * Convert an IntlCalendar into a DateTime object
      *
-     * @return DateTime
+     * @return DateTime A <code>DateTime</code> object with the same timezone as this
+     * object (though using PHPʼs database instead of ICUʼs) and the same time,
+     * except for the smaller precision (second precision instead of millisecond).
+     * Returns <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a2
      *
@@ -6051,9 +6160,10 @@ class IntlChar
     /**
      * Get the "age" of the code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return array
+     * @return array The Unicode version number, as an <code>array</code>.
+     * For example, version <code>1.3.31.2</code> would be represented as <code>[1, 3, 31, 2]</code>.
      *
      * @since PHP 7
      *
@@ -6066,9 +6176,10 @@ class IntlChar
     /**
      * Get the decimal digit value of a decimal digit character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return int
+     * @return int The decimal digit value of <code>codepoint</code>,
+     * or <code>-1</code> if it is not a decimal digit character.
      *
      * @since PHP 7
      *
@@ -6081,9 +6192,35 @@ class IntlChar
     /**
      * Get bidirectional category value for a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return int
+     * @return int The bidirectional category value; one of the following constants:
+     * <ul>
+     * <li><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_ARABIC_NUMBER</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_BLOCK_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_SEGMENT_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_WHITE_SPACE_NEUTRAL</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_OTHER_NEUTRAL</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_DIR_NON_SPACING_MARK</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_BOUNDARY_NEUTRAL</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_FIRST_STRONG_ISOLATE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE</code></li>
+     * <li><code>IntlChar::CHAR_DIRECTION_CHAR_DIRECTION_COUNT</code></li>
+     * </ul>
      *
      * @since PHP 7
      *
@@ -6096,25 +6233,35 @@ class IntlChar
     /**
      * Find Unicode character by name and return its code point value
      *
-     * @param mixed $characterName
-     * @param mixed|null $nameChoice
+     * @param string $characterName Full name of the Unicode character.
+     * @param int|null $nameChoice Which set of names to use for the lookup. Can be any of these constants:
+     * <ul>
+     * <li><code>IntlChar::UNICODE_CHAR_NAME</code> (default)</li>
+     * <li><code>IntlChar::UNICODE_10_CHAR_NAME</code></li>
+     * <li><code>IntlChar::EXTENDED_CHAR_NAME</code></li>
+     * <li><code>IntlChar::CHAR_NAME_ALIAS</code></li>
+     * <li><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></li>
+     * </ul>
      *
-     * @return int
+     * @return int The Unicode value of the code point with the given name (as an <code>integer</code>), or <code>FALSE</code> if there is no such code point.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.charfromname.php
      */
-    public static function charFromName($characterName, $nameChoice = null): int
+    public static function charFromName(string $characterName, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): int
     {
     }
 
     /**
      * Get the "mirror-image" character for a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return mixed
+     * @return mixed Returns another Unicode code point that may serve as a mirror-image substitute, or <code>codepoint</code>
+     * itself if there is no such mapping or <code>codepoint</code> does not have the
+     * <code>Bidi_Mirrored</code> property.
+     * The return type will be <code>integer</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.
      *
      * @since PHP 7
      *
@@ -6127,25 +6274,66 @@ class IntlChar
     /**
      * Retrieve the name of a Unicode character
      *
-     * @param mixed $codepoint
-     * @param mixed|null $nameChoice
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
+     * @param int|null $nameChoice Which set of names to use for the lookup. Can be any of these constants:
+     * <ul>
+     * <li><code>IntlChar::UNICODE_CHAR_NAME</code> (default)</li>
+     * <li><code>IntlChar::UNICODE_10_CHAR_NAME</code></li>
+     * <li><code>IntlChar::EXTENDED_CHAR_NAME</code></li>
+     * <li><code>IntlChar::CHAR_NAME_ALIAS</code></li>
+     * <li><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></li>
+     * </ul>
      *
-     * @return string
+     * @return string The corresponding name, or an empty string if there is no name for this character.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.charname.php
      */
-    public static function charName($codepoint, $nameChoice = null): string
+    public static function charName($codepoint, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): string
     {
     }
 
     /**
      * Get the general category value for a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return int
+     * @return int Returns the general category type, which may be one of the following constants:
+     * <ul>
+     * <li><code>IntlChar::CHAR_CATEGORY_UNASSIGNED</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_GENERAL_OTHER_TYPES</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_UPPERCASE_LETTER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_LOWERCASE_LETTER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_TITLECASE_LETTER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_MODIFIER_LETTER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_OTHER_LETTER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_NON_SPACING_MARK</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_ENCLOSING_MARK</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_COMBINING_SPACING_MARK</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_LETTER_NUMBER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_OTHER_NUMBER</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_SPACE_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_LINE_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_PARAGRAPH_SEPARATOR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_CONTROL_CHAR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_FORMAT_CHAR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_PRIVATE_USE_CHAR</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_SURROGATE</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_DASH_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_START_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_END_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_CONNECTOR_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_OTHER_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_MATH_SYMBOL</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_CURRENCY_SYMBOL</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_MODIFIER_SYMBOL</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_OTHER_SYMBOL</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_INITIAL_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_FINAL_PUNCTUATION</code></li>
+     * <li><code>IntlChar::CHAR_CATEGORY_CHAR_CATEGORY_COUNT</code></li>
+     * </ul>
      *
      * @since PHP 7
      *
@@ -6158,9 +6346,9 @@ class IntlChar
     /**
      * Return Unicode character by code point value
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return string
+     * @return string A string containing the single character specified by the Unicode code point value.
      *
      * @since PHP 7
      *
@@ -6173,90 +6361,111 @@ class IntlChar
     /**
      * Get the decimal digit value of a code point for a given radix
      *
-     * @param mixed $codepoint
-     * @param mixed|null $radix
+     * @param string $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
+     * @param int|null $radix The radix (defaults to <code>10</code>).
      *
-     * @return int
+     * @return int Returns the numeric value represented by the character in the specified radix,
+     * or <code>FALSE</code> if there is no value or if the value exceeds the radix.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.digit.php
      */
-    public static function digit($codepoint, $radix = null): int
+    public static function digit(string $codepoint, int $radix = 10): int
     {
     }
 
     /**
      * Enumerate all assigned Unicode characters within a range
      *
-     * @param mixed $start
-     * @param mixed $limit
-     * @param mixed $callback
-     * @param mixed|null $nameChoice
+     * @param mixed $start The first code point in the enumeration range.
+     * @param mixed $limit One more than the last code point in the enumeration range (the first one after the range).
+     * @param callable $callback The function that is to be called for each character name. The following three arguments will be passed into it:
+     * <ul>
+     * <li><code>integer</code> <code>$codepoint</code> - The numeric code point value</li>
+     * <li><code>integer</code> <code>$nameChoice</code> - The same value as the <code>nameChoice</code> parameter below</li>
+     * <li><code>string</code> <code>$name</code> - The name of the character</li>
+     * </ul>
+     * @param int|null $nameChoice Selector for which kind of names to enumerate. Can be any of these constants:
+     * <ul>
+     * <li><code>IntlChar::UNICODE_CHAR_NAME</code> (default)</li>
+     * <li><code>IntlChar::UNICODE_10_CHAR_NAME</code></li>
+     * <li><code>IntlChar::EXTENDED_CHAR_NAME</code></li>
+     * <li><code>IntlChar::CHAR_NAME_ALIAS</code></li>
+     * <li><code>IntlChar::CHAR_NAME_CHOICE_COUNT</code></li>
+     * </ul>
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.enumcharnames.php
      */
-    public static function enumCharNames($start, $limit, $callback, $nameChoice = null)
+    public static function enumCharNames($start, $limit, callable $callback, int $nameChoice = IntlChar::UNICODE_CHAR_NAME)
     {
     }
 
     /**
      * Enumerate all code points with their Unicode general categories
      *
-     * @param mixed|null $callback
+     * @param callable $callback The function that is to be called for each contiguous range of code points with the same general category.
+     * The following three arguments will be passed into it:
+     * <ul>
+     * <li><code>integer</code> <code>$start</code> - The starting code point of the range</li>
+     * <li><code>integer</code> <code>$end</code> - The ending code point of the range</li>
+     * <li><code>integer</code> <code>$name</code> - The category type (one of the <code>IntlChar::CHAR_CATEGORY_*</code> constants)</li>
+     * </ul>
      *
-     * @return void
+     * @return void No value is returned.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.enumchartypes.php
      */
-    public static function enumCharTypes($callback = null)
+    public static function enumCharTypes(callable $callback = null)
     {
     }
 
     /**
      * Perform case folding on a code point
      *
-     * @param mixed $codepoint
-     * @param mixed|null $options
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
+     * @param int|null $options Either <code>IntlChar::FOLD_CASE_DEFAULT</code> (default)
+     * or <code>IntlChar::FOLD_CASE_EXCLUDE_SPECIAL_I</code>.
      *
-     * @return mixed
+     * @return mixed Returns the <code>Simple_Case_Folding</code> of the code point, if any; otherwise the code point itself.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.foldcase.php
      */
-    public static function foldCase($codepoint, $options = null)
+    public static function foldCase($codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT)
     {
     }
 
     /**
      * Get character representation for a given digit and radix
      *
-     * @param mixed $digit
-     * @param mixed|null $radix
+     * @param int $digit The number to convert to a character.
+     * @param int|null $radix The radix (defaults to <code>10</code>).
      *
-     * @return int
+     * @return int The character representation (as a <code>string</code>) of the specified digit in the specified radix.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.fordigit.php
      */
-    public static function forDigit($digit, $radix = null): int
+    public static function forDigit(int $digit, int $radix = 10): int
     {
     }
 
     /**
      * Get the paired bracket character for a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return mixed
+     * @return mixed Returns the paired bracket code point, or <code>codepoint</code> itself if there is no such mapping.
+     * The return type will be <code>integer</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.
      *
      * @since PHP 7
      *
@@ -6269,9 +6478,10 @@ class IntlChar
     /**
      * Get the Unicode allocation block containing a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return int
+     * @return int Returns the block value for <code>codepoint</code>.
+     * See the <code>IntlChar::BLOCK_CODE_*</code> constants for possible return values.
      *
      * @since PHP 7
      *
@@ -6284,9 +6494,9 @@ class IntlChar
     /**
      * Get the combining class of a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return int
+     * @return int Returns the combining class of the character.
      *
      * @since PHP 7
      *
@@ -6299,9 +6509,9 @@ class IntlChar
     /**
      * Get the FC_NFKC_Closure property for a code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return string
+     * @return string Returns the FC_NFKC_Closure property string for the <code>codepoint</code>, or an empty string if there is none.
      *
      * @link http://www.php.net/manual/en/intlchar.getfc-nfkc-closure.php
      */
@@ -6312,55 +6522,65 @@ class IntlChar
     /**
      * Get the max value for a Unicode property
      *
-     * @param mixed $property
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
      *
-     * @return int
+     * @return int The maximum value returned by <code>IntlChar::getIntPropertyValue</code> for a Unicode property.
+     * <code>&lt;=0</code> if the property selector is out of range.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getintpropertymaxvalue.php
      */
-    public static function getIntPropertyMaxValue($property): int
+    public static function getIntPropertyMaxValue(int $property): int
     {
     }
 
     /**
      * Get the min value for a Unicode property
      *
-     * @param mixed $property
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
      *
-     * @return int
+     * @return int The minimum value returned by <code>IntlChar::getIntPropertyValue</code> for a Unicode property.
+     * <code>0</code> if the property selector is out of range.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getintpropertyminvalue.php
      */
-    public static function getIntPropertyMinValue($property): int
+    public static function getIntPropertyMinValue(int $property): int
     {
     }
 
     /**
      * Get the value for a Unicode property for a code point
      *
-     * @param mixed $codepoint
-     * @param mixed $property
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
      *
-     * @return int
+     * @return int Returns the numeric value that is directly the property value or, for enumerated properties, corresponds to the
+     * numeric value of the enumerated constant of the respective property value enumeration type.
+     * Returns <code>0</code> or <code>1</code> (for <code>FALSE</code>/<code>TRUE</code>) for binary Unicode properties.
+     * Returns a bit-mask for mask properties.
+     * Returns <code>0</code> if <code>property</code> is out of bounds or if the Unicode version does not
+     * have data for the property at all, or not for this code point.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getintpropertyvalue.php
      */
-    public static function getIntPropertyValue($codepoint, $property): int
+    public static function getIntPropertyValue($codepoint, int $property): int
     {
     }
 
     /**
      * Get the numeric value for a Unicode code point
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return float
+     * @return float Numeric value of <code>codepoint</code>,
+     * or <code>IntlChar::NO_NUMERIC_VALUE</code> if none is defined. This
+     * constant was added in PHP 7.0.6, prior to this version the literal value
+     * (<code>float</code>)<code>-123456789</code> may be used instead.
      *
      * @since PHP 7
      *
@@ -6373,71 +6593,82 @@ class IntlChar
     /**
      * Get the property constant value for a given property name
      *
-     * @param mixed $alias
+     * @param string $alias The property name to be matched. The name is compared using "loose matching" as described in PropertyAliases.txt.
      *
-     * @return int
+     * @return int Returns an <code>IntlChar::PROPERTY_</code> constant value,
+     * or <code>IntlChar::PROPERTY_INVALID_CODE</code> if the given name does not match any property.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getpropertyenum.php
      */
-    public static function getPropertyEnum($alias): int
+    public static function getPropertyEnum(string $alias): int
     {
     }
 
     /**
      * Get the Unicode name for a property
      *
-     * @param mixed $property
-     * @param mixed|null $nameChoice
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
+     * @param int|null $nameChoice Selector for which name to get. If out of range, <code>FALSE</code> is returned.
      *
-     * @return string
+     * @return string Returns the name, or <code>FALSE</code> if either the <code>property</code> or the <code>nameChoice</code>
+     * is out of range.
+     * If a given <code>nameChoice</code> returns <code>FALSE</code>, then all larger values of
+     * <code>nameChoice</code> will return <code>FALSE</code>, with one exception: if <code>FALSE</code> is returned for
+     * <code>IntlChar::SHORT_PROPERTY_NAME</code>, then <code>IntlChar::LONG_PROPERTY_NAME</code>
+     * (and higher) may still return a non-<code>FALSE</code> value.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getpropertyname.php
      */
-    public static function getPropertyName($property, $nameChoice = null): string
+    public static function getPropertyName(int $property, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string
     {
     }
 
     /**
      * Get the property value for a given value name
      *
-     * @param mixed $property
-     * @param mixed $name
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
+     * @param string $name The value name to be matched. The name is compared using "loose matching" as described in PropertyValueAliases.txt.
      *
-     * @return int
+     * @return int Returns the corresponding value integer, or <code>IntlChar::PROPERTY_INVALID_CODE</code> if the given name
+     * does not match any value of the given property, or if the property is invalid.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getpropertyvalueenum.php
      */
-    public static function getPropertyValueEnum($property, $name): int
+    public static function getPropertyValueEnum(int $property, string $name): int
     {
     }
 
     /**
      * Get the Unicode name for a property value
      *
-     * @param mixed $property
-     * @param mixed $value
-     * @param mixed|null $nameChoice
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
+     * @param int $value Selector for a value for the given property. If out of range, <code>FALSE</code> is returned.
+     * @param int|null $nameChoice Selector for which name to get. If out of range, <code>FALSE</code> is returned.
      *
-     * @return string
+     * @return string Returns the name, or <code>FALSE</code> if either the <code>property</code> or the <code>nameChoice</code>
+     * is out of range.
+     * If a given <code>nameChoice</code> returns <code>FALSE</code>, then all larger values of <code>nameChoice</code>
+     * will return <code>FALSE</code>, with one exception: if <code>FALSE</code> is returned for <code>IntlChar::SHORT_PROPERTY_NAME</code>,
+     * then <code>IntlChar::LONG_PROPERTY_NAME</code> (and higher) may still return a non-<code>FALSE</code> value.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.getpropertyvaluename.php
      */
-    public static function getPropertyValueName($property, $value, $nameChoice = null): string
+    public static function getPropertyValueName(int $property, int $value, int $nameChoice = IntlChar::LONG_PROPERTY_NAME): string
     {
     }
 
     /**
      * Get the Unicode version
      *
-     * @return array
+     * @return array An array containing the Unicode version number.
      *
      * @since PHP 7
      *
@@ -6450,25 +6681,28 @@ class IntlChar
     /**
      * Check a binary Unicode property for a code point
      *
-     * @param mixed $codepoint
-     * @param mixed $property
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
+     * @param int $property The Unicode property to lookup (see the <code>IntlChar::PROPERTY_*</code> constants).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> or <code>FALSE</code> according to the binary Unicode property value for <code>codepoint</code>.
+     * Also <code>FALSE</code> if <code>property</code> is out of bounds or if the Unicode version does not have data for
+     * the property at all, or not for this code point.
      *
      * @since PHP 7
      *
      * @link http://www.php.net/manual/en/intlchar.hasbinaryproperty.php
      */
-    public static function hasBinaryProperty($codepoint, $property): bool
+    public static function hasBinaryProperty($codepoint, int $property): bool
     {
     }
 
     /**
      * Check if code point is an alphanumeric character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is an alphanumeric character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6481,9 +6715,10 @@ class IntlChar
     /**
      * Check if code point is a letter character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a letter character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6496,9 +6731,10 @@ class IntlChar
     /**
      * Check if code point is a base character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a base character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6511,9 +6747,10 @@ class IntlChar
     /**
      * Check if code point is a "blank" or "horizontal space" character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is either a "blank" or "horizontal space" character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6526,9 +6763,10 @@ class IntlChar
     /**
      * Check if code point is a control character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a control character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6541,9 +6779,10 @@ class IntlChar
     /**
      * Check whether the code point is defined
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a defined character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6556,9 +6795,10 @@ class IntlChar
     /**
      * Check if code point is a digit character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a digit character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6571,9 +6811,10 @@ class IntlChar
     /**
      * Check if code point is a graphic character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a "graphic" character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6586,9 +6827,10 @@ class IntlChar
     /**
      * Check if code point is an ignorable character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is ignorable in identifiers, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6601,9 +6843,10 @@ class IntlChar
     /**
      * Check if code point is permissible in an identifier
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is the code point may occur in an identifier, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6616,9 +6859,10 @@ class IntlChar
     /**
      * Check if code point is permissible as the first character in an identifier
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> may start an identifier, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6631,9 +6875,10 @@ class IntlChar
     /**
      * Check if code point is an ISO control code
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is an ISO control code, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6646,9 +6891,10 @@ class IntlChar
     /**
      * Check if code point is permissible in a Java identifier
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> may occur in a Java identifier, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6661,9 +6907,10 @@ class IntlChar
     /**
      * Check if code point is permissible as the first character in a Java identifier
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> may start a Java identifier, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6676,9 +6923,10 @@ class IntlChar
     /**
      * Check if code point is a space character according to Java
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a space character according to Java, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6691,9 +6939,10 @@ class IntlChar
     /**
      * Check if code point is a lowercase letter
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is an Ll lowercase letter, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6706,9 +6955,10 @@ class IntlChar
     /**
      * Check if code point has the Bidi_Mirrored property
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> has the Bidi_Mirrored property, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6721,9 +6971,10 @@ class IntlChar
     /**
      * Check if code point is a printable character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a printable character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6736,9 +6987,10 @@ class IntlChar
     /**
      * Check if code point is punctuation character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a punctuation character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6751,9 +7003,10 @@ class IntlChar
     /**
      * Check if code point is a space character
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a space character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6766,9 +7019,10 @@ class IntlChar
     /**
      * Check if code point is a titlecase letter
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a titlecase letter, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6781,9 +7035,10 @@ class IntlChar
     /**
      * Check if code point has the Alphabetic Unicode property
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> has the Alphabetic Unicode property, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6796,9 +7051,10 @@ class IntlChar
     /**
      * Check if code point has the Lowercase Unicode property
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> has the Lowercase Unicode property, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6811,9 +7067,10 @@ class IntlChar
     /**
      * Check if code point has the general category "Lu" (uppercase letter)
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is an Lu uppercase letter, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6826,9 +7083,10 @@ class IntlChar
     /**
      * Check if code point has the Uppercase Unicode property
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> has the Uppercase Unicode property, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6841,9 +7099,10 @@ class IntlChar
     /**
      * Check if code point has the White_Space Unicode property
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> has the White_Space Unicode property, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6856,9 +7115,10 @@ class IntlChar
     /**
      * Check if code point is a whitespace character according to ICU
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a whitespace character according to ICU, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6871,9 +7131,10 @@ class IntlChar
     /**
      * Check if code point is a hexadecimal digit
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if
+     * <code>codepoint</code> is a hexadecimal character, <code>FALSE</code> if not.
      *
      * @since PHP 7
      *
@@ -6886,9 +7147,9 @@ class IntlChar
     /**
      * Return Unicode code point value of character
      *
-     * @param mixed $character
+     * @param mixed $character A Unicode character.
      *
-     * @return int
+     * @return int Returns the Unicode code point value as an integer.
      *
      * @since PHP 7
      *
@@ -6901,9 +7162,11 @@ class IntlChar
     /**
      * Make Unicode character lowercase
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return mixed
+     * @return mixed Returns the Simple_Lowercase_Mapping of the code point, if any;
+     * otherwise the code point itself.
+     * The return type will be <code>integer</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.
      *
      * @since PHP 7
      *
@@ -6916,9 +7179,11 @@ class IntlChar
     /**
      * Make Unicode character titlecase
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return mixed
+     * @return mixed Returns the Simple_Titlecase_Mapping of the code point, if any;
+     * otherwise the code point itself.
+     * The return type will be <code>integer</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.
      *
      * @since PHP 7
      *
@@ -6931,9 +7196,11 @@ class IntlChar
     /**
      * Make Unicode character uppercase
      *
-     * @param mixed $codepoint
+     * @param mixed $codepoint The <code>integer</code> codepoint value (e.g. <code>0x2603</code> for <code>U+2603 SNOWMAN</code>), or the character encoded as a UTF-8 <code>string</code> (e.g. <code>"\u{2603}"</code>)
      *
-     * @return mixed
+     * @return mixed Returns the Simple_Uppercase_Mapping of the code point, if any;
+     * otherwise the code point itself.
+     * The return type will be <code>integer</code> unless the code point was passed as a UTF-8 <code>string</code>, in which case a <code>string</code> will be returned.
      *
      * @since PHP 7
      *
@@ -7024,80 +7291,146 @@ class IntlDateFormatter
     /**
      * Create a date formatter
      *
-     * @param mixed $locale
-     * @param mixed $datetype
-     * @param mixed $timetype
-     * @param mixed|null $timezone
-     * @param mixed|null $calendar
-     * @param mixed|null $pattern
-     *
-     * @return IntlDateFormatter
+     * @param string $locale Locale to use when formatting or parsing or <code>NULL</code> to use the value
+     * specified in the ini setting intl.default_locale.
+     * @param int $datetype Date type to use (<code>none</code>, <code>short</code>,
+     * <code>medium</code>, <code>long</code>,
+     * <code>full</code>). This is one of the IntlDateFormatter
+     * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+     * date type will be used.
+     * @param int $timetype Time type to use (<code>none</code>, <code>short</code>,
+     * <code>medium</code>, <code>long</code>,
+     * <code>full</code>). This is one of the IntlDateFormatter
+     * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+     * time type will be used.
+     * @param mixed|null $timezone Time zone ID. The default (and the one used if <code>NULL</code> is given) is the
+     * one returned by <code>date_default_timezone_get</code> or, if
+     * applicable, that of the <code>IntlCalendar</code> object passed
+     * for the <code>calendar</code> parameter. This ID must be a
+     * valid identifier on ICUʼs database or an ID representing an
+     * explicit offset, such as <code>GMT-05:30</code>.
+     * @param mixed|null $calendar Calendar to use for formatting or parsing. The default value is <code>NULL</code>,
+     * which corresponds to <code>IntlDateFormatter::GREGORIAN</code>.
+     * This can either be one of the
+     * IntlDateFormatter
+     * calendar constants or an <code>IntlCalendar</code>. Any
+     * <code>IntlCalendar</code> object passed will be clone; it will
+     * not be changed by the <code>IntlDateFormatter</code>. This will
+     * determine the calendar type used (gregorian, islamic, persian, etc.) and,
+     * if <code>NULL</code> is given for the <code>timezone</code> parameter,
+     * also the timezone used.
+     * @param string|null $pattern Optional pattern to use when formatting or parsing.
+     * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.create.php
      */
-    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null): IntlDateFormatter
+    public function __construct(string $locale, int $datetype, int $timetype, $timezone = null, $calendar = null, string $pattern = "")
     {
     }
 
     /**
      * Create a date formatter
      *
-     * @param mixed $locale
-     * @param mixed $datetype
-     * @param mixed $timetype
-     * @param mixed|null $timezone
-     * @param mixed|null $calendar
-     * @param mixed|null $pattern
+     * @param string $locale Locale to use when formatting or parsing or <code>NULL</code> to use the value
+     * specified in the ini setting intl.default_locale.
+     * @param int $datetype Date type to use (<code>none</code>, <code>short</code>,
+     * <code>medium</code>, <code>long</code>,
+     * <code>full</code>). This is one of the IntlDateFormatter
+     * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+     * date type will be used.
+     * @param int $timetype Time type to use (<code>none</code>, <code>short</code>,
+     * <code>medium</code>, <code>long</code>,
+     * <code>full</code>). This is one of the IntlDateFormatter
+     * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+     * time type will be used.
+     * @param mixed|null $timezone Time zone ID. The default (and the one used if <code>NULL</code> is given) is the
+     * one returned by <code>date_default_timezone_get</code> or, if
+     * applicable, that of the <code>IntlCalendar</code> object passed
+     * for the <code>calendar</code> parameter. This ID must be a
+     * valid identifier on ICUʼs database or an ID representing an
+     * explicit offset, such as <code>GMT-05:30</code>.
+     * @param mixed|null $calendar Calendar to use for formatting or parsing. The default value is <code>NULL</code>,
+     * which corresponds to <code>IntlDateFormatter::GREGORIAN</code>.
+     * This can either be one of the
+     * IntlDateFormatter
+     * calendar constants or an <code>IntlCalendar</code>. Any
+     * <code>IntlCalendar</code> object passed will be clone; it will
+     * not be changed by the <code>IntlDateFormatter</code>. This will
+     * determine the calendar type used (gregorian, islamic, persian, etc.) and,
+     * if <code>NULL</code> is given for the <code>timezone</code> parameter,
+     * also the timezone used.
+     * @param string|null $pattern Optional pattern to use when formatting or parsing.
+     * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
      *
-     * @return IntlDateFormatter
+     * @return IntlDateFormatter The created <code>IntlDateFormatter</code> or <code>FALSE</code> in case of
+     * failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.create.php
      */
-    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null): IntlDateFormatter
+    public static function create(string $locale, int $datetype, int $timetype, $timezone = null, $calendar = null, string $pattern = ""): IntlDateFormatter
     {
     }
 
     /**
      * Format the date/time value as a string
      *
-     * @param mixed|null $args
-     * @param mixed|null $array
+     * @param mixed $value Value to format. This may be a <code>DateTimeInterface</code> object, an
+     * <code>IntlCalendar</code> object, a <code>numeric</code> type
+     * representing a (possibly fractional) number of seconds since epoch or an
+     * <code>array</code> in the format output by
+     * <code>localtime</code>.
+     * @param mixed $array
      *
-     * @return string
+     * @return string The formatted string or, if an error occurred, <code>FALSE</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.format.php
      */
-    public function format($args = null, $array = null): string
+    public function format($value = null, $array = null): string
     {
     }
 
     /**
      * Formats an object
      *
-     * @param mixed $object
-     * @param mixed|null $format
-     * @param mixed|null $locale
+     * @param mixed $object An object of type <code>IntlCalendar</code> or
+     * <code>DateTime</code>. The timezone information in the object
+     * will be used.
+     * @param mixed|null $format How to format the date/time. This can either be an <code>array</code> with
+     * two elements (first the date style, then the time style, these being one
+     * of the constants <code>IntlDateFormatter::NONE</code>,
+     * <code>IntlDateFormatter::SHORT</code>,
+     * <code>IntlDateFormatter::MEDIUM</code>,
+     * <code>IntlDateFormatter::LONG</code>,
+     * <code>IntlDateFormatter::FULL</code>), an <code>integer</code> with
+     * the value of one of these constants (in which case it will be used both
+     * for the time and the date) or a <code>string</code> with the format
+     * described in the ICU
+     * documentation. If <code>NULL</code>, the default style will be used.
+     * @param string|null $locale The locale to use, or <code>NULL</code> to use the default one.
      *
-     * @return string
+     * @return string A string with result or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
      */
-    public static function formatObject($object, $format = null, $locale = null): string
+    public static function formatObject($object, $format = null, string $locale = null): string
     {
     }
 
     /**
      * Get the calendar type used for the IntlDateFormatter
      *
-     * @return int
+     * @return int The calendar
+     * type being used by the formatter. Either
+     * <code>IntlDateFormatter::TRADITIONAL</code> or
+     * <code>IntlDateFormatter::GREGORIAN</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7110,7 +7443,7 @@ class IntlDateFormatter
     /**
      * Get copy of formatterʼs calendar object
      *
-     * @return IntlCalendar
+     * @return IntlCalendar A copy of the internal calendar object used by this formatter.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
      *
@@ -7123,7 +7456,7 @@ class IntlDateFormatter
     /**
      * Get the datetype used for the IntlDateFormatter
      *
-     * @return int
+     * @return int The current date type value of the formatter.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7136,7 +7469,7 @@ class IntlDateFormatter
     /**
      * Get the error code from last operation
      *
-     * @return int
+     * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7149,7 +7482,7 @@ class IntlDateFormatter
     /**
      * Get the error text from the last operation
      *
-     * @return string
+     * @return string Description of the last error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7162,7 +7495,7 @@ class IntlDateFormatter
     /**
      * Get the locale used by formatter
      *
-     * @return string
+     * @return string the locale of this formatter or 'false' if error
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7175,7 +7508,7 @@ class IntlDateFormatter
     /**
      * Get the pattern used for the IntlDateFormatter
      *
-     * @return string
+     * @return string The pattern string being used to format/parse.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7188,7 +7521,7 @@ class IntlDateFormatter
     /**
      * Get the timetype used for the IntlDateFormatter
      *
-     * @return int
+     * @return int The current date type value of the formatter.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7201,7 +7534,8 @@ class IntlDateFormatter
     /**
      * Get formatterʼs timezone
      *
-     * @return IntlTimeZone
+     * @return IntlTimeZone The associated <code>IntlTimeZone</code>
+     * object or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
      *
@@ -7214,7 +7548,7 @@ class IntlDateFormatter
     /**
      * Get the timezone-id used for the IntlDateFormatter
      *
-     * @return string
+     * @return string ID string for the time zone used by this formatter.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7227,7 +7561,7 @@ class IntlDateFormatter
     /**
      * Get the lenient used for the IntlDateFormatter
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if parser is lenient, <code>FALSE</code> if parser is strict. By default the parser is lenient.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7240,41 +7574,52 @@ class IntlDateFormatter
     /**
      * Parse string to a field-based time value
      *
-     * @param mixed $string
-     * @param mixed|null $position
+     * @param string $value string to convert to a time
+     * @param int $position Position at which to start the parsing in $value (zero-based).
+     * If no error occurs before $value is consumed, $parse_pos will contain -1
+     * otherwise it will contain the position at which parsing ended .
+     * If $parse_pos &gt; strlen($value), the parse fails immediately.
      *
-     * @return array
+     * @return array Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.localtime.php
      */
-    public function localtime($string, &$position = null): array
+    public function localtime(string $value, int &$position = null): array
     {
     }
 
     /**
      * Parse string to a timestamp value
      *
-     * @param mixed $string
-     * @param mixed|null $position
+     * @param string $value string to convert to a time
+     * @param int $position Position at which to start the parsing in $value (zero-based).
+     * If no error occurs before $value is consumed, $parse_pos will contain -1
+     * otherwise it will contain the position at which parsing ended (and the error occurred).
+     * This variable will contain the end position if the parse fails.
+     * If $parse_pos &gt; strlen($value), the parse fails immediately.
      *
-     * @return int
+     * @return int timestamp parsed value, or <code>FALSE</code> if value can't be parsed.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.parse.php
      */
-    public function parse($string, &$position = null): int
+    public function parse(string $value, int &$position = null): int
     {
     }
 
     /**
      * Sets the calendar type used by the formatter
      *
-     * @param mixed $which
+     * @param mixed $which This can either be: the calendar
+     * type to use (default is
+     * <code>IntlDateFormatter::GREGORIAN</code>, which is also used if
+     * <code>NULL</code> is specified) or an
+     * <code>IntlCalendar</code> object.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -7287,39 +7632,42 @@ class IntlDateFormatter
     /**
      * Set the leniency of the parser
      *
-     * @param mixed $lenient
+     * @param bool $lenient Sets whether the parser is lenient or not, default is <code>TRUE</code> (lenient).
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.setlenient.php
      */
-    public function setLenient($lenient): bool
+    public function setLenient(bool $lenient): bool
     {
     }
 
     /**
      * Set the pattern used for the IntlDateFormatter
      *
-     * @param mixed $pattern
+     * @param string $pattern New pattern string to use.
+     * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+     * Bad formatstrings are usually the cause of the failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/intldateformatter.setpattern.php
      */
-    public function setPattern($pattern): bool
+    public function setPattern(string $pattern): bool
     {
     }
 
     /**
      * Sets formatterʼs timezone
      *
-     * @param mixed $zone
+     * @param mixed $zone The timezone to use for this formatter. This can be specified in the
+     * following forms:
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success and <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
      *
@@ -7352,25 +7700,25 @@ class IntlGregorianCalendar extends IntlCalendar
     /**
      * Create the Gregorian Calendar class
      *
-     * @param mixed|null $timeZoneOrYear
-     * @param mixed|null $localeOrMonth
-     * @param mixed|null $dayOfMonth
-     * @param mixed|null $hour
-     * @param mixed|null $minute
-     * @param mixed|null $second
+     * @param IntlTimeZone $tz
+     * @param string $locale
+     * @param mixed $dayOfMonth
+     * @param mixed $hour
+     * @param mixed $minute
+     * @param mixed $second
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/intlgregoriancalendar.construct.php
      */
-    public function __construct($timeZoneOrYear = null, $localeOrMonth = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
+    public function __construct(IntlTimeZone $tz = null, string $locale = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
     {
     }
 
     /**
      * Get the Gregorian Calendar change date
      *
-     * @return float
+     * @return float Returns the change date or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -7383,30 +7731,30 @@ class IntlGregorianCalendar extends IntlCalendar
     /**
      * Determine if the given year is a leap year
      *
-     * @param mixed $year
+     * @param int $year
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> for leap years, <code>FALSE</code> otherwise and on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/intlgregoriancalendar.isleapyear.php
      */
-    public function isLeapYear($year): bool
+    public function isLeapYear(int $year): bool
     {
     }
 
     /**
      * Set the Gregorian Calendar the change date
      *
-     * @param mixed $date
+     * @param float $date
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/intlgregoriancalendar.setgregorianchange.php
      */
-    public function setGregorianChange($date): bool
+    public function setGregorianChange(float $date): bool
     {
     }
 }
@@ -7549,7 +7897,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator
      * Create iterator from ruleset
      *
      * @param mixed $rules
-     * @param mixed|null $areCompiled
+     * @param mixed $areCompiled
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -7684,7 +8032,7 @@ class IntlTimeZone
     /**
      * Get the number of IDs in the equivalency group that includes the given ID
      *
-     * @param mixed $zoneId
+     * @param string $zoneId
      *
      * @return int
      *
@@ -7692,7 +8040,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.countequivalentids.php
      */
-    public static function countEquivalentIDs($zoneId): int
+    public static function countEquivalentIDs(string $zoneId): int
     {
     }
 
@@ -7713,7 +8061,7 @@ class IntlTimeZone
      * Get an enumeration over time zone IDs associated with the
      * given country or offset
      *
-     * @param mixed|null $countryOrRawOffset
+     * @param mixed $countryOrRawOffset
      *
      * @return IntlIterator
      *
@@ -7728,7 +8076,7 @@ class IntlTimeZone
     /**
      * Create a timezone object for the given ID
      *
-     * @param mixed $zoneId
+     * @param string $zoneId
      *
      * @return IntlTimeZone
      *
@@ -7736,31 +8084,31 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.createtimezone.php
      */
-    public static function createTimeZone($zoneId): IntlTimeZone
+    public static function createTimeZone(string $zoneId): IntlTimeZone
     {
     }
 
     /**
      * Get an enumeration over system time zone IDs with the given filter conditions
      *
-     * @param mixed $zoneType
-     * @param mixed|null $region
-     * @param mixed|null $rawOffset
+     * @param int $zoneType
+     * @param string $region
+     * @param int $rawOffset
      *
-     * @return IntlIterator
+     * @return IntlIterator Returns <code>IntlIterator</code> or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/intltimezone.createtimezoneidenumeration.php
      */
-    public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = null): IntlIterator
+    public static function createTimeZoneIDEnumeration(int $zoneType, string $region = null, int $rawOffset = null): IntlIterator
     {
     }
 
     /**
      * Create a timezone object from <code>DateTimeZone</code>
      *
-     * @param mixed $zoneId
+     * @param DateTimeZone $zoneId
      *
      * @return IntlTimeZone
      *
@@ -7768,15 +8116,15 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.fromdatetimezone.php
      */
-    public static function fromDateTimeZone($zoneId): IntlTimeZone
+    public static function fromDateTimeZone(DateTimeZone $zoneId): IntlTimeZone
     {
     }
 
     /**
      * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
      *
-     * @param mixed $zoneId
-     * @param mixed|null $isSystemID
+     * @param string $zoneId
+     * @param bool $isSystemID
      *
      * @return string
      *
@@ -7784,16 +8132,16 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getcanonicalid.php
      */
-    public static function getCanonicalID($zoneId, &$isSystemID = null): string
+    public static function getCanonicalID(string $zoneId, bool &$isSystemID = null): string
     {
     }
 
     /**
      * Get a name of this time zone suitable for presentation to the user
      *
-     * @param mixed|null $isDaylight
-     * @param mixed|null $style
-     * @param mixed|null $locale
+     * @param bool $isDaylight
+     * @param int $style
+     * @param string $locale
      *
      * @return string
      *
@@ -7801,7 +8149,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getdisplayname.php
      */
-    public function getDisplayName($isDaylight = null, $style = null, $locale = null): string
+    public function getDisplayName(bool $isDaylight = null, int $style = null, string $locale = null): string
     {
     }
 
@@ -7821,8 +8169,8 @@ class IntlTimeZone
     /**
      * Get an ID in the equivalency group that includes the given ID
      *
-     * @param mixed $zoneId
-     * @param mixed $index
+     * @param string $zoneId
+     * @param int $index
      *
      * @return string
      *
@@ -7830,7 +8178,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
      */
-    public static function getEquivalentID($zoneId, $index): string
+    public static function getEquivalentID(string $zoneId, int $index): string
     {
     }
 
@@ -7889,10 +8237,10 @@ class IntlTimeZone
     /**
      * Get the time zone raw and GMT offset for the given moment in time
      *
-     * @param mixed $date
-     * @param mixed $local
-     * @param mixed $rawOffset
-     * @param mixed $dstOffset
+     * @param float $date
+     * @param bool $local
+     * @param int $rawOffset
+     * @param int $dstOffset
      *
      * @return int
      *
@@ -7900,7 +8248,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getoffset.php
      */
-    public function getOffset($date, $local, &$rawOffset, &$dstOffset): int
+    public function getOffset(float $date, bool $local, int &$rawOffset, int &$dstOffset): int
     {
     }
 
@@ -7920,15 +8268,15 @@ class IntlTimeZone
     /**
      * Get the region code associated with the given system time zone ID
      *
-     * @param mixed $zoneId
+     * @param string $zoneId
      *
-     * @return string
+     * @return string Return region or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
      * @link http://www.php.net/manual/en/intltimezone.getregion.php
      */
-    public static function getRegion($zoneId): string
+    public static function getRegion(string $zoneId): string
     {
     }
 
@@ -7948,7 +8296,7 @@ class IntlTimeZone
     /**
      * Get the "unknown" time zone
      *
-     * @return IntlTimeZone
+     * @return IntlTimeZone Returns <code>IntlTimeZone</code> or <code>NULL</code> on failure.
      *
      * @since PHP 5 >= 5.5.0, PHP 7
      *
@@ -8067,22 +8415,22 @@ class Locale
     /**
      * Tries to find out best available locale based on HTTP "Accept-Language" header
      *
-     * @param mixed $header
+     * @param string $header The string containing the "Accept-Language" header according to format in RFC 2616.
      *
-     * @return string
+     * @return string The corresponding locale identifier.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.acceptfromhttp.php
      */
-    public static function acceptFromHttp($header): string
+    public static function acceptFromHttp(string $header): string
     {
     }
 
     /**
      * Canonicalize the locale string
      *
-     * @param mixed $locale
+     * @param string $locale
      *
      * @return string
      *
@@ -8090,61 +8438,76 @@ class Locale
      *
      * @link http://www.php.net/manual/en/locale.canonicalize.php
      */
-    public static function canonicalize($locale): string
+    public static function canonicalize(string $locale): string
     {
     }
 
     /**
      * Returns a correctly ordered and delimited locale ID
      *
-     * @param mixed $subtags
+     * @param array $subtags an array containing a list of key-value pairs, where the keys identify
+     * the particular locale ID subtags, and the values are the associated
+     * subtag values.
+     * <blockquote>
+     * The 'variant' and 'private' subtags can take maximum 15 values
+     * whereas 'extlang' can take maximum 3 values.e.g. Variants are allowed
+     * with the suffix ranging from 0-14. Hence the keys for the input array
+     * can be variant0, variant1, ...,variant14. In the returned locale id,
+     * the subtag is ordered by suffix resulting in variant0 followed by
+     * variant1 followed by variant2 and so on.
+     * The 'variant', 'private' and 'extlang' multiple values can be specified both
+     * as array under specific key (e.g. 'variant') and as multiple numbered keys
+     * (e.g. 'variant0', 'variant1', etc.).
+     * </blockquote>
      *
-     * @return string
+     * @return string The corresponding locale identifier.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.composelocale.php
      */
-    public static function composeLocale($subtags): string
+    public static function composeLocale(array $subtags): string
     {
     }
 
     /**
      * Checks if a language tag filter matches with locale
      *
-     * @param mixed $langtag
-     * @param mixed $locale
-     * @param mixed|null $canonicalize
+     * @param string $langtag The language tag to check
+     * @param string $locale The language range to check against
+     * @param bool|null $canonicalize If true, the arguments will be converted to canonical form before
+     * matching.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if $locale matches $langtag <code>FALSE</code> otherwise.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.filtermatches.php
      */
-    public static function filterMatches($langtag, $locale, $canonicalize = null): bool
+    public static function filterMatches(string $langtag, string $locale, bool $canonicalize = false): bool
     {
     }
 
     /**
      * Gets the variants for the input locale
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the variants from
      *
-     * @return array
+     * @return array The <code>array</code> containing the list of all variants subtag for the locale
+     * or <code>NULL</code> if not present
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getallvariants.php
      */
-    public static function getAllVariants($locale): array
+    public static function getAllVariants(string $locale): array
     {
     }
 
     /**
      * Gets the default locale value from the INTL global 'default_locale'
      *
-     * @return string
+     * @return string The current runtime locale
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -8157,188 +8520,203 @@ class Locale
     /**
      * Returns an appropriately localized display name for language of the inputlocale
      *
-     * @param mixed $locale
-     * @param mixed|null $in_locale
+     * @param string $locale The locale to return a display language for
+     * @param string $in_locale Optional format locale to use to display the language name
      *
-     * @return string
+     * @return string display name of the language for the $locale in the format appropriate for
+     * $in_locale.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getdisplaylanguage.php
      */
-    public static function getDisplayLanguage($locale, $in_locale = null): string
+    public static function getDisplayLanguage(string $locale, string $in_locale = null): string
     {
     }
 
     /**
      * Returns an appropriately localized display name for the input locale
      *
-     * @param mixed $locale
-     * @param mixed|null $in_locale
+     * @param string $locale The locale to return a display name for.
+     * @param string $in_locale optional format locale
      *
-     * @return string
+     * @return string Display name of the locale in the format appropriate for $in_locale.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getdisplayname.php
      */
-    public static function getDisplayName($locale, $in_locale = null): string
+    public static function getDisplayName(string $locale, string $in_locale = null): string
     {
     }
 
     /**
      * Returns an appropriately localized display name for region of the input locale
      *
-     * @param mixed $locale
-     * @param mixed|null $in_locale
+     * @param string $locale The locale to return a display region for.
+     * @param string $in_locale Optional format locale to use to display the region name
      *
-     * @return string
+     * @return string display name of the region for the $locale in the format appropriate for
+     * $in_locale.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getdisplayregion.php
      */
-    public static function getDisplayRegion($locale, $in_locale = null): string
+    public static function getDisplayRegion(string $locale, string $in_locale = null): string
     {
     }
 
     /**
      * Returns an appropriately localized display name for script of the input locale
      *
-     * @param mixed $locale
-     * @param mixed|null $in_locale
+     * @param string $locale The locale to return a display script for
+     * @param string $in_locale Optional format locale to use to display the script name
      *
-     * @return string
+     * @return string Display name of the script for the $locale in the format appropriate for
+     * $in_locale.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getdisplayscript.php
      */
-    public static function getDisplayScript($locale, $in_locale = null): string
+    public static function getDisplayScript(string $locale, string $in_locale = null): string
     {
     }
 
     /**
      * Returns an appropriately localized display name for variants of the input locale
      *
-     * @param mixed $locale
-     * @param mixed|null $in_locale
+     * @param string $locale The locale to return a display variant for
+     * @param string $in_locale Optional format locale to use to display the variant name
      *
-     * @return string
+     * @return string Display name of the variant for the $locale in the format appropriate for
+     * $in_locale.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getdisplayvariant.php
      */
-    public static function getDisplayVariant($locale, $in_locale = null): string
+    public static function getDisplayVariant(string $locale, string $in_locale = null): string
     {
     }
 
     /**
      * Gets the keywords for the input locale
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the keywords from
      *
-     * @return array
+     * @return array Associative <code>array</code> containing the keyword-value pairs for this locale
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getkeywords.php
      */
-    public static function getKeywords($locale): array
+    public static function getKeywords(string $locale): array
     {
     }
 
     /**
      * Gets the primary language for the input locale
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the primary language code from
      *
-     * @return string
+     * @return string The language code associated with the language or <code>NULL</code> in case of error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getprimarylanguage.php
      */
-    public static function getPrimaryLanguage($locale): string
+    public static function getPrimaryLanguage(string $locale): string
     {
     }
 
     /**
      * Gets the region for the input locale
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the region code from
      *
-     * @return string
+     * @return string The region subtag for the locale or <code>NULL</code> if not present
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getregion.php
      */
-    public static function getRegion($locale): string
+    public static function getRegion(string $locale): string
     {
     }
 
     /**
      * Gets the script for the input locale
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the script code from
      *
-     * @return string
+     * @return string The script subtag for the locale or <code>NULL</code> if not present
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.getscript.php
      */
-    public static function getScript($locale): string
+    public static function getScript(string $locale): string
     {
     }
 
     /**
      * Searches the language tag list for the best match to the language
      *
-     * @param mixed $langtag
-     * @param mixed $locale
-     * @param mixed|null $canonicalize
-     * @param mixed|null $default
+     * @param array $langtag An <code>array</code> containing a list of language tags to compare to
+     * <code>locale</code>. Maximum 100 items allowed.
+     * @param string $locale The locale to use as the language range when matching.
+     * @param bool|null $canonicalize If true, the arguments will be converted to canonical form before
+     * matching.
+     * @param string $default The locale to use if no match is found.
      *
-     * @return string
+     * @return string The closest matching language tag or default value.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.lookup.php
      */
-    public static function lookup($langtag, $locale, $canonicalize = null, $default = null): string
+    public static function lookup(array $langtag, string $locale, bool $canonicalize = false, string $default = null): string
     {
     }
 
     /**
      * Returns a key-value array of locale ID subtag elements
      *
-     * @param mixed $locale
+     * @param string $locale The locale to extract the subtag array from. Note: The 'variant' and
+     * 'private' subtags can take maximum 15 values whereas 'extlang' can take
+     * maximum 3 values.
      *
-     * @return array
+     * @return array Returns an array containing a list of key-value pairs, where the keys
+     * identify the particular locale ID subtags, and the values are the
+     * associated subtag values. The array will be ordered as the locale id
+     * subtags e.g. in the locale id if variants are '-varX-varY-varZ' then the
+     * returned array will have variant0=>varX , variant1=>varY ,
+     * variant2=>varZ
+     * Returns <code>NULL</code> when the length of <code>locale</code> exceeds
+     * <code>INTL_MAX_LOCALE_LEN</code>.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.parselocale.php
      */
-    public static function parseLocale($locale): array
+    public static function parseLocale(string $locale): array
     {
     }
 
     /**
      * Sets the default runtime locale
      *
-     * @param mixed $locale
+     * @param string $locale Is a BCP 47 compliant language tag.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/locale.setdefault.php
      */
-    public static function setDefault($locale): bool
+    public static function setDefault(string $locale): bool
     {
     }
 }
@@ -8368,71 +8746,78 @@ class MessageFormatter
     /**
      * Constructs a new Message Formatter
      *
-     * @param mixed $locale
-     * @param mixed $pattern
-     *
-     * @return MessageFormatter
+     * @param string $locale The locale to use when formatting arguments
+     * @param string $pattern The pattern string to stick arguments into.
+     * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+     * umsg_autoQuoteApostrophe
+     * before being interpreted.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.create.php
      */
-    public function __construct($locale, $pattern): MessageFormatter
+    public function __construct(string $locale, string $pattern)
     {
     }
 
     /**
      * Constructs a new Message Formatter
      *
-     * @param mixed $locale
-     * @param mixed $pattern
+     * @param string $locale The locale to use when formatting arguments
+     * @param string $pattern The pattern string to stick arguments into.
+     * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+     * umsg_autoQuoteApostrophe
+     * before being interpreted.
      *
-     * @return MessageFormatter
+     * @return MessageFormatter The formatter <code>object</code>
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.create.php
      */
-    public static function create($locale, $pattern): MessageFormatter
+    public static function create(string $locale, string $pattern): MessageFormatter
     {
     }
 
     /**
      * Format the message
      *
-     * @param mixed $args
+     * @param array $args Arguments to insert into the format string
      *
-     * @return string
+     * @return string The formatted string, or <code>FALSE</code> if an error occurred
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.format.php
      */
-    public function format($args): string
+    public function format(array $args): string
     {
     }
 
     /**
      * Quick format message
      *
-     * @param mixed $locale
-     * @param mixed $pattern
-     * @param mixed $args
+     * @param string $locale The locale to use for formatting locale-dependent parts
+     * @param string $pattern The pattern <code>string</code> to insert things into.
+     * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+     * umsg_autoQuoteApostrophe
+     * before being interpreted.
+     * @param array $args The <code>array</code> of values to insert into the format <code>string</code>
      *
-     * @return string
+     * @return string The formatted pattern string or <code>FALSE</code> if an error occurred
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.formatmessage.php
      */
-    public static function formatMessage($locale, $pattern, $args): string
+    public static function formatMessage(string $locale, string $pattern, array $args): string
     {
     }
 
     /**
      * Get the error code from last operation
      *
-     * @return int
+     * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -8445,7 +8830,7 @@ class MessageFormatter
     /**
      * Get the error text from the last operation
      *
-     * @return string
+     * @return string Description of the last error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -8458,7 +8843,7 @@ class MessageFormatter
     /**
      * Get the locale for which the formatter was created
      *
-     * @return string
+     * @return string The locale name
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -8471,7 +8856,7 @@ class MessageFormatter
     /**
      * Get the pattern used by the formatter
      *
-     * @return string
+     * @return string The pattern <code>string</code> for this message formatter
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -8484,47 +8869,50 @@ class MessageFormatter
     /**
      * Parse input string according to pattern
      *
-     * @param mixed $source
+     * @param string $value The <code>string</code> to parse
      *
-     * @return array
+     * @return array An <code>array</code> containing the items extracted, or <code>FALSE</code> on error
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.parse.php
      */
-    public function parse($source): array
+    public function parse(string $value): array
     {
     }
 
     /**
      * Quick parse input string
      *
-     * @param mixed $locale
-     * @param mixed $pattern
-     * @param mixed $args
+     * @param string $locale The locale to use for parsing locale-dependent parts
+     * @param string $pattern The pattern with which to parse the <code>value</code>.
+     * @param string $source The <code>string</code> to parse, conforming to the <code>pattern</code>.
      *
-     * @return array
+     * @return array An <code>array</code> containing items extracted, or <code>FALSE</code> on error
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.parsemessage.php
      */
-    public static function parseMessage($locale, $pattern, $args): array
+    public static function parseMessage(string $locale, string $pattern, string $source): array
     {
     }
 
     /**
      * Set the pattern used by the formatter
      *
-     * @param mixed $pattern
+     * @param string $pattern The pattern <code>string</code> to use in this message formatter.
+     * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+     * umsg_autoQuoteApostrophe
+     * before being interpreted.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/messageformatter.setpattern.php
      */
-    public function setPattern($pattern): bool
+    public function setPattern(string $pattern): bool
     {
     }
 }
@@ -8605,32 +8993,32 @@ class Normalizer
      * Checks if the provided string is already in the specified normalization
      * form
      *
-     * @param mixed $input
-     * @param mixed|null $form
+     * @param string $input The input string to normalize
+     * @param int|null $form One of the normalization forms.
      *
-     * @return bool
+     * @return bool <code>TRUE</code> if normalized, <code>FALSE</code> otherwise or if there an error
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/normalizer.isnormalized.php
      */
-    public static function isNormalized($input, $form = null): bool
+    public static function isNormalized(string $input, int $form = Normalizer::FORM_C): bool
     {
     }
 
     /**
      * Normalizes the input provided and returns the normalized string
      *
-     * @param mixed $input
-     * @param mixed|null $form
+     * @param string $input The input string to normalize
+     * @param int|null $form One of the normalization forms.
      *
-     * @return string
+     * @return string The normalized string or <code>FALSE</code> if an error occurred.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/normalizer.normalize.php
      */
-    public static function normalize($input, $form = null): string
+    public static function normalize(string $input, int $form = Normalizer::FORM_C): string
     {
     }
 }
@@ -9022,88 +9410,107 @@ class NumberFormatter
     /**
      * Create a number formatter
      *
-     * @param mixed $locale
-     * @param mixed $style
-     * @param mixed|null $pattern
-     *
-     * @return NumberFormatter
+     * @param string $locale Locale in which the number would be formatted (locale name, e.g. en_CA).
+     * @param int $style Style of the formatting, one of the
+     * format style constants. If
+     * <code>NumberFormatter::PATTERN_DECIMAL</code>
+     * or <code>NumberFormatter::PATTERN_RULEBASED</code>
+     * is passed then the number format is opened using the given pattern,
+     * which must conform to the syntax described in
+     * ICU DecimalFormat
+     * documentation or
+     * ICU RuleBasedNumberFormat
+     * documentation, respectively.
+     * @param string $pattern Pattern string if the chosen style requires a pattern.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.create.php
      */
-    public function __construct($locale, $style, $pattern = null): NumberFormatter
+    public function __construct(string $locale, int $style, string $pattern = null)
     {
     }
 
     /**
      * Create a number formatter
      *
-     * @param mixed $locale
-     * @param mixed $style
-     * @param mixed|null $pattern
+     * @param string $locale Locale in which the number would be formatted (locale name, e.g. en_CA).
+     * @param int $style Style of the formatting, one of the
+     * format style constants. If
+     * <code>NumberFormatter::PATTERN_DECIMAL</code>
+     * or <code>NumberFormatter::PATTERN_RULEBASED</code>
+     * is passed then the number format is opened using the given pattern,
+     * which must conform to the syntax described in
+     * ICU DecimalFormat
+     * documentation or
+     * ICU RuleBasedNumberFormat
+     * documentation, respectively.
+     * @param string $pattern Pattern string if the chosen style requires a pattern.
      *
-     * @return NumberFormatter
+     * @return NumberFormatter Returns <code>NumberFormatter</code> object or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.create.php
      */
-    public static function create($locale, $style, $pattern = null): NumberFormatter
+    public static function create(string $locale, int $style, string $pattern = null): NumberFormatter
     {
     }
 
     /**
      * Format a number
      *
-     * @param mixed $num
-     * @param mixed|null $type
+     * @param float $value The value to format. Can be <code>integer</code> or <code>float</code>,
+     * other values will be converted to a numeric value.
+     * @param int $type The
+     * formatting type to use.
      *
-     * @return string
+     * @return string Returns the string containing formatted value, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.format.php
      */
-    public function format($num, $type = null): string
+    public function format(float $value, int $type = null): string
     {
     }
 
     /**
      * Format a currency value
      *
-     * @param mixed $num
-     * @param mixed $currency
+     * @param float $value The numeric currency value.
+     * @param string $currency The 3-letter ISO 4217 currency code indicating the currency to use.
      *
-     * @return string
+     * @return string String representing the formatted currency value.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.formatcurrency.php
      */
-    public function formatCurrency($num, $currency): string
+    public function formatCurrency(float $value, string $currency): string
     {
     }
 
     /**
      * Get an attribute
      *
-     * @param mixed $attr
+     * @param int $attr Attribute specifier - one of the
+     * numeric attribute constants.
      *
-     * @return int
+     * @return int Return attribute value on success, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.getattribute.php
      */
-    public function getAttribute($attr): int
+    public function getAttribute(int $attr): int
     {
     }
 
     /**
      * Get formatter's last error code
      *
-     * @return int
+     * @return int Returns error code from last formatter call.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -9116,7 +9523,7 @@ class NumberFormatter
     /**
      * Get formatter's last error message
      *
-     * @return string
+     * @return string Returns error message from last formatter call.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -9129,22 +9536,25 @@ class NumberFormatter
     /**
      * Get formatter locale
      *
-     * @param mixed|null $type
+     * @param int $type You can choose between valid and actual locale (
+     * <code>Locale::VALID_LOCALE</code>,
+     * <code>Locale::ACTUAL_LOCALE</code>,
+     * respectively). The default is the actual locale.
      *
-     * @return string
+     * @return string The locale name used to create the formatter.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.getlocale.php
      */
-    public function getLocale($type = null): string
+    public function getLocale(int $type = null): string
     {
     }
 
     /**
      * Get formatter pattern
      *
-     * @return string
+     * @return string Pattern <code>string</code> that is used by the formatter, or <code>FALSE</code> if an error happens.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
@@ -9157,127 +9567,140 @@ class NumberFormatter
     /**
      * Get a symbol value
      *
-     * @param mixed $attr
+     * @param int $attr Symbol specifier, one of the
+     * format symbol constants.
      *
-     * @return string
+     * @return string The symbol string or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.getsymbol.php
      */
-    public function getSymbol($attr): string
+    public function getSymbol(int $attr): string
     {
     }
 
     /**
      * Get a text attribute
      *
-     * @param mixed $attr
+     * @param int $attr Attribute specifier - one of the
+     * text attribute constants.
      *
-     * @return string
+     * @return string Return attribute value on success, or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.gettextattribute.php
      */
-    public function getTextAttribute($attr): string
+    public function getTextAttribute(int $attr): string
     {
     }
 
     /**
      * Parse a number
      *
-     * @param mixed $string
-     * @param mixed|null $type
-     * @param mixed|null $position
+     * @param string $value
+     * @param int $type The
+     * formatting type to use. By default,
+     * <code>NumberFormatter::TYPE_DOUBLE</code> is used.
+     * @param int $position Offset in the string at which to begin parsing. On return, this value
+     * will hold the offset at which parsing ended.
      *
-     * @return mixed
+     * @return mixed The value of the parsed number or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.parse.php
      */
-    public function parse($string, $type = null, &$position = null)
+    public function parse(string $value, int $type = null, int &$position = null)
     {
     }
 
     /**
      * Parse a currency number
      *
-     * @param mixed $string
-     * @param mixed $currency
-     * @param mixed|null $position
+     * @param string $value
+     * @param string $currency Parameter to receive the currency name (3-letter ISO 4217 currency
+     * code).
+     * @param int $position Offset in the string at which to begin parsing. On return, this value
+     * will hold the offset at which parsing ended.
      *
-     * @return float
+     * @return float The parsed numeric value or <code>FALSE</code> on error.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.parsecurrency.php
      */
-    public function parseCurrency($string, &$currency, &$position = null): float
+    public function parseCurrency(string $value, string &$currency, int &$position = null): float
     {
     }
 
     /**
      * Set an attribute
      *
-     * @param mixed $attr
-     * @param mixed $value
+     * @param int $attr Attribute specifier - one of the
+     * numeric attribute constants.
+     * @param int $value The attribute value.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.setattribute.php
      */
-    public function setAttribute($attr, $value): bool
+    public function setAttribute(int $attr, int $value): bool
     {
     }
 
     /**
      * Set formatter pattern
      *
-     * @param mixed $pattern
+     * @param string $pattern Pattern in syntax described in
+     * ICU DecimalFormat
+     * documentation.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.setpattern.php
      */
-    public function setPattern($pattern): bool
+    public function setPattern(string $pattern): bool
     {
     }
 
     /**
      * Set a symbol value
      *
-     * @param mixed $attr
-     * @param mixed $symbol
+     * @param int $attr Symbol specifier, one of the
+     * format symbol constants.
+     * @param string $value Text for the symbol.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.setsymbol.php
      */
-    public function setSymbol($attr, $symbol): bool
+    public function setSymbol(int $attr, string $value): bool
     {
     }
 
     /**
      * Set a text attribute
      *
-     * @param mixed $attr
-     * @param mixed $value
+     * @param int $attr Attribute specifier - one of the
+     * text attribute
+     * constants.
+     * @param string $value Text for the attribute value.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
      *
      * @link http://www.php.net/manual/en/numberformatter.settextattribute.php
      */
-    public function setTextAttribute($attr, $value): bool
+    public function setTextAttribute(int $attr, string $value): bool
     {
     }
 }
@@ -9301,22 +9724,20 @@ class ResourceBundle implements Traversable
     /**
      * Create a resource bundle
      *
-     * @param mixed $locale
-     * @param mixed $bundlename
-     * @param mixed|null $fallback
-     *
-     * @return ResourceBundle
+     * @param string $locale Locale for which the resources should be loaded (locale name, e.g. en_CA).
+     * @param string $bundlename The directory where the data is stored or the name of the .dat file.
+     * @param bool $fallback Whether locale should match exactly or fallback to parent locale is allowed.
      *
      * @link http://www.php.net/manual/en/resourcebundle.create.php
      */
-    public function __construct($locale, $bundlename, $fallback = null): ResourceBundle
+    public function __construct(string $locale, string $bundlename, bool $fallback = null)
     {
     }
 
     /**
      * Get number of elements in the bundle
      *
-     * @return int
+     * @return int Returns number of elements in the bundle.
      *
      * @link http://www.php.net/manual/en/resourcebundle.count.php
      */
@@ -9327,36 +9748,38 @@ class ResourceBundle implements Traversable
     /**
      * Create a resource bundle
      *
-     * @param mixed $locale
-     * @param mixed $bundlename
-     * @param mixed|null $fallback
+     * @param string $locale Locale for which the resources should be loaded (locale name, e.g. en_CA).
+     * @param string $bundlename The directory where the data is stored or the name of the .dat file.
+     * @param bool $fallback Whether locale should match exactly or fallback to parent locale is allowed.
      *
-     * @return ResourceBundle
+     * @return ResourceBundle Returns <code>ResourceBundle</code> object or <code>NULL</code> on error.
      *
      * @link http://www.php.net/manual/en/resourcebundle.create.php
      */
-    public static function create($locale, $bundlename, $fallback = null): ResourceBundle
+    public static function create(string $locale, string $bundlename, bool $fallback = null): ResourceBundle
     {
     }
 
     /**
      * Get data from the bundle
      *
-     * @param mixed $index
-     * @param mixed|null $fallback
+     * @param string|int $index Data index, must be string or integer.
+     * @param bool|null $fallback Whether locale should match exactly or fallback to parent locale is allowed.
      *
-     * @return mixed
+     * @return mixed Returns the data located at the index or <code>NULL</code> on error. Strings, integers and binary data strings
+     * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
+     * returned as <code>ResourceBundle</code> object.
      *
      * @link http://www.php.net/manual/en/resourcebundle.get.php
      */
-    public function get($index, $fallback = null)
+    public function get($index, bool $fallback = true)
     {
     }
 
     /**
      * Get bundle's last error code
      *
-     * @return int
+     * @return int Returns error code from last bundle object call.
      *
      * @link http://www.php.net/manual/en/resourcebundle.geterrorcode.php
      */
@@ -9367,7 +9790,7 @@ class ResourceBundle implements Traversable
     /**
      * Get bundle's last error message
      *
-     * @return string
+     * @return string Returns error message from last bundle object's call.
      *
      * @link http://www.php.net/manual/en/resourcebundle.geterrormessage.php
      */
@@ -9378,13 +9801,14 @@ class ResourceBundle implements Traversable
     /**
      * Get supported locales
      *
-     * @param mixed $bundlename
+     * @param string $bundlename Path of ResourceBundle for which to get available locales, or
+     * empty string for default locales list.
      *
-     * @return array
+     * @return array Returns the list of locales supported by the bundle.
      *
      * @link http://www.php.net/manual/en/resourcebundle.locales.php
      */
-    public static function getLocales($bundlename): array
+    public static function getLocales(string $bundlename): array
     {
     }
 }
@@ -9448,55 +9872,57 @@ class Spoofchecker
     /**
      * Checks if given strings can be confused
      *
-     * @param mixed $s1
-     * @param mixed $s2
-     * @param mixed|null $error
+     * @param string $str1 First string to check.
+     * @param string $str2 Second string to check.
+     * @param string $error This variable is set by-reference to string containing an error, if there
+     * were any.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if two given strings can be confused, <code>FALSE</code> otherwise.
      *
      * @link http://www.php.net/manual/en/spoofchecker.areconfusable.php
      */
-    public function areConfusable($s1, $s2, &$error = null): bool
+    public function areConfusable(string $str1, string $str2, string &$error = null): bool
     {
     }
 
     /**
      * Checks if a given text contains any suspicious characters
      *
-     * @param mixed $text
-     * @param mixed|null $error
+     * @param string $text String to test.
+     * @param string $error This variable is set by-reference to string containing an error, if there
+     * were any.
      *
-     * @return bool
+     * @return bool Returns <code>TRUE</code> if there are suspicious characters, <code>FALSE</code> otherwise.
      *
      * @link http://www.php.net/manual/en/spoofchecker.issuspicious.php
      */
-    public function isSuspicious($text, &$error = null): bool
+    public function isSuspicious(string $text, string &$error = null): bool
     {
     }
 
     /**
      * Locales to use when running checks
      *
-     * @param mixed $locale_list
+     * @param string $locale_list
      *
      * @return void
      *
      * @link http://www.php.net/manual/en/spoofchecker.setallowedlocales.php
      */
-    public function setAllowedLocales($locale_list)
+    public function setAllowedLocales(string $locale_list)
     {
     }
 
     /**
      * Set the checks to run
      *
-     * @param mixed $checks
+     * @param int $checks
      *
      * @return void
      *
      * @link http://www.php.net/manual/en/spoofchecker.setchecks.php
      */
-    public function setChecks($checks)
+    public function setChecks(int $checks)
     {
     }
 }
@@ -9535,35 +9961,44 @@ class Transliterator
     /**
      * Create a transliterator
      *
-     * @param mixed $id
-     * @param mixed|null $direction
+     * @param string $id The id.
+     * @param int $direction The direction, defaults to
+     * &gt;Transliterator::FORWARD.
+     * May also be set to
+     * Transliterator::REVERSE.
      *
-     * @return Transliterator
+     * @return Transliterator Returns a <code>Transliterator</code> object on success,
+     * or <code>NULL</code> on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.create.php
      */
-    public static function create($id, $direction = null): Transliterator
+    public static function create(string $id, int $direction = null): Transliterator
     {
     }
 
     /**
      * Create transliterator from rules
      *
-     * @param mixed $rules
-     * @param mixed|null $direction
+     * @param string $rules The rules.
+     * @param string $direction The direction, defaults to
+     * &gt;Transliterator::FORWARD.
+     * May also be set to
+     * Transliterator::REVERSE.
      *
-     * @return Transliterator
+     * @return Transliterator Returns a <code>Transliterator</code> object on success,
+     * or <code>NULL</code> on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.createfromrules.php
      */
-    public static function createFromRules($rules, $direction = null): Transliterator
+    public static function createFromRules(string $rules, string $direction = null): Transliterator
     {
     }
 
     /**
      * Create an inverse transliterator
      *
-     * @return Transliterator
+     * @return Transliterator Returns a <code>Transliterator</code> object on success,
+     * or <code>NULL</code> on failure
      *
      * @link http://www.php.net/manual/en/transliterator.createinverse.php
      */
@@ -9574,7 +10009,8 @@ class Transliterator
     /**
      * Get last error code
      *
-     * @return int
+     * @return int The error code on success,
+     * or <code>FALSE</code> if none exists, or on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.geterrorcode.php
      */
@@ -9585,7 +10021,8 @@ class Transliterator
     /**
      * Get last error message
      *
-     * @return string
+     * @return string The error message on success,
+     * or <code>FALSE</code> if none exists, or on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.geterrormessage.php
      */
@@ -9596,7 +10033,8 @@ class Transliterator
     /**
      * Get transliterator IDs
      *
-     * @return array
+     * @return array An <code>array</code> of registered transliterator IDs on success,
+     * or <code>FALSE</code> on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.listids.php
      */
@@ -9607,15 +10045,19 @@ class Transliterator
     /**
      * Transliterate a string
      *
-     * @param mixed $subject
-     * @param mixed|null $start
-     * @param mixed|null $end
+     * @param string $subject The string to be transformed.
+     * @param int $start The start index (in UTF-16 code units) from which the string will start
+     * to be transformed, inclusive. Indexing starts at 0. The text before will
+     * be left as is.
+     * @param int $end The end index (in UTF-16 code units) until which the string will be
+     * transformed, exclusive. Indexing starts at 0. The text after will be
+     * left as is.
      *
-     * @return string
+     * @return string The transfomed string on success, or <code>FALSE</code> on failure.
      *
      * @link http://www.php.net/manual/en/transliterator.transliterate.php
      */
-    public function transliterate($subject, $start = null, $end = null): string
+    public function transliterate(string $subject, int $start = null, int $end = null): string
     {
     }
 }
@@ -9835,8 +10277,8 @@ class UConverter
     /**
      * Create UConverter object
      *
-     * @param mixed|null $destination_encoding
-     * @param mixed|null $source_encoding
+     * @param mixed $destination_encoding
+     * @param mixed $source_encoding
      *
      * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
      *
@@ -9849,8 +10291,8 @@ class UConverter
     /**
      * Convert string from one charset to another
      *
-     * @param mixed $str
-     * @param mixed|null $reverse
+     * @param string $str
+     * @param bool $reverse
      *
      * @return string
      *
@@ -9858,17 +10300,17 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.convert.php
      */
-    public function convert($str, $reverse = null): string
+    public function convert(string $str, bool $reverse = null): string
     {
     }
 
     /**
      * Default "from" callback function
      *
-     * @param mixed $reason
-     * @param mixed $source
-     * @param mixed $codePoint
-     * @param mixed $error
+     * @param int $reason
+     * @param string $source
+     * @param string $codePoint
+     * @param int $error
      *
      * @return mixed
      *
@@ -9876,14 +10318,14 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.fromucallback.php
      */
-    public function fromUCallback($reason, $source, $codePoint, &$error)
+    public function fromUCallback(int $reason, string $source, string $codePoint, int &$error)
     {
     }
 
     /**
      * Get the aliases of the given name
      *
-     * @param mixed $name
+     * @param string $name
      *
      * @return array
      *
@@ -9891,7 +10333,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.getaliases.php
      */
-    public static function getAliases($name): array
+    public static function getAliases(string $name): array
     {
     }
 
@@ -10015,7 +10457,7 @@ class UConverter
     /**
      * Get string representation of the callback reason
      *
-     * @param mixed|null $reason
+     * @param int $reason
      *
      * @return string
      *
@@ -10023,14 +10465,14 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.reasontext.php
      */
-    public static function reasonText($reason = null): string
+    public static function reasonText(int $reason = null): string
     {
     }
 
     /**
      * Set the destination encoding
      *
-     * @param mixed $encoding
+     * @param string $encoding
      *
      * @return void
      *
@@ -10038,14 +10480,14 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setdestinationencoding.php
      */
-    public function setDestinationEncoding($encoding)
+    public function setDestinationEncoding(string $encoding)
     {
     }
 
     /**
      * Set the source encoding
      *
-     * @param mixed $encoding
+     * @param string $encoding
      *
      * @return void
      *
@@ -10053,14 +10495,14 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setsourceencoding.php
      */
-    public function setSourceEncoding($encoding)
+    public function setSourceEncoding(string $encoding)
     {
     }
 
     /**
      * Set the substitution chars
      *
-     * @param mixed $chars
+     * @param string $chars
      *
      * @return void
      *
@@ -10068,17 +10510,17 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setsubstchars.php
      */
-    public function setSubstChars($chars)
+    public function setSubstChars(string $chars)
     {
     }
 
     /**
      * Default "to" callback function
      *
-     * @param mixed $reason
-     * @param mixed $source
-     * @param mixed $codeUnits
-     * @param mixed $error
+     * @param int $reason
+     * @param string $source
+     * @param string $codeUnits
+     * @param int $error
      *
      * @return mixed
      *
@@ -10086,16 +10528,16 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.toucallback.php
      */
-    public function toUCallback($reason, $source, $codeUnits, &$error)
+    public function toUCallback(int $reason, string $source, string $codeUnits, int &$error)
     {
     }
 
     /**
      * Convert string from one charset to another
      *
-     * @param mixed $str
-     * @param mixed $toEncoding
-     * @param mixed $fromEncoding
+     * @param string $str
+     * @param string $toEncoding
+     * @param string $fromEncoding
      * @param array|null $options
      *
      * @return string
@@ -10104,7 +10546,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.transcode.php
      */
-    public static function transcode($str, $toEncoding, $fromEncoding, array $options = null): string
+    public static function transcode(string $str, string $toEncoding, string $fromEncoding, array $options = null): string
     {
     }
 }
@@ -10112,65 +10554,89 @@ class UConverter
 /**
  * Sort array maintaining index association
  *
- * @param Collator $object
- * @param array $arr
- * @param mixed|null $sort_flags
+ * @param Collator $arr Array of strings to sort.
+ * @param array $sort_flag Optional sorting type, one of the following:
+ * <ul>
+ * <code>Collator::SORT_REGULAR</code>
+ * - compare items normally (don't change types)
+ * <code>Collator::SORT_NUMERIC</code>
+ * - compare items numerically
+ * <code>Collator::SORT_STRING</code>
+ * - compare items as strings
+ * </ul>
+ * @param mixed $sort_flags
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.asort.php
  */
-function collator_asort(Collator $object, array &$arr, $sort_flags = null): bool
+function collator_asort(Collator $arr, array &$sort_flag, $sort_flags = null): bool
 {
 }
 
 /**
  * Compare two Unicode strings
  *
- * @param Collator $object
- * @param mixed $arg1
+ * @param Collator $str1 The first string to compare.
+ * @param string $str2 The second string to compare.
  * @param mixed $arg2
  *
- * @return int
+ * @return int Return comparison result:
+ * <ul>
+ * 1 if <code>str1</code> is <code>greater</code> than
+ * <code>str2</code> ;
+ * 0 if <code>str1</code> is <code>equal</code> to
+ * <code>str2</code>;
+ * -1 if <code>str1</code> is <code>less</code> than
+ * <code>str2</code> .
+ * </ul>
+ * On error
+ * <code>boolean</code>
+ * <code>FALSE</code>
+ * is returned.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.compare.php
  */
-function collator_compare(Collator $object, $arg1, $arg2): int
+function collator_compare(Collator $str1, string $str2, $arg2): int
 {
 }
 
 /**
  * Create a collator
  *
- * @param mixed $arg1
+ * @param string $locale The locale containing the required collation rules. Special values for
+ * locales can be passed in - if null is passed for the locale, the
+ * default locale collation rules will be used. If empty string ("") or
+ * "root" are passed, UCA rules will be used.
  *
- * @return Collator
+ * @return Collator Return new instance of <code>Collator</code> object, or <code>NULL</code>
+ * on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.create.php
  */
-function collator_create($arg1): Collator
+function collator_create(string $locale): Collator
 {
 }
 
 /**
  * Get collation attribute value
  *
- * @param Collator $object
+ * @param Collator $attr Attribute to get value for.
  * @param mixed $arg1
  *
- * @return int
+ * @return int Attribute value, or <code>boolean</code> <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.getattribute.php
  */
-function collator_get_attribute(Collator $object, $arg1): int
+function collator_get_attribute(Collator $attr, $arg1): int
 {
 }
 
@@ -10179,7 +10645,7 @@ function collator_get_attribute(Collator $object, $arg1): int
  *
  * @param Collator $object
  *
- * @return int
+ * @return int Error code returned by the last Collator <code>API</code> function call.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10194,7 +10660,7 @@ function collator_get_error_code(Collator $object): int
  *
  * @param Collator $object
  *
- * @return string
+ * @return string Description of an error occurred in the last Collator <code>API</code> function call.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10207,32 +10673,37 @@ function collator_get_error_message(Collator $object): string
 /**
  * Get the locale name of the collator
  *
- * @param Collator $object
+ * @param Collator $type You can choose between valid and actual locale (
+ * <code>Locale::VALID_LOCALE</code> and
+ * <code>Locale::ACTUAL_LOCALE</code>,
+ * respectively).
  * @param mixed $arg1
  *
- * @return string
+ * @return string Real locale name from which the collation data comes. If the collator was
+ * instantiated from rules or an error occurred, returns
+ * <code>boolean</code> <code>FALSE</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.getlocale.php
  */
-function collator_get_locale(Collator $object, $arg1): string
+function collator_get_locale(Collator $type, $arg1): string
 {
 }
 
 /**
  * Get sorting key for a string
  *
- * @param Collator $object
+ * @param Collator $str The string to produce the key from.
  * @param mixed $arg1
  *
- * @return string
+ * @return string Returns the collation key for the string. Collation keys can be compared directly instead of strings.
  *
  * @since PHP 5 >= 5.3.2, PHP 7
  *
  * @link http://www.php.net/manual/en/collator.getsortkey.php
  */
-function collator_get_sort_key(Collator $object, $arg1): string
+function collator_get_sort_key(Collator $str, $arg1): string
 {
 }
 
@@ -10241,7 +10712,7 @@ function collator_get_sort_key(Collator $object, $arg1): string
  *
  * @param Collator $object
  *
- * @return int
+ * @return int Returns current collation strength, or <code>boolean</code> <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10254,119 +10725,160 @@ function collator_get_strength(Collator $object): int
 /**
  * Set collation attribute
  *
- * @param Collator $object
- * @param mixed $arg1
+ * @param Collator $attr Attribute.
+ * @param int $val Attribute value.
  * @param mixed $arg2
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.setattribute.php
  */
-function collator_set_attribute(Collator $object, $arg1, $arg2): bool
+function collator_set_attribute(Collator $attr, int $val, $arg2): bool
 {
 }
 
 /**
  * Set collation strength
  *
- * @param Collator $object
+ * @param Collator $strength Strength to set.
  * @param mixed $arg1
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.setstrength.php
  */
-function collator_set_strength(Collator $object, $arg1): bool
+function collator_set_strength(Collator $strength, $arg1): bool
 {
 }
 
 /**
  * Sort array using specified collator
  *
- * @param Collator $object
- * @param array $arr
- * @param mixed|null $sort_flags
+ * @param Collator $arr Array of strings to sort.
+ * @param array $sort_flag Optional sorting type, one of the following:
+ * @param mixed $sort_flags
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.sort.php
  */
-function collator_sort(Collator $object, array &$arr, $sort_flags = null): bool
+function collator_sort(Collator $arr, array &$sort_flag, $sort_flags = null): bool
 {
 }
 
 /**
  * Sort array using specified collator and sort keys
  *
- * @param Collator $coll
+ * @param Collator $arr Array of strings to sort
  * @param array $arr
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/collator.sortwithsortkeys.php
  */
-function collator_sort_with_sort_keys(Collator $coll, array &$arr): bool
+function collator_sort_with_sort_keys(Collator $arr, array &$arr): bool
 {
 }
 
 /**
  * Create a date formatter
  *
- * @param mixed $locale
- * @param mixed $date_type
- * @param mixed $time_type
- * @param mixed|null $timezone_str
- * @param mixed|null $calendar
- * @param mixed|null $pattern
+ * @param string $locale Locale to use when formatting or parsing or <code>NULL</code> to use the value
+ * specified in the ini setting intl.default_locale.
+ * @param int $datetype Date type to use (<code>none</code>, <code>short</code>,
+ * <code>medium</code>, <code>long</code>,
+ * <code>full</code>). This is one of the IntlDateFormatter
+ * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+ * date type will be used.
+ * @param int $timetype Time type to use (<code>none</code>, <code>short</code>,
+ * <code>medium</code>, <code>long</code>,
+ * <code>full</code>). This is one of the IntlDateFormatter
+ * constants. It can also be <code>NULL</code>, in which case ICUʼs default
+ * time type will be used.
+ * @param mixed|null $timezone Time zone ID. The default (and the one used if <code>NULL</code> is given) is the
+ * one returned by <code>date_default_timezone_get</code> or, if
+ * applicable, that of the <code>IntlCalendar</code> object passed
+ * for the <code>calendar</code> parameter. This ID must be a
+ * valid identifier on ICUʼs database or an ID representing an
+ * explicit offset, such as <code>GMT-05:30</code>.
+ * @param mixed|null $calendar Calendar to use for formatting or parsing. The default value is <code>NULL</code>,
+ * which corresponds to <code>IntlDateFormatter::GREGORIAN</code>.
+ * This can either be one of the
+ * IntlDateFormatter
+ * calendar constants or an <code>IntlCalendar</code>. Any
+ * <code>IntlCalendar</code> object passed will be clone; it will
+ * not be changed by the <code>IntlDateFormatter</code>. This will
+ * determine the calendar type used (gregorian, islamic, persian, etc.) and,
+ * if <code>NULL</code> is given for the <code>timezone</code> parameter,
+ * also the timezone used.
+ * @param string|null $pattern Optional pattern to use when formatting or parsing.
+ * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
  *
- * @return IntlDateFormatter
+ * @return IntlDateFormatter The created <code>IntlDateFormatter</code> or <code>FALSE</code> in case of
+ * failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.create.php
  */
-function datefmt_create($locale, $date_type, $time_type, $timezone_str = null, $calendar = null, $pattern = null): IntlDateFormatter
+function datefmt_create(string $locale, int $datetype, int $timetype, $timezone = null, $calendar = null, string $pattern = ""): IntlDateFormatter
 {
 }
 
 /**
  * Format the date/time value as a string
  *
- * @param mixed|null $args
- * @param mixed|null $array
+ * @param mixed $value Value to format. This may be a <code>DateTimeInterface</code> object, an
+ * <code>IntlCalendar</code> object, a <code>numeric</code> type
+ * representing a (possibly fractional) number of seconds since epoch or an
+ * <code>array</code> in the format output by
+ * <code>localtime</code>.
+ * @param mixed $array
  *
- * @return string
+ * @return string The formatted string or, if an error occurred, <code>FALSE</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.format.php
  */
-function datefmt_format($args = null, $array = null): string
+function datefmt_format($value = null, $array = null): string
 {
 }
 
 /**
  * Formats an object
  *
- * @param mixed $object
- * @param mixed|null $format
- * @param mixed|null $locale
+ * @param mixed $object An object of type <code>IntlCalendar</code> or
+ * <code>DateTime</code>. The timezone information in the object
+ * will be used.
+ * @param mixed|null $format How to format the date/time. This can either be an <code>array</code> with
+ * two elements (first the date style, then the time style, these being one
+ * of the constants <code>IntlDateFormatter::NONE</code>,
+ * <code>IntlDateFormatter::SHORT</code>,
+ * <code>IntlDateFormatter::MEDIUM</code>,
+ * <code>IntlDateFormatter::LONG</code>,
+ * <code>IntlDateFormatter::FULL</code>), an <code>integer</code> with
+ * the value of one of these constants (in which case it will be used both
+ * for the time and the date) or a <code>string</code> with the format
+ * described in the ICU
+ * documentation. If <code>NULL</code>, the default style will be used.
+ * @param string|null $locale The locale to use, or <code>NULL</code> to use the default one.
  *
- * @return string
+ * @return string A string with result or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
  */
-function datefmt_format_object($object, $format = null, $locale = null): string
+function datefmt_format_object($object, $format = null, string $locale = null): string
 {
 }
 
@@ -10375,7 +10887,10 @@ function datefmt_format_object($object, $format = null, $locale = null): string
  *
  * @param mixed $mf
  *
- * @return int
+ * @return int The calendar
+ * type being used by the formatter. Either
+ * <code>IntlDateFormatter::TRADITIONAL</code> or
+ * <code>IntlDateFormatter::GREGORIAN</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10390,7 +10905,7 @@ function datefmt_get_calendar($mf): int
  *
  * @param mixed $mf
  *
- * @return IntlCalendar
+ * @return IntlCalendar A copy of the internal calendar object used by this formatter.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -10405,7 +10920,7 @@ function datefmt_get_calendar_object($mf): IntlCalendar
  *
  * @param mixed $mf
  *
- * @return int
+ * @return int The current date type value of the formatter.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10420,7 +10935,7 @@ function datefmt_get_datetype($mf): int
  *
  * @param mixed $nf
  *
- * @return int
+ * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10435,7 +10950,7 @@ function datefmt_get_error_code($nf): int
  *
  * @param mixed $coll
  *
- * @return string
+ * @return string Description of the last error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10448,15 +10963,15 @@ function datefmt_get_error_message($coll): string
 /**
  * Get the locale used by formatter
  *
- * @param mixed $mf
+ * @param int $which
  *
- * @return string
+ * @return string the locale of this formatter or 'false' if error
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.getlocale.php
  */
-function datefmt_get_locale($mf): string
+function datefmt_get_locale(int $which): string
 {
 }
 
@@ -10465,7 +10980,7 @@ function datefmt_get_locale($mf): string
  *
  * @param mixed $mf
  *
- * @return string
+ * @return string The pattern string being used to format/parse.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10480,7 +10995,7 @@ function datefmt_get_pattern($mf): string
  *
  * @param mixed $mf
  *
- * @return int
+ * @return int The current date type value of the formatter.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10495,7 +11010,8 @@ function datefmt_get_timetype($mf): int
  *
  * @param mixed $mf
  *
- * @return IntlTimeZone
+ * @return IntlTimeZone The associated <code>IntlTimeZone</code>
+ * object or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
@@ -10510,7 +11026,7 @@ function datefmt_get_timezone($mf): IntlTimeZone
  *
  * @param mixed $mf
  *
- * @return string
+ * @return string ID string for the time zone used by this formatter.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10525,7 +11041,7 @@ function datefmt_get_timezone_id($mf): string
  *
  * @param mixed $mf
  *
- * @return bool
+ * @return bool <code>TRUE</code> if parser is lenient, <code>FALSE</code> if parser is strict. By default the parser is lenient.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -10538,286 +11054,354 @@ function datefmt_is_lenient($mf): bool
 /**
  * Parse string to a field-based time value
  *
- * @param mixed $formatter
- * @param mixed $string
- * @param mixed|null $position
+ * @param string $value string to convert to a time
+ * @param int $position Position at which to start the parsing in $value (zero-based).
+ * If no error occurs before $value is consumed, $parse_pos will contain -1
+ * otherwise it will contain the position at which parsing ended .
+ * If $parse_pos &gt; strlen($value), the parse fails immediately.
+ * @param mixed $position
  *
- * @return array
+ * @return array Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.localtime.php
  */
-function datefmt_localtime($formatter, $string, &$position = null): array
+function datefmt_localtime(string $value, int $position, &$position = null): array
 {
 }
 
 /**
  * Parse string to a timestamp value
  *
- * @param mixed $formatter
- * @param mixed $string
- * @param mixed|null $position
+ * @param string $value string to convert to a time
+ * @param int $position Position at which to start the parsing in $value (zero-based).
+ * If no error occurs before $value is consumed, $parse_pos will contain -1
+ * otherwise it will contain the position at which parsing ended (and the error occurred).
+ * This variable will contain the end position if the parse fails.
+ * If $parse_pos &gt; strlen($value), the parse fails immediately.
+ * @param mixed $position
  *
- * @return int
+ * @return int timestamp parsed value, or <code>FALSE</code> if value can't be parsed.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.parse.php
  */
-function datefmt_parse($formatter, $string, &$position = null): int
+function datefmt_parse(string $value, int $position, &$position = null): int
 {
 }
 
 /**
  * Sets the calendar type used by the formatter
  *
- * @param mixed $mf
+ * @param mixed $which This can either be: the calendar
+ * type to use (default is
+ * <code>IntlDateFormatter::GREGORIAN</code>, which is also used if
+ * <code>NULL</code> is specified) or an
+ * <code>IntlCalendar</code> object.
  * @param mixed $calendar
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.setcalendar.php
  */
-function datefmt_set_calendar($mf, $calendar): bool
+function datefmt_set_calendar($which, $calendar): bool
 {
 }
 
 /**
  * Set the leniency of the parser
  *
- * @param mixed $mf
+ * @param bool $lenient Sets whether the parser is lenient or not, default is <code>TRUE</code> (lenient).
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.setlenient.php
  */
-function datefmt_set_lenient($mf): bool
+function datefmt_set_lenient(bool $lenient): bool
 {
 }
 
 /**
  * Set the pattern used for the IntlDateFormatter
  *
- * @param mixed $mf
+ * @param string $pattern New pattern string to use.
+ * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
  * @param mixed $pattern
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
+ * Bad formatstrings are usually the cause of the failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/intldateformatter.setpattern.php
  */
-function datefmt_set_pattern($mf, $pattern): bool
+function datefmt_set_pattern(string $pattern, $pattern): bool
 {
 }
 
 /**
  * Sets formatterʼs timezone
  *
- * @param mixed $mf
+ * @param mixed $zone The timezone to use for this formatter. This can be specified in the
+ * following forms:
  * @param mixed $timezone
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success and <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *
  * @link http://www.php.net/manual/en/intldateformatter.settimezone.php
  */
-function datefmt_set_timezone($mf, $timezone): bool
+function datefmt_set_timezone($zone, $timezone): bool
 {
 }
 
 /**
  * Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8
  *
- * @param mixed $arg1
- * @param mixed $arg2
- * @param mixed|null $arg3
- * @param mixed|null $arg4
- * @param mixed|null $arg5
+ * @param string $haystack String to search.
+ * @param int $size Maximum number items - based on the $extract_type - to return.
+ * @param int $extract_type Defines the type of units referred to by the $size parameter:
+ * @param int|null $start Starting position in $haystack in bytes - if given, it must be zero or a
+ * positive value that is less than or equal to the length of $haystack in
+ * bytes, or a negative value that counts from the end of $haystack.
+ * If $start does not point to the first byte of a UTF-8
+ * character, the start position is moved to the next character boundary.
+ * @param int $next Reference to a value that will be set to the next starting position.
+ * When the call returns, this may point to the first byte position past the end of the string.
  *
- * @return string
+ * @return string A string starting at offset $start and ending on a default grapheme cluster
+ * boundary that conforms to the $size and $extract_type specified.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-extract.php
  */
-function grapheme_extract($arg1, $arg2, $arg3 = null, $arg4 = null, &$arg5 = null): string
+function grapheme_extract(string $haystack, int $size, int $extract_type = null, int $start = 0, int &$next = null): string
 {
 }
 
 /**
  * Find position (in grapheme units) of first occurrence of a case-insensitive string
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $offset
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int|null $offset The optional $offset parameter allows you to specify where in haystack to
+ * start searching as an offset in grapheme units (not bytes or characters).
+ * If the offset is negative, it is treated relative to the end of the string.
+ * The position returned is still relative to the beginning of haystack
+ * regardless of the value of $offset.
  *
- * @return int
+ * @return int Returns the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-stripos.php
  */
-function grapheme_stripos($haystack, $needle, $offset = null): int
+function grapheme_stripos(string $haystack, string $needle, int $offset = 0): int
 {
 }
 
 /**
  * Returns part of haystack string from the first occurrence of case-insensitive needle to the end of haystack
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $before_needle
+ * @param string $haystack The input string. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param bool|null $before_needle If <code>TRUE</code>, grapheme_strstr() returns the part of the
+ * haystack before the first occurrence of the needle (excluding needle).
  *
- * @return string
+ * @return string Returns the portion of $haystack, or FALSE if $needle is not found.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-stristr.php
  */
-function grapheme_stristr($haystack, $needle, $before_needle = null): string
+function grapheme_stristr(string $haystack, string $needle, bool $before_needle = false): string
 {
 }
 
 /**
  * Get string length in grapheme units
  *
- * @param mixed $string
+ * @param string $input The string being measured for length. It must be a valid UTF-8 string.
  *
- * @return int
+ * @return int The length of the string on success, and 0 if the string is empty.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-strlen.php
  */
-function grapheme_strlen($string): int
+function grapheme_strlen(string $input): int
 {
 }
 
 /**
  * Find position (in grapheme units) of first occurrence of a string
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $offset
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int|null $offset The optional $offset parameter allows you to specify where in $haystack to
+ * start searching as an offset in grapheme units (not bytes or characters).
+ * If the offset is negative, it is treated relative to the end of the string.
+ * The position returned is still relative to the beginning of haystack
+ * regardless of the value of $offset.
  *
- * @return int
+ * @return int Returns the position as an integer. If needle is not found, grapheme_strpos() will return boolean FALSE.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-strpos.php
  */
-function grapheme_strpos($haystack, $needle, $offset = null): int
+function grapheme_strpos(string $haystack, string $needle, int $offset = 0): int
 {
 }
 
 /**
  * Find position (in grapheme units) of last occurrence of a case-insensitive string
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $offset
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int|null $offset The optional $offset parameter allows you to specify where in $haystack to
+ * start searching as an offset in grapheme units (not bytes or characters).
+ * The position returned is still relative to the beginning of haystack
+ * regardless of the value of $offset.
  *
- * @return int
+ * @return int Returns the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-strripos.php
  */
-function grapheme_strripos($haystack, $needle, $offset = null): int
+function grapheme_strripos(string $haystack, string $needle, int $offset = 0): int
 {
 }
 
 /**
  * Find position (in grapheme units) of last occurrence of a string
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $offset
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int|null $offset The optional $offset parameter allows you to specify where in $haystack to
+ * start searching as an offset in grapheme units (not bytes or characters).
+ * The position returned is still relative to the beginning of haystack
+ * regardless of the value of $offset.
  *
- * @return int
+ * @return int Returns the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-strrpos.php
  */
-function grapheme_strrpos($haystack, $needle, $offset = null): int
+function grapheme_strrpos(string $haystack, string $needle, int $offset = 0): int
 {
 }
 
 /**
  * Returns part of haystack string from the first occurrence of needle to the end of haystack
  *
- * @param mixed $haystack
- * @param mixed $needle
- * @param mixed|null $before_needle
+ * @param string $haystack The input string. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param bool|null $before_needle If <code>TRUE</code>, grapheme_strstr() returns the part of the
+ * haystack before the first occurrence of the needle (excluding the needle).
  *
- * @return string
+ * @return string Returns the portion of string, or FALSE if needle is not found.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-strstr.php
  */
-function grapheme_strstr($haystack, $needle, $before_needle = null): string
+function grapheme_strstr(string $haystack, string $needle, bool $before_needle = false): string
 {
 }
 
 /**
  * Return part of a string
  *
- * @param mixed $string
- * @param mixed $start
- * @param mixed|null $length
+ * @param string $string The input string. Must be valid UTF-8.
+ * @param int $start Start position in default grapheme units.
+ * If $start is non-negative, the returned string will start at the
+ * $start'th position in $string, counting from zero. If $start is negative,
+ * the returned string will start at the $start'th grapheme unit from the
+ * end of string.
+ * @param int $length Length in grapheme units.
+ * If $length is given and is positive, the string returned will contain
+ * at most $length grapheme units beginning from $start (depending on the
+ * length of string). If $length is given and is negative, then
+ * that many grapheme units will be omitted from the end of string (after the
+ * start position has been calculated when a start is negative). If $start
+ * denotes a position beyond this truncation, <code>FALSE</code> will be returned.
  *
- * @return string
+ * @return string Returns the extracted part of $string.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/function.grapheme-substr.php
  */
-function grapheme_substr($string, $start, $length = null): string
+function grapheme_substr(string $string, int $start, int $length = null): string
 {
 }
 
 /**
  * Convert domain name to IDNA ASCII form
  *
- * @param mixed $domain
- * @param mixed|null $option
- * @param mixed|null $variant
- * @param mixed|null $idn_info
+ * @param string $domain The domain to convert, which must be UTF-8 encoded.
+ * @param int|null $options Conversion options - combination of IDNA_* constants
+ * (except IDNA_ERROR_* constants).
+ * @param int|null $variant Either <code>INTL_IDNA_VARIANT_2003</code> for IDNA 2003 or
+ * <code>INTL_IDNA_VARIANT_UTS46</code> for UTS #46.
+ * @param array $idna_info This parameter can be used only if
+ * <code>INTL_IDNA_VARIANT_UTS46</code> was used for
+ * <code>variant</code>. In that case, it will be filled with an
+ * array with the keys <code>'result'</code>, the possibly illegal
+ * result of the transformation,
+ * <code>'isTransitionalDifferent'</code>, a boolean indicating
+ * whether the usage of the transitional mechanisms of UTS #46 either has
+ * or would have changed the result and <code>'errors'</code>,
+ * which is an <code>int</code> representing a bitset of the error
+ * constants IDNA_ERROR_*.
  *
- * @return string
+ * @return string The domain name encoded in ASCII-compatible form, or <code>FALSE</code> on failure
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.2, PECL idn >= 0.1
  *
  * @link http://www.php.net/manual/en/function.idn-to-ascii.php
  */
-function idn_to_ascii($domain, $option = null, $variant = null, &$idn_info = null): string
+function idn_to_ascii(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_2003, array &$idna_info = null): string
 {
 }
 
 /**
  * Convert domain name from IDNA ASCII to Unicode
  *
- * @param mixed $domain
- * @param mixed|null $option
- * @param mixed|null $variant
- * @param mixed|null $idn_info
+ * @param string $domain Domain to convert in an IDNA ASCII-compatible format.
+ * @param int|null $options Conversion options - combination of IDNA_* constants
+ * (except IDNA_ERROR_* constants).
+ * @param int|null $variant Either <code>INTL_IDNA_VARIANT_2003</code> for IDNA 2003 or
+ * <code>INTL_IDNA_VARIANT_UTS46</code> for UTS #46.
+ * @param array $idna_info This parameter can be used only if
+ * <code>INTL_IDNA_VARIANT_UTS46</code> was used for
+ * <code>variant</code>. In that case, it will be filled with an
+ * array with the keys <code>'result'</code>, the possibly illegal
+ * result of the transformation,
+ * <code>'isTransitionalDifferent'</code>, a boolean indicating
+ * whether the usage of the transitional mechanisms of UTS #46 either has
+ * or would have changed the result and <code>'errors'</code>,
+ * which is an <code>int</code> representing a bitset of the error
+ * constants IDNA_ERROR_*.
  *
- * @return string
+ * @return string The domain name in Unicode, encoded in UTF-8, or <code>FALSE</code> on failure
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.2, PECL idn >= 0.1
  *
  * @link http://www.php.net/manual/en/function.idn-to-utf8.php
  */
-function idn_to_utf8($domain, $option = null, $variant = null, &$idn_info = null): string
+function idn_to_utf8(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_2003, array &$idna_info = null): string
 {
 }
 
@@ -10892,15 +11476,15 @@ function intlcal_before(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 
 /**
  * @param IntlCalendar $calendar
- * @param mixed|null $field
+ * @param mixed $field
  */
 function intlcal_clear(IntlCalendar $calendar, $field = null)
 {
 }
 
 /**
- * @param mixed|null $timeZone
- * @param mixed|null $locale
+ * @param mixed $timeZone
+ * @param mixed $locale
  */
 function intlcal_create_instance($timeZone = null, $locale = null)
 {
@@ -10971,7 +11555,7 @@ function intlcal_get_day_of_week_type(IntlCalendar $calendar, $dayOfWeek)
  *
  * @param IntlCalendar $calendar
  *
- * @return int
+ * @return int An ICU error code indicating either success, failure or a warning.
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrorcode.php
  */
@@ -10984,7 +11568,8 @@ function intlcal_get_error_code(IntlCalendar $calendar): int
  *
  * @param IntlCalendar $calendar
  *
- * @return string
+ * @return string The error message associated with last error that occurred in a function call
+ * on this object, or a string indicating the non-existance of an error.
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrormessage.php
  */
@@ -11134,7 +11719,7 @@ function intlcal_is_set(IntlCalendar $calendar, $field)
 
 /**
  * @param IntlCalendar $calendar
- * @param mixed|null $date
+ * @param mixed $date
  */
 function intlcal_is_weekend(IntlCalendar $calendar, $date = null)
 {
@@ -11143,7 +11728,7 @@ function intlcal_is_weekend(IntlCalendar $calendar, $date = null)
 /**
  * @param IntlCalendar $calendar
  * @param mixed $field
- * @param mixed|null $amountOrUpOrDown
+ * @param mixed $amountOrUpOrDown
  */
 function intlcal_roll(IntlCalendar $calendar, $field, $amountOrUpOrDown = null)
 {
@@ -11153,10 +11738,10 @@ function intlcal_roll(IntlCalendar $calendar, $field, $amountOrUpOrDown = null)
  * @param IntlCalendar $calendar
  * @param mixed $fieldOrYear
  * @param mixed $valueOrMonth
- * @param mixed|null $dayOfMonth
- * @param mixed|null $hour
- * @param mixed|null $minute
- * @param mixed|null $second
+ * @param mixed $dayOfMonth
+ * @param mixed $hour
+ * @param mixed $minute
+ * @param mixed $second
  */
 function intlcal_set(IntlCalendar $calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
@@ -11226,12 +11811,12 @@ function intlcal_to_date_time(IntlCalendar $calendar)
 }
 
 /**
- * @param mixed|null $timeZoneOrYear
- * @param mixed|null $localeOrMonth
- * @param mixed|null $dayOfMonth
- * @param mixed|null $hour
- * @param mixed|null $minute
- * @param mixed|null $second
+ * @param mixed $timeZoneOrYear
+ * @param mixed $localeOrMonth
+ * @param mixed $dayOfMonth
+ * @param mixed $hour
+ * @param mixed $minute
+ * @param mixed $second
  */
 function intlgregcal_create_instance($timeZoneOrYear = null, $localeOrMonth = null, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
@@ -11272,7 +11857,7 @@ function intltz_create_default()
 }
 
 /**
- * @param mixed|null $countryOrRawOffset
+ * @param mixed $countryOrRawOffset
  */
 function intltz_create_enumeration($countryOrRawOffset = null)
 {
@@ -11287,8 +11872,8 @@ function intltz_create_time_zone($zoneId)
 
 /**
  * @param mixed $zoneType
- * @param mixed|null $region
- * @param mixed|null $rawOffset
+ * @param mixed $region
+ * @param mixed $rawOffset
  */
 function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null)
 {
@@ -11303,7 +11888,7 @@ function intltz_from_date_time_zone(DateTimeZone $dateTimeZone)
 
 /**
  * @param mixed $zoneId
- * @param mixed|null $isSystemID
+ * @param mixed $isSystemID
  */
 function intltz_get_canonical_id($zoneId, &$isSystemID = null)
 {
@@ -11311,9 +11896,9 @@ function intltz_get_canonical_id($zoneId, &$isSystemID = null)
 
 /**
  * @param IntlTimeZone $timeZone
- * @param mixed|null $isDaylight
- * @param mixed|null $style
- * @param mixed|null $locale
+ * @param mixed $isDaylight
+ * @param mixed $style
+ * @param mixed $locale
  */
 function intltz_get_display_name(IntlTimeZone $timeZone, $isDaylight = null, $style = null, $locale = null)
 {
@@ -11406,7 +11991,7 @@ function intltz_get_unknown()
 
 /**
  * @param IntlTimeZone $timeZone
- * @param IntlTimeZone|null $otherTimeZone
+ * @param IntlTimeZone $otherTimeZone
  */
 function intltz_has_same_rules(IntlTimeZone $timeZone, IntlTimeZone $otherTimeZone = null)
 {
@@ -11429,22 +12014,22 @@ function intltz_use_daylight_time(IntlTimeZone $timeZone)
 /**
  * Tries to find out best available locale based on HTTP "Accept-Language" header
  *
- * @param mixed $arg1
+ * @param string $header The string containing the "Accept-Language" header according to format in RFC 2616.
  *
- * @return string
+ * @return string The corresponding locale identifier.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.acceptfromhttp.php
  */
-function locale_accept_from_http($arg1): string
+function locale_accept_from_http(string $header): string
 {
 }
 
 /**
  * Canonicalize the locale string
  *
- * @param mixed $arg1
+ * @param string $locale
  *
  * @return string
  *
@@ -11452,61 +12037,76 @@ function locale_accept_from_http($arg1): string
  *
  * @link http://www.php.net/manual/en/locale.canonicalize.php
  */
-function locale_canonicalize($arg1): string
+function locale_canonicalize(string $locale): string
 {
 }
 
 /**
  * Returns a correctly ordered and delimited locale ID
  *
- * @param mixed $arg1
+ * @param array $subtags an array containing a list of key-value pairs, where the keys identify
+ * the particular locale ID subtags, and the values are the associated
+ * subtag values.
+ * <blockquote>
+ * The 'variant' and 'private' subtags can take maximum 15 values
+ * whereas 'extlang' can take maximum 3 values.e.g. Variants are allowed
+ * with the suffix ranging from 0-14. Hence the keys for the input array
+ * can be variant0, variant1, ...,variant14. In the returned locale id,
+ * the subtag is ordered by suffix resulting in variant0 followed by
+ * variant1 followed by variant2 and so on.
+ * The 'variant', 'private' and 'extlang' multiple values can be specified both
+ * as array under specific key (e.g. 'variant') and as multiple numbered keys
+ * (e.g. 'variant0', 'variant1', etc.).
+ * </blockquote>
  *
- * @return string
+ * @return string The corresponding locale identifier.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.composelocale.php
  */
-function locale_compose($arg1): string
+function locale_compose(array $subtags): string
 {
 }
 
 /**
  * Checks if a language tag filter matches with locale
  *
- * @param mixed $langtag
- * @param mixed $locale
- * @param mixed|null $canonicalize
+ * @param string $langtag The language tag to check
+ * @param string $locale The language range to check against
+ * @param bool|null $canonicalize If true, the arguments will be converted to canonical form before
+ * matching.
  *
- * @return bool
+ * @return bool <code>TRUE</code> if $locale matches $langtag <code>FALSE</code> otherwise.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.filtermatches.php
  */
-function locale_filter_matches($langtag, $locale, $canonicalize = null): bool
+function locale_filter_matches(string $langtag, string $locale, bool $canonicalize = false): bool
 {
 }
 
 /**
  * Gets the variants for the input locale
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the variants from
  *
- * @return array
+ * @return array The <code>array</code> containing the list of all variants subtag for the locale
+ * or <code>NULL</code> if not present
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getallvariants.php
  */
-function locale_get_all_variants($arg1): array
+function locale_get_all_variants(string $locale): array
 {
 }
 
 /**
  * Gets the default locale value from the INTL global 'default_locale'
  *
- * @return string
+ * @return string The current runtime locale
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11519,237 +12119,258 @@ function locale_get_default(): string
 /**
  * Returns an appropriately localized display name for language of the inputlocale
  *
- * @param mixed $locale
- * @param mixed|null $in_locale
+ * @param string $locale The locale to return a display language for
+ * @param string $in_locale Optional format locale to use to display the language name
  *
- * @return string
+ * @return string display name of the language for the $locale in the format appropriate for
+ * $in_locale.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getdisplaylanguage.php
  */
-function locale_get_display_language($locale, $in_locale = null): string
+function locale_get_display_language(string $locale, string $in_locale = null): string
 {
 }
 
 /**
  * Returns an appropriately localized display name for the input locale
  *
- * @param mixed $locale
- * @param mixed|null $in_locale
+ * @param string $locale The locale to return a display name for.
+ * @param string $in_locale optional format locale
  *
- * @return string
+ * @return string Display name of the locale in the format appropriate for $in_locale.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getdisplayname.php
  */
-function locale_get_display_name($locale, $in_locale = null): string
+function locale_get_display_name(string $locale, string $in_locale = null): string
 {
 }
 
 /**
  * Returns an appropriately localized display name for region of the input locale
  *
- * @param mixed $locale
- * @param mixed|null $in_locale
+ * @param string $locale The locale to return a display region for.
+ * @param string $in_locale Optional format locale to use to display the region name
  *
- * @return string
+ * @return string display name of the region for the $locale in the format appropriate for
+ * $in_locale.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getdisplayregion.php
  */
-function locale_get_display_region($locale, $in_locale = null): string
+function locale_get_display_region(string $locale, string $in_locale = null): string
 {
 }
 
 /**
  * Returns an appropriately localized display name for script of the input locale
  *
- * @param mixed $locale
- * @param mixed|null $in_locale
+ * @param string $locale The locale to return a display script for
+ * @param string $in_locale Optional format locale to use to display the script name
  *
- * @return string
+ * @return string Display name of the script for the $locale in the format appropriate for
+ * $in_locale.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getdisplayscript.php
  */
-function locale_get_display_script($locale, $in_locale = null): string
+function locale_get_display_script(string $locale, string $in_locale = null): string
 {
 }
 
 /**
  * Returns an appropriately localized display name for variants of the input locale
  *
- * @param mixed $locale
- * @param mixed|null $in_locale
+ * @param string $locale The locale to return a display variant for
+ * @param string $in_locale Optional format locale to use to display the variant name
  *
- * @return string
+ * @return string Display name of the variant for the $locale in the format appropriate for
+ * $in_locale.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getdisplayvariant.php
  */
-function locale_get_display_variant($locale, $in_locale = null): string
+function locale_get_display_variant(string $locale, string $in_locale = null): string
 {
 }
 
 /**
  * Gets the keywords for the input locale
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the keywords from
  *
- * @return array
+ * @return array Associative <code>array</code> containing the keyword-value pairs for this locale
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getkeywords.php
  */
-function locale_get_keywords($arg1): array
+function locale_get_keywords(string $locale): array
 {
 }
 
 /**
  * Gets the primary language for the input locale
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the primary language code from
  *
- * @return string
+ * @return string The language code associated with the language or <code>NULL</code> in case of error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getprimarylanguage.php
  */
-function locale_get_primary_language($arg1): string
+function locale_get_primary_language(string $locale): string
 {
 }
 
 /**
  * Gets the region for the input locale
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the region code from
  *
- * @return string
+ * @return string The region subtag for the locale or <code>NULL</code> if not present
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getregion.php
  */
-function locale_get_region($arg1): string
+function locale_get_region(string $locale): string
 {
 }
 
 /**
  * Gets the script for the input locale
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the script code from
  *
- * @return string
+ * @return string The script subtag for the locale or <code>NULL</code> if not present
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.getscript.php
  */
-function locale_get_script($arg1): string
+function locale_get_script(string $locale): string
 {
 }
 
 /**
  * Searches the language tag list for the best match to the language
  *
- * @param mixed $langtag
- * @param mixed $locale
- * @param mixed|null $canonicalize
- * @param mixed|null $def
+ * @param array $langtag An <code>array</code> containing a list of language tags to compare to
+ * <code>locale</code>. Maximum 100 items allowed.
+ * @param string $locale The locale to use as the language range when matching.
+ * @param bool|null $canonicalize If true, the arguments will be converted to canonical form before
+ * matching.
+ * @param string $default The locale to use if no match is found.
  *
- * @return string
+ * @return string The closest matching language tag or default value.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.lookup.php
  */
-function locale_lookup($langtag, $locale, $canonicalize = null, $def = null): string
+function locale_lookup(array $langtag, string $locale, bool $canonicalize = false, string $default = null): string
 {
 }
 
 /**
  * Returns a key-value array of locale ID subtag elements
  *
- * @param mixed $arg1
+ * @param string $locale The locale to extract the subtag array from. Note: The 'variant' and
+ * 'private' subtags can take maximum 15 values whereas 'extlang' can take
+ * maximum 3 values.
  *
- * @return array
+ * @return array Returns an array containing a list of key-value pairs, where the keys
+ * identify the particular locale ID subtags, and the values are the
+ * associated subtag values. The array will be ordered as the locale id
+ * subtags e.g. in the locale id if variants are '-varX-varY-varZ' then the
+ * returned array will have variant0=>varX , variant1=>varY ,
+ * variant2=>varZ
+ * Returns <code>NULL</code> when the length of <code>locale</code> exceeds
+ * <code>INTL_MAX_LOCALE_LEN</code>.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.parselocale.php
  */
-function locale_parse($arg1): array
+function locale_parse(string $locale): array
 {
 }
 
 /**
  * Sets the default runtime locale
  *
- * @param mixed $arg1
+ * @param string $locale Is a BCP 47 compliant language tag.
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/locale.setdefault.php
  */
-function locale_set_default($arg1): bool
+function locale_set_default(string $locale): bool
 {
 }
 
 /**
  * Constructs a new Message Formatter
  *
- * @param mixed $locale
- * @param mixed $pattern
+ * @param string $locale The locale to use when formatting arguments
+ * @param string $pattern The pattern string to stick arguments into.
+ * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+ * umsg_autoQuoteApostrophe
+ * before being interpreted.
  *
- * @return MessageFormatter
+ * @return MessageFormatter The formatter <code>object</code>
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.create.php
  */
-function msgfmt_create($locale, $pattern): MessageFormatter
+function msgfmt_create(string $locale, string $pattern): MessageFormatter
 {
 }
 
 /**
  * Format the message
  *
- * @param mixed $nf
+ * @param array $args Arguments to insert into the format string
  * @param mixed $args
  *
- * @return string
+ * @return string The formatted string, or <code>FALSE</code> if an error occurred
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.format.php
  */
-function msgfmt_format($nf, $args): string
+function msgfmt_format(array $args, $args): string
 {
 }
 
 /**
  * Quick format message
  *
- * @param mixed $locale
- * @param mixed $pattern
- * @param mixed $args
+ * @param string $locale The locale to use for formatting locale-dependent parts
+ * @param string $pattern The pattern <code>string</code> to insert things into.
+ * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+ * umsg_autoQuoteApostrophe
+ * before being interpreted.
+ * @param array $args The <code>array</code> of values to insert into the format <code>string</code>
  *
- * @return string
+ * @return string The formatted pattern string or <code>FALSE</code> if an error occurred
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.formatmessage.php
  */
-function msgfmt_format_message($locale, $pattern, $args): string
+function msgfmt_format_message(string $locale, string $pattern, array $args): string
 {
 }
 
@@ -11758,7 +12379,7 @@ function msgfmt_format_message($locale, $pattern, $args): string
  *
  * @param mixed $nf
  *
- * @return int
+ * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11773,7 +12394,7 @@ function msgfmt_get_error_code($nf): int
  *
  * @param mixed $coll
  *
- * @return string
+ * @return string Description of the last error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11788,7 +12409,7 @@ function msgfmt_get_error_message($coll): string
  *
  * @param mixed $mf
  *
- * @return string
+ * @return string The locale name
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11803,7 +12424,7 @@ function msgfmt_get_locale($mf): string
  *
  * @param mixed $mf
  *
- * @return string
+ * @return string The pattern <code>string</code> for this message formatter
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11816,49 +12437,52 @@ function msgfmt_get_pattern($mf): string
 /**
  * Parse input string according to pattern
  *
- * @param mixed $nf
+ * @param string $value The <code>string</code> to parse
  * @param mixed $source
  *
- * @return array
+ * @return array An <code>array</code> containing the items extracted, or <code>FALSE</code> on error
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.parse.php
  */
-function msgfmt_parse($nf, $source): array
+function msgfmt_parse(string $value, $source): array
 {
 }
 
 /**
  * Quick parse input string
  *
- * @param mixed $locale
- * @param mixed $pattern
- * @param mixed $source
+ * @param string $locale The locale to use for parsing locale-dependent parts
+ * @param string $pattern The pattern with which to parse the <code>value</code>.
+ * @param string $source The <code>string</code> to parse, conforming to the <code>pattern</code>.
  *
- * @return array
+ * @return array An <code>array</code> containing items extracted, or <code>FALSE</code> on error
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.parsemessage.php
  */
-function msgfmt_parse_message($locale, $pattern, $source): array
+function msgfmt_parse_message(string $locale, string $pattern, string $source): array
 {
 }
 
 /**
  * Set the pattern used by the formatter
  *
- * @param mixed $mf
+ * @param string $pattern The pattern <code>string</code> to use in this message formatter.
+ * The pattern uses an 'apostrophe-friendly' syntax; it is run through
+ * umsg_autoQuoteApostrophe
+ * before being interpreted.
  * @param mixed $pattern
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/messageformatter.setpattern.php
  */
-function msgfmt_set_pattern($mf, $pattern): bool
+function msgfmt_set_pattern(string $pattern, $pattern): bool
 {
 }
 
@@ -11866,99 +12490,111 @@ function msgfmt_set_pattern($mf, $pattern): bool
  * Checks if the provided string is already in the specified normalization
  * form
  *
- * @param mixed $input
- * @param mixed|null $form
+ * @param string $input The input string to normalize
+ * @param int|null $form One of the normalization forms.
  *
- * @return bool
+ * @return bool <code>TRUE</code> if normalized, <code>FALSE</code> otherwise or if there an error
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/normalizer.isnormalized.php
  */
-function normalizer_is_normalized($input, $form = null): bool
+function normalizer_is_normalized(string $input, int $form = Normalizer::FORM_C): bool
 {
 }
 
 /**
  * Normalizes the input provided and returns the normalized string
  *
- * @param mixed $input
- * @param mixed|null $form
+ * @param string $input The input string to normalize
+ * @param int|null $form One of the normalization forms.
  *
- * @return string
+ * @return string The normalized string or <code>FALSE</code> if an error occurred.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/normalizer.normalize.php
  */
-function normalizer_normalize($input, $form = null): string
+function normalizer_normalize(string $input, int $form = Normalizer::FORM_C): string
 {
 }
 
 /**
  * Create a number formatter
  *
- * @param mixed $locale
- * @param mixed $style
- * @param mixed|null $pattern
+ * @param string $locale Locale in which the number would be formatted (locale name, e.g. en_CA).
+ * @param int $style Style of the formatting, one of the
+ * format style constants. If
+ * <code>NumberFormatter::PATTERN_DECIMAL</code>
+ * or <code>NumberFormatter::PATTERN_RULEBASED</code>
+ * is passed then the number format is opened using the given pattern,
+ * which must conform to the syntax described in
+ * ICU DecimalFormat
+ * documentation or
+ * ICU RuleBasedNumberFormat
+ * documentation, respectively.
+ * @param string $pattern Pattern string if the chosen style requires a pattern.
  *
- * @return NumberFormatter
+ * @return NumberFormatter Returns <code>NumberFormatter</code> object or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.create.php
  */
-function numfmt_create($locale, $style, $pattern = null): NumberFormatter
+function numfmt_create(string $locale, int $style, string $pattern = null): NumberFormatter
 {
 }
 
 /**
  * Format a number
  *
- * @param mixed $nf
- * @param mixed $num
- * @param mixed|null $type
+ * @param float $value The value to format. Can be <code>integer</code> or <code>float</code>,
+ * other values will be converted to a numeric value.
+ * @param int $type The
+ * formatting type to use.
+ * @param mixed $type
  *
- * @return string
+ * @return string Returns the string containing formatted value, or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.format.php
  */
-function numfmt_format($nf, $num, $type = null): string
+function numfmt_format(float $value, int $type, $type = null): string
 {
 }
 
 /**
  * Format a currency value
  *
- * @param mixed $nf
- * @param mixed $num
+ * @param float $value The numeric currency value.
+ * @param string $currency The 3-letter ISO 4217 currency code indicating the currency to use.
  * @param mixed $currency
  *
- * @return string
+ * @return string String representing the formatted currency value.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.formatcurrency.php
  */
-function numfmt_format_currency($nf, $num, $currency): string
+function numfmt_format_currency(float $value, string $currency, $currency): string
 {
 }
 
 /**
  * Get an attribute
  *
- * @param mixed $nf
+ * @param int $attr Attribute specifier - one of the
+ * numeric attribute constants.
  * @param mixed $attr
  *
- * @return int
+ * @return int Return attribute value on success, or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.getattribute.php
  */
-function numfmt_get_attribute($nf, $attr): int
+function numfmt_get_attribute(int $attr, $attr): int
 {
 }
 
@@ -11967,7 +12603,7 @@ function numfmt_get_attribute($nf, $attr): int
  *
  * @param mixed $nf
  *
- * @return int
+ * @return int Returns error code from last formatter call.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11982,7 +12618,7 @@ function numfmt_get_error_code($nf): int
  *
  * @param mixed $nf
  *
- * @return string
+ * @return string Returns error message from last formatter call.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -11995,16 +12631,19 @@ function numfmt_get_error_message($nf): string
 /**
  * Get formatter locale
  *
- * @param mixed $nf
- * @param mixed|null $type
+ * @param int $type You can choose between valid and actual locale (
+ * <code>Locale::VALID_LOCALE</code>,
+ * <code>Locale::ACTUAL_LOCALE</code>,
+ * respectively). The default is the actual locale.
+ * @param mixed $type
  *
- * @return string
+ * @return string The locale name used to create the formatter.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.getlocale.php
  */
-function numfmt_get_locale($nf, $type = null): string
+function numfmt_get_locale(int $type, $type = null): string
 {
 }
 
@@ -12013,7 +12652,7 @@ function numfmt_get_locale($nf, $type = null): string
  *
  * @param mixed $nf
  *
- * @return string
+ * @return string Pattern <code>string</code> that is used by the formatter, or <code>FALSE</code> if an error happens.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
@@ -12026,135 +12665,148 @@ function numfmt_get_pattern($nf): string
 /**
  * Get a symbol value
  *
- * @param mixed $nf
+ * @param int $attr Symbol specifier, one of the
+ * format symbol constants.
  * @param mixed $attr
  *
- * @return string
+ * @return string The symbol string or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.getsymbol.php
  */
-function numfmt_get_symbol($nf, $attr): string
+function numfmt_get_symbol(int $attr, $attr): string
 {
 }
 
 /**
  * Get a text attribute
  *
- * @param mixed $nf
+ * @param int $attr Attribute specifier - one of the
+ * text attribute constants.
  * @param mixed $attr
  *
- * @return string
+ * @return string Return attribute value on success, or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.gettextattribute.php
  */
-function numfmt_get_text_attribute($nf, $attr): string
+function numfmt_get_text_attribute(int $attr, $attr): string
 {
 }
 
 /**
  * Parse a number
  *
- * @param mixed $formatter
- * @param mixed $string
- * @param mixed|null $type
- * @param mixed|null $position
+ * @param string $value
+ * @param int $type The
+ * formatting type to use. By default,
+ * <code>NumberFormatter::TYPE_DOUBLE</code> is used.
+ * @param int $position Offset in the string at which to begin parsing. On return, this value
+ * will hold the offset at which parsing ended.
+ * @param mixed $position
  *
- * @return mixed
+ * @return mixed The value of the parsed number or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.parse.php
  */
-function numfmt_parse($formatter, $string, $type = null, &$position = null)
+function numfmt_parse(string $value, int $type, int $position = null, &$position = null)
 {
 }
 
 /**
  * Parse a currency number
  *
- * @param mixed $formatter
- * @param mixed $string
- * @param mixed $currency
- * @param mixed|null $position
+ * @param string $value
+ * @param string $currency Parameter to receive the currency name (3-letter ISO 4217 currency
+ * code).
+ * @param int $position Offset in the string at which to begin parsing. On return, this value
+ * will hold the offset at which parsing ended.
+ * @param mixed $position
  *
- * @return float
+ * @return float The parsed numeric value or <code>FALSE</code> on error.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.parsecurrency.php
  */
-function numfmt_parse_currency($formatter, $string, &$currency, &$position = null): float
+function numfmt_parse_currency(string $value, string $currency, int &$position, &$position = null): float
 {
 }
 
 /**
  * Set an attribute
  *
- * @param mixed $nf
- * @param mixed $attr
+ * @param int $attr Attribute specifier - one of the
+ * numeric attribute constants.
+ * @param int $value The attribute value.
  * @param mixed $value
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.setattribute.php
  */
-function numfmt_set_attribute($nf, $attr, $value): bool
+function numfmt_set_attribute(int $attr, int $value, $value): bool
 {
 }
 
 /**
  * Set formatter pattern
  *
- * @param mixed $nf
+ * @param string $pattern Pattern in syntax described in
+ * ICU DecimalFormat
+ * documentation.
  * @param mixed $pattern
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.setpattern.php
  */
-function numfmt_set_pattern($nf, $pattern): bool
+function numfmt_set_pattern(string $pattern, $pattern): bool
 {
 }
 
 /**
  * Set a symbol value
  *
- * @param mixed $nf
- * @param mixed $attr
+ * @param int $attr Symbol specifier, one of the
+ * format symbol constants.
+ * @param string $value Text for the symbol.
  * @param mixed $symbol
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.setsymbol.php
  */
-function numfmt_set_symbol($nf, $attr, $symbol): bool
+function numfmt_set_symbol(int $attr, string $value, $symbol): bool
 {
 }
 
 /**
  * Set a text attribute
  *
- * @param mixed $nf
- * @param mixed $attr
+ * @param int $attr Attribute specifier - one of the
+ * text attribute
+ * constants.
+ * @param string $value Text for the attribute value.
  * @param mixed $value
  *
- * @return bool
+ * @return bool Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
  *
  * @link http://www.php.net/manual/en/numberformatter.settextattribute.php
  */
-function numfmt_set_text_attribute($nf, $attr, $value): bool
+function numfmt_set_text_attribute(int $attr, string $value, $value): bool
 {
 }
 
@@ -12163,7 +12815,7 @@ function numfmt_set_text_attribute($nf, $attr, $value): bool
  *
  * @param mixed $bundle
  *
- * @return int
+ * @return int Returns number of elements in the bundle.
  *
  * @link http://www.php.net/manual/en/resourcebundle.count.php
  */
@@ -12174,30 +12826,32 @@ function resourcebundle_count($bundle): int
 /**
  * Create a resource bundle
  *
- * @param mixed $locale
- * @param mixed $bundlename
- * @param mixed|null $fallback
+ * @param string $locale Locale for which the resources should be loaded (locale name, e.g. en_CA).
+ * @param string $bundlename The directory where the data is stored or the name of the .dat file.
+ * @param bool $fallback Whether locale should match exactly or fallback to parent locale is allowed.
  *
- * @return ResourceBundle
+ * @return ResourceBundle Returns <code>ResourceBundle</code> object or <code>NULL</code> on error.
  *
  * @link http://www.php.net/manual/en/resourcebundle.create.php
  */
-function resourcebundle_create($locale, $bundlename, $fallback = null): ResourceBundle
+function resourcebundle_create(string $locale, string $bundlename, bool $fallback = null): ResourceBundle
 {
 }
 
 /**
  * Get data from the bundle
  *
- * @param mixed $bundle
- * @param mixed $index
- * @param mixed|null $fallback
+ * @param string|int $index Data index, must be string or integer.
+ * @param bool|null $fallback Whether locale should match exactly or fallback to parent locale is allowed.
+ * @param mixed $fallback
  *
- * @return mixed
+ * @return mixed Returns the data located at the index or <code>NULL</code> on error. Strings, integers and binary data strings
+ * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
+ * returned as <code>ResourceBundle</code> object.
  *
  * @link http://www.php.net/manual/en/resourcebundle.get.php
  */
-function resourcebundle_get($bundle, $index, $fallback = null)
+function resourcebundle_get($index, bool $fallback = true, $fallback = null)
 {
 }
 
@@ -12206,7 +12860,7 @@ function resourcebundle_get($bundle, $index, $fallback = null)
  *
  * @param mixed $bundle
  *
- * @return int
+ * @return int Returns error code from last bundle object call.
  *
  * @link http://www.php.net/manual/en/resourcebundle.geterrorcode.php
  */
@@ -12219,7 +12873,7 @@ function resourcebundle_get_error_code($bundle): int
  *
  * @param mixed $bundle
  *
- * @return string
+ * @return string Returns error message from last bundle object's call.
  *
  * @link http://www.php.net/manual/en/resourcebundle.geterrormessage.php
  */
@@ -12230,41 +12884,50 @@ function resourcebundle_get_error_message($bundle): string
 /**
  * Get supported locales
  *
- * @param mixed $bundlename
+ * @param string $bundlename Path of ResourceBundle for which to get available locales, or
+ * empty string for default locales list.
  *
- * @return array
+ * @return array Returns the list of locales supported by the bundle.
  *
  * @link http://www.php.net/manual/en/resourcebundle.locales.php
  */
-function resourcebundle_locales($bundlename): array
+function resourcebundle_locales(string $bundlename): array
 {
 }
 
 /**
  * Create a transliterator
  *
- * @param mixed $id
- * @param mixed|null $direction
+ * @param string $id The id.
+ * @param int $direction The direction, defaults to
+ * &gt;Transliterator::FORWARD.
+ * May also be set to
+ * Transliterator::REVERSE.
  *
- * @return Transliterator
+ * @return Transliterator Returns a <code>Transliterator</code> object on success,
+ * or <code>NULL</code> on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.create.php
  */
-function transliterator_create($id, $direction = null): Transliterator
+function transliterator_create(string $id, int $direction = null): Transliterator
 {
 }
 
 /**
  * Create transliterator from rules
  *
- * @param mixed $rules
- * @param mixed|null $direction
+ * @param string $rules The rules.
+ * @param string $direction The direction, defaults to
+ * &gt;Transliterator::FORWARD.
+ * May also be set to
+ * Transliterator::REVERSE.
  *
- * @return Transliterator
+ * @return Transliterator Returns a <code>Transliterator</code> object on success,
+ * or <code>NULL</code> on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.createfromrules.php
  */
-function transliterator_create_from_rules($rules, $direction = null): Transliterator
+function transliterator_create_from_rules(string $rules, string $direction = null): Transliterator
 {
 }
 
@@ -12273,7 +12936,8 @@ function transliterator_create_from_rules($rules, $direction = null): Transliter
  *
  * @param Transliterator $orig_trans
  *
- * @return Transliterator
+ * @return Transliterator Returns a <code>Transliterator</code> object on success,
+ * or <code>NULL</code> on failure
  *
  * @link http://www.php.net/manual/en/transliterator.createinverse.php
  */
@@ -12286,7 +12950,8 @@ function transliterator_create_inverse(Transliterator $orig_trans): Transliterat
  *
  * @param Transliterator $trans
  *
- * @return int
+ * @return int The error code on success,
+ * or <code>FALSE</code> if none exists, or on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.geterrorcode.php
  */
@@ -12299,7 +12964,8 @@ function transliterator_get_error_code(Transliterator $trans): int
  *
  * @param Transliterator $trans
  *
- * @return string
+ * @return string The error message on success,
+ * or <code>FALSE</code> if none exists, or on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.geterrormessage.php
  */
@@ -12310,7 +12976,8 @@ function transliterator_get_error_message(Transliterator $trans): string
 /**
  * Get transliterator IDs
  *
- * @return array
+ * @return array An <code>array</code> of registered transliterator IDs on success,
+ * or <code>FALSE</code> on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.listids.php
  */
@@ -12321,15 +12988,19 @@ function transliterator_list_ids(): array
 /**
  * Transliterate a string
  *
- * @param mixed $trans
- * @param mixed $subject
- * @param mixed|null $start
- * @param mixed|null $end
+ * @param string $subject The string to be transformed.
+ * @param int $start The start index (in UTF-16 code units) from which the string will start
+ * to be transformed, inclusive. Indexing starts at 0. The text before will
+ * be left as is.
+ * @param int $end The end index (in UTF-16 code units) until which the string will be
+ * transformed, exclusive. Indexing starts at 0. The text after will be
+ * left as is.
+ * @param mixed $end
  *
- * @return string
+ * @return string The transfomed string on success, or <code>FALSE</code> on failure.
  *
  * @link http://www.php.net/manual/en/transliterator.transliterate.php
  */
-function transliterator_transliterate($trans, $subject, $start = null, $end = null): string
+function transliterator_transliterate(string $subject, int $start, int $end = null, $end = null): string
 {
 }

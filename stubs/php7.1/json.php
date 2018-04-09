@@ -289,7 +289,8 @@ interface JsonSerializable
     /**
      * Specify data which should be serialized to JSON
      *
-     * @return mixed
+     * @return mixed Returns data which can be serialized by <code>json_encode</code>,
+     * which is a value of any type other than a <code>resource</code>.
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -301,42 +302,66 @@ interface JsonSerializable
 /**
  * Decodes a JSON string
  *
- * @param mixed $json
- * @param mixed|null $assoc
- * @param mixed|null $depth
- * @param mixed|null $options
+ * @param string $json The <code>json</code> <code>string</code> being decoded.
+ * @param bool|null $assoc When <code>TRUE</code>, returned <code>object</code>s will be converted into
+ * associative <code>array</code>s.
+ * @param int|null $depth User specified recursion depth.
+ * @param int|null $options Bitmask of JSON decode options. Currently there are two supported
+ * options. The first is <code>JSON_BIGINT_AS_STRING</code> that
+ * allows casting big integers to string instead of floats which is the
+ * default. The second option is <code>JSON_OBJECT_AS_ARRAY</code>
+ * that has the same effect as setting <code>assoc</code> to
+ * <code>TRUE</code>.
  *
- * @return mixed
+ * @return mixed Returns the value encoded in <code>json</code> in appropriate
+ * PHP type. Values <code>true</code>, <code>false</code> and
+ * <code>null</code> are returned as <code>TRUE</code>, <code>FALSE</code> and <code>NULL</code>
+ * respectively. <code>NULL</code> is returned if the <code>json</code> cannot
+ * be decoded or if the encoded data is deeper than the recursion limit.
  *
  * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
  *
  * @link http://www.php.net/manual/en/function.json-decode.php
  */
-function json_decode($json, $assoc = null, $depth = null, $options = null)
+function json_decode(string $json, bool $assoc = false, int $depth = 512, int $options = 0)
 {
 }
 
 /**
  * Returns the JSON representation of a value
  *
- * @param mixed $value
- * @param mixed|null $options
- * @param mixed|null $depth
+ * @param mixed $value The <code>value</code> being encoded. Can be any type except
+ * a <code>resource</code>.
+ * @param int|null $options Bitmask consisting of <code>JSON_HEX_QUOT</code>,
+ * <code>JSON_HEX_TAG</code>,
+ * <code>JSON_HEX_AMP</code>,
+ * <code>JSON_HEX_APOS</code>,
+ * <code>JSON_NUMERIC_CHECK</code>,
+ * <code>JSON_PRETTY_PRINT</code>,
+ * <code>JSON_UNESCAPED_SLASHES</code>,
+ * <code>JSON_FORCE_OBJECT</code>,
+ * <code>JSON_PRESERVE_ZERO_FRACTION</code>,
+ * <code>JSON_UNESCAPED_UNICODE</code>,
+ * <code>JSON_PARTIAL_OUTPUT_ON_ERROR</code>. The behaviour of these
+ * constants is described on the
+ * JSON constants page.
+ * @param int|null $depth Set the maximum depth. Must be greater than zero.
  *
- * @return string
+ * @return string Returns a JSON encoded <code>string</code> on success or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
  *
  * @link http://www.php.net/manual/en/function.json-encode.php
  */
-function json_encode($value, $options = null, $depth = null): string
+function json_encode($value, int $options = 0, int $depth = 512): string
 {
 }
 
 /**
  * Returns the last error occurred
  *
- * @return int
+ * @return int Returns an integer, the value can be one of the following
+ * constants:
  *
  * @since PHP 5 >= 5.3.0, PHP 7
  *
@@ -349,7 +374,8 @@ function json_last_error(): int
 /**
  * Returns the error string of the last json_encode() or json_decode() call
  *
- * @return string
+ * @return string Returns the error message on success, <code>"No error"</code> if no
+ * error has occurred, or <code>FALSE</code> on failure.
  *
  * @since PHP 5 >= 5.5.0, PHP 7
  *

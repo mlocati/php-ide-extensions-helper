@@ -305,7 +305,7 @@ class Redis
      * @param mixed $key
      * @param mixed $src
      * @param mixed $dst
-     * @param mixed|null $unit
+     * @param mixed $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -341,7 +341,7 @@ class Redis
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -354,7 +354,7 @@ class Redis
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -467,8 +467,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -754,8 +754,8 @@ class Redis
 
     /**
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -888,8 +888,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1075,8 +1075,8 @@ class Redis
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -1093,8 +1093,8 @@ class Redis
     /**
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -1430,10 +1430,10 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $name
-     * @param array|null $seeds
-     * @param mixed|null $timeout
-     * @param mixed|null $read_timeout
-     * @param mixed|null $persistent
+     * @param array $seeds
+     * @param mixed $timeout
+     * @param mixed $read_timeout
+     * @param mixed $persistent
      */
     public function __construct($name, array $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
     {
@@ -1534,8 +1534,8 @@ class RedisCluster
      *
      * @param mixed $key
      * @param mixed $bit
-     * @param mixed|null $start
-     * @param mixed|null $end
+     * @param mixed $start
+     * @param mixed $end
      */
     public function bitpos($key, $bit, $start = null, $end = null)
     {
@@ -1585,7 +1585,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function client($key_or_address, $arg = null, ...$other_args)
@@ -1603,7 +1603,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function cluster($key_or_address, $arg = null, ...$other_args)
@@ -1623,7 +1623,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function config($key_or_address, $arg = null, ...$other_args)
@@ -1697,8 +1697,8 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $script
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function eval($script, $args = null, $num_keys = null)
     {
@@ -1708,8 +1708,8 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $script_sha
-     * @param mixed|null $args
-     * @param mixed|null $num_keys
+     * @param mixed $args
+     * @param mixed $num_keys
      */
     public function evalsha($script_sha, $args = null, $num_keys = null)
     {
@@ -1788,7 +1788,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $src
      * @param mixed $dst
-     * @param mixed|null $unit
+     * @param mixed $unit
      */
     public function geodist($key, $src, $dst, $unit = null)
     {
@@ -1824,7 +1824,7 @@ class RedisCluster
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
@@ -1837,7 +1837,7 @@ class RedisCluster
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array|null $opts
+     * @param array $opts
      */
     public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
@@ -2011,8 +2011,8 @@ class RedisCluster
      *
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function hscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -2092,7 +2092,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $option
+     * @param mixed $option
      */
     public function info($key_or_address, $option = null)
     {
@@ -2383,7 +2383,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function pubsub($key_or_address, $arg = null, ...$other_args)
@@ -2530,8 +2530,8 @@ class RedisCluster
      *
      * @param mixed $i_iterator
      * @param mixed $str_node
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function scan(&$i_iterator, $str_node, $str_pattern = null, $i_count = null)
     {
@@ -2550,7 +2550,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function script($key_or_address, $arg = null, ...$other_args)
@@ -2583,8 +2583,8 @@ class RedisCluster
      *
      * @param mixed $key
      * @param mixed $value
-     * @param mixed|null $timeout
-     * @param mixed|null $opt
+     * @param mixed $timeout
+     * @param mixed $opt
      */
     public function set($key, $value, $timeout = null, $opt = null)
     {
@@ -2678,7 +2678,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key_or_address
-     * @param mixed|null $arg
+     * @param mixed $arg
      * @param mixed $other_args
      */
     public function slowlog($key_or_address, $arg = null, ...$other_args)
@@ -2709,7 +2709,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
-     * @param array|null $options
+     * @param array $options
      */
     public function sort($key, array $options = null)
     {
@@ -2728,7 +2728,7 @@ class RedisCluster
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $key
-     * @param mixed|null $count
+     * @param mixed $count
      */
     public function srandmember($key, $count = null)
     {
@@ -2749,8 +2749,8 @@ class RedisCluster
      *
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function sscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -2905,7 +2905,7 @@ class RedisCluster
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
@@ -2928,7 +2928,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zrange($key, $start, $end, $scores = null)
     {
@@ -2940,8 +2940,8 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -2953,7 +2953,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zrangebyscore($key, $start, $end, array $options = null)
     {
@@ -3019,7 +3019,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param mixed|null $scores
+     * @param mixed $scores
      */
     public function zrevrange($key, $start, $end, $scores = null)
     {
@@ -3031,8 +3031,8 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $min
      * @param mixed $max
-     * @param mixed|null $offset
-     * @param mixed|null $limit
+     * @param mixed $offset
+     * @param mixed $limit
      */
     public function zrevrangebylex($key, $min, $max, $offset = null, $limit = null)
     {
@@ -3044,7 +3044,7 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array|null $options
+     * @param array $options
      */
     public function zrevrangebyscore($key, $start, $end, array $options = null)
     {
@@ -3065,8 +3065,8 @@ class RedisCluster
      *
      * @param mixed $str_key
      * @param mixed $i_iterator
-     * @param mixed|null $str_pattern
-     * @param mixed|null $i_count
+     * @param mixed $str_pattern
+     * @param mixed $i_count
      */
     public function zscan($str_key, &$i_iterator, $str_pattern = null, $i_count = null)
     {
@@ -3088,7 +3088,7 @@ class RedisCluster
      * @param mixed $key
      * @param array $keys
      * @param array|null $weights
-     * @param mixed|null $aggregate
+     * @param mixed $aggregate
      */
     public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {
