@@ -880,7 +880,7 @@ class SoapClient
      *
      * @link http://www.php.net/manual/en/soapclient.setcookie.php
      */
-    public function __setCookie($name, $value = null)
+    public function __setCookie($name, $value = null): void
     {
     }
 
@@ -1060,7 +1060,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.addfunction.php
      */
-    public function addFunction($functions)
+    public function addFunction($functions): void
     {
     }
 
@@ -1075,7 +1075,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.addsoapheader.php
      */
-    public function addSoapHeader($object)
+    public function addSoapHeader($object): void
     {
     }
 
@@ -1094,7 +1094,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.fault.php
      */
-    public function fault($code, $string, $actor = null, $details = null, $name = null)
+    public function fault($code, $string, $actor = null, $details = null, $name = null): void
     {
     }
 
@@ -1122,7 +1122,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.handle.php
      */
-    public function handle($soap_request = null)
+    public function handle($soap_request = null): void
     {
     }
 
@@ -1138,7 +1138,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.setclass.php
      */
-    public function setClass($class_name, $args = null)
+    public function setClass($class_name, $args = null): void
     {
     }
 
@@ -1153,7 +1153,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.setobject.php
      */
-    public function setObject($object)
+    public function setObject($object): void
     {
     }
 
@@ -1168,7 +1168,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.setpersistence.php
      */
-    public function setPersistence($mode)
+    public function setPersistence($mode): void
     {
     }
 

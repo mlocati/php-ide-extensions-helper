@@ -158,7 +158,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      * @param mixed $compression_type
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -196,7 +196,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.converttodata.php
      */
-    public function convertToData($format = null, $compression_type = null, $file_ext = null)
+    public function convertToData($format = null, $compression_type = null, $file_ext = null): PharData
     {
     }
 
@@ -213,7 +213,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.converttoexecutable.php
      */
-    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
+    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null): Phar
     {
     }
 
@@ -267,7 +267,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -957,7 +957,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      * @param mixed $compression_type
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -995,7 +995,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.converttodata.php
      */
-    public function convertToData($format = null, $compression_type = null, $file_ext = null)
+    public function convertToData($format = null, $compression_type = null, $file_ext = null): PharData
     {
     }
 
@@ -1012,7 +1012,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.converttoexecutable.php
      */
-    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
+    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null): Phar
     {
     }
 
@@ -1049,7 +1049,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *

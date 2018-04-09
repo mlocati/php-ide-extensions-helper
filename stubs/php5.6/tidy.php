@@ -1013,7 +1013,7 @@ class tidy
      *
      * @link http://www.php.net/manual/en/tidy.getconfig.php
      */
-    public function getConfig(): array
+    public function getConfig()
     {
     }
 
@@ -1392,7 +1392,7 @@ function tidy_get_body($tidy)
  *
  * @link http://www.php.net/manual/en/tidy.getconfig.php
  */
-function tidy_get_config(): array
+function tidy_get_config()
 {
 }
 

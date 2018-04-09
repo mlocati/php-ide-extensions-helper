@@ -786,7 +786,7 @@ class SoapClient
      *
      * @link http://www.php.net/manual/en/soapclient.getcookies.php
      */
-    public function __getCookies(): array
+    public function __getCookies()
     {
     }
 
@@ -799,7 +799,7 @@ class SoapClient
      *
      * @link http://www.php.net/manual/en/soapclient.getfunctions.php
      */
-    public function __getFunctions(): array
+    public function __getFunctions()
     {
     }
 
@@ -864,7 +864,7 @@ class SoapClient
      *
      * @link http://www.php.net/manual/en/soapclient.gettypes.php
      */
-    public function __getTypes(): array
+    public function __getTypes()
     {
     }
 
@@ -1107,7 +1107,7 @@ class SoapServer
      *
      * @link http://www.php.net/manual/en/soapserver.getfunctions.php
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
     }
 

@@ -228,7 +228,7 @@ function gmp_div_q($a, $b, $round = null)
  *
  * @link http://www.php.net/manual/en/function.gmp-div-qr.php
  */
-function gmp_div_qr($a, $b, $round = null): array
+function gmp_div_qr($a, $b, $round = null)
 {
 }
 
@@ -325,7 +325,7 @@ function gmp_gcd($a, $b)
  *
  * @link http://www.php.net/manual/en/function.gmp-gcdext.php
  */
-function gmp_gcdext($a, $b): array
+function gmp_gcdext($a, $b)
 {
 }
 
@@ -674,7 +674,7 @@ function gmp_root($a, $nth)
  *
  * @link http://www.php.net/manual/en/function.gmp-rootrem.php
  */
-function gmp_rootrem($a, $nth): array
+function gmp_rootrem($a, $nth)
 {
 }
 
@@ -768,7 +768,7 @@ function gmp_sqrt($a)
  *
  * @link http://www.php.net/manual/en/function.gmp-sqrtrem.php
  */
-function gmp_sqrtrem($a): array
+function gmp_sqrtrem($a)
 {
 }
 

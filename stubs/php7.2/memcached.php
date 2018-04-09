@@ -80,7 +80,7 @@ class Memcached
     /**
      * Add multiple servers to the server pool
      *
-     * @param array[] $servers
+     * @param array $servers
      *
      * @return bool
      *
@@ -88,7 +88,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.addservers.php
      */
-    public function addServers($servers): bool
+    public function addServers(array $servers): bool
     {
     }
 
@@ -361,7 +361,7 @@ class Memcached
     /**
      * Request multiple items
      *
-     * @param array[] $keys
+     * @param array $keys
      * @param mixed|null $with_cas
      * @param mixed|null $value_cb
      *
@@ -371,7 +371,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getdelayed.php
      */
-    public function getDelayed($keys, $with_cas = null, $value_cb = null): bool
+    public function getDelayed(array $keys, $with_cas = null, $value_cb = null): bool
     {
     }
 
@@ -379,7 +379,7 @@ class Memcached
      * Request multiple items from a specific server
      *
      * @param mixed $server_key
-     * @param array[] $keys
+     * @param array $keys
      * @param mixed|null $with_cas
      * @param mixed|null $value_cb
      *
@@ -389,7 +389,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getdelayedbykey.php
      */
-    public function getDelayedByKey($server_key, $keys, $with_cas = null, $value_cb = null): bool
+    public function getDelayedByKey($server_key, array $keys, $with_cas = null, $value_cb = null): bool
     {
     }
 
@@ -412,7 +412,7 @@ class Memcached
     /**
      * Retrieve multiple items
      *
-     * @param array[] $keys
+     * @param array $keys
      * @param mixed|null $get_flags
      *
      * @return mixed
@@ -421,7 +421,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getmulti.php
      */
-    public function getMulti($keys, $get_flags = null)
+    public function getMulti(array $keys, $get_flags = null)
     {
     }
 
@@ -429,7 +429,7 @@ class Memcached
      * Retrieve multiple items from a specific server
      *
      * @param mixed $server_key
-     * @param array[] $keys
+     * @param array $keys
      * @param mixed|null $get_flags
      *
      * @return array
@@ -438,7 +438,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getmultibykey.php
      */
-    public function getMultiByKey($server_key, $keys, $get_flags = null): array
+    public function getMultiByKey($server_key, array $keys, $get_flags = null): array
     {
     }
 
@@ -743,7 +743,7 @@ class Memcached
     /**
      * Store multiple items
      *
-     * @param array[] $items
+     * @param array $items
      * @param mixed|null $expiration
      *
      * @return bool
@@ -752,7 +752,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.setmulti.php
      */
-    public function setMulti($items, $expiration = null): bool
+    public function setMulti(array $items, $expiration = null): bool
     {
     }
 
@@ -760,7 +760,7 @@ class Memcached
      * Store multiple items on a specific server
      *
      * @param mixed $server_key
-     * @param array[] $items
+     * @param array $items
      * @param mixed|null $expiration
      *
      * @return bool
@@ -769,7 +769,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.setmultibykey.php
      */
-    public function setMultiByKey($server_key, $items, $expiration = null): bool
+    public function setMultiByKey($server_key, array $items, $expiration = null): bool
     {
     }
 
@@ -816,7 +816,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.setsaslauthdata.php
      */
-    public function setSaslAuthData($username, $password)
+    public function setSaslAuthData($username, $password): void
     {
     }
 

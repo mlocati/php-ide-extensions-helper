@@ -177,7 +177,7 @@ class PDO
      *
      * @link http://www.php.net/manual/en/pdo.prepare.php
      */
-    public function prepare($statement, $options = null)
+    public function prepare($statement, $options = null): PDOStatement
     {
     }
 
@@ -190,7 +190,7 @@ class PDO
      *
      * @link http://www.php.net/manual/en/pdo.query.php
      */
-    public function query()
+    public function query(): PDOStatement
     {
     }
 
@@ -372,7 +372,7 @@ class PDOStatement implements Traversable
      *
      * @link http://www.php.net/manual/en/pdostatement.debugdumpparams.php
      */
-    public function debugDumpParams()
+    public function debugDumpParams(): void
     {
     }
 

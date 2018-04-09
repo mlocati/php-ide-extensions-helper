@@ -402,7 +402,7 @@ function mcrypt_enc_get_modes_name($td)
  *
  * @link http://www.php.net/manual/en/function.mcrypt-enc-get-supported-key-sizes.php
  */
-function mcrypt_enc_get_supported_key_sizes($td): array
+function mcrypt_enc_get_supported_key_sizes($td)
 {
 }
 
@@ -624,7 +624,7 @@ function mcrypt_get_key_size($cipher, $module)
  *
  * @link http://www.php.net/manual/en/function.mcrypt-list-algorithms.php
  */
-function mcrypt_list_algorithms($lib_dir = null): array
+function mcrypt_list_algorithms($lib_dir = null)
 {
 }
 
@@ -639,7 +639,7 @@ function mcrypt_list_algorithms($lib_dir = null): array
  *
  * @link http://www.php.net/manual/en/function.mcrypt-list-modes.php
  */
-function mcrypt_list_modes($lib_dir = null): array
+function mcrypt_list_modes($lib_dir = null)
 {
 }
 
@@ -702,7 +702,7 @@ function mcrypt_module_get_algo_key_size($algorithm, $lib_dir = null)
  *
  * @link http://www.php.net/manual/en/function.mcrypt-module-get-supported-key-sizes.php
  */
-function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null): array
+function mcrypt_module_get_supported_key_sizes($algorithm, $lib_dir = null)
 {
 }
 

@@ -82,7 +82,7 @@ function readline_callback_handler_remove(): bool
  *
  * @link http://www.php.net/manual/en/function.readline-callback-read-char.php
  */
-function readline_callback_read_char()
+function readline_callback_read_char(): void
 {
 }
 
@@ -141,7 +141,7 @@ function readline_info($varname = null, $newvalue = null)
  *
  * @link http://www.php.net/manual/en/function.readline-on-new-line.php
  */
-function readline_on_new_line()
+function readline_on_new_line(): void
 {
 }
 
@@ -171,7 +171,7 @@ function readline_read_history($filename = null): bool
  *
  * @link http://www.php.net/manual/en/function.readline-redisplay.php
  */
-function readline_redisplay()
+function readline_redisplay(): void
 {
 }
 

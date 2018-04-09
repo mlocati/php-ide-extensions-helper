@@ -94,7 +94,7 @@ function eregi_replace($pattern, $replacement, $string)
  *
  * @link http://www.php.net/manual/en/function.split.php
  */
-function split($pattern, $string, $limit = null): array
+function split($pattern, $string, $limit = null)
 {
 }
 
@@ -113,7 +113,7 @@ function split($pattern, $string, $limit = null): array
  *
  * @link http://www.php.net/manual/en/function.spliti.php
  */
-function spliti($pattern, $string, $limit = null): array
+function spliti($pattern, $string, $limit = null)
 {
 }
 

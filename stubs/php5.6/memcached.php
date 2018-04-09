@@ -250,7 +250,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.deletemulti.php
      */
-    public function deleteMulti($keys, $time = null): array
+    public function deleteMulti($keys, $time = null)
     {
     }
 
@@ -280,7 +280,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.fetch.php
      */
-    public function fetch(): array
+    public function fetch()
     {
     }
 
@@ -293,7 +293,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.fetchall.php
      */
-    public function fetchAll(): array
+    public function fetchAll()
     {
     }
 
@@ -343,7 +343,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getallkeys.php
      */
-    public function getAllKeys(): array
+    public function getAllKeys()
     {
     }
 
@@ -450,7 +450,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getmultibykey.php
      */
-    public function getMultiByKey($server_key, array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null): array
+    public function getMultiByKey($server_key, array $keys, &$cas_tokens = null, $flags = null, &$udf_flags = null)
     {
     }
 
@@ -506,7 +506,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getserverbykey.php
      */
-    public function getServerByKey($server_key): array
+    public function getServerByKey($server_key)
     {
     }
 
@@ -519,7 +519,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getserverlist.php
      */
-    public function getServerList(): array
+    public function getServerList()
     {
     }
 
@@ -532,7 +532,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getstats.php
      */
-    public function getStats(): array
+    public function getStats()
     {
     }
 
@@ -545,7 +545,7 @@ class Memcached
      *
      * @link http://www.php.net/manual/en/memcached.getversion.php
      */
-    public function getVersion(): array
+    public function getVersion()
     {
     }
 

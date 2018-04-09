@@ -77,7 +77,7 @@ function bzerrno($bz)
  *
  * @link http://www.php.net/manual/en/function.bzerror.php
  */
-function bzerror($bz): array
+function bzerror($bz)
 {
 }
 

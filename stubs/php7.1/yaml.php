@@ -213,7 +213,7 @@ const YAML_UTF8_ENCODING = 1;
  * @param mixed $data
  * @param mixed|null $encoding
  * @param mixed|null $linebreak
- * @param array[]|null $callbacks
+ * @param array|null $callbacks
  *
  * @return string
  *
@@ -221,7 +221,7 @@ const YAML_UTF8_ENCODING = 1;
  *
  * @link http://www.php.net/manual/en/function.yaml-emit.php
  */
-function yaml_emit($data, $encoding = null, $linebreak = null, $callbacks = null): string
+function yaml_emit($data, $encoding = null, $linebreak = null, array $callbacks = null): string
 {
 }
 
@@ -232,7 +232,7 @@ function yaml_emit($data, $encoding = null, $linebreak = null, $callbacks = null
  * @param mixed $data
  * @param mixed|null $encoding
  * @param mixed|null $linebreak
- * @param array[]|null $callbacks
+ * @param array|null $callbacks
  *
  * @return bool
  *
@@ -240,7 +240,7 @@ function yaml_emit($data, $encoding = null, $linebreak = null, $callbacks = null
  *
  * @link http://www.php.net/manual/en/function.yaml-emit-file.php
  */
-function yaml_emit_file($filename, $data, $encoding = null, $linebreak = null, $callbacks = null): bool
+function yaml_emit_file($filename, $data, $encoding = null, $linebreak = null, array $callbacks = null): bool
 {
 }
 
@@ -250,7 +250,7 @@ function yaml_emit_file($filename, $data, $encoding = null, $linebreak = null, $
  * @param mixed $input
  * @param mixed|null $pos
  * @param mixed|null $ndocs
- * @param array[]|null $callbacks
+ * @param array|null $callbacks
  *
  * @return mixed
  *
@@ -258,7 +258,7 @@ function yaml_emit_file($filename, $data, $encoding = null, $linebreak = null, $
  *
  * @link http://www.php.net/manual/en/function.yaml-parse.php
  */
-function yaml_parse($input, $pos = null, &$ndocs = null, $callbacks = null)
+function yaml_parse($input, $pos = null, &$ndocs = null, array $callbacks = null)
 {
 }
 
@@ -268,7 +268,7 @@ function yaml_parse($input, $pos = null, &$ndocs = null, $callbacks = null)
  * @param mixed $filename
  * @param mixed|null $pos
  * @param mixed|null $ndocs
- * @param array[]|null $callbacks
+ * @param array|null $callbacks
  *
  * @return mixed
  *
@@ -276,7 +276,7 @@ function yaml_parse($input, $pos = null, &$ndocs = null, $callbacks = null)
  *
  * @link http://www.php.net/manual/en/function.yaml-parse-file.php
  */
-function yaml_parse_file($filename, $pos = null, &$ndocs = null, $callbacks = null)
+function yaml_parse_file($filename, $pos = null, &$ndocs = null, array $callbacks = null)
 {
 }
 
@@ -286,7 +286,7 @@ function yaml_parse_file($filename, $pos = null, &$ndocs = null, $callbacks = nu
  * @param mixed $url
  * @param mixed|null $pos
  * @param mixed|null $ndocs
- * @param array[]|null $callbacks
+ * @param array|null $callbacks
  *
  * @return mixed
  *
@@ -294,6 +294,6 @@ function yaml_parse_file($filename, $pos = null, &$ndocs = null, $callbacks = nu
  *
  * @link http://www.php.net/manual/en/function.yaml-parse-url.php
  */
-function yaml_parse_url($url, $pos = null, &$ndocs = null, $callbacks = null)
+function yaml_parse_url($url, $pos = null, &$ndocs = null, array $callbacks = null)
 {
 }

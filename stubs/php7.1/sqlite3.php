@@ -349,7 +349,7 @@ class SQLite3
      *
      * @link http://www.php.net/manual/en/sqlite3.open.php
      */
-    public function open($filename, $flags = null, $encryption_key = null)
+    public function open($filename, $flags = null, $encryption_key = null): void
     {
     }
 
@@ -382,7 +382,7 @@ class SQLite3
      *
      * @link http://www.php.net/manual/en/sqlite3.prepare.php
      */
-    public function prepare($query)
+    public function prepare($query): SQLite3Stmt
     {
     }
 
@@ -397,7 +397,7 @@ class SQLite3
      *
      * @link http://www.php.net/manual/en/sqlite3.query.php
      */
-    public function query($query)
+    public function query($query): SQLite3Result
     {
     }
 
@@ -614,7 +614,7 @@ class SQLite3Stmt
      *
      * @link http://www.php.net/manual/en/sqlite3stmt.execute.php
      */
-    public function execute()
+    public function execute(): SQLite3Result
     {
     }
 

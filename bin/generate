@@ -94,6 +94,13 @@ class StubsGenerator
     private $inputPhpVersion;
 
     /**
+     * An instance of TypeFormatter
+     *
+     * @var TypeFormatter
+     */
+    private $typeFormatter;
+
+    /**
      * The output path.
      *
      * @var string
@@ -264,6 +271,7 @@ class StubsGenerator
         if (empty($this->inputPhpVersion)) {
             throw new UserMessageException("{$this->inputXmlPath} does not define a valid PHP version");
         }
+        $this->typeFormatter = new TypeFormatter($this->inputPhpVersion);
         if ($this->outputPath === null) {
             $this->outputPath = self::getDefaultOutputPath($this->inputPhpVersion, ! $this->splitOutput);
         }
@@ -683,19 +691,27 @@ EOF
         $header = '';
         if ($classElement->getAttribute('abstract') === 'true') {
             $header .= 'abstract ';
+            if ($classElement->getAttribute('final') === 'true') {
+                $header .= '/*final*/ ';
+            }
         } elseif ($classElement->getAttribute('final') === 'true') {
-            $header .= 'final ';
+            if ($this->inputXPath->query('//ns:class[@extends="' . $this->escapeXML($fqName) . '"]')->length > 0 || $this->inputXPath->query('//ns:class[@extends="' . $this->escapeXML('\\' . $fqName) . '"]')->length > 0) {
+                $header .= '/*final*/ ';
+            } else {
+                $header .= 'final ';
+            }
         }
+        $namePrefix = $namespace === '' ? '' : '\\';
         $header .= 'class ' . $name;
         if ($classElement->getAttribute('extends') !== '') {
-            $header .= ' extends ' . $classElement->getAttribute('extends');
+            $header .= ' extends ' . $namePrefix . ltrim($classElement->getAttribute('extends'), '\\');
         }
         $implements = array();
         foreach ($this->inputXPath->query('./ns:implements', $classElement) as $implementsElement) {
-            $implements[] = $implementsElement->getAttribute('name');
+            $implements[] = ltrim($implementsElement->getAttribute('name'), '\\');
         }
         if (count($implements) > 0) {
-            $header .= ' implements ' . implode(', ', $implements);
+            $header .= ' implements ' . $namePrefix . implode(', ' . $namePrefix, $implements);
         }
         $this->currentWriter->writeln($header . "\n{");
         $this->currentWriter->increaseIndentation();
@@ -823,11 +839,13 @@ EOF
 
         $fullInfo = new PHPManualMergedFunction($extensionElement, $functionElement, $parentElement, $info);
 
+        $returnType = $this->typeFormatter->format($fullInfo->rawReturnType, $fullInfo->returnTypeAllowsNull, $namespace, TypeFormatter::PLACE_DOC_RETURNTYPE);
+
         $this->currentWriter->writePHPDocParts(array(
             $info !== null ? $info->description : '',
             $this->getOSTagWarning($extensionElement, $functionElement),
-            $fullInfo->getParametersPHPDoc(),
-            $fullInfo->rawReturnType === '' ? '' : "@return $fullInfo->rawReturnType",
+            $fullInfo->getParametersPHPDoc($namespace, $this->typeFormatter),
+            $returnType === '' ? '' : "@return $returnType",
             $fullInfo->getVersionPHPDoc(),
             $info !== null && $info->url !== '' ? '@link ' . $info->url : ''
         ));
@@ -858,18 +876,12 @@ EOF
             } else {
                 $header .= ', ';
             }
-            $header .= $parameter->renderAsPHPCode($this);
+            $header .= $parameter->renderAsPHPCode($namespace, $this->typeFormatter);
         }
         $header .= ')';
-        $returnType = $this->normalizeParameterOrReturnType($fullInfo->rawReturnType);
+        $returnType = $this->typeFormatter->format($fullInfo->rawReturnType, $fullInfo->returnTypeAllowsNull, $namespace, TypeFormatter::PLACE_CODE_RETURNTYPE);
         if ($returnType !== '') {
-            $header .= ': ';
-            if (version_compare($this->inputPhpVersion, '7.1') >= 0) {
-                if ($fullInfo->returnTypeAllowsNull === true) {
-                    $header .= '?';
-                }
-            }
-            $header .= $returnType;
+            $header .= ': ' . $returnType;
         }
         if ($withoutBody) {
             $header .= ';';
@@ -879,70 +891,6 @@ EOF
             $this->currentWriter->writeln('{');
             $this->currentWriter->writeln('}');
         }
-    }
-
-    /**
-     * Normalize a parameter type (or a function/method return type).
-     *
-     * @param string $type
-     *
-     * @return string
-     */
-    public function normalizeParameterOrReturnType($type)
-    {
-        $type = (string) $type;
-        if ($type !== '') {
-            switch ($type) {
-                case 'boolean':
-                    $type = 'bool';
-                    break;
-                case 'double':
-                    $type = 'float';
-                    break;
-                case 'integer':
-                    $type = 'int';
-                    break;
-            }
-            switch ($type) {
-                case 'self':
-                    break;
-                case 'array':
-                    if (version_compare($this->inputPhpVersion, '5.1') < 0) {
-                        $type = '';
-                    }
-                    break;
-                case 'callable':
-                    if (version_compare($this->inputPhpVersion, '5.4') < 0) {
-                        $type = '';
-                    }
-                    break;
-                case 'bool':
-                case 'float':
-                case 'int':
-                case 'string':
-                    if (version_compare($this->inputPhpVersion, '7.0') < 0) {
-                        $type = '';
-                    }
-                    break;
-                case 'iterable':
-                    if (version_compare($this->inputPhpVersion, '7.1') < 0) {
-                        $type = '';
-                    }
-                    break;
-                case 'object':
-                    if (version_compare($this->inputPhpVersion, '7.2') < 0) {
-                        $type = '';
-                    }
-                    break;
-                default:
-                    if ($this->inputXPath->query('ns:class[@name="' . $this->escapeXML($type) . '"]')->length < 1 && $this->inputXPath->query('ns:interface[@name="' . $this->escapeXML($type) . '"]')->length < 1) {
-                        $type = '';
-                    }
-                    break;
-            }
-        }
-
-        return $type;
     }
 
     /**
@@ -2126,7 +2074,7 @@ class PHPManualFunctionParameter
     public $description = '';
 
     /**
-     * Type of the parameter.
+     * Raw type of the parameter.
      *
      * @property-read
      *
@@ -2214,11 +2162,11 @@ class PHPManualMergedFunction
         }
     }
 
-    public function getParametersPHPDoc()
+    public function getParametersPHPDoc($currentNamespace, TypeFormatter $typeFormatter)
     {
         $result = array();
         foreach ($this->parameters as $parameter) {
-            $result[] = $parameter->renderAsPHPDoc();
+            $result[] = $parameter->renderAsPHPDoc($currentNamespace, $typeFormatter);
         }
         return implode("\n", $result);
     }
@@ -2257,13 +2205,13 @@ class PHPManualMergedFunctionParameter
     public $description;
 
     /**
-     * The parameter type.
+     * The raw parameter type.
      *
      * @property-read
      *
      * @var string
      */
-    public $type;
+    public $rawType;
 
     /**
      * Is the parameter passed by reference?
@@ -2299,9 +2247,9 @@ class PHPManualMergedFunctionParameter
             $this->name = $xmlParameter->getAttribute('name');
         }
         $this->description = $manualParameter === null ? '' : $manualParameter->name;
-        $this->type = $xmlParameter->getAttribute('type');
-        if ($this->type === '' && $manualParameter !== null) {
-            $this->type = $manualParameter->type;
+        $this->rawType = $xmlParameter->getAttribute('type');
+        if ($this->rawType === '' && $manualParameter !== null) {
+            $this->rawType = $manualParameter->type;
         }
         $this->byReference = $xmlParameter->getAttribute('byReference') === 'true';
         $this->variadic = $xmlParameter->getAttribute('variadic') === 'true';
@@ -2322,12 +2270,10 @@ class PHPManualMergedFunctionParameter
      *
      * @return string
      */
-    public function renderAsPHPDoc()
+    public function renderAsPHPDoc($currentNamespace, TypeFormatter $typeFormatter)
     {
-        $result = '@param ' . ($this->type === '' ? 'mixed' : $this->type);
-        if ($this->defaultValue === 'null') {
-            $result .= '|null';
-        }
+        $type = $typeFormatter->format($this->rawType === '' ? 'mixed' : $this->rawType, $this->defaultValue !== '', $currentNamespace, TypeFormatter::PLACE_DOC_PARAMETER);
+        $result = '@param ' . ($type === '' ? 'mixed' : $type);
         $result .= ' $' . $this->name;
         if ($this->description !== '') {
             $result .= ' ' . $this->description;
@@ -2340,10 +2286,10 @@ class PHPManualMergedFunctionParameter
      *
      * @return string
      */
-    public function renderAsPHPCode(StubsGenerator $stubsGenerator)
+    public function renderAsPHPCode($currentNamespace, TypeFormatter $typeFormatter)
     {
         $result = '';
-        $type = $stubsGenerator->normalizeParameterOrReturnType($this->type);
+        $type = $typeFormatter->format($this->rawType, $this->defaultValue !== '', $currentNamespace, TypeFormatter::PLACE_CODE_PARAMETER);
         if ($type !== '') {
             $result .= $type . ' ';
         }
@@ -2512,6 +2458,339 @@ class PHPManualCache
         if ($this->persistent) {
             file_put_contents($this->filename, base64_encode(serialize($this->data)));
         }
+    }
+}
+
+/**
+ * Helper class to format types
+ */
+class TypeFormatter
+{
+
+    /**
+     * Place where the formatted type should be placed: PHPDoc for function/method parameter.
+     *
+     * @var int
+     */
+    const PLACE_DOC_PARAMETER = 1;
+
+    /**
+     * Place where the formatted type should be placed: PHPDoc for function/method return type.
+     *
+     * @var int
+     */
+    const PLACE_DOC_RETURNTYPE = 2;
+
+    /**
+     * Place where the formatted type should be placed: PHP code for function/method parameter.
+     *
+     * @var int
+     */
+    const PLACE_CODE_PARAMETER = 3;
+
+    /**
+     * Place where the formatted type should be placed: PHP code for function/method return type.
+     *
+     * @var int
+     */
+    const PLACE_CODE_RETURNTYPE = 4;
+
+    /**
+     * The PHP version identifier (example: 720 for PHP 7.2)
+     *
+     * @var int
+     */
+    private $phpVersionId;
+
+    /**
+     * Aliases of primitive types.
+     *
+     * @var array
+     */
+    private $primitiveAliases = array(
+        'boolean' => 'bool',
+        'callback' => 'callable',
+        'double' => 'float',
+        'integer' => 'int',
+        'number' => 'float',
+        'numeric' => 'float'
+    );
+
+    /**
+     * Initialize the instance.
+     *
+     * @param string $phpVersion
+     */
+    public function __construct($phpVersion)
+    {
+        $m = null;
+        preg_match('/^(\d+)\.(\d+)/', $phpVersion, $m);
+        $this->phpVersionId = (int) $m[1] * 100 + (int) $m[2];
+    }
+
+    /**
+     * Format a raw type .
+     *
+     * @param string $type
+     *            The raw type to be formatted.
+     * @param bool $allowsNull
+     *            Can the type be null?
+     * @param string $currentNamespace
+     *            The current namespace
+     * @param int $place
+     *            Where the output will be placed? (One of the TypeFormatter::PLACE_... constants)
+     *            
+     * @return string
+     */
+    public function format($type, $allowsNull, $currentNamespace, $place)
+    {
+        $result = '';
+        $type = (string) $type;
+        if ($type !== '' && $type !== '|' && $type !== '?' && $type !== '[]') {
+            $chunks = explode('|', $type);
+            if (count($chunks) > 1) {
+                switch ($place) {
+                    case self::PLACE_DOC_PARAMETER:
+                    case self::PLACE_DOC_PARAMETER:
+                        $parts = array();
+                        foreach ($chunks as $chunk) {
+                            $parts = array_merge($parts, $this->format($chunk, $allowsNull, $currentNamespace, $place));
+                        }
+                        $parts = array_unique($parts);
+                        $result = implode('|', $parts);
+                        break;
+                }
+            } else {
+                if ($type[0] === '?') {
+                    $allowsNull = true;
+                    $type = substr($type, 1);
+                }
+                if (substr($type, - 2) === '[]') {
+                    $arrayOf = substr($type, 0, - 2);
+                    if ($arrayOf === 'array') {
+                        $arrayOf = '';
+                    }
+                    $type = 'array';
+                } else {
+                    $arrayOf = '';
+                }
+                if (isset($this->primitiveAliases[$type])) {
+                    $type = $this->primitiveAliases[$type];
+                }
+                switch ($type) {
+                    case 'resource':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? "$type|null" : $type;
+                                break;
+                        }
+                        break;
+                    case 'array':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                if ($arrayOf === '') {
+                                    $result = $allowsNull ? "$type|null" : $type;
+                                } else {
+                                    $result = $allowsNull ? "{$arrayOf}[]|null" : "{$arrayOf}[]";
+                                }
+                                break;
+                            case self::PLACE_CODE_PARAMETER:
+                                if ($this->phpVersionId >= 501) {
+                                    $result = $type;
+                                }
+                                break;
+                            case self::PLACE_CODE_RETURNTYPE:
+                                if ($this->phpVersionId >= 700) {
+                                    if ($allowsNull) {
+                                        if ($this->phpVersionId >= 701) {
+                                            $result = "?$type";
+                                        }
+                                    } else {
+                                        $result = $type;
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                    case 'bool':
+                    case 'float':
+                    case 'int':
+                    case 'string':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? "$type|null" : $type;
+                                break;
+                            case self::PLACE_CODE_PARAMETER:
+                                if ($this->phpVersionId >= 700) {
+                                    $result = $type;
+                                }
+                                break;
+                            case self::PLACE_CODE_RETURNTYPE:
+                                if ($this->phpVersionId >= 700) {
+                                    if ($allowsNull) {
+                                        if ($this->phpVersionId >= 701) {
+                                            $result = "?$type";
+                                        }
+                                    } else {
+                                        $result = $type;
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                    case 'callable':
+                        if ($this->phpVersionId < 504) {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? 'mixed|null' : 'mixed';
+                                    break;
+                            }
+                        } else {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? "$type|null" : $type;
+                                    break;
+                                case self::PLACE_CODE_PARAMETER:
+                                    $result = $type;
+                                    break;
+                                case self::PLACE_CODE_RETURNTYPE:
+                                    if ($this->phpVersionId >= 700) {
+                                        if ($allowsNull) {
+                                            if ($this->phpVersionId >= 701) {
+                                                $result = "?$type";
+                                            }
+                                        } else {
+                                            $result = $type;
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'iterable':
+                        if ($this->phpVersionId < 701) {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? 'mixed|null' : 'mixed';
+                                    break;
+                            }
+                        } else {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? "$type|null" : $type;
+                                    break;
+                                case self::PLACE_CODE_PARAMETER:
+                                    $result = $type;
+                                    break;
+                                case self::PLACE_CODE_RETURNTYPE:
+                                    $result = $allowsNull ? "?$type" : $type;
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'object':
+                        if ($this->phpVersionId < 702) {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? 'mixed|null' : 'mixed';
+                                    break;
+                            }
+                        } else {
+                            switch ($place) {
+                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC_RETURNTYPE:
+                                    $result = $allowsNull ? "$type|null" : $type;
+                                    break;
+                                case self::PLACE_CODE_PARAMETER:
+                                    $result = $type;
+                                    break;
+                                case self::PLACE_CODE_RETURNTYPE:
+                                    $result = $allowsNull ? "?$type" : $type;
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'self':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? "$type|null" : $type;
+                                break;
+                            case self::PLACE_CODE_PARAMETER:
+                                $result = $type;
+                                break;
+                            case self::PLACE_CODE_RETURNTYPE:
+                                if ($this->phpVersionId >= 700) {
+                                    if ($allowsNull) {
+                                        if ($this->phpVersionId >= 701) {
+                                            $result = "?$type";
+                                        }
+                                    } else {
+                                        $result = $type;
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                    case 'void':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                                $result = $allowsNull ? 'mixed|null' : 'mixed';
+                                break;
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? "$type|null" : $type;
+                                break;
+                            case self::PLACE_CODE_RETURNTYPE:
+                                if ($this->phpVersionId >= 701) {
+                                    $result = $allowsNull ? "?$type" : $type;
+                                }
+                                break;
+                        }
+                        break;
+                    case 'scalar':
+                    case 'mixed':
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? 'mixed|null' : 'mixed';
+                                break;
+                        }
+                        break;
+                    default:
+                        $fqType = $currentNamespace === '' ? $type : "\\$type";
+                        switch ($place) {
+                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC_RETURNTYPE:
+                                $result = $allowsNull ? "$fqType|null" : $fqType;
+                                break;
+                            case self::PLACE_CODE_PARAMETER:
+                                $result = $fqType;
+                                break;
+                            case self::PLACE_CODE_RETURNTYPE:
+                                if ($this->phpVersionId >= 700) {
+                                    if ($allowsNull) {
+                                        if ($this->phpVersionId >= 701) {
+                                            $result = "?$fqType";
+                                        }
+                                    } else {
+                                        $result = $fqType;
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                }
+            }
+        }
+        return $result;
     }
 }
 

@@ -148,7 +148,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.getdocnamespaces.php
      */
-    public function getDocNamespaces($recursve = null, $from_root = null): array
+    public function getDocNamespaces($recursve = null, $from_root = null)
     {
     }
 
@@ -176,7 +176,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.getnamespaces.php
      */
-    public function getNamespaces($recursve = null): array
+    public function getNamespaces($recursve = null)
     {
     }
 
@@ -220,7 +220,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.xpath.php
      */
-    public function xpath($path): array
+    public function xpath($path)
     {
     }
 }

@@ -49,13 +49,13 @@ class SolrClient
     /**
      * Constructor for the SolrClient object
      *
-     * @param array[] $clientOptions
+     * @param array $clientOptions
      *
      * @since PECL solr >= 0.9.2
      *
      * @link http://www.php.net/manual/en/solrclient.construct.php
      */
-    public function __construct($clientOptions)
+    public function __construct(array $clientOptions)
     {
     }
 
@@ -99,14 +99,14 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.adddocument.php
      */
-    public function &addDocument(&$doc, $overwrite = null, $commitWithin = null)
+    public function &addDocument(SolrInputDocument &$doc, $overwrite = null, $commitWithin = null): SolrUpdateResponse
     {
     }
 
     /**
      * Adds a collection of SolrInputDocument instances to the index
      *
-     * @param array[] $docs
+     * @param array $docs
      * @param mixed|null $overwrite
      * @param mixed|null $commitWithin
      *
@@ -116,7 +116,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.adddocuments.php
      */
-    public function &addDocuments(&$docs, $overwrite = null, $commitWithin = null)
+    public function &addDocuments(array &$docs, $overwrite = null, $commitWithin = null)
     {
     }
 
@@ -133,7 +133,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.commit.php
      */
-    public function &commit($softCommit = null, $waitSearcher = null, $expungeDeletes = null)
+    public function &commit($softCommit = null, $waitSearcher = null, $expungeDeletes = null): SolrUpdateResponse
     {
     }
 
@@ -148,14 +148,14 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.deletebyid.php
      */
-    public function &deleteById($id)
+    public function &deleteById($id): SolrUpdateResponse
     {
     }
 
     /**
      * Deletes by Ids
      *
-     * @param array[] $ids
+     * @param array $ids
      *
      * @return SolrUpdateResponse
      *
@@ -163,14 +163,14 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.deletebyids.php
      */
-    public function &deleteByIds($ids)
+    public function &deleteByIds(array $ids): SolrUpdateResponse
     {
     }
 
     /**
      * Removes all documents matching any of the queries
      *
-     * @param array[] $queries
+     * @param array $queries
      *
      * @return SolrUpdateResponse
      *
@@ -178,7 +178,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.deletebyqueries.php
      */
-    public function &deleteByQueries($queries)
+    public function &deleteByQueries(array $queries): SolrUpdateResponse
     {
     }
 
@@ -193,7 +193,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.deletebyquery.php
      */
-    public function &deleteByQuery($query)
+    public function &deleteByQuery($query): SolrUpdateResponse
     {
     }
 
@@ -208,14 +208,14 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.getbyid.php
      */
-    public function &getById($id)
+    public function &getById($id): SolrQueryResponse
     {
     }
 
     /**
      * Get Documents by their Ids. Utilizes Solr Realtime Get (RTG)
      *
-     * @param array[] $ids
+     * @param array $ids
      *
      * @return SolrQueryResponse
      *
@@ -223,7 +223,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.getbyids.php
      */
-    public function &getByIds($ids)
+    public function &getByIds(array $ids): SolrQueryResponse
     {
     }
 
@@ -266,7 +266,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.optimize.php
      */
-    public function &optimize($maxSegments = null, $softCommit = null, $waitSearcher = null)
+    public function &optimize($maxSegments = null, $softCommit = null, $waitSearcher = null): SolrUpdateResponse
     {
     }
 
@@ -279,7 +279,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.ping.php
      */
-    public function &ping()
+    public function &ping(): SolrPingResponse
     {
     }
 
@@ -294,7 +294,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.query.php
      */
-    public function &query(&$query)
+    public function &query(SolrParams &$query): SolrQueryResponse
     {
     }
 
@@ -309,7 +309,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.request.php
      */
-    public function &request($raw_request)
+    public function &request($raw_request): SolrUpdateResponse
     {
     }
 
@@ -322,7 +322,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.rollback.php
      */
-    public function &rollback()
+    public function &rollback(): SolrUpdateResponse
     {
     }
 
@@ -541,7 +541,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.setfield.php
      */
-    public function setField($fieldName)
+    public function setField($fieldName): SolrCollapseFunction
     {
     }
 
@@ -556,7 +556,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.sethint.php
      */
-    public function setHint($hint)
+    public function setHint($hint): SolrCollapseFunction
     {
     }
 
@@ -571,7 +571,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.setmax.php
      */
-    public function setMax($max)
+    public function setMax($max): SolrCollapseFunction
     {
     }
 
@@ -586,7 +586,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.setmin.php
      */
-    public function setMin($min)
+    public function setMin($min): SolrCollapseFunction
     {
     }
 
@@ -601,7 +601,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.setnullpolicy.php
      */
-    public function setNullPolicy($policy)
+    public function setNullPolicy($policy): SolrCollapseFunction
     {
     }
 
@@ -616,7 +616,7 @@ class SolrCollapseFunction
      *
      * @link http://www.php.net/manual/en/solrcollapsefunction.setsize.php
      */
-    public function setSize($size)
+    public function setSize($size): SolrCollapseFunction
     {
     }
 }
@@ -648,7 +648,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.addbigramphrasefield.php
      */
-    public function addBigramPhraseField($field, $boost, $slop = null)
+    public function addBigramPhraseField($field, $boost, $slop = null): SolrDisMaxQuery
     {
     }
 
@@ -663,7 +663,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.addboostquery.php
      */
-    public function addBoostQuery($field, $value, $boost = null)
+    public function addBoostQuery($field, $value, $boost = null): SolrDisMaxQuery
     {
     }
 
@@ -678,7 +678,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.addphrasefield.php
      */
-    public function addPhraseField($field, $boost, $slop = null)
+    public function addPhraseField($field, $boost, $slop = null): SolrDisMaxQuery
     {
     }
 
@@ -692,7 +692,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.addqueryfield.php
      */
-    public function addQueryField($field, $boost = null)
+    public function addQueryField($field, $boost = null): SolrDisMaxQuery
     {
     }
 
@@ -707,7 +707,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.addtrigramphrasefield.php
      */
-    public function addTrigramPhraseField($field, $boost, $slop = null)
+    public function addTrigramPhraseField($field, $boost, $slop = null): SolrDisMaxQuery
     {
     }
 
@@ -720,7 +720,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.adduserfield.php
      */
-    public function addUserField($field)
+    public function addUserField($field): SolrDisMaxQuery
     {
     }
 
@@ -733,7 +733,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removebigramphrasefield.php
      */
-    public function removeBigramPhraseField($field)
+    public function removeBigramPhraseField($field): SolrDisMaxQuery
     {
     }
 
@@ -746,7 +746,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removeboostquery.php
      */
-    public function removeBoostQuery($field)
+    public function removeBoostQuery($field): SolrDisMaxQuery
     {
     }
 
@@ -759,7 +759,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removephrasefield.php
      */
-    public function removePhraseField($field)
+    public function removePhraseField($field): SolrDisMaxQuery
     {
     }
 
@@ -772,7 +772,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removequeryfield.php
      */
-    public function removeQueryField($field)
+    public function removeQueryField($field): SolrDisMaxQuery
     {
     }
 
@@ -785,7 +785,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removetrigramphrasefield.php
      */
-    public function removeTrigramPhraseField($field)
+    public function removeTrigramPhraseField($field): SolrDisMaxQuery
     {
     }
 
@@ -798,7 +798,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.removeuserfield.php
      */
-    public function removeUserField($field)
+    public function removeUserField($field): SolrDisMaxQuery
     {
     }
 
@@ -811,7 +811,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setbigramphrasefields.php
      */
-    public function setBigramPhraseFields($fields)
+    public function setBigramPhraseFields($fields): SolrDisMaxQuery
     {
     }
 
@@ -824,7 +824,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setbigramphraseslop.php
      */
-    public function setBigramPhraseSlop($slop)
+    public function setBigramPhraseSlop($slop): SolrDisMaxQuery
     {
     }
 
@@ -837,7 +837,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setboostfunction.php
      */
-    public function setBoostFunction($function)
+    public function setBoostFunction($function): SolrDisMaxQuery
     {
     }
 
@@ -850,7 +850,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setboostquery.php
      */
-    public function setBoostQuery($q)
+    public function setBoostQuery($q): SolrDisMaxQuery
     {
     }
 
@@ -863,7 +863,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setminimummatch.php
      */
-    public function setMinimumMatch($value)
+    public function setMinimumMatch($value): SolrDisMaxQuery
     {
     }
 
@@ -876,7 +876,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setphrasefields.php
      */
-    public function setPhraseFields($fields)
+    public function setPhraseFields($fields): SolrDisMaxQuery
     {
     }
 
@@ -889,7 +889,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setphraseslop.php
      */
-    public function setPhraseSlop($slop)
+    public function setPhraseSlop($slop): SolrDisMaxQuery
     {
     }
 
@@ -902,7 +902,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setqueryalt.php
      */
-    public function setQueryAlt($q)
+    public function setQueryAlt($q): SolrDisMaxQuery
     {
     }
 
@@ -915,7 +915,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setqueryphraseslop.php
      */
-    public function setQueryPhraseSlop($slop)
+    public function setQueryPhraseSlop($slop): SolrDisMaxQuery
     {
     }
 
@@ -928,7 +928,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.settiebreaker.php
      */
-    public function setTieBreaker($tieBreaker)
+    public function setTieBreaker($tieBreaker): SolrDisMaxQuery
     {
     }
 
@@ -941,7 +941,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.settrigramphrasefields.php
      */
-    public function setTrigramPhraseFields($fields)
+    public function setTrigramPhraseFields($fields): SolrDisMaxQuery
     {
     }
 
@@ -954,7 +954,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.settrigramphraseslop.php
      */
-    public function setTrigramPhraseSlop($slop)
+    public function setTrigramPhraseSlop($slop): SolrDisMaxQuery
     {
     }
 
@@ -967,7 +967,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.setuserfields.php
      */
-    public function setUserFields($fields)
+    public function setUserFields($fields): SolrDisMaxQuery
     {
     }
 
@@ -978,7 +978,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.usedismaxqueryparser.php
      */
-    public function useDisMaxQueryParser()
+    public function useDisMaxQueryParser(): SolrDisMaxQuery
     {
     }
 
@@ -989,7 +989,7 @@ class SolrDisMaxQuery extends SolrQuery
      *
      * @link http://www.php.net/manual/en/solrdismaxquery.useedismaxqueryparser.php
      */
-    public function useEDisMaxQueryParser()
+    public function useEDisMaxQueryParser(): SolrDisMaxQuery
     {
     }
 }
@@ -1051,7 +1051,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.get.php
      */
-    public function __get($fieldName)
+    public function __get($fieldName): SolrDocumentField
     {
     }
 
@@ -1139,7 +1139,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.current.php
      */
-    public function &current()
+    public function &current(): SolrDocumentField
     {
     }
 
@@ -1210,7 +1210,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.getfield.php
      */
-    public function getField($fieldName)
+    public function getField($fieldName): SolrDocumentField
     {
     }
 
@@ -1249,7 +1249,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.getinputdocument.php
      */
-    public function &getInputDocument()
+    public function &getInputDocument(): SolrInputDocument
     {
     }
 
@@ -1291,7 +1291,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.merge.php
      */
-    public function merge(&$sourceDoc, $overwrite = null): bool
+    public function merge(SolrDocument &$sourceDoc, $overwrite = null): bool
     {
     }
 
@@ -1334,7 +1334,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.offsetget.php
      */
-    public function offsetGet($fieldName)
+    public function offsetGet($fieldName): SolrDocumentField
     {
     }
 
@@ -1674,14 +1674,14 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.addchilddocument.php
      */
-    public function addChildDocument(&$child)
+    public function addChildDocument(SolrInputDocument &$child)
     {
     }
 
     /**
      * Adds an array of child documents
      *
-     * @param array[] $docs
+     * @param array $docs
      *
      * @return void
      *
@@ -1689,7 +1689,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.addchilddocuments.php
      */
-    public function &addChildDocuments(&$docs)
+    public function &addChildDocuments(array &$docs)
     {
     }
 
@@ -1803,7 +1803,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.getfield.php
      */
-    public function getField($fieldName)
+    public function getField($fieldName): SolrDocumentField
     {
     }
 
@@ -1873,7 +1873,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.merge.php
      */
-    public function merge(&$sourceDoc, $overwrite = null): bool
+    public function merge(SolrInputDocument &$sourceDoc, $overwrite = null): bool
     {
     }
 
@@ -2132,7 +2132,7 @@ abstract class SolrParams implements Serializable
      *
      * @link http://www.php.net/manual/en/solrparams.add.php
      */
-    public function &add($name, $value)
+    public function &add($name, $value): SolrParams
     {
     }
 
@@ -2148,7 +2148,7 @@ abstract class SolrParams implements Serializable
      *
      * @link http://www.php.net/manual/en/solrparams.addparam.php
      */
-    public function &addParam($name, $value)
+    public function &addParam($name, $value): SolrParams
     {
     }
 
@@ -2249,7 +2249,7 @@ abstract class SolrParams implements Serializable
      *
      * @link http://www.php.net/manual/en/solrparams.setparam.php
      */
-    public function &setParam($name, $value)
+    public function &setParam($name, $value): SolrParams
     {
     }
 
@@ -2377,7 +2377,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addexpandfilterquery.php
      */
-    public function &addExpandFilterQuery($fq)
+    public function &addExpandFilterQuery($fq): SolrQuery
     {
     }
 
@@ -2393,7 +2393,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addexpandsortfield.php
      */
-    public function &addExpandSortField($field, $order = null)
+    public function &addExpandSortField($field, $order = null): SolrQuery
     {
     }
 
@@ -2408,7 +2408,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfacetdatefield.php
      */
-    public function &addFacetDateField($value)
+    public function &addFacetDateField($value): SolrQuery
     {
     }
 
@@ -2424,7 +2424,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfacetdateother.php
      */
-    public function &addFacetDateOther($value, $field_override = null)
+    public function &addFacetDateOther($value, $field_override = null): SolrQuery
     {
     }
 
@@ -2439,7 +2439,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfacetfield.php
      */
-    public function &addFacetField($value)
+    public function &addFacetField($value): SolrQuery
     {
     }
 
@@ -2454,7 +2454,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfacetquery.php
      */
-    public function &addFacetQuery($value)
+    public function &addFacetQuery($value): SolrQuery
     {
     }
 
@@ -2469,7 +2469,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfield.php
      */
-    public function &addField($field)
+    public function &addField($field): SolrQuery
     {
     }
 
@@ -2484,7 +2484,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addfilterquery.php
      */
-    public function &addFilterQuery($fq)
+    public function &addFilterQuery($fq): SolrQuery
     {
     }
 
@@ -2499,7 +2499,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addgroupfield.php
      */
-    public function &addGroupField($value)
+    public function &addGroupField($value): SolrQuery
     {
     }
 
@@ -2514,7 +2514,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addgroupfunction.php
      */
-    public function &addGroupFunction($value)
+    public function &addGroupFunction($value): SolrQuery
     {
     }
 
@@ -2529,7 +2529,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addgroupquery.php
      */
-    public function &addGroupQuery($value)
+    public function &addGroupQuery($value): SolrQuery
     {
     }
 
@@ -2545,7 +2545,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addgroupsortfield.php
      */
-    public function &addGroupSortField($field, $order = null)
+    public function &addGroupSortField($field, $order = null): SolrQuery
     {
     }
 
@@ -2560,7 +2560,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addhighlightfield.php
      */
-    public function &addHighlightField($value)
+    public function &addHighlightField($value): SolrQuery
     {
     }
 
@@ -2575,7 +2575,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addmltfield.php
      */
-    public function &addMltField($value)
+    public function &addMltField($value): SolrQuery
     {
     }
 
@@ -2591,7 +2591,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addmltqueryfield.php
      */
-    public function &addMltQueryField($field, $boost)
+    public function &addMltQueryField($field, $boost): SolrQuery
     {
     }
 
@@ -2607,7 +2607,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addsortfield.php
      */
-    public function &addSortField($field, $order = null)
+    public function &addSortField($field, $order = null): SolrQuery
     {
     }
 
@@ -2622,7 +2622,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addstatsfacet.php
      */
-    public function &addStatsFacet($value)
+    public function &addStatsFacet($value): SolrQuery
     {
     }
 
@@ -2637,7 +2637,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.addstatsfield.php
      */
-    public function &addStatsField($value)
+    public function &addStatsField($value): SolrQuery
     {
     }
 
@@ -2650,7 +2650,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.collapse.php
      */
-    public function &collapse(&$collapseFunction)
+    public function &collapse(SolrCollapseFunction &$collapseFunction): SolrQuery
     {
     }
 
@@ -3812,7 +3812,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removeexpandfilterquery.php
      */
-    public function &removeExpandFilterQuery($fq)
+    public function &removeExpandFilterQuery($fq): SolrQuery
     {
     }
 
@@ -3827,7 +3827,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removeexpandsortfield.php
      */
-    public function &removeExpandSortField($field)
+    public function &removeExpandSortField($field): SolrQuery
     {
     }
 
@@ -3842,7 +3842,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefacetdatefield.php
      */
-    public function &removeFacetDateField($value)
+    public function &removeFacetDateField($value): SolrQuery
     {
     }
 
@@ -3858,7 +3858,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefacetdateother.php
      */
-    public function &removeFacetDateOther($value, $field_override = null)
+    public function &removeFacetDateOther($value, $field_override = null): SolrQuery
     {
     }
 
@@ -3873,7 +3873,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefacetfield.php
      */
-    public function &removeFacetField($value)
+    public function &removeFacetField($value): SolrQuery
     {
     }
 
@@ -3888,7 +3888,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefacetquery.php
      */
-    public function &removeFacetQuery($value)
+    public function &removeFacetQuery($value): SolrQuery
     {
     }
 
@@ -3903,7 +3903,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefield.php
      */
-    public function &removeField($field)
+    public function &removeField($field): SolrQuery
     {
     }
 
@@ -3918,7 +3918,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removefilterquery.php
      */
-    public function &removeFilterQuery($fq)
+    public function &removeFilterQuery($fq): SolrQuery
     {
     }
 
@@ -3933,7 +3933,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removehighlightfield.php
      */
-    public function &removeHighlightField($value)
+    public function &removeHighlightField($value): SolrQuery
     {
     }
 
@@ -3948,7 +3948,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removemltfield.php
      */
-    public function &removeMltField($value)
+    public function &removeMltField($value): SolrQuery
     {
     }
 
@@ -3963,7 +3963,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removemltqueryfield.php
      */
-    public function &removeMltQueryField($value)
+    public function &removeMltQueryField($value): SolrQuery
     {
     }
 
@@ -3978,7 +3978,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removesortfield.php
      */
-    public function &removeSortField($field)
+    public function &removeSortField($field): SolrQuery
     {
     }
 
@@ -3993,7 +3993,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removestatsfacet.php
      */
-    public function &removeStatsFacet($value)
+    public function &removeStatsFacet($value): SolrQuery
     {
     }
 
@@ -4008,7 +4008,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.removestatsfield.php
      */
-    public function &removeStatsField($value)
+    public function &removeStatsField($value): SolrQuery
     {
     }
 
@@ -4023,7 +4023,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setechohandler.php
      */
-    public function &setEchoHandler($flag)
+    public function &setEchoHandler($flag): SolrQuery
     {
     }
 
@@ -4038,7 +4038,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setechoparams.php
      */
-    public function &setEchoParams($type)
+    public function &setEchoParams($type): SolrQuery
     {
     }
 
@@ -4053,7 +4053,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setexpand.php
      */
-    public function &setExpand($value)
+    public function &setExpand($value): SolrQuery
     {
     }
 
@@ -4068,7 +4068,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setexpandquery.php
      */
-    public function &setExpandQuery($q)
+    public function &setExpandQuery($q): SolrQuery
     {
     }
 
@@ -4083,7 +4083,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setexpandrows.php
      */
-    public function &setExpandRows($value)
+    public function &setExpandRows($value): SolrQuery
     {
     }
 
@@ -4098,7 +4098,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setexplainother.php
      */
-    public function &setExplainOther($flag)
+    public function &setExplainOther($flag): SolrQuery
     {
     }
 
@@ -4113,7 +4113,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacet.php
      */
-    public function &setFacet($value)
+    public function &setFacet($value): SolrQuery
     {
     }
 
@@ -4129,7 +4129,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetdateend.php
      */
-    public function &setFacetDateEnd($value, $field_override = null)
+    public function &setFacetDateEnd($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4145,7 +4145,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetdategap.php
      */
-    public function &setFacetDateGap($value, $field_override = null)
+    public function &setFacetDateGap($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4161,7 +4161,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetdatehardend.php
      */
-    public function &setFacetDateHardEnd($value, $field_override = null)
+    public function &setFacetDateHardEnd($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4177,7 +4177,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetdatestart.php
      */
-    public function &setFacetDateStart($value, $field_override = null)
+    public function &setFacetDateStart($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4193,7 +4193,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetenumcachemindefaultfrequency.php
      */
-    public function &setFacetEnumCacheMinDefaultFrequency($value, $field_override = null)
+    public function &setFacetEnumCacheMinDefaultFrequency($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4209,7 +4209,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetlimit.php
      */
-    public function &setFacetLimit($value, $field_override = null)
+    public function &setFacetLimit($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4225,7 +4225,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetmethod.php
      */
-    public function &setFacetMethod($value, $field_override = null)
+    public function &setFacetMethod($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4241,7 +4241,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetmincount.php
      */
-    public function &setFacetMinCount($value, $field_override = null)
+    public function &setFacetMinCount($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4257,7 +4257,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetmissing.php
      */
-    public function &setFacetMissing($value, $field_override = null)
+    public function &setFacetMissing($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4273,7 +4273,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetoffset.php
      */
-    public function &setFacetOffset($value, $field_override = null)
+    public function &setFacetOffset($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4289,7 +4289,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetprefix.php
      */
-    public function &setFacetPrefix($value, $field_override = null)
+    public function &setFacetPrefix($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4305,7 +4305,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setfacetsort.php
      */
-    public function &setFacetSort($value, $field_override = null)
+    public function &setFacetSort($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4320,7 +4320,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroup.php
      */
-    public function &setGroup($value)
+    public function &setGroup($value): SolrQuery
     {
     }
 
@@ -4335,7 +4335,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupcachepercent.php
      */
-    public function &setGroupCachePercent($percent)
+    public function &setGroupCachePercent($percent): SolrQuery
     {
     }
 
@@ -4350,7 +4350,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupfacet.php
      */
-    public function &setGroupFacet($value)
+    public function &setGroupFacet($value): SolrQuery
     {
     }
 
@@ -4365,7 +4365,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupformat.php
      */
-    public function &setGroupFormat($value)
+    public function &setGroupFormat($value): SolrQuery
     {
     }
 
@@ -4380,7 +4380,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgrouplimit.php
      */
-    public function &setGroupLimit($value)
+    public function &setGroupLimit($value): SolrQuery
     {
     }
 
@@ -4395,7 +4395,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupmain.php
      */
-    public function &setGroupMain($value)
+    public function &setGroupMain($value): SolrQuery
     {
     }
 
@@ -4410,7 +4410,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupngroups.php
      */
-    public function &setGroupNGroups($value)
+    public function &setGroupNGroups($value): SolrQuery
     {
     }
 
@@ -4425,7 +4425,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgroupoffset.php
      */
-    public function &setGroupOffset($value)
+    public function &setGroupOffset($value): SolrQuery
     {
     }
 
@@ -4440,7 +4440,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setgrouptruncate.php
      */
-    public function &setGroupTruncate($value)
+    public function &setGroupTruncate($value): SolrQuery
     {
     }
 
@@ -4455,7 +4455,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlight.php
      */
-    public function &setHighlight($value)
+    public function &setHighlight($value): SolrQuery
     {
     }
 
@@ -4471,7 +4471,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightalternatefield.php
      */
-    public function &setHighlightAlternateField($value, $field_override = null)
+    public function &setHighlightAlternateField($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4487,7 +4487,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightformatter.php
      */
-    public function &setHighlightFormatter($value, $field_override = null)
+    public function &setHighlightFormatter($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4503,7 +4503,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightfragmenter.php
      */
-    public function &setHighlightFragmenter($value, $field_override = null)
+    public function &setHighlightFragmenter($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4519,7 +4519,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightfragsize.php
      */
-    public function &setHighlightFragsize($value, $field_override = null)
+    public function &setHighlightFragsize($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4534,7 +4534,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlighthighlightmultiterm.php
      */
-    public function &setHighlightHighlightMultiTerm($value)
+    public function &setHighlightHighlightMultiTerm($value): SolrQuery
     {
     }
 
@@ -4550,7 +4550,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightmaxalternatefieldlength.php
      */
-    public function &setHighlightMaxAlternateFieldLength($value, $field_override = null)
+    public function &setHighlightMaxAlternateFieldLength($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4565,7 +4565,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightmaxanalyzedchars.php
      */
-    public function &setHighlightMaxAnalyzedChars($value)
+    public function &setHighlightMaxAnalyzedChars($value): SolrQuery
     {
     }
 
@@ -4581,7 +4581,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightmergecontiguous.php
      */
-    public function &setHighlightMergeContiguous($value, $field_override = null)
+    public function &setHighlightMergeContiguous($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4596,7 +4596,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightregexmaxanalyzedchars.php
      */
-    public function &setHighlightRegexMaxAnalyzedChars($value)
+    public function &setHighlightRegexMaxAnalyzedChars($value): SolrQuery
     {
     }
 
@@ -4611,7 +4611,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightregexpattern.php
      */
-    public function &setHighlightRegexPattern($value)
+    public function &setHighlightRegexPattern($value): SolrQuery
     {
     }
 
@@ -4626,7 +4626,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightregexslop.php
      */
-    public function &setHighlightRegexSlop($value)
+    public function &setHighlightRegexSlop($value): SolrQuery
     {
     }
 
@@ -4641,7 +4641,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightrequirefieldmatch.php
      */
-    public function &setHighlightRequireFieldMatch($value)
+    public function &setHighlightRequireFieldMatch($value): SolrQuery
     {
     }
 
@@ -4657,7 +4657,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightsimplepost.php
      */
-    public function &setHighlightSimplePost($value, $field_override = null)
+    public function &setHighlightSimplePost($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4673,7 +4673,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightsimplepre.php
      */
-    public function &setHighlightSimplePre($value, $field_override = null)
+    public function &setHighlightSimplePre($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4689,7 +4689,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightsnippets.php
      */
-    public function &setHighlightSnippets($value, $field_override = null)
+    public function &setHighlightSnippets($value, $field_override = null): SolrQuery
     {
     }
 
@@ -4704,7 +4704,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.sethighlightusephrasehighlighter.php
      */
-    public function &setHighlightUsePhraseHighlighter($value)
+    public function &setHighlightUsePhraseHighlighter($value): SolrQuery
     {
     }
 
@@ -4719,7 +4719,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmlt.php
      */
-    public function &setMlt($value)
+    public function &setMlt($value): SolrQuery
     {
     }
 
@@ -4734,7 +4734,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltboost.php
      */
-    public function &setMltBoost($value)
+    public function &setMltBoost($value): SolrQuery
     {
     }
 
@@ -4749,7 +4749,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltcount.php
      */
-    public function &setMltCount($value)
+    public function &setMltCount($value): SolrQuery
     {
     }
 
@@ -4764,7 +4764,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltmaxnumqueryterms.php
      */
-    public function &setMltMaxNumQueryTerms($value)
+    public function &setMltMaxNumQueryTerms($value): SolrQuery
     {
     }
 
@@ -4779,7 +4779,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltmaxnumtokens.php
      */
-    public function &setMltMaxNumTokens($value)
+    public function &setMltMaxNumTokens($value): SolrQuery
     {
     }
 
@@ -4794,7 +4794,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltmaxwordlength.php
      */
-    public function &setMltMaxWordLength($value)
+    public function &setMltMaxWordLength($value): SolrQuery
     {
     }
 
@@ -4809,7 +4809,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltmindocfrequency.php
      */
-    public function &setMltMinDocFrequency($value)
+    public function &setMltMinDocFrequency($value): SolrQuery
     {
     }
 
@@ -4824,7 +4824,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltmintermfrequency.php
      */
-    public function &setMltMinTermFrequency($value)
+    public function &setMltMinTermFrequency($value): SolrQuery
     {
     }
 
@@ -4839,7 +4839,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setmltminwordlength.php
      */
-    public function &setMltMinWordLength($value)
+    public function &setMltMinWordLength($value): SolrQuery
     {
     }
 
@@ -4854,7 +4854,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setomitheader.php
      */
-    public function &setOmitHeader($flag)
+    public function &setOmitHeader($flag): SolrQuery
     {
     }
 
@@ -4869,7 +4869,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setquery.php
      */
-    public function &setQuery($q)
+    public function &setQuery($q): SolrQuery
     {
     }
 
@@ -4884,7 +4884,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setrows.php
      */
-    public function &setRows($rows)
+    public function &setRows($rows): SolrQuery
     {
     }
 
@@ -4899,7 +4899,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setshowdebuginfo.php
      */
-    public function &setShowDebugInfo($flag)
+    public function &setShowDebugInfo($flag): SolrQuery
     {
     }
 
@@ -4914,7 +4914,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setstart.php
      */
-    public function &setStart($start)
+    public function &setStart($start): SolrQuery
     {
     }
 
@@ -4929,7 +4929,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setstats.php
      */
-    public function &setStats($value)
+    public function &setStats($value): SolrQuery
     {
     }
 
@@ -4944,7 +4944,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.setterms.php
      */
-    public function &setTerms($value)
+    public function &setTerms($value): SolrQuery
     {
     }
 
@@ -4959,7 +4959,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsfield.php
      */
-    public function &setTermsField($value)
+    public function &setTermsField($value): SolrQuery
     {
     }
 
@@ -4974,7 +4974,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsincludelowerbound.php
      */
-    public function &setTermsIncludeLowerBound($value)
+    public function &setTermsIncludeLowerBound($value): SolrQuery
     {
     }
 
@@ -4989,7 +4989,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsincludeupperbound.php
      */
-    public function &setTermsIncludeUpperBound($value)
+    public function &setTermsIncludeUpperBound($value): SolrQuery
     {
     }
 
@@ -5004,7 +5004,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermslimit.php
      */
-    public function &setTermsLimit($value)
+    public function &setTermsLimit($value): SolrQuery
     {
     }
 
@@ -5019,7 +5019,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermslowerbound.php
      */
-    public function &setTermsLowerBound($value)
+    public function &setTermsLowerBound($value): SolrQuery
     {
     }
 
@@ -5034,7 +5034,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsmaxcount.php
      */
-    public function &setTermsMaxCount($value)
+    public function &setTermsMaxCount($value): SolrQuery
     {
     }
 
@@ -5049,7 +5049,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsmincount.php
      */
-    public function &setTermsMinCount($value)
+    public function &setTermsMinCount($value): SolrQuery
     {
     }
 
@@ -5064,7 +5064,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsprefix.php
      */
-    public function &setTermsPrefix($value)
+    public function &setTermsPrefix($value): SolrQuery
     {
     }
 
@@ -5079,7 +5079,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsreturnraw.php
      */
-    public function &setTermsReturnRaw($value)
+    public function &setTermsReturnRaw($value): SolrQuery
     {
     }
 
@@ -5094,7 +5094,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermssort.php
      */
-    public function &setTermsSort($value)
+    public function &setTermsSort($value): SolrQuery
     {
     }
 
@@ -5109,7 +5109,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settermsupperbound.php
      */
-    public function &setTermsUpperBound($value)
+    public function &setTermsUpperBound($value): SolrQuery
     {
     }
 
@@ -5124,7 +5124,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.settimeallowed.php
      */
-    public function &setTimeAllowed($timeAllowed)
+    public function &setTimeAllowed($timeAllowed): SolrQuery
     {
     }
 }
@@ -5289,7 +5289,7 @@ abstract class SolrResponse
      *
      * @link http://www.php.net/manual/en/solrresponse.getresponse.php
      */
-    public function getResponse()
+    public function getResponse(): SolrObject
     {
     }
 
@@ -5407,7 +5407,7 @@ abstract class SolrUtils
      *
      * @link http://www.php.net/manual/en/solrutils.digestxmlresponse.php
      */
-    public static function digestXmlResponse($xmlresponse, $parse_mode = null)
+    public static function digestXmlResponse($xmlresponse, $parse_mode = null): SolrObject
     {
     }
 

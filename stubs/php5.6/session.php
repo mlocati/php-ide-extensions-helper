@@ -373,7 +373,7 @@ function session_encode()
  *
  * @link http://www.php.net/manual/en/function.session-get-cookie-params.php
  */
-function session_get_cookie_params(): array
+function session_get_cookie_params()
 {
 }
 

@@ -119,7 +119,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.addimage.php
      */
-    public function addimage($Imagick)
+    public function addimage(Imagick $Imagick)
     {
     }
 
@@ -150,7 +150,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.affinetransformimage.php
      */
-    public function affinetransformimage($ImagickDraw)
+    public function affinetransformimage(ImagickDraw $ImagickDraw)
     {
     }
 
@@ -182,7 +182,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.annotateimage.php
      */
-    public function annotateimage($ImagickDraw, $x, $y, $angle, $text)
+    public function annotateimage(ImagickDraw $ImagickDraw, $x, $y, $angle, $text)
     {
     }
 
@@ -450,7 +450,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.clutimage.php
      */
-    public function clutimage($Imagick, $CHANNELTYPE = null)
+    public function clutimage(Imagick $Imagick, $CHANNELTYPE = null)
     {
     }
 
@@ -564,7 +564,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.compareimagechannels.php
      */
-    public function compareimagechannels($Imagick, $CHANNEL, $METRIC): array
+    public function compareimagechannels(Imagick $Imagick, $CHANNEL, $METRIC)
     {
     }
 
@@ -595,7 +595,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.compareimages.php
      */
-    public function compareimages($Imagick, $METRIC): array
+    public function compareimages(Imagick $Imagick, $METRIC)
     {
     }
 
@@ -614,7 +614,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.compositeimage.php
      */
-    public function compositeimage($Imagick, $COMPOSITE, $x, $y, $CHANNELTYPE = null)
+    public function compositeimage(Imagick $Imagick, $COMPOSITE, $x, $y, $CHANNELTYPE = null)
     {
     }
 
@@ -891,7 +891,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.drawimage.php
      */
-    public function drawimage($ImagickDraw)
+    public function drawimage(ImagickDraw $ImagickDraw)
     {
     }
 
@@ -1003,7 +1003,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.exportimagepixels.php
      */
-    public function exportimagepixels($x, $y, $width, $height, $map, $STORAGE): array
+    public function exportimagepixels($x, $y, $width, $height, $map, $STORAGE)
     {
     }
 
@@ -1033,7 +1033,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.filter.php
      */
-    public function filter($ImagickKernel, $CHANNEL = null)
+    public function filter(ImagickKernel $ImagickKernel, $CHANNEL = null)
     {
     }
 
@@ -1407,7 +1407,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageblueprimary.php
      */
-    public function getimageblueprimary(): array
+    public function getimageblueprimary()
     {
     }
 
@@ -1452,7 +1452,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechanneldistortion.php
      */
-    public function getimagechanneldistortion($Imagick, $CHANNEL, $METRIC)
+    public function getimagechanneldistortion(Imagick $Imagick, $CHANNEL, $METRIC)
     {
     }
 
@@ -1467,7 +1467,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechanneldistortions.php
      */
-    public function getimagechanneldistortions($Imagick, $METRICTYPE = null, $CHANNEL = null)
+    public function getimagechanneldistortions(Imagick $Imagick, $METRICTYPE = null, $CHANNEL = null)
     {
     }
 
@@ -1482,7 +1482,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelextrema.php
      */
-    public function getimagechannelextrema($CHANNEL): array
+    public function getimagechannelextrema($CHANNEL)
     {
     }
 
@@ -1495,7 +1495,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelkurtosis.php
      */
-    public function getimagechannelkurtosis($CHANNEL = null): array
+    public function getimagechannelkurtosis($CHANNEL = null)
     {
     }
 
@@ -1510,7 +1510,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelmean.php
      */
-    public function getimagechannelmean($CHANNEL): array
+    public function getimagechannelmean($CHANNEL)
     {
     }
 
@@ -1525,7 +1525,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelrange.php
      */
-    public function getimagechannelrange($CHANNEL): array
+    public function getimagechannelrange($CHANNEL)
     {
     }
 
@@ -1538,7 +1538,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagechannelstatistics.php
      */
-    public function getimagechannelstatistics(): array
+    public function getimagechannelstatistics()
     {
     }
 
@@ -1682,7 +1682,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagedistortion.php
      */
-    public function getimagedistortion($Imagick, $METRIC)
+    public function getimagedistortion(Imagick $Imagick, $METRIC)
     {
     }
 
@@ -1695,7 +1695,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageextrema.php
      */
-    public function getimageextrema(): array
+    public function getimageextrema()
     {
     }
 
@@ -1747,7 +1747,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagegeometry.php
      */
-    public function getimagegeometry(): array
+    public function getimagegeometry()
     {
     }
 
@@ -1771,7 +1771,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagegreenprimary.php
      */
-    public function getimagegreenprimary(): array
+    public function getimagegreenprimary()
     {
     }
 
@@ -1797,7 +1797,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagehistogram.php
      */
-    public function getimagehistogram(): array
+    public function getimagehistogram()
     {
     }
 
@@ -1925,7 +1925,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagepage.php
      */
-    public function getimagepage(): array
+    public function getimagepage()
     {
     }
 
@@ -1972,7 +1972,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageprofiles.php
      */
-    public function getimageprofiles($pattern = null, $values = null): array
+    public function getimageprofiles($pattern = null, $values = null)
     {
     }
 
@@ -1988,7 +1988,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageproperties.php
      */
-    public function getimageproperties($pattern = null, $values = null): array
+    public function getimageproperties($pattern = null, $values = null)
     {
     }
 
@@ -2016,7 +2016,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageredprimary.php
      */
-    public function getimageredprimary(): array
+    public function getimageredprimary()
     {
     }
 
@@ -2060,7 +2060,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimageresolution.php
      */
-    public function getimageresolution(): array
+    public function getimageresolution()
     {
     }
 
@@ -2188,7 +2188,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getimagewhitepoint.php
      */
-    public function getimagewhitepoint(): array
+    public function getimagewhitepoint()
     {
     }
 
@@ -2281,7 +2281,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getpage.php
      */
-    public function getpage(): array
+    public function getpage()
     {
     }
 
@@ -2348,7 +2348,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getquantumdepth.php
      */
-    public static function getquantumdepth(): array
+    public static function getquantumdepth()
     {
     }
 
@@ -2361,7 +2361,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getquantumrange.php
      */
-    public static function getquantumrange(): array
+    public static function getquantumrange()
     {
     }
 
@@ -2430,7 +2430,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getsamplingfactors.php
      */
-    public function getsamplingfactors(): array
+    public function getsamplingfactors()
     {
     }
 
@@ -2443,7 +2443,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getsize.php
      */
-    public function getsize(): array
+    public function getsize()
     {
     }
 
@@ -2469,7 +2469,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.getversion.php
      */
-    public static function getversion(): array
+    public static function getversion()
     {
     }
 
@@ -2483,7 +2483,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.haldclutimage.php
      */
-    public function haldclutimage($Imagick, $CHANNEL = null)
+    public function haldclutimage(Imagick $Imagick, $CHANNEL = null)
     {
     }
 
@@ -2537,7 +2537,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.identifyimage.php
      */
-    public function identifyimage($appendRawOutput = null): array
+    public function identifyimage($appendRawOutput = null)
     {
     }
 
@@ -2665,7 +2665,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.listregistry.php
      */
-    public static function listregistry(): array
+    public static function listregistry()
     {
     }
 
@@ -2694,7 +2694,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.mapimage.php
      */
-    public function mapimage($Imagick, $dither)
+    public function mapimage(Imagick $Imagick, $dither)
     {
     }
 
@@ -2792,7 +2792,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.montageimage.php
      */
-    public function montageimage($ImagickDraw, $tileGeometry, $thumbnailGeometry, $MONTAGEMODE, $frame)
+    public function montageimage(ImagickDraw $ImagickDraw, $tileGeometry, $thumbnailGeometry, $MONTAGEMODE, $frame)
     {
     }
 
@@ -2823,7 +2823,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.morphology.php
      */
-    public function morphology($morphologyMethod, $iterations, $ImagickKernel, $CHANNEL = null)
+    public function morphology($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $CHANNEL = null)
     {
     }
 
@@ -3114,7 +3114,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.polaroidimage.php
      */
-    public function polaroidimage($ImagickDraw, $angle)
+    public function polaroidimage(ImagickDraw $ImagickDraw, $angle)
     {
     }
 
@@ -3229,7 +3229,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.queryfontmetrics.php
      */
-    public function queryfontmetrics($ImagickDraw, $text, $multiline = null): array
+    public function queryfontmetrics(ImagickDraw $ImagickDraw, $text, $multiline = null)
     {
     }
 
@@ -3244,7 +3244,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.queryfonts.php
      */
-    public static function queryfonts($pattern): array
+    public static function queryfonts($pattern)
     {
     }
 
@@ -3259,7 +3259,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.queryformats.php
      */
-    public static function queryformats($pattern): array
+    public static function queryformats($pattern)
     {
     }
 
@@ -3410,7 +3410,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.remapimage.php
      */
-    public function remapimage($Imagick, $DITHER)
+    public function remapimage(Imagick $Imagick, $DITHER)
     {
     }
 
@@ -3818,7 +3818,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.setimage.php
      */
-    public function setimage($Imagick)
+    public function setimage(Imagick $Imagick)
     {
     }
 
@@ -3962,7 +3962,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.setimageclipmask.php
      */
-    public function setimageclipmask($Imagick)
+    public function setimageclipmask(Imagick $Imagick)
     {
     }
 
@@ -4814,7 +4814,7 @@ class Imagick implements Countable, Iterator
      * @param mixed|null $similarity_threshold
      * @param mixed|null $metric
      */
-    public function similarityimage($Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
+    public function similarityimage(Imagick $Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
     }
 
@@ -4940,7 +4940,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.steganoimage.php
      */
-    public function steganoimage($Imagick, $offset)
+    public function steganoimage(Imagick $Imagick, $offset)
     {
     }
 
@@ -4955,7 +4955,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.stereoimage.php
      */
-    public function stereoimage($Imagick)
+    public function stereoimage(Imagick $Imagick)
     {
     }
 
@@ -4985,7 +4985,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.subimagematch.php
      */
-    public function subimagematch($Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
+    public function subimagematch(Imagick $Imagick, &$offset = null, &$similarity = null, &$similarity_threshold = null, &$metric = null)
     {
     }
 
@@ -5015,7 +5015,7 @@ class Imagick implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/imagick.textureimage.php
      */
-    public function textureimage($Imagick)
+    public function textureimage(Imagick $Imagick)
     {
     }
 
@@ -5482,7 +5482,7 @@ class ImagickDraw
      *
      * @link http://www.php.net/manual/en/imagickdraw.composite.php
      */
-    public function composite($COMPOSE, $x, $y, $width, $height, $Imagick)
+    public function composite($COMPOSE, $x, $y, $width, $height, Imagick $Imagick)
     {
     }
 
@@ -5729,7 +5729,7 @@ class ImagickDraw
      *
      * @link http://www.php.net/manual/en/imagickdraw.getstrokedasharray.php
      */
-    public function getstrokedasharray(): array
+    public function getstrokedasharray()
     {
     }
 
@@ -7200,7 +7200,7 @@ class ImagickKernel
      *
      * @link http://www.php.net/manual/en/imagickkernel.addkernel.php
      */
-    public function addkernel($ImagickKernel)
+    public function addkernel(ImagickKernel $ImagickKernel)
     {
     }
 
@@ -7258,7 +7258,7 @@ class ImagickKernel
      *
      * @link http://www.php.net/manual/en/imagickkernel.getmatrix.php
      */
-    public function getmatrix(): array
+    public function getmatrix()
     {
     }
 
@@ -7284,7 +7284,7 @@ class ImagickKernel
      *
      * @link http://www.php.net/manual/en/imagickkernel.separate.php
      */
-    public function separate(): array
+    public function separate()
     {
     }
 }
@@ -7360,7 +7360,7 @@ class ImagickPixel
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolor.php
      */
-    public function getcolor($normalized = null): array
+    public function getcolor($normalized = null)
     {
     }
 
@@ -7397,7 +7397,7 @@ class ImagickPixel
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolorquantum.php
      */
-    public function getcolorquantum(): array
+    public function getcolorquantum()
     {
     }
 
@@ -7421,7 +7421,7 @@ class ImagickPixel
      *
      * @param mixed $color
      *
-     * @return number
+     * @return float
      *
      * @link http://www.php.net/manual/en/imagickpixel.getcolorvaluequantum.php
      */
@@ -7438,7 +7438,7 @@ class ImagickPixel
      *
      * @link http://www.php.net/manual/en/imagickpixel.gethsl.php
      */
-    public function gethsl(): array
+    public function gethsl()
     {
     }
 
@@ -7605,7 +7605,7 @@ class ImagickPixelIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/imagickpixeliterator.construct.php
      */
-    public function __construct($Imagick)
+    public function __construct(Imagick $Imagick)
     {
     }
 
@@ -7648,7 +7648,7 @@ class ImagickPixelIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/imagickpixeliterator.getcurrentiteratorrow.php
      */
-    public function getcurrentiteratorrow(): array
+    public function getcurrentiteratorrow()
     {
     }
 
@@ -7674,14 +7674,14 @@ class ImagickPixelIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/imagickpixeliterator.getnextiteratorrow.php
      */
-    public function getnextiteratorrow(): array
+    public function getnextiteratorrow()
     {
     }
 
     /**
      * @param Imagick $Imagick
      */
-    public static function getpixeliterator($Imagick)
+    public static function getpixeliterator(Imagick $Imagick)
     {
     }
 
@@ -7692,7 +7692,7 @@ class ImagickPixelIterator implements Iterator
      * @param mixed $columns
      * @param mixed $rows
      */
-    public static function getpixelregioniterator($Imagick, $x, $y, $columns, $rows)
+    public static function getpixelregioniterator(Imagick $Imagick, $x, $y, $columns, $rows)
     {
     }
 
@@ -7705,7 +7705,7 @@ class ImagickPixelIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/imagickpixeliterator.getpreviousiteratorrow.php
      */
-    public function getpreviousiteratorrow(): array
+    public function getpreviousiteratorrow()
     {
     }
 

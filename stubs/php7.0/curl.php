@@ -3697,7 +3697,7 @@ function curl_setopt($ch, $option, $value): bool
  * Set multiple options for a cURL transfer
  *
  * @param mixed $ch
- * @param array[] $options
+ * @param array $options
  *
  * @return bool
  *
@@ -3705,7 +3705,7 @@ function curl_setopt($ch, $option, $value): bool
  *
  * @link http://www.php.net/manual/en/function.curl-setopt-array.php
  */
-function curl_setopt_array($ch, $options): bool
+function curl_setopt_array($ch, array $options): bool
 {
 }
 

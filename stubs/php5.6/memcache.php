@@ -145,7 +145,7 @@ class Memcache
      *
      * @link http://www.php.net/manual/en/memcache.getextendedstats.php
      */
-    public function getextendedstats(): array
+    public function getextendedstats()
     {
     }
 
@@ -171,7 +171,7 @@ class Memcache
      *
      * @link http://www.php.net/manual/en/memcache.getstats.php
      */
-    public function getstats(): array
+    public function getstats()
     {
     }
 

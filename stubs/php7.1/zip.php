@@ -609,7 +609,7 @@ class ZipArchive
  *
  * @link http://www.php.net/manual/en/function.zip-close.php
  */
-function zip_close($zip)
+function zip_close($zip): void
 {
 }
 

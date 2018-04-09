@@ -26,7 +26,7 @@ function opcache_compile_file($file)
  *
  * @link http://www.php.net/manual/en/function.opcache-get-configuration.php
  */
-function opcache_get_configuration(): array
+function opcache_get_configuration()
 {
 }
 
@@ -41,7 +41,7 @@ function opcache_get_configuration(): array
  *
  * @link http://www.php.net/manual/en/function.opcache-get-status.php
  */
-function opcache_get_status($fetch_scripts = null): array
+function opcache_get_status($fetch_scripts = null)
 {
 }
 

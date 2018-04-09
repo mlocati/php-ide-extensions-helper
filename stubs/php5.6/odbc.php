@@ -550,7 +550,7 @@ function odbc_cursor($result_id)
  *
  * @link http://www.php.net/manual/en/function.odbc-data-source.php
  */
-function odbc_data_source($connection_id, $fetch_type): array
+function odbc_data_source($connection_id, $fetch_type)
 {
 }
 
@@ -644,7 +644,7 @@ function odbc_execute($result_id, $parameters_array = null)
  *
  * @link http://www.php.net/manual/en/function.odbc-fetch-array.php
  */
-function odbc_fetch_array($result, $rownumber = null): array
+function odbc_fetch_array($result, $rownumber = null)
 {
 }
 
@@ -671,7 +671,7 @@ function odbc_fetch_into($result_id, &$result_array, $rownumber = null)
  * @param mixed $result
  * @param mixed|null $rownumber
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *

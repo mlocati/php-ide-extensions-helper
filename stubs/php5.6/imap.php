@@ -598,7 +598,7 @@ function imap_8bit($text)
  *
  * @link http://www.php.net/manual/en/function.imap-alerts.php
  */
-function imap_alerts(): array
+function imap_alerts()
 {
 }
 
@@ -675,7 +675,7 @@ function imap_body($stream_id, $msg_no, $options = null)
  * @param mixed $msg_no
  * @param mixed $section
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -690,7 +690,7 @@ function imap_bodystruct($stream_id, $msg_no, $section)
  *
  * @param mixed $stream_id
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -806,7 +806,7 @@ function imap_deletemailbox($stream_id, $mailbox)
  *
  * @link http://www.php.net/manual/en/function.imap-errors.php
  */
-function imap_errors(): array
+function imap_errors()
 {
 }
 
@@ -838,7 +838,7 @@ function imap_expunge($stream_id)
  *
  * @link http://www.php.net/manual/en/function.imap-fetch-overview.php
  */
-function imap_fetch_overview($stream_id, $sequence, $options = null): array
+function imap_fetch_overview($stream_id, $sequence, $options = null)
 {
 }
 
@@ -902,7 +902,7 @@ function imap_fetchmime($stream_id, $msg_no, $section, $options = null)
  * @param mixed $msg_no
  * @param mixed|null $options
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -955,7 +955,7 @@ function imap_gc($stream_id, $flags = null)
  *
  * @link http://www.php.net/manual/en/function.imap-get-quota.php
  */
-function imap_get_quota($stream_id, $qroot): array
+function imap_get_quota($stream_id, $qroot)
 {
 }
 
@@ -971,7 +971,7 @@ function imap_get_quota($stream_id, $qroot): array
  *
  * @link http://www.php.net/manual/en/function.imap-get-quotaroot.php
  */
-function imap_get_quotaroot($stream_id, $mbox): array
+function imap_get_quotaroot($stream_id, $mbox)
 {
 }
 
@@ -987,7 +987,7 @@ function imap_get_quotaroot($stream_id, $mbox): array
  *
  * @link http://www.php.net/manual/en/function.imap-getacl.php
  */
-function imap_getacl($stream_id, $mailbox): array
+function imap_getacl($stream_id, $mailbox)
 {
 }
 
@@ -1004,7 +1004,7 @@ function imap_getacl($stream_id, $mailbox): array
  *
  * @link http://www.php.net/manual/en/function.imap-getmailboxes.php
  */
-function imap_getmailboxes($stream_id, $ref, $pattern): array
+function imap_getmailboxes($stream_id, $ref, $pattern)
 {
 }
 
@@ -1021,7 +1021,7 @@ function imap_getmailboxes($stream_id, $ref, $pattern): array
  *
  * @link http://www.php.net/manual/en/function.imap-getsubscribed.php
  */
-function imap_getsubscribed($stream_id, $ref, $pattern): array
+function imap_getsubscribed($stream_id, $ref, $pattern)
 {
 }
 
@@ -1051,7 +1051,7 @@ function imap_header($stream_id, $msg_no, $from_length = null, $subject_length =
  * @param mixed|null $subject_length
  * @param mixed|null $default_host
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1072,7 +1072,7 @@ function imap_headerinfo($stream_id, $msg_no, $from_length = null, $subject_leng
  *
  * @link http://www.php.net/manual/en/function.imap-headers.php
  */
-function imap_headers($stream_id): array
+function imap_headers($stream_id)
 {
 }
 
@@ -1102,7 +1102,7 @@ function imap_last_error()
  *
  * @link http://www.php.net/manual/en/function.imap-list.php
  */
-function imap_list($stream_id, $ref, $pattern): array
+function imap_list($stream_id, $ref, $pattern)
 {
 }
 
@@ -1135,7 +1135,7 @@ function imap_listmailbox($stream_id, $ref, $pattern)
  *
  * @link http://www.php.net/manual/en/function.imap-listscan.php
  */
-function imap_listscan($stream_id, $ref, $pattern, $content): array
+function imap_listscan($stream_id, $ref, $pattern, $content)
 {
 }
 
@@ -1167,7 +1167,7 @@ function imap_listsubscribed($stream_id, $ref, $pattern)
  *
  * @link http://www.php.net/manual/en/function.imap-lsub.php
  */
-function imap_lsub($stream_id, $ref, $pattern): array
+function imap_lsub($stream_id, $ref, $pattern)
 {
 }
 
@@ -1249,7 +1249,7 @@ function imap_mail_move($stream_id, $sequence, $mailbox, $options = null)
  *
  * @param mixed $stream_id
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1270,7 +1270,7 @@ function imap_mailboxmsginfo($stream_id)
  *
  * @link http://www.php.net/manual/en/function.imap-mime-header-decode.php
  */
-function imap_mime_header_decode($str): array
+function imap_mime_header_decode($str)
 {
 }
 
@@ -1447,7 +1447,7 @@ function imap_reopen($stream_id, $mailbox, $options = null, $n_retries = null)
  *
  * @link http://www.php.net/manual/en/function.imap-rfc822-parse-adrlist.php
  */
-function imap_rfc822_parse_adrlist($address_string, $default_host): array
+function imap_rfc822_parse_adrlist($address_string, $default_host)
 {
 }
 
@@ -1457,7 +1457,7 @@ function imap_rfc822_parse_adrlist($address_string, $default_host): array
  * @param mixed $headers
  * @param mixed|null $default_host
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1549,7 +1549,7 @@ function imap_scanmailbox($stream_id, $ref, $pattern, $content)
  *
  * @link http://www.php.net/manual/en/function.imap-search.php
  */
-function imap_search($stream_id, $criteria, $options = null, $charset = null): array
+function imap_search($stream_id, $criteria, $options = null, $charset = null)
 {
 }
 
@@ -1622,7 +1622,7 @@ function imap_setflag_full($stream_id, $sequence, $flag, $options = null)
  *
  * @link http://www.php.net/manual/en/function.imap-sort.php
  */
-function imap_sort($stream_id, $criteria, $reverse, $options = null, $search_criteria = null, $charset = null): array
+function imap_sort($stream_id, $criteria, $reverse, $options = null, $search_criteria = null, $charset = null)
 {
 }
 
@@ -1633,7 +1633,7 @@ function imap_sort($stream_id, $criteria, $reverse, $options = null, $search_cri
  * @param mixed $mailbox
  * @param mixed $options
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1671,7 +1671,7 @@ function imap_subscribe($stream_id, $mailbox)
  *
  * @link http://www.php.net/manual/en/function.imap-thread.php
  */
-function imap_thread($stream_id, $options = null): array
+function imap_thread($stream_id, $options = null)
 {
 }
 

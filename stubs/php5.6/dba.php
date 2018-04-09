@@ -92,7 +92,7 @@ function dba_firstkey($handle)
  *
  * @link http://www.php.net/manual/en/function.dba-handlers.php
  */
-function dba_handlers($full_info = null): array
+function dba_handlers($full_info = null)
 {
 }
 
@@ -137,7 +137,7 @@ function dba_key_split($key)
  *
  * @link http://www.php.net/manual/en/function.dba-list.php
  */
-function dba_list(): array
+function dba_list()
 {
 }
 

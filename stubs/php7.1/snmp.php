@@ -618,7 +618,7 @@ function snmp_set_enum_print($enum_print): bool
  *
  * @link http://www.php.net/manual/en/function.snmp-set-oid-numeric-print.php
  */
-function snmp_set_oid_numeric_print($oid_format)
+function snmp_set_oid_numeric_print($oid_format): void
 {
 }
 

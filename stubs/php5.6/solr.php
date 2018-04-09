@@ -99,7 +99,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.adddocument.php
      */
-    public function &addDocument(&$doc, $overwrite = null, $commitWithin = null)
+    public function &addDocument(SolrInputDocument &$doc, $overwrite = null, $commitWithin = null)
     {
     }
 
@@ -249,7 +249,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.getoptions.php
      */
-    public function getOptions(): array
+    public function getOptions()
     {
     }
 
@@ -294,7 +294,7 @@ class SolrClient
      *
      * @link http://www.php.net/manual/en/solrclient.query.php
      */
-    public function &query(&$query)
+    public function &query(SolrParams &$query)
     {
     }
 
@@ -402,7 +402,7 @@ class SolrClientException extends SolrException
      *
      * @link http://www.php.net/manual/en/solrclientexception.getinternalinfo.php
      */
-    public function getInternalInfo(): array
+    public function getInternalInfo()
     {
     }
 }
@@ -1182,7 +1182,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.getchilddocuments.php
      */
-    public function getChildDocuments(): array
+    public function getChildDocuments()
     {
     }
 
@@ -1236,7 +1236,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.getfieldnames.php
      */
-    public function getFieldNames(): array
+    public function getFieldNames()
     {
     }
 
@@ -1291,7 +1291,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.merge.php
      */
-    public function merge(&$sourceDoc, $overwrite = null)
+    public function merge(SolrDocument &$sourceDoc, $overwrite = null)
     {
     }
 
@@ -1433,7 +1433,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/solrdocument.toarray.php
      */
-    public function toArray(): array
+    public function toArray()
     {
     }
 
@@ -1518,7 +1518,7 @@ class SolrException extends Exception
      *
      * @link http://www.php.net/manual/en/solrexception.getinternalinfo.php
      */
-    public function getInternalInfo(): array
+    public function getInternalInfo()
     {
     }
 }
@@ -1575,7 +1575,7 @@ class SolrIllegalArgumentException extends SolrException
      *
      * @link http://www.php.net/manual/en/solrillegalargumentexception.getinternalinfo.php
      */
-    public function getInternalInfo(): array
+    public function getInternalInfo()
     {
     }
 }
@@ -1598,7 +1598,7 @@ class SolrIllegalOperationException extends SolrException
      *
      * @link http://www.php.net/manual/en/solrillegaloperationexception.getinternalinfo.php
      */
-    public function getInternalInfo(): array
+    public function getInternalInfo()
     {
     }
 }
@@ -1674,7 +1674,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.addchilddocument.php
      */
-    public function addChildDocument(&$child)
+    public function addChildDocument(SolrInputDocument &$child)
     {
     }
 
@@ -1775,7 +1775,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.getchilddocuments.php
      */
-    public function getChildDocuments(): array
+    public function getChildDocuments()
     {
     }
 
@@ -1844,7 +1844,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.getfieldnames.php
      */
-    public function getFieldNames(): array
+    public function getFieldNames()
     {
     }
 
@@ -1873,7 +1873,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.merge.php
      */
-    public function merge(&$sourceDoc, $overwrite = null)
+    public function merge(SolrInputDocument &$sourceDoc, $overwrite = null)
     {
     }
 
@@ -1946,7 +1946,7 @@ final class SolrInputDocument
      *
      * @link http://www.php.net/manual/en/solrinputdocument.toarray.php
      */
-    public function toArray(): array
+    public function toArray()
     {
     }
 }
@@ -2034,7 +2034,7 @@ final class SolrObject implements ArrayAccess
      *
      * @link http://www.php.net/manual/en/solrobject.getpropertynames.php
      */
-    public function getPropertyNames(): array
+    public function getPropertyNames()
     {
     }
 
@@ -2191,7 +2191,7 @@ abstract class SolrParams implements Serializable
      *
      * @link http://www.php.net/manual/en/solrparams.getparams.php
      */
-    public function getParams(): array
+    public function getParams()
     {
     }
 
@@ -2204,7 +2204,7 @@ abstract class SolrParams implements Serializable
      *
      * @link http://www.php.net/manual/en/solrparams.getpreparedparams.php
      */
-    public function getPreparedParams(): array
+    public function getPreparedParams()
     {
     }
 
@@ -2650,7 +2650,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.collapse.php
      */
-    public function &collapse(&$collapseFunction)
+    public function &collapse(SolrCollapseFunction &$collapseFunction)
     {
     }
 
@@ -2676,7 +2676,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getexpandfilterqueries.php
      */
-    public function getExpandFilterQueries(): array
+    public function getExpandFilterQueries()
     {
     }
 
@@ -2689,7 +2689,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getexpandquery.php
      */
-    public function getExpandQuery(): array
+    public function getExpandQuery()
     {
     }
 
@@ -2715,7 +2715,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getexpandsortfields.php
      */
-    public function getExpandSortFields(): array
+    public function getExpandSortFields()
     {
     }
 
@@ -2756,7 +2756,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfacetdatefields.php
      */
-    public function getFacetDateFields(): array
+    public function getFacetDateFields()
     {
     }
 
@@ -2801,7 +2801,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfacetdateother.php
      */
-    public function getFacetDateOther($field_override = null): array
+    public function getFacetDateOther($field_override = null)
     {
     }
 
@@ -2829,7 +2829,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfacetfields.php
      */
-    public function getFacetFields(): array
+    public function getFacetFields()
     {
     }
 
@@ -2932,7 +2932,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfacetqueries.php
      */
-    public function getFacetQueries(): array
+    public function getFacetQueries()
     {
     }
 
@@ -2960,7 +2960,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfields.php
      */
-    public function getFields(): array
+    public function getFields()
     {
     }
 
@@ -2973,7 +2973,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getfilterqueries.php
      */
-    public function getFilterQueries(): array
+    public function getFilterQueries()
     {
     }
 
@@ -3025,7 +3025,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getgroupfields.php
      */
-    public function getGroupFields(): array
+    public function getGroupFields()
     {
     }
 
@@ -3051,7 +3051,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getgroupfunctions.php
      */
-    public function getGroupFunctions(): array
+    public function getGroupFunctions()
     {
     }
 
@@ -3116,7 +3116,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getgroupqueries.php
      */
-    public function getGroupQueries(): array
+    public function getGroupQueries()
     {
     }
 
@@ -3129,7 +3129,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getgroupsortfields.php
      */
-    public function getGroupSortFields(): array
+    public function getGroupSortFields()
     {
     }
 
@@ -3183,7 +3183,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.gethighlightfields.php
      */
-    public function getHighlightFields(): array
+    public function getHighlightFields()
     {
     }
 
@@ -3446,7 +3446,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getmltfields.php
      */
-    public function getMltFields(): array
+    public function getMltFields()
     {
     }
 
@@ -3537,7 +3537,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getmltqueryfields.php
      */
-    public function getMltQueryFields(): array
+    public function getMltQueryFields()
     {
     }
 
@@ -3576,7 +3576,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getsortfields.php
      */
-    public function getSortFields(): array
+    public function getSortFields()
     {
     }
 
@@ -3615,7 +3615,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getstatsfacets.php
      */
-    public function getStatsFacets(): array
+    public function getStatsFacets()
     {
     }
 
@@ -3628,7 +3628,7 @@ class SolrQuery extends SolrModifiableParams
      *
      * @link http://www.php.net/manual/en/solrquery.getstatsfields.php
      */
-    public function getStatsFields(): array
+    public function getStatsFields()
     {
     }
 
@@ -5340,7 +5340,7 @@ class SolrServerException extends SolrException
      *
      * @link http://www.php.net/manual/en/solrserverexception.getinternalinfo.php
      */
-    public function getInternalInfo(): array
+    public function getInternalInfo()
     {
     }
 }

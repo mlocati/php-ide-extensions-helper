@@ -449,7 +449,7 @@ function ftp_nb_put($ftp, $remote_file, $local_file, $mode, $startpos = null)
  *
  * @link http://www.php.net/manual/en/function.ftp-nlist.php
  */
-function ftp_nlist($ftp, $directory): array
+function ftp_nlist($ftp, $directory)
 {
 }
 
@@ -528,7 +528,7 @@ function ftp_quit($ftp)
  *
  * @link http://www.php.net/manual/en/function.ftp-raw.php
  */
-function ftp_raw($ftp, $command): array
+function ftp_raw($ftp, $command)
 {
 }
 
@@ -545,7 +545,7 @@ function ftp_raw($ftp, $command): array
  *
  * @link http://www.php.net/manual/en/function.ftp-rawlist.php
  */
-function ftp_rawlist($ftp, $directory, $recursive = null): array
+function ftp_rawlist($ftp, $directory, $recursive = null)
 {
 }
 

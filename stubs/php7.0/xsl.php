@@ -279,7 +279,7 @@ class XSLTProcessor
      *
      * @link http://www.php.net/manual/en/xsltprocessor.transformtodoc.php
      */
-    public function transformToDoc($doc)
+    public function transformToDoc($doc): DOMDocument
     {
     }
 

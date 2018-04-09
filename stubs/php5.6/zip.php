@@ -487,7 +487,7 @@ class ZipArchive
      *
      * @link http://www.php.net/manual/en/ziparchive.statindex.php
      */
-    public function statIndex($index, $flags = null): array
+    public function statIndex($index, $flags = null)
     {
     }
 
@@ -503,7 +503,7 @@ class ZipArchive
      *
      * @link http://www.php.net/manual/en/ziparchive.statname.php
      */
-    public function statName($filename, $flags = null): array
+    public function statName($filename, $flags = null)
     {
     }
 

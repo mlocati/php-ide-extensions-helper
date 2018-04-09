@@ -1059,7 +1059,7 @@ class mysqli
     /**
      * Returns a character set object
      *
-     * @return object
+     * @return mixed
      *
      * @link http://www.php.net/manual/en/mysqli.get-charset.php
      */
@@ -1551,14 +1551,14 @@ class mysqli_result implements Traversable
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-assoc.php
      */
-    public function fetch_assoc(): array
+    public function fetch_assoc()
     {
     }
 
     /**
      * Returns the next field in the result set
      *
-     * @return object
+     * @return mixed
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-field.php
      */
@@ -1571,7 +1571,7 @@ class mysqli_result implements Traversable
      *
      * @param mixed $field_nr
      *
-     * @return object
+     * @return mixed
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-field-direct.php
      */
@@ -1586,7 +1586,7 @@ class mysqli_result implements Traversable
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-fields.php
      */
-    public function fetch_fields(): array
+    public function fetch_fields()
     {
     }
 
@@ -1596,7 +1596,7 @@ class mysqli_result implements Traversable
      * @param mixed|null $class_name
      * @param array|null $params
      *
-     * @return object
+     * @return mixed
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-object.php
      */
@@ -1807,7 +1807,7 @@ class mysqli_stmt
     /**
      * Get result of SHOW WARNINGS
      *
-     * @return object
+     * @return mixed
      *
      * @link http://www.php.net/manual/en/mysqli-stmt.get-warnings.php
      */
@@ -2187,7 +2187,7 @@ function mysqli_error($link)
  *
  * @link http://www.php.net/manual/en/mysqli.error-list.php
  */
-function mysqli_error_list($link): array
+function mysqli_error_list($link)
 {
 }
 
@@ -2260,7 +2260,7 @@ function mysqli_fetch_array($result, $result_type = null)
  *
  * @link http://www.php.net/manual/en/mysqli-result.fetch-assoc.php
  */
-function mysqli_fetch_assoc($result): array
+function mysqli_fetch_assoc($result)
 {
 }
 
@@ -2269,7 +2269,7 @@ function mysqli_fetch_assoc($result): array
  *
  * @param mixed $result
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -2285,7 +2285,7 @@ function mysqli_fetch_field($result)
  * @param mixed $result
  * @param mixed $field_nr
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -2306,7 +2306,7 @@ function mysqli_fetch_field_direct($result, $field_nr)
  *
  * @link http://www.php.net/manual/en/mysqli-result.fetch-fields.php
  */
-function mysqli_fetch_fields($result): array
+function mysqli_fetch_fields($result)
 {
 }
 
@@ -2321,7 +2321,7 @@ function mysqli_fetch_fields($result): array
  *
  * @link http://www.php.net/manual/en/mysqli-result.lengths.php
  */
-function mysqli_fetch_lengths($result): array
+function mysqli_fetch_lengths($result)
 {
 }
 
@@ -2332,7 +2332,7 @@ function mysqli_fetch_lengths($result): array
  * @param mixed|null $class_name
  * @param array|null $params
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -2423,7 +2423,7 @@ function mysqli_free_result($result)
  *
  * @param mixed $link
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -2457,7 +2457,7 @@ function mysqli_get_client_info($link)
  *
  * @link http://www.php.net/manual/en/function.mysqli-get-client-stats.php
  */
-function mysqli_get_client_stats(): array
+function mysqli_get_client_stats()
 {
 }
 
@@ -2515,7 +2515,7 @@ function mysqli_get_host_info($link)
  *
  * @link http://www.php.net/manual/en/function.mysqli-get-links-stats.php
  */
-function mysqli_get_links_stats(): array
+function mysqli_get_links_stats()
 {
 }
 
@@ -3193,7 +3193,7 @@ function mysqli_stmt_error($stmt)
  *
  * @link http://www.php.net/manual/en/mysqli-stmt.error-list.php
  */
-function mysqli_stmt_error_list($stmt): array
+function mysqli_stmt_error_list($stmt)
 {
 }
 
@@ -3277,7 +3277,7 @@ function mysqli_stmt_get_result($stmt)
  *
  * @param mixed $stmt
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *

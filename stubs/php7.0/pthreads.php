@@ -118,7 +118,7 @@ class Pool
      *
      * @param int $size
      * @param string|null $class
-     * @param array[]|null $ctor
+     * @param array|null $ctor
      *
      * @return Pool
      *
@@ -126,7 +126,7 @@ class Pool
      *
      * @link http://www.php.net/manual/en/pool.construct.php
      */
-    public function __construct(int $size, string $class = null, $ctor = null)
+    public function __construct(int $size, string $class = null, array $ctor = null): Pool
     {
     }
 
@@ -141,7 +141,7 @@ class Pool
      *
      * @link http://www.php.net/manual/en/pool.collect.php
      */
-    public function collect($collector): int
+    public function collect(Closure $collector): int
     {
     }
 
@@ -184,7 +184,7 @@ class Pool
      *
      * @link http://www.php.net/manual/en/pool.submit.php
      */
-    public function submit($task): int
+    public function submit(Threaded $task): int
     {
     }
 
@@ -200,7 +200,7 @@ class Pool
      *
      * @link http://www.php.net/manual/en/pool.submitTo.php
      */
-    public function submitTo(int $worker, $task): int
+    public function submitTo(int $worker, Threaded $task): int
     {
     }
 }
@@ -236,7 +236,7 @@ class Thread extends Threaded
      *
      * @link http://www.php.net/manual/en/thread.getcurrentthread.php
      */
-    public static function getCurrentThread()
+    public static function getCurrentThread(): Thread
     {
     }
 
@@ -567,14 +567,14 @@ class Worker extends Thread
      *
      * @link http://www.php.net/manual/en/worker.collect.php
      */
-    public function collect($function = null): int
+    public function collect(Closure $function = null): int
     {
     }
 
     /**
      * @param Collectable $collectable
      */
-    public function collector($collectable)
+    public function collector(Collectable $collectable)
     {
     }
 
@@ -628,7 +628,7 @@ class Worker extends Thread
      *
      * @link http://www.php.net/manual/en/worker.stack.php
      */
-    public function stack($work): int
+    public function stack(Threaded $work): int
     {
     }
 

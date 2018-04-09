@@ -796,7 +796,7 @@ function pg_consume_input($connection)
  *
  * @link http://www.php.net/manual/en/function.pg-convert.php
  */
-function pg_convert($db, $table, $values, $options = null): array
+function pg_convert($db, $table, $values, $options = null)
 {
 }
 
@@ -833,7 +833,7 @@ function pg_copy_from($connection, $table_name, $rows, $delimiter = null, $null_
  *
  * @link http://www.php.net/manual/en/function.pg-copy-to.php
  */
-function pg_copy_to($connection, $table_name, $delimiter = null, $null_as = null): array
+function pg_copy_to($connection, $table_name, $delimiter = null, $null_as = null)
 {
 }
 
@@ -996,7 +996,7 @@ function pg_execute($connection = null, $stmtname = null, $params = null)
  *
  * @link http://www.php.net/manual/en/function.pg-fetch-all.php
  */
-function pg_fetch_all($result): array
+function pg_fetch_all($result)
 {
 }
 
@@ -1012,7 +1012,7 @@ function pg_fetch_all($result): array
  *
  * @link http://www.php.net/manual/en/function.pg-fetch-all-columns.php
  */
-function pg_fetch_all_columns($result, $column_number = null): array
+function pg_fetch_all_columns($result, $column_number = null)
 {
 }
 
@@ -1029,7 +1029,7 @@ function pg_fetch_all_columns($result, $column_number = null): array
  *
  * @link http://www.php.net/manual/en/function.pg-fetch-array.php
  */
-function pg_fetch_array($result, $row = null, $result_type = null): array
+function pg_fetch_array($result, $row = null, $result_type = null)
 {
 }
 
@@ -1045,7 +1045,7 @@ function pg_fetch_array($result, $row = null, $result_type = null): array
  *
  * @link http://www.php.net/manual/en/function.pg-fetch-assoc.php
  */
-function pg_fetch_assoc($result, $row = null): array
+function pg_fetch_assoc($result, $row = null)
 {
 }
 
@@ -1058,7 +1058,7 @@ function pg_fetch_assoc($result, $row = null): array
  * @param mixed|null $l
  * @param mixed|null $ctor_params
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1098,7 +1098,7 @@ function pg_fetch_result($result, $row_number = null, $field_name = null)
  *
  * @link http://www.php.net/manual/en/function.pg-fetch-row.php
  */
-function pg_fetch_row($result, $row = null, $result_type = null): array
+function pg_fetch_row($result, $row = null, $result_type = null)
 {
 }
 
@@ -1346,7 +1346,7 @@ function pg_freeresult($result)
  *
  * @link http://www.php.net/manual/en/function.pg-get-notify.php
  */
-function pg_get_notify($connection = null, $e = null): array
+function pg_get_notify($connection = null, $e = null)
 {
 }
 
@@ -1765,7 +1765,7 @@ function pg_lowrite($large_object, $buf, $len = null)
  *
  * @link http://www.php.net/manual/en/function.pg-meta-data.php
  */
-function pg_meta_data($db, $table): array
+function pg_meta_data($db, $table)
 {
 }
 
@@ -2287,6 +2287,6 @@ function pg_update($db, $table, $fields, $ids, $options = null)
  *
  * @link http://www.php.net/manual/en/function.pg-version.php
  */
-function pg_version($connection = null): array
+function pg_version($connection = null)
 {
 }

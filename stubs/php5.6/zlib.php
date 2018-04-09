@@ -153,7 +153,7 @@ function gzeof($fp)
  *
  * @link http://www.php.net/manual/en/function.gzfile.php
  */
-function gzfile($filename, $use_include_path = null): array
+function gzfile($filename, $use_include_path = null)
 {
 }
 

@@ -100,7 +100,7 @@ class GMP
  *
  * @link http://www.php.net/manual/en/function.gmp-abs.php
  */
-function gmp_abs($a)
+function gmp_abs($a): GMP
 {
 }
 
@@ -116,7 +116,7 @@ function gmp_abs($a)
  *
  * @link http://www.php.net/manual/en/function.gmp-add.php
  */
-function gmp_add($a, $b)
+function gmp_add($a, $b): GMP
 {
 }
 
@@ -132,7 +132,7 @@ function gmp_add($a, $b)
  *
  * @link http://www.php.net/manual/en/function.gmp-and.php
  */
-function gmp_and($a, $b)
+function gmp_and($a, $b): GMP
 {
 }
 
@@ -148,7 +148,7 @@ function gmp_and($a, $b)
  *
  * @link http://www.php.net/manual/en/function.gmp-clrbit.php
  */
-function gmp_clrbit($a, $index)
+function gmp_clrbit($a, $index): void
 {
 }
 
@@ -179,7 +179,7 @@ function gmp_cmp($a, $b): int
  *
  * @link http://www.php.net/manual/en/function.gmp-com.php
  */
-function gmp_com($a)
+function gmp_com($a): GMP
 {
 }
 
@@ -211,7 +211,7 @@ function gmp_div($a, $b, $round = null)
  *
  * @link http://www.php.net/manual/en/function.gmp-div-q.php
  */
-function gmp_div_q($a, $b, $round = null)
+function gmp_div_q($a, $b, $round = null): GMP
 {
 }
 
@@ -245,7 +245,7 @@ function gmp_div_qr($a, $b, $round = null): array
  *
  * @link http://www.php.net/manual/en/function.gmp-div-r.php
  */
-function gmp_div_r($a, $b, $round = null)
+function gmp_div_r($a, $b, $round = null): GMP
 {
 }
 
@@ -261,7 +261,7 @@ function gmp_div_r($a, $b, $round = null)
  *
  * @link http://www.php.net/manual/en/function.gmp-divexact.php
  */
-function gmp_divexact($a, $b)
+function gmp_divexact($a, $b): GMP
 {
 }
 
@@ -293,7 +293,7 @@ function gmp_export($gmpnumber, $word_size = null, $options = null): string
  *
  * @link http://www.php.net/manual/en/function.gmp-fact.php
  */
-function gmp_fact($a)
+function gmp_fact($a): GMP
 {
 }
 
@@ -309,7 +309,7 @@ function gmp_fact($a)
  *
  * @link http://www.php.net/manual/en/function.gmp-gcd.php
  */
-function gmp_gcd($a, $b)
+function gmp_gcd($a, $b): GMP
 {
 }
 
@@ -358,7 +358,7 @@ function gmp_hamdist($a, $b): int
  *
  * @link http://www.php.net/manual/en/function.gmp-import.php
  */
-function gmp_import($data, $word_size = null, $options = null)
+function gmp_import($data, $word_size = null, $options = null): GMP
 {
 }
 
@@ -374,7 +374,7 @@ function gmp_import($data, $word_size = null, $options = null)
  *
  * @link http://www.php.net/manual/en/function.gmp-init.php
  */
-function gmp_init($number, $base = null)
+function gmp_init($number, $base = null): GMP
 {
 }
 
@@ -405,7 +405,7 @@ function gmp_intval($gmpnumber): int
  *
  * @link http://www.php.net/manual/en/function.gmp-invert.php
  */
-function gmp_invert($a, $b)
+function gmp_invert($a, $b): GMP
 {
 }
 
@@ -453,7 +453,7 @@ function gmp_legendre($a, $b): int
  *
  * @link http://www.php.net/manual/en/function.gmp-mod.php
  */
-function gmp_mod($a, $b)
+function gmp_mod($a, $b): GMP
 {
 }
 
@@ -469,7 +469,7 @@ function gmp_mod($a, $b)
  *
  * @link http://www.php.net/manual/en/function.gmp-mul.php
  */
-function gmp_mul($a, $b)
+function gmp_mul($a, $b): GMP
 {
 }
 
@@ -484,7 +484,7 @@ function gmp_mul($a, $b)
  *
  * @link http://www.php.net/manual/en/function.gmp-neg.php
  */
-function gmp_neg($a)
+function gmp_neg($a): GMP
 {
 }
 
@@ -499,7 +499,7 @@ function gmp_neg($a)
  *
  * @link http://www.php.net/manual/en/function.gmp-nextprime.php
  */
-function gmp_nextprime($a)
+function gmp_nextprime($a): GMP
 {
 }
 
@@ -515,7 +515,7 @@ function gmp_nextprime($a)
  *
  * @link http://www.php.net/manual/en/function.gmp-or.php
  */
-function gmp_or($a, $b)
+function gmp_or($a, $b): GMP
 {
 }
 
@@ -561,7 +561,7 @@ function gmp_popcount($a): int
  *
  * @link http://www.php.net/manual/en/function.gmp-pow.php
  */
-function gmp_pow($base, $exp)
+function gmp_pow($base, $exp): GMP
 {
 }
 
@@ -578,7 +578,7 @@ function gmp_pow($base, $exp)
  *
  * @link http://www.php.net/manual/en/function.gmp-powm.php
  */
-function gmp_powm($base, $exp, $mod)
+function gmp_powm($base, $exp, $mod): GMP
 {
 }
 
@@ -611,7 +611,7 @@ function gmp_prob_prime($a, $reps = null): int
  *
  * @link http://www.php.net/manual/en/function.gmp-random.php
  */
-function gmp_random($limiter = null)
+function gmp_random($limiter = null): GMP
 {
 }
 
@@ -626,7 +626,7 @@ function gmp_random($limiter = null)
  *
  * @link http://www.php.net/manual/en/function.gmp-random-bits.php
  */
-function gmp_random_bits($bits)
+function gmp_random_bits($bits): GMP
 {
 }
 
@@ -642,7 +642,7 @@ function gmp_random_bits($bits)
  *
  * @link http://www.php.net/manual/en/function.gmp-random-range.php
  */
-function gmp_random_range($min, $max)
+function gmp_random_range($min, $max): GMP
 {
 }
 
@@ -657,7 +657,7 @@ function gmp_random_range($min, $max)
  *
  * @link http://www.php.net/manual/en/function.gmp-random-seed.php
  */
-function gmp_random_seed($seed)
+function gmp_random_seed($seed): void
 {
 }
 
@@ -673,7 +673,7 @@ function gmp_random_seed($seed)
  *
  * @link http://www.php.net/manual/en/function.gmp-root.php
  */
-function gmp_root($a, $nth)
+function gmp_root($a, $nth): GMP
 {
 }
 
@@ -738,7 +738,7 @@ function gmp_scan1($a, $start): int
  *
  * @link http://www.php.net/manual/en/function.gmp-setbit.php
  */
-function gmp_setbit($a, $index, $set_clear = null)
+function gmp_setbit($a, $index, $set_clear = null): void
 {
 }
 
@@ -768,7 +768,7 @@ function gmp_sign($a): int
  *
  * @link http://www.php.net/manual/en/function.gmp-sqrt.php
  */
-function gmp_sqrt($a)
+function gmp_sqrt($a): GMP
 {
 }
 
@@ -815,7 +815,7 @@ function gmp_strval($gmpnumber, $base = null): string
  *
  * @link http://www.php.net/manual/en/function.gmp-sub.php
  */
-function gmp_sub($a, $b)
+function gmp_sub($a, $b): GMP
 {
 }
 
@@ -847,6 +847,6 @@ function gmp_testbit($a, $index): bool
  *
  * @link http://www.php.net/manual/en/function.gmp-xor.php
  */
-function gmp_xor($a, $b)
+function gmp_xor($a, $b): GMP
 {
 }

@@ -1416,7 +1416,7 @@ function debug_backtrace($options = null, $limit = null): array
  *
  * @link http://www.php.net/manual/en/function.debug-print-backtrace.php
  */
-function debug_print_backtrace($options = null, $limit = null)
+function debug_print_backtrace($options = null, $limit = null): void
 {
 }
 
@@ -1577,7 +1577,7 @@ function gc_collect_cycles(): int
  *
  * @link http://www.php.net/manual/en/function.gc-disable.php
  */
-function gc_disable()
+function gc_disable(): void
 {
 }
 
@@ -1590,7 +1590,7 @@ function gc_disable()
  *
  * @link http://www.php.net/manual/en/function.gc-enable.php
  */
-function gc_enable()
+function gc_enable(): void
 {
 }
 

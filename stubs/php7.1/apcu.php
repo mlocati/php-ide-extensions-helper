@@ -212,7 +212,7 @@ class APCuIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/apcuiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -225,7 +225,7 @@ class APCuIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/apcuiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -238,7 +238,7 @@ class APCuIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/apcuiterator.valid.php
      */
-    public function valid()
+    public function valid(): void
     {
     }
 }

@@ -1232,7 +1232,7 @@ function ibase_fetch_assoc($result, $fetch_flags = null): array
  * @param mixed $result
  * @param mixed|null $fetch_flags
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *

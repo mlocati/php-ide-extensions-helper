@@ -11,7 +11,7 @@
  *
  * @link http://www.php.net/manual/en/function.apache-get-modules.php
  */
-function apache_get_modules(): array
+function apache_get_modules()
 {
 }
 
@@ -49,7 +49,7 @@ function apache_getenv($variable, $walk_to_top = null)
  *
  * @param mixed $filename
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -84,7 +84,7 @@ function apache_note($note_name, $note_value = null)
  *
  * @link http://www.php.net/manual/en/function.apache-request-headers.php
  */
-function apache_request_headers(): array
+function apache_request_headers()
 {
 }
 
@@ -97,7 +97,7 @@ function apache_request_headers(): array
  *
  * @link http://www.php.net/manual/en/function.apache-response-headers.php
  */
-function apache_response_headers(): array
+function apache_response_headers()
 {
 }
 
@@ -127,7 +127,7 @@ function apache_setenv($variable, $value, $walk_to_top = null)
  *
  * @link http://www.php.net/manual/en/function.getallheaders.php
  */
-function getallheaders(): array
+function getallheaders()
 {
 }
 

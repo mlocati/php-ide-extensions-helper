@@ -427,7 +427,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.getlasterrors.php
      */
-    public static function getLastErrors(): array
+    public static function getLastErrors()
     {
     }
 
@@ -720,7 +720,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.getlasterrors.php
      */
-    public static function getLastErrors(): array
+    public static function getLastErrors()
     {
     }
 
@@ -922,7 +922,7 @@ class DateTimeZone
      *
      * @link http://www.php.net/manual/en/datetimezone.getlocation.php
      */
-    public function getLocation(): array
+    public function getLocation()
     {
     }
 
@@ -966,7 +966,7 @@ class DateTimeZone
      *
      * @link http://www.php.net/manual/en/datetimezone.gettransitions.php
      */
-    public function getTransitions($timestamp_begin, $timestamp_end): array
+    public function getTransitions($timestamp_begin, $timestamp_end)
     {
     }
 
@@ -979,7 +979,7 @@ class DateTimeZone
      *
      * @link http://www.php.net/manual/en/datetimezone.listabbreviations.php
      */
-    public static function listAbbreviations(): array
+    public static function listAbbreviations()
     {
     }
 
@@ -995,7 +995,7 @@ class DateTimeZone
      *
      * @link http://www.php.net/manual/en/datetimezone.listidentifiers.php
      */
-    public static function listIdentifiers($what = null, $country = null): array
+    public static function listIdentifiers($what = null, $country = null)
     {
     }
 }
@@ -1204,7 +1204,7 @@ function date_format($object, $format)
  *
  * @link http://www.php.net/manual/en/datetime.getlasterrors.php
  */
-function date_get_last_errors(): array
+function date_get_last_errors()
 {
 }
 
@@ -1295,7 +1295,7 @@ function date_offset_get($object)
  *
  * @link http://www.php.net/manual/en/function.date-parse.php
  */
-function date_parse($date): array
+function date_parse($date)
 {
 }
 
@@ -1311,7 +1311,7 @@ function date_parse($date): array
  *
  * @link http://www.php.net/manual/en/function.date-parse-from-format.php
  */
-function date_parse_from_format($format, $date): array
+function date_parse_from_format($format, $date)
 {
 }
 
@@ -1345,7 +1345,7 @@ function date_sub($object, $interval)
  *
  * @link http://www.php.net/manual/en/function.date-sun-info.php
  */
-function date_sun_info($time, $latitude, $longitude): array
+function date_sun_info($time, $latitude, $longitude)
 {
 }
 
@@ -1480,7 +1480,7 @@ function date_timezone_set($object, $timezone)
  *
  * @link http://www.php.net/manual/en/function.getdate.php
  */
-function getdate($timestamp = null): array
+function getdate($timestamp = null)
 {
 }
 
@@ -1565,7 +1565,7 @@ function idate($format, $timestamp = null)
  *
  * @link http://www.php.net/manual/en/function.localtime.php
  */
-function localtime($timestamp = null, $associative_array = null): array
+function localtime($timestamp = null, $associative_array = null)
 {
 }
 
@@ -1644,7 +1644,7 @@ function time()
  *
  * @link http://www.php.net/manual/en/datetimezone.listabbreviations.php
  */
-function timezone_abbreviations_list(): array
+function timezone_abbreviations_list()
 {
 }
 
@@ -1660,7 +1660,7 @@ function timezone_abbreviations_list(): array
  *
  * @link http://www.php.net/manual/en/datetimezone.listidentifiers.php
  */
-function timezone_identifiers_list($what = null, $country = null): array
+function timezone_identifiers_list($what = null, $country = null)
 {
 }
 
@@ -1675,7 +1675,7 @@ function timezone_identifiers_list($what = null, $country = null): array
  *
  * @link http://www.php.net/manual/en/datetimezone.getlocation.php
  */
-function timezone_location_get($object): array
+function timezone_location_get($object)
 {
 }
 
@@ -1755,7 +1755,7 @@ function timezone_open($timezone)
  *
  * @link http://www.php.net/manual/en/datetimezone.gettransitions.php
  */
-function timezone_transitions_get($object, $timestamp_begin = null, $timestamp_end = null): array
+function timezone_transitions_get($object, $timestamp_begin = null, $timestamp_end = null)
 {
 }
 

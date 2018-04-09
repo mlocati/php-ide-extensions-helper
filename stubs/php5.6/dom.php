@@ -637,7 +637,7 @@ class DOMDocument extends DOMNode
      *
      * @since PHP 5, PHP 7
      */
-    public function adoptNode($source)
+    public function adoptNode(DOMNode $source)
     {
     }
 
@@ -852,7 +852,7 @@ class DOMDocument extends DOMNode
      *
      * @link http://www.php.net/manual/en/domdocument.importnode.php
      */
-    public function importNode($importedNode, $deep)
+    public function importNode(DOMNode $importedNode, $deep)
     {
     }
 
@@ -986,7 +986,7 @@ class DOMDocument extends DOMNode
      *
      * @since PHP 5, PHP 7
      */
-    public function renameNode($node, $namespaceURI, $qualifiedName)
+    public function renameNode(DOMNode $node, $namespaceURI, $qualifiedName)
     {
     }
 
@@ -1044,7 +1044,7 @@ class DOMDocument extends DOMNode
      *
      * @link http://www.php.net/manual/en/domdocument.savexml.php
      */
-    public function saveXML($node = null)
+    public function saveXML(DOMNode $node = null)
     {
     }
 
@@ -1325,7 +1325,7 @@ class DOMElement extends DOMNode
      *
      * @link http://www.php.net/manual/en/domelement.removeattributenode.php
      */
-    public function removeAttributeNode($oldAttr)
+    public function removeAttributeNode(DOMAttr $oldAttr)
     {
     }
 
@@ -1372,7 +1372,7 @@ class DOMElement extends DOMNode
      *
      * @link http://www.php.net/manual/en/domelement.setattributenode.php
      */
-    public function setAttributeNode($newAttr)
+    public function setAttributeNode(DOMAttr $newAttr)
     {
     }
 
@@ -1387,7 +1387,7 @@ class DOMElement extends DOMNode
      *
      * @link http://www.php.net/manual/en/domelement.setattributenodens.php
      */
-    public function setAttributeNodeNS($newAttr)
+    public function setAttributeNodeNS(DOMAttr $newAttr)
     {
     }
 
@@ -1436,7 +1436,7 @@ class DOMElement extends DOMNode
      *
      * @link http://www.php.net/manual/en/domelement.setidattributenode.php
      */
-    public function setIdAttributeNode($attr, $isId)
+    public function setIdAttributeNode(DOMAttr $attr, $isId)
     {
     }
 
@@ -1495,7 +1495,7 @@ class DOMErrorHandler
     /**
      * @param DOMDomError $error
      */
-    public function handleError($error)
+    public function handleError(DOMDomError $error)
     {
     }
 }
@@ -1536,7 +1536,7 @@ class DOMImplementation
      *
      * @link http://www.php.net/manual/en/domimplementation.createdocument.php
      */
-    public function createDocument($namespaceURI, $qualifiedName, $docType)
+    public function createDocument($namespaceURI, $qualifiedName, DOMDocumentType $docType)
     {
     }
 
@@ -1689,7 +1689,7 @@ class DOMNamedNodeMap implements Traversable
      *
      * @since PHP 5, PHP 7
      */
-    public function setNamedItem($arg)
+    public function setNamedItem(DOMNode $arg)
     {
     }
 
@@ -1698,7 +1698,7 @@ class DOMNamedNodeMap implements Traversable
      *
      * @since PHP 5, PHP 7
      */
-    public function setNamedItemNS($arg = null)
+    public function setNamedItemNS(DOMNode $arg = null)
     {
     }
 }
@@ -1760,7 +1760,7 @@ class DOMNode
      *
      * @link http://www.php.net/manual/en/domnode.appendchild.php
      */
-    public function appendChild($newChild)
+    public function appendChild(DOMNode $newChild)
     {
     }
 
@@ -1821,7 +1821,7 @@ class DOMNode
      *
      * @since PHP 5, PHP 7
      */
-    public function compareDocumentPosition($other)
+    public function compareDocumentPosition(DOMNode $other)
     {
     }
 
@@ -1908,7 +1908,7 @@ class DOMNode
      *
      * @link http://www.php.net/manual/en/domnode.insertbefore.php
      */
-    public function insertBefore($newChild, $refChild = null)
+    public function insertBefore(DOMNode $newChild, DOMNode $refChild = null)
     {
     }
 
@@ -1932,7 +1932,7 @@ class DOMNode
      *
      * @since PHP 5, PHP 7
      */
-    public function isEqualNode($arg)
+    public function isEqualNode(DOMNode $arg)
     {
     }
 
@@ -1947,7 +1947,7 @@ class DOMNode
      *
      * @link http://www.php.net/manual/en/domnode.issamenode.php
      */
-    public function isSameNode($other)
+    public function isSameNode(DOMNode $other)
     {
     }
 
@@ -2021,7 +2021,7 @@ class DOMNode
      *
      * @link http://www.php.net/manual/en/domnode.removechild.php
      */
-    public function removeChild($oldChild)
+    public function removeChild(DOMNode $oldChild)
     {
     }
 
@@ -2037,7 +2037,7 @@ class DOMNode
      *
      * @link http://www.php.net/manual/en/domnode.replacechild.php
      */
-    public function replaceChild($newChild, $oldChild)
+    public function replaceChild(DOMNode $newChild, DOMNode $oldChild)
     {
     }
 
@@ -2241,7 +2241,7 @@ class DOMXPath
      *
      * @link http://www.php.net/manual/en/domxpath.construct.php
      */
-    public function __construct($doc)
+    public function __construct(DOMDocument $doc)
     {
     }
 
@@ -2258,7 +2258,7 @@ class DOMXPath
      *
      * @link http://www.php.net/manual/en/domxpath.evaluate.php
      */
-    public function evaluate($expr, $context = null, $registerNodeNS = null)
+    public function evaluate($expr, DOMNode $context = null, $registerNodeNS = null)
     {
     }
 
@@ -2275,7 +2275,7 @@ class DOMXPath
      *
      * @link http://www.php.net/manual/en/domxpath.query.php
      */
-    public function query($expr, $context = null, $registerNodeNS = null)
+    public function query($expr, DOMNode $context = null, $registerNodeNS = null)
     {
     }
 

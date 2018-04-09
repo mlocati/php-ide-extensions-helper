@@ -105,7 +105,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.buildfromdirectory.php
      */
-    public function buildFromDirectory($base_dir, $regex = null): array
+    public function buildFromDirectory($base_dir, $regex = null)
     {
     }
 
@@ -121,7 +121,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.buildfromiterator.php
      */
-    public function buildFromIterator($iterator, $base_directory = null): array
+    public function buildFromIterator($iterator, $base_directory = null)
     {
     }
 
@@ -159,7 +159,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      * @param mixed $compression_type
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -268,7 +268,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -397,7 +397,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.getsignature.php
      */
-    public function getSignature(): array
+    public function getSignature()
     {
     }
 
@@ -423,7 +423,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.getsupportedcompression.php
      */
-    final public static function getSupportedCompression(): array
+    final public static function getSupportedCompression()
     {
     }
 
@@ -436,7 +436,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.getsupportedsignatures.php
      */
-    final public static function getSupportedSignatures(): array
+    final public static function getSupportedSignatures()
     {
     }
 
@@ -921,7 +921,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.buildfromdirectory.php
      */
-    public function buildFromDirectory($base_dir, $regex = null): array
+    public function buildFromDirectory($base_dir, $regex = null)
     {
     }
 
@@ -937,7 +937,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.buildfromiterator.php
      */
-    public function buildFromIterator($iterator, $base_directory = null): array
+    public function buildFromIterator($iterator, $base_directory = null)
     {
     }
 
@@ -958,7 +958,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      * @param mixed $compression_type
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *
@@ -1050,7 +1050,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @param mixed|null $file_ext
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
      *

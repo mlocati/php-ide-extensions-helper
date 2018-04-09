@@ -13,7 +13,7 @@
  *
  * @link http://www.php.net/manual/en/function.dba-close.php
  */
-function dba_close($handle)
+function dba_close($handle): void
 {
 }
 

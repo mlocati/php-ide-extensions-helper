@@ -506,7 +506,7 @@ class SodiumException extends Exception
  *
  * @link http://www.php.net/manual/en/function.sodium-add.php
  */
-function sodium_add(&$string_1, $string_2)
+function sodium_add(&$string_1, $string_2): void
 {
 }
 
@@ -1571,7 +1571,7 @@ function sodium_hex2bin($string_1, $string_2 = null): string
  *
  * @link http://www.php.net/manual/en/function.sodium-increment.php
  */
-function sodium_increment(&$string)
+function sodium_increment(&$string): void
 {
 }
 
@@ -1603,7 +1603,7 @@ function sodium_memcmp($string_1, $string_2): int
  *
  * @link http://www.php.net/manual/en/function.sodium-memzero.php
  */
-function sodium_memzero(&$reference, $length)
+function sodium_memzero(&$reference, $length): void
 {
 }
 

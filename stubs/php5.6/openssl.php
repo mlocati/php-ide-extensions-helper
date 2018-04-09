@@ -454,7 +454,7 @@ function openssl_csr_get_public_key($csr)
  *
  * @link http://www.php.net/manual/en/function.openssl-csr-get-subject.php
  */
-function openssl_csr_get_subject($csr): array
+function openssl_csr_get_subject($csr)
 {
 }
 
@@ -604,7 +604,7 @@ function openssl_free_key($key)
  *
  * @link http://www.php.net/manual/en/function.openssl-get-cert-locations.php
  */
-function openssl_get_cert_locations(): array
+function openssl_get_cert_locations()
 {
 }
 
@@ -619,7 +619,7 @@ function openssl_get_cert_locations(): array
  *
  * @link http://www.php.net/manual/en/function.openssl-get-cipher-methods.php
  */
-function openssl_get_cipher_methods($aliases = null): array
+function openssl_get_cipher_methods($aliases = null)
 {
 }
 
@@ -634,7 +634,7 @@ function openssl_get_cipher_methods($aliases = null): array
  *
  * @link http://www.php.net/manual/en/function.openssl-get-md-methods.php
  */
-function openssl_get_md_methods($aliases = null): array
+function openssl_get_md_methods($aliases = null)
 {
 }
 
@@ -898,7 +898,7 @@ function openssl_pkey_free($key)
  *
  * @link http://www.php.net/manual/en/function.openssl-pkey-get-details.php
  */
-function openssl_pkey_get_details($key): array
+function openssl_pkey_get_details($key)
 {
 }
 
@@ -1265,7 +1265,7 @@ function openssl_x509_free($x509)
  *
  * @link http://www.php.net/manual/en/function.openssl-x509-parse.php
  */
-function openssl_x509_parse($x509, $shortname): array
+function openssl_x509_parse($x509, $shortname)
 {
 }
 

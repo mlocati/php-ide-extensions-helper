@@ -553,7 +553,7 @@ function filter_input_array($type, $definition = null, $add_empty = null)
  *
  * @link http://www.php.net/manual/en/function.filter-list.php
  */
-function filter_list(): array
+function filter_list()
 {
 }
 

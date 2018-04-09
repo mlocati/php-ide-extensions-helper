@@ -230,7 +230,7 @@ function mssql_execute($stmt, $skip_results = null)
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-array.php
  */
-function mssql_fetch_array($result, $result_type = null): array
+function mssql_fetch_array($result, $result_type = null)
 {
 }
 
@@ -245,7 +245,7 @@ function mssql_fetch_array($result, $result_type = null): array
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-assoc.php
  */
-function mssql_fetch_assoc($result_id): array
+function mssql_fetch_assoc($result_id)
 {
 }
 
@@ -270,7 +270,7 @@ function mssql_fetch_batch($result)
  * @param mixed $result
  * @param mixed|null $field_offset
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PECL odbtp >= 1.1.1
  *
@@ -285,7 +285,7 @@ function mssql_fetch_field($result, $field_offset = null)
  *
  * @param mixed $result
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PECL odbtp >= 1.1.1
  *
@@ -306,7 +306,7 @@ function mssql_fetch_object($result)
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-row.php
  */
-function mssql_fetch_row($result): array
+function mssql_fetch_row($result)
 {
 }
 

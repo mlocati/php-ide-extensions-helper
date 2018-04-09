@@ -601,7 +601,7 @@ function openssl_error_string(): string
  *
  * @link http://www.php.net/manual/en/function.openssl-free-key.php
  */
-function openssl_free_key($key)
+function openssl_free_key($key): void
 {
 }
 
@@ -908,7 +908,7 @@ function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, $co
  *
  * @link http://www.php.net/manual/en/function.openssl-pkey-free.php
  */
-function openssl_pkey_free($key)
+function openssl_pkey_free($key): void
 {
 }
 
@@ -1275,7 +1275,7 @@ function openssl_x509_fingerprint($x509, $method = null, $raw_output = null): st
  *
  * @link http://www.php.net/manual/en/function.openssl-x509-free.php
  */
-function openssl_x509_free($x509)
+function openssl_x509_free($x509): void
 {
 }
 

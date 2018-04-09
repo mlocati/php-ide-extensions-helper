@@ -474,7 +474,7 @@ function ldap_escape($value, $ignore = null, $flags = null)
  *
  * @link http://www.php.net/manual/en/function.ldap-explode-dn.php
  */
-function ldap_explode_dn($dn, $with_attrib): array
+function ldap_explode_dn($dn, $with_attrib)
 {
 }
 
@@ -553,7 +553,7 @@ function ldap_free_result($link_identifier)
  *
  * @link http://www.php.net/manual/en/function.ldap-get-attributes.php
  */
-function ldap_get_attributes($link_identifier, $result_entry_identifier): array
+function ldap_get_attributes($link_identifier, $result_entry_identifier)
 {
 }
 
@@ -585,7 +585,7 @@ function ldap_get_dn($link_identifier, $result_entry_identifier)
  *
  * @link http://www.php.net/manual/en/function.ldap-get-entries.php
  */
-function ldap_get_entries($link_identifier, $result_identifier): array
+function ldap_get_entries($link_identifier, $result_identifier)
 {
 }
 
@@ -619,7 +619,7 @@ function ldap_get_option($link_identifier, $option, &$retval)
  *
  * @link http://www.php.net/manual/en/function.ldap-get-values.php
  */
-function ldap_get_values($link_identifier, $result_entry_identifier, $attribute): array
+function ldap_get_values($link_identifier, $result_entry_identifier, $attribute)
 {
 }
 
@@ -636,7 +636,7 @@ function ldap_get_values($link_identifier, $result_entry_identifier, $attribute)
  *
  * @link http://www.php.net/manual/en/function.ldap-get-values-len.php
  */
-function ldap_get_values_len($link_identifier, $result_entry_identifier, $attribute): array
+function ldap_get_values_len($link_identifier, $result_entry_identifier, $attribute)
 {
 }
 

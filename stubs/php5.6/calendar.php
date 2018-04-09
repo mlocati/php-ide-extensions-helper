@@ -242,7 +242,7 @@ function cal_days_in_month($calendar, $month, $year)
  *
  * @link http://www.php.net/manual/en/function.cal-from-jd.php
  */
-function cal_from_jd($jd, $calendar): array
+function cal_from_jd($jd, $calendar)
 {
 }
 
@@ -257,7 +257,7 @@ function cal_from_jd($jd, $calendar): array
  *
  * @link http://www.php.net/manual/en/function.cal-info.php
  */
-function cal_info($calendar = null): array
+function cal_info($calendar = null)
 {
 }
 

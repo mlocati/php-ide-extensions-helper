@@ -42,7 +42,7 @@ function exif_imagetype($imagefile)
  *
  * @link http://www.php.net/manual/en/function.exif-read-data.php
  */
-function exif_read_data($filename, $sections_needed = null, $sub_arrays = null, $read_thumbnail = null): array
+function exif_read_data($filename, $sections_needed = null, $sub_arrays = null, $read_thumbnail = null)
 {
 }
 

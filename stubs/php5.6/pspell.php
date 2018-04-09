@@ -338,6 +338,6 @@ function pspell_store_replacement($pspell, $misspell, $correct)
  *
  * @link http://www.php.net/manual/en/function.pspell-suggest.php
  */
-function pspell_suggest($pspell, $word): array
+function pspell_suggest($pspell, $word)
 {
 }

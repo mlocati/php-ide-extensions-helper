@@ -340,7 +340,7 @@ function libxml_get_errors(): array
  *
  * @link http://www.php.net/manual/en/function.libxml-get-last-error.php
  */
-function libxml_get_last_error()
+function libxml_get_last_error(): LibXMLError
 {
 }
 

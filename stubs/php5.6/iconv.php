@@ -101,7 +101,7 @@ function iconv_mime_decode($encoded_string, $mode = null, $charset = null)
  *
  * @link http://www.php.net/manual/en/function.iconv-mime-decode-headers.php
  */
-function iconv_mime_decode_headers($headers, $mode = null, $charset = null): array
+function iconv_mime_decode_headers($headers, $mode = null, $charset = null)
 {
 }
 

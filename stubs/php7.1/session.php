@@ -509,7 +509,7 @@ function session_regenerate_id($delete_old_session = null): bool
  *
  * @link http://www.php.net/manual/en/function.session-register-shutdown.php
  */
-function session_register_shutdown()
+function session_register_shutdown(): void
 {
 }
 

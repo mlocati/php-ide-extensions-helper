@@ -57,7 +57,7 @@ class Reflection
      *
      * @link http://www.php.net/manual/en/reflection.export.php
      */
-    public static function export($reflector, $return = null)
+    public static function export(Reflector $reflector, $return = null)
     {
     }
 
@@ -72,7 +72,7 @@ class Reflection
      *
      * @link http://www.php.net/manual/en/reflection.getmodifiernames.php
      */
-    public static function getModifierNames($modifiers): array
+    public static function getModifierNames($modifiers)
     {
     }
 }
@@ -157,7 +157,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getconstants.php
      */
-    public function getConstants(): array
+    public function getConstants()
     {
     }
 
@@ -183,7 +183,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getdefaultproperties.php
      */
-    public function getDefaultProperties(): array
+    public function getDefaultProperties()
     {
     }
 
@@ -261,7 +261,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getinterfacenames.php
      */
-    public function getInterfaceNames(): array
+    public function getInterfaceNames()
     {
     }
 
@@ -274,7 +274,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getinterfaces.php
      */
-    public function getInterfaces(): array
+    public function getInterfaces()
     {
     }
 
@@ -304,7 +304,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getmethods.php
      */
-    public function getMethods($filter = null): array
+    public function getMethods($filter = null)
     {
     }
 
@@ -371,7 +371,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getproperties.php
      */
-    public function getProperties($filter = null): array
+    public function getProperties($filter = null)
     {
     }
 
@@ -425,7 +425,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getstaticproperties.php
      */
-    public function getStaticProperties(): array
+    public function getStaticProperties()
     {
     }
 
@@ -454,7 +454,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.gettraitaliases.php
      */
-    public function getTraitAliases(): array
+    public function getTraitAliases()
     {
     }
 
@@ -467,7 +467,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.gettraitnames.php
      */
-    public function getTraitNames(): array
+    public function getTraitNames()
     {
     }
 
@@ -480,7 +480,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.gettraits.php
      */
-    public function getTraits(): array
+    public function getTraits()
     {
     }
 
@@ -709,7 +709,7 @@ class ReflectionClass implements Reflector
      *
      * @param mixed $args
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5, PHP 7
      *
@@ -724,7 +724,7 @@ class ReflectionClass implements Reflector
      *
      * @param array|null $args
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
@@ -737,7 +737,7 @@ class ReflectionClass implements Reflector
     /**
      * Creates a new class instance without invoking the constructor
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -849,7 +849,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getclasses.php
      */
-    public function getClasses(): array
+    public function getClasses()
     {
     }
 
@@ -862,7 +862,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getclassnames.php
      */
-    public function getClassNames(): array
+    public function getClassNames()
     {
     }
 
@@ -875,7 +875,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getconstants.php
      */
-    public function getConstants(): array
+    public function getConstants()
     {
     }
 
@@ -888,7 +888,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getdependencies.php
      */
-    public function getDependencies(): array
+    public function getDependencies()
     {
     }
 
@@ -901,7 +901,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getfunctions.php
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
     }
 
@@ -914,7 +914,7 @@ class ReflectionExtension implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionextension.getinientries.php
      */
-    public function getINIEntries(): array
+    public function getINIEntries()
     {
     }
 
@@ -1143,7 +1143,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns this pointer bound to closure
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1279,7 +1279,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionfunctionabstract.getparameters.php
      */
-    public function getParameters(): array
+    public function getParameters()
     {
     }
 
@@ -1318,7 +1318,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
      */
-    public function getStaticVariables(): array
+    public function getStaticVariables()
     {
     }
 

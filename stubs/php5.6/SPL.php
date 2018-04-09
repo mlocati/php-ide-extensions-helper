@@ -124,7 +124,7 @@ interface SplObserver
      *
      * @link http://www.php.net/manual/en/splobserver.update.php
      */
-    public function update($SplSubject);
+    public function update(SplSubject $SplSubject);
 }
 
 /**
@@ -148,7 +148,7 @@ interface SplSubject
      *
      * @link http://www.php.net/manual/en/splsubject.attach.php
      */
-    public function attach($SplObserver);
+    public function attach(SplObserver $SplObserver);
 
     /**
      * Detach an observer
@@ -161,7 +161,7 @@ interface SplSubject
      *
      * @link http://www.php.net/manual/en/splsubject.detach.php
      */
-    public function detach($SplObserver);
+    public function detach(SplObserver $SplObserver);
 
     /**
      * Notify an observer
@@ -206,7 +206,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.append.php
      */
-    public function append($iterator)
+    public function append(Iterator $iterator)
     {
     }
 
@@ -265,7 +265,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current key
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -401,7 +401,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.getarraycopy.php
      */
-    public function getArrayCopy(): array
+    public function getArrayCopy()
     {
     }
 
@@ -733,7 +733,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.exchangearray.php
      */
-    public function exchangeArray($array): array
+    public function exchangeArray($array)
     {
     }
 
@@ -746,7 +746,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.getarraycopy.php
      */
-    public function getArrayCopy(): array
+    public function getArrayCopy()
     {
     }
 
@@ -1021,7 +1021,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.construct.php
      */
-    public function __construct($iterator, $flags = null)
+    public function __construct(Iterator $iterator, $flags = null)
     {
     }
 
@@ -1073,7 +1073,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.getcache.php
      */
-    public function getCache(): array
+    public function getCache()
     {
     }
 
@@ -1119,7 +1119,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the key for the current element
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5, PHP 7
      *
@@ -1265,7 +1265,7 @@ class CallbackFilterIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/callbackfilteriterator.construct.php
      */
-    public function __construct($iterator, $callback)
+    public function __construct(Iterator $iterator, $callback)
     {
     }
 
@@ -1490,7 +1490,7 @@ class EmptyIterator implements Iterator
     /**
      * The key() method
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1664,7 +1664,7 @@ abstract class FilterIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/filteriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -1816,7 +1816,7 @@ class InfiniteIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/infiniteiterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -1868,7 +1868,7 @@ class IteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/iteratoriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Traversable $iterator)
     {
     }
 
@@ -1901,7 +1901,7 @@ class IteratorIterator implements OuterIterator
     /**
      * Get the key of the current element
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1983,7 +1983,7 @@ class LimitIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/limititerator.construct.php
      */
-    public function __construct($iterator, $offset = null, $count = null)
+    public function __construct(Iterator $iterator, $offset = null, $count = null)
     {
     }
 
@@ -2140,7 +2140,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.attachiterator.php
      */
-    public function attachIterator($iterator, $infos = null)
+    public function attachIterator(Iterator $iterator, $infos = null)
     {
     }
 
@@ -2155,7 +2155,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.containsiterator.php
      */
-    public function containsIterator($iterator)
+    public function containsIterator(Iterator $iterator)
     {
     }
 
@@ -2181,7 +2181,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.current.php
      */
-    public function current(): array
+    public function current()
     {
     }
 
@@ -2196,7 +2196,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.detachiterator.php
      */
-    public function detachIterator($iterator)
+    public function detachIterator(Iterator $iterator)
     {
     }
 
@@ -2222,7 +2222,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.key.php
      */
-    public function key(): array
+    public function key()
     {
     }
 
@@ -2299,7 +2299,7 @@ class NoRewindIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/norewinditerator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -2437,7 +2437,7 @@ class ParentIterator extends RecursiveFilterIterator
      *
      * @link http://www.php.net/manual/en/parentiterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(RecursiveIterator $iterator)
     {
     }
 
@@ -2526,7 +2526,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      *
      * @link http://www.php.net/manual/en/recursivecachingiterator.construct.php
      */
-    public function __construct($iterator, $flags = null)
+    public function __construct(Iterator $iterator, $flags = null)
     {
     }
 
@@ -2577,7 +2577,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      *
      * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
-    public function __construct($iterator, $callback)
+    public function __construct(RecursiveIterator $iterator, $callback)
     {
     }
 
@@ -2707,7 +2707,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
      *
      * @link http://www.php.net/manual/en/recursivefilteriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(RecursiveIterator $iterator)
     {
     }
 
@@ -2758,7 +2758,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.construct.php
      */
-    public function __construct($iterator, $mode = null, $flags = null)
+    public function __construct(Traversable $iterator, $mode = null, $flags = null)
     {
     }
 
@@ -3010,7 +3010,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      *
      * @link http://www.php.net/manual/en/recursiveregexiterator.construct.php
      */
-    public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(RecursiveIterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
@@ -3069,7 +3069,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.construct.php
      */
-    public function __construct($iterator, $flags = null, $caching_it_flags = null, $mode = null)
+    public function __construct(Traversable $iterator, $flags = null, $caching_it_flags = null, $mode = null)
     {
     }
 
@@ -3320,7 +3320,7 @@ class RegexIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/regexiterator.construct.php
      */
-    public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(Iterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
@@ -4222,8 +4222,6 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Retrieve current line of file
      *
-     * @return string|array
-     *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.current.php
@@ -4284,7 +4282,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.fgetcsv.php
      */
-    public function fgetcsv($delimiter = null, $enclosure = null, $escape = null): array
+    public function fgetcsv($delimiter = null, $enclosure = null, $escape = null)
     {
     }
 
@@ -4419,7 +4417,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.fstat.php
      */
-    public function fstat(): array
+    public function fstat()
     {
     }
 
@@ -4489,7 +4487,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.getcsvcontrol.php
      */
-    public function getCsvControl(): array
+    public function getCsvControl()
     {
     }
 
@@ -4876,7 +4874,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.toarray.php
      */
-    public function toArray(): array
+    public function toArray()
     {
     }
 
@@ -5185,7 +5183,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the current storage entry
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5723,7 +5721,7 @@ class UnexpectedValueException extends RuntimeException
  *
  * @link http://www.php.net/manual/en/function.class-implements.php
  */
-function class_implements($what, $autoload = null): array
+function class_implements($what, $autoload = null)
 {
 }
 
@@ -5739,7 +5737,7 @@ function class_implements($what, $autoload = null): array
  *
  * @link http://www.php.net/manual/en/function.class-parents.php
  */
-function class_parents($instance, $autoload = null): array
+function class_parents($instance, $autoload = null)
 {
 }
 
@@ -5755,7 +5753,7 @@ function class_parents($instance, $autoload = null): array
  *
  * @link http://www.php.net/manual/en/function.class-uses.php
  */
-function class_uses($what, $autoload = null): array
+function class_uses($what, $autoload = null)
 {
 }
 
@@ -5772,7 +5770,7 @@ function class_uses($what, $autoload = null): array
  *
  * @link http://www.php.net/manual/en/function.iterator-apply.php
  */
-function iterator_apply($iterator, $function, array $args = null)
+function iterator_apply(Traversable $iterator, $function, array $args = null)
 {
 }
 
@@ -5787,7 +5785,7 @@ function iterator_apply($iterator, $function, array $args = null)
  *
  * @link http://www.php.net/manual/en/function.iterator-count.php
  */
-function iterator_count($iterator)
+function iterator_count(Traversable $iterator)
 {
 }
 
@@ -5803,7 +5801,7 @@ function iterator_count($iterator)
  *
  * @link http://www.php.net/manual/en/function.iterator-to-array.php
  */
-function iterator_to_array($iterator, $use_keys = null): array
+function iterator_to_array(Traversable $iterator, $use_keys = null)
 {
 }
 
@@ -5862,7 +5860,7 @@ function spl_autoload_extensions($file_extensions = null)
  *
  * @link http://www.php.net/manual/en/function.spl-autoload-functions.php
  */
-function spl_autoload_functions(): array
+function spl_autoload_functions()
 {
 }
 
@@ -5907,7 +5905,7 @@ function spl_autoload_unregister($autoload_function)
  *
  * @link http://www.php.net/manual/en/function.spl-classes.php
  */
-function spl_classes(): array
+function spl_classes()
 {
 }
 

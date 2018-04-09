@@ -43,7 +43,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.addemptydir.php
      */
-    public function addEmptyDir($dirname = null)
+    public function addEmptyDir($dirname = null): void
     {
     }
 
@@ -59,7 +59,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.addfile.php
      */
-    public function addFile($filename, $localname = null)
+    public function addFile($filename, $localname = null): void
     {
     }
 
@@ -75,7 +75,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.addfromstring.php
      */
-    public function addFromString($localname, $contents = null)
+    public function addFromString($localname, $contents = null): void
     {
     }
 
@@ -179,7 +179,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.compressfiles.php
      */
-    public function compressFiles($compression_type)
+    public function compressFiles($compression_type): void
     {
     }
 
@@ -196,7 +196,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.converttodata.php
      */
-    public function convertToData($format = null, $compression_type = null, $file_ext = null)
+    public function convertToData($format = null, $compression_type = null, $file_ext = null): PharData
     {
     }
 
@@ -213,7 +213,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.converttoexecutable.php
      */
-    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
+    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null): Phar
     {
     }
 
@@ -474,7 +474,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.interceptfilefuncs.php
      */
-    final public static function interceptFileFuncs()
+    final public static function interceptFileFuncs(): void
     {
     }
 
@@ -592,7 +592,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.mount.php
      */
-    final public static function mount($inphar, $externalfile)
+    final public static function mount($inphar, $externalfile): void
     {
     }
 
@@ -607,7 +607,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.mungserver.php
      */
-    final public static function mungServer($munglist)
+    final public static function mungServer($munglist): void
     {
     }
 
@@ -653,7 +653,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.offsetset.php
      */
-    public function offsetSet($entry, $value)
+    public function offsetSet($entry, $value): void
     {
     }
 
@@ -729,7 +729,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.setmetadata.php
      */
-    public function setMetadata($metadata)
+    public function setMetadata($metadata): void
     {
     }
 
@@ -745,7 +745,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.setsignaturealgorithm.php
      */
-    public function setSignatureAlgorithm($algorithm, $privatekey = null)
+    public function setSignatureAlgorithm($algorithm, $privatekey = null): void
     {
     }
 
@@ -774,7 +774,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.startbuffering.php
      */
-    public function startBuffering()
+    public function startBuffering(): void
     {
     }
 
@@ -787,7 +787,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.stopbuffering.php
      */
-    public function stopBuffering()
+    public function stopBuffering(): void
     {
     }
 
@@ -821,7 +821,7 @@ class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/phar.webphar.php
      */
-    final public static function webPhar($alias = null, $index = null, $f404 = null, $mimetypes = null, $rewrites = null)
+    final public static function webPhar($alias = null, $index = null, $f404 = null, $mimetypes = null, $rewrites = null): void
     {
     }
 }
@@ -868,7 +868,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.addemptydir.php
      */
-    public function addEmptyDir($dirname = null)
+    public function addEmptyDir($dirname = null): void
     {
     }
 
@@ -884,7 +884,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.addfile.php
      */
-    public function addFile($filename, $localname = null)
+    public function addFile($filename, $localname = null): void
     {
     }
 
@@ -900,7 +900,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.addfromstring.php
      */
-    public function addFromString($localname, $contents = null)
+    public function addFromString($localname, $contents = null): void
     {
     }
 
@@ -978,7 +978,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.compressfiles.php
      */
-    public function compressFiles($compression_type)
+    public function compressFiles($compression_type): void
     {
     }
 
@@ -995,7 +995,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.converttodata.php
      */
-    public function convertToData($format = null, $compression_type = null, $file_ext = null)
+    public function convertToData($format = null, $compression_type = null, $file_ext = null): PharData
     {
     }
 
@@ -1012,7 +1012,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.converttoexecutable.php
      */
-    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null)
+    public function convertToExecutable($format = null, $compression_type = null, $file_ext = null): Phar
     {
     }
 
@@ -1254,7 +1254,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
      *
      * @link http://www.php.net/manual/en/phardata.offsetset.php
      */
-    public function offsetSet($entry, $value)
+    public function offsetSet($entry, $value): void
     {
     }
 
@@ -1419,7 +1419,7 @@ class PharFileInfo extends SplFileInfo
      *
      * @link http://www.php.net/manual/en/pharfileinfo.chmod.php
      */
-    public function chmod($perms)
+    public function chmod($perms): void
     {
     }
 
@@ -1577,7 +1577,7 @@ class PharFileInfo extends SplFileInfo
      *
      * @link http://www.php.net/manual/en/pharfileinfo.setmetadata.php
      */
-    public function setMetadata($metadata)
+    public function setMetadata($metadata): void
     {
     }
 }

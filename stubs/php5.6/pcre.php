@@ -171,7 +171,7 @@ function preg_filter($regex, $replace, $subject, $limit = null, &$count = null)
  *
  * @link http://www.php.net/manual/en/function.preg-grep.php
  */
-function preg_grep($regex, $input, $flags = null): array
+function preg_grep($regex, $input, $flags = null)
 {
 }
 
@@ -294,6 +294,6 @@ function preg_replace_callback($regex, $callback, $subject, $limit = null, &$cou
  *
  * @link http://www.php.net/manual/en/function.preg-split.php
  */
-function preg_split($pattern, $subject, $limit = null, $flags = null): array
+function preg_split($pattern, $subject, $limit = null, $flags = null)
 {
 }

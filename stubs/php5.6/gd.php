@@ -759,7 +759,7 @@ const PNG_NO_FILTER = 0;
  *
  * @link http://www.php.net/manual/en/function.gd-info.php
  */
-function gd_info(): array
+function gd_info()
 {
 }
 
@@ -809,7 +809,7 @@ function imageaffine($im, $affine, $clip = null)
  *
  * @link http://www.php.net/manual/en/function.imageaffinematrixconcat.php
  */
-function imageaffinematrixconcat($m1, $m2): array
+function imageaffinematrixconcat($m1, $m2)
 {
 }
 
@@ -825,7 +825,7 @@ function imageaffinematrixconcat($m1, $m2): array
  *
  * @link http://www.php.net/manual/en/function.imageaffinematrixget.php
  */
-function imageaffinematrixget($type, $options = null): array
+function imageaffinematrixget($type, $options = null)
 {
 }
 
@@ -1170,7 +1170,7 @@ function imagecolorset($im, $color, $red, $green, $blue, $alpha = null)
  *
  * @link http://www.php.net/manual/en/function.imagecolorsforindex.php
  */
-function imagecolorsforindex($im, $index): array
+function imagecolorsforindex($im, $index)
 {
 }
 
@@ -1828,7 +1828,7 @@ function imagefontwidth($font)
  *
  * @link http://www.php.net/manual/en/function.imageftbbox.php
  */
-function imageftbbox($size, $angle, $font_file, $text, $extrainfo = null): array
+function imageftbbox($size, $angle, $font_file, $text, $extrainfo = null)
 {
 }
 
@@ -1851,7 +1851,7 @@ function imageftbbox($size, $angle, $font_file, $text, $extrainfo = null): array
  *
  * @link http://www.php.net/manual/en/function.imagefttext.php
  */
-function imagefttext($im, $size, $angle, $x, $y, $col, $font_file, $text, $extrainfo = null): array
+function imagefttext($im, $size, $angle, $x, $y, $col, $font_file, $text, $extrainfo = null)
 {
 }
 
@@ -2390,7 +2390,7 @@ function imagetruecolortopalette($im, $ditherFlag, $colorsWanted)
  *
  * @link http://www.php.net/manual/en/function.imagettfbbox.php
  */
-function imagettfbbox($size, $angle, $font_file, $text): array
+function imagettfbbox($size, $angle, $font_file, $text)
 {
 }
 
@@ -2412,7 +2412,7 @@ function imagettfbbox($size, $angle, $font_file, $text): array
  *
  * @link http://www.php.net/manual/en/function.imagettftext.php
  */
-function imagettftext($im, $size, $angle, $x, $y, $col, $font_file, $text): array
+function imagettftext($im, $size, $angle, $x, $y, $col, $font_file, $text)
 {
 }
 

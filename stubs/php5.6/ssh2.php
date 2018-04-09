@@ -347,7 +347,7 @@ function ssh2_forward_listen()
  *
  * @link http://www.php.net/manual/en/function.ssh2-methods-negotiated.php
  */
-function ssh2_methods_negotiated($resource): array
+function ssh2_methods_negotiated($resource)
 {
 }
 
@@ -405,7 +405,7 @@ function ssh2_publickey_init($session)
  *
  * @link http://www.php.net/manual/en/function.ssh2-publickey-list.php
  */
-function ssh2_publickey_list($pkey): array
+function ssh2_publickey_list($pkey)
 {
 }
 
@@ -505,7 +505,7 @@ function ssh2_sftp_chmod($sftp, $filename, $mode)
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-lstat.php
  */
-function ssh2_sftp_lstat($sftp, $path): array
+function ssh2_sftp_lstat($sftp, $path)
 {
 }
 
@@ -604,7 +604,7 @@ function ssh2_sftp_rmdir($sftp, $dirname)
  *
  * @link http://www.php.net/manual/en/function.ssh2-sftp-stat.php
  */
-function ssh2_sftp_stat($sftp, $path): array
+function ssh2_sftp_stat($sftp, $path)
 {
 }
 

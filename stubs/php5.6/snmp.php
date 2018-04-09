@@ -311,7 +311,7 @@ class SNMP
      *
      * @link http://www.php.net/manual/en/snmp.walk.php
      */
-    public function walk($object_id, $suffix_keys, $max_repetitions, $non_repeaters): array
+    public function walk($object_id, $suffix_keys, $max_repetitions, $non_repeaters)
     {
     }
 }
@@ -383,7 +383,7 @@ function snmp2_getnext($host, $community, $object_id, $timeout = null, $retries 
  *
  * @link http://www.php.net/manual/en/function.snmp2-real-walk.php
  */
-function snmp2_real_walk($host, $community, $object_id, $timeout = null, $retries = null): array
+function snmp2_real_walk($host, $community, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -423,7 +423,7 @@ function snmp2_set($host, $community, $object_id, $type, $value, $timeout = null
  *
  * @link http://www.php.net/manual/en/function.snmp2-walk.php
  */
-function snmp2_walk($host, $community, $object_id, $timeout = null, $retries = null): array
+function snmp2_walk($host, $community, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -495,7 +495,7 @@ function snmp3_getnext($host, $sec_name, $sec_level, $auth_protocol, $auth_passp
  *
  * @link http://www.php.net/manual/en/function.snmp3-real-walk.php
  */
-function snmp3_real_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null): array
+function snmp3_real_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -545,7 +545,7 @@ function snmp3_set($host, $sec_name, $sec_level, $auth_protocol, $auth_passphras
  *
  * @link http://www.php.net/manual/en/function.snmp3-walk.php
  */
-function snmp3_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null): array
+function snmp3_walk($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -720,7 +720,7 @@ function snmpgetnext($host, $community, $object_id, $timeout = null, $retries = 
  *
  * @link http://www.php.net/manual/en/function.snmprealwalk.php
  */
-function snmprealwalk($host, $community, $object_id, $timeout = null, $retries = null): array
+function snmprealwalk($host, $community, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -760,7 +760,7 @@ function snmpset($host, $community, $object_id, $type, $value, $timeout = null, 
  *
  * @link http://www.php.net/manual/en/function.snmpwalk.php
  */
-function snmpwalk($host, $community, $object_id, $timeout = null, $retries = null): array
+function snmpwalk($host, $community, $object_id, $timeout = null, $retries = null)
 {
 }
 
@@ -779,6 +779,6 @@ function snmpwalk($host, $community, $object_id, $timeout = null, $retries = nul
  *
  * @link http://www.php.net/manual/en/function.snmpwalkoid.php
  */
-function snmpwalkoid($host, $community, $object_id, $timeout = null, $retries = null): array
+function snmpwalkoid($host, $community, $object_id, $timeout = null, $retries = null)
 {
 }

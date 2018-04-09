@@ -919,7 +919,7 @@ function ibase_backup($service_handle, $source_db, $dest_file, $options = null, 
  *
  * @link http://www.php.net/manual/en/function.ibase-blob-add.php
  */
-function ibase_blob_add($blob_handle, $data)
+function ibase_blob_add($blob_handle, $data): void
 {
 }
 
@@ -1232,7 +1232,7 @@ function ibase_fetch_assoc($result, $fetch_flags = null): array
  * @param mixed $result
  * @param mixed|null $fetch_flags
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *

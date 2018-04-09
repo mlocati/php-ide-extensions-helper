@@ -142,6 +142,6 @@ function msg_set_queue($queue, $data)
  *
  * @link http://www.php.net/manual/en/function.msg-stat-queue.php
  */
-function msg_stat_queue($queue): array
+function msg_stat_queue($queue)
 {
 }

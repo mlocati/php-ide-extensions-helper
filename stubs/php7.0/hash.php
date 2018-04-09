@@ -272,7 +272,7 @@ function hash_algos(): array
  *
  * @link http://www.php.net/manual/en/function.hash-copy.php
  */
-function hash_copy($context)
+function hash_copy($context): HashContext
 {
 }
 
@@ -374,7 +374,7 @@ function hash_hmac_file($algo, $filename, $key, $raw_output = null): string
  *
  * @link http://www.php.net/manual/en/function.hash-init.php
  */
-function hash_init($algo, $options = null, $key = null)
+function hash_init($algo, $options = null, $key = null): HashContext
 {
 }
 

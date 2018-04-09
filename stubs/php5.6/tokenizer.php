@@ -679,7 +679,7 @@ const T_YIELD = 267;
  *
  * @link http://www.php.net/manual/en/function.token-get-all.php
  */
-function token_get_all($source): array
+function token_get_all($source)
 {
 }
 

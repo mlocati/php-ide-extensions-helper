@@ -3101,13 +3101,13 @@ class php_user_filter
  *
  * @param mixed $number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.abs.php
  */
-function abs($number)
+function abs($number): float
 {
 }
 
@@ -3618,13 +3618,13 @@ function array_pop(&$stack)
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.array-product.php
  */
-function array_product($arg)
+function array_product($arg): float
 {
 }
 
@@ -3798,13 +3798,13 @@ function array_splice(&$arg, $offset, $length = null, $replacement = null): arra
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.array-sum.php
  */
-function array_sum($arg)
+function array_sum($arg): float
 {
 }
 
@@ -4217,13 +4217,13 @@ function bin2hex($data): string
  *
  * @param mixed $binary_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.bindec.php
  */
-function bindec($binary_number)
+function bindec($binary_number): float
 {
 }
 
@@ -4801,7 +4801,7 @@ function deg2rad($number): float
  *
  * @link http://www.php.net/manual/en/function.dir.php
  */
-function dir($directory, $context = null)
+function dir($directory, $context = null): Directory
 {
 }
 
@@ -4913,8 +4913,8 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
  *
  * @param mixed $hostname
  * @param mixed|null $type
- * @param array[]|null $authns
- * @param array[]|null $addtl
+ * @param array|null $authns
+ * @param array|null $addtl
  * @param mixed|null $raw
  *
  * @return array
@@ -4923,7 +4923,7 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
  *
  * @link http://www.php.net/manual/en/function.dns-get-record.php
  */
-function dns_get_record($hostname, $type = null, &$authns = null, &$addtl = null, $raw = null): array
+function dns_get_record($hostname, $type = null, array &$authns = null, array &$addtl = null, $raw = null): array
 {
 }
 
@@ -6416,13 +6416,13 @@ function hex2bin($data): string
  *
  * @param mixed $hexadecimal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.hexdec.php
  */
-function hexdec($hexadecimal_number)
+function hexdec($hexadecimal_number): float
 {
 }
 
@@ -8034,13 +8034,13 @@ function ob_start($user_function = null, $chunk_size = null, $flags = null): boo
  *
  * @param mixed $octal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.octdec.php
  */
-function octdec($octal_number)
+function octdec($octal_number): float
 {
 }
 
@@ -8496,13 +8496,13 @@ function pos($arg)
  * @param mixed $base
  * @param mixed $exponent
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.pow.php
  */
-function pow($base, $exponent)
+function pow($base, $exponent): float
 {
 }
 
@@ -9739,7 +9739,7 @@ function stream_bucket_append($brigade, $bucket)
  *
  * @param mixed $brigade
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -9755,7 +9755,7 @@ function stream_bucket_make_writeable($brigade)
  * @param mixed $stream
  * @param mixed $buffer
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *

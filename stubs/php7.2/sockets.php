@@ -1512,7 +1512,7 @@ function socket_bind($socket, $addr, $port = null): bool
  *
  * @link http://www.php.net/manual/en/function.socket-clear-error.php
  */
-function socket_clear_error($socket = null)
+function socket_clear_error($socket = null): void
 {
 }
 
@@ -1527,7 +1527,7 @@ function socket_clear_error($socket = null)
  *
  * @link http://www.php.net/manual/en/function.socket-close.php
  */
-function socket_close($socket)
+function socket_close($socket): void
 {
 }
 

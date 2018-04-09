@@ -980,7 +980,7 @@ class tidy
      *
      * @link http://www.php.net/manual/en/tidy.body.php
      */
-    public function body()
+    public function body(): tidyNode
     {
     }
 
@@ -1079,7 +1079,7 @@ class tidy
      *
      * @link http://www.php.net/manual/en/tidy.head.php
      */
-    public function head()
+    public function head(): tidyNode
     {
     }
 
@@ -1090,7 +1090,7 @@ class tidy
      *
      * @link http://www.php.net/manual/en/tidy.html.php
      */
-    public function html()
+    public function html(): tidyNode
     {
     }
 
@@ -1167,7 +1167,7 @@ class tidy
      *
      * @link http://www.php.net/manual/en/tidy.root.php
      */
-    public function root()
+    public function root(): tidyNode
     {
     }
 }
@@ -1194,7 +1194,7 @@ final class tidyNode
      *
      * @link http://www.php.net/manual/en/tidynode.getparent.php
      */
-    public function getParent()
+    public function getParent(): tidyNode
     {
     }
 
@@ -1379,7 +1379,7 @@ function tidy_error_count(): int
  *
  * @link http://www.php.net/manual/en/tidy.body.php
  */
-function tidy_get_body($tidy)
+function tidy_get_body($tidy): tidyNode
 {
 }
 
@@ -1418,7 +1418,7 @@ function tidy_get_error_buffer(): string
  *
  * @link http://www.php.net/manual/en/tidy.head.php
  */
-function tidy_get_head()
+function tidy_get_head(): tidyNode
 {
 }
 
@@ -1431,7 +1431,7 @@ function tidy_get_head()
  *
  * @link http://www.php.net/manual/en/tidy.html.php
  */
-function tidy_get_html()
+function tidy_get_html(): tidyNode
 {
 }
 
@@ -1499,7 +1499,7 @@ function tidy_get_release(): string
  *
  * @link http://www.php.net/manual/en/tidy.root.php
  */
-function tidy_get_root()
+function tidy_get_root(): tidyNode
 {
 }
 

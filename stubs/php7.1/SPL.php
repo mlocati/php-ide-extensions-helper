@@ -44,7 +44,7 @@ interface OuterIterator extends Iterator
      *
      * @link http://www.php.net/manual/en/outeriterator.getinneriterator.php
      */
-    public function getInnerIterator();
+    public function getInnerIterator(): Iterator;
 }
 
 /**
@@ -66,7 +66,7 @@ interface RecursiveIterator extends Iterator
      *
      * @link http://www.php.net/manual/en/recursiveiterator.getchildren.php
      */
-    public function getChildren();
+    public function getChildren(): RecursiveIterator;
 
     /**
      * Returns if an iterator can be created for the current entry
@@ -100,7 +100,7 @@ interface SeekableIterator extends Iterator
      *
      * @link http://www.php.net/manual/en/seekableiterator.seek.php
      */
-    public function seek($position);
+    public function seek($position): void;
 }
 
 /**
@@ -124,7 +124,7 @@ interface SplObserver
      *
      * @link http://www.php.net/manual/en/splobserver.update.php
      */
-    public function update($SplSubject);
+    public function update(SplSubject $SplSubject): void;
 }
 
 /**
@@ -148,7 +148,7 @@ interface SplSubject
      *
      * @link http://www.php.net/manual/en/splsubject.attach.php
      */
-    public function attach($SplObserver);
+    public function attach(SplObserver $SplObserver): void;
 
     /**
      * Detach an observer
@@ -161,7 +161,7 @@ interface SplSubject
      *
      * @link http://www.php.net/manual/en/splsubject.detach.php
      */
-    public function detach($SplObserver);
+    public function detach(SplObserver $SplObserver): void;
 
     /**
      * Notify an observer
@@ -172,7 +172,7 @@ interface SplSubject
      *
      * @link http://www.php.net/manual/en/splsubject.notify.php
      */
-    public function notify();
+    public function notify(): void;
 }
 
 /**
@@ -206,7 +206,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.append.php
      */
-    public function append($iterator)
+    public function append(Iterator $iterator): void
     {
     }
 
@@ -232,7 +232,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.getarrayiterator.php
      */
-    public function getArrayIterator()
+    public function getArrayIterator(): ArrayIterator
     {
     }
 
@@ -245,7 +245,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): Iterator
     {
     }
 
@@ -265,7 +265,7 @@ class AppendIterator extends IteratorIterator
     /**
      * Gets the current key
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -284,7 +284,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -297,7 +297,7 @@ class AppendIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/appenditerator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -351,7 +351,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.append.php
      */
-    public function append($value)
+    public function append($value): void
     {
     }
 
@@ -364,7 +364,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.asort.php
      */
-    public function asort()
+    public function asort(): void
     {
     }
 
@@ -416,7 +416,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.getflags.php
      */
-    public function getFlags()
+    public function getFlags(): void
     {
     }
 
@@ -442,7 +442,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.ksort.php
      */
-    public function ksort()
+    public function ksort(): void
     {
     }
 
@@ -455,7 +455,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.natcasesort.php
      */
-    public function natcasesort()
+    public function natcasesort(): void
     {
     }
 
@@ -468,7 +468,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.natsort.php
      */
-    public function natsort()
+    public function natsort(): void
     {
     }
 
@@ -481,7 +481,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -496,7 +496,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.offsetexists.php
      */
-    public function offsetExists($index)
+    public function offsetExists($index): void
     {
     }
 
@@ -527,7 +527,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.offsetset.php
      */
-    public function offsetSet($index, $newval)
+    public function offsetSet($index, $newval): void
     {
     }
 
@@ -542,7 +542,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.offsetunset.php
      */
-    public function offsetUnset($index)
+    public function offsetUnset($index): void
     {
     }
 
@@ -555,7 +555,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -570,7 +570,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.seek.php
      */
-    public function seek($position)
+    public function seek($position): void
     {
     }
 
@@ -598,7 +598,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -613,7 +613,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.uasort.php
      */
-    public function uasort($cmp_function)
+    public function uasort($cmp_function): void
     {
     }
 
@@ -628,7 +628,7 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
      *
      * @link http://www.php.net/manual/en/arrayiterator.uksort.php
      */
-    public function uksort($cmp_function)
+    public function uksort($cmp_function): void
     {
     }
 
@@ -696,7 +696,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.append.php
      */
-    public function append($value)
+    public function append($value): void
     {
     }
 
@@ -709,7 +709,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.asort.php
      */
-    public function asort()
+    public function asort(): void
     {
     }
 
@@ -776,7 +776,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.getiterator.php
      */
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
     }
 
@@ -802,7 +802,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.ksort.php
      */
-    public function ksort()
+    public function ksort(): void
     {
     }
 
@@ -815,7 +815,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.natcasesort.php
      */
-    public function natcasesort()
+    public function natcasesort(): void
     {
     }
 
@@ -828,7 +828,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.natsort.php
      */
-    public function natsort()
+    public function natsort(): void
     {
     }
 
@@ -874,7 +874,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.offsetset.php
      */
-    public function offsetSet($index, $newval)
+    public function offsetSet($index, $newval): void
     {
     }
 
@@ -889,7 +889,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.offsetunset.php
      */
-    public function offsetUnset($index)
+    public function offsetUnset($index): void
     {
     }
 
@@ -917,7 +917,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -932,7 +932,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.setiteratorclass.php
      */
-    public function setIteratorClass($iteratorClass)
+    public function setIteratorClass($iteratorClass): void
     {
     }
 
@@ -947,7 +947,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.uasort.php
      */
-    public function uasort($cmp_function)
+    public function uasort($cmp_function): void
     {
     }
 
@@ -962,7 +962,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.uksort.php
      */
-    public function uksort($cmp_function)
+    public function uksort($cmp_function): void
     {
     }
 
@@ -977,7 +977,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
      *
      * @link http://www.php.net/manual/en/arrayobject.unserialize.php
      */
-    public function unserialize($serialized)
+    public function unserialize($serialized): void
     {
     }
 }
@@ -1025,7 +1025,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.construct.php
      */
-    public function __construct($iterator, $flags = null)
+    public function __construct(Iterator $iterator, $flags = null)
     {
     }
 
@@ -1038,7 +1038,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.tostring.php
      */
-    public function __toString()
+    public function __toString(): void
     {
     }
 
@@ -1064,7 +1064,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.current.php
      */
-    public function current()
+    public function current(): void
     {
     }
 
@@ -1103,7 +1103,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): Iterator
     {
     }
 
@@ -1116,14 +1116,14 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.hasnext.php
      */
-    public function hasNext()
+    public function hasNext(): void
     {
     }
 
     /**
      * Return the key for the current element
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5, PHP 7
      *
@@ -1142,7 +1142,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1157,7 +1157,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.offsetexists.php
      */
-    public function offsetExists($index)
+    public function offsetExists($index): void
     {
     }
 
@@ -1172,7 +1172,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.offsetget.php
      */
-    public function offsetGet($index)
+    public function offsetGet($index): void
     {
     }
 
@@ -1188,7 +1188,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.offsetset.php
      */
-    public function offsetSet($index, $newval)
+    public function offsetSet($index, $newval): void
     {
     }
 
@@ -1203,7 +1203,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.offsetunset.php
      */
-    public function offsetUnset($index)
+    public function offsetUnset($index): void
     {
     }
 
@@ -1216,7 +1216,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1231,7 +1231,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -1244,7 +1244,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
      *
      * @link http://www.php.net/manual/en/cachingiterator.valid.php
      */
-    public function valid()
+    public function valid(): void
     {
     }
 }
@@ -1269,7 +1269,7 @@ class CallbackFilterIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/callbackfilteriterator.construct.php
      */
-    public function __construct($iterator, $callback)
+    public function __construct(Iterator $iterator, $callback)
     {
     }
 
@@ -1332,7 +1332,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      *
      * @link http://www.php.net/manual/en/directoryiterator.current.php
      */
-    public function current()
+    public function current(): DirectoryIterator
     {
     }
 
@@ -1412,7 +1412,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      *
      * @link http://www.php.net/manual/en/directoryiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1425,7 +1425,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      *
      * @link http://www.php.net/manual/en/directoryiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1440,7 +1440,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
      *
      * @link http://www.php.net/manual/en/directoryiterator.seek.php
      */
-    public function seek($position)
+    public function seek($position): void
     {
     }
 
@@ -1494,7 +1494,7 @@ class EmptyIterator implements Iterator
     /**
      * The key() method
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1513,7 +1513,7 @@ class EmptyIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/emptyiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1526,7 +1526,7 @@ class EmptyIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/emptyiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1615,7 +1615,7 @@ class FilesystemIterator extends DirectoryIterator
      *
      * @link http://www.php.net/manual/en/filesystemiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1628,7 +1628,7 @@ class FilesystemIterator extends DirectoryIterator
      *
      * @link http://www.php.net/manual/en/filesystemiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1643,7 +1643,7 @@ class FilesystemIterator extends DirectoryIterator
      *
      * @link http://www.php.net/manual/en/filesystemiterator.setflags.php
      */
-    public function setFlags($flags = null)
+    public function setFlags($flags = null): void
     {
     }
 }
@@ -1668,7 +1668,7 @@ abstract class FilterIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/filteriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -1705,7 +1705,7 @@ abstract class FilterIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/filteriterator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): Iterator
     {
     }
 
@@ -1731,7 +1731,7 @@ abstract class FilterIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/filteriterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1744,7 +1744,7 @@ abstract class FilterIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/filteriterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1820,7 +1820,7 @@ class InfiniteIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/infiniteiterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -1833,7 +1833,7 @@ class InfiniteIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/infiniteiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 }
@@ -1872,7 +1872,7 @@ class IteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/iteratoriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Traversable $iterator)
     {
     }
 
@@ -1898,14 +1898,14 @@ class IteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/iteratoriterator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): Traversable
     {
     }
 
     /**
      * Get the key of the current element
      *
-     * @return scalar
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -1924,7 +1924,7 @@ class IteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/iteratoriterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -1937,7 +1937,7 @@ class IteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/iteratoriterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -1987,7 +1987,7 @@ class LimitIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/limititerator.construct.php
      */
-    public function __construct($iterator, $offset = null, $count = null)
+    public function __construct(Iterator $iterator, $offset = null, $count = null)
     {
     }
 
@@ -2013,7 +2013,7 @@ class LimitIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/limititerator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): Iterator
     {
     }
 
@@ -2052,7 +2052,7 @@ class LimitIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/limititerator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -2065,7 +2065,7 @@ class LimitIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/limititerator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -2144,7 +2144,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.attachiterator.php
      */
-    public function attachIterator($iterator, $infos = null)
+    public function attachIterator(Iterator $iterator, $infos = null): void
     {
     }
 
@@ -2159,7 +2159,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.containsiterator.php
      */
-    public function containsIterator($iterator): bool
+    public function containsIterator(Iterator $iterator): bool
     {
     }
 
@@ -2200,7 +2200,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.detachiterator.php
      */
-    public function detachIterator($iterator)
+    public function detachIterator(Iterator $iterator): void
     {
     }
 
@@ -2239,7 +2239,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -2252,7 +2252,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -2267,7 +2267,7 @@ class MultipleIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/multipleiterator.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -2303,7 +2303,7 @@ class NoRewindIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/norewinditerator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(Iterator $iterator)
     {
     }
 
@@ -2329,7 +2329,7 @@ class NoRewindIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/norewinditerator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): iterator
     {
     }
 
@@ -2355,7 +2355,7 @@ class NoRewindIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/norewinditerator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -2368,7 +2368,7 @@ class NoRewindIterator extends IteratorIterator
      *
      * @link http://www.php.net/manual/en/norewinditerator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -2441,7 +2441,7 @@ class ParentIterator extends RecursiveFilterIterator
      *
      * @link http://www.php.net/manual/en/parentiterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(RecursiveIterator $iterator)
     {
     }
 
@@ -2493,7 +2493,7 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
      *
      * @link http://www.php.net/manual/en/recursivearrayiterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): RecursiveArrayIterator
     {
     }
 
@@ -2530,7 +2530,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      *
      * @link http://www.php.net/manual/en/recursivecachingiterator.construct.php
      */
-    public function __construct($iterator, $flags = null)
+    public function __construct(Iterator $iterator, $flags = null)
     {
     }
 
@@ -2543,7 +2543,7 @@ class RecursiveCachingIterator extends CachingIterator implements RecursiveItera
      *
      * @link http://www.php.net/manual/en/recursivecachingiterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): RecursiveCachingIterator
     {
     }
 
@@ -2581,7 +2581,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      *
      * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.construct.php
      */
-    public function __construct($iterator, $callback)
+    public function __construct(RecursiveIterator $iterator, $callback)
     {
     }
 
@@ -2594,7 +2594,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
      *
      * @link http://www.php.net/manual/en/recursivecallbackfilteriterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): RecursiveCallbackFilterIterator
     {
     }
 
@@ -2711,7 +2711,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
      *
      * @link http://www.php.net/manual/en/recursivefilteriterator.construct.php
      */
-    public function __construct($iterator)
+    public function __construct(RecursiveIterator $iterator)
     {
     }
 
@@ -2724,7 +2724,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Recursi
      *
      * @link http://www.php.net/manual/en/recursivefilteriterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): RecursiveFilterIterator
     {
     }
 
@@ -2762,7 +2762,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.construct.php
      */
-    public function __construct($iterator, $mode = null, $flags = null)
+    public function __construct(Traversable $iterator, $mode = null, $flags = null)
     {
     }
 
@@ -2775,7 +2775,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.beginchildren.php
      */
-    public function beginChildren()
+    public function beginChildren(): void
     {
     }
 
@@ -2788,7 +2788,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.beginiteration.php
      */
-    public function beginIteration()
+    public function beginIteration(): void
     {
     }
 
@@ -2801,7 +2801,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.callgetchildren.php
      */
-    public function callGetChildren()
+    public function callGetChildren(): RecursiveIterator
     {
     }
 
@@ -2840,7 +2840,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.endchildren.php
      */
-    public function endChildren()
+    public function endChildren(): void
     {
     }
 
@@ -2853,7 +2853,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.enditeration.php
      */
-    public function endIteration()
+    public function endIteration(): void
     {
     }
 
@@ -2879,7 +2879,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.getinneriterator.php
      */
-    public function getInnerIterator()
+    public function getInnerIterator(): iterator
     {
     }
 
@@ -2907,7 +2907,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.getsubiterator.php
      */
-    public function getSubIterator($level = null)
+    public function getSubIterator($level = null): RecursiveIterator
     {
     }
 
@@ -2933,7 +2933,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -2946,7 +2946,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.nextelement.php
      */
-    public function nextElement()
+    public function nextElement(): void
     {
     }
 
@@ -2959,7 +2959,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -2974,7 +2974,7 @@ class RecursiveIteratorIterator implements OuterIterator
      *
      * @link http://www.php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
      */
-    public function setMaxDepth($max_depth = null)
+    public function setMaxDepth($max_depth = null): void
     {
     }
 
@@ -3014,7 +3014,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      *
      * @link http://www.php.net/manual/en/recursiveregexiterator.construct.php
      */
-    public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(RecursiveIterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
@@ -3034,7 +3034,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator
      *
      * @link http://www.php.net/manual/en/recursiveregexiterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): RecursiveRegexIterator
     {
     }
 
@@ -3073,7 +3073,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.construct.php
      */
-    public function __construct($iterator, $flags = null, $caching_it_flags = null, $mode = null)
+    public function __construct(Traversable $iterator, $flags = null, $caching_it_flags = null, $mode = null)
     {
     }
 
@@ -3086,7 +3086,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.beginchildren.php
      */
-    public function beginChildren()
+    public function beginChildren(): void
     {
     }
 
@@ -3099,7 +3099,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.beginiteration.php
      */
-    public function beginIteration()
+    public function beginIteration(): RecursiveIterator
     {
     }
 
@@ -3112,7 +3112,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.callgetchildren.php
      */
-    public function callGetChildren()
+    public function callGetChildren(): RecursiveIterator
     {
     }
 
@@ -3151,7 +3151,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.endchildren.php
      */
-    public function endChildren()
+    public function endChildren(): void
     {
     }
 
@@ -3164,7 +3164,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.enditeration.php
      */
-    public function endIteration()
+    public function endIteration(): void
     {
     }
 
@@ -3229,7 +3229,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -3242,7 +3242,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.nextelement.php
      */
-    public function nextElement()
+    public function nextElement(): void
     {
     }
 
@@ -3255,7 +3255,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -3268,7 +3268,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.setpostfix.php
      */
-    public function setPostfix()
+    public function setPostfix(): void
     {
     }
 
@@ -3284,7 +3284,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
      *
      * @link http://www.php.net/manual/en/recursivetreeiterator.setprefixpart.php
      */
-    public function setPrefixPart($part, $value)
+    public function setPrefixPart($part, $value): void
     {
     }
 
@@ -3324,7 +3324,7 @@ class RegexIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/regexiterator.construct.php
      */
-    public function __construct($iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
+    public function __construct(Iterator $iterator, $regex, $mode = null, $flags = null, $preg_flags = null)
     {
     }
 
@@ -3404,7 +3404,7 @@ class RegexIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/regexiterator.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -3419,7 +3419,7 @@ class RegexIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/regexiterator.setmode.php
      */
-    public function setMode($mode)
+    public function setMode($mode): void
     {
     }
 
@@ -3434,7 +3434,7 @@ class RegexIterator extends FilterIterator
      *
      * @link http://www.php.net/manual/en/regexiterator.setpregflags.php
      */
-    public function setPregFlags($preg_flags)
+    public function setPregFlags($preg_flags): void
     {
     }
 }
@@ -3471,7 +3471,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.add.php
      */
-    public function add($index, $newval)
+    public function add($index, $newval): void
     {
     }
 
@@ -3562,7 +3562,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -3608,7 +3608,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetset.php
      */
-    public function offsetSet($index, $newval)
+    public function offsetSet($index, $newval): void
     {
     }
 
@@ -3623,7 +3623,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.offsetunset.php
      */
-    public function offsetUnset($index)
+    public function offsetUnset($index): void
     {
     }
 
@@ -3649,7 +3649,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.prev.php
      */
-    public function prev()
+    public function prev(): void
     {
     }
 
@@ -3664,7 +3664,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.push.php
      */
-    public function push($value)
+    public function push($value): void
     {
     }
 
@@ -3677,7 +3677,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -3705,7 +3705,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.setiteratormode.php
      */
-    public function setIteratorMode($flags)
+    public function setIteratorMode($flags): void
     {
     }
 
@@ -3746,7 +3746,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.unserialize.php
      */
-    public function unserialize($serialized)
+    public function unserialize($serialized): void
     {
     }
 
@@ -3761,7 +3761,7 @@ class SplDoublyLinkedList implements ArrayAccess, Countable, Iterator, Serializa
      *
      * @link http://www.php.net/manual/en/spldoublylinkedlist.unshift.php
      */
-    public function unshift($value)
+    public function unshift($value): void
     {
     }
 
@@ -3811,7 +3811,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.tostring.php
      */
-    public function __toString()
+    public function __toString(): void
     {
     }
 
@@ -3884,7 +3884,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.getfileinfo.php
      */
-    public function getFileInfo($class_name = null)
+    public function getFileInfo($class_name = null): SplFileInfo
     {
     }
 
@@ -3990,7 +3990,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.getpathinfo.php
      */
-    public function getPathInfo($class_name = null)
+    public function getPathInfo($class_name = null): SplFileInfo
     {
     }
 
@@ -4150,7 +4150,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.openfile.php
      */
-    public function openFile($open_mode = null, $use_include_path = null, $context = null)
+    public function openFile($open_mode = null, $use_include_path = null, $context = null): SplFileObject
     {
     }
 
@@ -4165,7 +4165,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.setfileclass.php
      */
-    public function setFileClass($class_name = null)
+    public function setFileClass($class_name = null): void
     {
     }
 
@@ -4180,7 +4180,7 @@ class SplFileInfo
      *
      * @link http://www.php.net/manual/en/splfileinfo.setinfoclass.php
      */
-    public function setInfoClass($class_name = null)
+    public function setInfoClass($class_name = null): void
     {
     }
 }
@@ -4219,14 +4219,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.tostring.php
      */
-    public function __toString()
+    public function __toString(): void
     {
     }
 
     /**
      * Retrieve current line of file
-     *
-     * @return string|array
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -4480,7 +4478,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): void
     {
     }
 
@@ -4569,7 +4567,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -4582,7 +4580,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -4597,7 +4595,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.seek.php
      */
-    public function seek($line_pos)
+    public function seek($line_pos): void
     {
     }
 
@@ -4614,7 +4612,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.setcsvcontrol.php
      */
-    public function setCsvControl($delimiter = null, $enclosure = null, $escape = null)
+    public function setCsvControl($delimiter = null, $enclosure = null, $escape = null): void
     {
     }
 
@@ -4629,7 +4627,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.setflags.php
      */
-    public function setFlags($flags)
+    public function setFlags($flags): void
     {
     }
 
@@ -4644,7 +4642,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      *
      * @link http://www.php.net/manual/en/splfileobject.setmaxlinelen.php
      */
-    public function setMaxLineLen($max_len)
+    public function setMaxLineLen($max_len): void
     {
     }
 
@@ -4697,7 +4695,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.wakeup.php
      */
-    public function __wakeup()
+    public function __wakeup(): void
     {
     }
 
@@ -4739,7 +4737,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.fromarray.php
      */
-    public static function fromArray($data, $save_indexes = null)
+    public static function fromArray($data, $save_indexes = null): SplFixedArray
     {
     }
 
@@ -4778,7 +4776,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -4824,7 +4822,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.offsetset.php
      */
-    public function offsetSet($index, $newval)
+    public function offsetSet($index, $newval): void
     {
     }
 
@@ -4839,7 +4837,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.offsetunset.php
      */
-    public function offsetUnset($index)
+    public function offsetUnset($index): void
     {
     }
 
@@ -4852,7 +4850,7 @@ class SplFixedArray implements ArrayAccess, Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splfixedarray.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -4968,7 +4966,7 @@ abstract class SplHeap implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splheap.insert.php
      */
-    public function insert($value)
+    public function insert($value): void
     {
     }
 
@@ -5020,7 +5018,7 @@ abstract class SplHeap implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splheap.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -5033,7 +5031,7 @@ abstract class SplHeap implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splheap.recoverfromcorruption.php
      */
-    public function recoverFromCorruption()
+    public function recoverFromCorruption(): void
     {
     }
 
@@ -5046,7 +5044,7 @@ abstract class SplHeap implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splheap.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -5151,7 +5149,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.addall.php
      */
-    public function addAll($object)
+    public function addAll($object): void
     {
     }
 
@@ -5167,7 +5165,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.attach.php
      */
-    public function attach($object, $inf = null)
+    public function attach($object, $inf = null): void
     {
     }
 
@@ -5202,7 +5200,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
     /**
      * Returns the current storage entry
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
@@ -5223,7 +5221,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.detach.php
      */
-    public function detach($object)
+    public function detach($object): void
     {
     }
 
@@ -5277,7 +5275,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -5323,7 +5321,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.offsetset.php
      */
-    public function offsetSet($object, $inf = null)
+    public function offsetSet($object, $inf = null): void
     {
     }
 
@@ -5338,7 +5336,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.offsetunset.php
      */
-    public function offsetUnset($object)
+    public function offsetUnset($object): void
     {
     }
 
@@ -5353,7 +5351,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.removeall.php
      */
-    public function removeAll($object)
+    public function removeAll($object): void
     {
     }
 
@@ -5368,7 +5366,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.removeallexcept.php
      */
-    public function removeAllExcept($object)
+    public function removeAllExcept($object): void
     {
     }
 
@@ -5381,7 +5379,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -5409,7 +5407,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.setinfo.php
      */
-    public function setInfo($info)
+    public function setInfo($info): void
     {
     }
 
@@ -5424,7 +5422,7 @@ class SplObjectStorage implements ArrayAccess, Countable, Iterator, Serializable
      *
      * @link http://www.php.net/manual/en/splobjectstorage.unserialize.php
      */
-    public function unserialize($serialized)
+    public function unserialize($serialized): void
     {
     }
 
@@ -5532,7 +5530,7 @@ class SplPriorityQueue implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.insert.php
      */
-    public function insert($value, $priority)
+    public function insert($value, $priority): void
     {
     }
 
@@ -5582,7 +5580,7 @@ class SplPriorityQueue implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -5595,7 +5593,7 @@ class SplPriorityQueue implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.recoverfromcorruption.php
      */
-    public function recoverFromCorruption()
+    public function recoverFromCorruption(): void
     {
     }
 
@@ -5608,7 +5606,7 @@ class SplPriorityQueue implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -5623,7 +5621,7 @@ class SplPriorityQueue implements Countable, Iterator
      *
      * @link http://www.php.net/manual/en/splpriorityqueue.setextractflags.php
      */
-    public function setExtractFlags($flags)
+    public function setExtractFlags($flags): void
     {
     }
 
@@ -5687,7 +5685,7 @@ class SplQueue extends SplDoublyLinkedList
      *
      * @link http://www.php.net/manual/en/splqueue.enqueue.php
      */
-    public function enqueue($value)
+    public function enqueue($value): void
     {
     }
 }
@@ -5805,7 +5803,7 @@ function class_uses($what, $autoload = null): array
  *
  * @param Traversable $iterator
  * @param mixed $function
- * @param array[]|null $args
+ * @param array|null $args
  *
  * @return int
  *
@@ -5813,7 +5811,7 @@ function class_uses($what, $autoload = null): array
  *
  * @link http://www.php.net/manual/en/function.iterator-apply.php
  */
-function iterator_apply($iterator, $function, $args = null): int
+function iterator_apply(Traversable $iterator, $function, array $args = null): int
 {
 }
 
@@ -5828,7 +5826,7 @@ function iterator_apply($iterator, $function, $args = null): int
  *
  * @link http://www.php.net/manual/en/function.iterator-count.php
  */
-function iterator_count($iterator): int
+function iterator_count(Traversable $iterator): int
 {
 }
 
@@ -5844,7 +5842,7 @@ function iterator_count($iterator): int
  *
  * @link http://www.php.net/manual/en/function.iterator-to-array.php
  */
-function iterator_to_array($iterator, $use_keys = null): array
+function iterator_to_array(Traversable $iterator, $use_keys = null): array
 {
 }
 
@@ -5860,7 +5858,7 @@ function iterator_to_array($iterator, $use_keys = null): array
  *
  * @link http://www.php.net/manual/en/function.spl-autoload.php
  */
-function spl_autoload($class_name, $file_extensions = null)
+function spl_autoload($class_name, $file_extensions = null): void
 {
 }
 
@@ -5875,7 +5873,7 @@ function spl_autoload($class_name, $file_extensions = null)
  *
  * @link http://www.php.net/manual/en/function.spl-autoload-call.php
  */
-function spl_autoload_call($class_name)
+function spl_autoload_call($class_name): void
 {
 }
 

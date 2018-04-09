@@ -199,7 +199,7 @@ function posix_getgid()
  *
  * @link http://www.php.net/manual/en/function.posix-getgrgid.php
  */
-function posix_getgrgid($gid): array
+function posix_getgrgid($gid)
 {
 }
 
@@ -214,7 +214,7 @@ function posix_getgrgid($gid): array
  *
  * @link http://www.php.net/manual/en/function.posix-getgrnam.php
  */
-function posix_getgrnam($name): array
+function posix_getgrnam($name)
 {
 }
 
@@ -227,7 +227,7 @@ function posix_getgrnam($name): array
  *
  * @link http://www.php.net/manual/en/function.posix-getgroups.php
  */
-function posix_getgroups(): array
+function posix_getgroups()
 {
 }
 
@@ -309,7 +309,7 @@ function posix_getppid()
  *
  * @link http://www.php.net/manual/en/function.posix-getpwnam.php
  */
-function posix_getpwnam($username): array
+function posix_getpwnam($username)
 {
 }
 
@@ -324,7 +324,7 @@ function posix_getpwnam($username): array
  *
  * @link http://www.php.net/manual/en/function.posix-getpwuid.php
  */
-function posix_getpwuid($uid): array
+function posix_getpwuid($uid)
 {
 }
 
@@ -337,7 +337,7 @@ function posix_getpwuid($uid): array
  *
  * @link http://www.php.net/manual/en/function.posix-getrlimit.php
  */
-function posix_getrlimit(): array
+function posix_getrlimit()
 {
 }
 
@@ -563,7 +563,7 @@ function posix_strerror($errno)
  *
  * @link http://www.php.net/manual/en/function.posix-times.php
  */
-function posix_times(): array
+function posix_times()
 {
 }
 
@@ -591,6 +591,6 @@ function posix_ttyname($fd)
  *
  * @link http://www.php.net/manual/en/function.posix-uname.php
  */
-function posix_uname(): array
+function posix_uname()
 {
 }

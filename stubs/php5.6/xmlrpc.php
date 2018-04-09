@@ -108,7 +108,7 @@ function xmlrpc_is_fault($arg)
  *
  * @link http://www.php.net/manual/en/function.xmlrpc-parse-method-descriptions.php
  */
-function xmlrpc_parse_method_descriptions($xml): array
+function xmlrpc_parse_method_descriptions($xml)
 {
 }
 

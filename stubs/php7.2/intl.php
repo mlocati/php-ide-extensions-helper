@@ -1013,7 +1013,7 @@ class Collator
     /**
      * Sort array maintaining index association
      *
-     * @param array[] $arr
+     * @param array $arr
      * @param mixed|null $flags
      *
      * @return bool
@@ -1022,7 +1022,7 @@ class Collator
      *
      * @link http://www.php.net/manual/en/collator.asort.php
      */
-    public function asort(&$arr, $flags = null): bool
+    public function asort(array &$arr, $flags = null): bool
     {
     }
 
@@ -1053,7 +1053,7 @@ class Collator
      *
      * @link http://www.php.net/manual/en/collator.create.php
      */
-    public static function create($arg1)
+    public static function create($arg1): Collator
     {
     }
 
@@ -1175,7 +1175,7 @@ class Collator
     /**
      * Sort array using specified collator
      *
-     * @param array[] $arr
+     * @param array $arr
      * @param mixed|null $flags
      *
      * @return bool
@@ -1184,14 +1184,14 @@ class Collator
      *
      * @link http://www.php.net/manual/en/collator.sort.php
      */
-    public function sort(&$arr, $flags = null): bool
+    public function sort(array &$arr, $flags = null): bool
     {
     }
 
     /**
      * Sort array using specified collator and sort keys
      *
-     * @param array[] $arr
+     * @param array $arr
      *
      * @return bool
      *
@@ -1199,7 +1199,7 @@ class Collator
      *
      * @link http://www.php.net/manual/en/collator.sortwithsortkeys.php
      */
-    public function sortWithSortKeys(&$arr): bool
+    public function sortWithSortKeys(array &$arr): bool
     {
     }
 }
@@ -1242,7 +1242,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
      */
-    public static function createCharacterInstance($locale = null)
+    public static function createCharacterInstance($locale = null): IntlBreakIterator
     {
     }
 
@@ -1255,7 +1255,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
      */
-    public static function createCodePointInstance()
+    public static function createCodePointInstance(): IntlBreakIterator
     {
     }
 
@@ -1270,7 +1270,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
      */
-    public static function createLineInstance($locale = null)
+    public static function createLineInstance($locale = null): IntlBreakIterator
     {
     }
 
@@ -1285,7 +1285,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
      */
-    public static function createSentenceInstance($locale = null)
+    public static function createSentenceInstance($locale = null): IntlBreakIterator
     {
     }
 
@@ -1300,7 +1300,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
      */
-    public static function createTitleInstance($locale = null)
+    public static function createTitleInstance($locale = null): IntlBreakIterator
     {
     }
 
@@ -1315,7 +1315,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
      */
-    public static function createWordInstance($locale = null)
+    public static function createWordInstance($locale = null): IntlBreakIterator
     {
     }
 
@@ -1412,7 +1412,7 @@ class IntlBreakIterator implements Traversable
      *
      * @link http://www.php.net/manual/en/intlbreakiterator.getpartsiterator.php
      */
-    public function getPartsIterator($key_type = null)
+    public function getPartsIterator($key_type = null): IntlPartsIterator
     {
     }
 
@@ -1561,7 +1561,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.after.php
      */
-    public function after($calendar): bool
+    public function after(IntlCalendar $calendar): bool
     {
     }
 
@@ -1576,7 +1576,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.before.php
      */
-    public function before($calendar): bool
+    public function before(IntlCalendar $calendar): bool
     {
     }
 
@@ -1607,7 +1607,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.createinstance.php
      */
-    public static function createInstance($timeZone = null, $locale = null)
+    public static function createInstance($timeZone = null, $locale = null): IntlCalendar
     {
     }
 
@@ -1622,7 +1622,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.equals.php
      */
-    public function equals($calendar): bool
+    public function equals(IntlCalendar $calendar): bool
     {
     }
 
@@ -1653,7 +1653,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.fromdatetime.php
      */
-    public static function fromDateTime($dateTime)
+    public static function fromDateTime($dateTime): IntlCalendar
     {
     }
 
@@ -1797,7 +1797,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.getkeywordvaluesforlocale.php
      */
-    public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed)
+    public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed): Iterator
     {
     }
 
@@ -1935,7 +1935,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.gettimezone.php
      */
-    public function getTimeZone()
+    public function getTimeZone(): IntlTimeZone
     {
     }
 
@@ -1991,7 +1991,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.isequivalentto.php
      */
-    public function isEquivalentTo($calendar): bool
+    public function isEquivalentTo(IntlCalendar $calendar): bool
     {
     }
 
@@ -2188,7 +2188,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.todatetime.php
      */
-    public function toDateTime()
+    public function toDateTime(): DateTime
     {
     }
 }
@@ -2355,7 +2355,7 @@ class IntlChar
      *
      * @link http://www.php.net/manual/en/intlchar.enumcharnames.php
      */
-    public static function enumCharNames($start, $limit, $callback, $nameChoice = null)
+    public static function enumCharNames($start, $limit, $callback, $nameChoice = null): void
     {
     }
 
@@ -2370,7 +2370,7 @@ class IntlChar
      *
      * @link http://www.php.net/manual/en/intlchar.enumchartypes.php
      */
-    public static function enumCharTypes($callback = null)
+    public static function enumCharTypes($callback = null): void
     {
     }
 
@@ -3157,7 +3157,7 @@ class IntlDateFormatter
      *
      * @link http://www.php.net/manual/en/intldateformatter.create.php
      */
-    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null)
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null): IntlDateFormatter
     {
     }
 
@@ -3177,7 +3177,7 @@ class IntlDateFormatter
      *
      * @link http://www.php.net/manual/en/intldateformatter.create.php
      */
-    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null)
+    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null): IntlDateFormatter
     {
     }
 
@@ -3236,7 +3236,7 @@ class IntlDateFormatter
      *
      * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
      */
-    public function getCalendarObject()
+    public function getCalendarObject(): IntlCalendar
     {
     }
 
@@ -3327,7 +3327,7 @@ class IntlDateFormatter
      *
      * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
      */
-    public function getTimeZone()
+    public function getTimeZone(): IntlTimeZone
     {
     }
 
@@ -3586,7 +3586,7 @@ class IntlIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/intliterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -3599,7 +3599,7 @@ class IntlIterator implements Iterator
      *
      * @link http://www.php.net/manual/en/intliterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -3636,7 +3636,7 @@ class IntlPartsIterator extends IntlIterator
      *
      * @link http://www.php.net/manual/en/intlpartsiterator.getbreakiterator.php
      */
-    public function getBreakIterator()
+    public function getBreakIterator(): IntlBreakIterator
     {
     }
 }
@@ -3755,7 +3755,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.createdefault.php
      */
-    public static function createDefault()
+    public static function createDefault(): IntlTimeZone
     {
     }
 
@@ -3771,7 +3771,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.createenumeration.php
      */
-    public static function createEnumeration($countryOrRawOffset = null)
+    public static function createEnumeration($countryOrRawOffset = null): IntlIterator
     {
     }
 
@@ -3786,7 +3786,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.createtimezone.php
      */
-    public static function createTimeZone($zoneId)
+    public static function createTimeZone($zoneId): IntlTimeZone
     {
     }
 
@@ -3803,7 +3803,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.createtimezoneidenumeration.php
      */
-    public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = null)
+    public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = null): IntlIterator
     {
     }
 
@@ -3818,7 +3818,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.fromdatetimezone.php
      */
-    public static function fromDateTimeZone($zoneId)
+    public static function fromDateTimeZone($zoneId): IntlTimeZone
     {
     }
 
@@ -3919,7 +3919,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getgmt.php
      */
-    public static function getGMT()
+    public static function getGMT(): IntlTimeZone
     {
     }
 
@@ -4020,7 +4020,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.getunknown.php
      */
-    public static function getUnknown()
+    public static function getUnknown(): IntlTimeZone
     {
     }
 
@@ -4050,7 +4050,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.hassamerules.php
      */
-    public function hasSameRules($otherTimeZone): bool
+    public function hasSameRules(IntlTimeZone $otherTimeZone): bool
     {
     }
 
@@ -4063,7 +4063,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.todatetimezone.php
      */
-    public function toDateTimeZone()
+    public function toDateTimeZone(): DateTimeZone
     {
     }
 
@@ -4408,7 +4408,7 @@ class MessageFormatter
      *
      * @link http://www.php.net/manual/en/messageformatter.create.php
      */
-    public function __construct($locale, $pattern)
+    public function __construct($locale, $pattern): MessageFormatter
     {
     }
 
@@ -4424,7 +4424,7 @@ class MessageFormatter
      *
      * @link http://www.php.net/manual/en/messageformatter.create.php
      */
-    public static function create($locale, $pattern)
+    public static function create($locale, $pattern): MessageFormatter
     {
     }
 
@@ -4653,7 +4653,7 @@ class NumberFormatter
      *
      * @link http://www.php.net/manual/en/numberformatter.create.php
      */
-    public function __construct($locale, $style, $pattern = null)
+    public function __construct($locale, $style, $pattern = null): NumberFormatter
     {
     }
 
@@ -4670,7 +4670,7 @@ class NumberFormatter
      *
      * @link http://www.php.net/manual/en/numberformatter.create.php
      */
-    public static function create($locale, $style, $pattern = null)
+    public static function create($locale, $style, $pattern = null): NumberFormatter
     {
     }
 
@@ -4930,7 +4930,7 @@ class ResourceBundle implements Traversable
      *
      * @link http://www.php.net/manual/en/resourcebundle.create.php
      */
-    public function __construct($locale, $bundlename, $fallback = null)
+    public function __construct($locale, $bundlename, $fallback = null): ResourceBundle
     {
     }
 
@@ -4956,7 +4956,7 @@ class ResourceBundle implements Traversable
      *
      * @link http://www.php.net/manual/en/resourcebundle.create.php
      */
-    public static function create($locale, $bundlename, $fallback = null)
+    public static function create($locale, $bundlename, $fallback = null): ResourceBundle
     {
     }
 
@@ -5069,7 +5069,7 @@ class Spoofchecker
      *
      * @link http://www.php.net/manual/en/spoofchecker.setallowedlocales.php
      */
-    public function setAllowedLocales($locale_list)
+    public function setAllowedLocales($locale_list): void
     {
     }
 
@@ -5082,7 +5082,7 @@ class Spoofchecker
      *
      * @link http://www.php.net/manual/en/spoofchecker.setchecks.php
      */
-    public function setChecks($checks)
+    public function setChecks($checks): void
     {
     }
 }
@@ -5113,7 +5113,7 @@ class Transliterator
      *
      * @link http://www.php.net/manual/en/transliterator.create.php
      */
-    public static function create($id, $direction = null)
+    public static function create($id, $direction = null): Transliterator
     {
     }
 
@@ -5127,7 +5127,7 @@ class Transliterator
      *
      * @link http://www.php.net/manual/en/transliterator.createfromrules.php
      */
-    public static function createFromRules($rules, $direction = null)
+    public static function createFromRules($rules, $direction = null): Transliterator
     {
     }
 
@@ -5138,7 +5138,7 @@ class Transliterator
      *
      * @link http://www.php.net/manual/en/transliterator.createinverse.php
      */
-    public function createInverse()
+    public function createInverse(): Transliterator
     {
     }
 
@@ -5404,7 +5404,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setdestinationencoding.php
      */
-    public function setDestinationEncoding($encoding)
+    public function setDestinationEncoding($encoding): void
     {
     }
 
@@ -5419,7 +5419,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setsourceencoding.php
      */
-    public function setSourceEncoding($encoding)
+    public function setSourceEncoding($encoding): void
     {
     }
 
@@ -5434,7 +5434,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.setsubstchars.php
      */
-    public function setSubstChars($chars)
+    public function setSubstChars($chars): void
     {
     }
 
@@ -5462,7 +5462,7 @@ class UConverter
      * @param mixed $str
      * @param mixed $toEncoding
      * @param mixed $fromEncoding
-     * @param array[]|null $options
+     * @param array|null $options
      *
      * @return string
      *
@@ -5470,7 +5470,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.transcode.php
      */
-    public static function transcode($str, $toEncoding, $fromEncoding, $options = null): string
+    public static function transcode($str, $toEncoding, $fromEncoding, array $options = null): string
     {
     }
 }
@@ -5479,7 +5479,7 @@ class UConverter
  * Sort array maintaining index association
  *
  * @param Collator $object
- * @param array[] $arr
+ * @param array $arr
  * @param mixed|null $sort_flags
  *
  * @return bool
@@ -5488,7 +5488,7 @@ class UConverter
  *
  * @link http://www.php.net/manual/en/collator.asort.php
  */
-function collator_asort($object, &$arr, $sort_flags = null): bool
+function collator_asort(Collator $object, array &$arr, $sort_flags = null): bool
 {
 }
 
@@ -5505,7 +5505,7 @@ function collator_asort($object, &$arr, $sort_flags = null): bool
  *
  * @link http://www.php.net/manual/en/collator.compare.php
  */
-function collator_compare($object, $arg1, $arg2): int
+function collator_compare(Collator $object, $arg1, $arg2): int
 {
 }
 
@@ -5520,7 +5520,7 @@ function collator_compare($object, $arg1, $arg2): int
  *
  * @link http://www.php.net/manual/en/collator.create.php
  */
-function collator_create($arg1)
+function collator_create($arg1): Collator
 {
 }
 
@@ -5536,7 +5536,7 @@ function collator_create($arg1)
  *
  * @link http://www.php.net/manual/en/collator.getattribute.php
  */
-function collator_get_attribute($object, $arg1): int
+function collator_get_attribute(Collator $object, $arg1): int
 {
 }
 
@@ -5551,7 +5551,7 @@ function collator_get_attribute($object, $arg1): int
  *
  * @link http://www.php.net/manual/en/collator.geterrorcode.php
  */
-function collator_get_error_code($object): int
+function collator_get_error_code(Collator $object): int
 {
 }
 
@@ -5566,7 +5566,7 @@ function collator_get_error_code($object): int
  *
  * @link http://www.php.net/manual/en/collator.geterrormessage.php
  */
-function collator_get_error_message($object): string
+function collator_get_error_message(Collator $object): string
 {
 }
 
@@ -5582,7 +5582,7 @@ function collator_get_error_message($object): string
  *
  * @link http://www.php.net/manual/en/collator.getlocale.php
  */
-function collator_get_locale($object, $arg1): string
+function collator_get_locale(Collator $object, $arg1): string
 {
 }
 
@@ -5598,7 +5598,7 @@ function collator_get_locale($object, $arg1): string
  *
  * @link http://www.php.net/manual/en/collator.getsortkey.php
  */
-function collator_get_sort_key($object, $arg1): string
+function collator_get_sort_key(Collator $object, $arg1): string
 {
 }
 
@@ -5613,7 +5613,7 @@ function collator_get_sort_key($object, $arg1): string
  *
  * @link http://www.php.net/manual/en/collator.getstrength.php
  */
-function collator_get_strength($object): int
+function collator_get_strength(Collator $object): int
 {
 }
 
@@ -5630,7 +5630,7 @@ function collator_get_strength($object): int
  *
  * @link http://www.php.net/manual/en/collator.setattribute.php
  */
-function collator_set_attribute($object, $arg1, $arg2): bool
+function collator_set_attribute(Collator $object, $arg1, $arg2): bool
 {
 }
 
@@ -5646,7 +5646,7 @@ function collator_set_attribute($object, $arg1, $arg2): bool
  *
  * @link http://www.php.net/manual/en/collator.setstrength.php
  */
-function collator_set_strength($object, $arg1): bool
+function collator_set_strength(Collator $object, $arg1): bool
 {
 }
 
@@ -5654,7 +5654,7 @@ function collator_set_strength($object, $arg1): bool
  * Sort array using specified collator
  *
  * @param Collator $object
- * @param array[] $arr
+ * @param array $arr
  * @param mixed|null $sort_flags
  *
  * @return bool
@@ -5663,7 +5663,7 @@ function collator_set_strength($object, $arg1): bool
  *
  * @link http://www.php.net/manual/en/collator.sort.php
  */
-function collator_sort($object, &$arr, $sort_flags = null): bool
+function collator_sort(Collator $object, array &$arr, $sort_flags = null): bool
 {
 }
 
@@ -5671,7 +5671,7 @@ function collator_sort($object, &$arr, $sort_flags = null): bool
  * Sort array using specified collator and sort keys
  *
  * @param Collator $coll
- * @param array[] $arr
+ * @param array $arr
  *
  * @return bool
  *
@@ -5679,7 +5679,7 @@ function collator_sort($object, &$arr, $sort_flags = null): bool
  *
  * @link http://www.php.net/manual/en/collator.sortwithsortkeys.php
  */
-function collator_sort_with_sort_keys($coll, &$arr): bool
+function collator_sort_with_sort_keys(Collator $coll, array &$arr): bool
 {
 }
 
@@ -5699,7 +5699,7 @@ function collator_sort_with_sort_keys($coll, &$arr): bool
  *
  * @link http://www.php.net/manual/en/intldateformatter.create.php
  */
-function datefmt_create($locale, $date_type, $time_type, $timezone_str = null, $calendar = null, $pattern = null)
+function datefmt_create($locale, $date_type, $time_type, $timezone_str = null, $calendar = null, $pattern = null): IntlDateFormatter
 {
 }
 
@@ -5762,7 +5762,7 @@ function datefmt_get_calendar($mf): int
  *
  * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
  */
-function datefmt_get_calendar_object($mf)
+function datefmt_get_calendar_object($mf): IntlCalendar
 {
 }
 
@@ -5867,7 +5867,7 @@ function datefmt_get_timetype($mf): int
  *
  * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
  */
-function datefmt_get_timezone($mf)
+function datefmt_get_timezone($mf): IntlTimeZone
 {
 }
 
@@ -6236,7 +6236,7 @@ function intl_is_failure($arg1)
  * @param mixed $field
  * @param mixed $amount
  */
-function intlcal_add($calendar, $field, $amount)
+function intlcal_add(IntlCalendar $calendar, $field, $amount)
 {
 }
 
@@ -6244,7 +6244,7 @@ function intlcal_add($calendar, $field, $amount)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_after($calendar, $otherCalendar)
+function intlcal_after(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -6252,7 +6252,7 @@ function intlcal_after($calendar, $otherCalendar)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_before($calendar, $otherCalendar)
+function intlcal_before(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -6260,7 +6260,7 @@ function intlcal_before($calendar, $otherCalendar)
  * @param IntlCalendar $calendar
  * @param mixed|null $field
  */
-function intlcal_clear($calendar, $field = null)
+function intlcal_clear(IntlCalendar $calendar, $field = null)
 {
 }
 
@@ -6276,7 +6276,7 @@ function intlcal_create_instance($timeZone = null, $locale = null)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_equals($calendar, $otherCalendar)
+function intlcal_equals(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -6285,7 +6285,7 @@ function intlcal_equals($calendar, $otherCalendar)
  * @param mixed $when
  * @param mixed $field
  */
-function intlcal_field_difference($calendar, $when, $field)
+function intlcal_field_difference(IntlCalendar $calendar, $when, $field)
 {
 }
 
@@ -6300,7 +6300,7 @@ function intlcal_from_date_time($dateTime)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get($calendar, $field)
+function intlcal_get(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6308,7 +6308,7 @@ function intlcal_get($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_actual_maximum($calendar, $field)
+function intlcal_get_actual_maximum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6316,7 +6316,7 @@ function intlcal_get_actual_maximum($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_actual_minimum($calendar, $field)
+function intlcal_get_actual_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6328,7 +6328,7 @@ function intlcal_get_available_locales()
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
+function intlcal_get_day_of_week_type(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
@@ -6341,7 +6341,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrorcode.php
  */
-function intlcal_get_error_code($calendar): int
+function intlcal_get_error_code(IntlCalendar $calendar): int
 {
 }
 
@@ -6354,14 +6354,14 @@ function intlcal_get_error_code($calendar): int
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrormessage.php
  */
-function intlcal_get_error_message($calendar): string
+function intlcal_get_error_message(IntlCalendar $calendar): string
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_first_day_of_week($calendar)
+function intlcal_get_first_day_of_week(IntlCalendar $calendar)
 {
 }
 
@@ -6369,7 +6369,7 @@ function intlcal_get_first_day_of_week($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_greatest_minimum($calendar, $field)
+function intlcal_get_greatest_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6386,7 +6386,7 @@ function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_least_maximum($calendar, $field)
+function intlcal_get_least_maximum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6394,7 +6394,7 @@ function intlcal_get_least_maximum($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $localeType
  */
-function intlcal_get_locale($calendar, $localeType)
+function intlcal_get_locale(IntlCalendar $calendar, $localeType)
 {
 }
 
@@ -6402,14 +6402,14 @@ function intlcal_get_locale($calendar, $localeType)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_maximum($calendar, $field)
+function intlcal_get_maximum(IntlCalendar $calendar, $field)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_minimal_days_in_first_week($calendar)
+function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar)
 {
 }
 
@@ -6417,7 +6417,7 @@ function intlcal_get_minimal_days_in_first_week($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_minimum($calendar, $field)
+function intlcal_get_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6428,35 +6428,35 @@ function intlcal_get_now()
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_repeated_wall_time_option($calendar)
+function intlcal_get_repeated_wall_time_option(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_skipped_wall_time_option($calendar)
+function intlcal_get_skipped_wall_time_option(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_time($calendar)
+function intlcal_get_time(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_time_zone($calendar)
+function intlcal_get_time_zone(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_type($calendar)
+function intlcal_get_type(IntlCalendar $calendar)
 {
 }
 
@@ -6464,14 +6464,14 @@ function intlcal_get_type($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_get_weekend_transition($calendar, $dayOfWeek)
+function intlcal_get_weekend_transition(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_in_daylight_time($calendar)
+function intlcal_in_daylight_time(IntlCalendar $calendar)
 {
 }
 
@@ -6479,14 +6479,14 @@ function intlcal_in_daylight_time($calendar)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_is_equivalent_to($calendar, $otherCalendar)
+function intlcal_is_equivalent_to(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_is_lenient($calendar)
+function intlcal_is_lenient(IntlCalendar $calendar)
 {
 }
 
@@ -6494,7 +6494,7 @@ function intlcal_is_lenient($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_is_set($calendar, $field)
+function intlcal_is_set(IntlCalendar $calendar, $field)
 {
 }
 
@@ -6502,7 +6502,7 @@ function intlcal_is_set($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed|null $date
  */
-function intlcal_is_weekend($calendar, $date = null)
+function intlcal_is_weekend(IntlCalendar $calendar, $date = null)
 {
 }
 
@@ -6511,7 +6511,7 @@ function intlcal_is_weekend($calendar, $date = null)
  * @param mixed $field
  * @param mixed|null $amountOrUpOrDown
  */
-function intlcal_roll($calendar, $field, $amountOrUpOrDown = null)
+function intlcal_roll(IntlCalendar $calendar, $field, $amountOrUpOrDown = null)
 {
 }
 
@@ -6524,7 +6524,7 @@ function intlcal_roll($calendar, $field, $amountOrUpOrDown = null)
  * @param mixed|null $minute
  * @param mixed|null $second
  */
-function intlcal_set($calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
+function intlcal_set(IntlCalendar $calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
 }
 
@@ -6532,7 +6532,7 @@ function intlcal_set($calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null,
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_set_first_day_of_week($calendar, $dayOfWeek)
+function intlcal_set_first_day_of_week(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
@@ -6540,7 +6540,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek)
  * @param IntlCalendar $calendar
  * @param mixed $isLenient
  */
-function intlcal_set_lenient($calendar, $isLenient)
+function intlcal_set_lenient(IntlCalendar $calendar, $isLenient)
 {
 }
 
@@ -6548,7 +6548,7 @@ function intlcal_set_lenient($calendar, $isLenient)
  * @param IntlCalendar $calendar
  * @param mixed $numberOfDays
  */
-function intlcal_set_minimal_days_in_first_week($calendar, $numberOfDays)
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, $numberOfDays)
 {
 }
 
@@ -6556,7 +6556,7 @@ function intlcal_set_minimal_days_in_first_week($calendar, $numberOfDays)
  * @param IntlCalendar $calendar
  * @param mixed $wallTimeOption
  */
-function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption)
+function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, $wallTimeOption)
 {
 }
 
@@ -6564,7 +6564,7 @@ function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption)
  * @param IntlCalendar $calendar
  * @param mixed $wallTimeOption
  */
-function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption)
+function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, $wallTimeOption)
 {
 }
 
@@ -6572,7 +6572,7 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption)
  * @param IntlCalendar $calendar
  * @param mixed $date
  */
-function intlcal_set_time($calendar, $date)
+function intlcal_set_time(IntlCalendar $calendar, $date)
 {
 }
 
@@ -6580,14 +6580,14 @@ function intlcal_set_time($calendar, $date)
  * @param IntlCalendar $calendar
  * @param mixed $timeZone
  */
-function intlcal_set_time_zone($calendar, $timeZone)
+function intlcal_set_time_zone(IntlCalendar $calendar, $timeZone)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_to_date_time($calendar)
+function intlcal_to_date_time(IntlCalendar $calendar)
 {
 }
 
@@ -6606,7 +6606,7 @@ function intlgregcal_create_instance($timeZoneOrYear = null, $localeOrMonth = nu
 /**
  * @param IntlGregorianCalendar $calendar
  */
-function intlgregcal_get_gregorian_change($calendar)
+function intlgregcal_get_gregorian_change(IntlGregorianCalendar $calendar)
 {
 }
 
@@ -6614,7 +6614,7 @@ function intlgregcal_get_gregorian_change($calendar)
  * @param IntlGregorianCalendar $calendar
  * @param mixed $year
  */
-function intlgregcal_is_leap_year($calendar, $year)
+function intlgregcal_is_leap_year(IntlGregorianCalendar $calendar, $year)
 {
 }
 
@@ -6622,7 +6622,7 @@ function intlgregcal_is_leap_year($calendar, $year)
  * @param IntlGregorianCalendar $calendar
  * @param mixed $date
  */
-function intlgregcal_set_gregorian_change($calendar, $date)
+function intlgregcal_set_gregorian_change(IntlGregorianCalendar $calendar, $date)
 {
 }
 
@@ -6663,7 +6663,7 @@ function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawO
 /**
  * @param DateTimeZone $dateTimeZone
  */
-function intltz_from_date_time_zone($dateTimeZone)
+function intltz_from_date_time_zone(DateTimeZone $dateTimeZone)
 {
 }
 
@@ -6681,14 +6681,14 @@ function intltz_get_canonical_id($zoneId, &$isSystemID = null)
  * @param mixed|null $style
  * @param mixed|null $locale
  */
-function intltz_get_display_name($timeZone, $isDaylight = null, $style = null, $locale = null)
+function intltz_get_display_name(IntlTimeZone $timeZone, $isDaylight = null, $style = null, $locale = null)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_dst_savings($timeZone)
+function intltz_get_dst_savings(IntlTimeZone $timeZone)
 {
 }
 
@@ -6709,7 +6709,7 @@ function intltz_get_equivalent_id($zoneId, $index)
  *
  * @link http://www.php.net/manual/en/intltimezone.geterrorcode.php
  */
-function intltz_get_error_code($timeZone): int
+function intltz_get_error_code(IntlTimeZone $timeZone): int
 {
 }
 
@@ -6722,7 +6722,7 @@ function intltz_get_error_code($timeZone): int
  *
  * @link http://www.php.net/manual/en/intltimezone.geterrormessage.php
  */
-function intltz_get_error_message($timeZone): string
+function intltz_get_error_message(IntlTimeZone $timeZone): string
 {
 }
 
@@ -6733,7 +6733,7 @@ function intltz_get_gmt()
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_id($timeZone)
+function intltz_get_id(IntlTimeZone $timeZone)
 {
 }
 
@@ -6744,14 +6744,14 @@ function intltz_get_id($timeZone)
  * @param mixed $rawOffset
  * @param mixed $dstOffset
  */
-function intltz_get_offset($timeZone, $date, $local, &$rawOffset, &$dstOffset)
+function intltz_get_offset(IntlTimeZone $timeZone, $date, $local, &$rawOffset, &$dstOffset)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_raw_offset($timeZone)
+function intltz_get_raw_offset(IntlTimeZone $timeZone)
 {
 }
 
@@ -6774,21 +6774,21 @@ function intltz_get_unknown()
  * @param IntlTimeZone $timeZone
  * @param IntlTimeZone|null $otherTimeZone
  */
-function intltz_has_same_rules($timeZone, $otherTimeZone = null)
+function intltz_has_same_rules(IntlTimeZone $timeZone, IntlTimeZone $otherTimeZone = null)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_to_date_time_zone($timeZone)
+function intltz_to_date_time_zone(IntlTimeZone $timeZone)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_use_daylight_time($timeZone)
+function intltz_use_daylight_time(IntlTimeZone $timeZone)
 {
 }
 
@@ -7082,7 +7082,7 @@ function locale_set_default($arg1): bool
  *
  * @link http://www.php.net/manual/en/messageformatter.create.php
  */
-function msgfmt_create($locale, $pattern)
+function msgfmt_create($locale, $pattern): MessageFormatter
 {
 }
 
@@ -7274,7 +7274,7 @@ function normalizer_normalize($input, $form = null): string
  *
  * @link http://www.php.net/manual/en/numberformatter.create.php
  */
-function numfmt_create($locale, $style, $pattern = null)
+function numfmt_create($locale, $style, $pattern = null): NumberFormatter
 {
 }
 
@@ -7548,7 +7548,7 @@ function resourcebundle_count($bundle): int
  *
  * @link http://www.php.net/manual/en/resourcebundle.create.php
  */
-function resourcebundle_create($locale, $bundlename, $fallback = null)
+function resourcebundle_create($locale, $bundlename, $fallback = null): ResourceBundle
 {
 }
 
@@ -7616,7 +7616,7 @@ function resourcebundle_locales($bundlename): array
  *
  * @link http://www.php.net/manual/en/transliterator.create.php
  */
-function transliterator_create($id, $direction = null)
+function transliterator_create($id, $direction = null): Transliterator
 {
 }
 
@@ -7630,7 +7630,7 @@ function transliterator_create($id, $direction = null)
  *
  * @link http://www.php.net/manual/en/transliterator.createfromrules.php
  */
-function transliterator_create_from_rules($rules, $direction = null)
+function transliterator_create_from_rules($rules, $direction = null): Transliterator
 {
 }
 
@@ -7643,7 +7643,7 @@ function transliterator_create_from_rules($rules, $direction = null)
  *
  * @link http://www.php.net/manual/en/transliterator.createinverse.php
  */
-function transliterator_create_inverse($orig_trans)
+function transliterator_create_inverse(Transliterator $orig_trans): Transliterator
 {
 }
 
@@ -7656,7 +7656,7 @@ function transliterator_create_inverse($orig_trans)
  *
  * @link http://www.php.net/manual/en/transliterator.geterrorcode.php
  */
-function transliterator_get_error_code($trans): int
+function transliterator_get_error_code(Transliterator $trans): int
 {
 }
 
@@ -7669,7 +7669,7 @@ function transliterator_get_error_code($trans): int
  *
  * @link http://www.php.net/manual/en/transliterator.geterrormessage.php
  */
-function transliterator_get_error_message($trans): string
+function transliterator_get_error_message(Transliterator $trans): string
 {
 }
 

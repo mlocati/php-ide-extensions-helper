@@ -881,7 +881,7 @@ function pcntl_errno()
  *
  * @link http://www.php.net/manual/en/function.pcntl-exec.php
  */
-function pcntl_exec($path, $args = null, $envs = null)
+function pcntl_exec($path, $args = null, $envs = null): void
 {
 }
 

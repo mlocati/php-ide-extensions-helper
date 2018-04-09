@@ -434,7 +434,7 @@ function odbc_binmode($result_id, $mode): bool
  *
  * @link http://www.php.net/manual/en/function.odbc-close.php
  */
-function odbc_close($connection_id)
+function odbc_close($connection_id): void
 {
 }
 
@@ -447,7 +447,7 @@ function odbc_close($connection_id)
  *
  * @link http://www.php.net/manual/en/function.odbc-close-all.php
  */
-function odbc_close_all()
+function odbc_close_all(): void
 {
 }
 
@@ -670,7 +670,7 @@ function odbc_fetch_into($result_id, &$result_array, $rownumber = null): int
  * @param mixed $result
  * @param mixed|null $rownumber
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
  *

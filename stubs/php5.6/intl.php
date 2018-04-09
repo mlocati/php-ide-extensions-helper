@@ -1563,7 +1563,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.after.php
      */
-    public function after($calendar)
+    public function after(IntlCalendar $calendar)
     {
     }
 
@@ -1578,7 +1578,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.before.php
      */
-    public function before($calendar)
+    public function before(IntlCalendar $calendar)
     {
     }
 
@@ -1624,7 +1624,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.equals.php
      */
-    public function equals($calendar)
+    public function equals(IntlCalendar $calendar)
     {
     }
 
@@ -1713,7 +1713,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.getavailablelocales.php
      */
-    public static function getAvailableLocales(): array
+    public static function getAvailableLocales()
     {
     }
 
@@ -1993,7 +1993,7 @@ class IntlCalendar
      *
      * @link http://www.php.net/manual/en/intlcalendar.isequivalentto.php
      */
-    public function isEquivalentTo($calendar)
+    public function isEquivalentTo(IntlCalendar $calendar)
     {
     }
 
@@ -2465,7 +2465,7 @@ class IntlDateFormatter
      *
      * @link http://www.php.net/manual/en/intldateformatter.localtime.php
      */
-    public function localtime($string, &$position = null): array
+    public function localtime($string, &$position = null)
     {
     }
 
@@ -2825,7 +2825,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator
      *
      * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
      */
-    public function getRuleStatusVec(): array
+    public function getRuleStatusVec()
     {
     }
 }
@@ -3132,7 +3132,7 @@ class IntlTimeZone
      *
      * @link http://www.php.net/manual/en/intltimezone.hassamerules.php
      */
-    public function hasSameRules($otherTimeZone)
+    public function hasSameRules(IntlTimeZone $otherTimeZone)
     {
     }
 
@@ -3250,7 +3250,7 @@ class Locale
      *
      * @link http://www.php.net/manual/en/locale.getallvariants.php
      */
-    public static function getAllVariants($arg1): array
+    public static function getAllVariants($arg1)
     {
     }
 
@@ -3358,7 +3358,7 @@ class Locale
      *
      * @link http://www.php.net/manual/en/locale.getkeywords.php
      */
-    public static function getKeywords($arg1): array
+    public static function getKeywords($arg1)
     {
     }
 
@@ -3436,7 +3436,7 @@ class Locale
      *
      * @link http://www.php.net/manual/en/locale.parselocale.php
      */
-    public static function parseLocale($arg1): array
+    public static function parseLocale($arg1)
     {
     }
 
@@ -3605,7 +3605,7 @@ class MessageFormatter
      *
      * @link http://www.php.net/manual/en/messageformatter.parse.php
      */
-    public function parse($source): array
+    public function parse($source)
     {
     }
 
@@ -3622,7 +3622,7 @@ class MessageFormatter
      *
      * @link http://www.php.net/manual/en/messageformatter.parsemessage.php
      */
-    public static function parseMessage($locale, $pattern, $args): array
+    public static function parseMessage($locale, $pattern, $args)
     {
     }
 
@@ -4089,7 +4089,7 @@ class ResourceBundle implements Traversable
      *
      * @link http://www.php.net/manual/en/resourcebundle.locales.php
      */
-    public static function getLocales($bundlename): array
+    public static function getLocales($bundlename)
     {
     }
 }
@@ -4255,7 +4255,7 @@ class Transliterator
      *
      * @link http://www.php.net/manual/en/transliterator.listids.php
      */
-    public static function listIDs(): array
+    public static function listIDs()
     {
     }
 
@@ -4341,7 +4341,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.getaliases.php
      */
-    public static function getAliases($name = null): array
+    public static function getAliases($name = null)
     {
     }
 
@@ -4354,7 +4354,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.getavailable.php
      */
-    public static function getAvailable(): array
+    public static function getAvailable()
     {
     }
 
@@ -4445,7 +4445,7 @@ class UConverter
      *
      * @link http://www.php.net/manual/en/uconverter.getstandards.php
      */
-    public static function getStandards(): array
+    public static function getStandards()
     {
     }
 
@@ -4572,7 +4572,7 @@ class UConverter
  *
  * @link http://www.php.net/manual/en/collator.asort.php
  */
-function collator_asort($object, array &$arr, $sort_flags = null)
+function collator_asort(Collator $object, array &$arr, $sort_flags = null)
 {
 }
 
@@ -4589,7 +4589,7 @@ function collator_asort($object, array &$arr, $sort_flags = null)
  *
  * @link http://www.php.net/manual/en/collator.compare.php
  */
-function collator_compare($object, $arg1, $arg2)
+function collator_compare(Collator $object, $arg1, $arg2)
 {
 }
 
@@ -4620,7 +4620,7 @@ function collator_create($arg1)
  *
  * @link http://www.php.net/manual/en/collator.getattribute.php
  */
-function collator_get_attribute($object, $arg1)
+function collator_get_attribute(Collator $object, $arg1)
 {
 }
 
@@ -4635,7 +4635,7 @@ function collator_get_attribute($object, $arg1)
  *
  * @link http://www.php.net/manual/en/collator.geterrorcode.php
  */
-function collator_get_error_code($object)
+function collator_get_error_code(Collator $object)
 {
 }
 
@@ -4650,7 +4650,7 @@ function collator_get_error_code($object)
  *
  * @link http://www.php.net/manual/en/collator.geterrormessage.php
  */
-function collator_get_error_message($object)
+function collator_get_error_message(Collator $object)
 {
 }
 
@@ -4666,7 +4666,7 @@ function collator_get_error_message($object)
  *
  * @link http://www.php.net/manual/en/collator.getlocale.php
  */
-function collator_get_locale($object, $arg1)
+function collator_get_locale(Collator $object, $arg1)
 {
 }
 
@@ -4683,7 +4683,7 @@ function collator_get_locale($object, $arg1)
  *
  * @link http://www.php.net/manual/en/collator.getsortkey.php
  */
-function collator_get_sort_key($object, $arg1, $arg2)
+function collator_get_sort_key(Collator $object, $arg1, $arg2)
 {
 }
 
@@ -4698,7 +4698,7 @@ function collator_get_sort_key($object, $arg1, $arg2)
  *
  * @link http://www.php.net/manual/en/collator.getstrength.php
  */
-function collator_get_strength($object)
+function collator_get_strength(Collator $object)
 {
 }
 
@@ -4715,7 +4715,7 @@ function collator_get_strength($object)
  *
  * @link http://www.php.net/manual/en/collator.setattribute.php
  */
-function collator_set_attribute($object, $arg1, $arg2)
+function collator_set_attribute(Collator $object, $arg1, $arg2)
 {
 }
 
@@ -4731,7 +4731,7 @@ function collator_set_attribute($object, $arg1, $arg2)
  *
  * @link http://www.php.net/manual/en/collator.setstrength.php
  */
-function collator_set_strength($object, $arg1)
+function collator_set_strength(Collator $object, $arg1)
 {
 }
 
@@ -4748,7 +4748,7 @@ function collator_set_strength($object, $arg1)
  *
  * @link http://www.php.net/manual/en/collator.sort.php
  */
-function collator_sort($object, array &$arr, $sort_flags = null)
+function collator_sort(Collator $object, array &$arr, $sort_flags = null)
 {
 }
 
@@ -4765,7 +4765,7 @@ function collator_sort($object, array &$arr, $sort_flags = null)
  *
  * @link http://www.php.net/manual/en/collator.sortwithsortkeys.php
  */
-function collator_sort_with_sort_keys($object, array &$arr, $sort_flags = null)
+function collator_sort_with_sort_keys(Collator $object, array &$arr, $sort_flags = null)
 {
 }
 
@@ -5000,7 +5000,7 @@ function datefmt_is_lenient($mf)
  *
  * @link http://www.php.net/manual/en/intldateformatter.localtime.php
  */
-function datefmt_localtime($formatter, $string, &$position = null): array
+function datefmt_localtime($formatter, $string, &$position = null)
 {
 }
 
@@ -5338,7 +5338,7 @@ function intl_is_failure($arg1)
  * @param mixed $field
  * @param mixed $amount
  */
-function intlcal_add($calendar, $field, $amount)
+function intlcal_add(IntlCalendar $calendar, $field, $amount)
 {
 }
 
@@ -5346,7 +5346,7 @@ function intlcal_add($calendar, $field, $amount)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_after($calendar, $otherCalendar)
+function intlcal_after(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -5354,7 +5354,7 @@ function intlcal_after($calendar, $otherCalendar)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_before($calendar, $otherCalendar)
+function intlcal_before(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -5362,7 +5362,7 @@ function intlcal_before($calendar, $otherCalendar)
  * @param IntlCalendar $calendar
  * @param mixed|null $field
  */
-function intlcal_clear($calendar, $field = null)
+function intlcal_clear(IntlCalendar $calendar, $field = null)
 {
 }
 
@@ -5378,7 +5378,7 @@ function intlcal_create_instance($timeZone = null, $locale = null)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_equals($calendar, $otherCalendar)
+function intlcal_equals(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
@@ -5387,7 +5387,7 @@ function intlcal_equals($calendar, $otherCalendar)
  * @param mixed $when
  * @param mixed $field
  */
-function intlcal_field_difference($calendar, $when, $field)
+function intlcal_field_difference(IntlCalendar $calendar, $when, $field)
 {
 }
 
@@ -5402,7 +5402,7 @@ function intlcal_from_date_time($dateTime)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get($calendar, $field)
+function intlcal_get(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5410,7 +5410,7 @@ function intlcal_get($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_actual_maximum($calendar, $field)
+function intlcal_get_actual_maximum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5418,7 +5418,7 @@ function intlcal_get_actual_maximum($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_actual_minimum($calendar, $field)
+function intlcal_get_actual_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5430,7 +5430,7 @@ function intlcal_get_available_locales()
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
+function intlcal_get_day_of_week_type(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
@@ -5443,7 +5443,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek)
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrorcode.php
  */
-function intlcal_get_error_code($calendar)
+function intlcal_get_error_code(IntlCalendar $calendar)
 {
 }
 
@@ -5456,14 +5456,14 @@ function intlcal_get_error_code($calendar)
  *
  * @link http://www.php.net/manual/en/intlcalendar.geterrormessage.php
  */
-function intlcal_get_error_message($calendar)
+function intlcal_get_error_message(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_first_day_of_week($calendar)
+function intlcal_get_first_day_of_week(IntlCalendar $calendar)
 {
 }
 
@@ -5471,7 +5471,7 @@ function intlcal_get_first_day_of_week($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_greatest_minimum($calendar, $field)
+function intlcal_get_greatest_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5488,7 +5488,7 @@ function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_least_maximum($calendar, $field)
+function intlcal_get_least_maximum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5496,7 +5496,7 @@ function intlcal_get_least_maximum($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed $localeType
  */
-function intlcal_get_locale($calendar, $localeType)
+function intlcal_get_locale(IntlCalendar $calendar, $localeType)
 {
 }
 
@@ -5504,14 +5504,14 @@ function intlcal_get_locale($calendar, $localeType)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_maximum($calendar, $field)
+function intlcal_get_maximum(IntlCalendar $calendar, $field)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_minimal_days_in_first_week($calendar)
+function intlcal_get_minimal_days_in_first_week(IntlCalendar $calendar)
 {
 }
 
@@ -5519,7 +5519,7 @@ function intlcal_get_minimal_days_in_first_week($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_get_minimum($calendar, $field)
+function intlcal_get_minimum(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5530,35 +5530,35 @@ function intlcal_get_now()
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_repeated_wall_time_option($calendar)
+function intlcal_get_repeated_wall_time_option(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_skipped_wall_time_option($calendar)
+function intlcal_get_skipped_wall_time_option(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_time($calendar)
+function intlcal_get_time(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_time_zone($calendar)
+function intlcal_get_time_zone(IntlCalendar $calendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_get_type($calendar)
+function intlcal_get_type(IntlCalendar $calendar)
 {
 }
 
@@ -5566,14 +5566,14 @@ function intlcal_get_type($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_get_weekend_transition($calendar, $dayOfWeek)
+function intlcal_get_weekend_transition(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_in_daylight_time($calendar)
+function intlcal_in_daylight_time(IntlCalendar $calendar)
 {
 }
 
@@ -5581,14 +5581,14 @@ function intlcal_in_daylight_time($calendar)
  * @param IntlCalendar $calendar
  * @param IntlCalendar $otherCalendar
  */
-function intlcal_is_equivalent_to($calendar, $otherCalendar)
+function intlcal_is_equivalent_to(IntlCalendar $calendar, IntlCalendar $otherCalendar)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_is_lenient($calendar)
+function intlcal_is_lenient(IntlCalendar $calendar)
 {
 }
 
@@ -5596,7 +5596,7 @@ function intlcal_is_lenient($calendar)
  * @param IntlCalendar $calendar
  * @param mixed $field
  */
-function intlcal_is_set($calendar, $field)
+function intlcal_is_set(IntlCalendar $calendar, $field)
 {
 }
 
@@ -5604,7 +5604,7 @@ function intlcal_is_set($calendar, $field)
  * @param IntlCalendar $calendar
  * @param mixed|null $date
  */
-function intlcal_is_weekend($calendar, $date = null)
+function intlcal_is_weekend(IntlCalendar $calendar, $date = null)
 {
 }
 
@@ -5613,7 +5613,7 @@ function intlcal_is_weekend($calendar, $date = null)
  * @param mixed $field
  * @param mixed|null $amountOrUpOrDown
  */
-function intlcal_roll($calendar, $field, $amountOrUpOrDown = null)
+function intlcal_roll(IntlCalendar $calendar, $field, $amountOrUpOrDown = null)
 {
 }
 
@@ -5626,7 +5626,7 @@ function intlcal_roll($calendar, $field, $amountOrUpOrDown = null)
  * @param mixed|null $minute
  * @param mixed|null $second
  */
-function intlcal_set($calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
+function intlcal_set(IntlCalendar $calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null, $hour = null, $minute = null, $second = null)
 {
 }
 
@@ -5634,7 +5634,7 @@ function intlcal_set($calendar, $fieldOrYear, $valueOrMonth, $dayOfMonth = null,
  * @param IntlCalendar $calendar
  * @param mixed $dayOfWeek
  */
-function intlcal_set_first_day_of_week($calendar, $dayOfWeek)
+function intlcal_set_first_day_of_week(IntlCalendar $calendar, $dayOfWeek)
 {
 }
 
@@ -5642,7 +5642,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek)
  * @param IntlCalendar $calendar
  * @param mixed $isLenient
  */
-function intlcal_set_lenient($calendar, $isLenient)
+function intlcal_set_lenient(IntlCalendar $calendar, $isLenient)
 {
 }
 
@@ -5650,7 +5650,7 @@ function intlcal_set_lenient($calendar, $isLenient)
  * @param IntlCalendar $calendar
  * @param mixed $numberOfDays
  */
-function intlcal_set_minimal_days_in_first_week($calendar, $numberOfDays)
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, $numberOfDays)
 {
 }
 
@@ -5658,7 +5658,7 @@ function intlcal_set_minimal_days_in_first_week($calendar, $numberOfDays)
  * @param IntlCalendar $calendar
  * @param mixed $wallTimeOption
  */
-function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption)
+function intlcal_set_repeated_wall_time_option(IntlCalendar $calendar, $wallTimeOption)
 {
 }
 
@@ -5666,7 +5666,7 @@ function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption)
  * @param IntlCalendar $calendar
  * @param mixed $wallTimeOption
  */
-function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption)
+function intlcal_set_skipped_wall_time_option(IntlCalendar $calendar, $wallTimeOption)
 {
 }
 
@@ -5674,7 +5674,7 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption)
  * @param IntlCalendar $calendar
  * @param mixed $date
  */
-function intlcal_set_time($calendar, $date)
+function intlcal_set_time(IntlCalendar $calendar, $date)
 {
 }
 
@@ -5682,14 +5682,14 @@ function intlcal_set_time($calendar, $date)
  * @param IntlCalendar $calendar
  * @param mixed $timeZone
  */
-function intlcal_set_time_zone($calendar, $timeZone)
+function intlcal_set_time_zone(IntlCalendar $calendar, $timeZone)
 {
 }
 
 /**
  * @param IntlCalendar $calendar
  */
-function intlcal_to_date_time($calendar)
+function intlcal_to_date_time(IntlCalendar $calendar)
 {
 }
 
@@ -5708,7 +5708,7 @@ function intlgregcal_create_instance($timeZoneOrYear = null, $localeOrMonth = nu
 /**
  * @param IntlGregorianCalendar $calendar
  */
-function intlgregcal_get_gregorian_change($calendar)
+function intlgregcal_get_gregorian_change(IntlGregorianCalendar $calendar)
 {
 }
 
@@ -5716,7 +5716,7 @@ function intlgregcal_get_gregorian_change($calendar)
  * @param IntlGregorianCalendar $calendar
  * @param mixed $year
  */
-function intlgregcal_is_leap_year($calendar, $year)
+function intlgregcal_is_leap_year(IntlGregorianCalendar $calendar, $year)
 {
 }
 
@@ -5724,7 +5724,7 @@ function intlgregcal_is_leap_year($calendar, $year)
  * @param IntlGregorianCalendar $calendar
  * @param mixed $date
  */
-function intlgregcal_set_gregorian_change($calendar, $date)
+function intlgregcal_set_gregorian_change(IntlGregorianCalendar $calendar, $date)
 {
 }
 
@@ -5765,7 +5765,7 @@ function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawO
 /**
  * @param DateTimeZone $dateTimeZone
  */
-function intltz_from_date_time_zone($dateTimeZone)
+function intltz_from_date_time_zone(DateTimeZone $dateTimeZone)
 {
 }
 
@@ -5783,14 +5783,14 @@ function intltz_get_canonical_id($zoneId, &$isSystemID = null)
  * @param mixed|null $style
  * @param mixed|null $locale
  */
-function intltz_get_display_name($timeZone, $isDaylight = null, $style = null, $locale = null)
+function intltz_get_display_name(IntlTimeZone $timeZone, $isDaylight = null, $style = null, $locale = null)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_dst_savings($timeZone)
+function intltz_get_dst_savings(IntlTimeZone $timeZone)
 {
 }
 
@@ -5811,7 +5811,7 @@ function intltz_get_equivalent_id($zoneId, $index)
  *
  * @link http://www.php.net/manual/en/intltimezone.geterrorcode.php
  */
-function intltz_get_error_code($timeZone)
+function intltz_get_error_code(IntlTimeZone $timeZone)
 {
 }
 
@@ -5824,7 +5824,7 @@ function intltz_get_error_code($timeZone)
  *
  * @link http://www.php.net/manual/en/intltimezone.geterrormessage.php
  */
-function intltz_get_error_message($timeZone)
+function intltz_get_error_message(IntlTimeZone $timeZone)
 {
 }
 
@@ -5835,7 +5835,7 @@ function intltz_get_gmt()
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_id($timeZone)
+function intltz_get_id(IntlTimeZone $timeZone)
 {
 }
 
@@ -5846,14 +5846,14 @@ function intltz_get_id($timeZone)
  * @param mixed $rawOffset
  * @param mixed $dstOffset
  */
-function intltz_get_offset($timeZone, $date, $local, &$rawOffset, &$dstOffset)
+function intltz_get_offset(IntlTimeZone $timeZone, $date, $local, &$rawOffset, &$dstOffset)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_get_raw_offset($timeZone)
+function intltz_get_raw_offset(IntlTimeZone $timeZone)
 {
 }
 
@@ -5876,21 +5876,21 @@ function intltz_get_unknown()
  * @param IntlTimeZone $timeZone
  * @param IntlTimeZone|null $otherTimeZone
  */
-function intltz_has_same_rules($timeZone, $otherTimeZone = null)
+function intltz_has_same_rules(IntlTimeZone $timeZone, IntlTimeZone $otherTimeZone = null)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_to_date_time_zone($timeZone)
+function intltz_to_date_time_zone(IntlTimeZone $timeZone)
 {
 }
 
 /**
  * @param IntlTimeZone $timeZone
  */
-function intltz_use_daylight_time($timeZone)
+function intltz_use_daylight_time(IntlTimeZone $timeZone)
 {
 }
 
@@ -5967,7 +5967,7 @@ function locale_filter_matches($arg1, $arg2, $arg3)
  *
  * @link http://www.php.net/manual/en/locale.getallvariants.php
  */
-function locale_get_all_variants($arg1): array
+function locale_get_all_variants($arg1)
 {
 }
 
@@ -6075,7 +6075,7 @@ function locale_get_display_variant($arg1, $arg2)
  *
  * @link http://www.php.net/manual/en/locale.getkeywords.php
  */
-function locale_get_keywords($arg1): array
+function locale_get_keywords($arg1)
 {
 }
 
@@ -6153,7 +6153,7 @@ function locale_lookup($arg1, $arg2, $arg3, $arg4)
  *
  * @link http://www.php.net/manual/en/locale.parselocale.php
  */
-function locale_parse($arg1): array
+function locale_parse($arg1)
 {
 }
 
@@ -6293,7 +6293,7 @@ function msgfmt_get_pattern($mf)
  *
  * @link http://www.php.net/manual/en/messageformatter.parse.php
  */
-function msgfmt_parse($nf, $source): array
+function msgfmt_parse($nf, $source)
 {
 }
 
@@ -6310,7 +6310,7 @@ function msgfmt_parse($nf, $source): array
  *
  * @link http://www.php.net/manual/en/messageformatter.parsemessage.php
  */
-function msgfmt_parse_message($locale, $pattern, $source): array
+function msgfmt_parse_message($locale, $pattern, $source)
 {
 }
 
@@ -6704,7 +6704,7 @@ function resourcebundle_get_error_message($bundle)
  *
  * @link http://www.php.net/manual/en/resourcebundle.locales.php
  */
-function resourcebundle_locales($bundlename): array
+function resourcebundle_locales($bundlename)
 {
 }
 
@@ -6745,7 +6745,7 @@ function transliterator_create_from_rules($rules, $direction = null)
  *
  * @link http://www.php.net/manual/en/transliterator.createinverse.php
  */
-function transliterator_create_inverse($orig_trans)
+function transliterator_create_inverse(Transliterator $orig_trans)
 {
 }
 
@@ -6758,7 +6758,7 @@ function transliterator_create_inverse($orig_trans)
  *
  * @link http://www.php.net/manual/en/transliterator.geterrorcode.php
  */
-function transliterator_get_error_code($trans)
+function transliterator_get_error_code(Transliterator $trans)
 {
 }
 
@@ -6771,7 +6771,7 @@ function transliterator_get_error_code($trans)
  *
  * @link http://www.php.net/manual/en/transliterator.geterrormessage.php
  */
-function transliterator_get_error_message($trans)
+function transliterator_get_error_message(Transliterator $trans)
 {
 }
 
@@ -6782,7 +6782,7 @@ function transliterator_get_error_message($trans)
  *
  * @link http://www.php.net/manual/en/transliterator.listids.php
  */
-function transliterator_list_ids(): array
+function transliterator_list_ids()
 {
 }
 

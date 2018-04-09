@@ -1189,7 +1189,7 @@ function imagecolorresolvealpha($im, $red, $green, $blue, $alpha): int
  *
  * @link http://www.php.net/manual/en/function.imagecolorset.php
  */
-function imagecolorset($im, $color, $red, $green, $blue, $alpha = null)
+function imagecolorset($im, $color, $red, $green, $blue, $alpha = null): void
 {
 }
 
@@ -2149,7 +2149,7 @@ function imageopenpolygon($im, $points, $num_pos, $col): bool
  *
  * @link http://www.php.net/manual/en/function.imagepalettecopy.php
  */
-function imagepalettecopy($dst, $src)
+function imagepalettecopy($dst, $src): void
 {
 }
 

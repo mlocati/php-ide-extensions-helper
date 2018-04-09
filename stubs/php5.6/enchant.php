@@ -35,7 +35,7 @@ const ENCHANT_MYSPELL = 1;
  *
  * @link http://www.php.net/manual/en/function.enchant-broker-describe.php
  */
-function enchant_broker_describe($broker): array
+function enchant_broker_describe($broker)
 {
 }
 
@@ -350,6 +350,6 @@ function enchant_dict_store_replacement($dict, $mis, $cor)
  *
  * @link http://www.php.net/manual/en/function.enchant-dict-suggest.php
  */
-function enchant_dict_suggest($dict, $word): array
+function enchant_dict_suggest($dict, $word)
 {
 }

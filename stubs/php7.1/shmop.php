@@ -13,7 +13,7 @@
  *
  * @link http://www.php.net/manual/en/function.shmop-close.php
  */
-function shmop_close($shmid)
+function shmop_close($shmid): void
 {
 }
 

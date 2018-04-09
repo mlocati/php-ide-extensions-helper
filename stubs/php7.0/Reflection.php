@@ -57,7 +57,7 @@ class Reflection
      *
      * @link http://www.php.net/manual/en/reflection.export.php
      */
-    public static function export($reflector, $return = null): string
+    public static function export(Reflector $reflector, $return = null): string
     {
     }
 
@@ -170,7 +170,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getconstructor.php
      */
-    public function getConstructor()
+    public function getConstructor(): ReflectionMethod
     {
     }
 
@@ -222,7 +222,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getextension.php
      */
-    public function getExtension()
+    public function getExtension(): ReflectionExtension
     {
     }
 
@@ -289,7 +289,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getmethod.php
      */
-    public function getMethod($name)
+    public function getMethod($name): ReflectionMethod
     {
     }
 
@@ -356,7 +356,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getparentclass.php
      */
-    public function getParentClass()
+    public function getParentClass(): ReflectionClass
     {
     }
 
@@ -386,7 +386,7 @@ class ReflectionClass implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionclass.getproperty.php
      */
-    public function getProperty($name)
+    public function getProperty($name): ReflectionProperty
     {
     }
 
@@ -722,7 +722,7 @@ class ReflectionClass implements Reflector
      *
      * @param mixed $args
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5, PHP 7
      *
@@ -735,22 +735,22 @@ class ReflectionClass implements Reflector
     /**
      * Creates a new class instance from given arguments
      *
-     * @param array[]|null $args
+     * @param array|null $args
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.1.3, PHP 7
      *
      * @link http://www.php.net/manual/en/reflectionclass.newinstanceargs.php
      */
-    public function newInstanceArgs($args = null)
+    public function newInstanceArgs(array $args = null)
     {
     }
 
     /**
      * Creates a new class instance without invoking the constructor
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1058,7 +1058,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionfunction.getclosure.php
      */
-    public function getClosure()
+    public function getClosure(): Closure
     {
     }
 
@@ -1080,7 +1080,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     /**
      * Invokes function args
      *
-     * @param array[] $args
+     * @param array $args
      *
      * @return mixed
      *
@@ -1088,7 +1088,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionfunction.invokeargs.php
      */
-    public function invokeArgs($args)
+    public function invokeArgs(array $args)
     {
     }
 
@@ -1138,14 +1138,14 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
      */
-    public function getClosureScopeClass()
+    public function getClosureScopeClass(): ReflectionClass
     {
     }
 
     /**
      * Returns this pointer bound to closure
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 5 >= 5.4.0, PHP 7
      *
@@ -1190,7 +1190,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionfunctionabstract.getextension.php
      */
-    public function getExtension()
+    public function getExtension(): ReflectionExtension
     {
     }
 
@@ -1294,7 +1294,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionfunctionabstract.getreturntype.php
      */
-    public function getReturnType()
+    public function getReturnType(): ReflectionType
     {
     }
 
@@ -1500,7 +1500,7 @@ class ReflectionGenerator
      *
      * @link http://www.php.net/manual/en/reflectiongenerator.getexecutinggenerator.php
      */
-    public function getExecutingGenerator()
+    public function getExecutingGenerator(): Generator
     {
     }
 
@@ -1526,14 +1526,14 @@ class ReflectionGenerator
      *
      * @link http://www.php.net/manual/en/reflectiongenerator.getfunction.php
      */
-    public function getFunction()
+    public function getFunction(): ReflectionFunctionAbstract
     {
     }
 
     /**
      * Gets the <code>$this</code> value of the generator
      *
-     * @return object
+     * @return mixed
      *
      * @since PHP 7
      *
@@ -1624,7 +1624,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionmethod.getclosure.php
      */
-    public function getClosure($object)
+    public function getClosure($object): Closure
     {
     }
 
@@ -1637,7 +1637,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionmethod.getdeclaringclass.php
      */
-    public function getDeclaringClass()
+    public function getDeclaringClass(): ReflectionClass
     {
     }
 
@@ -1663,7 +1663,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionmethod.getprototype.php
      */
-    public function getPrototype()
+    public function getPrototype(): ReflectionMethod
     {
     }
 
@@ -1687,7 +1687,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * Invoke args
      *
      * @param mixed $object
-     * @param array[] $args
+     * @param array $args
      *
      * @return mixed
      *
@@ -1695,7 +1695,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *
      * @link http://www.php.net/manual/en/reflectionmethod.invokeargs.php
      */
-    public function invokeArgs($object, $args)
+    public function invokeArgs($object, array $args)
     {
     }
 
@@ -1961,7 +1961,7 @@ class ReflectionParameter implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionparameter.getclass.php
      */
-    public function getClass()
+    public function getClass(): ReflectionClass
     {
     }
 
@@ -1974,7 +1974,7 @@ class ReflectionParameter implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionparameter.getdeclaringclass.php
      */
-    public function getDeclaringClass()
+    public function getDeclaringClass(): ReflectionClass
     {
     }
 
@@ -1987,7 +1987,7 @@ class ReflectionParameter implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionparameter.getdeclaringfunction.php
      */
-    public function getDeclaringFunction()
+    public function getDeclaringFunction(): ReflectionFunctionAbstract
     {
     }
 
@@ -2052,7 +2052,7 @@ class ReflectionParameter implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionparameter.gettype.php
      */
-    public function getType()
+    public function getType(): ReflectionType
     {
     }
 
@@ -2237,7 +2237,7 @@ class ReflectionProperty implements Reflector
      *
      * @link http://www.php.net/manual/en/reflectionproperty.getdeclaringclass.php
      */
-    public function getDeclaringClass()
+    public function getDeclaringClass(): ReflectionClass
     {
     }
 

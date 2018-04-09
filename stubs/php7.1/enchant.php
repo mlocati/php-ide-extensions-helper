@@ -222,7 +222,7 @@ function enchant_broker_set_ordering($broker, $tag, $ordering): bool
  *
  * @link http://www.php.net/manual/en/function.enchant-dict-add-to-personal.php
  */
-function enchant_dict_add_to_personal($dict, $word)
+function enchant_dict_add_to_personal($dict, $word): void
 {
 }
 
@@ -238,7 +238,7 @@ function enchant_dict_add_to_personal($dict, $word)
  *
  * @link http://www.php.net/manual/en/function.enchant-dict-add-to-session.php
  */
-function enchant_dict_add_to_session($dict, $word)
+function enchant_dict_add_to_session($dict, $word): void
 {
 }
 
@@ -334,7 +334,7 @@ function enchant_dict_quick_check($dict, $word, &$suggestions = null): bool
  *
  * @link http://www.php.net/manual/en/function.enchant-dict-store-replacement.php
  */
-function enchant_dict_store_replacement($dict, $mis, $cor)
+function enchant_dict_store_replacement($dict, $mis, $cor): void
 {
 }
 

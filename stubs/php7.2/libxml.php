@@ -299,7 +299,7 @@ class LibXMLError
  *
  * @link http://www.php.net/manual/en/function.libxml-clear-errors.php
  */
-function libxml_clear_errors()
+function libxml_clear_errors(): void
 {
 }
 
@@ -340,7 +340,7 @@ function libxml_get_errors(): array
  *
  * @link http://www.php.net/manual/en/function.libxml-get-last-error.php
  */
-function libxml_get_last_error()
+function libxml_get_last_error(): LibXMLError
 {
 }
 
@@ -370,7 +370,7 @@ function libxml_set_external_entity_loader($resolver_function): bool
  *
  * @link http://www.php.net/manual/en/function.libxml-set-streams-context.php
  */
-function libxml_set_streams_context($context)
+function libxml_set_streams_context($context): void
 {
 }
 

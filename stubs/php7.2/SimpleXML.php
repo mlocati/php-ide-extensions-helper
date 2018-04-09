@@ -55,7 +55,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.addattribute.php
      */
-    public function addAttribute($name, $value = null, $ns = null)
+    public function addAttribute($name, $value = null, $ns = null): void
     {
     }
 
@@ -72,7 +72,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.addchild.php
      */
-    public function addChild($name, $value = null, $ns = null)
+    public function addChild($name, $value = null, $ns = null): SimpleXMLElement
     {
     }
 
@@ -103,7 +103,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.attributes.php
      */
-    public function attributes($ns = null, $is_prefix = null)
+    public function attributes($ns = null, $is_prefix = null): SimpleXMLElement
     {
     }
 
@@ -119,7 +119,7 @@ class SimpleXMLElement implements Traversable
      *
      * @link http://www.php.net/manual/en/simplexmlelement.children.php
      */
-    public function children($ns = null, $is_prefix = null)
+    public function children($ns = null, $is_prefix = null): SimpleXMLElement
     {
     }
 
@@ -256,7 +256,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Countable, Recursive
      *
      * @link http://www.php.net/manual/en/simplexmliterator.getchildren.php
      */
-    public function getChildren()
+    public function getChildren(): SimpleXMLIterator
     {
     }
 
@@ -295,7 +295,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Countable, Recursive
      *
      * @link http://www.php.net/manual/en/simplexmliterator.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 
@@ -308,7 +308,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Countable, Recursive
      *
      * @link http://www.php.net/manual/en/simplexmliterator.rewind.php
      */
-    public function rewind()
+    public function rewind(): void
     {
     }
 
@@ -338,7 +338,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Countable, Recursive
  *
  * @link http://www.php.net/manual/en/function.simplexml-import-dom.php
  */
-function simplexml_import_dom($node, $class_name = null)
+function simplexml_import_dom($node, $class_name = null): SimpleXMLElement
 {
 }
 
@@ -357,7 +357,7 @@ function simplexml_import_dom($node, $class_name = null)
  *
  * @link http://www.php.net/manual/en/function.simplexml-load-file.php
  */
-function simplexml_load_file($filename, $class_name = null, $options = null, $ns = null, $is_prefix = null)
+function simplexml_load_file($filename, $class_name = null, $options = null, $ns = null, $is_prefix = null): SimpleXMLElement
 {
 }
 
@@ -376,6 +376,6 @@ function simplexml_load_file($filename, $class_name = null, $options = null, $ns
  *
  * @link http://www.php.net/manual/en/function.simplexml-load-string.php
  */
-function simplexml_load_string($data, $class_name = null, $options = null, $ns = null, $is_prefix = null)
+function simplexml_load_string($data, $class_name = null, $options = null, $ns = null, $is_prefix = null): SimpleXMLElement
 {
 }

@@ -329,9 +329,9 @@ class Redis
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array[]|null $opts
+     * @param array|null $opts
      */
-    public function georadius($key, $lng, $lan, $radius, $unit, $opts = null)
+    public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
     }
 
@@ -340,9 +340,9 @@ class Redis
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array[]|null $opts
+     * @param array|null $opts
      */
-    public function georadiusbymember($key, $member, $radius, $unit, $opts = null)
+    public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
     }
 
@@ -389,9 +389,9 @@ class Redis
     }
 
     /**
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function getMultiple($keys)
+    public function getMultiple(array $keys)
     {
     }
 
@@ -501,17 +501,17 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function hMget($key, $keys)
+    public function hMget($key, array $keys)
     {
     }
 
     /**
      * @param mixed $key
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function hMset($key, $pairs)
+    public function hMset($key, array $pairs)
     {
     }
 
@@ -730,9 +730,9 @@ class Redis
     }
 
     /**
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function mget($keys)
+    public function mget(array $keys)
     {
     }
 
@@ -758,16 +758,16 @@ class Redis
     }
 
     /**
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function mset($pairs)
+    public function mset(array $pairs)
     {
     }
 
     /**
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function msetnx($pairs)
+    public function msetnx(array $pairs)
     {
     }
 
@@ -827,9 +827,9 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[] $elements
+     * @param array $elements
      */
-    public function pfadd($key, $elements)
+    public function pfadd($key, array $elements)
     {
     }
 
@@ -842,9 +842,9 @@ class Redis
 
     /**
      * @param mixed $dstkey
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function pfmerge($dstkey, $keys)
+    public function pfmerge($dstkey, array $keys)
     {
     }
 
@@ -875,9 +875,9 @@ class Redis
     }
 
     /**
-     * @param array[] $patterns
+     * @param array $patterns
      */
-    public function psubscribe($patterns)
+    public function psubscribe(array $patterns)
     {
     }
 
@@ -1002,9 +1002,9 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[] $options
+     * @param array $options
      */
-    public function sAddArray($key, $options)
+    public function sAddArray($key, array $options)
     {
     }
 
@@ -1202,9 +1202,9 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function sort($key, $options = null)
+    public function sort($key, array $options = null)
     {
     }
 
@@ -1312,9 +1312,9 @@ class Redis
     }
 
     /**
-     * @param array[] $channels
+     * @param array $channels
      */
-    public function subscribe($channels)
+    public function subscribe(array $channels)
     {
     }
 
@@ -1469,21 +1469,21 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zInter($key, $keys, $weights = null, $aggregate = null)
+    public function zInter($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zinterstore($key, $keys, $weights = null, $aggregate = null)
+    public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 
@@ -1521,9 +1521,9 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function zRangeByScore($key, $start, $end, $options = null)
+    public function zRangeByScore($key, $start, $end, array $options = null)
     {
     }
 
@@ -1624,9 +1624,9 @@ class Redis
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function zRevRangeByScore($key, $start, $end, $options = null)
+    public function zRevRangeByScore($key, $start, $end, array $options = null)
     {
     }
 
@@ -1665,21 +1665,21 @@ class Redis
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zUnion($key, $keys, $weights = null, $aggregate = null)
+    public function zUnion($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zunionstore($key, $keys, $weights = null, $aggregate = null)
+    public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 }
@@ -1696,9 +1696,9 @@ class RedisArray
 
     /**
      * @param mixed $name_or_hosts
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function __construct($name_or_hosts, $options = null)
+    public function __construct($name_or_hosts, array $options = null)
     {
     }
 
@@ -1852,12 +1852,12 @@ class RedisCluster
 {
     /**
      * @param mixed $name
-     * @param array[]|null $seeds
+     * @param array|null $seeds
      * @param mixed|null $timeout
      * @param mixed|null $read_timeout
      * @param mixed|null $persistent
      */
-    public function __construct($name, $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
+    public function __construct($name, array $seeds = null, $timeout = null, $read_timeout = null, $persistent = null)
     {
     }
 
@@ -2160,9 +2160,9 @@ class RedisCluster
      * @param mixed $lan
      * @param mixed $radius
      * @param mixed $unit
-     * @param array[]|null $opts
+     * @param array|null $opts
      */
-    public function georadius($key, $lng, $lan, $radius, $unit, $opts = null)
+    public function georadius($key, $lng, $lan, $radius, $unit, array $opts = null)
     {
     }
 
@@ -2171,9 +2171,9 @@ class RedisCluster
      * @param mixed $member
      * @param mixed $radius
      * @param mixed $unit
-     * @param array[]|null $opts
+     * @param array|null $opts
      */
-    public function georadiusbymember($key, $member, $radius, $unit, $opts = null)
+    public function georadiusbymember($key, $member, $radius, $unit, array $opts = null)
     {
     }
 
@@ -2290,17 +2290,17 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function hmget($key, $keys)
+    public function hmget($key, array $keys)
     {
     }
 
     /**
      * @param mixed $key
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function hmset($key, $pairs)
+    public function hmset($key, array $pairs)
     {
     }
 
@@ -2484,23 +2484,23 @@ class RedisCluster
     }
 
     /**
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function mget($keys)
+    public function mget(array $keys)
     {
     }
 
     /**
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function mset($pairs)
+    public function mset(array $pairs)
     {
     }
 
     /**
-     * @param array[] $pairs
+     * @param array $pairs
      */
-    public function msetnx($pairs)
+    public function msetnx(array $pairs)
     {
     }
 
@@ -2541,9 +2541,9 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[] $elements
+     * @param array $elements
      */
-    public function pfadd($key, $elements)
+    public function pfadd($key, array $elements)
     {
     }
 
@@ -2556,9 +2556,9 @@ class RedisCluster
 
     /**
      * @param mixed $dstkey
-     * @param array[] $keys
+     * @param array $keys
      */
-    public function pfmerge($dstkey, $keys)
+    public function pfmerge($dstkey, array $keys)
     {
     }
 
@@ -2579,9 +2579,9 @@ class RedisCluster
     }
 
     /**
-     * @param array[] $patterns
+     * @param array $patterns
      */
-    public function psubscribe($patterns)
+    public function psubscribe(array $patterns)
     {
     }
 
@@ -2702,9 +2702,9 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[] $options
+     * @param array $options
      */
-    public function saddarray($key, $options)
+    public function saddarray($key, array $options)
     {
     }
 
@@ -2863,9 +2863,9 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function sort($key, $options = null)
+    public function sort($key, array $options = null)
     {
     }
 
@@ -2910,9 +2910,9 @@ class RedisCluster
     }
 
     /**
-     * @param array[] $channels
+     * @param array $channels
      */
-    public function subscribe($channels)
+    public function subscribe(array $channels)
     {
     }
 
@@ -3015,11 +3015,11 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zinterstore($key, $keys, $weights = null, $aggregate = null)
+    public function zinterstore($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 
@@ -3057,9 +3057,9 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function zrangebyscore($key, $start, $end, $options = null)
+    public function zrangebyscore($key, $start, $end, array $options = null)
     {
     }
 
@@ -3132,9 +3132,9 @@ class RedisCluster
      * @param mixed $key
      * @param mixed $start
      * @param mixed $end
-     * @param array[]|null $options
+     * @param array|null $options
      */
-    public function zrevrangebyscore($key, $start, $end, $options = null)
+    public function zrevrangebyscore($key, $start, $end, array $options = null)
     {
     }
 
@@ -3166,11 +3166,11 @@ class RedisCluster
 
     /**
      * @param mixed $key
-     * @param array[] $keys
-     * @param array[]|null $weights
+     * @param array $keys
+     * @param array|null $weights
      * @param mixed|null $aggregate
      */
-    public function zunionstore($key, $keys, $weights = null, $aggregate = null)
+    public function zunionstore($key, array $keys, array $weights = null, $aggregate = null)
     {
     }
 }

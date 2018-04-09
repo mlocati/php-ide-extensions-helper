@@ -414,7 +414,7 @@ class SQLite3
      *
      * @link http://www.php.net/manual/en/sqlite3.version.php
      */
-    public static function version(): array
+    public static function version()
     {
     }
 }
@@ -473,7 +473,7 @@ class SQLite3Result
      *
      * @link http://www.php.net/manual/en/sqlite3result.fetcharray.php
      */
-    public function fetchArray($mode = null): array
+    public function fetchArray($mode = null)
     {
     }
 

@@ -82,7 +82,7 @@ function mssql_deadlock_retry_count($retry_count)
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-array.php
  */
-function mssql_fetch_array($result): array
+function mssql_fetch_array($result)
 {
 }
 
@@ -97,7 +97,7 @@ function mssql_fetch_array($result): array
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-assoc.php
  */
-function mssql_fetch_assoc($result): array
+function mssql_fetch_assoc($result)
 {
 }
 
@@ -107,7 +107,7 @@ function mssql_fetch_assoc($result): array
  * @param mixed $result
  * @param mixed|null $offset
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PECL odbtp >= 1.1.1
  *
@@ -123,7 +123,7 @@ function mssql_fetch_field($result, $offset = null)
  * @param mixed $result
  * @param mixed|null $object
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PECL odbtp >= 1.1.1
  *
@@ -144,7 +144,7 @@ function mssql_fetch_object($result, $object = null)
  *
  * @link http://www.php.net/manual/en/function.mssql-fetch-row.php
  */
-function mssql_fetch_row($result): array
+function mssql_fetch_row($result)
 {
 }
 
@@ -422,7 +422,7 @@ function sybase_deadlock_retry_count($retry_count)
  *
  * @link http://www.php.net/manual/en/function.sybase-fetch-array.php
  */
-function sybase_fetch_array($result): array
+function sybase_fetch_array($result)
 {
 }
 
@@ -437,7 +437,7 @@ function sybase_fetch_array($result): array
  *
  * @link http://www.php.net/manual/en/function.sybase-fetch-assoc.php
  */
-function sybase_fetch_assoc($result): array
+function sybase_fetch_assoc($result)
 {
 }
 
@@ -447,7 +447,7 @@ function sybase_fetch_assoc($result): array
  * @param mixed $result
  * @param mixed|null $offset
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5
  *
@@ -463,7 +463,7 @@ function sybase_fetch_field($result, $offset = null)
  * @param mixed $result
  * @param mixed|null $object
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5
  *
@@ -484,7 +484,7 @@ function sybase_fetch_object($result, $object = null)
  *
  * @link http://www.php.net/manual/en/function.sybase-fetch-row.php
  */
-function sybase_fetch_row($result): array
+function sybase_fetch_row($result)
 {
 }
 

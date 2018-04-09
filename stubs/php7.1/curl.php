@@ -3312,7 +3312,7 @@ class CURLFile
      *
      * @link http://www.php.net/manual/en/curlfile.wakeup.php
      */
-    public function __wakeup()
+    public function __wakeup(): void
     {
     }
 
@@ -3366,7 +3366,7 @@ class CURLFile
      *
      * @link http://www.php.net/manual/en/curlfile.setmimetype.php
      */
-    public function setMimeType($name)
+    public function setMimeType($name): void
     {
     }
 
@@ -3381,7 +3381,7 @@ class CURLFile
      *
      * @link http://www.php.net/manual/en/curlfile.setpostfilename.php
      */
-    public function setPostFilename($name)
+    public function setPostFilename($name): void
     {
     }
 }
@@ -3397,7 +3397,7 @@ class CURLFile
  *
  * @link http://www.php.net/manual/en/function.curl-close.php
  */
-function curl_close($ch)
+function curl_close($ch): void
 {
 }
 
@@ -3550,7 +3550,7 @@ function curl_multi_add_handle($mh, $ch): int
  *
  * @link http://www.php.net/manual/en/function.curl-multi-close.php
  */
-function curl_multi_close($mh)
+function curl_multi_close($mh): void
 {
 }
 
@@ -3720,7 +3720,7 @@ function curl_pause($ch, $bitmask): int
  *
  * @link http://www.php.net/manual/en/function.curl-reset.php
  */
-function curl_reset($ch)
+function curl_reset($ch): void
 {
 }
 
@@ -3745,7 +3745,7 @@ function curl_setopt($ch, $option, $value): bool
  * Set multiple options for a cURL transfer
  *
  * @param mixed $ch
- * @param array[] $options
+ * @param array $options
  *
  * @return bool
  *
@@ -3753,7 +3753,7 @@ function curl_setopt($ch, $option, $value): bool
  *
  * @link http://www.php.net/manual/en/function.curl-setopt-array.php
  */
-function curl_setopt_array($ch, $options): bool
+function curl_setopt_array($ch, array $options): bool
 {
 }
 
@@ -3768,7 +3768,7 @@ function curl_setopt_array($ch, $options): bool
  *
  * @link http://www.php.net/manual/en/function.curl-share-close.php
  */
-function curl_share_close($sh)
+function curl_share_close($sh): void
 {
 }
 

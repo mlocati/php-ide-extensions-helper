@@ -127,7 +127,7 @@ interface DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.diff.php
      */
-    public function diff($object, $absolute = null);
+    public function diff($object, $absolute = null): DateInterval;
 
     /**
      * Returns date formatted according to given format
@@ -173,7 +173,7 @@ interface DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.gettimezone.php
      */
-    public function getTimezone();
+    public function getTimezone(): DateTimeZone;
 }
 
 /**
@@ -217,7 +217,7 @@ class DateInterval
      *
      * @link http://www.php.net/manual/en/dateinterval.createfromdatestring.php
      */
-    public static function createFromDateString($time)
+    public static function createFromDateString($time): DateInterval
     {
     }
 
@@ -284,7 +284,7 @@ class DatePeriod implements Traversable
      *
      * @link http://www.php.net/manual/en/dateperiod.getdateinterval.php
      */
-    public function getDateInterval()
+    public function getDateInterval(): DateInterval
     {
     }
 
@@ -297,7 +297,7 @@ class DatePeriod implements Traversable
      *
      * @link http://www.php.net/manual/en/dateperiod.getenddate.php
      */
-    public function getEndDate()
+    public function getEndDate(): DateTimeInterface
     {
     }
 
@@ -310,7 +310,7 @@ class DatePeriod implements Traversable
      *
      * @link http://www.php.net/manual/en/dateperiod.getstartdate.php
      */
-    public function getStartDate()
+    public function getStartDate(): DateTimeInterface
     {
     }
 }
@@ -336,7 +336,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.construct.php
      */
-    public function __construct($time = null, $object = null)
+    public function __construct($time = null, $object = null): DateTime
     {
     }
 
@@ -349,7 +349,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.set-state.php
      */
-    public static function __set_state()
+    public static function __set_state(): DateTime
     {
     }
 
@@ -376,7 +376,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.add.php
      */
-    public function add($interval)
+    public function add($interval): DateTime
     {
     }
 
@@ -393,7 +393,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.createfromformat.php
      */
-    public static function createFromFormat($format, $time, $object = null)
+    public static function createFromFormat($format, $time, $object = null): DateTime
     {
     }
 
@@ -409,7 +409,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.diff.php
      */
-    public function diff($object, $absolute = null)
+    public function diff($object, $absolute = null): DateInterval
     {
     }
 
@@ -476,7 +476,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.gettimezone.php
      */
-    public function getTimezone()
+    public function getTimezone(): DateTimeZone
     {
     }
 
@@ -491,7 +491,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.modify.php
      */
-    public function modify($modify)
+    public function modify($modify): DateTime
     {
     }
 
@@ -508,7 +508,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.setdate.php
      */
-    public function setDate($year, $month, $day)
+    public function setDate($year, $month, $day): DateTime
     {
     }
 
@@ -525,7 +525,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.setisodate.php
      */
-    public function setISODate($year, $week, $day = null)
+    public function setISODate($year, $week, $day = null): DateTime
     {
     }
 
@@ -543,7 +543,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.settime.php
      */
-    public function setTime($hour, $minute, $second = null, $microseconds = null)
+    public function setTime($hour, $minute, $second = null, $microseconds = null): DateTime
     {
     }
 
@@ -558,7 +558,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.settimestamp.php
      */
-    public function setTimestamp($unixtimestamp)
+    public function setTimestamp($unixtimestamp): DateTime
     {
     }
 
@@ -573,7 +573,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.settimezone.php
      */
-    public function setTimezone($timezone)
+    public function setTimezone($timezone): DateTime
     {
     }
 
@@ -589,7 +589,7 @@ class DateTime implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.sub.php
      */
-    public function sub($interval)
+    public function sub($interval): DateTime
     {
     }
 }
@@ -616,7 +616,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.construct.php
      */
-    public function __construct($time = null, $object = null)
+    public function __construct($time = null, $object = null): DateTimeImmutable
     {
     }
 
@@ -629,7 +629,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.set-state.php
      */
-    public static function __set_state()
+    public static function __set_state(): DateTimeImmutable
     {
     }
 
@@ -655,7 +655,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.add.php
      */
-    public function add($interval)
+    public function add($interval): DateTimeImmutable
     {
     }
 
@@ -672,7 +672,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.createfromformat.php
      */
-    public static function createFromFormat($format, $time, $object = null)
+    public static function createFromFormat($format, $time, $object = null): DateTimeImmutable
     {
     }
 
@@ -687,7 +687,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.createfrommutable.php
      */
-    public static function createFromMutable($DateTime)
+    public static function createFromMutable($DateTime): DateTimeImmutable
     {
     }
 
@@ -703,7 +703,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.diff.php
      */
-    public function diff($object, $absolute = null)
+    public function diff($object, $absolute = null): DateInterval
     {
     }
 
@@ -770,7 +770,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetime.gettimezone.php
      */
-    public function getTimezone()
+    public function getTimezone(): DateTimeZone
     {
     }
 
@@ -785,7 +785,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.modify.php
      */
-    public function modify($modify)
+    public function modify($modify): DateTimeImmutable
     {
     }
 
@@ -802,7 +802,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.setdate.php
      */
-    public function setDate($year, $month, $day)
+    public function setDate($year, $month, $day): DateTimeImmutable
     {
     }
 
@@ -819,7 +819,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.setisodate.php
      */
-    public function setISODate($year, $week, $day = null)
+    public function setISODate($year, $week, $day = null): DateTimeImmutable
     {
     }
 
@@ -837,7 +837,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.settime.php
      */
-    public function setTime($hour, $minute, $second = null, $microseconds = null)
+    public function setTime($hour, $minute, $second = null, $microseconds = null): DateTimeImmutable
     {
     }
 
@@ -852,7 +852,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.settimestamp.php
      */
-    public function setTimestamp($unixtimestamp)
+    public function setTimestamp($unixtimestamp): DateTimeImmutable
     {
     }
 
@@ -867,7 +867,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.settimezone.php
      */
-    public function setTimezone($timezone)
+    public function setTimezone($timezone): DateTimeImmutable
     {
     }
 
@@ -882,7 +882,7 @@ class DateTimeImmutable implements DateTimeInterface
      *
      * @link http://www.php.net/manual/en/datetimeimmutable.sub.php
      */
-    public function sub($interval)
+    public function sub($interval): DateTimeImmutable
     {
     }
 }
@@ -907,7 +907,7 @@ class DateTimeZone
      *
      * @link http://www.php.net/manual/en/datetimezone.construct.php
      */
-    public function __construct($timezone)
+    public function __construct($timezone): DateTimeZone
     {
     }
 
@@ -1058,7 +1058,7 @@ function date($format, $timestamp = null): string
  *
  * @link http://www.php.net/manual/en/datetime.add.php
  */
-function date_add($object, $interval)
+function date_add($object, $interval): DateTime
 {
 }
 
@@ -1074,7 +1074,7 @@ function date_add($object, $interval)
  *
  * @link http://www.php.net/manual/en/datetime.construct.php
  */
-function date_create($time = null, $object = null)
+function date_create($time = null, $object = null): DateTime
 {
 }
 
@@ -1091,7 +1091,7 @@ function date_create($time = null, $object = null)
  *
  * @link http://www.php.net/manual/en/datetime.createfromformat.php
  */
-function date_create_from_format($format, $time, $object = null)
+function date_create_from_format($format, $time, $object = null): DateTime
 {
 }
 
@@ -1107,7 +1107,7 @@ function date_create_from_format($format, $time, $object = null)
  *
  * @link http://www.php.net/manual/en/datetimeimmutable.construct.php
  */
-function date_create_immutable($time = null, $object = null)
+function date_create_immutable($time = null, $object = null): DateTimeImmutable
 {
 }
 
@@ -1124,7 +1124,7 @@ function date_create_immutable($time = null, $object = null)
  *
  * @link http://www.php.net/manual/en/datetimeimmutable.createfromformat.php
  */
-function date_create_immutable_from_format($format, $time, $object = null)
+function date_create_immutable_from_format($format, $time, $object = null): DateTimeImmutable
 {
 }
 
@@ -1142,7 +1142,7 @@ function date_create_immutable_from_format($format, $time, $object = null)
  *
  * @link http://www.php.net/manual/en/datetime.setdate.php
  */
-function date_date_set($object, $year, $month, $day)
+function date_date_set($object, $year, $month, $day): DateTime
 {
 }
 
@@ -1187,7 +1187,7 @@ function date_default_timezone_set($timezone_identifier): bool
  *
  * @link http://www.php.net/manual/en/datetime.diff.php
  */
-function date_diff($object, $object2, $absolute = null)
+function date_diff($object, $object2, $absolute = null): DateInterval
 {
 }
 
@@ -1261,7 +1261,7 @@ function date_interval_format($object, $format)
  *
  * @link http://www.php.net/manual/en/datetime.setisodate.php
  */
-function date_isodate_set($object, $year, $week, $day = null)
+function date_isodate_set($object, $year, $week, $day = null): DateTime
 {
 }
 
@@ -1277,7 +1277,7 @@ function date_isodate_set($object, $year, $week, $day = null)
  *
  * @link http://www.php.net/manual/en/datetime.modify.php
  */
-function date_modify($object, $modify)
+function date_modify($object, $modify): DateTime
 {
 }
 
@@ -1340,7 +1340,7 @@ function date_parse_from_format($format, $date): array
  *
  * @link http://www.php.net/manual/en/datetime.sub.php
  */
-function date_sub($object, $interval)
+function date_sub($object, $interval): DateTime
 {
 }
 
@@ -1416,7 +1416,7 @@ function date_sunset($time, $format = null, $latitude = null, $longitude = null,
  *
  * @link http://www.php.net/manual/en/datetime.settime.php
  */
-function date_time_set($object, $hour, $minute, $second = null, $microseconds = null)
+function date_time_set($object, $hour, $minute, $second = null, $microseconds = null): DateTime
 {
 }
 
@@ -1447,7 +1447,7 @@ function date_timestamp_get($object): int
  *
  * @link http://www.php.net/manual/en/datetime.settimestamp.php
  */
-function date_timestamp_set($object, $unixtimestamp)
+function date_timestamp_set($object, $unixtimestamp): DateTime
 {
 }
 
@@ -1462,7 +1462,7 @@ function date_timestamp_set($object, $unixtimestamp)
  *
  * @link http://www.php.net/manual/en/datetime.gettimezone.php
  */
-function date_timezone_get($object)
+function date_timezone_get($object): DateTimeZone
 {
 }
 
@@ -1478,7 +1478,7 @@ function date_timezone_get($object)
  *
  * @link http://www.php.net/manual/en/datetime.settimezone.php
  */
-function date_timezone_set($object, $timezone)
+function date_timezone_set($object, $timezone): DateTime
 {
 }
 
@@ -1734,7 +1734,7 @@ function timezone_name_get($object): string
  *
  * @link http://www.php.net/manual/en/datetimezone.getoffset.php
  */
-function timezone_offset_get($object, $datetime): int
+function timezone_offset_get(DateTimeZone $object, DateTimeInterface $datetime): int
 {
 }
 
@@ -1749,7 +1749,7 @@ function timezone_offset_get($object, $datetime): int
  *
  * @link http://www.php.net/manual/en/datetimezone.construct.php
  */
-function timezone_open($timezone)
+function timezone_open($timezone): DateTimeZone
 {
 }
 

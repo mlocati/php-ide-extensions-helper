@@ -1179,7 +1179,7 @@ function create_function($args, $code)
  *
  * @link http://www.php.net/manual/en/function.debug-backtrace.php
  */
-function debug_backtrace($options = null, $limit = null): array
+function debug_backtrace($options = null, $limit = null)
 {
 }
 
@@ -1243,7 +1243,7 @@ function defined($constant_name)
  *
  * @link http://www.php.net/manual/en/function.each.php
  */
-function each(&$arr): array
+function each(&$arr)
 {
 }
 
@@ -1301,7 +1301,7 @@ function func_get_arg($arg_num)
  *
  * @link http://www.php.net/manual/en/function.func-get-args.php
  */
-function func_get_args(): array
+function func_get_args()
 {
 }
 
@@ -1424,7 +1424,7 @@ function get_class($object = null)
  *
  * @link http://www.php.net/manual/en/function.get-class-methods.php
  */
-function get_class_methods($class): array
+function get_class_methods($class)
 {
 }
 
@@ -1439,7 +1439,7 @@ function get_class_methods($class): array
  *
  * @link http://www.php.net/manual/en/function.get-class-vars.php
  */
-function get_class_vars($class_name): array
+function get_class_vars($class_name)
 {
 }
 
@@ -1452,7 +1452,7 @@ function get_class_vars($class_name): array
  *
  * @link http://www.php.net/manual/en/function.get-declared-classes.php
  */
-function get_declared_classes(): array
+function get_declared_classes()
 {
 }
 
@@ -1465,7 +1465,7 @@ function get_declared_classes(): array
  *
  * @link http://www.php.net/manual/en/function.get-declared-interfaces.php
  */
-function get_declared_interfaces(): array
+function get_declared_interfaces()
 {
 }
 
@@ -1478,7 +1478,7 @@ function get_declared_interfaces(): array
  *
  * @link http://www.php.net/manual/en/function.get-declared-traits.php
  */
-function get_declared_traits(): array
+function get_declared_traits()
 {
 }
 
@@ -1493,7 +1493,7 @@ function get_declared_traits(): array
  *
  * @link http://www.php.net/manual/en/function.get-defined-constants.php
  */
-function get_defined_constants($categorize = null): array
+function get_defined_constants($categorize = null)
 {
 }
 
@@ -1506,7 +1506,7 @@ function get_defined_constants($categorize = null): array
  *
  * @link http://www.php.net/manual/en/function.get-defined-functions.php
  */
-function get_defined_functions(): array
+function get_defined_functions()
 {
 }
 
@@ -1519,7 +1519,7 @@ function get_defined_functions(): array
  *
  * @link http://www.php.net/manual/en/function.get-defined-vars.php
  */
-function get_defined_vars(): array
+function get_defined_vars()
 {
 }
 
@@ -1534,7 +1534,7 @@ function get_defined_vars(): array
  *
  * @link http://www.php.net/manual/en/function.get-extension-funcs.php
  */
-function get_extension_funcs($extension_name): array
+function get_extension_funcs($extension_name)
 {
 }
 
@@ -1547,7 +1547,7 @@ function get_extension_funcs($extension_name): array
  *
  * @link http://www.php.net/manual/en/function.get-included-files.php
  */
-function get_included_files(): array
+function get_included_files()
 {
 }
 
@@ -1562,7 +1562,7 @@ function get_included_files(): array
  *
  * @link http://www.php.net/manual/en/function.get-loaded-extensions.php
  */
-function get_loaded_extensions($zend_extensions = null): array
+function get_loaded_extensions($zend_extensions = null)
 {
 }
 
@@ -1577,7 +1577,7 @@ function get_loaded_extensions($zend_extensions = null): array
  *
  * @link http://www.php.net/manual/en/function.get-object-vars.php
  */
-function get_object_vars($obj): array
+function get_object_vars($obj)
 {
 }
 
@@ -1757,7 +1757,7 @@ function set_error_handler($error_handler, $error_types = null)
  *
  * @link http://www.php.net/manual/en/function.set-exception-handler.php
  */
-function set_exception_handler($exception_handler): callable
+function set_exception_handler($exception_handler)
 {
 }
 

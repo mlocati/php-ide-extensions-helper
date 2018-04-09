@@ -822,13 +822,13 @@ function sqlsrv_configure($setting, $value): bool
  * Opens a connection to a Microsoft SQL Server database
  *
  * @param mixed $server_name
- * @param array[]|null $connection_info
+ * @param array|null $connection_info
  *
  * @return resource
  *
  * @link http://www.php.net/manual/en/function.sqlsrv-connect.php
  */
-function sqlsrv_connect($server_name, $connection_info = null)
+function sqlsrv_connect($server_name, array $connection_info = null)
 {
 }
 

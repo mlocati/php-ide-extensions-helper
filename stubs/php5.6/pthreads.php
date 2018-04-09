@@ -587,7 +587,7 @@ class Threaded implements Countable, Traversable
      *
      * @link http://www.php.net/manual/en/threaded.chunk.php
      */
-    public function chunk($size, $preserve = null): array
+    public function chunk($size, $preserve = null)
     {
     }
 
@@ -632,7 +632,7 @@ class Threaded implements Countable, Traversable
      *
      * @link http://www.php.net/manual/en/threaded.from.php
      */
-    public static function from($run, $construct = null, $args = null)
+    public static function from(Closure $run, Closure $construct = null, $args = null)
     {
     }
 
@@ -645,7 +645,7 @@ class Threaded implements Countable, Traversable
      *
      * @link http://www.php.net/manual/en/threaded.getterminationinfo.php
      */
-    public function getTerminationInfo(): array
+    public function getTerminationInfo()
     {
     }
 

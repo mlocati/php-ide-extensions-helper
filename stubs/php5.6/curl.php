@@ -3049,7 +3049,7 @@ function curl_multi_getcontent($ch)
  *
  * @link http://www.php.net/manual/en/function.curl-multi-info-read.php
  */
-function curl_multi_info_read($mh, &$msgs_in_queue = null): array
+function curl_multi_info_read($mh, &$msgs_in_queue = null)
 {
 }
 
@@ -3281,6 +3281,6 @@ function curl_unescape($ch, $str)
  *
  * @link http://www.php.net/manual/en/function.curl-version.php
  */
-function curl_version($version = null): array
+function curl_version($version = null)
 {
 }

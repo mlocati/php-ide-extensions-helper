@@ -3070,7 +3070,7 @@ class Directory
      *
      * @link http://www.php.net/manual/en/directory.close.php
      */
-    public function close($dir_handle = null)
+    public function close($dir_handle = null): void
     {
     }
 
@@ -3100,7 +3100,7 @@ class Directory
      *
      * @link http://www.php.net/manual/en/directory.rewind.php
      */
-    public function rewind($dir_handle = null)
+    public function rewind($dir_handle = null): void
     {
     }
 }
@@ -3142,7 +3142,7 @@ class php_user_filter
      *
      * @link http://www.php.net/manual/en/php-user-filter.onclose.php
      */
-    public function onClose()
+    public function onClose(): void
     {
     }
 
@@ -3165,13 +3165,13 @@ class php_user_filter
  *
  * @param mixed $number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.abs.php
  */
-function abs($number)
+function abs($number): float
 {
 }
 
@@ -3682,13 +3682,13 @@ function array_pop(&$stack)
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
  * @link http://www.php.net/manual/en/function.array-product.php
  */
-function array_product($arg)
+function array_product($arg): float
 {
 }
 
@@ -3862,13 +3862,13 @@ function array_splice(&$arg, $offset, $length = null, $replacement = null): arra
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.array-sum.php
  */
-function array_sum($arg)
+function array_sum($arg): float
 {
 }
 
@@ -4281,13 +4281,13 @@ function bin2hex($data): string
  *
  * @param mixed $binary_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.bindec.php
  */
-function bindec($binary_number)
+function bindec($binary_number): float
 {
 }
 
@@ -4490,7 +4490,7 @@ function chunk_split($str, $chunklen = null, $ending = null): string
  *
  * @link http://www.php.net/manual/en/function.clearstatcache.php
  */
-function clearstatcache($clear_realpath_cache = null, $filename = null)
+function clearstatcache($clear_realpath_cache = null, $filename = null): void
 {
 }
 
@@ -4533,7 +4533,7 @@ function cli_set_process_title($title): bool
  *
  * @link http://www.php.net/manual/en/function.closedir.php
  */
-function closedir($dir_handle = null)
+function closedir($dir_handle = null): void
 {
 }
 
@@ -4789,7 +4789,7 @@ function current($arg)
  *
  * @link http://www.php.net/manual/en/function.debug-zval-dump.php
  */
-function debug_zval_dump(...$vars)
+function debug_zval_dump(...$vars): void
 {
 }
 
@@ -4865,7 +4865,7 @@ function deg2rad($number): float
  *
  * @link http://www.php.net/manual/en/function.dir.php
  */
-function dir($directory, $context = null)
+function dir($directory, $context = null): Directory
 {
 }
 
@@ -4977,8 +4977,8 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
  *
  * @param mixed $hostname
  * @param mixed|null $type
- * @param array[]|null $authns
- * @param array[]|null $addtl
+ * @param array|null $authns
+ * @param array|null $addtl
  * @param mixed|null $raw
  *
  * @return array
@@ -4987,7 +4987,7 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
  *
  * @link http://www.php.net/manual/en/function.dns-get-record.php
  */
-function dns_get_record($hostname, $type = null, &$authns = null, &$addtl = null, $raw = null): array
+function dns_get_record($hostname, $type = null, array &$authns = null, array &$addtl = null, $raw = null): array
 {
 }
 
@@ -5028,7 +5028,7 @@ function end(&$arg)
  *
  * @link http://www.php.net/manual/en/function.error-clear-last.php
  */
-function error_clear_last()
+function error_clear_last(): void
 {
 }
 
@@ -5562,7 +5562,7 @@ function floor($number): float
  *
  * @link http://www.php.net/manual/en/function.flush.php
  */
-function flush()
+function flush(): void
 {
 }
 
@@ -6365,7 +6365,7 @@ function glob($pattern, $flags = null): array
  *
  * @link http://www.php.net/manual/en/function.header.php
  */
-function header($header, $replace = null, $http_response_code = null)
+function header($header, $replace = null, $http_response_code = null): void
 {
 }
 
@@ -6395,7 +6395,7 @@ function header_register_callback($callback): bool
  *
  * @link http://www.php.net/manual/en/function.header-remove.php
  */
-function header_remove($name = null)
+function header_remove($name = null): void
 {
 }
 
@@ -6480,13 +6480,13 @@ function hex2bin($data): string
  *
  * @param mixed $hexadecimal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.hexdec.php
  */
-function hexdec($hexadecimal_number)
+function hexdec($hexadecimal_number): float
 {
 }
 
@@ -6806,7 +6806,7 @@ function ini_get_all($extension = null, $details = null): array
  *
  * @link http://www.php.net/manual/en/function.ini-restore.php
  */
-function ini_restore($varname)
+function ini_restore($varname): void
 {
 }
 
@@ -7832,7 +7832,7 @@ function mt_rand($min = null, $max = null): int
  *
  * @link http://www.php.net/manual/en/function.mt-srand.php
  */
-function mt_srand($seed = null, $mode = null)
+function mt_srand($seed = null, $mode = null): void
 {
 }
 
@@ -7941,7 +7941,7 @@ function number_format($number, $num_decimal_places = null, $dec_separator = nul
  *
  * @link http://www.php.net/manual/en/function.ob-clean.php
  */
-function ob_clean()
+function ob_clean(): void
 {
 }
 
@@ -7980,7 +7980,7 @@ function ob_end_flush(): bool
  *
  * @link http://www.php.net/manual/en/function.ob-flush.php
  */
-function ob_flush()
+function ob_flush(): void
 {
 }
 
@@ -8075,7 +8075,7 @@ function ob_get_status($full_status = null): array
  *
  * @link http://www.php.net/manual/en/function.ob-implicit-flush.php
  */
-function ob_implicit_flush($flag = null)
+function ob_implicit_flush($flag = null): void
 {
 }
 
@@ -8114,13 +8114,13 @@ function ob_start($user_function = null, $chunk_size = null, $flags = null): boo
  *
  * @param mixed $octal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.octdec.php
  */
-function octdec($octal_number)
+function octdec($octal_number): float
 {
 }
 
@@ -8263,7 +8263,7 @@ function parse_ini_string($ini_string, $process_sections = null, $scanner_mode =
  *
  * @link http://www.php.net/manual/en/function.parse-str.php
  */
-function parse_str($encoded_string, &$result = null)
+function parse_str($encoded_string, &$result = null): void
 {
 }
 
@@ -8295,7 +8295,7 @@ function parse_url($url, $component = null)
  *
  * @link http://www.php.net/manual/en/function.passthru.php
  */
-function passthru($command, &$return_value = null)
+function passthru($command, &$return_value = null): void
 {
 }
 
@@ -8576,13 +8576,13 @@ function pos($arg)
  * @param mixed $base
  * @param mixed $exponent
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
  * @link http://www.php.net/manual/en/function.pow.php
  */
-function pow($base, $exponent)
+function pow($base, $exponent): float
 {
 }
 
@@ -8983,7 +8983,7 @@ function realpath_cache_size(): int
  *
  * @link http://www.php.net/manual/en/function.register-shutdown-function.php
  */
-function register_shutdown_function($function_name, ...$parameters)
+function register_shutdown_function($function_name, ...$parameters): void
 {
 }
 
@@ -9044,7 +9044,7 @@ function reset(&$arg)
  *
  * @link http://www.php.net/manual/en/function.restore-include-path.php
  */
-function restore_include_path()
+function restore_include_path(): void
 {
 }
 
@@ -9074,7 +9074,7 @@ function rewind($fp): bool
  *
  * @link http://www.php.net/manual/en/function.rewinddir.php
  */
-function rewinddir($dir_handle = null)
+function rewinddir($dir_handle = null): void
 {
 }
 
@@ -9637,7 +9637,7 @@ function sqrt($number): float
  *
  * @link http://www.php.net/manual/en/function.srand.php
  */
-function srand($seed = null, $mode = null)
+function srand($seed = null, $mode = null): void
 {
 }
 
@@ -9885,7 +9885,7 @@ function strcspn($str, $mask, $start = null, $len = null): int
  *
  * @link http://www.php.net/manual/en/function.stream-bucket-append.php
  */
-function stream_bucket_append($brigade, $bucket)
+function stream_bucket_append($brigade, $bucket): void
 {
 }
 
@@ -9932,7 +9932,7 @@ function stream_bucket_new($stream, $buffer): object
  *
  * @link http://www.php.net/manual/en/function.stream-bucket-prepend.php
  */
-function stream_bucket_prepend($brigade, $bucket)
+function stream_bucket_prepend($brigade, $bucket): void
 {
 }
 
@@ -11352,7 +11352,7 @@ function unpack($format, $input, $offset = null): array
  *
  * @link http://www.php.net/manual/en/function.unregister-tick-function.php
  */
-function unregister_tick_function($function_name)
+function unregister_tick_function($function_name): void
 {
 }
 
@@ -11413,7 +11413,7 @@ function urlencode($str): string
  *
  * @link http://www.php.net/manual/en/function.usleep.php
  */
-function usleep($micro_seconds)
+function usleep($micro_seconds): void
 {
 }
 
@@ -11475,7 +11475,7 @@ function utf8_encode($data): string
  *
  * @link http://www.php.net/manual/en/function.var-dump.php
  */
-function var_dump(...$vars)
+function var_dump(...$vars): void
 {
 }
 

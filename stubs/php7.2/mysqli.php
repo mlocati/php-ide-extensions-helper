@@ -944,7 +944,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.construct.php
      */
-    public function __construct($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
+    public function __construct($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null): void
     {
     }
 
@@ -1040,7 +1040,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.construct.php
      */
-    public function connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
+    public function connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null): void
     {
     }
 
@@ -1132,7 +1132,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.get-warnings.php
      */
-    public function get_warnings()
+    public function get_warnings(): mysqli_warning
     {
     }
 
@@ -1143,7 +1143,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.init.php
      */
-    public function init()
+    public function init(): mysqli
     {
     }
 
@@ -1223,9 +1223,9 @@ class mysqli
     /**
      * Poll connections
      *
-     * @param array[]|null $read
-     * @param array[]|null $write
-     * @param array[]|null $error
+     * @param array|null $read
+     * @param array|null $write
+     * @param array|null $error
      * @param mixed $sec
      * @param mixed|null $usec
      *
@@ -1233,7 +1233,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.poll.php
      */
-    public static function poll(&$read = null, &$write = null, &$error = null, $sec, $usec = null): int
+    public static function poll(array &$read = null, array &$write = null, array &$error = null, $sec, $usec = null): int
     {
     }
 
@@ -1246,7 +1246,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.prepare.php
      */
-    public function prepare($query)
+    public function prepare($query): mysqli_stmt
     {
     }
 
@@ -1316,7 +1316,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.reap-async-query.php
      */
-    public function reap_async_query()
+    public function reap_async_query(): mysqli_result
     {
     }
 
@@ -1446,7 +1446,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.stmt-init.php
      */
-    public function stmt_init()
+    public function stmt_init(): mysqli_stmt
     {
     }
 
@@ -1459,7 +1459,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.store-result.php
      */
-    public function store_result($flags = null)
+    public function store_result($flags = null): mysqli_result
     {
     }
 
@@ -1481,7 +1481,7 @@ class mysqli
      *
      * @link http://www.php.net/manual/en/mysqli.use-result.php
      */
-    public function use_result()
+    public function use_result(): mysqli_result
     {
     }
 }
@@ -1517,7 +1517,7 @@ class mysqli_result implements Traversable
      *
      * @link http://www.php.net/manual/en/mysqli-result.free.php
      */
-    public function close()
+    public function close(): void
     {
     }
 
@@ -1610,13 +1610,13 @@ class mysqli_result implements Traversable
      * Returns the current row of a result set as an object
      *
      * @param mixed|null $class_name
-     * @param array[]|null $params
+     * @param array|null $params
      *
      * @return object
      *
      * @link http://www.php.net/manual/en/mysqli-result.fetch-object.php
      */
-    public function fetch_object($class_name = null, $params = null): object
+    public function fetch_object($class_name = null, array $params = null): object
     {
     }
 
@@ -1651,7 +1651,7 @@ class mysqli_result implements Traversable
      *
      * @link http://www.php.net/manual/en/mysqli-result.free.php
      */
-    public function free()
+    public function free(): void
     {
     }
 
@@ -1662,7 +1662,7 @@ class mysqli_result implements Traversable
      *
      * @link http://www.php.net/manual/en/mysqli-result.free.php
      */
-    public function free_result()
+    public function free_result(): void
     {
     }
 }
@@ -1772,7 +1772,7 @@ class mysqli_stmt
      *
      * @link http://www.php.net/manual/en/mysqli-stmt.data-seek.php
      */
-    public function data_seek($offset)
+    public function data_seek($offset): void
     {
     }
 
@@ -1805,7 +1805,7 @@ class mysqli_stmt
      *
      * @link http://www.php.net/manual/en/mysqli-stmt.free-result.php
      */
-    public function free_result()
+    public function free_result(): void
     {
     }
 
@@ -1816,7 +1816,7 @@ class mysqli_stmt
      *
      * @link http://www.php.net/manual/en/mysqli-stmt.get-result.php
      */
-    public function get_result()
+    public function get_result(): mysqli_result
     {
     }
 
@@ -1895,7 +1895,7 @@ class mysqli_stmt
      *
      * @link http://www.php.net/manual/en/mysqli-stmt.result-metadata.php
      */
-    public function result_metadata()
+    public function result_metadata(): mysqli_result
     {
     }
 
@@ -1952,7 +1952,7 @@ final class mysqli_warning
      *
      * @link http://www.php.net/manual/en/mysqli-warning.next.php
      */
-    public function next()
+    public function next(): void
     {
     }
 }
@@ -2086,7 +2086,7 @@ function mysqli_commit($link, $flags = null, $name = null): bool
  *
  * @link http://www.php.net/manual/en/function.mysqli-connect.php
  */
-function mysqli_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
+function mysqli_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null): void
 {
 }
 
@@ -2348,7 +2348,7 @@ function mysqli_fetch_lengths($result): array
  *
  * @param mixed $result
  * @param mixed|null $class_name
- * @param array[]|null $params
+ * @param array|null $params
  *
  * @return object
  *
@@ -2356,7 +2356,7 @@ function mysqli_fetch_lengths($result): array
  *
  * @link http://www.php.net/manual/en/mysqli-result.fetch-object.php
  */
-function mysqli_fetch_object($result, $class_name = null, $params = null): object
+function mysqli_fetch_object($result, $class_name = null, array $params = null): object
 {
 }
 
@@ -2432,7 +2432,7 @@ function mysqli_field_tell($result): int
  *
  * @link http://www.php.net/manual/en/mysqli-result.free.php
  */
-function mysqli_free_result($result)
+function mysqli_free_result($result): void
 {
 }
 
@@ -2591,7 +2591,7 @@ function mysqli_get_server_version($link): int
  *
  * @link http://www.php.net/manual/en/mysqli.get-warnings.php
  */
-function mysqli_get_warnings($link)
+function mysqli_get_warnings($link): mysqli_warning
 {
 }
 
@@ -2619,7 +2619,7 @@ function mysqli_info($link): string
  *
  * @link http://www.php.net/manual/en/mysqli.init.php
  */
-function mysqli_init()
+function mysqli_init(): mysqli
 {
 }
 
@@ -2765,9 +2765,9 @@ function mysqli_ping($link): bool
 /**
  * Poll connections
  *
- * @param array[]|null $read
- * @param array[]|null $write
- * @param array[]|null $error
+ * @param array|null $read
+ * @param array|null $write
+ * @param array|null $error
  * @param mixed $sec
  * @param mixed|null $usec
  *
@@ -2777,7 +2777,7 @@ function mysqli_ping($link): bool
  *
  * @link http://www.php.net/manual/en/mysqli.poll.php
  */
-function mysqli_poll(&$read = null, &$write = null, &$error = null, $sec, $usec = null): int
+function mysqli_poll(array &$read = null, array &$write = null, array &$error = null, $sec, $usec = null): int
 {
 }
 
@@ -2793,7 +2793,7 @@ function mysqli_poll(&$read = null, &$write = null, &$error = null, $sec, $usec 
  *
  * @link http://www.php.net/manual/en/mysqli.prepare.php
  */
-function mysqli_prepare($link, $query)
+function mysqli_prepare($link, $query): mysqli_stmt
 {
 }
 
@@ -2879,7 +2879,7 @@ function mysqli_real_query($link, $query = null): bool
  *
  * @link http://www.php.net/manual/en/mysqli.reap-async-query.php
  */
-function mysqli_reap_async_query($link)
+function mysqli_reap_async_query($link): mysqli_result
 {
 }
 
@@ -3165,7 +3165,7 @@ function mysqli_stmt_close($stmt): bool
  *
  * @link http://www.php.net/manual/en/mysqli-stmt.data-seek.php
  */
-function mysqli_stmt_data_seek($stmt, $offset)
+function mysqli_stmt_data_seek($stmt, $offset): void
 {
 }
 
@@ -3270,7 +3270,7 @@ function mysqli_stmt_field_count($stmt): int
  *
  * @link http://www.php.net/manual/en/mysqli-stmt.free-result.php
  */
-function mysqli_stmt_free_result($stmt)
+function mysqli_stmt_free_result($stmt): void
 {
 }
 
@@ -3285,7 +3285,7 @@ function mysqli_stmt_free_result($stmt)
  *
  * @link http://www.php.net/manual/en/mysqli-stmt.get-result.php
  */
-function mysqli_stmt_get_result($stmt)
+function mysqli_stmt_get_result($stmt): mysqli_result
 {
 }
 
@@ -3315,7 +3315,7 @@ function mysqli_stmt_get_warnings($stmt): object
  *
  * @link http://www.php.net/manual/en/mysqli.stmt-init.php
  */
-function mysqli_stmt_init($link)
+function mysqli_stmt_init($link): mysqli_stmt
 {
 }
 
@@ -3436,7 +3436,7 @@ function mysqli_stmt_reset($stmt): bool
  *
  * @link http://www.php.net/manual/en/mysqli-stmt.result-metadata.php
  */
-function mysqli_stmt_result_metadata($stmt)
+function mysqli_stmt_result_metadata($stmt): mysqli_result
 {
 }
 
@@ -3499,7 +3499,7 @@ function mysqli_stmt_store_result($stmt): bool
  *
  * @link http://www.php.net/manual/en/mysqli.store-result.php
  */
-function mysqli_store_result($link, $flags = null)
+function mysqli_store_result($link, $flags = null): mysqli_result
 {
 }
 
@@ -3542,7 +3542,7 @@ function mysqli_thread_safe(): bool
  *
  * @link http://www.php.net/manual/en/mysqli.use-result.php
  */
-function mysqli_use_result($link)
+function mysqli_use_result($link): mysqli_result
 {
 }
 

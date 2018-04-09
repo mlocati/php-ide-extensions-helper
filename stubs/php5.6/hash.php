@@ -257,7 +257,7 @@ function hash($algo, $data, $raw_output = null)
  *
  * @link http://www.php.net/manual/en/function.hash-algos.php
  */
-function hash_algos(): array
+function hash_algos()
 {
 }
 

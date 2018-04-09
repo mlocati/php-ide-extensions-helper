@@ -241,7 +241,7 @@ function mb_encode_numericentity($string, $convmap, $encoding = null, $is_hex = 
  *
  * @link http://www.php.net/manual/en/function.mb-encoding-aliases.php
  */
-function mb_encoding_aliases($encoding): array
+function mb_encoding_aliases($encoding)
 {
 }
 
@@ -353,7 +353,7 @@ function mb_ereg_search_getpos()
  *
  * @link http://www.php.net/manual/en/function.mb-ereg-search-getregs.php
  */
-function mb_ereg_search_getregs(): array
+function mb_ereg_search_getregs()
 {
 }
 
@@ -386,7 +386,7 @@ function mb_ereg_search_init($string, $pattern = null, $option = null)
  *
  * @link http://www.php.net/manual/en/function.mb-ereg-search-pos.php
  */
-function mb_ereg_search_pos($pattern = null, $option = null): array
+function mb_ereg_search_pos($pattern = null, $option = null)
 {
 }
 
@@ -402,7 +402,7 @@ function mb_ereg_search_pos($pattern = null, $option = null): array
  *
  * @link http://www.php.net/manual/en/function.mb-ereg-search-regs.php
  */
-function mb_ereg_search_regs($pattern = null, $option = null): array
+function mb_ereg_search_regs($pattern = null, $option = null)
 {
 }
 
@@ -539,7 +539,7 @@ function mb_language($language = null)
  *
  * @link http://www.php.net/manual/en/function.mb-list-encodings.php
  */
-function mb_list_encodings(): array
+function mb_list_encodings()
 {
 }
 
@@ -652,7 +652,7 @@ function mb_send_mail($to, $subject, $message, $additional_headers = null, $addi
  *
  * @link http://www.php.net/manual/en/function.mb-split.php
  */
-function mb_split($pattern, $string, $limit = null): array
+function mb_split($pattern, $string, $limit = null)
 {
 }
 

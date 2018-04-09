@@ -315,7 +315,7 @@ function libxml_disable_entity_loader($disable = null)
  *
  * @link http://www.php.net/manual/en/function.libxml-get-errors.php
  */
-function libxml_get_errors(): array
+function libxml_get_errors()
 {
 }
 

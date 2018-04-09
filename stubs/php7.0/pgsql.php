@@ -1058,7 +1058,7 @@ function pg_fetch_assoc($result, $row = null): array
  * @param mixed|null $l
  * @param mixed|null $ctor_params
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *

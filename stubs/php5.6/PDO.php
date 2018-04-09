@@ -90,7 +90,7 @@ class PDO
      *
      * @link http://www.php.net/manual/en/pdo.errorinfo.php
      */
-    public function errorInfo(): array
+    public function errorInfo()
     {
     }
 
@@ -133,7 +133,7 @@ class PDO
      *
      * @link http://www.php.net/manual/en/pdo.getavailabledrivers.php
      */
-    public static function getAvailableDrivers(): array
+    public static function getAvailableDrivers()
     {
     }
 
@@ -398,7 +398,7 @@ class PDOStatement implements Traversable
      *
      * @link http://www.php.net/manual/en/pdostatement.errorinfo.php
      */
-    public function errorInfo(): array
+    public function errorInfo()
     {
     }
 
@@ -447,7 +447,7 @@ class PDOStatement implements Traversable
      *
      * @link http://www.php.net/manual/en/pdostatement.fetchall.php
      */
-    public function fetchAll($how = null, $class_name = null, $ctor_args = null): array
+    public function fetchAll($how = null, $class_name = null, $ctor_args = null)
     {
     }
 
@@ -508,7 +508,7 @@ class PDOStatement implements Traversable
      *
      * @link http://www.php.net/manual/en/pdostatement.getcolumnmeta.php
      */
-    public function getColumnMeta($column): array
+    public function getColumnMeta($column)
     {
     }
 
@@ -580,6 +580,6 @@ class PDOStatement implements Traversable
  *
  * @link http://www.php.net/manual/en/pdo.getavailabledrivers.php
  */
-function pdo_drivers(): array
+function pdo_drivers()
 {
 }

@@ -1028,7 +1028,7 @@ function ibase_blob_import($link_identifier = null, $file = null)
  *
  * @link http://www.php.net/manual/en/function.ibase-blob-info.php
  */
-function ibase_blob_info($link_identifier = null, $blob_id = null): array
+function ibase_blob_info($link_identifier = null, $blob_id = null)
 {
 }
 
@@ -1222,7 +1222,7 @@ function ibase_execute($query, $bind_arg = null, $bind_arg = null)
  *
  * @link http://www.php.net/manual/en/function.ibase-fetch-assoc.php
  */
-function ibase_fetch_assoc($result, $fetch_flags = null): array
+function ibase_fetch_assoc($result, $fetch_flags = null)
 {
 }
 
@@ -1232,7 +1232,7 @@ function ibase_fetch_assoc($result, $fetch_flags = null): array
  * @param mixed $result
  * @param mixed|null $fetch_flags
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -1254,7 +1254,7 @@ function ibase_fetch_object($result, $fetch_flags = null)
  *
  * @link http://www.php.net/manual/en/function.ibase-fetch-row.php
  */
-function ibase_fetch_row($result, $fetch_flags = null): array
+function ibase_fetch_row($result, $fetch_flags = null)
 {
 }
 
@@ -1270,7 +1270,7 @@ function ibase_fetch_row($result, $fetch_flags = null): array
  *
  * @link http://www.php.net/manual/en/function.ibase-field-info.php
  */
-function ibase_field_info($query_result, $field_number): array
+function ibase_field_info($query_result, $field_number)
 {
 }
 
@@ -1432,7 +1432,7 @@ function ibase_num_params($query)
  *
  * @link http://www.php.net/manual/en/function.ibase-param-info.php
  */
-function ibase_param_info($query, $field_number): array
+function ibase_param_info($query, $field_number)
 {
 }
 

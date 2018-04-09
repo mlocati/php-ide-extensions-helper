@@ -3075,7 +3075,7 @@ class php_user_filter
  *
  * @param mixed $number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -3158,7 +3158,7 @@ function addslashes($str)
  *
  * @link http://www.php.net/manual/en/function.array-change-key-case.php
  */
-function array_change_key_case($input, $case = null): array
+function array_change_key_case($input, $case = null)
 {
 }
 
@@ -3175,7 +3175,7 @@ function array_change_key_case($input, $case = null): array
  *
  * @link http://www.php.net/manual/en/function.array-chunk.php
  */
-function array_chunk($arg, $size, $preserve_keys = null): array
+function array_chunk($arg, $size, $preserve_keys = null)
 {
 }
 
@@ -3192,7 +3192,7 @@ function array_chunk($arg, $size, $preserve_keys = null): array
  *
  * @link http://www.php.net/manual/en/function.array-column.php
  */
-function array_column($arg, $column_key, $index_key = null): array
+function array_column($arg, $column_key, $index_key = null)
 {
 }
 
@@ -3208,7 +3208,7 @@ function array_column($arg, $column_key, $index_key = null): array
  *
  * @link http://www.php.net/manual/en/function.array-combine.php
  */
-function array_combine($keys, $values): array
+function array_combine($keys, $values)
 {
 }
 
@@ -3223,7 +3223,7 @@ function array_combine($keys, $values): array
  *
  * @link http://www.php.net/manual/en/function.array-count-values.php
  */
-function array_count_values($arg): array
+function array_count_values($arg)
 {
 }
 
@@ -3239,7 +3239,7 @@ function array_count_values($arg): array
  *
  * @link http://www.php.net/manual/en/function.array-diff.php
  */
-function array_diff($arr1, ...$arrays): array
+function array_diff($arr1, ...$arrays)
 {
 }
 
@@ -3255,7 +3255,7 @@ function array_diff($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-diff-assoc.php
  */
-function array_diff_assoc($arr1, ...$arrays): array
+function array_diff_assoc($arr1, ...$arrays)
 {
 }
 
@@ -3271,7 +3271,7 @@ function array_diff_assoc($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-diff-key.php
  */
-function array_diff_key($arr1, ...$arrays): array
+function array_diff_key($arr1, ...$arrays)
 {
 }
 
@@ -3288,7 +3288,7 @@ function array_diff_key($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-diff-uassoc.php
  */
-function array_diff_uassoc($arr1, $arr2, $callback_data_comp_func): array
+function array_diff_uassoc($arr1, $arr2, $callback_data_comp_func)
 {
 }
 
@@ -3305,7 +3305,7 @@ function array_diff_uassoc($arr1, $arr2, $callback_data_comp_func): array
  *
  * @link http://www.php.net/manual/en/function.array-diff-ukey.php
  */
-function array_diff_ukey($arr1, $arr2, $callback_key_comp_func): array
+function array_diff_ukey($arr1, $arr2, $callback_key_comp_func)
 {
 }
 
@@ -3322,7 +3322,7 @@ function array_diff_ukey($arr1, $arr2, $callback_key_comp_func): array
  *
  * @link http://www.php.net/manual/en/function.array-fill.php
  */
-function array_fill($start_key, $num, $val): array
+function array_fill($start_key, $num, $val)
 {
 }
 
@@ -3338,7 +3338,7 @@ function array_fill($start_key, $num, $val): array
  *
  * @link http://www.php.net/manual/en/function.array-fill-keys.php
  */
-function array_fill_keys($keys, $val): array
+function array_fill_keys($keys, $val)
 {
 }
 
@@ -3355,7 +3355,7 @@ function array_fill_keys($keys, $val): array
  *
  * @link http://www.php.net/manual/en/function.array-filter.php
  */
-function array_filter($arg, $callback = null, $use_keys = null): array
+function array_filter($arg, $callback = null, $use_keys = null)
 {
 }
 
@@ -3370,7 +3370,7 @@ function array_filter($arg, $callback = null, $use_keys = null): array
  *
  * @link http://www.php.net/manual/en/function.array-flip.php
  */
-function array_flip($arg): array
+function array_flip($arg)
 {
 }
 
@@ -3386,7 +3386,7 @@ function array_flip($arg): array
  *
  * @link http://www.php.net/manual/en/function.array-intersect.php
  */
-function array_intersect($arr1, ...$arrays): array
+function array_intersect($arr1, ...$arrays)
 {
 }
 
@@ -3402,7 +3402,7 @@ function array_intersect($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-intersect-assoc.php
  */
-function array_intersect_assoc($arr1, ...$arrays): array
+function array_intersect_assoc($arr1, ...$arrays)
 {
 }
 
@@ -3418,7 +3418,7 @@ function array_intersect_assoc($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-intersect-key.php
  */
-function array_intersect_key($arr1, ...$arrays): array
+function array_intersect_key($arr1, ...$arrays)
 {
 }
 
@@ -3435,7 +3435,7 @@ function array_intersect_key($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-intersect-uassoc.php
  */
-function array_intersect_uassoc($arr1, $arr2, $callback_key_compare_func): array
+function array_intersect_uassoc($arr1, $arr2, $callback_key_compare_func)
 {
 }
 
@@ -3452,7 +3452,7 @@ function array_intersect_uassoc($arr1, $arr2, $callback_key_compare_func): array
  *
  * @link http://www.php.net/manual/en/function.array-intersect-ukey.php
  */
-function array_intersect_ukey($arr1, $arr2, $callback_key_compare_func): array
+function array_intersect_ukey($arr1, $arr2, $callback_key_compare_func)
 {
 }
 
@@ -3485,7 +3485,7 @@ function array_key_exists($key, $search)
  *
  * @link http://www.php.net/manual/en/function.array-keys.php
  */
-function array_keys($arg, $search_value = null, $strict = null): array
+function array_keys($arg, $search_value = null, $strict = null)
 {
 }
 
@@ -3501,7 +3501,7 @@ function array_keys($arg, $search_value = null, $strict = null): array
  *
  * @link http://www.php.net/manual/en/function.array-map.php
  */
-function array_map($callback, ...$arrays): array
+function array_map($callback, ...$arrays)
 {
 }
 
@@ -3517,7 +3517,7 @@ function array_map($callback, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-merge.php
  */
-function array_merge($arr1, ...$arrays): array
+function array_merge($arr1, ...$arrays)
 {
 }
 
@@ -3533,7 +3533,7 @@ function array_merge($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-merge-recursive.php
  */
-function array_merge_recursive($arr1, ...$arrays): array
+function array_merge_recursive($arr1, ...$arrays)
 {
 }
 
@@ -3568,7 +3568,7 @@ function array_multisort(&$arr1, &$sort_order = null, &$sort_flags = null, &...$
  *
  * @link http://www.php.net/manual/en/function.array-pad.php
  */
-function array_pad($arg, $pad_size, $pad_value): array
+function array_pad($arg, $pad_size, $pad_value)
 {
 }
 
@@ -3592,7 +3592,7 @@ function array_pop(&$stack)
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
@@ -3663,7 +3663,7 @@ function array_reduce($arg, $callback, $initial = null)
  *
  * @link http://www.php.net/manual/en/function.array-replace.php
  */
-function array_replace($arr1, ...$arrays): array
+function array_replace($arr1, ...$arrays)
 {
 }
 
@@ -3679,7 +3679,7 @@ function array_replace($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-replace-recursive.php
  */
-function array_replace_recursive($arr1, ...$arrays): array
+function array_replace_recursive($arr1, ...$arrays)
 {
 }
 
@@ -3695,7 +3695,7 @@ function array_replace_recursive($arr1, ...$arrays): array
  *
  * @link http://www.php.net/manual/en/function.array-reverse.php
  */
-function array_reverse($input, $preserve_keys = null): array
+function array_reverse($input, $preserve_keys = null)
 {
 }
 
@@ -3745,7 +3745,7 @@ function array_shift(&$stack)
  *
  * @link http://www.php.net/manual/en/function.array-slice.php
  */
-function array_slice($arg, $offset, $length = null, $preserve_keys = null): array
+function array_slice($arg, $offset, $length = null, $preserve_keys = null)
 {
 }
 
@@ -3763,7 +3763,7 @@ function array_slice($arg, $offset, $length = null, $preserve_keys = null): arra
  *
  * @link http://www.php.net/manual/en/function.array-splice.php
  */
-function array_splice(&$arg, $offset, $length = null, $replacement = null): array
+function array_splice(&$arg, $offset, $length = null, $replacement = null)
 {
 }
 
@@ -3772,7 +3772,7 @@ function array_splice(&$arg, $offset, $length = null, $replacement = null): arra
  *
  * @param mixed $arg
  *
- * @return number
+ * @return float
  *
  * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
  *
@@ -3795,7 +3795,7 @@ function array_sum($arg)
  *
  * @link http://www.php.net/manual/en/function.array-udiff.php
  */
-function array_udiff($arr1, $arr2, $callback_data_comp_func): array
+function array_udiff($arr1, $arr2, $callback_data_comp_func)
 {
 }
 
@@ -3812,7 +3812,7 @@ function array_udiff($arr1, $arr2, $callback_data_comp_func): array
  *
  * @link http://www.php.net/manual/en/function.array-udiff-assoc.php
  */
-function array_udiff_assoc($arr1, $arr2, $callback_key_comp_func): array
+function array_udiff_assoc($arr1, $arr2, $callback_key_comp_func)
 {
 }
 
@@ -3830,7 +3830,7 @@ function array_udiff_assoc($arr1, $arr2, $callback_key_comp_func): array
  *
  * @link http://www.php.net/manual/en/function.array-udiff-uassoc.php
  */
-function array_udiff_uassoc($arr1, $arr2, $callback_data_comp_func, $callback_key_comp_func): array
+function array_udiff_uassoc($arr1, $arr2, $callback_data_comp_func, $callback_key_comp_func)
 {
 }
 
@@ -3847,7 +3847,7 @@ function array_udiff_uassoc($arr1, $arr2, $callback_data_comp_func, $callback_ke
  *
  * @link http://www.php.net/manual/en/function.array-uintersect.php
  */
-function array_uintersect($arr1, $arr2, $callback_data_compare_func): array
+function array_uintersect($arr1, $arr2, $callback_data_compare_func)
 {
 }
 
@@ -3864,7 +3864,7 @@ function array_uintersect($arr1, $arr2, $callback_data_compare_func): array
  *
  * @link http://www.php.net/manual/en/function.array-uintersect-assoc.php
  */
-function array_uintersect_assoc($arr1, $arr2, $callback_data_compare_func): array
+function array_uintersect_assoc($arr1, $arr2, $callback_data_compare_func)
 {
 }
 
@@ -3882,7 +3882,7 @@ function array_uintersect_assoc($arr1, $arr2, $callback_data_compare_func): arra
  *
  * @link http://www.php.net/manual/en/function.array-uintersect-uassoc.php
  */
-function array_uintersect_uassoc($arr1, $arr2, $callback_data_compare_func, $callback_key_compare_func): array
+function array_uintersect_uassoc($arr1, $arr2, $callback_data_compare_func, $callback_key_compare_func)
 {
 }
 
@@ -3898,7 +3898,7 @@ function array_uintersect_uassoc($arr1, $arr2, $callback_data_compare_func, $cal
  *
  * @link http://www.php.net/manual/en/function.array-unique.php
  */
-function array_unique($arg, $flags = null): array
+function array_unique($arg, $flags = null)
 {
 }
 
@@ -3929,7 +3929,7 @@ function array_unshift(&$stack, ...$vars)
  *
  * @link http://www.php.net/manual/en/function.array-values.php
  */
-function array_values($arg): array
+function array_values($arg)
 {
 }
 
@@ -4190,7 +4190,7 @@ function bin2hex($data)
  *
  * @param mixed $binary_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -4525,7 +4525,7 @@ function closelog()
  *
  * @link http://www.php.net/manual/en/function.compact.php
  */
-function compact(...$var_names): array
+function compact(...$var_names)
 {
 }
 
@@ -4950,7 +4950,7 @@ function dns_get_mx($hostname, &$mxhosts, &$weight = null)
  *
  * @link http://www.php.net/manual/en/function.dns-get-record.php
  */
-function dns_get_record($hostname, $type = null, array &$authns = null, array &$addtl = null, $raw = null): array
+function dns_get_record($hostname, $type = null, array &$authns = null, array &$addtl = null, $raw = null)
 {
 }
 
@@ -4991,7 +4991,7 @@ function end(&$arg)
  *
  * @link http://www.php.net/manual/en/function.error-get-last.php
  */
-function error_get_last(): array
+function error_get_last()
 {
 }
 
@@ -5088,7 +5088,7 @@ function exp($number)
  *
  * @link http://www.php.net/manual/en/function.explode.php
  */
-function explode($separator, $str, $limit = null): array
+function explode($separator, $str, $limit = null)
 {
 }
 
@@ -5215,7 +5215,7 @@ function fgetc($fp)
  *
  * @link http://www.php.net/manual/en/function.fgetcsv.php
  */
-function fgetcsv($fp, $length = null, $delimiter = null, $enclosure = null, $escape = null): array
+function fgetcsv($fp, $length = null, $delimiter = null, $enclosure = null, $escape = null)
 {
 }
 
@@ -5265,7 +5265,7 @@ function fgetss($fp, $length = null, $allowable_tags = null)
  *
  * @link http://www.php.net/manual/en/function.file.php
  */
-function file($filename, $flags = null, $context = null): array
+function file($filename, $flags = null, $context = null)
 {
 }
 
@@ -5745,7 +5745,7 @@ function fsockopen($hostname, $port, &$errno = null, &$errstr = null, $timeout =
  *
  * @link http://www.php.net/manual/en/function.fstat.php
  */
-function fstat($fp): array
+function fstat($fp)
 {
 }
 
@@ -5871,7 +5871,7 @@ function get_current_user()
  *
  * @link http://www.php.net/manual/en/function.get-headers.php
  */
-function get_headers($url, $format = null): array
+function get_headers($url, $format = null)
 {
 }
 
@@ -5887,7 +5887,7 @@ function get_headers($url, $format = null): array
  *
  * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  */
-function get_html_translation_table($table = null, $quote_style = null): array
+function get_html_translation_table($table = null, $quote_style = null)
 {
 }
 
@@ -5942,7 +5942,7 @@ function get_magic_quotes_runtime()
  *
  * @link http://www.php.net/manual/en/function.get-meta-tags.php
  */
-function get_meta_tags($filename, $use_include_path = null): array
+function get_meta_tags($filename, $use_include_path = null)
 {
 }
 
@@ -6017,7 +6017,7 @@ function gethostbyname($hostname)
  *
  * @link http://www.php.net/manual/en/function.gethostbynamel.php
  */
-function gethostbynamel($hostname): array
+function gethostbynamel($hostname)
 {
 }
 
@@ -6046,7 +6046,7 @@ function gethostname()
  *
  * @link http://www.php.net/manual/en/function.getimagesize.php
  */
-function getimagesize($imagefile, &$info = null): array
+function getimagesize($imagefile, &$info = null)
 {
 }
 
@@ -6062,7 +6062,7 @@ function getimagesize($imagefile, &$info = null): array
  *
  * @link http://www.php.net/manual/en/function.getimagesizefromstring.php
  */
-function getimagesizefromstring($imagefile, &$info = null): array
+function getimagesizefromstring($imagefile, &$info = null)
 {
 }
 
@@ -6160,7 +6160,7 @@ function getmyuid()
  *
  * @link http://www.php.net/manual/en/function.getopt.php
  */
-function getopt($options, $opts = null): array
+function getopt($options, $opts = null)
 {
 }
 
@@ -6220,7 +6220,7 @@ function getrandmax()
  *
  * @link http://www.php.net/manual/en/function.getrusage.php
  */
-function getrusage($who = null): array
+function getrusage($who = null)
 {
 }
 
@@ -6298,7 +6298,7 @@ function gettype($var)
  *
  * @link http://www.php.net/manual/en/function.glob.php
  */
-function glob($pattern, $flags = null): array
+function glob($pattern, $flags = null)
 {
 }
 
@@ -6358,7 +6358,7 @@ function header_remove($name = null)
  *
  * @link http://www.php.net/manual/en/function.headers-list.php
  */
-function headers_list(): array
+function headers_list()
 {
 }
 
@@ -6430,7 +6430,7 @@ function hex2bin($data)
  *
  * @param mixed $hexadecimal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -6740,7 +6740,7 @@ function ini_get($varname)
  *
  * @link http://www.php.net/manual/en/function.ini-get-all.php
  */
-function ini_get_all($extension = null): array
+function ini_get_all($extension = null)
 {
 }
 
@@ -6834,7 +6834,7 @@ function iptcembed($iptcdata, $jpeg_file_name, $spool = null)
  *
  * @link http://www.php.net/manual/en/function.iptcparse.php
  */
-function iptcparse($iptcdata): array
+function iptcparse($iptcdata)
 {
 }
 
@@ -7418,7 +7418,7 @@ function linkinfo($filename)
  *
  * @link http://www.php.net/manual/en/function.localeconv.php
  */
-function localeconv(): array
+function localeconv()
 {
 }
 
@@ -7495,7 +7495,7 @@ function long2ip($proper_address)
  *
  * @link http://www.php.net/manual/en/function.lstat.php
  */
-function lstat($filename): array
+function lstat($filename)
 {
 }
 
@@ -7992,7 +7992,7 @@ function ob_get_level()
  *
  * @link http://www.php.net/manual/en/function.ob-get-status.php
  */
-function ob_get_status($full_status = null): array
+function ob_get_status($full_status = null)
 {
 }
 
@@ -8020,7 +8020,7 @@ function ob_implicit_flush($flag = null)
  *
  * @link http://www.php.net/manual/en/function.ob-list-handlers.php
  */
-function ob_list_handlers(): array
+function ob_list_handlers()
 {
 }
 
@@ -8046,7 +8046,7 @@ function ob_start($user_function = null, $chunk_size = null, $flags = null)
  *
  * @param mixed $octal_number
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -8162,7 +8162,7 @@ function pack($format, ...$args)
  *
  * @link http://www.php.net/manual/en/function.parse-ini-file.php
  */
-function parse_ini_file($filename, $process_sections = null, $scanner_mode = null): array
+function parse_ini_file($filename, $process_sections = null, $scanner_mode = null)
 {
 }
 
@@ -8179,7 +8179,7 @@ function parse_ini_file($filename, $process_sections = null, $scanner_mode = nul
  *
  * @link http://www.php.net/manual/en/function.parse-ini-string.php
  */
-function parse_ini_string($ini_string, $process_sections = null, $scanner_mode = null): array
+function parse_ini_string($ini_string, $process_sections = null, $scanner_mode = null)
 {
 }
 
@@ -8242,7 +8242,7 @@ function passthru($command, &$return_value = null)
  *
  * @link http://www.php.net/manual/en/function.password-get-info.php
  */
-function password_get_info($hash): array
+function password_get_info($hash)
 {
 }
 
@@ -8506,7 +8506,7 @@ function pos(&$arg)
  * @param mixed $base
  * @param mixed $exponent
  *
- * @return number
+ * @return float
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -8589,7 +8589,7 @@ function proc_close($process)
  *
  * @link http://www.php.net/manual/en/function.proc-get-status.php
  */
-function proc_get_status($process): array
+function proc_get_status($process)
 {
 }
 
@@ -8750,7 +8750,7 @@ function rand($min = null, $max = null)
  *
  * @link http://www.php.net/manual/en/function.range.php
  */
-function range($low, $high, $step = null): array
+function range($low, $high, $step = null)
 {
 }
 
@@ -8855,7 +8855,7 @@ function realpath($path)
  *
  * @link http://www.php.net/manual/en/function.realpath-cache-get.php
  */
-function realpath_cache_get(): array
+function realpath_cache_get()
 {
 }
 
@@ -9057,7 +9057,7 @@ function rtrim($str, $character_mask = null)
  *
  * @link http://www.php.net/manual/en/function.scandir.php
  */
-function scandir($dir, $sorting_order = null, $context = null): array
+function scandir($dir, $sorting_order = null, $context = null)
 {
 }
 
@@ -9526,7 +9526,7 @@ function sscanf($str, $format, &...$vars)
  *
  * @link http://www.php.net/manual/en/function.stat.php
  */
-function stat($filename): array
+function stat($filename)
 {
 }
 
@@ -9544,7 +9544,7 @@ function stat($filename): array
  *
  * @link http://www.php.net/manual/en/function.str-getcsv.php
  */
-function str_getcsv($string, $delimiter = null, $enclosure = null, $escape = null): array
+function str_getcsv($string, $delimiter = null, $enclosure = null, $escape = null)
 {
 }
 
@@ -9660,7 +9660,7 @@ function str_shuffle($str)
  *
  * @link http://www.php.net/manual/en/function.str-split.php
  */
-function str_split($str, $split_length = null): array
+function str_split($str, $split_length = null)
 {
 }
 
@@ -9751,7 +9751,7 @@ function stream_bucket_append($brigade, $bucket)
  *
  * @param mixed $brigade
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -9767,7 +9767,7 @@ function stream_bucket_make_writeable($brigade)
  * @param mixed $stream
  * @param mixed $buffer
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 5, PHP 7
  *
@@ -9835,7 +9835,7 @@ function stream_context_get_default($options = null)
  *
  * @link http://www.php.net/manual/en/function.stream-context-get-options.php
  */
-function stream_context_get_options($stream_or_context): array
+function stream_context_get_options($stream_or_context)
 {
 }
 
@@ -9850,7 +9850,7 @@ function stream_context_get_options($stream_or_context): array
  *
  * @link http://www.php.net/manual/en/function.stream-context-get-params.php
  */
-function stream_context_get_params($stream_or_context): array
+function stream_context_get_params($stream_or_context)
 {
 }
 
@@ -10014,7 +10014,7 @@ function stream_get_contents($source, $maxlen = null, $offset = null)
  *
  * @link http://www.php.net/manual/en/function.stream-get-filters.php
  */
-function stream_get_filters(): array
+function stream_get_filters()
 {
 }
 
@@ -10046,7 +10046,7 @@ function stream_get_line($stream, $maxlen, $ending = null)
  *
  * @link http://www.php.net/manual/en/function.stream-get-meta-data.php
  */
-function stream_get_meta_data($fp): array
+function stream_get_meta_data($fp)
 {
 }
 
@@ -10059,7 +10059,7 @@ function stream_get_meta_data($fp): array
  *
  * @link http://www.php.net/manual/en/function.stream-get-transports.php
  */
-function stream_get_transports(): array
+function stream_get_transports()
 {
 }
 
@@ -10072,7 +10072,7 @@ function stream_get_transports(): array
  *
  * @link http://www.php.net/manual/en/function.stream-get-wrappers.php
  */
-function stream_get_wrappers(): array
+function stream_get_wrappers()
 {
 }
 
@@ -10306,7 +10306,7 @@ function stream_socket_get_name($stream, $want_peer)
  *
  * @link http://www.php.net/manual/en/function.stream-socket-pair.php
  */
-function stream_socket_pair($domain, $type, $protocol): array
+function stream_socket_pair($domain, $type, $protocol)
 {
 }
 
@@ -10602,7 +10602,7 @@ function strpos($haystack, $needle, $offset = null)
  *
  * @link http://www.php.net/manual/en/function.strptime.php
  */
-function strptime($timestamp, $format): array
+function strptime($timestamp, $format)
 {
 }
 
@@ -10897,7 +10897,7 @@ function sys_get_temp_dir()
  *
  * @link http://www.php.net/manual/en/function.sys-getloadavg.php
  */
-function sys_getloadavg(): array
+function sys_getloadavg()
 {
 }
 
@@ -11178,7 +11178,7 @@ function unlink($filename, $context = null)
  *
  * @link http://www.php.net/manual/en/function.unpack.php
  */
-function unpack($format, $input): array
+function unpack($format, $input)
 {
 }
 

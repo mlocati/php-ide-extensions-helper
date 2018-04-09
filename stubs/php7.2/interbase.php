@@ -919,7 +919,7 @@ function ibase_backup($service_handle, $source_db, $dest_file, $options = null, 
  *
  * @link http://www.php.net/manual/en/function.ibase-blob-add.php
  */
-function ibase_blob_add($blob_handle, $data)
+function ibase_blob_add($blob_handle, $data): void
 {
 }
 

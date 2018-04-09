@@ -1168,7 +1168,7 @@ function ldap_modify($link_identifier, $dn, $entry)
  *
  * @param mixed $link_identifier
  * @param mixed $dn
- * @param array[] $modifications_info
+ * @param array $modifications_info
  *
  * @return bool
  *
@@ -1176,7 +1176,7 @@ function ldap_modify($link_identifier, $dn, $entry)
  *
  * @link http://www.php.net/manual/en/function.ldap-modify-batch.php
  */
-function ldap_modify_batch($link_identifier, $dn, $modifications_info): bool
+function ldap_modify_batch($link_identifier, $dn, array $modifications_info): bool
 {
 }
 

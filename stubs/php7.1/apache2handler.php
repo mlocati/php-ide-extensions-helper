@@ -49,7 +49,7 @@ function apache_getenv($variable, $walk_to_top = null): string
  *
  * @param mixed $filename
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *

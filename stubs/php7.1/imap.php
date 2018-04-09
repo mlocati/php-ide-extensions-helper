@@ -675,7 +675,7 @@ function imap_body($stream_id, $msg_no, $options = null): string
  * @param mixed $msg_no
  * @param mixed $section
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -690,7 +690,7 @@ function imap_bodystruct($stream_id, $msg_no, $section)
  *
  * @param mixed $stream_id
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -902,7 +902,7 @@ function imap_fetchmime($stream_id, $msg_no, $section, $options = null): string
  * @param mixed $msg_no
  * @param mixed|null $options
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1051,7 +1051,7 @@ function imap_header($stream_id, $msg_no, $from_length = null, $subject_length =
  * @param mixed|null $subject_length
  * @param mixed|null $default_host
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1249,7 +1249,7 @@ function imap_mail_move($stream_id, $sequence, $mailbox, $options = null): bool
  *
  * @param mixed $stream_id
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1457,7 +1457,7 @@ function imap_rfc822_parse_adrlist($address_string, $default_host): array
  * @param mixed $headers
  * @param mixed|null $default_host
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *
@@ -1633,7 +1633,7 @@ function imap_sort($stream_id, $criteria, $reverse, $options = null, $search_cri
  * @param mixed $mailbox
  * @param mixed $options
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5, PHP 7
  *

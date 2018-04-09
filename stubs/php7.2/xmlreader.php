@@ -38,7 +38,7 @@ class XMLReader
      *
      * @link http://www.php.net/manual/en/xmlreader.expand.php
      */
-    public function expand($basenode = null)
+    public function expand($basenode = null): DOMNode
     {
     }
 

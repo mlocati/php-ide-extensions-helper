@@ -271,7 +271,7 @@ function mysql_escape_string($string)
  *
  * @link http://www.php.net/manual/en/function.mysql-fetch-array.php
  */
-function mysql_fetch_array($result, $result_type = null): array
+function mysql_fetch_array($result, $result_type = null)
 {
 }
 
@@ -286,7 +286,7 @@ function mysql_fetch_array($result, $result_type = null): array
  *
  * @link http://www.php.net/manual/en/function.mysql-fetch-assoc.php
  */
-function mysql_fetch_assoc($result): array
+function mysql_fetch_assoc($result)
 {
 }
 
@@ -296,7 +296,7 @@ function mysql_fetch_assoc($result): array
  * @param mixed $result
  * @param mixed|null $field_offset
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5
  *
@@ -317,7 +317,7 @@ function mysql_fetch_field($result, $field_offset = null)
  *
  * @link http://www.php.net/manual/en/function.mysql-fetch-lengths.php
  */
-function mysql_fetch_lengths($result): array
+function mysql_fetch_lengths($result)
 {
 }
 
@@ -328,7 +328,7 @@ function mysql_fetch_lengths($result): array
  * @param mixed|null $class_name
  * @param mixed|null $ctor_params
  *
- * @return object
+ * @return mixed
  *
  * @since PHP 4, PHP 5
  *
@@ -349,7 +349,7 @@ function mysql_fetch_object($result, $class_name = null, $ctor_params = null)
  *
  * @link http://www.php.net/manual/en/function.mysql-fetch-row.php
  */
-function mysql_fetch_row($result): array
+function mysql_fetch_row($result)
 {
 }
 
