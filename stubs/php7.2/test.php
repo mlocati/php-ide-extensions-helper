@@ -4,6 +4,11 @@
 
 trait _ZendTestTrait
 {
+    /**
+     * @var mixed
+     */
+    public $testProp;
+
     public function testMethod()
     {
     }

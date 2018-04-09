@@ -416,6 +416,31 @@ class ZipArchive implements Countable
     const OVERWRITE = 8;
 
     /**
+     * @var mixed
+     */
+    public $comment;
+
+    /**
+     * @var mixed
+     */
+    public $filename;
+
+    /**
+     * @var mixed
+     */
+    public $numFiles;
+
+    /**
+     * @var mixed
+     */
+    public $status;
+
+    /**
+     * @var mixed
+     */
+    public $statusSys;
+
+    /**
      * Add a new directory
      *
      * @param mixed $dirname

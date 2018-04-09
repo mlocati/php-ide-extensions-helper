@@ -102,6 +102,11 @@ class ReflectionClass implements Reflector
      */
     const IS_IMPLICIT_ABSTRACT = 16;
 
+    /**
+     * @var string
+     */
+    public $name = '';
+
     final private function __clone()
     {
     }
@@ -830,6 +835,16 @@ class ReflectionClass implements Reflector
  */
 class ReflectionClassConstant implements Reflector
 {
+    /**
+     * @var string
+     */
+    public $class = '';
+
+    /**
+     * @var string
+     */
+    public $name = '';
+
     final private function __clone()
     {
     }
@@ -1004,6 +1019,11 @@ class ReflectionException extends Exception
  */
 class ReflectionExtension implements Reflector
 {
+    /**
+     * @var string
+     */
+    public $name = '';
+
     /**
      * Clones
      *
@@ -1219,6 +1239,11 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     const IS_DEPRECATED = 262144;
 
     /**
+     * @var string
+     */
+    public $name = '';
+
+    /**
      * Constructs a ReflectionFunction object
      *
      * @param mixed $name
@@ -1327,6 +1352,11 @@ class ReflectionFunction extends ReflectionFunctionAbstract
  */
 abstract class ReflectionFunctionAbstract implements Reflector
 {
+    /**
+     * @var string
+     */
+    public $name = '';
+
     /**
      * Clones function
      *
@@ -1811,6 +1841,16 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     const IS_STATIC = 1;
 
     /**
+     * @var string
+     */
+    public $class = '';
+
+    /**
+     * @var string
+     */
+    public $name = '';
+
+    /**
      * Constructs a ReflectionMethod
      *
      * @param mixed $class_or_method
@@ -2129,6 +2169,11 @@ class ReflectionObject extends ReflectionClass
  */
 class ReflectionParameter implements Reflector
 {
+    /**
+     * @var string
+     */
+    public $name = '';
+
     /**
      * Clone
      *
@@ -2452,6 +2497,16 @@ class ReflectionProperty implements Reflector
     const IS_STATIC = 1;
 
     /**
+     * @var string
+     */
+    public $class = '';
+
+    /**
+     * @var string
+     */
+    public $name = '';
+
+    /**
      * Clone
      *
      * @return void
@@ -2733,6 +2788,11 @@ class ReflectionType
  */
 class ReflectionZendExtension implements Reflector
 {
+    /**
+     * @var string
+     */
+    public $name = '';
+
     /**
      * Clone handler
      *

@@ -1510,6 +1510,10 @@ class DOMErrorHandler
  */
 class DOMException extends Exception
 {
+    /**
+     * @var int
+     */
+    public $code = 0;
 }
 
 /**

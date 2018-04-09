@@ -114,6 +114,31 @@ interface Collectable
 class Pool
 {
     /**
+     * @var mixed
+     */
+    protected $class;
+
+    /**
+     * @var mixed
+     */
+    protected $ctor;
+
+    /**
+     * @var int
+     */
+    protected $last = 0;
+
+    /**
+     * @var int
+     */
+    protected $size = 1;
+
+    /**
+     * @var mixed
+     */
+    protected $workers;
+
+    /**
      * Creates a new Pool of Workers
      *
      * @param int $size

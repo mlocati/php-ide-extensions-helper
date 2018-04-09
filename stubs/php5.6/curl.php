@@ -2741,6 +2741,21 @@ const CURLVERSION_NOW = 3;
 class CURLFile
 {
     /**
+     * @var string
+     */
+    public $mime = '';
+
+    /**
+     * @var string
+     */
+    public $name = '';
+
+    /**
+     * @var string
+     */
+    public $postname = '';
+
+    /**
      * Create a CURLFile object
      *
      * @param mixed $filename

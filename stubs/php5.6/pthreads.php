@@ -99,6 +99,11 @@ const PTHREADS_INHERIT_NONE = 0;
 class Collectable extends Threaded
 {
     /**
+     * @var bool
+     */
+    protected $garbage = false;
+
+    /**
      * Determine whether an object has been marked as garbage
      *
      * @return bool
@@ -316,6 +321,36 @@ class Mutex
  */
 class Pool
 {
+    /**
+     * @var mixed
+     */
+    protected $class;
+
+    /**
+     * @var mixed
+     */
+    protected $ctor;
+
+    /**
+     * @var int
+     */
+    protected $last = 0;
+
+    /**
+     * @var int
+     */
+    protected $size = 1;
+
+    /**
+     * @var mixed
+     */
+    protected $work;
+
+    /**
+     * @var mixed
+     */
+    protected $workers;
+
     /**
      * Creates a new Pool of Workers
      *

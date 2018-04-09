@@ -3065,6 +3065,16 @@ class Directory
 class php_user_filter
 {
     /**
+     * @var string
+     */
+    public $filtername = '';
+
+    /**
+     * @var string
+     */
+    public $params = '';
+
+    /**
      * Called when applying the filter
      *
      * @param mixed $in

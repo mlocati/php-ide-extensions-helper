@@ -5199,6 +5199,11 @@ class Transliterator
     const REVERSE = 1;
 
     /**
+     * @var mixed
+     */
+    public $id;
+
+    /**
      * Private constructor to deny instantiation
      *
      * @link http://www.php.net/manual/en/transliterator.construct.php

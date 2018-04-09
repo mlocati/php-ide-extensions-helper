@@ -75,6 +75,51 @@ namespace CommonMark {
     abstract /*final*/ class Node implements \CommonMark\Interfaces\IVisitable, \Traversable
     {
         /**
+         * @var mixed
+         */
+        public $endColumn;
+
+        /**
+         * @var mixed
+         */
+        public $endLine;
+
+        /**
+         * @var mixed
+         */
+        public $firstChild;
+
+        /**
+         * @var mixed
+         */
+        public $lastChild;
+
+        /**
+         * @var mixed
+         */
+        public $next;
+
+        /**
+         * @var mixed
+         */
+        public $parent;
+
+        /**
+         * @var mixed
+         */
+        public $previous;
+
+        /**
+         * @var mixed
+         */
+        public $startColumn;
+
+        /**
+         * @var mixed
+         */
+        public $startLine;
+
+        /**
          * Visitation
          *
          * @param \CommonMark\Interfaces\IVisitor $visitor
@@ -303,6 +348,21 @@ namespace CommonMark\Node {
     final class OrderedList extends \CommonMark\Node
     {
         /**
+         * @var mixed
+         */
+        public $delimiter;
+
+        /**
+         * @var mixed
+         */
+        public $start;
+
+        /**
+         * @var mixed
+         */
+        public $tight;
+
+        /**
          * OrderedList Construction
          *
          * @param mixed|null $tight
@@ -325,6 +385,16 @@ namespace CommonMark\Node {
      */
     final class BulletList extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $delimiter;
+
+        /**
+         * @var mixed
+         */
+        public $tight;
+
         /**
          * BulletList Construction
          *
@@ -356,6 +426,11 @@ namespace CommonMark\Node {
      */
     final class CodeBlock extends \CommonMark\Node\Text
     {
+        /**
+         * @var mixed
+         */
+        public $fence;
+
         /**
          * CodeBlock Construction
          *
@@ -407,6 +482,11 @@ namespace CommonMark\Node {
      */
     final class Heading extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $level;
+
         /**
          * Heading Construction
          *
@@ -496,6 +576,16 @@ namespace CommonMark\Node {
      */
     final class CustomInline extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $onEnter;
+
+        /**
+         * @var mixed
+         */
+        public $onLeave;
+
         public function __construct()
         {
         }
@@ -508,6 +598,16 @@ namespace CommonMark\Node {
      */
     final class Link extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $title;
+
+        /**
+         * @var mixed
+         */
+        public $url;
+
         /**
          * Link Construction
          *
@@ -531,6 +631,16 @@ namespace CommonMark\Node {
     final class Image extends \CommonMark\Node
     {
         /**
+         * @var mixed
+         */
+        public $title;
+
+        /**
+         * @var mixed
+         */
+        public $url;
+
+        /**
          * Image Construction
          *
          * @param mixed|null $url
@@ -552,6 +662,16 @@ namespace CommonMark\Node {
      */
     final class CustomBlock extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $onEnter;
+
+        /**
+         * @var mixed
+         */
+        public $onLeave;
+
         public function __construct()
         {
         }
@@ -576,6 +696,11 @@ namespace CommonMark\Node {
      */
     /*final*/ class Text extends \CommonMark\Node
     {
+        /**
+         * @var mixed
+         */
+        public $literal;
+
         /**
          * Text Construction
          *

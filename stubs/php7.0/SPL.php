@@ -3542,6 +3542,11 @@ class RegexIterator extends FilterIterator
     const USE_KEY = 1;
 
     /**
+     * @var mixed
+     */
+    public $replacement;
+
+    /**
      * Create a new RegexIterator
      *
      * @param Iterator $iterator

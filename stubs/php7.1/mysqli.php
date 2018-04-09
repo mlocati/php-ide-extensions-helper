@@ -924,6 +924,101 @@ const MYSQLI_ZEROFILL_FLAG = 64;
 class mysqli
 {
     /**
+     * @var mixed
+     */
+    public $affected_rows;
+
+    /**
+     * @var mixed
+     */
+    public $client_info;
+
+    /**
+     * @var mixed
+     */
+    public $client_version;
+
+    /**
+     * @var mixed
+     */
+    public $connect_errno;
+
+    /**
+     * @var mixed
+     */
+    public $connect_error;
+
+    /**
+     * @var mixed
+     */
+    public $errno;
+
+    /**
+     * @var mixed
+     */
+    public $error;
+
+    /**
+     * @var mixed
+     */
+    public $error_list;
+
+    /**
+     * @var mixed
+     */
+    public $field_count;
+
+    /**
+     * @var mixed
+     */
+    public $host_info;
+
+    /**
+     * @var mixed
+     */
+    public $info;
+
+    /**
+     * @var mixed
+     */
+    public $insert_id;
+
+    /**
+     * @var mixed
+     */
+    public $protocol_version;
+
+    /**
+     * @var mixed
+     */
+    public $server_info;
+
+    /**
+     * @var mixed
+     */
+    public $server_version;
+
+    /**
+     * @var mixed
+     */
+    public $sqlstate;
+
+    /**
+     * @var mixed
+     */
+    public $stat;
+
+    /**
+     * @var mixed
+     */
+    public $thread_id;
+
+    /**
+     * @var mixed
+     */
+    public $warning_count;
+
+    /**
      * Open a new connection to the MySQL server
      *
      * @param mixed|null $host
@@ -1490,6 +1585,35 @@ class mysqli
  */
 final class mysqli_driver
 {
+    /**
+     * @var mixed
+     */
+    public $client_info;
+
+    /**
+     * @var mixed
+     */
+    public $client_version;
+
+    /**
+     * @var mixed
+     */
+    public $driver_version;
+
+    /**
+     * @var mixed
+     */
+    public $embedded;
+
+    /**
+     * @var mixed
+     */
+    public $reconnect;
+
+    /**
+     * @var mixed
+     */
+    public $report_mode;
 }
 
 /**
@@ -1501,6 +1625,31 @@ final class mysqli_driver
  */
 class mysqli_result implements Traversable
 {
+    /**
+     * @var mixed
+     */
+    public $current_field;
+
+    /**
+     * @var mixed
+     */
+    public $field_count;
+
+    /**
+     * @var mixed
+     */
+    public $lengths;
+
+    /**
+     * @var mixed
+     */
+    public $num_rows;
+
+    /**
+     * @var mixed
+     */
+    public $type;
+
     public function __construct()
     {
     }
@@ -1671,6 +1820,15 @@ class mysqli_result implements Traversable
  */
 final class mysqli_sql_exception extends RuntimeException
 {
+    /**
+     * @var int
+     */
+    protected $code = 0;
+
+    /**
+     * @var string
+     */
+    protected $sqlstate = '00000';
 }
 
 /**
@@ -1682,6 +1840,56 @@ final class mysqli_sql_exception extends RuntimeException
  */
 class mysqli_stmt
 {
+    /**
+     * @var mixed
+     */
+    public $affected_rows;
+
+    /**
+     * @var mixed
+     */
+    public $errno;
+
+    /**
+     * @var mixed
+     */
+    public $error;
+
+    /**
+     * @var mixed
+     */
+    public $error_list;
+
+    /**
+     * @var mixed
+     */
+    public $field_count;
+
+    /**
+     * @var mixed
+     */
+    public $id;
+
+    /**
+     * @var mixed
+     */
+    public $insert_id;
+
+    /**
+     * @var mixed
+     */
+    public $num_rows;
+
+    /**
+     * @var mixed
+     */
+    public $param_count;
+
+    /**
+     * @var mixed
+     */
+    public $sqlstate;
+
     /**
      * Constructs a new <code>mysqli_stmt</code> object
      *
@@ -1929,6 +2137,21 @@ class mysqli_stmt
  */
 final class mysqli_warning
 {
+    /**
+     * @var mixed
+     */
+    public $errno;
+
+    /**
+     * @var mixed
+     */
+    public $message;
+
+    /**
+     * @var mixed
+     */
+    public $sqlstate;
+
     /**
      * The __construct purpose
      *

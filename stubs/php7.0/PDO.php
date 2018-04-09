@@ -936,6 +936,10 @@ class PDO
  */
 class PDOException extends RuntimeException
 {
+    /**
+     * @var mixed
+     */
+    public $errorInfo;
 }
 
 final class PDORow
@@ -952,6 +956,11 @@ final class PDORow
  */
 class PDOStatement implements Traversable
 {
+    /**
+     * @var mixed
+     */
+    public $queryString;
+
     /**
      * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0
      */

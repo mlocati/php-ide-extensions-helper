@@ -627,7 +627,7 @@ EOF
         $this->currentWriter->writeln("trait {$name}\n{");
         $this->currentWriter->increaseIndentation();
         $firstChildren = true;
-        // @todo $this->writeClassProperties($traitElement, $firstChildren);
+        $this->writeClassProperties($extensionElement, $traitElement, $firstChildren);
         $this->writeClassMethods($extensionElement, $traitElement, $firstChildren);
         $this->currentWriter->decreaseIndentation();
         $this->currentWriter->writeln('}');
@@ -662,7 +662,7 @@ EOF
         $this->currentWriter->increaseIndentation();
         $firstChildren = true;
         $this->writeClassConstants($extensionElement, $interfaceElement, $firstChildren);
-        // @todo $this->writeClassProperties($interfaceElement, $firstChildren);
+        $this->writeClassProperties($extensionElement, $interfaceElement, $firstChildren);
         $this->writeClassMethods($extensionElement, $interfaceElement, $firstChildren);
         $this->currentWriter->decreaseIndentation();
         $this->currentWriter->writeln('}');
@@ -717,7 +717,7 @@ EOF
         $this->currentWriter->increaseIndentation();
         $firstChildren = true;
         $this->writeClassConstants($extensionElement, $classElement, $firstChildren);
-        // @todo $this->writeClassProperties($classElement, $firstChildren);
+        $this->writeClassProperties($extensionElement, $classElement, $firstChildren);
         $this->writeClassMethods($extensionElement, $classElement, $firstChildren);
         $this->currentWriter->decreaseIndentation();
         $this->currentWriter->writeln('}');
@@ -764,30 +764,39 @@ EOF
     /**
      * Output the trait/interface/class properties.
      *
+     * @param DOMElement $extensionElement
+     *            The extension XML element
      * @param DOMElement $classElement
      *            The trait/interface/class XML element
      * @param bool $firstChildren
      *            Is this the first child of the class?
      */
-    private function writeClassProperties(DOMElement $classElement, &$firstChildren)
+    private function writeClassProperties(DOMElement $extensionElement, DOMElement $classElement, &$firstChildren)
     {
+        $prefix = null;
         foreach ($this->inputXPath->query('./ns:property', $classElement) as $propertyElement) {
             if ($firstChildren) {
                 $firstChildren = false;
             } else {
                 $this->currentWriter->writeln();
             }
+            if ($prefix === null) {
+                $namespace = $classElement->getAttribute('namespace');
+                $className = $classElement->getAttribute('name');
+                $prefix = $namespace === '' ? "{$className}::$" : "{$namespace}\\{$className}::$";
+            }
+            $name = $propertyElement->getAttribute('name');
+            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSPROPERTY);
             $value = new ValueData($propertyElement->getAttribute('defaultValue'));
-            if ($value->phpDocType === 'null') {
-                $value = null;
-            }
-            if ($value !== null) {
-                $this->currentWriter->startPHPDoc();
-                $this->currentWriter->writeln('@var ' . $value->phpDocType);
-                $this->currentWriter->stopPHPDoc();
-            }
+            $this->currentWriter->writePHPDocParts(array(
+                $info !== null ? $info->description : '',
+                $this->getOSTagWarning($extensionElement, $propertyElement),
+                $info !== null ? $info->getVersionPHPDoc() : '',
+                '@var ' . ($value->phpDocType === 'null' ? 'mixed' : $value->phpDocType),
+                $info !== null && $info->url !== '' ? '@link ' . $info->url : ''
+            ));
             $line = $propertyElement->getAttribute('visibility') . ' $' . $propertyElement->getAttribute('name');
-            if ($value !== null) {
+            if ($value->phpValue !== 'null') {
                 $line .= ' = ' . $value->phpValue;
             }
             $line .= ';';

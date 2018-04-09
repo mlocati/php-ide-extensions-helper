@@ -100,6 +100,11 @@ class SolrClient
     const UPDATE_SERVLET_TYPE = 2;
 
     /**
+     * @var int
+     */
+    private $_hashtable_index = 0;
+
+    /**
      * @since PECL solr >= 0.9.2
      */
     public function __clone()
@@ -488,6 +493,11 @@ class SolrCollapseFunction
      * @var string
      */
     const NULLPOLICY_IGNORE = 'ignore';
+
+    /**
+     * @var int
+     */
+    protected $_hashtable_index = 0;
 
     /**
      * Constructor
@@ -1109,6 +1119,11 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
     const SORT_FIELD_VALUE_COUNT = 2;
 
     /**
+     * @var int
+     */
+    private $_hashtable_index = 0;
+
+    /**
      * Creates a copy of a SolrDocument object
      *
      * @return void
@@ -1581,6 +1596,21 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
 final class SolrDocumentField
 {
     /**
+     * @var int
+     */
+    public $boost = 0;
+
+    /**
+     * @var string
+     */
+    public $name = ' ';
+
+    /**
+     * @var mixed
+     */
+    public $values;
+
+    /**
      * Constructor
      *
      * @since PECL solr >= 0.9.2
@@ -1614,6 +1644,21 @@ final class SolrDocumentField
  */
 class SolrException extends Exception
 {
+    /**
+     * @var string
+     */
+    protected $sourcefile = '/tmp/pear/temp/solr/src/php7/solr_functions_helpers.c';
+
+    /**
+     * @var int
+     */
+    protected $sourceline = 107;
+
+    /**
+     * @var string
+     */
+    protected $zif_name = 'solr_exception_register_class_properties';
+
     /**
      * Returns internal information where the Exception was thrown
      *
@@ -1746,6 +1791,11 @@ final class SolrInputDocument
      * @var int
      */
     const SORT_FIELD_VALUE_COUNT = 2;
+
+    /**
+     * @var int
+     */
+    private $_hashtable_index = 0;
 
     /**
      * Creates a copy of a SolrDocument
@@ -2244,6 +2294,11 @@ final class SolrObject implements ArrayAccess
  */
 abstract class SolrParams implements Serializable
 {
+    /**
+     * @var int
+     */
+    protected $_hashtable_index = 0;
+
     public function __clone()
     {
     }
@@ -5346,6 +5401,61 @@ abstract class SolrResponse
      * @var int
      */
     const PARSE_SOLR_OBJ = 0;
+
+    /**
+     * @var string
+     */
+    protected $http_digested_response = ' ';
+
+    /**
+     * @var string
+     */
+    protected $http_raw_request = ' ';
+
+    /**
+     * @var string
+     */
+    protected $http_raw_request_headers = ' ';
+
+    /**
+     * @var string
+     */
+    protected $http_raw_response = ' ';
+
+    /**
+     * @var string
+     */
+    protected $http_raw_response_headers = ' ';
+
+    /**
+     * @var string
+     */
+    protected $http_request_url = ' ';
+
+    /**
+     * @var int
+     */
+    protected $http_status = 0;
+
+    /**
+     * @var string
+     */
+    protected $http_status_message = ' ';
+
+    /**
+     * @var int
+     */
+    protected $parser_mode = 0;
+
+    /**
+     * @var string
+     */
+    protected $response_writer = ' ';
+
+    /**
+     * @var bool
+     */
+    protected $success = false;
 
     public function getArrayResponse()
     {

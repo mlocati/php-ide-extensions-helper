@@ -931,6 +931,11 @@ final class Closure
 class ErrorException extends Exception
 {
     /**
+     * @var int
+     */
+    protected $severity = 1;
+
+    /**
      * @param mixed|null $message
      * @param mixed|null $code
      * @param mixed|null $severity
@@ -963,6 +968,41 @@ class ErrorException extends Exception
  */
 class Exception
 {
+    /**
+     * @var int
+     */
+    protected $code = 0;
+
+    /**
+     * @var mixed
+     */
+    protected $file;
+
+    /**
+     * @var mixed
+     */
+    protected $line;
+
+    /**
+     * @var string
+     */
+    protected $message = '';
+
+    /**
+     * @var mixed
+     */
+    private $previous;
+
+    /**
+     * @var string
+     */
+    private $string = '';
+
+    /**
+     * @var mixed
+     */
+    private $trace;
+
     /**
      * @since PHP 5, PHP 7
      */
