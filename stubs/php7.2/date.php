@@ -161,42 +161,80 @@ const SUNFUNCS_RET_TIMESTAMP = 0;
 interface DateTimeInterface
 {
     /**
+     * Atom (example: 2005-08-15T15:52:01+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const ATOM = 'Y-m-d\\TH:i:sP';
 
     /**
+     * HTTP Cookies (example: Monday, 15-Aug-2005 15:52:01 UTC)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const COOKIE = 'l, d-M-Y H:i:s T';
 
     /**
+     * ISO-8601 (example: 2005-08-15T15:52:01+0000)
+     * <blockquote>
+     * This format is not compatible with ISO-8601, but is left this way for
+     * backward compatibility reasons. Use <code>DateTime::ATOM</code>
+     * or <code>DATE_ATOM</code> for compatibility with ISO-8601
+     * instead.
+     * </blockquote>
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const ISO8601 = 'Y-m-d\\TH:i:sO';
 
     /**
+     * RFC 1036 (example: Mon, 15 Aug 05 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC1036 = 'D, d M y H:i:s O';
 
     /**
+     * RFC 1123 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC1123 = 'D, d M Y H:i:s O';
 
     /**
+     * RFC 2822 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC2822 = 'D, d M Y H:i:s O';
 
     /**
+     * Same as <code>DATE_ATOM</code> (since PHP 5.1.3)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC3339 = 'Y-m-d\\TH:i:sP';
 
     /**
+     * RFC 3339 EXTENDED format (since PHP 7.0.0) (example: 2005-08-15T15:52:01.000+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC3339_EXTENDED = 'Y-m-d\\TH:i:s.vP';
 
@@ -206,22 +244,38 @@ interface DateTimeInterface
     const RFC7231 = 'D, d M Y H:i:s \\G\\M\\T';
 
     /**
+     * RFC 822 (example: Mon, 15 Aug 05 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC822 = 'D, d M y H:i:s O';
 
     /**
+     * RFC 850 (example: Monday, 15-Aug-05 15:52:01 UTC)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC850 = 'l, d-M-y H:i:s T';
 
     /**
+     * RSS (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RSS = 'D, d M Y H:i:s O';
 
     /**
+     * World Wide Web Consortium (example: 2005-08-15T15:52:01+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const W3C = 'Y-m-d\\TH:i:sP';
 

@@ -735,20 +735,28 @@ EOF
      */
     private function writeClassConstants(DOMElement $extensionElement, DOMElement $classElement, &$firstChildren)
     {
-        $prefix = null;
+        $phpManualPrefix = null;
         foreach ($this->inputXPath->query('./ns:constant', $classElement) as $constantElement) {
             if ($firstChildren) {
                 $firstChildren = false;
             } else {
                 $this->currentWriter->writeln();
             }
-            if ($prefix === null) {
+            if ($phpManualPrefix === null) {
                 $namespace = $classElement->getAttribute('namespace');
                 $className = $classElement->getAttribute('name');
-                $prefix = $namespace === '' ? "{$className}::" : "{$namespace}\\{$className}::";
+                $phpManualPrefix = $namespace === '' ? "{$className}::" : "{$namespace}\\{$className}::";
             }
             $name = $constantElement->getAttribute('name');
-            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSCONSTANT);
+            $info = $this->phpManual->getItem($phpManualPrefix . $name, PHPManualItem::TYPE_CLASSCONSTANT);
+            if ($info === null) {
+                // Hack for wrong PHPManual data
+                switch ($className) {
+                    case 'DateTimeInterface':
+                        $info = $this->phpManual->getItem('DateTime::' . $name, PHPManualItem::TYPE_CLASSCONSTANT);
+                        break;
+                }
+            }
             $value = new ValueData($constantElement->getAttribute('value'));
             $this->currentWriter->writePHPDocParts(array(
                 $info !== null ? $info->description : '',
@@ -778,11 +786,11 @@ EOF
         if ($namespace !== '') {
             $className = $namespace . '\\' . $className;
         }
-        $prefix = $className . '::$';
+        $phpManualPrefix = $className . '::$';
         $mergedProperties = array();
         foreach ($this->inputXPath->query('./ns:property', $classElement) as $propertyElement) {
             $name = $propertyElement->getAttribute('name');
-            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSPROPERTY);
+            $info = $this->phpManual->getItem($phpManualPrefix . $name, PHPManualItem::TYPE_CLASSPROPERTY);
             $mergedProperties[] = new PHPManualMergedProperty($this->typeFormatter, $propertyElement, $info);
         }
         if (empty($mergedProperties)) {
@@ -806,7 +814,7 @@ EOF
                     break;
             }
             if ($takeFromPHPManual) {
-                $items = $this->phpManual->getItemsByPrefix($prefix, PHPManualItem::TYPE_CLASSPROPERTY);
+                $items = $this->phpManual->getItemsByPrefix($phpManualPrefix, PHPManualItem::TYPE_CLASSPROPERTY);
                 usort($items, function (PHPManualItem $a, PHPManualItem $b) {
                     return strnatcasecmp($a->name, $b->name);
                 });
