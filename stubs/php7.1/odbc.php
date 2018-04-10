@@ -3,21 +3,27 @@
 // - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
 
 /**
- * @link http://www.php.net/manual/en/uodbc.constants.php#constant.odbc-binmode-convert
+ * passthru
+ *
+ * @link http://www.php.net/manual/en/function.odbc-binmode.php
  *
  * @var int
  */
 const ODBC_BINMODE_CONVERT = 2;
 
 /**
- * @link http://www.php.net/manual/en/uodbc.constants.php#constant.odbc-binmode-passthru
+ * passthru
+ *
+ * @link http://www.php.net/manual/en/function.odbc-binmode.php
  *
  * @var int
  */
 const ODBC_BINMODE_PASSTHRU = 0;
 
 /**
- * @link http://www.php.net/manual/en/uodbc.constants.php#constant.odbc-binmode-return
+ * passthru
+ *
+ * @link http://www.php.net/manual/en/function.odbc-binmode.php
  *
  * @var int
  */

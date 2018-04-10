@@ -3,105 +3,105 @@
 // - parsed on POSIX with PHP 7.2.3 (extension version 5.1.11)
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-all
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-all
  *
  * @var float
  */
 const APC_ITER_ALL = 4294967295;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-atime
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-atime
  *
  * @var int
  */
 const APC_ITER_ATIME = 128;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-ctime
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-ctime
  *
  * @var int
  */
 const APC_ITER_CTIME = 32;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-dtime
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-dtime
  *
  * @var int
  */
 const APC_ITER_DTIME = 64;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-key
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-key
  *
  * @var int
  */
 const APC_ITER_KEY = 2;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-mem-size
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-mem-size
  *
  * @var int
  */
 const APC_ITER_MEM_SIZE = 512;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-mtime
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-mtime
  *
  * @var int
  */
 const APC_ITER_MTIME = 16;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-none
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-none
  *
  * @var int
  */
 const APC_ITER_NONE = 0;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-num-hits
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-num-hits
  *
  * @var int
  */
 const APC_ITER_NUM_HITS = 8;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-refcount
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-refcount
  *
  * @var int
  */
 const APC_ITER_REFCOUNT = 256;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-ttl
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-ttl
  *
  * @var int
  */
 const APC_ITER_TTL = 1024;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-type
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-type
  *
  * @var int
  */
 const APC_ITER_TYPE = 1;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-iter-value
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-value
  *
  * @var int
  */
 const APC_ITER_VALUE = 4;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-list-active
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-list-active
  *
  * @var int
  */
 const APC_LIST_ACTIVE = 1;
 
 /**
- * @link http://www.php.net/manual/en/apc.constants.php#constant.apc-list-deleted
+ * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-list-deleted
  *
  * @var int
  */

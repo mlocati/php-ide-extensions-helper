@@ -15,112 +15,200 @@
 class XMLReader
 {
     /**
+     * Attribute node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.attribute
      */
     const ATTRIBUTE = 2;
 
     /**
+     * CDATA node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.cdata
      */
     const CDATA = 4;
 
     /**
+     * Comment node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.comment
      */
     const COMMENT = 8;
 
     /**
+     * Load DTD and default attributes but do not validate
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.defaultattrs
      */
     const DEFAULTATTRS = 2;
 
     /**
+     * Document node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.doc
      */
     const DOC = 9;
 
     /**
+     * Document Fragment node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.doc-fragment
      */
     const DOC_FRAGMENT = 11;
 
     /**
+     * Document Type node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.doc-type
      */
     const DOC_TYPE = 10;
 
     /**
+     * Start element
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.element
      */
     const ELEMENT = 1;
 
     /**
+     * End Element
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.end-element
      */
     const END_ELEMENT = 15;
 
     /**
+     * End Entity
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.end-entity
      */
     const END_ENTITY = 16;
 
     /**
+     * Entity Declaration node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.entity
      */
     const ENTITY = 6;
 
     /**
+     * Entity Reference node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.entity-ref
      */
     const ENTITY_REF = 5;
 
     /**
+     * Load DTD but do not validate
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.loaddtd
      */
     const LOADDTD = 1;
 
     /**
+     * No node type
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.none
      */
     const NONE = 0;
 
     /**
+     * Notation node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.notation
      */
     const NOTATION = 12;
 
     /**
+     * Processing Instruction node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.pi
      */
     const PI = 7;
 
     /**
+     * Significant Whitespace node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.significant-whitespace
      */
     const SIGNIFICANT_WHITESPACE = 14;
 
     /**
+     * Substitute entities and expand references
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.subst-entities
      */
     const SUBST_ENTITIES = 4;
 
     /**
+     * Text node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.text
      */
     const TEXT = 3;
 
     /**
+     * Load DTD and validate while parsing
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.validate
      */
     const VALIDATE = 3;
 
     /**
+     * Whitespace node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.whitespace
      */
     const WHITESPACE = 13;
 
     /**
+     * XML Declaration node
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/xmlreader.constants.php#xmlreader.constants.xml-declaration
      */
     const XML_DECLARATION = 17;
 

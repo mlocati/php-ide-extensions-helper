@@ -13,132 +13,268 @@
 class PDO
 {
     /**
+     * If this value is <code>FALSE</code>, PDO attempts to disable autocommit so that the
+     * connection begins a transaction.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-autocommit
      */
     const ATTR_AUTOCOMMIT = 0;
 
     /**
+     * Force column names to a specific case specified by the <code>PDO::CASE_*</code>
+     * constants.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-case
      */
     const ATTR_CASE = 8;
 
     /**
+     * This is a read only attribute; it will return information about the
+     * version of the client libraries that the PDO driver is using.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-client-version
      */
     const ATTR_CLIENT_VERSION = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-connection-status
      */
     const ATTR_CONNECTION_STATUS = 7;
 
     /**
+     * Selects the cursor type. PDO currently supports either
+     * <code>PDO::CURSOR_FWDONLY</code> and
+     * <code>PDO::CURSOR_SCROLL</code>. Stick with
+     * <code>PDO::CURSOR_FWDONLY</code> unless you know that you need a
+     * scrollable cursor.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-cursor
      */
     const ATTR_CURSOR = 10;
 
     /**
+     * Get or set the name to use for a cursor. Most useful when using
+     * scrollable cursors and positioned updates.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-cursor-name
      */
     const ATTR_CURSOR_NAME = 9;
 
     /**
+     * Available since PHP 5.2.0
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-default-fetch-mode
      */
     const ATTR_DEFAULT_FETCH_MODE = 19;
 
     /**
+     * Returns the name of the driver.
+     * <blockquote><title>using <code>PDO::ATTR_DRIVER_NAME</code></title>
+     * <blockquote><pre>
+     * &lt;?php
+     * if ($db-&gt;getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
+     * echo "Running on mysql; doing something mysql specific here\n";
+     * }
+     * ?&gt;
+     * </pre></blockquote>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-driver-name
      */
     const ATTR_DRIVER_NAME = 16;
 
     /**
+     * Available since PHP 5.1.3.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-emulate-prepares
      */
     const ATTR_EMULATE_PREPARES = 20;
 
     /**
+     * See the Errors and error
+     * handling section for more information about this attribute.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-errmode
      */
     const ATTR_ERRMODE = 3;
 
     /**
+     * Prepend the containing catalog name to each column name returned in the
+     * result set. The catalog name and column name are separated by a decimal
+     * (.) character. Support of this attribute is at the driver level; it may
+     * not be supported by your driver.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-fetch-catalog-names
      */
     const ATTR_FETCH_CATALOG_NAMES = 15;
 
     /**
+     * Prepend the containing table name to each column name returned in the
+     * result set. The table name and column name are separated by a decimal (.)
+     * character. Support of this attribute is at the driver level; it may not
+     * be supported by your driver.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-fetch-table-names
      */
     const ATTR_FETCH_TABLE_NAMES = 14;
 
     /**
+     * Sets the maximum column name length.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-max-column-len
      */
     const ATTR_MAX_COLUMN_LEN = 18;
 
     /**
+     * Convert empty strings to SQL NULL values on data fetches.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-oracle-nulls
      */
     const ATTR_ORACLE_NULLS = 11;
 
     /**
+     * Request a persistent connection, rather than creating a new connection.
+     * See Connections and Connection
+     * management for more information on this attribute.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-persistent
      */
     const ATTR_PERSISTENT = 12;
 
     /**
+     * Setting the prefetch size allows you to balance speed against memory
+     * usage for your application. Not all database/driver combinations support
+     * setting of the prefetch size. A larger prefetch size results in
+     * increased performance at the cost of higher memory usage.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-prefetch
      */
     const ATTR_PREFETCH = 1;
 
     /**
+     * This is a read only attribute; it will return some meta information about the
+     * database server to which PDO is connected.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-server-info
      */
     const ATTR_SERVER_INFO = 6;
 
     /**
+     * This is a read only attribute; it will return information about the
+     * version of the database server to which PDO is connected.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-server-version
      */
     const ATTR_SERVER_VERSION = 4;
 
     /**
+     * Sets the class name of which statements are returned as.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-statement-class
      */
     const ATTR_STATEMENT_CLASS = 13;
 
     /**
+     * Forces all values fetched to be treated as strings.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-stringify-fetches
      */
     const ATTR_STRINGIFY_FETCHES = 17;
 
     /**
+     * Sets the timeout value in seconds for communications with the database.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.attr-timeout
      */
     const ATTR_TIMEOUT = 2;
 
     /**
+     * Force column names to lower case.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.case-lower
      */
     const CASE_LOWER = 2;
 
     /**
+     * Leave column names as returned by the database driver.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.case-natural
      */
     const CASE_NATURAL = 0;
 
     /**
+     * Force column names to upper case.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.case-upper
      */
     const CASE_UPPER = 1;
 
     /**
+     * Create a <code>PDOStatement</code> object with a forward-only cursor. This is the
+     * default cursor choice, as it is the fastest and most common data access
+     * pattern in PHP.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.cursor-fwdonly
      */
     const CURSOR_FWDONLY = 0;
 
     /**
+     * Create a <code>PDOStatement</code> object with a scrollable cursor. Pass the
+     * <code>PDO::FETCH_ORI_*</code> constants to control the rows fetched from the result set.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.cursor-scroll
      */
     const CURSOR_SCROLL = 1;
 
@@ -164,193 +300,405 @@ class PDO
     const DBLIB_ATTR_STRINGIFY_UNIQUEIDENTIFIER = 1002;
 
     /**
+     * Corresponds to SQLSTATE '00000', meaning that the SQL statement was
+     * successfully issued with no errors or warnings. This constant is for
+     * your convenience when checking <code>PDO::errorCode</code> or
+     * <code>PDOStatement::errorCode</code> to determine if an error
+     * occurred. You will usually know if this is the case by examining the
+     * return code from the method that raised the error condition anyway.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.err-none
      */
     const ERR_NONE = '00000';
 
     /**
+     * Throw a <code>PDOException</code> if an error occurs.
+     * See Errors and error handling
+     * for more information about this attribute.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.errmode-exception
      */
     const ERRMODE_EXCEPTION = 2;
 
     /**
+     * Do not raise an error or exception if an error occurs. The developer is
+     * expected to explicitly check for errors. This is the default mode.
+     * See Errors and error handling
+     * for more information about this attribute.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.errmode-silent
      */
     const ERRMODE_SILENT = 0;
 
     /**
+     * Issue a PHP <code>E_WARNING</code> message if an error occurs.
+     * See Errors and error handling
+     * for more information about this attribute.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.errmode-warning
      */
     const ERRMODE_WARNING = 1;
 
     /**
+     * Available since PHP 5.3.0.
+     * Sets the date format.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-firebird.php#pdo-firebird.constants
      */
     const FB_ATTR_DATE_FORMAT = 1000;
 
     /**
+     * Sets the time format.
+     * Available since PHP 5.3.0.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-firebird.php#pdo-firebird.constants
      */
     const FB_ATTR_TIME_FORMAT = 1001;
 
     /**
+     * Sets the timestamp format.
+     * Available since PHP 5.3.0.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-firebird.php#pdo-firebird.constants
      */
     const FB_ATTR_TIMESTAMP_FORMAT = 1002;
 
     /**
+     * Specifies that the fetch method shall return each row as an array indexed
+     * by column name as returned in the corresponding result set. If the result
+     * set contains multiple columns with the same name,
+     * <code>PDO::FETCH_ASSOC</code> returns
+     * only a single value per column name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-assoc
      */
     const FETCH_ASSOC = 2;
 
     /**
+     * Specifies that the fetch method shall return each row as an array indexed
+     * by both column name and number as returned in the corresponding result set,
+     * starting at column 0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-both
      */
     const FETCH_BOTH = 4;
 
     /**
+     * Specifies that the fetch method shall return TRUE and assign the values of
+     * the columns in the result set to the PHP variables to which they were
+     * bound with the <code>PDOStatement::bindParam</code> or
+     * <code>PDOStatement::bindColumn</code> methods.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-bound
      */
     const FETCH_BOUND = 6;
 
     /**
+     * Specifies that the fetch method shall return a new instance of the
+     * requested class, mapping the columns to named properties in the class.
+     * <blockquote>
+     * The magic
+     * <code>__set</code>
+     * method is called if the property doesn't exist in the requested class
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-class
      */
     const FETCH_CLASS = 8;
 
     /**
+     * Determine the class name from the value of first column.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-classtype
      */
     const FETCH_CLASSTYPE = 262144;
 
     /**
+     * Specifies that the fetch method shall return only a single requested
+     * column from the next row in the result set.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-column
      */
     const FETCH_COLUMN = 7;
 
     /**
+     * Allows completely customize the way data is treated on the fly (only
+     * valid inside <code>PDOStatement::fetchAll</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-func
      */
     const FETCH_FUNC = 10;
 
     /**
+     * Group return by values. Usually combined with
+     * <code>PDO::FETCH_COLUMN</code> or
+     * <code>PDO::FETCH_KEY_PAIR</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-group
      */
     const FETCH_GROUP = 65536;
 
     /**
+     * Specifies that the fetch method shall update an existing instance of the
+     * requested class, mapping the columns to named properties in the class.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-into
      */
     const FETCH_INTO = 9;
 
     /**
+     * Fetch a two-column result into an array where the first column is a key and the second column
+     * is the value. Available since PHP 5.2.3.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-key-pair
      */
     const FETCH_KEY_PAIR = 12;
 
     /**
+     * Specifies that the fetch method shall return each row as an object with
+     * variable names that correspond to the column names returned in the result
+     * set. <code>PDO::FETCH_LAZY</code> creates the object variable names as they are accessed.
+     * Not valid inside <code>PDOStatement::fetchAll</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-lazy
      */
     const FETCH_LAZY = 1;
 
     /**
+     * Specifies that the fetch method shall return each row as an array indexed
+     * by column name as returned in the corresponding result set. If the result
+     * set contains multiple columns with the same name,
+     * <code>PDO::FETCH_NAMED</code> returns
+     * an array of values per column name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-named
      */
     const FETCH_NAMED = 11;
 
     /**
+     * Specifies that the fetch method shall return each row as an array indexed
+     * by column number as returned in the corresponding result set, starting at
+     * column 0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-num
      */
     const FETCH_NUM = 3;
 
     /**
+     * Specifies that the fetch method shall return each row as an object with
+     * property names that correspond to the column names returned in the result
+     * set.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-obj
      */
     const FETCH_OBJ = 5;
 
     /**
+     * Fetch the requested row by row number from the result set. Valid only
+     * for scrollable cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-abs
      */
     const FETCH_ORI_ABS = 4;
 
     /**
+     * Fetch the first row in the result set. Valid only for scrollable cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-first
      */
     const FETCH_ORI_FIRST = 2;
 
     /**
+     * Fetch the last row in the result set. Valid only for scrollable cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-last
      */
     const FETCH_ORI_LAST = 3;
 
     /**
+     * Fetch the next row in the result set. Valid only for scrollable cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-next
      */
     const FETCH_ORI_NEXT = 0;
 
     /**
+     * Fetch the previous row in the result set. Valid only for scrollable
+     * cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-prior
      */
     const FETCH_ORI_PRIOR = 1;
 
     /**
+     * Fetch the requested row by relative position from the current position
+     * of the cursor in the result set. Valid only for scrollable cursors.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-ori-rel
      */
     const FETCH_ORI_REL = 5;
 
     /**
+     * Call the constructor before setting properties. Available since PHP 5.2.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-props-late
      */
     const FETCH_PROPS_LATE = 1048576;
 
     /**
+     * As <code>PDO::FETCH_INTO</code> but object is provided as a serialized string.
+     * Available since PHP 5.1.0. Since PHP 5.3.0 the class constructor is never called if this
+     * flag is set.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-serialize
      */
     const FETCH_SERIALIZE = 524288;
 
     /**
+     * Fetch only the unique values.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.fetch-unique
      */
     const FETCH_UNIQUE = 196608;
 
     /**
+     * Enable network communication compression. This is also supported when
+     * compiled against mysqlnd as of PHP 5.3.11.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_COMPRESS = 1003;
 
     /**
+     * Perform direct queries, don't use prepared statements.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_DIRECT_QUERY = 1004;
 
     /**
+     * Return the number of found (matched) rows, not the
+     * number of changed rows.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_FOUND_ROWS = 1005;
 
     /**
+     * Permit spaces after function names. Makes all functions
+     * names reserved words.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_IGNORE_SPACE = 1006;
 
     /**
+     * Command to execute when connecting to the MySQL server. Will
+     * automatically be re-executed when reconnecting.
+     * Note, this constant can only be used in the <code>driver_options</code>
+     * array when constructing a new database handle.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_INIT_COMMAND = 1002;
 
     /**
+     * Enable <code>LOAD LOCAL INFILE</code>.
+     * Note, this constant can only be used in the <code>driver_options</code>
+     * array when constructing a new database handle.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_LOCAL_INFILE = 1001;
 
     /**
+     * Disables multi query execution in both <code>PDO::prepare</code>
+     * and <code>PDO::query</code> when set to <code>FALSE</code>.
+     * Note, this constant can only be used in the <code>driver_options</code>
+     * array when constructing a new database handle.
+     * This exists as of PHP 5.5.21 and PHP 5.6.5.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_MULTI_STATEMENTS = 1013;
 
@@ -360,27 +708,54 @@ class PDO
     const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1012;
 
     /**
+     * The file path to the SSL certificate authority.
+     * This exists as of PHP 5.3.7.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_SSL_CA = 1009;
 
     /**
+     * The file path to the directory that contains the trusted SSL
+     * CA certificates, which are stored in PEM format.
+     * This exists as of PHP 5.3.7.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_SSL_CAPATH = 1010;
 
     /**
+     * The file path to the SSL certificate.
+     * This exists as of PHP 5.3.7.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_SSL_CERT = 1008;
 
     /**
+     * A list of one or more permissible ciphers to use for SSL encryption, in a format
+     * understood by OpenSSL. For example: <code>DHE-RSA-AES256-SHA:AES128-SHA</code>
+     * This exists as of PHP 5.3.7.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_SSL_CIPHER = 1011;
 
     /**
+     * The file path to the SSL key.
+     * This exists as of PHP 5.3.7.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_SSL_KEY = 1007;
 
@@ -390,22 +765,47 @@ class PDO
     const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1014;
 
     /**
+     * If this attribute is set to <code>TRUE</code> on a
+     * <code>PDOStatement</code>, the MySQL driver will use the
+     * buffered versions of the MySQL API. If you're writing portable code, you
+     * should use <code>PDOStatement::fetchAll</code> instead.
+     * <blockquote><title>Forcing queries to be buffered in mysql</title>
+     * <blockquote><pre>
+     * &lt;?php
+     * if ($db-&gt;getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
+     * $stmt = $db-&gt;prepare('select * from foo',
+     * array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY =&gt; true));
+     * } else {
+     * die("my application only works with mysql; I should use \$stmt-&gt;fetchAll() instead");
+     * }
+     * ?&gt;
+     * </pre></blockquote>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-mysql.php#pdo-mysql.constants
      */
     const MYSQL_ATTR_USE_BUFFERED_QUERY = 1000;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.null-empty-string
      */
     const NULL_EMPTY_STRING = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.null-natural
      */
     const NULL_NATURAL = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.null-to-string
      */
     const NULL_TO_STRING = 2;
 
@@ -445,72 +845,131 @@ class PDO
     const ODBC_SQL_USE_ODBC = 1;
 
     /**
+     * Represents a boolean data type.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-bool
      */
     const PARAM_BOOL = 5;
 
     /**
+     * Allocation event
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-alloc
      */
     const PARAM_EVT_ALLOC = 0;
 
     /**
+     * Event triggered subsequent to execution of a prepared statement.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-exec-post
      */
     const PARAM_EVT_EXEC_POST = 3;
 
     /**
+     * Event triggered prior to execution of a prepared statement.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-exec-pre
      */
     const PARAM_EVT_EXEC_PRE = 2;
 
     /**
+     * Event triggered subsequent to fetching a result from a resultset.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-fetch-post
      */
     const PARAM_EVT_FETCH_POST = 5;
 
     /**
+     * Event triggered prior to fetching a result from a resultset.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-fetch-pre
      */
     const PARAM_EVT_FETCH_PRE = 4;
 
     /**
+     * Deallocation event
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-free
      */
     const PARAM_EVT_FREE = 1;
 
     /**
+     * Event triggered during bound parameter registration
+     * allowing the driver to normalize the parameter name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-evt-normalize
      */
     const PARAM_EVT_NORMALIZE = 6;
 
     /**
+     * Specifies that the parameter is an INOUT parameter for a stored
+     * procedure. You must bitwise-OR this value with an explicit
+     * PDO::PARAM_* data type.
+     *
      * @var float
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-input-output
      */
     const PARAM_INPUT_OUTPUT = 2147483648;
 
     /**
+     * Represents the SQL INTEGER data type.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-int
      */
     const PARAM_INT = 1;
 
     /**
+     * Represents the SQL large object data type.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
      */
     const PARAM_LOB = 3;
 
     /**
+     * Represents the SQL NULL data type.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-null
      */
     const PARAM_NULL = 0;
 
     /**
+     * Represents a recordset type. Not currently supported by any drivers.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-stmt
      */
     const PARAM_STMT = 4;
 
     /**
+     * Represents the SQL CHAR, VARCHAR, or other string data type.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.param-str
      */
     const PARAM_STR = 2;
 
@@ -557,7 +1016,13 @@ class PDO
     const PGSQL_TRANSACTION_UNKNOWN = 4;
 
     /**
+     * Specifies that a function created with <code>PDO::sqliteCreateFunction</code>
+     * is deterministic, i.e. it always returns the same result given the same inputs within
+     * a single SQL statement. (Available as of PHP 7.1.4.)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/pdo.constants.php#pdo.constants.sqlite_deterministic
      */
     const SQLITE_DETERMINISTIC = 2048;
 
@@ -576,9 +1041,16 @@ class PDO
     const SQLSRV_ATTR_CURSOR_SCROLL_TYPE = 1003;
 
     /**
+     * Indicates that a query should be executed directly, without being prepared.
+     * This constant can be passed to PDO::setAttribute, and PDO::prepare. For more
+     * information, see
+     * Direct and Prepared Statement Execution.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ATTR_DIRECT_QUERY = 1002;
 
@@ -597,9 +1069,15 @@ class PDO
     const SQLSRV_ATTR_FETCHES_NUMERIC_TYPE = 1005;
 
     /**
+     * A non-negative integer representing the timeout period, in seconds. Zero (0)
+     * is the default and means no timeout. This constant can be passed to
+     * PDOStatement::setAttribute, PDO::setAttribute, and PDO::prepare.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ATTR_QUERY_TIMEOUT = 1001;
 
@@ -632,30 +1110,61 @@ class PDO
     const SQLSRV_CURSOR_STATIC = 3;
 
     /**
+     * Specifies that data is sent/retrieved as a raw byte stream to/from the server
+     * without performing encoding or translation. This constant can be passed to
+     * PDOStatement::setAttribute, PDO::prepare, PDOStatement::bindColumn, and
+     * PDOStatement::bindParam.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ENCODING_BINARY = 2;
 
     /**
+     * Specifies that data is sent/retrieved to/from the server according to
+     * PDO::SQLSRV_ENCODING_SYSTEM if specified during connection. The connection's
+     * encoding is used if specified in a prepare statement. This constant can be
+     * passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
+     * PDOStatement::bindColumn, and PDOStatement::bindParam.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ENCODING_DEFAULT = 1;
 
     /**
+     * Specifies that data is sent/retrieved to/from the server as 8-bit characters
+     * as specified in the code page of the Windows locale that is set on the system.
+     * Any multi-byte characters or characters that do not map into this code page
+     * are substituted with a single byte question mark (?) character. This constant
+     * can be passed to PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
+     * PDOStatement::bindColumn, and PDOStatement::bindParam.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ENCODING_SYSTEM = 3;
 
     /**
+     * Specifies that data is sent/retrieved to/from the server in UTF-8 encoding.
+     * This is the default encoding. This constant can be passed to
+     * PDOStatement::setAttribute, PDO::setAttribute, PDO::prepare,
+     * PDOStatement::bindColumn, and PDOStatement::bindParam.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_ENCODING_UTF8 = 65001;
 
@@ -667,37 +1176,66 @@ class PDO
     const SQLSRV_PARAM_OUT_DEFAULT_SIZE = -1;
 
     /**
+     * This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     * This constant sets the transaction isolation level for the connection to
+     * Read Committed.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_TXN_READ_COMMITTED = 'READ_COMMITTED';
 
     /**
+     * This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     * This constant sets the transaction isolation level for the connection to
+     * Read Uncommitted.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_TXN_READ_UNCOMMITTED = 'READ_UNCOMMITTED';
 
     /**
+     * This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     * This constant sets the transaction isolation level for the connection to
+     * Repeateable Read.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_TXN_REPEATABLE_READ = 'REPEATABLE_READ';
 
     /**
+     * This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     * This constant sets the transaction isolation level for the connection to
+     * Serializable.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_TXN_SERIALIZABLE = 'SERIALIZABLE';
 
     /**
+     * This constant is an acceptable value for the SQLSRV DSN key TransactionIsolation.
+     * This constant sets the transaction isolation level for the connection to Snapshot.
+     *
      * WARNING: this may be available on POSIX but not on Windows
      *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php#pdo-sqlsrv.constants
      */
     const SQLSRV_TXN_SNAPSHOT = 'SNAPSHOT';
 

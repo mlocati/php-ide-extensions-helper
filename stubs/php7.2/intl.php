@@ -998,92 +998,284 @@ const ULOC_VALID_LOCALE = 1;
 class Collator
 {
     /**
+     * The Alternate attribute is used to control the handling of the so called
+     * variable characters in the UCA: whitespace, punctuation and symbols. If
+     * Alternate is set to <code>NonIgnorable</code>
+     * (N), then differences among these characters are of the same importance
+     * as differences among letters. If Alternate is set to
+     * <code>Shifted</code>
+     * (S), then these characters are of only minor importance. The
+     * <code>Shifted</code> value is often used in combination with
+     * <code>Strength</code>
+     * set to Quaternary. In such a case, whitespace, punctuation, and symbols
+     * are considered when comparing strings, but only if all other aspects of
+     * the strings (base letters, accents, and case) are identical. If
+     * Alternate is not set to Shifted, then there is no difference between a
+     * Strength of 3 and a Strength of 4. For more information and examples,
+     * see Variable_Weighting in the
+     * UCA.
+     * The reason the Alternate values are not simply
+     * <code>On</code> and <code>Off</code>
+     * is that additional Alternate values may be added in the future. The UCA
+     * option Blanked is expressed with Strength set to 3, and Alternate set to
+     * Shifted. The default for most locales is NonIgnorable. If Shifted is
+     * selected, it may be slower if there are many strings that are the same
+     * except for punctuation; sort key length will not be affected unless the
+     * strength level is also increased.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::NON_IGNORABLE</code>(default)</li>
+     * <li><code>Collator::SHIFTED</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>ALTERNATE_HANDLING rules</title>
+     * <ul>
+     * <li>
+     * S=3, A=N di Silva &lt; Di Silva &lt; diSilva &lt; U.S.A. &lt; USA
+     * </li>
+     * <li>
+     * S=3, A=S di Silva = diSilva &lt; Di Silva &lt; U.S.A. = USA
+     * </li>
+     * <li>
+     * S=4, A=S di Silva &lt; diSilva &lt; Di Silva &lt; U.S.A. &lt; USA
+     * </li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const ALTERNATE_HANDLING = 1;
 
     /**
+     * The Case_First attribute is used to control whether uppercase letters
+     * come before lowercase letters or vice versa, in the absence of other
+     * differences in the strings. The possible values are
+     * <code>Uppercase_First</code>
+     * (U) and <code>Lowercase_First</code>
+     * (L), plus the standard <code>Default</code>
+     * and <code>Off</code>.
+     * There is almost no difference between the Off and Lowercase_First
+     * options in terms of results, so typically users will not use
+     * Lowercase_First: only Off or Uppercase_First. (People interested in the
+     * detailed differences between X and L should consult the <code>Collation
+     * Customization</code>). Specifying either L or U won't affect string comparison
+     * performance, but will affect the sort key length.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::LOWER_FIRST</code></li>
+     * <li><code>Collator::UPPER_FIRST</code></li>
+     * <li><code>Collator:DEFAULT</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>CASE_FIRST rules</title>
+     * <ul>
+     * <li>C=X or C=L "china" &lt; "China" &lt; "denmark" &lt; "Denmark"</li>
+     * <li>C=U "China" &lt; "china" &lt; "Denmark" &lt; "denmark"</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const CASE_FIRST = 2;
 
     /**
+     * The Case_Level attribute is used when ignoring accents but not case. In
+     * such a situation, set Strength to be <code>Primary</code>,
+     * and Case_Level to be <code>On</code>.
+     * In most locales, this setting is Off by default. There is a small
+     * string comparison performance and sort key impact if this attribute is
+     * set to be <code>On</code>.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>CASE_LEVEL rules</title>
+     * <ul>
+     * <li>S=1, E=X role = Role = rôle</li>
+     * <li>S=1, E=O role = rôle &lt; Role</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const CASE_LEVEL = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const DEFAULT_STRENGTH = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const DEFAULT_VALUE = -1;
 
     /**
+     * Sort strings with different accents from the back of the string. This
+     * attribute is automatically set to
+     * <code>On</code>
+     * for the French locales and a few others. Users normally would not need
+     * to explicitly set this attribute. There is a string comparison
+     * performance cost when it is set <code>On</code>,
+     * but sort key length is unaffected. Possible values are:
+     * <ul>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>FRENCH_COLLATION rules</title>
+     * <ul>
+     * <li>F=OFF cote &lt; coté &lt; côte &lt; côté </li>
+     * <li>F=ON cote &lt; côte &lt; coté &lt; côté</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const FRENCH_COLLATION = 0;
 
     /**
+     * Compatibility with JIS x 4061 requires the introduction of an additional
+     * level to distinguish Hiragana and Katakana characters. If compatibility
+     * with that standard is required, then this attribute should be set
+     * <code>On</code>,
+     * and the strength set to Quaternary. This will affect sort key length
+     * and string comparison string comparison performance.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const HIRAGANA_QUATERNARY_MODE = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const IDENTICAL = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const LOWER_FIRST = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NON_IGNORABLE = 21;
 
     /**
+     * The Normalization setting determines whether text is thoroughly
+     * normalized or not in comparison. Even if the setting is off (which is
+     * the default for many locales), text as represented in common usage will
+     * compare correctly (for details, see UTN #5). Only if the accent marks
+     * are in noncanonical order will there be a problem. If the setting is
+     * <code>On</code>,
+     * then the best results are guaranteed for all possible text input.
+     * There is a medium string comparison performance cost if this attribute
+     * is <code>On</code>,
+     * depending on the frequency of sequences that require normalization.
+     * There is no significant effect on sort key length. If the input text is
+     * known to be in NFD or NFKD normalization forms, there is no need to
+     * enable this Normalization option.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NORMALIZATION_MODE = 4;
 
     /**
+     * When turned on, this attribute generates a collation key for the numeric
+     * value of substrings of digits. This is a way to get '100' to sort AFTER
+     * '2'.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NUMERIC_COLLATION = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const OFF = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const ON = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const PRIMARY = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const QUATERNARY = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const SECONDARY = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const SHIFTED = 20;
 
@@ -1103,17 +1295,40 @@ class Collator
     const SORT_STRING = 1;
 
     /**
+     * The ICU Collation Service supports many levels of comparison (named
+     * "Levels", but also known as "Strengths"). Having these categories
+     * enables ICU to sort strings precisely according to local conventions.
+     * However, by allowing the levels to be selectively employed, searching
+     * for a string in text can be performed with various matching conditions.
+     * For more detailed information, see
+     * <code>collator_set_strength</code> chapter.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::PRIMARY</code></li>
+     * <li><code>Collator::SECONDARY</code></li>
+     * <li><code>Collator::TERTIARY</code>(default)</li>
+     * <li><code>Collator::QUATERNARY</code></li>
+     * <li><code>Collator::IDENTICAL</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const STRENGTH = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const TERTIARY = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const UPPER_FIRST = 25;
 
@@ -1374,96 +1589,134 @@ class IntlBreakIterator implements Traversable
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const DONE = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_HARD = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_HARD_LIMIT = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_SOFT = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_SOFT_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_SEP = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_SEP_LIMIT = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_TERM = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_TERM_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_IDEO = 400;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_IDEO_LIMIT = 500;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_KANA = 300;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_KANA_LIMIT = 400;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_LETTER = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_LETTER_LIMIT = 300;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NONE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NONE_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NUMBER = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NUMBER_LIMIT = 200;
 
@@ -1771,197 +2024,440 @@ class IntlBreakIterator implements Traversable
 class IntlCalendar
 {
     /**
+     * Friday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_FRIDAY = 6;
 
     /**
+     * Monday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_MONDAY = 2;
 
     /**
+     * Saturday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_SATURDAY = 7;
 
     /**
+     * Sunday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_SUNDAY = 1;
 
     /**
+     * Thursday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_THURSDAY = 5;
 
     /**
+     * Tuesday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TUESDAY = 3;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating a day of week is a weekday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKDAY = 0;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating a day of week belongs to the weekend.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND = 1;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating the weekend ends during the given day of week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND_CEASE = 3;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating the weekend begins during the given day of week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND_OFFSET = 2;
 
     /**
+     * Wednesday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_WEDNESDAY = 4;
 
     /**
+     * Calendar field indicating whether a time is before noon (value
+     * <code>0</code>, AM) or after (<code>1</code>). Midnight is
+     * AM, noon is PM.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_AM_PM = 9;
 
     /**
+     * Calendar field for the day of the month. The same as
+     * <code>IntlCalendar::FIELD_DAY_OF_MONTH</code>, which has a
+     * clearer name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DATE = 5;
 
     /**
+     * Alias for <code>IntlCalendar::FIELD_DATE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_MONTH = 5;
 
     /**
+     * Calendar field for the day of the week. Its values start with
+     * <code>1</code> (Sunday, see <code>IntlCalendar::DOW_SUNDAY</code>
+     * and subsequent constants) and the last valid value is 7 (Saturday).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_WEEK = 7;
 
     /**
+     * Given a day of the week (Sunday, Monday, …), this calendar
+     * field assigns an ordinal to such a day of the week in a specific month.
+     * Thus, if the value of this field is <code>1</code> and the value of the day of the
+     * week is <code>2</code> (Monday), then the set day of the month is the 1st Monday of the
+     * month; the maximum value is <code>5</code>.
+     * Additionally, the value <code>0</code> and negative values are
+     * also allowed. The value <code>0</code> encompasses the seven days
+     * that occur immediately before the first seven days of a month (which
+     * therefore have a ‘day of week in month’ with value
+     * <code>1</code>). Negative values starts counting from the end of
+     * the month – <code>-1</code> points to the last occurrence of a
+     * day of the week in a month, <code>-2</code> to the second last,
+     * and so on.
+     * Unlike <code>IntlCalendar::FIELD_WEEK_OF_MONTH</code>
+     * and <code>IntlCalendar::FIELD_WEEK_OF_YEAR</code>,
+     * this value does not depend on
+     * <code>IntlCalendar::getFirstDayOfWeek</code> or on
+     * <code>IntlCalendar::getMinimalDaysInFirstWeek</code>. The first
+     * Monday is the first Monday, even if it occurs in a week that belongs to
+     * the previous month.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
 
     /**
+     * Calendar field for the day of the year. For the Gregorian calendar,
+     * starts with <code>1</code> and ends with
+     * <code>365</code> or <code>366</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_YEAR = 6;
 
     /**
+     * Calendar field for the localized day of the week. This is a value
+     * betwen <code>1</code> and <code>7</code>,
+     * <code>1</code> being used for the day of the week that matches
+     * the value returned by
+     * <code>IntlCalendar::getFirstDayOfWeek</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DOW_LOCAL = 18;
 
     /**
+     * Calendar field for the daylight saving time offset of the calendarʼs
+     * timezone, in milliseconds, if active for calendarʼs time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DST_OFFSET = 16;
 
     /**
+     * Calendar field numerically representing an era, for instance
+     * <code>1</code> for AD and <code>0</code> for BC in the
+     * Gregorian/Julian calendars and <code>235</code> for the Heisei
+     * (平成) era in the Japanese calendar. Not all calendars have more than
+     * one era.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_ERA = 0;
 
     /**
+     * Calendar field for a year number representation that is continuous
+     * across eras. For the Gregorian calendar, the value of this field
+     * matches that of <code>IntlCalendar::FIELD_YEAR</code> for AD
+     * years; a BC year <code>y</code> is represented by <code>-y +
+     * 1</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_EXTENDED_YEAR = 19;
 
     /**
+     * The total number of fields.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_FIELD_COUNT = 23;
 
     /**
+     * Calendar field for the hour, without specifying whether itʼs in the
+     * morning or in the afternoon. Valid values are <code>0</code> to
+     * <code>11</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_HOUR = 10;
 
     /**
+     * Calendar field for the full (24h) hour of the day. Valid values are
+     * <code>0</code> to <code>23</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_HOUR_OF_DAY = 11;
 
     /**
+     * Calendar field whose value is <code>1</code> for indicating a
+     * leap month and <code>0</code> otherwise.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_IS_LEAP_MONTH = 22;
 
     /**
+     * Calendar field for a modified Julian day number. It is different from a
+     * conventional Julian day number in that its transitions occur at local
+     * zone midnight rather than at noon UTC. It uniquely identifies a date.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_JULIAN_DAY = 20;
 
     /**
+     * Calendar field the milliseconds component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MILLISECOND = 14;
 
     /**
+     * Calendar field encompassing the information in
+     * <code>IntlCalendar::FIELD_HOUR_OF_DAY</code>,
+     * <code>IntlCalendar::FIELD_MINUTE</code>,
+     * <code>IntlCalendar::FIELD_SECOND</code> and
+     * <code>IntlCalendar::FIELD_MILLISECOND</code>. Range is from the
+     * <code>0</code> to <code>24 * 3600 * 1000 - 1</code>. It is
+     * not the amount of milliseconds ellapsed in the day since on DST
+     * transitions it will have discontinuities analog to those of the wall
+     * time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MILLISECONDS_IN_DAY = 21;
 
     /**
+     * Calendar field for the minutes component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MINUTE = 12;
 
     /**
+     * Calendar field for the month. The month sequence is zero-based, so
+     * Janurary (here used to signify the first month of the calendar; this
+     * may be called another name, such as Muharram in the Islamic calendar)
+     * is represented by <code>0</code>, February by
+     * <code>1</code>, …, December by <code>11</code> and, for
+     * calendars that have it, the 13th or leap month by
+     * <code>12</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MONTH = 2;
 
     /**
+     * Calendar field for the seconds component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_SECOND = 13;
 
     /**
+     * Calendar field for the number of the week of the month. This depends on
+     * which day of the week is deemed to start the
+     * week and the minimal number of days
+     * in a week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_WEEK_OF_MONTH = 4;
 
     /**
+     * Calendar field for the number of the week of the year. This depends on
+     * which day of the week is deemed to start the
+     * week and the minimal number of days
+     * in a week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_WEEK_OF_YEAR = 3;
 
     /**
+     * Calendar field for the year. This is not unique across eras. If the
+     * calendar type has more than one era, generally the minimum value for
+     * this field will be <code>1</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_YEAR = 1;
 
     /**
+     * Calendar field representing the year for week of year
+     * purposes.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_YEAR_WOY = 17;
 
     /**
+     * Calendar field indicating the raw offset of the timezone, in
+     * milliseconds. The raw offset is the timezone offset, excluding any
+     * offset due to daylight saving time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_ZONE_OFFSET = 15;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * same instant as wall times with one hour less and of
+     * <code>IntlCalendar::getRepeatedWallTimeOption</code>
+     * indicating the wall times in the repeated range should refer to the
+     * instant of the first occurrence of such wall time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_FIRST = 1;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * same instant as wall times with one hour after and of
+     * <code>IntlCalendar::getRepeatedWallTimeOption</code>
+     * indicating the wall times in the repeated range should refer to the
+     * instant of the second occurrence of such wall time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_LAST = 0;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * instant when the daylight saving time transition occurs (begins).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_NEXT_VALID = 2;
 
@@ -2724,96 +3220,134 @@ class IntlChar
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_AEGEAN_NUMBERS = 119;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ALCHEMICAL_SYMBOLS = 208;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ALPHABETIC_PRESENTATION_FORMS = 80;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ANCIENT_GREEK_MUSICAL_NOTATION = 126;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ANCIENT_GREEK_NUMBERS = 127;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ANCIENT_SYMBOLS = 165;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC_EXTENDED_A = 210;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS = 211;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_A = 81;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC_PRESENTATION_FORMS_B = 85;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARABIC_SUPPLEMENT = 128;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARMENIAN = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ARROWS = 46;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_AVESTAN = 188;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BALINESE = 147;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BAMUM = 177;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BAMUM_SUPPLEMENT = 202;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BASIC_LATIN = 1;
 
@@ -2824,61 +3358,85 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BATAK = 199;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BENGALI = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BLOCK_ELEMENTS = 53;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BOPOMOFO = 64;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BOPOMOFO_EXTENDED = 67;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BOX_DRAWING = 52;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BRAHMI = 201;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BRAILLE_PATTERNS = 57;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BUGINESE = 129;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BUHID = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_BYZANTINE_MUSICAL_SYMBOLS = 91;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CARIAN = 168;
 
@@ -2889,81 +3447,113 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CHAKMA = 212;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CHAM = 164;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CHEROKEE = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_COMPATIBILITY = 69;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_COMPATIBILITY_FORMS = 83;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS = 79;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT = 95;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_RADICALS_SUPPLEMENT = 58;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_STROKES = 130;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_SYMBOLS_AND_PUNCTUATION = 61;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS = 71;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A = 70;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B = 94;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C = 197;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D = 209;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS = 7;
 
@@ -2974,31 +3564,43 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT = 131;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COMBINING_HALF_MARKS = 82;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COMBINING_MARKS_FOR_SYMBOLS = 43;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COMMON_INDIC_NUMBER_FORMS = 178;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CONTROL_PICTURES = 49;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COPTIC = 132;
 
@@ -3009,81 +3611,113 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COUNT = 263;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_COUNTING_ROD_NUMERALS = 154;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CUNEIFORM = 152;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CUNEIFORM_NUMBERS_AND_PUNCTUATION = 153;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CURRENCY_SYMBOLS = 42;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYPRIOT_SYLLABARY = 123;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYRILLIC = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYRILLIC_EXTENDED_A = 158;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYRILLIC_EXTENDED_B = 160;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYRILLIC_SUPPLEMENT = 97;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_CYRILLIC_SUPPLEMENTARY = 97;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_DESERET = 90;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_DEVANAGARI = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_DEVANAGARI_EXTENDED = 179;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_DINGBATS = 56;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_DOMINO_TILES = 171;
 
@@ -3094,6 +3728,8 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_EGYPTIAN_HIEROGLYPHS = 194;
 
@@ -3104,56 +3740,78 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_EMOTICONS = 206;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ENCLOSED_ALPHANUMERIC_SUPPLEMENT = 195;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ENCLOSED_ALPHANUMERICS = 51;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ENCLOSED_CJK_LETTERS_AND_MONTHS = 68;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT = 196;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ETHIOPIC = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ETHIOPIC_EXTENDED = 133;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ETHIOPIC_EXTENDED_A = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ETHIOPIC_SUPPLEMENT = 134;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GENERAL_PUNCTUATION = 40;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GEOMETRIC_SHAPES = 54;
 
@@ -3164,21 +3822,29 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GEORGIAN = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GEORGIAN_SUPPLEMENT = 135;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GLAGOLITIC = 136;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GOTHIC = 89;
 
@@ -3189,166 +3855,232 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GREEK = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GREEK_EXTENDED = 39;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GUJARATI = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_GURMUKHI = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HALFWIDTH_AND_FULLWIDTH_FORMS = 87;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANGUL_COMPATIBILITY_JAMO = 65;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANGUL_JAMO = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANGUL_JAMO_EXTENDED_A = 180;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANGUL_JAMO_EXTENDED_B = 185;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANGUL_SYLLABLES = 74;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HANUNOO = 99;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HEBREW = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HIGH_PRIVATE_USE_SURROGATES = 76;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HIGH_SURROGATES = 75;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_HIRAGANA = 62;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_IDEOGRAPHIC_DESCRIPTION_CHARACTERS = 60;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_IMPERIAL_ARAMAIC = 186;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_INSCRIPTIONAL_PAHLAVI = 190;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_INSCRIPTIONAL_PARTHIAN = 189;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_INVALID_CODE = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_IPA_EXTENSIONS = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_JAVANESE = 181;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KAITHI = 193;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KANA_SUPPLEMENT = 203;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KANBUN = 66;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KANGXI_RADICALS = 59;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KANNADA = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KATAKANA = 63;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KATAKANA_PHONETIC_EXTENSIONS = 107;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KAYAH_LI = 162;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KHAROSHTHI = 137;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KHMER = 36;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_KHMER_SYMBOLS = 113;
 
@@ -3364,36 +4096,50 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LAO = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_1_SUPPLEMENT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_EXTENDED_A = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_EXTENDED_ADDITIONAL = 38;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_EXTENDED_B = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_EXTENDED_C = 148;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LATIN_EXTENDED_D = 149;
 
@@ -3404,16 +4150,22 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LEPCHA = 156;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LETTERLIKE_SYMBOLS = 44;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LIMBU = 111;
 
@@ -3424,31 +4176,43 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LINEAR_B_IDEOGRAMS = 118;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LINEAR_B_SYLLABARY = 117;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LISU = 176;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LOW_SURROGATES = 77;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LYCIAN = 167;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_LYDIAN = 169;
 
@@ -3459,16 +4223,22 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MAHJONG_TILES = 170;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MALAYALAM = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MANDAIC = 198;
 
@@ -3479,21 +4249,29 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MATHEMATICAL_ALPHANUMERIC_SYMBOLS = 93;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MATHEMATICAL_OPERATORS = 47;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MEETEI_MAYEK = 184;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MEETEI_MAYEK_EXTENSIONS = 213;
 
@@ -3504,46 +4282,64 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MEROITIC_CURSIVE = 214;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MEROITIC_HIEROGLYPHS = 215;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MIAO = 216;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A = 102;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B = 105;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_SYMBOLS = 55;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_ARROWS = 115;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS = 205;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MISCELLANEOUS_TECHNICAL = 48;
 
@@ -3554,11 +4350,15 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MODIFIER_TONE_LETTERS = 138;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MONGOLIAN = 37;
 
@@ -3569,16 +4369,22 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MUSICAL_SYMBOLS = 92;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MYANMAR = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_MYANMAR_EXTENDED_A = 182;
 
@@ -3594,36 +4400,50 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_NEW_TAI_LUE = 139;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_NKO = 146;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_NO_BLOCK = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_NUMBER_FORMS = 45;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OGHAM = 34;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OL_CHIKI = 157;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OLD_ITALIC = 88;
 
@@ -3639,26 +4459,36 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OLD_PERSIAN = 140;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OLD_SOUTH_ARABIAN = 187;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OLD_TURKIC = 191;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OPTICAL_CHARACTER_RECOGNITION = 50;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_ORIYA = 19;
 
@@ -3669,6 +4499,8 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_OSMANYA = 122;
 
@@ -3689,41 +4521,57 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PHAGS_PA = 150;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PHAISTOS_DISC = 166;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PHOENICIAN = 151;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PHONETIC_EXTENSIONS = 114;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PHONETIC_EXTENSIONS_SUPPLEMENT = 141;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PLAYING_CARDS = 204;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PRIVATE_USE = 78;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_PRIVATE_USE_AREA = 78;
 
@@ -3734,36 +4582,50 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_REJANG = 163;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_RUMI_NUMERAL_SYMBOLS = 192;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_RUNIC = 35;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SAMARITAN = 172;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SAURASHTRA = 161;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SHARADA = 217;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SHAVIAN = 121;
 
@@ -3779,6 +4641,8 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SINHALA = 24;
 
@@ -3789,46 +4653,64 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SMALL_FORM_VARIANTS = 84;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SORA_SOMPENG = 218;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SPACING_MODIFIER_LETTERS = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SPECIALS = 86;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUNDANESE = 155;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUNDANESE_SUPPLEMENT = 219;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPERSCRIPTS_AND_SUBSCRIPTS = 41;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTAL_ARROWS_A = 103;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTAL_ARROWS_B = 104;
 
@@ -3839,101 +4721,141 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTAL_MATHEMATICAL_OPERATORS = 106;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTAL_PUNCTUATION = 142;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_A = 109;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SUPPLEMENTARY_PRIVATE_USE_AREA_B = 110;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SYLOTI_NAGRI = 143;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_SYRIAC = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAGALOG = 98;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAGBANWA = 101;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAGS = 96;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAI_LE = 112;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAI_THAM = 174;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAI_VIET = 183;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAI_XUAN_JING_SYMBOLS = 124;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAKRI = 220;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TAMIL = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TELUGU = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_THAANA = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_THAI = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TIBETAN = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TIFINAGH = 144;
 
@@ -3944,46 +4866,64 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_TRANSPORT_AND_MAP_SYMBOLS = 207;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_UGARITIC = 120;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS = 33;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = 173;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_VAI = 159;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_VARIATION_SELECTORS = 108;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_VARIATION_SELECTORS_SUPPLEMENT = 125;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_VEDIC_EXTENSIONS = 175;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_VERTICAL_FORMS = 145;
 
@@ -3994,726 +4934,1016 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_YI_RADICALS = 73;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_YI_SYLLABLES = 72;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BLOCK_CODE_YIJING_HEXAGRAM_SYMBOLS = 116;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BPT_CLOSE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BPT_COUNT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BPT_NONE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const BPT_OPEN = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_CHAR_CATEGORY_COUNT = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_COMBINING_SPACING_MARK = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_CONNECTOR_PUNCTUATION = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_CONTROL_CHAR = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_CURRENCY_SYMBOL = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_DASH_PUNCTUATION = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_DECIMAL_DIGIT_NUMBER = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_ENCLOSING_MARK = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_END_PUNCTUATION = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_FINAL_PUNCTUATION = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_FORMAT_CHAR = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_GENERAL_OTHER_TYPES = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_INITIAL_PUNCTUATION = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_LETTER_NUMBER = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_LINE_SEPARATOR = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_LOWERCASE_LETTER = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_MATH_SYMBOL = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_MODIFIER_LETTER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_MODIFIER_SYMBOL = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_NON_SPACING_MARK = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_OTHER_LETTER = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_OTHER_NUMBER = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_OTHER_PUNCTUATION = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_OTHER_SYMBOL = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_PARAGRAPH_SEPARATOR = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_PRIVATE_USE_CHAR = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_SPACE_SEPARATOR = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_START_PUNCTUATION = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_SURROGATE = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_TITLECASE_LETTER = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_UNASSIGNED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_CATEGORY_UPPERCASE_LETTER = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_ARABIC_NUMBER = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_BLOCK_SEPARATOR = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_BOUNDARY_NEUTRAL = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_CHAR_DIRECTION_COUNT = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_COMMON_NUMBER_SEPARATOR = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_DIR_NON_SPACING_MARK = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_EUROPEAN_NUMBER = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_EUROPEAN_NUMBER_SEPARATOR = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_EUROPEAN_NUMBER_TERMINATOR = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_FIRST_STRONG_ISOLATE = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_LEFT_TO_RIGHT = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_LEFT_TO_RIGHT_EMBEDDING = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_LEFT_TO_RIGHT_ISOLATE = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_LEFT_TO_RIGHT_OVERRIDE = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_OTHER_NEUTRAL = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_POP_DIRECTIONAL_FORMAT = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_POP_DIRECTIONAL_ISOLATE = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_RIGHT_TO_LEFT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_RIGHT_TO_LEFT_ARABIC = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_RIGHT_TO_LEFT_EMBEDDING = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_RIGHT_TO_LEFT_ISOLATE = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_RIGHT_TO_LEFT_OVERRIDE = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_SEGMENT_SEPARATOR = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_DIRECTION_WHITE_SPACE_NEUTRAL = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_NAME_ALIAS = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CHAR_NAME_CHOICE_COUNT = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CODEPOINT_MAX = 1114111;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const CODEPOINT_MIN = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_CANONICAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_CIRCLE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_COMPAT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_COUNT = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_FINAL = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_FONT = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_FRACTION = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_INITIAL = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_ISOLATED = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_MEDIAL = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_NARROW = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_NOBREAK = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_NONE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_SMALL = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_SQUARE = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_SUB = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_SUPER = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_VERTICAL = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const DT_WIDE = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_AMBIGUOUS = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_COUNT = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_FULLWIDTH = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_HALFWIDTH = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_NARROW = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_NEUTRAL = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EA_WIDE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const EXTENDED_CHAR_NAME = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const FOLD_CASE_DEFAULT = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const FOLD_CASE_EXCLUDE_SPECIAL_I = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_CONTROL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_COUNT = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_CR = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_EXTEND = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_L = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_LF = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_LV = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_LVT = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_OTHER = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_PREPEND = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_REGIONAL_INDICATOR = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_SPACING_MARK = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_T = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const GCB_V = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_COUNT = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_LEADING_JAMO = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_LV_SYLLABLE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_LVT_SYLLABLE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_NOT_APPLICABLE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_TRAILING_JAMO = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const HST_VOWEL_JAMO = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_AIN = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_ALAPH = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_ALEF = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_BEH = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_BETH = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_BURUSHASKI_YEH_BARREE = 54;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_COUNT = 86;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_DAL = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_DALATH_RISH = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_E = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_FARSI_YEH = 55;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_FE = 51;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_FEH = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_FINAL_SEMKATH = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_GAF = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_GAMAL = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HAH = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HAMZA_ON_HEH_GOAL = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HE = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HEH = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HEH_GOAL = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_HETH = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_KAF = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_KAPH = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_KHAPH = 52;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_KNOTTED_HEH = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_LAM = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_LAMADH = 23;
 
@@ -4854,86 +6084,120 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_MEEM = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_MIM = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_NO_JOINING_GROUP = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_NOON = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_NUN = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_NYA = 56;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_PE = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_QAF = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_QAPH = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_REH = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_REVERSED_PE = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_ROHINGYA_YEH = 57;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SAD = 33;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SADHE = 34;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SEEN = 35;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SEMKATH = 36;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SHIN = 37;
 
@@ -4944,1096 +6208,1538 @@ class IntlChar
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SWASH_KAF = 38;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_SYRIAC_WAW = 39;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_TAH = 40;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_TAW = 41;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_TEH_MARBUTA = 42;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_TEH_MARBUTA_GOAL = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_TETH = 43;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_WAW = 44;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_YEH = 45;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_YEH_BARREE = 46;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_YEH_WITH_TAIL = 47;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_YUDH = 48;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_YUDH_HE = 49;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_ZAIN = 50;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JG_ZHAIN = 53;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_COUNT = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_DUAL_JOINING = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_JOIN_CAUSING = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_LEFT_JOINING = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_NON_JOINING = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_RIGHT_JOINING = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const JT_TRANSPARENT = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_ALPHABETIC = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_AMBIGUOUS = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_BREAK_AFTER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_BREAK_BEFORE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_BREAK_BOTH = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_BREAK_SYMBOLS = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_CARRIAGE_RETURN = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_CLOSE_PARENTHESIS = 36;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_CLOSE_PUNCTUATION = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_COMBINING_MARK = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_COMPLEX_CONTEXT = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_CONDITIONAL_JAPANESE_STARTER = 37;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_CONTINGENT_BREAK = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_COUNT = 40;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_EXCLAMATION = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_GLUE = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_H2 = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_H3 = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_HEBREW_LETTER = 38;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_HYPHEN = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_IDEOGRAPHIC = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_INFIX_NUMERIC = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_INSEPARABLE = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_INSEPERABLE = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_JL = 33;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_JT = 34;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_JV = 35;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_LINE_FEED = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_MANDATORY_BREAK = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_NEXT_LINE = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_NONSTARTER = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_NUMERIC = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_OPEN_PUNCTUATION = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_POSTFIX_NUMERIC = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_PREFIX_NUMERIC = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_QUOTATION = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_REGIONAL_INDICATOR = 39;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_SPACE = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_SURROGATE = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_UNKNOWN = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_WORD_JOINER = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LB_ZWSPACE = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const LONG_PROPERTY_NAME = 1;
 
     /**
+     * Special value that is returned by
+     * <code>IntlChar::getNumericValue</code> when no numeric value
+     * is defined for a code point.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NO_NUMERIC_VALUE = -123456789;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NT_COUNT = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NT_DECIMAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NT_DIGIT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NT_NONE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const NT_NUMERIC = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_AGE = 16384;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_ALPHABETIC = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_ASCII_HEX_DIGIT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_CLASS = 4096;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_CONTROL = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_MIRRORED = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_MIRRORING_GLYPH = 16385;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_PAIRED_BRACKET = 16397;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BIDI_PAIRED_BRACKET_TYPE = 4117;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BINARY_LIMIT = 61;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BINARY_START = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_BLOCK = 4097;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CANONICAL_COMBINING_CLASS = 4098;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CASE_FOLDING = 16386;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CASE_IGNORABLE = 50;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CASE_SENSITIVE = 34;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CASED = 49;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_CASEFOLDED = 54;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_CASEMAPPED = 55;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_LOWERCASED = 51;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_NFKC_CASEFOLDED = 56;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_TITLECASED = 53;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_CHANGES_WHEN_UPPERCASED = 52;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DASH = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DECOMPOSITION_TYPE = 4099;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DEFAULT_IGNORABLE_CODE_POINT = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DEPRECATED = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DIACRITIC = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DOUBLE_LIMIT = 12289;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_DOUBLE_START = 12288;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_EAST_ASIAN_WIDTH = 4100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_EXTENDER = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_FULL_COMPOSITION_EXCLUSION = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GENERAL_CATEGORY = 4101;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GENERAL_CATEGORY_MASK = 8192;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GRAPHEME_BASE = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GRAPHEME_CLUSTER_BREAK = 4114;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GRAPHEME_EXTEND = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_GRAPHEME_LINK = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_HANGUL_SYLLABLE_TYPE = 4107;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_HEX_DIGIT = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_HYPHEN = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_ID_CONTINUE = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_ID_START = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_IDEOGRAPHIC = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_IDS_BINARY_OPERATOR = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_IDS_TRINARY_OPERATOR = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_INT_LIMIT = 4118;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_INT_START = 4096;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_INVALID_CODE = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_ISO_COMMENT = 16387;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_JOIN_CONTROL = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_JOINING_GROUP = 4102;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_JOINING_TYPE = 4103;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_LEAD_CANONICAL_COMBINING_CLASS = 4112;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_LINE_BREAK = 4104;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_LOGICAL_ORDER_EXCEPTION = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_LOWERCASE = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_LOWERCASE_MAPPING = 16388;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_MASK_LIMIT = 8193;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_MASK_START = 8192;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_MATH = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NAME = 16389;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NAME_CHOICE_COUNT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFC_INERT = 39;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFC_QUICK_CHECK = 4110;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFD_INERT = 37;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFD_QUICK_CHECK = 4108;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFKC_INERT = 40;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFKC_QUICK_CHECK = 4111;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFKD_INERT = 38;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NFKD_QUICK_CHECK = 4109;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NONCHARACTER_CODE_POINT = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NUMERIC_TYPE = 4105;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_NUMERIC_VALUE = 12288;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_OTHER_PROPERTY_LIMIT = 28673;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_OTHER_PROPERTY_START = 28672;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_PATTERN_SYNTAX = 42;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_PATTERN_WHITE_SPACE = 43;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_POSIX_ALNUM = 44;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_POSIX_BLANK = 45;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_POSIX_GRAPH = 46;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_POSIX_PRINT = 47;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_POSIX_XDIGIT = 48;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_QUOTATION_MARK = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_RADICAL = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_S_TERM = 35;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SCRIPT = 4106;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SCRIPT_EXTENSIONS = 28672;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SEGMENT_STARTER = 41;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SENTENCE_BREAK = 4115;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SIMPLE_CASE_FOLDING = 16390;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SIMPLE_LOWERCASE_MAPPING = 16391;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SIMPLE_TITLECASE_MAPPING = 16392;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SIMPLE_UPPERCASE_MAPPING = 16393;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_SOFT_DOTTED = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_STRING_LIMIT = 16398;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_STRING_START = 16384;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_TERMINAL_PUNCTUATION = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_TITLECASE_MAPPING = 16394;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_TRAIL_CANONICAL_COMBINING_CLASS = 4113;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_UNICODE_1_NAME = 16395;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_UNIFIED_IDEOGRAPH = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_UPPERCASE = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_UPPERCASE_MAPPING = 16396;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_VARIATION_SELECTOR = 36;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_WHITE_SPACE = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_WORD_BREAK = 4116;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_XID_CONTINUE = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const PROPERTY_XID_START = 33;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_ATERM = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_CLOSE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_COUNT = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_CR = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_EXTEND = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_FORMAT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_LF = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_LOWER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_NUMERIC = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_OLETTER = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_OTHER = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_SCONTINUE = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_SEP = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_SP = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_STERM = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SB_UPPER = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const SHORT_PROPERTY_NAME = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const UNICODE_10_CHAR_NAME = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const UNICODE_CHAR_NAME = 0;
 
     /**
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const UNICODE_VERSION = '8.0';
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_ALETTER = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_COUNT = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_CR = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_DOUBLE_QUOTE = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_EXTEND = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_EXTENDNUMLET = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_FORMAT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_HEBREW_LETTER = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_KATAKANA = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_LF = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_MIDLETTER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_MIDNUM = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_MIDNUMLET = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_NEWLINE = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_NUMERIC = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_OTHER = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_REGIONAL_INDICATOR = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlchar.php#intlchar.constants
      */
     const WB_SINGLE_QUOTE = 15;
 
@@ -7134,37 +8840,65 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 class IntlDateFormatter
 {
     /**
+     * Completely specified style (Tuesday, April 12, 1952 AD or 3:30:42pm PST)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const FULL = 0;
 
     /**
+     * Gregorian Calendar
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const GREGORIAN = 1;
 
     /**
+     * Long style (January 12, 1952 or 3:30:32pm)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const LONG = 1;
 
     /**
+     * Medium style (Jan 12, 1952)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const MEDIUM = 2;
 
     /**
+     * Do not include this element
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const NONE = -1;
 
     /**
+     * Most abbreviated style, only essential data (12/13/52 or 3:30pm)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const SHORT = 3;
 
     /**
+     * Non-Gregorian Calendar
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const TRADITIONAL = 0;
 
@@ -7739,16 +9473,22 @@ class IntlPartsIterator extends IntlIterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_LEFT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_RIGHT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_SEQUENTIAL = 0;
 
@@ -7854,6 +9594,8 @@ class IntlTimeZone
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intltimezone.php#intltimezone.constants
      */
     const DISPLAY_LONG = 2;
 
@@ -7869,6 +9611,8 @@ class IntlTimeZone
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intltimezone.php#intltimezone.constants
      */
     const DISPLAY_SHORT = 1;
 
@@ -8274,52 +10018,94 @@ class IntlTimeZone
 class Locale
 {
     /**
+     * This is locale the data actually comes from.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const ACTUAL_LOCALE = 0;
 
     /**
+     * Used as locale parameter with the methods of the various locale affected classes,
+     * such as NumberFormatter. This constant would make the methods to use default
+     * locale.
+     *
      * @var null
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const DEFAULT_LOCALE = null;
 
     /**
+     * Extended language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const EXTLANG_TAG = 'extlang';
 
     /**
+     * Grandfathered Language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const GRANDFATHERED_LANG_TAG = 'grandfathered';
 
     /**
+     * Language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const LANG_TAG = 'language';
 
     /**
+     * Private subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const PRIVATE_TAG = 'private';
 
     /**
+     * Region subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const REGION_TAG = 'region';
 
     /**
+     * Script subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const SCRIPT_TAG = 'script';
 
     /**
+     * This is the most specific locale supported by ICU.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const VALID_LOCALE = 1;
 
     /**
+     * Variant subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const VARIANT_TAG = 'variant';
 
@@ -8856,22 +10642,40 @@ class MessageFormatter
 class Normalizer
 {
     /**
+     * Normalization Form C (NFC) - Canonical Decomposition followed by
+     * Canonical Composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_C = 4;
 
     /**
+     * Normalization Form D (NFD) - Canonical Decomposition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_D = 2;
 
     /**
+     * Normalization Form KC (NFKC) - Compatibility Decomposition, followed by
+     * Canonical Composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_KC = 5;
 
     /**
+     * Normalization Form KD (NFKD) - Compatibility Decomposition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_KD = 3;
 
@@ -8896,7 +10700,11 @@ class Normalizer
     const NFKD = 3;
 
     /**
+     * No decomposition/composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const NONE = 1;
 
@@ -8954,367 +10762,668 @@ class Normalizer
 class NumberFormatter
 {
     /**
+     * Currency format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY = 2;
 
     /**
+     * The ISO currency code.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY_CODE = 5;
 
     /**
+     * The currency symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY_SYMBOL = 8;
 
     /**
+     * Decimal format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL = 1;
 
     /**
+     * Always show decimal point.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL_ALWAYS_SHOWN = 2;
 
     /**
+     * The decimal separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL_SEPARATOR_SYMBOL = 0;
 
     /**
+     * The default rule set. This is only available with rule-based
+     * formatters.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DEFAULT_RULESET = 6;
 
     /**
+     * Default format for the locale
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DEFAULT_STYLE = 1;
 
     /**
+     * Character representing a digit in the pattern.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DIGIT_SYMBOL = 5;
 
     /**
+     * Duration rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DURATION = 7;
 
     /**
+     * The exponential symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const EXPONENTIAL_SYMBOL = 11;
 
     /**
+     * The width to which the output of format() is padded.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const FORMAT_WIDTH = 13;
 
     /**
+     * Fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const FRACTION_DIGITS = 8;
 
     /**
+     * The grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_SEPARATOR_SYMBOL = 1;
 
     /**
+     * Grouping size.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_SIZE = 10;
 
     /**
+     * Use grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_USED = 1;
 
     /**
+     * Alias for PATTERN_DECIMAL
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const IGNORE = 0;
 
     /**
+     * Infinity symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INFINITY_SYMBOL = 14;
 
     /**
+     * Integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INTEGER_DIGITS = 5;
 
     /**
+     * The international currency symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INTL_CURRENCY_SYMBOL = 9;
 
     /**
+     * Lenient parse mode used by rule-based formats.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const LENIENT_PARSE = 19;
 
     /**
+     * Maximum fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_FRACTION_DIGITS = 6;
 
     /**
+     * Maximum integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_INTEGER_DIGITS = 3;
 
     /**
+     * Maximum significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_SIGNIFICANT_DIGITS = 18;
 
     /**
+     * Minimum fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_FRACTION_DIGITS = 7;
 
     /**
+     * Minimum integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_INTEGER_DIGITS = 4;
 
     /**
+     * Minimum significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_SIGNIFICANT_DIGITS = 17;
 
     /**
+     * The minus sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MINUS_SIGN_SYMBOL = 6;
 
     /**
+     * The monetary grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
 
     /**
+     * The monetary separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MONETARY_SEPARATOR_SYMBOL = 10;
 
     /**
+     * Multiplier.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MULTIPLIER = 9;
 
     /**
+     * Not-a-number symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NAN_SYMBOL = 15;
 
     /**
+     * Negative prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NEGATIVE_PREFIX = 2;
 
     /**
+     * Negative suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NEGATIVE_SUFFIX = 3;
 
     /**
+     * Ordinal rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ORDINAL = 6;
 
     /**
+     * Pad characters inserted after the prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_AFTER_PREFIX = 1;
 
     /**
+     * Pad characters inserted after the suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_AFTER_SUFFIX = 3;
 
     /**
+     * Pad characters inserted before the prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_BEFORE_PREFIX = 0;
 
     /**
+     * Pad characters inserted before the suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_BEFORE_SUFFIX = 2;
 
     /**
+     * Escape padding character.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_ESCAPE_SYMBOL = 13;
 
     /**
+     * The character used to pad to the format width.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PADDING_CHARACTER = 4;
 
     /**
+     * The position at which padding will take place. See pad position
+     * constants for possible argument values.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PADDING_POSITION = 14;
 
     /**
+     * Parse integers only.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PARSE_INT_ONLY = 0;
 
     /**
+     * Decimal format defined by pattern
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_DECIMAL = 0;
 
     /**
+     * Rule-based format defined by pattern
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_RULEBASED = 9;
 
     /**
+     * The pattern separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_SEPARATOR_SYMBOL = 2;
 
     /**
+     * Percent format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERCENT = 3;
 
     /**
+     * The percent sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERCENT_SYMBOL = 3;
 
     /**
+     * Per mill symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERMILL_SYMBOL = 12;
 
     /**
+     * The plus sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PLUS_SIGN_SYMBOL = 7;
 
     /**
+     * Positive prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const POSITIVE_PREFIX = 0;
 
     /**
+     * Positive suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const POSITIVE_SUFFIX = 1;
 
     /**
+     * The public rule sets. This is only available with rule-based
+     * formatters. This is a read-only attribute. The public rulesets are
+     * returned as a single string, with each ruleset name delimited by ';'
+     * (semicolon).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PUBLIC_RULESETS = 7;
 
     /**
+     * Rounding mode to round towards positive infinity.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_CEILING = 0;
 
     /**
+     * Rounding mode to round towards zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_DOWN = 2;
 
     /**
+     * Rounding mode to round towards negative infinity.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_FLOOR = 1;
 
     /**
+     * Rounding mode to round towards "nearest neighbor" unless both neighbors
+     * are equidistant, in which case round down.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFDOWN = 5;
 
     /**
+     * Rounding mode to round towards the "nearest neighbor" unless both
+     * neighbors are equidistant, in which case, round towards the even
+     * neighbor.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFEVEN = 4;
 
     /**
+     * Rounding mode to round towards "nearest neighbor" unless both neighbors
+     * are equidistant, in which case round up.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFUP = 6;
 
     /**
+     * Rounding mode to round away from zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_UP = 3;
 
     /**
+     * Rounding increment.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUNDING_INCREMENT = 12;
 
     /**
+     * Rounding Mode.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUNDING_MODE = 11;
 
     /**
+     * Scientific format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SCIENTIFIC = 4;
 
     /**
+     * Secondary grouping size.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SECONDARY_GROUPING_SIZE = 15;
 
     /**
+     * Significant digit symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SIGNIFICANT_DIGIT_SYMBOL = 16;
 
     /**
+     * Use significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SIGNIFICANT_DIGITS_USED = 16;
 
     /**
+     * Spellout rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SPELLOUT = 5;
 
     /**
+     * Format/parse as currency value
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_CURRENCY = 4;
 
     /**
+     * Derive the type from variable type
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_DEFAULT = 0;
 
     /**
+     * Format/parse as floating point value
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_DOUBLE = 3;
 
     /**
+     * Format/parse as 32-bit integer
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_INT32 = 1;
 
     /**
+     * Format/parse as 64-bit integer
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_INT64 = 2;
 
     /**
+     * Zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ZERO_DIGIT_SYMBOL = 4;
 
@@ -9738,36 +11847,50 @@ class Spoofchecker
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const ANY_CASE = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const CHAR_LIMIT = 64;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const INVISIBLE = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const MIXED_SCRIPT_CONFUSABLE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const SINGLE_SCRIPT = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const SINGLE_SCRIPT_CONFUSABLE = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const WHOLE_SCRIPT_CONFUSABLE = 4;
 
@@ -9847,11 +11970,15 @@ class Transliterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.transliterator.php#transliterator.constants
      */
     const FORWARD = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.transliterator.php#transliterator.constants
      */
     const REVERSE = 1;
 
@@ -9982,206 +12109,288 @@ class UConverter
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const BOCU1 = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const CESU8 = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const DBCS = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const EBCDIC_STATEFUL = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const HZ = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const IMAP_MAILBOX = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const ISCII = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const ISO_2022 = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LATIN_1 = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_1 = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_11 = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_16 = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_17 = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_18 = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_19 = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_2 = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_3 = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_4 = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_5 = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_6 = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_8 = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_LAST = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const MBCS = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_CLONE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_CLOSE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_ILLEGAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_IRREGULAR = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_RESET = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_UNASSIGNED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const SBCS = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const SCSU = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UNSUPPORTED_CONVERTER = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const US_ASCII = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16 = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16_BigEndian = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16_LittleEndian = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32 = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32_BigEndian = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32_LittleEndian = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF7 = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF8 = 4;
 

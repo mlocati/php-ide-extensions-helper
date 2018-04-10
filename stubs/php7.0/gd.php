@@ -293,31 +293,58 @@ const IMG_COLOR_TILED = -5;
 const IMG_COLOR_TRANSPARENT = -6;
 
 /**
+ * Crops out a black background.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_BLACK = 2;
 
 /**
+ * Attempts to use <code>IMG_CROP_TRANSPARENT</code> and if it
+ * fails it falls back to <code>IMG_CROP_SIDES</code>.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_DEFAULT = 0;
 
 /**
+ * Uses the 4 corners of the image to attempt to detect the background to
+ * crop.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_SIDES = 4;
 
 /**
+ * Crops an image using the given <code>threshold</code> and
+ * <code>color</code>.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_THRESHOLD = 5;
 
 /**
+ * Crops out a transparent background.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_TRANSPARENT = 1;
 
 /**
+ * Crops out a white background.
+ *
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ *
  * @var int
  */
 const IMG_CROP_WHITE = 3;

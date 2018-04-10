@@ -998,92 +998,284 @@ const ULOC_VALID_LOCALE = 1;
 class Collator
 {
     /**
+     * The Alternate attribute is used to control the handling of the so called
+     * variable characters in the UCA: whitespace, punctuation and symbols. If
+     * Alternate is set to <code>NonIgnorable</code>
+     * (N), then differences among these characters are of the same importance
+     * as differences among letters. If Alternate is set to
+     * <code>Shifted</code>
+     * (S), then these characters are of only minor importance. The
+     * <code>Shifted</code> value is often used in combination with
+     * <code>Strength</code>
+     * set to Quaternary. In such a case, whitespace, punctuation, and symbols
+     * are considered when comparing strings, but only if all other aspects of
+     * the strings (base letters, accents, and case) are identical. If
+     * Alternate is not set to Shifted, then there is no difference between a
+     * Strength of 3 and a Strength of 4. For more information and examples,
+     * see Variable_Weighting in the
+     * UCA.
+     * The reason the Alternate values are not simply
+     * <code>On</code> and <code>Off</code>
+     * is that additional Alternate values may be added in the future. The UCA
+     * option Blanked is expressed with Strength set to 3, and Alternate set to
+     * Shifted. The default for most locales is NonIgnorable. If Shifted is
+     * selected, it may be slower if there are many strings that are the same
+     * except for punctuation; sort key length will not be affected unless the
+     * strength level is also increased.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::NON_IGNORABLE</code>(default)</li>
+     * <li><code>Collator::SHIFTED</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>ALTERNATE_HANDLING rules</title>
+     * <ul>
+     * <li>
+     * S=3, A=N di Silva &lt; Di Silva &lt; diSilva &lt; U.S.A. &lt; USA
+     * </li>
+     * <li>
+     * S=3, A=S di Silva = diSilva &lt; Di Silva &lt; U.S.A. = USA
+     * </li>
+     * <li>
+     * S=4, A=S di Silva &lt; diSilva &lt; Di Silva &lt; U.S.A. &lt; USA
+     * </li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const ALTERNATE_HANDLING = 1;
 
     /**
+     * The Case_First attribute is used to control whether uppercase letters
+     * come before lowercase letters or vice versa, in the absence of other
+     * differences in the strings. The possible values are
+     * <code>Uppercase_First</code>
+     * (U) and <code>Lowercase_First</code>
+     * (L), plus the standard <code>Default</code>
+     * and <code>Off</code>.
+     * There is almost no difference between the Off and Lowercase_First
+     * options in terms of results, so typically users will not use
+     * Lowercase_First: only Off or Uppercase_First. (People interested in the
+     * detailed differences between X and L should consult the <code>Collation
+     * Customization</code>). Specifying either L or U won't affect string comparison
+     * performance, but will affect the sort key length.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::LOWER_FIRST</code></li>
+     * <li><code>Collator::UPPER_FIRST</code></li>
+     * <li><code>Collator:DEFAULT</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>CASE_FIRST rules</title>
+     * <ul>
+     * <li>C=X or C=L "china" &lt; "China" &lt; "denmark" &lt; "Denmark"</li>
+     * <li>C=U "China" &lt; "china" &lt; "Denmark" &lt; "denmark"</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const CASE_FIRST = 2;
 
     /**
+     * The Case_Level attribute is used when ignoring accents but not case. In
+     * such a situation, set Strength to be <code>Primary</code>,
+     * and Case_Level to be <code>On</code>.
+     * In most locales, this setting is Off by default. There is a small
+     * string comparison performance and sort key impact if this attribute is
+     * set to be <code>On</code>.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>CASE_LEVEL rules</title>
+     * <ul>
+     * <li>S=1, E=X role = Role = rôle</li>
+     * <li>S=1, E=O role = rôle &lt; Role</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const CASE_LEVEL = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const DEFAULT_STRENGTH = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const DEFAULT_VALUE = -1;
 
     /**
+     * Sort strings with different accents from the back of the string. This
+     * attribute is automatically set to
+     * <code>On</code>
+     * for the French locales and a few others. Users normally would not need
+     * to explicitly set this attribute. There is a string comparison
+     * performance cost when it is set <code>On</code>,
+     * but sort key length is unaffected. Possible values are:
+     * <ul>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     * <blockquote>
+     * <title>FRENCH_COLLATION rules</title>
+     * <ul>
+     * <li>F=OFF cote &lt; coté &lt; côte &lt; côté </li>
+     * <li>F=ON cote &lt; côte &lt; coté &lt; côté</li>
+     * </ul>
+     * </blockquote>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const FRENCH_COLLATION = 0;
 
     /**
+     * Compatibility with JIS x 4061 requires the introduction of an additional
+     * level to distinguish Hiragana and Katakana characters. If compatibility
+     * with that standard is required, then this attribute should be set
+     * <code>On</code>,
+     * and the strength set to Quaternary. This will affect sort key length
+     * and string comparison string comparison performance.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const HIRAGANA_QUATERNARY_MODE = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const IDENTICAL = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const LOWER_FIRST = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NON_IGNORABLE = 21;
 
     /**
+     * The Normalization setting determines whether text is thoroughly
+     * normalized or not in comparison. Even if the setting is off (which is
+     * the default for many locales), text as represented in common usage will
+     * compare correctly (for details, see UTN #5). Only if the accent marks
+     * are in noncanonical order will there be a problem. If the setting is
+     * <code>On</code>,
+     * then the best results are guaranteed for all possible text input.
+     * There is a medium string comparison performance cost if this attribute
+     * is <code>On</code>,
+     * depending on the frequency of sequences that require normalization.
+     * There is no significant effect on sort key length. If the input text is
+     * known to be in NFD or NFKD normalization forms, there is no need to
+     * enable this Normalization option.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NORMALIZATION_MODE = 4;
 
     /**
+     * When turned on, this attribute generates a collation key for the numeric
+     * value of substrings of digits. This is a way to get '100' to sort AFTER
+     * '2'.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::OFF</code>(default)</li>
+     * <li><code>Collator::ON</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const NUMERIC_COLLATION = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const OFF = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const ON = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const PRIMARY = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const QUATERNARY = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const SECONDARY = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const SHIFTED = 20;
 
@@ -1103,17 +1295,40 @@ class Collator
     const SORT_STRING = 1;
 
     /**
+     * The ICU Collation Service supports many levels of comparison (named
+     * "Levels", but also known as "Strengths"). Having these categories
+     * enables ICU to sort strings precisely according to local conventions.
+     * However, by allowing the levels to be selectively employed, searching
+     * for a string in text can be performed with various matching conditions.
+     * For more detailed information, see
+     * <code>collator_set_strength</code> chapter.
+     * Possible values are:
+     * <ul>
+     * <li><code>Collator::PRIMARY</code></li>
+     * <li><code>Collator::SECONDARY</code></li>
+     * <li><code>Collator::TERTIARY</code>(default)</li>
+     * <li><code>Collator::QUATERNARY</code></li>
+     * <li><code>Collator::IDENTICAL</code></li>
+     * <li><code>Collator::DEFAULT_VALUE</code></li>
+     * </ul>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const STRENGTH = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const TERTIARY = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.collator.php#intl.collator-constants
      */
     const UPPER_FIRST = 25;
 
@@ -1376,96 +1591,134 @@ class IntlBreakIterator implements Traversable
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const DONE = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_HARD = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_HARD_LIMIT = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_SOFT = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const LINE_SOFT_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_SEP = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_SEP_LIMIT = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_TERM = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const SENTENCE_TERM_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_IDEO = 400;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_IDEO_LIMIT = 500;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_KANA = 300;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_KANA_LIMIT = 400;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_LETTER = 200;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_LETTER_LIMIT = 300;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NONE = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NONE_LIMIT = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NUMBER = 100;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlbreakiterator.php#intlbreakiterator.constants
      */
     const WORD_NUMBER_LIMIT = 200;
 
@@ -1773,197 +2026,440 @@ class IntlBreakIterator implements Traversable
 class IntlCalendar
 {
     /**
+     * Friday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_FRIDAY = 6;
 
     /**
+     * Monday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_MONDAY = 2;
 
     /**
+     * Saturday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_SATURDAY = 7;
 
     /**
+     * Sunday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_SUNDAY = 1;
 
     /**
+     * Thursday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_THURSDAY = 5;
 
     /**
+     * Tuesday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TUESDAY = 3;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating a day of week is a weekday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKDAY = 0;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating a day of week belongs to the weekend.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND = 1;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating the weekend ends during the given day of week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND_CEASE = 3;
 
     /**
+     * Output of <code>IntlCalendar::getDayOfWeekType</code>
+     * indicating the weekend begins during the given day of week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_TYPE_WEEKEND_OFFSET = 2;
 
     /**
+     * Wednesday.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const DOW_WEDNESDAY = 4;
 
     /**
+     * Calendar field indicating whether a time is before noon (value
+     * <code>0</code>, AM) or after (<code>1</code>). Midnight is
+     * AM, noon is PM.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_AM_PM = 9;
 
     /**
+     * Calendar field for the day of the month. The same as
+     * <code>IntlCalendar::FIELD_DAY_OF_MONTH</code>, which has a
+     * clearer name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DATE = 5;
 
     /**
+     * Alias for <code>IntlCalendar::FIELD_DATE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_MONTH = 5;
 
     /**
+     * Calendar field for the day of the week. Its values start with
+     * <code>1</code> (Sunday, see <code>IntlCalendar::DOW_SUNDAY</code>
+     * and subsequent constants) and the last valid value is 7 (Saturday).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_WEEK = 7;
 
     /**
+     * Given a day of the week (Sunday, Monday, …), this calendar
+     * field assigns an ordinal to such a day of the week in a specific month.
+     * Thus, if the value of this field is <code>1</code> and the value of the day of the
+     * week is <code>2</code> (Monday), then the set day of the month is the 1st Monday of the
+     * month; the maximum value is <code>5</code>.
+     * Additionally, the value <code>0</code> and negative values are
+     * also allowed. The value <code>0</code> encompasses the seven days
+     * that occur immediately before the first seven days of a month (which
+     * therefore have a ‘day of week in month’ with value
+     * <code>1</code>). Negative values starts counting from the end of
+     * the month – <code>-1</code> points to the last occurrence of a
+     * day of the week in a month, <code>-2</code> to the second last,
+     * and so on.
+     * Unlike <code>IntlCalendar::FIELD_WEEK_OF_MONTH</code>
+     * and <code>IntlCalendar::FIELD_WEEK_OF_YEAR</code>,
+     * this value does not depend on
+     * <code>IntlCalendar::getFirstDayOfWeek</code> or on
+     * <code>IntlCalendar::getMinimalDaysInFirstWeek</code>. The first
+     * Monday is the first Monday, even if it occurs in a week that belongs to
+     * the previous month.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_WEEK_IN_MONTH = 8;
 
     /**
+     * Calendar field for the day of the year. For the Gregorian calendar,
+     * starts with <code>1</code> and ends with
+     * <code>365</code> or <code>366</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DAY_OF_YEAR = 6;
 
     /**
+     * Calendar field for the localized day of the week. This is a value
+     * betwen <code>1</code> and <code>7</code>,
+     * <code>1</code> being used for the day of the week that matches
+     * the value returned by
+     * <code>IntlCalendar::getFirstDayOfWeek</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DOW_LOCAL = 18;
 
     /**
+     * Calendar field for the daylight saving time offset of the calendarʼs
+     * timezone, in milliseconds, if active for calendarʼs time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_DST_OFFSET = 16;
 
     /**
+     * Calendar field numerically representing an era, for instance
+     * <code>1</code> for AD and <code>0</code> for BC in the
+     * Gregorian/Julian calendars and <code>235</code> for the Heisei
+     * (平成) era in the Japanese calendar. Not all calendars have more than
+     * one era.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_ERA = 0;
 
     /**
+     * Calendar field for a year number representation that is continuous
+     * across eras. For the Gregorian calendar, the value of this field
+     * matches that of <code>IntlCalendar::FIELD_YEAR</code> for AD
+     * years; a BC year <code>y</code> is represented by <code>-y +
+     * 1</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_EXTENDED_YEAR = 19;
 
     /**
+     * The total number of fields.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_FIELD_COUNT = 23;
 
     /**
+     * Calendar field for the hour, without specifying whether itʼs in the
+     * morning or in the afternoon. Valid values are <code>0</code> to
+     * <code>11</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_HOUR = 10;
 
     /**
+     * Calendar field for the full (24h) hour of the day. Valid values are
+     * <code>0</code> to <code>23</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_HOUR_OF_DAY = 11;
 
     /**
+     * Calendar field whose value is <code>1</code> for indicating a
+     * leap month and <code>0</code> otherwise.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_IS_LEAP_MONTH = 22;
 
     /**
+     * Calendar field for a modified Julian day number. It is different from a
+     * conventional Julian day number in that its transitions occur at local
+     * zone midnight rather than at noon UTC. It uniquely identifies a date.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_JULIAN_DAY = 20;
 
     /**
+     * Calendar field the milliseconds component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MILLISECOND = 14;
 
     /**
+     * Calendar field encompassing the information in
+     * <code>IntlCalendar::FIELD_HOUR_OF_DAY</code>,
+     * <code>IntlCalendar::FIELD_MINUTE</code>,
+     * <code>IntlCalendar::FIELD_SECOND</code> and
+     * <code>IntlCalendar::FIELD_MILLISECOND</code>. Range is from the
+     * <code>0</code> to <code>24 * 3600 * 1000 - 1</code>. It is
+     * not the amount of milliseconds ellapsed in the day since on DST
+     * transitions it will have discontinuities analog to those of the wall
+     * time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MILLISECONDS_IN_DAY = 21;
 
     /**
+     * Calendar field for the minutes component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MINUTE = 12;
 
     /**
+     * Calendar field for the month. The month sequence is zero-based, so
+     * Janurary (here used to signify the first month of the calendar; this
+     * may be called another name, such as Muharram in the Islamic calendar)
+     * is represented by <code>0</code>, February by
+     * <code>1</code>, …, December by <code>11</code> and, for
+     * calendars that have it, the 13th or leap month by
+     * <code>12</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_MONTH = 2;
 
     /**
+     * Calendar field for the seconds component of the time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_SECOND = 13;
 
     /**
+     * Calendar field for the number of the week of the month. This depends on
+     * which day of the week is deemed to start the
+     * week and the minimal number of days
+     * in a week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_WEEK_OF_MONTH = 4;
 
     /**
+     * Calendar field for the number of the week of the year. This depends on
+     * which day of the week is deemed to start the
+     * week and the minimal number of days
+     * in a week.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_WEEK_OF_YEAR = 3;
 
     /**
+     * Calendar field for the year. This is not unique across eras. If the
+     * calendar type has more than one era, generally the minimum value for
+     * this field will be <code>1</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_YEAR = 1;
 
     /**
+     * Calendar field representing the year for week of year
+     * purposes.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_YEAR_WOY = 17;
 
     /**
+     * Calendar field indicating the raw offset of the timezone, in
+     * milliseconds. The raw offset is the timezone offset, excluding any
+     * offset due to daylight saving time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const FIELD_ZONE_OFFSET = 15;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * same instant as wall times with one hour less and of
+     * <code>IntlCalendar::getRepeatedWallTimeOption</code>
+     * indicating the wall times in the repeated range should refer to the
+     * instant of the first occurrence of such wall time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_FIRST = 1;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * same instant as wall times with one hour after and of
+     * <code>IntlCalendar::getRepeatedWallTimeOption</code>
+     * indicating the wall times in the repeated range should refer to the
+     * instant of the second occurrence of such wall time.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_LAST = 0;
 
     /**
+     * Output of <code>IntlCalendar::getSkippedWallTimeOption</code>
+     * indicating that wall times in the skipped range should refer to the
+     * instant when the daylight saving time transition occurs (begins).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants
      */
     const WALLTIME_NEXT_VALID = 2;
 
@@ -2757,37 +3253,65 @@ class IntlCodePointBreakIterator extends IntlBreakIterator
 class IntlDateFormatter
 {
     /**
+     * Completely specified style (Tuesday, April 12, 1952 AD or 3:30:42pm PST)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const FULL = 0;
 
     /**
+     * Gregorian Calendar
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const GREGORIAN = 1;
 
     /**
+     * Long style (January 12, 1952 or 3:30:32pm)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const LONG = 1;
 
     /**
+     * Medium style (Jan 12, 1952)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const MEDIUM = 2;
 
     /**
+     * Do not include this element
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const NONE = -1;
 
     /**
+     * Most abbreviated style, only essential data (12/13/52 or 3:30pm)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const SHORT = 3;
 
     /**
+     * Non-Gregorian Calendar
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/intl.php#intl.intldateformatter-constants
      */
     const TRADITIONAL = 0;
 
@@ -3380,16 +3904,22 @@ class IntlPartsIterator extends IntlIterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_LEFT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_RIGHT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intlpartsiterator.php#intlpartsiterator.constants
      */
     const KEY_SEQUENTIAL = 0;
 
@@ -3495,6 +4025,8 @@ class IntlTimeZone
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intltimezone.php#intltimezone.constants
      */
     const DISPLAY_LONG = 2;
 
@@ -3510,6 +4042,8 @@ class IntlTimeZone
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.intltimezone.php#intltimezone.constants
      */
     const DISPLAY_SHORT = 1;
 
@@ -3884,52 +4418,94 @@ class IntlTimeZone
 class Locale
 {
     /**
+     * This is locale the data actually comes from.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const ACTUAL_LOCALE = 0;
 
     /**
+     * Used as locale parameter with the methods of the various locale affected classes,
+     * such as NumberFormatter. This constant would make the methods to use default
+     * locale.
+     *
      * @var null
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const DEFAULT_LOCALE = null;
 
     /**
+     * Extended language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const EXTLANG_TAG = 'extlang';
 
     /**
+     * Grandfathered Language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const GRANDFATHERED_LANG_TAG = 'grandfathered';
 
     /**
+     * Language subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const LANG_TAG = 'language';
 
     /**
+     * Private subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const PRIVATE_TAG = 'private';
 
     /**
+     * Region subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const REGION_TAG = 'region';
 
     /**
+     * Script subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const SCRIPT_TAG = 'script';
 
     /**
+     * This is the most specific locale supported by ICU.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const VALID_LOCALE = 1;
 
     /**
+     * Variant subtag
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.locale.php#intl.locale-constants
      */
     const VARIANT_TAG = 'variant';
 
@@ -4466,22 +5042,40 @@ class MessageFormatter
 class Normalizer
 {
     /**
+     * Normalization Form C (NFC) - Canonical Decomposition followed by
+     * Canonical Composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_C = 4;
 
     /**
+     * Normalization Form D (NFD) - Canonical Decomposition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_D = 2;
 
     /**
+     * Normalization Form KC (NFKC) - Compatibility Decomposition, followed by
+     * Canonical Composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_KC = 5;
 
     /**
+     * Normalization Form KD (NFKD) - Compatibility Decomposition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const FORM_KD = 3;
 
@@ -4506,7 +5100,11 @@ class Normalizer
     const NFKD = 3;
 
     /**
+     * No decomposition/composition
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.normalizer.php#intl.normalizer-constants
      */
     const NONE = 1;
 
@@ -4566,367 +5164,668 @@ class Normalizer
 class NumberFormatter
 {
     /**
+     * Currency format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY = 2;
 
     /**
+     * The ISO currency code.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY_CODE = 5;
 
     /**
+     * The currency symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const CURRENCY_SYMBOL = 8;
 
     /**
+     * Decimal format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL = 1;
 
     /**
+     * Always show decimal point.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL_ALWAYS_SHOWN = 2;
 
     /**
+     * The decimal separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DECIMAL_SEPARATOR_SYMBOL = 0;
 
     /**
+     * The default rule set. This is only available with rule-based
+     * formatters.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DEFAULT_RULESET = 6;
 
     /**
+     * Default format for the locale
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DEFAULT_STYLE = 1;
 
     /**
+     * Character representing a digit in the pattern.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DIGIT_SYMBOL = 5;
 
     /**
+     * Duration rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const DURATION = 7;
 
     /**
+     * The exponential symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const EXPONENTIAL_SYMBOL = 11;
 
     /**
+     * The width to which the output of format() is padded.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const FORMAT_WIDTH = 13;
 
     /**
+     * Fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const FRACTION_DIGITS = 8;
 
     /**
+     * The grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_SEPARATOR_SYMBOL = 1;
 
     /**
+     * Grouping size.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_SIZE = 10;
 
     /**
+     * Use grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const GROUPING_USED = 1;
 
     /**
+     * Alias for PATTERN_DECIMAL
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const IGNORE = 0;
 
     /**
+     * Infinity symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INFINITY_SYMBOL = 14;
 
     /**
+     * Integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INTEGER_DIGITS = 5;
 
     /**
+     * The international currency symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const INTL_CURRENCY_SYMBOL = 9;
 
     /**
+     * Lenient parse mode used by rule-based formats.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const LENIENT_PARSE = 19;
 
     /**
+     * Maximum fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_FRACTION_DIGITS = 6;
 
     /**
+     * Maximum integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_INTEGER_DIGITS = 3;
 
     /**
+     * Maximum significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MAX_SIGNIFICANT_DIGITS = 18;
 
     /**
+     * Minimum fraction digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_FRACTION_DIGITS = 7;
 
     /**
+     * Minimum integer digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_INTEGER_DIGITS = 4;
 
     /**
+     * Minimum significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MIN_SIGNIFICANT_DIGITS = 17;
 
     /**
+     * The minus sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MINUS_SIGN_SYMBOL = 6;
 
     /**
+     * The monetary grouping separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
 
     /**
+     * The monetary separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MONETARY_SEPARATOR_SYMBOL = 10;
 
     /**
+     * Multiplier.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const MULTIPLIER = 9;
 
     /**
+     * Not-a-number symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NAN_SYMBOL = 15;
 
     /**
+     * Negative prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NEGATIVE_PREFIX = 2;
 
     /**
+     * Negative suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const NEGATIVE_SUFFIX = 3;
 
     /**
+     * Ordinal rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ORDINAL = 6;
 
     /**
+     * Pad characters inserted after the prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_AFTER_PREFIX = 1;
 
     /**
+     * Pad characters inserted after the suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_AFTER_SUFFIX = 3;
 
     /**
+     * Pad characters inserted before the prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_BEFORE_PREFIX = 0;
 
     /**
+     * Pad characters inserted before the suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_BEFORE_SUFFIX = 2;
 
     /**
+     * Escape padding character.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PAD_ESCAPE_SYMBOL = 13;
 
     /**
+     * The character used to pad to the format width.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PADDING_CHARACTER = 4;
 
     /**
+     * The position at which padding will take place. See pad position
+     * constants for possible argument values.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PADDING_POSITION = 14;
 
     /**
+     * Parse integers only.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PARSE_INT_ONLY = 0;
 
     /**
+     * Decimal format defined by pattern
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_DECIMAL = 0;
 
     /**
+     * Rule-based format defined by pattern
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_RULEBASED = 9;
 
     /**
+     * The pattern separator.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PATTERN_SEPARATOR_SYMBOL = 2;
 
     /**
+     * Percent format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERCENT = 3;
 
     /**
+     * The percent sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERCENT_SYMBOL = 3;
 
     /**
+     * Per mill symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PERMILL_SYMBOL = 12;
 
     /**
+     * The plus sign.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PLUS_SIGN_SYMBOL = 7;
 
     /**
+     * Positive prefix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const POSITIVE_PREFIX = 0;
 
     /**
+     * Positive suffix.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const POSITIVE_SUFFIX = 1;
 
     /**
+     * The public rule sets. This is only available with rule-based
+     * formatters. This is a read-only attribute. The public rulesets are
+     * returned as a single string, with each ruleset name delimited by ';'
+     * (semicolon).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const PUBLIC_RULESETS = 7;
 
     /**
+     * Rounding mode to round towards positive infinity.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_CEILING = 0;
 
     /**
+     * Rounding mode to round towards zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_DOWN = 2;
 
     /**
+     * Rounding mode to round towards negative infinity.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_FLOOR = 1;
 
     /**
+     * Rounding mode to round towards "nearest neighbor" unless both neighbors
+     * are equidistant, in which case round down.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFDOWN = 5;
 
     /**
+     * Rounding mode to round towards the "nearest neighbor" unless both
+     * neighbors are equidistant, in which case, round towards the even
+     * neighbor.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFEVEN = 4;
 
     /**
+     * Rounding mode to round towards "nearest neighbor" unless both neighbors
+     * are equidistant, in which case round up.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_HALFUP = 6;
 
     /**
+     * Rounding mode to round away from zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUND_UP = 3;
 
     /**
+     * Rounding increment.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUNDING_INCREMENT = 12;
 
     /**
+     * Rounding Mode.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ROUNDING_MODE = 11;
 
     /**
+     * Scientific format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SCIENTIFIC = 4;
 
     /**
+     * Secondary grouping size.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SECONDARY_GROUPING_SIZE = 15;
 
     /**
+     * Significant digit symbol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SIGNIFICANT_DIGIT_SYMBOL = 16;
 
     /**
+     * Use significant digits.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SIGNIFICANT_DIGITS_USED = 16;
 
     /**
+     * Spellout rule-based format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const SPELLOUT = 5;
 
     /**
+     * Format/parse as currency value
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_CURRENCY = 4;
 
     /**
+     * Derive the type from variable type
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_DEFAULT = 0;
 
     /**
+     * Format/parse as floating point value
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_DOUBLE = 3;
 
     /**
+     * Format/parse as 32-bit integer
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_INT32 = 1;
 
     /**
+     * Format/parse as 64-bit integer
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const TYPE_INT64 = 2;
 
     /**
+     * Zero.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.numberformatter.php#intl.numberformatter-constants
      */
     const ZERO_DIGIT_SYMBOL = 4;
 
@@ -5350,36 +6249,50 @@ class Spoofchecker
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const ANY_CASE = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const CHAR_LIMIT = 64;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const INVISIBLE = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const MIXED_SCRIPT_CONFUSABLE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const SINGLE_SCRIPT = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const SINGLE_SCRIPT_CONFUSABLE = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.spoofchecker.php#spoofchecker.constants
      */
     const WHOLE_SCRIPT_CONFUSABLE = 4;
 
@@ -5459,11 +6372,15 @@ class Transliterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.transliterator.php#transliterator.constants
      */
     const FORWARD = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.transliterator.php#transliterator.constants
      */
     const REVERSE = 1;
 
@@ -5594,206 +6511,288 @@ class UConverter
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const BOCU1 = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const CESU8 = 31;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const DBCS = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const EBCDIC_STATEFUL = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const HZ = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const IMAP_MAILBOX = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const ISCII = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const ISO_2022 = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LATIN_1 = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_1 = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_11 = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_16 = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_17 = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_18 = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_19 = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_2 = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_3 = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_4 = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_5 = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_6 = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_8 = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const LMBCS_LAST = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const MBCS = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_CLONE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_CLOSE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_ILLEGAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_IRREGULAR = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_RESET = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const REASON_UNASSIGNED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const SBCS = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const SCSU = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UNSUPPORTED_CONVERTER = -1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const US_ASCII = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16 = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16_BigEndian = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF16_LittleEndian = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32 = 30;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32_BigEndian = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF32_LittleEndian = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF7 = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.uconverter.php#uconverter.constants
      */
     const UTF8 = 4;
 

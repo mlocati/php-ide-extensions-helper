@@ -68,6 +68,10 @@ const MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS = 4194304;
 const MYSQLI_CLIENT_COMPRESS = 32;
 
 /**
+ * return number of matched rows, not the number of affected rows
+ *
+ * @link http://www.php.net/manual/en/mysqli.real-connect.php
+ *
  * @var int
  */
 const MYSQLI_CLIENT_FOUND_ROWS = 2;
@@ -114,6 +118,11 @@ const MYSQLI_CLIENT_NO_SCHEMA = 16;
 const MYSQLI_CLIENT_SSL = 2048;
 
 /**
+ * Like <code>MYSQLI_CLIENT_SSL</code>, but disables validation of the provided
+ * SSL certificate. This is only for installations using MySQL Native Driver and MySQL 5.6 or later.
+ *
+ * @link http://www.php.net/manual/en/mysqli.real-connect.php
+ *
  * @var int
  */
 const MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT = 64;
@@ -266,6 +275,11 @@ const MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS = 37;
 const MYSQLI_OPT_CONNECT_TIMEOUT = 0;
 
 /**
+ * Convert integer and float columns back to PHP numbers. Only valid
+ * for mysqlnd.
+ *
+ * @link http://www.php.net/manual/en/mysqli.options.php
+ *
  * @var int
  */
 const MYSQLI_OPT_INT_AND_FLOAT_NATIVE = 201;
@@ -280,11 +294,21 @@ const MYSQLI_OPT_INT_AND_FLOAT_NATIVE = 201;
 const MYSQLI_OPT_LOCAL_INFILE = 8;
 
 /**
+ * The size of the internal command/network buffer. Only valid for
+ * mysqlnd.
+ *
+ * @link http://www.php.net/manual/en/mysqli.options.php
+ *
  * @var int
  */
 const MYSQLI_OPT_NET_CMD_BUFFER_SIZE = 202;
 
 /**
+ * Maximum read chunk size in bytes when reading the body of a MySQL
+ * command packet. Only valid for mysqlnd.
+ *
+ * @link http://www.php.net/manual/en/mysqli.options.php
+ *
  * @var int
  */
 const MYSQLI_OPT_NET_READ_BUFFER_SIZE = 203;
@@ -295,6 +319,8 @@ const MYSQLI_OPT_NET_READ_BUFFER_SIZE = 203;
 const MYSQLI_OPT_READ_TIMEOUT = 11;
 
 /**
+ * @link http://www.php.net/manual/en/mysqli.options.php
+ *
  * @var int
  */
 const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT = 21;
@@ -472,6 +498,10 @@ const MYSQLI_REPORT_STRICT = 2;
 const MYSQLI_SERVER_PS_OUT_PARAMS = 4096;
 
 /**
+ * RSA public key file used with the SHA-256 based authentication.
+ *
+ * @link http://www.php.net/manual/en/mysqli.options.php
+ *
  * @var int
  */
 const MYSQLI_SERVER_PUBLIC_KEY = 35;
@@ -547,6 +577,14 @@ const MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH = 0;
 const MYSQLI_STORE_RESULT = 0;
 
 /**
+ * Copy results from the internal mysqlnd buffer into the PHP variables fetched. By default,
+ * mysqlnd will use a reference logic to avoid copying and duplicating results held in memory.
+ * For certain result sets, for example, result sets with many small rows, the copy approach can
+ * reduce the overall memory usage because PHP variables holding results may be
+ * released earlier (available with mysqlnd only, since PHP 5.6.0)
+ *
+ * @link http://www.php.net/manual/en/mysqli.store-result.php
+ *
  * @var int
  */
 const MYSQLI_STORE_RESULT_COPY_DATA = 16;

@@ -141,21 +141,30 @@ const SNMP_UINTEGER = 71;
 const SNMP_UNSIGNED = 66;
 
 /**
- * @link http://www.php.net/manual/en/snmp.constants.php#constant.snmp-value-library
+ * The return values will be as returned by the Net-SNMP library.
+ *
+ * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
  *
  * @var int
  */
 const SNMP_VALUE_LIBRARY = 0;
 
 /**
- * @link http://www.php.net/manual/en/snmp.constants.php#constant.snmp-value-object
+ * The return values will be objects with the properties "value" and "type", where the latter
+ * is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The
+ * way "value" is returned is based on which one of <code>SNMP_VALUE_LIBRARY</code>,
+ * <code>SNMP_VALUE_PLAIN</code> is set
+ *
+ * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
  *
  * @var int
  */
 const SNMP_VALUE_OBJECT = 2;
 
 /**
- * @link http://www.php.net/manual/en/snmp.constants.php#constant.snmp-value-plain
+ * The return values will be the plain value without the SNMP type hint.
+ *
+ * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
  *
  * @var int
  */
@@ -171,57 +180,101 @@ const SNMP_VALUE_PLAIN = 1;
 class SNMP
 {
     /**
+     * All SNMP::ERRNO_* codes bitwise OR'ed.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_ANY = 126;
 
     /**
+     * <code>SNMP</code> agent returned an error in reply.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_ERROR_IN_REPLY = 8;
 
     /**
+     * A generic <code>SNMP</code> error occurred.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_GENERIC = 2;
 
     /**
+     * Library will use multiple queries for SET operation requested.
+     * That means that operation will be performed in a non-transaction manner
+     * and second or subsequent chunks may fail if a type or value failure
+     * will be faced.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_MULTIPLE_SET_QUERIES = 64;
 
     /**
+     * No <code>SNMP</code>-specific error occurred.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_NOERROR = 0;
 
     /**
+     * <code>SNMP</code> agent faced OID cycling reporning
+     * non-increasing OID while executing (BULK)WALK command.
+     * This indicates bogus remote <code>SNMP</code> agent.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_OID_NOT_INCREASING = 16;
 
     /**
+     * Library failed while parsing OID (and/or type for SET command).
+     * No queries has been made.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_OID_PARSING_ERROR = 32;
 
     /**
+     * Request to <code>SNMP</code> agent timed out.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const ERRNO_TIMEOUT = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const VERSION_1 = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const VERSION_2c = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.class.constants
      */
     const VERSION_3 = 3;
 

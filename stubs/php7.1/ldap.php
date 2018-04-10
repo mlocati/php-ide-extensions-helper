@@ -49,6 +49,12 @@ const LDAP_ESCAPE_DN = 2;
 const LDAP_ESCAPE_FILTER = 1;
 
 /**
+ * Each value specified through <code>values</code> is added (as
+ * an additional value) to the attribute named by
+ * <code>attrib</code>.
+ *
+ * @link http://www.php.net/manual/en/function.ldap-modify-batch.php
+ *
  * @var int
  */
 const LDAP_MODIFY_BATCH_ADD = 1;
@@ -64,16 +70,35 @@ const LDAP_MODIFY_BATCH_ATTRIB = 'attrib';
 const LDAP_MODIFY_BATCH_MODTYPE = 'modtype';
 
 /**
+ * Each value specified through <code>values</code> is removed
+ * from the attribute named by <code>attrib</code>. Any value of
+ * the attribute not contained in the <code>values</code> array
+ * will remain untouched.
+ *
+ * @link http://www.php.net/manual/en/function.ldap-modify-batch.php
+ *
  * @var int
  */
 const LDAP_MODIFY_BATCH_REMOVE = 2;
 
 /**
+ * All values are removed from the attribute named by
+ * <code>attrib</code>. A <code>values</code> entry must
+ * not be provided.
+ *
+ * @link http://www.php.net/manual/en/function.ldap-modify-batch.php
+ *
  * @var int
  */
 const LDAP_MODIFY_BATCH_REMOVE_ALL = 18;
 
 /**
+ * All current values of the attribute named by
+ * <code>attrib</code> are replaced with the values specified
+ * through <code>values</code>.
+ *
+ * @link http://www.php.net/manual/en/function.ldap-modify-batch.php
+ *
  * @var int
  */
 const LDAP_MODIFY_BATCH_REPLACE = 3;
@@ -315,16 +340,28 @@ const LDAP_OPT_X_TLS_CERTFILE = 24580;
 const LDAP_OPT_X_TLS_CIPHER_SUITE = 24584;
 
 /**
+ * 7.1
+ *
+ * @link http://www.php.net/manual/en/function.ldap-get-option.php
+ *
  * @var int
  */
 const LDAP_OPT_X_TLS_CRL_ALL = 2;
 
 /**
+ * 7.1
+ *
+ * @link http://www.php.net/manual/en/function.ldap-get-option.php
+ *
  * @var int
  */
 const LDAP_OPT_X_TLS_CRL_NONE = 0;
 
 /**
+ * 7.1
+ *
+ * @link http://www.php.net/manual/en/function.ldap-get-option.php
+ *
  * @var int
  */
 const LDAP_OPT_X_TLS_CRL_PEER = 1;
@@ -390,6 +427,10 @@ const LDAP_OPT_X_TLS_KEYFILE = 24581;
 const LDAP_OPT_X_TLS_NEVER = 0;
 
 /**
+ * 7.1
+ *
+ * @link http://www.php.net/manual/en/function.ldap-get-option.php
+ *
  * @var int
  */
 const LDAP_OPT_X_TLS_PACKAGE = 24593;

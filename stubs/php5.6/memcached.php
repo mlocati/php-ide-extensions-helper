@@ -22,12 +22,20 @@ class Memcached
     const COMPRESSION_ZLIB = 1;
 
     /**
+     * Consistent hashing key distribution algorithm (based on libketama).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.distribution-consistent
      */
     const DISTRIBUTION_CONSISTENT = 1;
 
     /**
+     * Modulo-based key distribution algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.distribution-modula
      */
     const DISTRIBUTION_MODULA = 0;
 
@@ -42,77 +50,146 @@ class Memcached
     const GET_ERROR_RETURN_VALUE = false;
 
     /**
+     * A flag for <code>Memcached::getMulti</code> and
+     * <code>Memcached::getMultiByKey</code> to ensure that the keys are
+     * returned in the same order as they were requested in. Non-existing keys
+     * get a default value of NULL.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.get-preserve-order
      */
     const GET_PRESERVE_ORDER = 1;
 
     /**
+     * CRC item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-crc
      */
     const HASH_CRC = 2;
 
     /**
+     * The default (Jenkins one-at-a-time) item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-default
      */
     const HASH_DEFAULT = 0;
 
     /**
+     * FNV1_32 item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-fnv1-32
      */
     const HASH_FNV1_32 = 5;
 
     /**
+     * FNV1_64 item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-fnv1-64
      */
     const HASH_FNV1_64 = 3;
 
     /**
+     * FNV1_32A item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-fnv1a-32
      */
     const HASH_FNV1A_32 = 6;
 
     /**
+     * FNV1_64A item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-fnv1a-64
      */
     const HASH_FNV1A_64 = 4;
 
     /**
+     * Hsieh item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-hsieh
      */
     const HASH_HSIEH = 7;
 
     /**
+     * MD5 item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-md5
      */
     const HASH_MD5 = 1;
 
     /**
+     * Murmur item key hashing algorithm.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.hash-murmur
      */
     const HASH_MURMUR = 8;
 
     /**
+     * Indicates whether igbinary serializer support is available.
+     * Type: <code>boolean</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.have-igbinary
      */
     const HAVE_IGBINARY = 0;
 
     /**
+     * Indicates whether JSON serializer support is available.
+     * Type: <code>boolean</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.have-json
      */
     const HAVE_JSON = 0;
 
     /**
+     * Indicates whether msgpack serializer support is available.
+     * Type: <code>boolean</code>.
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.have-msgpack
      */
     const HAVE_MSGPACK = 0;
 
     /**
+     * Type: <code>boolean</code>.
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.have-sasl
      */
     const HAVE_SASL = 1;
 
     /**
+     * Type: <code>boolean</code>.
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.have-session
      */
     const HAVE_SESSION = 1;
 
@@ -127,22 +204,50 @@ class Memcached
     const OPT_AUTO_EJECT_HOSTS = 28;
 
     /**
+     * Enable the use of the binary protocol. Please note that you cannot
+     * toggle this option on an open connection.
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-binary-protocol
      */
     const OPT_BINARY_PROTOCOL = 18;
 
     /**
+     * Enables or disables buffered I/O. Enabling buffered I/O causes
+     * storage commands to "buffer" instead of being sent. Any action that
+     * retrieves data causes this buffer to be sent to the remote connection.
+     * Quitting the connection or closing down the connection will also cause
+     * the buffered data to be pushed to the remote connection.
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-buffer-writes
      */
     const OPT_BUFFER_WRITES = 10;
 
     /**
+     * Enables or disables caching of DNS lookups.
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-cache-lookups
      */
     const OPT_CACHE_LOOKUPS = 6;
 
     /**
+     * Enables or disables payload compression. When enabled,
+     * item values longer than a certain threshold (currently 100 bytes) will be
+     * compressed during storage and decompressed during retrieval
+     * transparently.
+     * Type: <code>boolean</code>, default: <code>TRUE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-compression
      */
     const OPT_COMPRESSION = -1001;
 
@@ -152,7 +257,13 @@ class Memcached
     const OPT_COMPRESSION_TYPE = -1004;
 
     /**
+     * In non-blocking mode this set the value of the timeout during socket
+     * connection, in milliseconds.
+     * Type: <code>integer</code>, default: <code>1000</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-connect-timeout
      */
     const OPT_CONNECT_TIMEOUT = 14;
 
@@ -162,12 +273,28 @@ class Memcached
     const OPT_DEAD_TIMEOUT = 36;
 
     /**
+     * Specifies the method of distributing item keys to the servers.
+     * Currently supported methods are modulo and consistent hashing. Consistent
+     * hashing delivers better distribution and allows servers to be added to
+     * the cluster with minimal cache losses.
+     * Type: <code>integer</code>, default: <code>Memcached::DISTRIBUTION_MODULA.</code>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-distribution
      */
     const OPT_DISTRIBUTION = 9;
 
     /**
+     * Specifies the hashing algorithm used for the item keys. The valid
+     * values are supplied via <code>Memcached::HASH_*</code> constants.
+     * Each hash algorithm has its advantages and its disadvantages. Go with the
+     * default if you don't know or don't care.
+     * Type: <code>integer</code>, default: <code>Memcached::HASH_DEFAULT</code>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-hash
      */
     const OPT_HASH = 2;
 
@@ -177,7 +304,21 @@ class Memcached
     const OPT_HASH_WITH_PREFIX_KEY = 25;
 
     /**
+     * Enables or disables compatibility with libketama-like behavior. When
+     * enabled, the item key hashing algorithm is set to MD5 and distribution is
+     * set to be weighted consistent hashing distribution. This is useful
+     * because other libketama-based clients (Python, Ruby, etc.) with the same
+     * server configuration will be able to access the keys transparently.
+     * <blockquote>
+     * It is highly recommended to enable this option if you want to use
+     * consistent hashing, and it may be enabled by default in future
+     * releases.
+     * </blockquote>
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-libketama-compatible
      */
     const OPT_LIBKETAMA_COMPATIBLE = 16;
 
@@ -187,7 +328,13 @@ class Memcached
     const OPT_LIBKETAMA_HASH = 17;
 
     /**
+     * Enables or disables asynchronous I/O. This is the fastest transport
+     * available for storage functions.
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-no-block
      */
     const OPT_NO_BLOCK = 0;
 
@@ -202,12 +349,26 @@ class Memcached
     const OPT_NUMBER_OF_REPLICAS = 29;
 
     /**
+     * Timeout for connection polling, in milliseconds.
+     * Type: <code>integer</code>, default: <code>1000</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-poll-timeout
      */
     const OPT_POLL_TIMEOUT = 8;
 
     /**
+     * This can be used to create a "domain" for your item keys. The value
+     * specified here will be prefixed to each of the keys. It cannot be
+     * longer than <code>128</code> characters and will reduce the
+     * maximum available key size. The prefix is applied only to the item keys,
+     * not to the server keys.
+     * Type: <code>string</code>, default: <code>""</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-prefix-key
      */
     const OPT_PREFIX_KEY = -1002;
 
@@ -217,7 +378,14 @@ class Memcached
     const OPT_RANDOMIZE_REPLICA_READ = 30;
 
     /**
+     * Socket reading timeout, in microseconds. In cases where you cannot
+     * use non-blocking I/O this will allow you to still have timeouts on the
+     * reading of data.
+     * Type: <code>integer</code>, default: <code>0</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-recv-timeout
      */
     const OPT_RECV_TIMEOUT = 20;
 
@@ -227,22 +395,52 @@ class Memcached
     const OPT_REMOVE_FAILED_SERVERS = 35;
 
     /**
+     * The amount of time, in seconds, to wait until retrying a failed
+     * connection attempt.
+     * Type: <code>integer</code>, default: <code>0</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-retry-timeout
      */
     const OPT_RETRY_TIMEOUT = 15;
 
     /**
+     * Socket sending timeout, in microseconds. In cases where you cannot
+     * use non-blocking I/O this will allow you to still have timeouts on the
+     * sending of data.
+     * Type: <code>integer</code>, default: <code>0</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-send-timeout
      */
     const OPT_SEND_TIMEOUT = 19;
 
     /**
+     * Specifies the serializer to use for serializing non-scalar values.
+     * The valid serializers are <code>Memcached::SERIALIZER_PHP</code>
+     * or <code>Memcached::SERIALIZER_IGBINARY</code>. The latter is
+     * supported only when memcached is configured with
+     * <code>--enable-memcached-igbinary</code> option and the
+     * <code>igbinary</code> extension is loaded.
+     * Type: <code>integer</code>, default: <code>Memcached::SERIALIZER_PHP</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-serializer
      */
     const OPT_SERIALIZER = -1003;
 
     /**
+     * Specifies the failure limit for server connection attempts. The
+     * server will be removed after this many continuous connection
+     * failures.
+     * Type: <code>integer</code>, default: <code>0</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-server-failure-limit
      */
     const OPT_SERVER_FAILURE_LIMIT = 21;
 
@@ -252,12 +450,24 @@ class Memcached
     const OPT_SERVER_TIMEOUT_LIMIT = 37;
 
     /**
+     * The maximum socket receive buffer in bytes.
+     * Type: <code>integer</code>, default: varies by platform/kernel
+     * configuration.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-recv-size
      */
     const OPT_SOCKET_RECV_SIZE = 5;
 
     /**
+     * The maximum socket send buffer in bytes.
+     * Type: <code>integer</code>, default: varies by platform/kernel
+     * configuration.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-socket-send-size
      */
     const OPT_SOCKET_SEND_SIZE = 4;
 
@@ -277,7 +487,13 @@ class Memcached
     const OPT_TCP_KEEPALIVE = 32;
 
     /**
+     * Enables or disables the no-delay feature for connecting sockets (may
+     * be faster in some environments).
+     * Type: <code>boolean</code>, default: <code>FALSE</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.opt-tcp-nodelay
      */
     const OPT_TCP_NODELAY = 1;
 
@@ -292,42 +508,75 @@ class Memcached
     const OPT_VERIFY_KEY = 13;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-auth-continue
      */
     const RES_AUTH_CONTINUE = 42;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-auth-failure
      */
     const RES_AUTH_FAILURE = 41;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-auth-problem
      */
     const RES_AUTH_PROBLEM = 40;
 
     /**
+     * Bad key.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-bad-key-provided
      */
     const RES_BAD_KEY_PROVIDED = 33;
 
     /**
+     * The operation was buffered.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-buffered
      */
     const RES_BUFFERED = 32;
 
     /**
+     * Error on the client side.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-client-error
      */
     const RES_CLIENT_ERROR = 9;
 
     /**
+     * Failed to create network socket.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-connection-socket-create-failure
      */
     const RES_CONNECTION_SOCKET_CREATE_FAILURE = 11;
 
     /**
+     * Failed to do compare-and-swap: item you are trying to store has been
+     * modified since you last fetched it.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-data-exists
      */
     const RES_DATA_EXISTS = 12;
 
@@ -337,22 +586,38 @@ class Memcached
     const RES_DELETED = 22;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-e2big
      */
     const RES_E2BIG = 37;
 
     /**
+     * End of result set.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-end
      */
     const RES_END = 21;
 
     /**
+     * System error.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-errno
      */
     const RES_ERRNO = 26;
 
     /**
+     * The operation failed in some fashion.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-failure
      */
     const RES_FAILURE = 1;
 
@@ -362,7 +627,11 @@ class Memcached
     const RES_FETCH_NOTFINISHED = 30;
 
     /**
+     * DNS lookup failed.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-host-lookup-failure
      */
     const RES_HOST_LOOKUP_FAILURE = 2;
 
@@ -377,7 +646,11 @@ class Memcached
     const RES_ITEM = 25;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-key-too-big
      */
     const RES_KEY_TOO_BIG = 39;
 
@@ -387,7 +660,11 @@ class Memcached
     const RES_MEMORY_ALLOCATION_FAILURE = 17;
 
     /**
+     * Server list is empty.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-no-servers
      */
     const RES_NO_SERVERS = 20;
 
@@ -397,32 +674,59 @@ class Memcached
     const RES_NOT_SUPPORTED = 28;
 
     /**
+     * Item with this key was not found (with "get" operation or "cas"
+     * operations).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-notfound
      */
     const RES_NOTFOUND = 16;
 
     /**
+     * Item was not stored: but not because of an error. This normally
+     * means that either the condition for an "add" or a "replace" command
+     * wasn't met, or that the item is in a delete queue.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-notstored
      */
     const RES_NOTSTORED = 14;
 
     /**
+     * Partial network data read error.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-partial-read
      */
     const RES_PARTIAL_READ = 18;
 
     /**
+     * Payload failure: could not compress/decompress or serialize/unserialize the value.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-payload-failure
      */
     const RES_PAYLOAD_FAILURE = -1001;
 
     /**
+     * Bad command in memcached protocol.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-protocol-error
      */
     const RES_PROTOCOL_ERROR = 8;
 
     /**
+     * Error on the server side.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-server-error
      */
     const RES_SERVER_ERROR = 10;
 
@@ -432,17 +736,29 @@ class Memcached
     const RES_SERVER_MARKED_DEAD = 35;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-server-memory-allocation-failure
      */
     const RES_SERVER_MEMORY_ALLOCATION_FAILURE = 48;
 
     /**
+     * Available as of Memcached 3.0.0.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-server-temporarily-disabled
      */
     const RES_SERVER_TEMPORARILY_DISABLED = 47;
 
     /**
+     * Some errors occurred during multi-get.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-some-errors
      */
     const RES_SOME_ERRORS = 19;
 
@@ -457,17 +773,29 @@ class Memcached
     const RES_STORED = 15;
 
     /**
+     * The operation was successful.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-success
      */
     const RES_SUCCESS = 0;
 
     /**
+     * The operation timed out.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-timeout
      */
     const RES_TIMEOUT = 31;
 
     /**
+     * Failed to read network data.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-unknown-read-failure
      */
     const RES_UNKNOWN_READ_FAILURE = 7;
 
@@ -477,17 +805,31 @@ class Memcached
     const RES_UNKNOWN_STAT_KEY = 36;
 
     /**
+     * Failed to write network data.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.res-write-failure
      */
     const RES_WRITE_FAILURE = 5;
 
     /**
+     * The igbinary serializer.
+     * Instead of textual representation it stores PHP data structures in a
+     * compact binary form, resulting in space and time gains.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.serializer-igbinary
      */
     const SERIALIZER_IGBINARY = 2;
 
     /**
+     * The JSON serializer. Requires PHP 5.2.10+.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.serializer-json
      */
     const SERIALIZER_JSON = 3;
 
@@ -502,7 +844,11 @@ class Memcached
     const SERIALIZER_MSGPACK = 5;
 
     /**
+     * The default PHP serializer.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/memcached.constants.php#memcached.constants.serializer-php
      */
     const SERIALIZER_PHP = 1;
 

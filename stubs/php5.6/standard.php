@@ -144,7 +144,11 @@ const ABMON_9 = 131094;
 const ALT_DIGITS = 131119;
 
 /**
+ * String for Ante meridian.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -248,7 +252,11 @@ const CASE_UPPER = 1;
 const CHAR_MAX = 127;
 
 /**
+ * Return a string with the name of the character encoding.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -290,7 +298,10 @@ const COUNT_NORMAL = 0;
 const COUNT_RECURSIVE = 1;
 
 /**
- * -1
+ * All the credits, equivalent to using: <code>CREDITS_DOCS +
+ * CREDITS_GENERAL + CREDITS_GROUP + CREDITS_MODULES + CREDITS_QA
+ * CREDITS_FULLPAGE</code>. It generates a complete stand-alone HTML
+ * page with the appropriate tags. This is the default value.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-all
  *
@@ -299,7 +310,7 @@ const COUNT_RECURSIVE = 1;
 const CREDITS_ALL = 4294967295;
 
 /**
- * 16
+ * The credits for the documentation team.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-docs
  *
@@ -308,7 +319,10 @@ const CREDITS_ALL = 4294967295;
 const CREDITS_DOCS = 16;
 
 /**
- * 32
+ * Usually used in combination with the other flags. Indicates
+ * that a complete stand-alone HTML page needs to be
+ * printed including the information indicated by the other
+ * flags.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-fullpage
  *
@@ -317,7 +331,8 @@ const CREDITS_DOCS = 16;
 const CREDITS_FULLPAGE = 32;
 
 /**
- * 2
+ * General credits: Language design and concept, PHP
+ * authors and SAPI module.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-general
  *
@@ -326,7 +341,7 @@ const CREDITS_FULLPAGE = 32;
 const CREDITS_GENERAL = 2;
 
 /**
- * 1
+ * A list of the core developers
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-group
  *
@@ -335,7 +350,7 @@ const CREDITS_GENERAL = 2;
 const CREDITS_GROUP = 1;
 
 /**
- * 8
+ * A list of the extension modules for PHP, and their authors.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-modules
  *
@@ -344,7 +359,7 @@ const CREDITS_GROUP = 1;
 const CREDITS_MODULES = 8;
 
 /**
- * 64
+ * The credits for the quality assurance team.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-qa
  *
@@ -353,7 +368,7 @@ const CREDITS_MODULES = 8;
 const CREDITS_QA = 64;
 
 /**
- * 4
+ * A list of the server API modules for PHP, and their authors.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.credits-sapi
  *
@@ -362,7 +377,11 @@ const CREDITS_QA = 64;
 const CREDITS_SAPI = 4;
 
 /**
+ * Same value as <code>CURRENCY_SYMBOL</code>.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -414,14 +433,22 @@ const CRYPT_SHA512 = 1;
 const CRYPT_STD_DES = 1;
 
 /**
+ * String that can be used as the format string for <code>strftime</code> to represent date.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const D_FMT = 131113;
 
 /**
+ * String that can be used as the format string for <code>strftime</code> to represent time and date.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -510,7 +537,7 @@ const DNS_AAAA = 134217728;
  * Iteratively query the name server for
  * each available record type.
  *
- * @link http://www.php.net/manual/en/network.constants.php#constant.dns-any
+ * @link http://www.php.net/manual/en/network.constants.php#constant.dns-all
  *
  * @var int
  */
@@ -604,154 +631,226 @@ const DNS_SRV = 33554432;
 const DNS_TXT = 32768;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-compat
+ * Table will contain entities for double-quotes, but not for single-quotes.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_COMPAT = 2;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-disallowed
+ * Replace invalid code points for the given document type with a
+ * Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
+ * (otherwise) instead of leaving them as is. This may be useful, for
+ * instance, to ensure the well-formedness of XML documents with
+ * embedded external content.
+ *
+ * @link http://www.php.net/manual/en/function.htmlentities.php
  *
  * @var int
  */
 const ENT_DISALLOWED = 128;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-html401
+ * Table for HTML 4.01.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_HTML401 = 0;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-html5
+ * Table for HTML 5.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_HTML5 = 48;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-ignore
+ * Silently discard invalid code unit sequences instead of returning
+ * an empty string. Using this flag is discouraged as it
+ * may have security implications.
+ *
+ * @link http://www.php.net/manual/en/function.htmlentities.php
  *
  * @var int
  */
 const ENT_IGNORE = 4;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-noquotes
+ * Table will neither contain entities for single quotes nor for double quotes.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_NOQUOTES = 0;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-quotes
+ * Table will contain entities for both double and single quotes.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_QUOTES = 3;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-substitute
+ * Replace invalid code unit sequences with a Unicode Replacement Character
+ * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
+ *
+ * @link http://www.php.net/manual/en/function.htmlentities.php
  *
  * @var int
  */
 const ENT_SUBSTITUTE = 8;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-xhtml
+ * Table for XHTML.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_XHTML = 32;
 
 /**
- * @link http://www.php.net/manual/en/string.constants.php#constant.ent-xml1
+ * Table for XML 1.
+ *
+ * @link http://www.php.net/manual/en/function.get-html-translation-table.php
  *
  * @var int
  */
 const ENT_XML1 = 16;
 
 /**
+ * Alternate era.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const ERA = 131116;
 
 /**
+ * Date in alternate era format (string can be used in <code>strftime</code>).
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const ERA_D_FMT = 131118;
 
 /**
+ * Date and time in alternate era format (string can be used in <code>strftime</code>).
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const ERA_D_T_FMT = 131120;
 
 /**
+ * Time in alternate era format (string can be used in <code>strftime</code>).
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const ERA_T_FMT = 131121;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-if-exists
+ * Only overwrite the variable if it already exists in the
+ * current symbol table, otherwise do nothing. This is useful
+ * for defining a list of valid variables and then extracting
+ * only those variables you have defined out of
+ * <code>$_REQUEST</code>, for example.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_IF_EXISTS = 6;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-overwrite
+ * If there is a collision, overwrite the existing variable.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_OVERWRITE = 0;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-prefix-all
+ * Prefix all variable names with
+ * <code>prefix</code>.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_PREFIX_ALL = 3;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-prefix-if-exists
+ * Only create prefixed variable names if the non-prefixed version
+ * of the same variable exists in the current symbol table.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_PREFIX_IF_EXISTS = 5;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-prefix-invalid
+ * Only prefix invalid/numeric variable names with
+ * <code>prefix</code>.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_PREFIX_INVALID = 4;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-prefix-same
+ * If there is a collision, prefix the variable name with
+ * <code>prefix</code>.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_PREFIX_SAME = 2;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-refs
+ * Extracts variables as references. This effectively means that the
+ * values of the imported variables are still referencing the values of
+ * the <code>array</code> parameter. You can use this flag
+ * on its own or combine it with any other flag by OR'ing the
+ * <code>flags</code>.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
 const EXTR_REFS = 256;
 
 /**
- * @link http://www.php.net/manual/en/array.constants.php#constant.extr-skip
+ * If there is a collision, don't overwrite the existing
+ * variable.
+ *
+ * @link http://www.php.net/manual/en/function.extract.php
  *
  * @var int
  */
@@ -878,6 +977,8 @@ const GLOB_AVAILABLE_FLAGS = 9303;
 const GLOB_BRACE = 1024;
 
 /**
+ * @link http://www.php.net/manual/en/function.glob.php
+ *
  * @var int
  */
 const GLOB_ERR = 1;
@@ -1132,7 +1233,7 @@ const IMAGETYPE_XBM = 16;
 const INF = INF;
 
 /**
- * -1
+ * Shows all of the above. This is the default value.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-all
  *
@@ -1141,7 +1242,8 @@ const INF = INF;
 const INFO_ALL = 4294967295;
 
 /**
- * 4
+ * Current Local and Master values for PHP directives. See
+ * also <code>ini_get</code>.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-configuration
  *
@@ -1150,7 +1252,7 @@ const INFO_ALL = 4294967295;
 const INFO_CONFIGURATION = 4;
 
 /**
- * 2
+ * PHP Credits. See also <code>phpcredits</code>.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-credits
  *
@@ -1159,7 +1261,8 @@ const INFO_CONFIGURATION = 4;
 const INFO_CREDITS = 2;
 
 /**
- * 16
+ * Environment Variable information that's also available in
+ * <code>$_ENV</code>.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-environment
  *
@@ -1168,7 +1271,8 @@ const INFO_CREDITS = 2;
 const INFO_ENVIRONMENT = 16;
 
 /**
- * 1
+ * The configuration line, <code>php.ini</code> location, build date, Web
+ * Server, System and more.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-general
  *
@@ -1177,7 +1281,7 @@ const INFO_ENVIRONMENT = 16;
 const INFO_GENERAL = 1;
 
 /**
- * 64
+ * PHP License information. See also the license faq.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-license
  *
@@ -1186,7 +1290,7 @@ const INFO_GENERAL = 1;
 const INFO_LICENSE = 64;
 
 /**
- * 8
+ * Loaded modules and their respective settings.
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-modules
  *
@@ -1195,7 +1299,9 @@ const INFO_LICENSE = 64;
 const INFO_MODULES = 8;
 
 /**
- * 32
+ * Shows all
+ * predefined variables from <code>EGPCS</code> (Environment, GET,
+ * POST, Cookie, Server).
  *
  * @link http://www.php.net/manual/en/info.constants.php#constant.info-variables
  *
@@ -1302,7 +1408,13 @@ const LC_NUMERIC = 1;
 const LC_TIME = 2;
 
 /**
- * @link http://www.php.net/manual/en/filesystem.constants.php#constant.lock-ex
+ * Acquire an exclusive lock on the file while proceeding to the
+ * writing. In other words, a <code>flock</code> call happens
+ * between the <code>fopen</code> call and the
+ * <code>fwrite</code> call. This is not identical to an
+ * <code>fopen</code> call with mode "x".
+ *
+ * @link http://www.php.net/manual/en/function.file-put-contents.php
  *
  * @var int
  */
@@ -1351,7 +1463,7 @@ const LOG_AUTH = 32;
 /**
  * security/authorization messages (private)
  *
- * @link http://www.php.net/manual/en/network.constants.php#constant.log-auth
+ * @link http://www.php.net/manual/en/network.constants.php#constant.log-authpriv
  *
  * @var int
  */
@@ -1440,56 +1552,88 @@ const LOG_INFO = 6;
 const LOG_KERN = 0;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL0 = 128;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL1 = 136;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL2 = 144;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL3 = 152;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL4 = 160;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL5 = 168;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
 const LOG_LOCAL6 = 176;
 
 /**
+ * Not available on Windows and Netware
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
@@ -1541,7 +1685,9 @@ const LOG_NEWS = 56;
 const LOG_NOTICE = 5;
 
 /**
- * @link http://www.php.net/manual/en/network.constants.php#constant.log-nowait
+ * Not available on BeOS
+ *
+ * @link http://www.php.net/manual/en/function.define-syslog-variables.php
  *
  * @var int
  */
@@ -1612,7 +1758,7 @@ const LOG_UUCP = 64;
 const LOG_WARNING = 4;
 
 /**
- * 0.31830988618379067154
+ * 1/pi
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-1-pi
  *
@@ -1621,7 +1767,7 @@ const LOG_WARNING = 4;
 const M_1_PI = 0.31830988618379;
 
 /**
- * 0.63661977236758134308
+ * 2/pi
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-2-pi
  *
@@ -1630,7 +1776,7 @@ const M_1_PI = 0.31830988618379;
 const M_2_PI = 0.63661977236758;
 
 /**
- * 1.12837916709551257390
+ * 2/sqrt(pi)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-2-sqrtpi
  *
@@ -1639,7 +1785,7 @@ const M_2_PI = 0.63661977236758;
 const M_2_SQRTPI = 1.1283791670955;
 
 /**
- * 2.7182818284590452354
+ * e
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-e
  *
@@ -1648,7 +1794,7 @@ const M_2_SQRTPI = 1.1283791670955;
 const M_E = 2.718281828459;
 
 /**
- * 0.57721566490153286061
+ * Euler constant
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-euler
  *
@@ -1657,7 +1803,7 @@ const M_E = 2.718281828459;
 const M_EULER = 0.57721566490153;
 
 /**
- * 2.30258509299404568402
+ * log_e 10
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-ln10
  *
@@ -1666,7 +1812,7 @@ const M_EULER = 0.57721566490153;
 const M_LN10 = 2.302585092994;
 
 /**
- * 0.69314718055994530942
+ * log_e 2
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-ln2
  *
@@ -1675,7 +1821,7 @@ const M_LN10 = 2.302585092994;
 const M_LN2 = 0.69314718055995;
 
 /**
- * 1.14472988584940017414
+ * log_e(pi)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-lnpi
  *
@@ -1684,7 +1830,7 @@ const M_LN2 = 0.69314718055995;
 const M_LNPI = 1.1447298858494;
 
 /**
- * 0.43429448190325182765
+ * log_10 e
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-log10e
  *
@@ -1693,7 +1839,7 @@ const M_LNPI = 1.1447298858494;
 const M_LOG10E = 0.43429448190325;
 
 /**
- * 1.4426950408889634074
+ * log_2 e
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-log2e
  *
@@ -1702,7 +1848,7 @@ const M_LOG10E = 0.43429448190325;
 const M_LOG2E = 1.442695040889;
 
 /**
- * 3.14159265358979323846
+ * Pi
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-pi
  *
@@ -1711,7 +1857,7 @@ const M_LOG2E = 1.442695040889;
 const M_PI = 3.1415926535898;
 
 /**
- * 1.57079632679489661923
+ * pi/2
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-pi-2
  *
@@ -1720,7 +1866,7 @@ const M_PI = 3.1415926535898;
 const M_PI_2 = 1.5707963267949;
 
 /**
- * 0.78539816339744830962
+ * pi/4
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-pi-4
  *
@@ -1729,7 +1875,7 @@ const M_PI_2 = 1.5707963267949;
 const M_PI_4 = 0.78539816339745;
 
 /**
- * 0.70710678118654752440
+ * 1/sqrt(2)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-sqrt1-2
  *
@@ -1738,7 +1884,7 @@ const M_PI_4 = 0.78539816339745;
 const M_SQRT1_2 = 0.70710678118655;
 
 /**
- * 1.41421356237309504880
+ * sqrt(2)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-sqrt2
  *
@@ -1747,7 +1893,7 @@ const M_SQRT1_2 = 0.70710678118655;
 const M_SQRT2 = 1.4142135623731;
 
 /**
- * 1.73205080756887729352
+ * sqrt(3)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-sqrt3
  *
@@ -1756,7 +1902,7 @@ const M_SQRT2 = 1.4142135623731;
 const M_SQRT3 = 1.7320508075689;
 
 /**
- * 1.77245385090551602729
+ * sqrt(pi)
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.m-sqrtpi
  *
@@ -1858,7 +2004,11 @@ const MON_9 = 131106;
 const NAN = NAN;
 
 /**
+ * Regex string for matching <code>"no"</code> input.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -1976,7 +2126,7 @@ const PHP_QUERY_RFC1738 = 1;
 const PHP_QUERY_RFC3986 = 2;
 
 /**
- * 2
+ * Round halves down
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.php-round-half-down
  *
@@ -1985,7 +2135,7 @@ const PHP_QUERY_RFC3986 = 2;
 const PHP_ROUND_HALF_DOWN = 2;
 
 /**
- * 3
+ * Round halves to even numbers
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.php-round-half-even
  *
@@ -1994,7 +2144,7 @@ const PHP_ROUND_HALF_DOWN = 2;
 const PHP_ROUND_HALF_EVEN = 3;
 
 /**
- * 4
+ * Round halves to odd numbers
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.php-round-half-odd
  *
@@ -2003,7 +2153,7 @@ const PHP_ROUND_HALF_EVEN = 3;
 const PHP_ROUND_HALF_ODD = 4;
 
 /**
- * 1
+ * Round halves up
  *
  * @link http://www.php.net/manual/en/math.constants.php#constant.php-round-half-up
  *
@@ -2082,7 +2232,11 @@ const PHP_URL_SCHEME = 0;
 const PHP_URL_USER = 3;
 
 /**
+ * String for Post meridian.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -2148,7 +2302,11 @@ const PSFS_FLAG_NORMAL = 0;
 const PSFS_PASS_ON = 2;
 
 /**
+ * Same value as <code>DECIMAL_POINT</code>.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
@@ -2352,7 +2510,7 @@ const STREAM_CLIENT_ASYNC_CONNECT = 2;
  * Open client socket connection. Client sockets should always
  * include this flag. Used with <code>stream_socket_client</code>.
  *
- * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-client-async-connect
+ * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-client-connect
  *
  * @var int
  */
@@ -2369,6 +2527,8 @@ const STREAM_CLIENT_CONNECT = 4;
 const STREAM_CLIENT_PERSISTENT = 1;
 
 /**
+ * @link http://www.php.net/manual/en/function.stream-socket-enable-crypto.php
+ *
  * @var int
  */
 const STREAM_CRYPTO_METHOD_ANY_CLIENT = 63;
@@ -2712,7 +2872,7 @@ const STREAM_NOTIFY_RESOLVE = 1;
 /**
  * A critical error occurred. Processing cannot continue.
  *
- * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-auth-required
+ * @link http://www.php.net/manual/en/stream.constants.php#constant.stream-notify-severity-err
  *
  * @var int
  */
@@ -2737,6 +2897,10 @@ const STREAM_NOTIFY_SEVERITY_INFO = 0;
 const STREAM_NOTIFY_SEVERITY_WARN = 1;
 
 /**
+ * Process OOB (<code>out-of-band</code>) data.
+ *
+ * @link http://www.php.net/manual/en/function.stream-socket-recvfrom.php
+ *
  * @var int
  */
 const STREAM_OOB = 1;
@@ -2762,6 +2926,13 @@ const STREAM_OPTION_READ_TIMEOUT = 4;
 const STREAM_OPTION_WRITE_BUFFER = 3;
 
 /**
+ * Retrieve data from the socket, but do not consume the buffer.
+ * Subsequent calls to <code>fread</code> or
+ * <code>stream_socket_recvfrom</code> will see
+ * the same data.
+ *
+ * @link http://www.php.net/manual/en/function.stream-socket-recvfrom.php
+ *
  * @var int
  */
 const STREAM_PEEK = 2;
@@ -2928,28 +3099,44 @@ const STREAM_URL_STAT_QUIET = 2;
 const STREAM_USE_PATH = 1;
 
 /**
+ * String that can be used as the format string for <code>strftime</code> to represent time.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const T_FMT = 131114;
 
 /**
+ * String that can be used as the format string for <code>strftime</code> to represent time in 12-hour format with ante/post meridian.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const T_FMT_AMPM = 131115;
 
 /**
+ * Same value as <code>THOUSANDS_SEP</code>.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */
 const THOUSEP = 65537;
 
 /**
+ * Regex string for matching <code>"yes"</code> input.
+ *
  * WARNING: this may be available on POSIX but not on Windows
+ *
+ * @link http://www.php.net/manual/en/function.nl-langinfo.php
  *
  * @var int
  */

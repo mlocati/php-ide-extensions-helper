@@ -91,17 +91,32 @@ class Reflection
 class ReflectionClass implements Reflector
 {
     /**
+     * Indicates class that is
+     * abstract because of its definition.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants
      */
     const IS_EXPLICIT_ABSTRACT = 32;
 
     /**
+     * Indicates final
+     * class.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants
      */
     const IS_FINAL = 4;
 
     /**
+     * Indicates class that is
+     * abstract because it has some abstract methods.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants
      */
     const IS_IMPLICIT_ABSTRACT = 16;
 
@@ -1296,7 +1311,11 @@ class ReflectionExtension implements Reflector
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
+     * Indicates deprecated functions.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants
      */
     const IS_DEPRECATED = 262144;
 
@@ -1886,32 +1905,56 @@ class ReflectionGenerator
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
+     * Indicates that the method is abstract.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_ABSTRACT = 2;
 
     /**
+     * Indicates that the method is final.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_FINAL = 4;
 
     /**
+     * Indicates that the method is private.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_PRIVATE = 1024;
 
     /**
+     * Indicates that the method is protected.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_PROTECTED = 512;
 
     /**
+     * Indicates that the method is public.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_PUBLIC = 256;
 
     /**
+     * Indicates that the method is static.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants
      */
     const IS_STATIC = 1;
 
@@ -2570,22 +2613,42 @@ class ReflectionParameter implements Reflector
 class ReflectionProperty implements Reflector
 {
     /**
+     * Indicates private
+     * properties.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants
      */
     const IS_PRIVATE = 1024;
 
     /**
+     * Indicates protected
+     * properties.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants
      */
     const IS_PROTECTED = 512;
 
     /**
+     * Indicates public
+     * properties.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants
      */
     const IS_PUBLIC = 256;
 
     /**
+     * Indicates static
+     * properties.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants
      */
     const IS_STATIC = 1;
 

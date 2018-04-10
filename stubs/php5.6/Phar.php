@@ -14,72 +14,132 @@
 class Phar extends RecursiveDirectoryIterator implements ArrayAccess, Countable
 {
     /**
+     * 0x00002000
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.bz2
      */
     const BZ2 = 8192;
 
     /**
+     * 0x0000F000
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.compressed
      */
     const COMPRESSED = 61440;
 
     /**
+     * 0x00001000
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.gz
      */
     const GZ = 4096;
 
     /**
+     * 0x0001
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.md5
      */
     const MD5 = 1;
 
     /**
+     * 0x00000000
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.none
      */
     const NONE = 0;
 
     /**
+     * 0x0010
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.openssl
      */
     const OPENSSL = 16;
 
     /**
+     * phar file format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.phar
      */
     const PHAR = 1;
 
     /**
+     * used to instruct the mimeoverrides parameter
+     * of <code>Phar::webPhar</code> that the extension should be
+     * parsed as a PHP file
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.php
      */
     const PHP = 0;
 
     /**
+     * used to instruct the mimeoverrides parameter
+     * of <code>Phar::webPhar</code> that the extension should be
+     * parsed as a PHP source file through <code>highlight_file</code>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.phps
      */
     const PHPS = 1;
 
     /**
+     * 0x0002
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.sha1
      */
     const SHA1 = 2;
 
     /**
+     * 0x0003
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.sha256
      */
     const SHA256 = 3;
 
     /**
+     * 0x0004
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.sha512
      */
     const SHA512 = 4;
 
     /**
+     * tar file format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.tar
      */
     const TAR = 2;
 
     /**
+     * zip file format
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/phar.constants.php#phar.constants.zip
      */
     const ZIP = 3;
 

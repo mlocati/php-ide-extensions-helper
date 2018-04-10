@@ -673,12 +673,20 @@ class ArrayIterator implements ArrayAccess, Countable, SeekableIterator, Seriali
 class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializable
 {
     /**
+     * Entries can be accessed as properties (read and write).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.arrayobject.php#arrayobject.constants
      */
     const ARRAY_AS_PROPS = 2;
 
     /**
+     * Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.arrayobject.php#arrayobject.constants
      */
     const STD_PROP_LIST = 1;
 
@@ -1039,32 +1047,59 @@ class BadMethodCallException extends BadFunctionCallException
 class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 {
     /**
+     * Convert every element to string.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const CALL_TOSTRING = 1;
 
     /**
+     * Don't throw exception in accessing children.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const CATCH_GET_CHILD = 16;
 
     /**
+     * Cache all read data.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const FULL_CACHE = 256;
 
     /**
+     * Use current for
+     * conversion to string.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const TOSTRING_USE_CURRENT = 4;
 
     /**
+     * Use inner
+     * for conversion to string.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const TOSTRING_USE_INNER = 8;
 
     /**
+     * Use key for conversion to
+     * string.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.cachingiterator.php#cachingiterator.constants
      */
     const TOSTRING_USE_KEY = 2;
 
@@ -1612,47 +1647,83 @@ class EmptyIterator implements Iterator
 class FilesystemIterator extends DirectoryIterator
 {
     /**
+     * Makes <code>FilesystemIterator::current</code> return an <code>SplFileInfo</code> instance.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const CURRENT_AS_FILEINFO = 0;
 
     /**
+     * Makes <code>FilesystemIterator::current</code> return the pathname.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const CURRENT_AS_PATHNAME = 32;
 
     /**
+     * Makes <code>FilesystemIterator::current</code> return $this (the FilesystemIterator).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const CURRENT_AS_SELF = 16;
 
     /**
+     * Masks <code>FilesystemIterator::current</code>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const CURRENT_MODE_MASK = 240;
 
     /**
+     * Makes <code>RecursiveDirectoryIterator::hasChildren</code> follow symlinks.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const FOLLOW_SYMLINKS = 512;
 
     /**
+     * Makes <code>FilesystemIterator::key</code> return the filename.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const KEY_AS_FILENAME = 256;
 
     /**
+     * Makes <code>FilesystemIterator::key</code> return the pathname.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const KEY_AS_PATHNAME = 0;
 
     /**
+     * Masks <code>FilesystemIterator::key</code>
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const KEY_MODE_MASK = 3840;
 
     /**
+     * Same as <code>FilesystemIterator::KEY_AS_FILENAME | FilesystemIterator::CURRENT_AS_FILEINFO</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const NEW_CURRENT_AND_KEY = 256;
 
@@ -1662,12 +1733,22 @@ class FilesystemIterator extends DirectoryIterator
     const OTHER_MODE_MASK = 12288;
 
     /**
+     * Skips dot files (<code>.</code> and <code>..</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const SKIP_DOTS = 4096;
 
     /**
+     * Makes paths use Unix-style forward slash irrespective of system default.
+     * Note that the <code>path</code> that is passed to the
+     * constructor is not modified.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.filesystemiterator.php#filesystemiterator.constants
      */
     const UNIX_PATHS = 8192;
 
@@ -2242,22 +2323,38 @@ class LogicException extends Exception
 class MultipleIterator implements Iterator
 {
     /**
+     * Keys are created from sub iterators associated information.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.multipleiterator.php#multipleiterator.constants
      */
     const MIT_KEYS_ASSOC = 2;
 
     /**
+     * Keys are created from the sub iterators position.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.multipleiterator.php#multipleiterator.constants
      */
     const MIT_KEYS_NUMERIC = 0;
 
     /**
+     * Require all sub iterators to be valid in iteration.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.multipleiterator.php#multipleiterator.constants
      */
     const MIT_NEED_ALL = 1;
 
     /**
+     * Do not require all sub iterators to be valid in iteration.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.multipleiterator.php#multipleiterator.constants
      */
     const MIT_NEED_ANY = 0;
 
@@ -2641,7 +2738,11 @@ class RangeException extends RuntimeException
 class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator
 {
     /**
+     * Treat only arrays (not objects) as having children for recursive iteration.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivearrayiterator.php#recursivearrayiterator.constants
      */
     const CHILD_ARRAYS_ONLY = 4;
 
@@ -2920,21 +3021,29 @@ class RecursiveIteratorIterator implements OuterIterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursiveiteratoriterator.php#recursiveiteratoriterator.constants
      */
     const CATCH_GET_CHILD = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursiveiteratoriterator.php#recursiveiteratoriterator.constants
      */
     const CHILD_FIRST = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursiveiteratoriterator.php#recursiveiteratoriterator.constants
      */
     const LEAVES_ONLY = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursiveiteratoriterator.php#recursiveiteratoriterator.constants
      */
     const SELF_FIRST = 1;
 
@@ -3253,41 +3362,57 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const BYPASS_CURRENT = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const BYPASS_KEY = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_END_HAS_NEXT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_END_LAST = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_LEFT = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_MID_HAS_NEXT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_MID_LAST = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.recursivetreeiterator.php#recursivetreeiterator.constants
      */
     const PREFIX_RIGHT = 5;
 
@@ -3542,12 +3667,22 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator
 class RegexIterator extends FilterIterator
 {
     /**
+     * Return all matches for the current entry
+     * (see <code>preg_match_all</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const ALL_MATCHES = 2;
 
     /**
+     * Return the first match for the current entry
+     * (see <code>preg_match</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const GET_MATCH = 1;
 
@@ -3557,22 +3692,40 @@ class RegexIterator extends FilterIterator
     const INVERT_MATCH = 2;
 
     /**
+     * Only execute match (filter) for the current entry
+     * (see <code>preg_match</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const MATCH = 0;
 
     /**
+     * Replace the current entry
+     * (see <code>preg_replace</code>; Not fully implemented yet)
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const REPLACE = 4;
 
     /**
+     * Returns the split values for the current entry (see <code>preg_split</code>).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const SPLIT = 3;
 
     /**
+     * Special flag: Match the entry key instead of the entry value.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.regexiterator.php#regexiterator.constants
      */
     const USE_KEY = 1;
 
@@ -4498,22 +4651,38 @@ class SplFileInfo
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator
 {
     /**
+     * Drop newlines at the end of a line.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.splfileobject.php#splfileobject.constants
      */
     const DROP_NEW_LINE = 1;
 
     /**
+     * Read on rewind/next.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.splfileobject.php#splfileobject.constants
      */
     const READ_AHEAD = 2;
 
     /**
+     * Read lines as CSV rows.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.splfileobject.php#splfileobject.constants
      */
     const READ_CSV = 8;
 
     /**
+     * Skips empty lines in the file. This requires the <code>READ_AHEAD</code> flag be enabled, to work as expected.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.splfileobject.php#splfileobject.constants
      */
     const SKIP_EMPTY = 4;
 

@@ -4,41 +4,79 @@
 // - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
 
 /**
+ * Atom (example: 2005-08-15T15:52:01+00:00)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_ATOM = 'Y-m-d\\TH:i:sP';
 
 /**
+ * HTTP Cookies (example: Monday, 15-Aug-2005 15:52:01 UTC)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_COOKIE = 'l, d-M-Y H:i:s T';
 
 /**
+ * ISO-8601 (example: 2005-08-15T15:52:01+0000)
+ * <blockquote>
+ * This format is not compatible with ISO-8601, but is left this way for
+ * backward compatibility reasons. Use <code>DateTime::ATOM</code>
+ * or <code>DATE_ATOM</code> for compatibility with ISO-8601
+ * instead.
+ * </blockquote>
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_ISO8601 = 'Y-m-d\\TH:i:sO';
 
 /**
+ * RFC 1036 (example: Mon, 15 Aug 05 15:52:01 +0000)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC1036 = 'D, d M y H:i:s O';
 
 /**
+ * RFC 1123 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC1123 = 'D, d M Y H:i:s O';
 
 /**
+ * RFC 2822 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC2822 = 'D, d M Y H:i:s O';
 
 /**
+ * Same as <code>DATE_ATOM</code> (since PHP 5.1.3)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC3339 = 'Y-m-d\\TH:i:sP';
 
 /**
+ * RFC 3339 EXTENDED format (since PHP 7.0.0) (example: 2005-08-15T15:52:01.000+00:00)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC3339_EXTENDED = 'Y-m-d\\TH:i:s.vP';
@@ -49,21 +87,37 @@ const DATE_RFC3339_EXTENDED = 'Y-m-d\\TH:i:s.vP';
 const DATE_RFC7231 = 'D, d M Y H:i:s \\G\\M\\T';
 
 /**
+ * RFC 822 (example: Mon, 15 Aug 05 15:52:01 +0000)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC822 = 'D, d M y H:i:s O';
 
 /**
+ * RFC 850 (example: Monday, 15-Aug-05 15:52:01 UTC)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RFC850 = 'l, d-M-y H:i:s T';
 
 /**
+ * RSS (example: Mon, 15 Aug 2005 15:52:01 +0000)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_RSS = 'D, d M Y H:i:s O';
 
 /**
+ * World Wide Web Consortium (example: 2005-08-15T15:52:01+00:00)
+ *
+ * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+ *
  * @var string
  */
 const DATE_W3C = 'Y-m-d\\TH:i:sP';
@@ -323,7 +377,11 @@ class DateInterval
 class DatePeriod implements Traversable
 {
     /**
+     * Exclude start date, used in <code>DatePeriod::__construct</code>.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateperiod.php#dateperiod.constants
      */
     const EXCLUDE_START_DATE = 1;
 
@@ -421,42 +479,80 @@ class DatePeriod implements Traversable
 class DateTime implements DateTimeInterface
 {
     /**
+     * Atom (example: 2005-08-15T15:52:01+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const ATOM = 'Y-m-d\\TH:i:sP';
 
     /**
+     * HTTP Cookies (example: Monday, 15-Aug-2005 15:52:01 UTC)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const COOKIE = 'l, d-M-Y H:i:s T';
 
     /**
+     * ISO-8601 (example: 2005-08-15T15:52:01+0000)
+     * <blockquote>
+     * This format is not compatible with ISO-8601, but is left this way for
+     * backward compatibility reasons. Use <code>DateTime::ATOM</code>
+     * or <code>DATE_ATOM</code> for compatibility with ISO-8601
+     * instead.
+     * </blockquote>
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const ISO8601 = 'Y-m-d\\TH:i:sO';
 
     /**
+     * RFC 1036 (example: Mon, 15 Aug 05 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC1036 = 'D, d M y H:i:s O';
 
     /**
+     * RFC 1123 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC1123 = 'D, d M Y H:i:s O';
 
     /**
+     * RFC 2822 (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC2822 = 'D, d M Y H:i:s O';
 
     /**
+     * Same as <code>DATE_ATOM</code> (since PHP 5.1.3)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC3339 = 'Y-m-d\\TH:i:sP';
 
     /**
+     * RFC 3339 EXTENDED format (since PHP 7.0.0) (example: 2005-08-15T15:52:01.000+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC3339_EXTENDED = 'Y-m-d\\TH:i:s.vP';
 
@@ -466,22 +562,38 @@ class DateTime implements DateTimeInterface
     const RFC7231 = 'D, d M Y H:i:s \\G\\M\\T';
 
     /**
+     * RFC 822 (example: Mon, 15 Aug 05 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC822 = 'D, d M y H:i:s O';
 
     /**
+     * RFC 850 (example: Monday, 15-Aug-05 15:52:01 UTC)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RFC850 = 'l, d-M-y H:i:s T';
 
     /**
+     * RSS (example: Mon, 15 Aug 2005 15:52:01 +0000)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const RSS = 'D, d M Y H:i:s O';
 
     /**
+     * World Wide Web Consortium (example: 2005-08-15T15:52:01+00:00)
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
      */
     const W3C = 'Y-m-d\\TH:i:sP';
 
@@ -1068,72 +1180,128 @@ class DateTimeImmutable implements DateTimeInterface
 class DateTimeZone
 {
     /**
+     * Africa time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const AFRICA = 1;
 
     /**
+     * All time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ALL = 2047;
 
     /**
+     * All time zones including backwards compatible.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ALL_WITH_BC = 4095;
 
     /**
+     * America time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const AMERICA = 2;
 
     /**
+     * Antarctica time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ANTARCTICA = 4;
 
     /**
+     * Arctic time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ARCTIC = 8;
 
     /**
+     * Asia time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ASIA = 16;
 
     /**
+     * Atlantic time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const ATLANTIC = 32;
 
     /**
+     * Australia time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const AUSTRALIA = 64;
 
     /**
+     * Europe time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const EUROPE = 128;
 
     /**
+     * Indian time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const INDIAN = 256;
 
     /**
+     * Pacific time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const PACIFIC = 512;
 
     /**
+     * Time zones per country.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const PER_COUNTRY = 4096;
 
     /**
+     * UTC time zones.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.datetimezone.php#datetimezone.constants
      */
     const UTC = 1024;
 

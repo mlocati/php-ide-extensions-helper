@@ -3,7 +3,10 @@
 // - parsed on POSIX with PHP 5.6.34
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.af-inet
+ * IPv4 Internet based protocols. TCP and UDP are common protocols of
+ * this protocol family.
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
@@ -19,23 +22,47 @@ const AF_INET = 2;
 const AF_INET6 = 10;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.af-unix
+ * Local communication protocol family. High efficiency and low
+ * overhead make it a great form of IPC (Interprocess Communication).
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
 const AF_UNIX = 1;
 
 /**
+ * The outgoing interface for IPv4 multicast packets.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IP_MULTICAST_IF = 32;
 
 /**
+ * The multicast loopback policy for IPv4 packets, which
+ * determines whether multicast packets sent by this socket also reach
+ * receivers in the same host that have joined the same multicast group
+ * on the outgoing interface used by this socket. This is the case by
+ * default.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IP_MULTICAST_LOOP = 34;
 
 /**
+ * The time-to-live of outgoing IPv4 multicast packets. This should be
+ * a value between 0 (don't leave the interface) and 255. The default
+ * value is 1 (only the local network is reached).
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IP_MULTICAST_TTL = 33;
@@ -56,16 +83,33 @@ const IPPROTO_IPV6 = 41;
 const IPV6_HOPLIMIT = 52;
 
 /**
+ * Analogous to <code>IP_MULTICAST_TTL</code>, but for IPv6
+ * packets. The value -1 is also accepted, meaning the route default
+ * should be used.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IPV6_MULTICAST_HOPS = 18;
 
 /**
+ * The outgoing interface for IPv6 multicast packets.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IPV6_MULTICAST_IF = 17;
 
 /**
+ * Analogous to <code>IP_MULTICAST_LOOP</code>, but for IPv6.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const IPV6_MULTICAST_LOOP = 19;
@@ -101,31 +145,61 @@ const IPV6_TCLASS = 67;
 const IPV6_UNICAST_HOPS = 16;
 
 /**
+ * Blocks packets arriving from a specific source to a specific
+ * multicast group, which must have been previously joined.
+ * (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_BLOCK_SOURCE = 43;
 
 /**
+ * Joins a multicast group. (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_JOIN_GROUP = 42;
 
 /**
+ * Receive packets destined to a specific multicast group whose source
+ * address matches a specific value. (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_JOIN_SOURCE_GROUP = 46;
 
 /**
+ * Leaves a multicast group. (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_LEAVE_GROUP = 45;
 
 /**
+ * Stop receiving packets destined to a specific multicast group whose
+ * soure address matches a specific value. (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_LEAVE_SOURCE_GROUP = 47;
 
 /**
+ * Unblocks (start receiving again) packets arriving from a specific
+ * source address to a specific multicast group, which must have been
+ * previously joined. (added in PHP 5.4)
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
+ *
  * @var int
  */
 const MCAST_UNBLOCK_SOURCE = 44;
@@ -146,13 +220,20 @@ const MSG_CONFIRM = 2048;
 const MSG_CTRUNC = 8;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.msg-dontroute
+ * Bypass routing, use direct interface.
+ *
+ * @link http://www.php.net/manual/en/function.socket-send.php
  *
  * @var int
  */
 const MSG_DONTROUTE = 4;
 
 /**
+ * With this flag set, the function returns even if it would normally
+ * have blocked.
+ *
+ * @link http://www.php.net/manual/en/function.socket-recv.php
+ *
  * @var int
  */
 const MSG_DONTWAIT = 64;
@@ -191,14 +272,19 @@ const MSG_MORE = 32768;
 const MSG_NOSIGNAL = 16384;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.msg-oob
+ * Process out-of-band data.
+ *
+ * @link http://www.php.net/manual/en/function.socket-recv.php
  *
  * @var int
  */
 const MSG_OOB = 1;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.msg-peek
+ * Receive data from the beginning of the receive queue without
+ * removing it from the queue.
+ *
+ * @link http://www.php.net/manual/en/function.socket-recv.php
  *
  * @var int
  */
@@ -210,7 +296,11 @@ const MSG_PEEK = 2;
 const MSG_TRUNC = 32;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.msg-waitall
+ * Block until at least <code>len</code> are received.
+ * However, if a signal is caught or the remote host disconnects, the
+ * function may return less data.
+ *
+ * @link http://www.php.net/manual/en/function.socket-recv.php
  *
  * @var int
  */
@@ -251,49 +341,81 @@ const SCM_RIGHTS = 1;
 const SO_BINDTODEVICE = 25;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-broadcast
+ * Reports whether transmission of broadcast messages is supported.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_BROADCAST = 6;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-debug
+ * Reports whether debugging information is being recorded.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_DEBUG = 1;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-dontroute
+ * Reports whether outgoing messages bypass the standard routing facilities.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_DONTROUTE = 5;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-error
+ * Reports information about error status and clears it.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_ERROR = 4;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-keepalive
+ * Reports whether connections are kept active with periodic transmission
+ * of messages. If the connected socket fails to respond to these messages,
+ * the connection is broken and processes writing to that socket are notified
+ * with a SIGPIPE signal.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_KEEPALIVE = 9;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-linger
+ * Reports whether the <code>socket</code> lingers on
+ * <code>socket_close</code> if data is present. By default,
+ * when the socket is closed, it attempts to send all unsent data.
+ * In the case of a connection-oriented socket,
+ * <code>socket_close</code> will wait for its peer to
+ * acknowledge the data.
+ * If <code>l_onoff</code> is non-zero and
+ * <code>l_linger</code> is zero, all the
+ * unsent data will be discarded and RST (reset) is sent to the
+ * peer in the case of a connection-oriented socket.
+ * On the other hand, if <code>l_onoff</code> is
+ * non-zero and <code>l_linger</code> is non-zero,
+ * <code>socket_close</code> will block until all the data
+ * is sent or the time specified in <code>l_linger</code>
+ * elapses. If the socket is non-blocking,
+ * <code>socket_close</code> will fail and return an error.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_LINGER = 13;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-oobinline
+ * Reports whether the <code>socket</code> leaves out-of-band data inline.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
@@ -305,28 +427,37 @@ const SO_OOBINLINE = 10;
 const SO_PASSCRED = 16;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-rcvbuf
+ * Reports the size of the receive buffer.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_RCVBUF = 8;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-rcvlowat
+ * Reports the minimum number of bytes to process for <code>socket</code>
+ * input operations.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_RCVLOWAT = 18;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-rcvtimeo
+ * Reports the timeout value for input operations.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_RCVTIMEO = 20;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-reuseaddr
+ * Reports whether local addresses can be reused.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
@@ -344,63 +475,91 @@ const SO_REUSEADDR = 2;
 const SO_REUSEPORT = 15;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-sndbuf
+ * Reports the size of the send buffer.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_SNDBUF = 7;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-sndlowat
+ * Reports the minimum number of bytes to process for <code>socket</code> output operations.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_SNDLOWAT = 19;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-sndtimeo
+ * Reports the timeout value specifying the amount of time that an output
+ * function blocks because flow control prevents data from being sent.
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_SNDTIMEO = 21;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.so-type
+ * Reports the <code>socket</code> type (e.g.
+ * <code>SOCK_STREAM</code>).
+ *
+ * @link http://www.php.net/manual/en/function.socket-get-option.php
  *
  * @var int
  */
 const SO_TYPE = 3;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.sock-dgram
+ * Supports datagrams (connectionless, unreliable messages of a fixed maximum length).
+ * The UDP protocol is based on this socket type.
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
 const SOCK_DGRAM = 2;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.sock-raw
+ * Provides raw network protocol access. This special type of socket
+ * can be used to manually construct any type of protocol. A common use
+ * for this socket type is to perform ICMP requests (like ping).
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
 const SOCK_RAW = 3;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.sock-rdm
+ * Provides a reliable datagram layer that does not guarantee ordering.
+ * This is most likely not implemented on your operating system.
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
 const SOCK_RDM = 4;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.sock-seqpacket
+ * Provides a sequenced, reliable, two-way connection-based data transmission path for
+ * datagrams of fixed maximum length; a consumer is required to read an
+ * entire packet with each read call.
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */
 const SOCK_SEQPACKET = 5;
 
 /**
- * @link http://www.php.net/manual/en/sockets.constants.php#constant.sock-stream
+ * Provides sequenced, reliable, full-duplex, connection-based byte streams.
+ * An out-of-band data transmission mechanism may be supported.
+ * The TCP protocol is based on this socket type.
+ *
+ * @link http://www.php.net/manual/en/function.socket-create.php
  *
  * @var int
  */

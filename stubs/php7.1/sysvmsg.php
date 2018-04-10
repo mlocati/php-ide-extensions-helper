@@ -13,16 +13,36 @@ const MSG_EAGAIN = 11;
 const MSG_ENOMSG = 42;
 
 /**
+ * Using this flag in combination with a
+ * <code>desiredmsgtype</code> greater than 0 will cause the
+ * function to receive the first message that is not equal to
+ * <code>desiredmsgtype</code>.
+ *
+ * @link http://www.php.net/manual/en/function.msg-receive.php
+ *
  * @var int
  */
 const MSG_EXCEPT = 4;
 
 /**
+ * If there are no messages of the
+ * <code>desiredmsgtype</code>, return immediately and do not
+ * wait. The function will fail and return an integer value
+ * corresponding to <code>MSG_ENOMSG</code>.
+ *
+ * @link http://www.php.net/manual/en/function.msg-receive.php
+ *
  * @var int
  */
 const MSG_IPC_NOWAIT = 1;
 
 /**
+ * If the message is longer than <code>maxsize</code>,
+ * setting this flag will truncate the message to
+ * <code>maxsize</code> and will not signal an error.
+ *
+ * @link http://www.php.net/manual/en/function.msg-receive.php
+ *
  * @var int
  */
 const MSG_NOERROR = 2;

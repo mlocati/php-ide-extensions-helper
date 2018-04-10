@@ -40,62 +40,110 @@ const SOLR_PATCH_VERSION = 0;
 class SolrClient
 {
     /**
+     * This is the intial value for the ping servlet.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_PING_SERVLET = 'admin/ping';
 
     /**
+     * This is the intial value for the search servlet.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_SEARCH_SERVLET = 'select';
 
     /**
+     * This is the intial value for the system servlet used to obtain Solr Server information
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_SYSTEM_SERVLET = 'admin/system';
 
     /**
+     * This is the intial value for the terms servlet used for the TermsComponent
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_TERMS_SERVLET = 'terms';
 
     /**
+     * This is the intial value for the threads servlet.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_THREADS_SERVLET = 'admin/threads';
 
     /**
+     * This is the intial value for the update servlet.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const DEFAULT_UPDATE_SERVLET = 'update';
 
     /**
+     * Used when updating the ping servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const PING_SERVLET_TYPE = 8;
 
     /**
+     * Used when updating the search servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const SEARCH_SERVLET_TYPE = 1;
 
     /**
+     * Used when retrieving system information from the system servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const SYSTEM_SERVLET_TYPE = 32;
 
     /**
+     * Used when updating the terms servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const TERMS_SERVLET_TYPE = 16;
 
     /**
+     * Used when updating the threads servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const THREADS_SERVLET_TYPE = 4;
 
     /**
+     * Used when updating the update servlet.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrclient.php#solrclient.constants
      */
     const UPDATE_SERVLET_TYPE = 2;
 
@@ -479,16 +527,22 @@ class SolrCollapseFunction
 {
     /**
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrcollapsefunction.php#solrcollapsefunction.constants
      */
     const NULLPOLICY_COLLAPSE = 'collapse';
 
     /**
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrcollapsefunction.php#solrcollapsefunction.constants
      */
     const NULLPOLICY_EXPAND = 'expand';
 
     /**
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrcollapsefunction.php#solrcollapsefunction.constants
      */
     const NULLPOLICY_IGNORE = 'ignore';
 
@@ -1087,32 +1141,56 @@ class SolrDisMaxQuery extends SolrQuery
 final class SolrDocument implements ArrayAccess, Iterator, Serializable
 {
     /**
+     * Sorts the fields in ascending order
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_ASC = 1;
 
     /**
+     * Default mode for sorting fields within the document.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_DEFAULT = 1;
 
     /**
+     * Sorts the fields in descending order
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_DESC = 2;
 
     /**
+     * Sorts the fields by thier boost values.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_FIELD_BOOST_VALUE = 4;
 
     /**
+     * Sorts the fields by field name.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_FIELD_NAME = 1;
 
     /**
+     * Sorts the fields by number of values in each field.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrdocument.php#solrdocument.constants
      */
     const SORT_FIELD_VALUE_COUNT = 2;
 
@@ -1755,32 +1833,56 @@ class SolrIllegalOperationException extends SolrException
 final class SolrInputDocument
 {
     /**
+     * Sorts the fields in ascending order.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_ASC = 1;
 
     /**
+     * Sorts the fields in ascending order.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_DEFAULT = 1;
 
     /**
+     * Sorts the fields in descending order.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_DESC = 2;
 
     /**
+     * Sorts the fields by boost value.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_FIELD_BOOST_VALUE = 4;
 
     /**
+     * Sorts the fields by name
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_FIELD_NAME = 1;
 
     /**
+     * Sorts the fields by number of values.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrinputdocument.php#solrinputdocument.constants
      */
     const SORT_FIELD_VALUE_COUNT = 2;
 
@@ -2515,32 +2617,56 @@ final class SolrPingResponse extends SolrResponse
 class SolrQuery extends SolrModifiableParams
 {
     /**
+     * Used to specify that the facet should sort by count
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const FACET_SORT_COUNT = 1;
 
     /**
+     * Used to specify that the facet should sort by index
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const FACET_SORT_INDEX = 0;
 
     /**
+     * Used to specify that the sorting should be in acending order
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const ORDER_ASC = 0;
 
     /**
+     * Used to specify that the sorting should be in descending order
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const ORDER_DESC = 1;
 
     /**
+     * Used in the TermsComponent
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const TERMS_SORT_COUNT = 1;
 
     /**
+     * Used in the TermsComponent
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrquery.php#solrquery.constants
      */
     const TERMS_SORT_INDEX = 0;
 
@@ -5373,12 +5499,20 @@ final class SolrQueryResponse extends SolrResponse
 abstract class SolrResponse
 {
     /**
+     * Documents should be parsed as SolrDocument instances.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.constants
      */
     const PARSE_SOLR_DOC = 1;
 
     /**
+     * Documents should be parsed as SolrObject instances
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.constants
      */
     const PARSE_SOLR_OBJ = 0;
 

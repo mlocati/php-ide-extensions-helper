@@ -158,28 +158,42 @@ const XML_ERROR_UNDEFINED_ENTITY = 11;
 const XML_ERROR_UNKNOWN_ENCODING = 18;
 
 /**
- * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-option-case-folding
+ * Controls whether case-folding is enabled for this
+ * XML parser. Enabled by default.
+ *
+ * @link http://www.php.net/manual/en/function.xml-parser-set-option.php
  *
  * @var int
  */
 const XML_OPTION_CASE_FOLDING = 1;
 
 /**
- * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-option-skip-tagstart
+ * Specify how many characters should be skipped in the beginning of a
+ * tag name.
+ *
+ * @link http://www.php.net/manual/en/function.xml-parser-set-option.php
  *
  * @var int
  */
 const XML_OPTION_SKIP_TAGSTART = 3;
 
 /**
- * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-option-skip-white
+ * Whether to skip values consisting of whitespace characters.
+ *
+ * @link http://www.php.net/manual/en/function.xml-parser-set-option.php
  *
  * @var int
  */
 const XML_OPTION_SKIP_WHITE = 4;
 
 /**
- * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-option-target-encoding
+ * Sets which target encoding to
+ * use in this XML parser.By default, it is set to the same as the
+ * source encoding used by <code>xml_parser_create</code>.
+ * Supported target encodings are <code>ISO-8859-1</code>,
+ * <code>US-ASCII</code> and <code>UTF-8</code>.
+ *
+ * @link http://www.php.net/manual/en/function.xml-parser-set-option.php
  *
  * @var int
  */

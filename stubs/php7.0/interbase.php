@@ -218,8 +218,6 @@ const IBASE_PRP_WRITE_MODE = 12;
 const IBASE_READ = 2;
 
 /**
- * @link http://www.php.net/manual/en/ibase.constants.php
- *
  * @var int
  */
 const IBASE_REC_NO_VERSION = 32;

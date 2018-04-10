@@ -90,6 +90,11 @@ const FTP_TEXT = 1;
 const FTP_TIMEOUT_SEC = 0;
 
 /**
+ * When disabled, PHP will ignore the IP address returned by the FTP server in response to the PASV command and instead use the IP address that was supplied in the ftp_connect().
+ * <code>value</code> must be a boolean.
+ *
+ * @link http://www.php.net/manual/en/function.ftp-set-option.php
+ *
  * @var int
  */
 const FTP_USEPASVADDRESS = 2;

@@ -13,32 +13,56 @@
 class ZipArchive
 {
     /**
+     * Perform additional consistency checks on the archive, and error if they fail.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.checkcons
      */
     const CHECKCONS = 4;
 
     /**
+     * BZIP2 algorithm
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-bzip2
      */
     const CM_BZIP2 = 12;
 
     /**
+     * better of deflate or store.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-default
      */
     const CM_DEFAULT = -1;
 
     /**
+     * deflated
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-deflate
      */
     const CM_DEFLATE = 8;
 
     /**
+     * deflate64
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-deflate64
      */
     const CM_DEFLATE64 = 9;
 
     /**
+     * imploded
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-implode
      */
     const CM_IMPLODE = 6;
 
@@ -53,7 +77,11 @@ class ZipArchive
     const CM_LZMA = 14;
 
     /**
+     * PKWARE imploding
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-pkware-implode
      */
     const CM_PKWARE_IMPLODE = 10;
 
@@ -63,32 +91,56 @@ class ZipArchive
     const CM_PPMD = 98;
 
     /**
+     * reduced with factor 1
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-reduce-1
      */
     const CM_REDUCE_1 = 2;
 
     /**
+     * reduced with factor 2
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-reduce-2
      */
     const CM_REDUCE_2 = 3;
 
     /**
+     * reduced with factor 3
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-reduce-3
      */
     const CM_REDUCE_3 = 4;
 
     /**
+     * reduced with factor 4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-reduce-4
      */
     const CM_REDUCE_4 = 5;
 
     /**
+     * shrunk
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-shrink
      */
     const CM_SHRINK = 1;
 
     /**
+     * stored (uncompressed).
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.cm-store
      */
     const CM_STORE = 0;
 
@@ -103,272 +155,488 @@ class ZipArchive
     const CM_WAVPACK = 97;
 
     /**
+     * Create the archive if it does not exist.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.create
      */
     const CREATE = 1;
 
     /**
+     * Entry has been changed
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-changed
      */
     const ER_CHANGED = 15;
 
     /**
+     * Closing zip archive failed
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-close
      */
     const ER_CLOSE = 3;
 
     /**
+     * Compression method not supported.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-compnotsupp
      */
     const ER_COMPNOTSUPP = 16;
 
     /**
+     * CRC error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-crc
      */
     const ER_CRC = 7;
 
     /**
+     * Entry has been deleted
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-deleted
      */
     const ER_DELETED = 23;
 
     /**
+     * Premature EOF
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-eof
      */
     const ER_EOF = 17;
 
     /**
+     * File already exists
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-exists
      */
     const ER_EXISTS = 10;
 
     /**
+     * Zip archive inconsistent
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-incons
      */
     const ER_INCONS = 21;
 
     /**
+     * Internal error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-internal
      */
     const ER_INTERNAL = 20;
 
     /**
+     * Invalid argument
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-inval
      */
     const ER_INVAL = 18;
 
     /**
+     * Memory allocation failure
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-memory
      */
     const ER_MEMORY = 14;
 
     /**
+     * Multi-disk zip archives not supported.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-multidisk
      */
     const ER_MULTIDISK = 1;
 
     /**
+     * No such file.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-noent
      */
     const ER_NOENT = 9;
 
     /**
+     * Not a zip archive
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-nozip
      */
     const ER_NOZIP = 19;
 
     /**
+     * No error.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-ok
      */
     const ER_OK = 0;
 
     /**
+     * Can't open file
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-open
      */
     const ER_OPEN = 11;
 
     /**
+     * Read error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-read
      */
     const ER_READ = 5;
 
     /**
+     * Can't remove file
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-remove
      */
     const ER_REMOVE = 22;
 
     /**
+     * Renaming temporary file failed.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-rename
      */
     const ER_RENAME = 2;
 
     /**
+     * Seek error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-seek
      */
     const ER_SEEK = 4;
 
     /**
+     * Failure to create temporary file.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-tmpopen
      */
     const ER_TMPOPEN = 12;
 
     /**
+     * Write error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-write
      */
     const ER_WRITE = 6;
 
     /**
+     * Containing zip archive was closed
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-zipclosed
      */
     const ER_ZIPCLOSED = 8;
 
     /**
+     * Zlib error
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.er-zlib
      */
     const ER_ZLIB = 13;
 
     /**
+     * Error if archive already exists.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.excl
      */
     const EXCL = 2;
 
     /**
+     * Read compressed data
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-compressed
      */
     const FL_COMPRESSED = 4;
 
     /**
+     * String is CP437 encoded. Available as of PHP 7.0.8.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-enc-cp437
      */
     const FL_ENC_CP437 = 4096;
 
     /**
+     * Guess string encoding (is default). Available as of PHP 7.0.8.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-enc-guess
      */
     const FL_ENC_GUESS = 0;
 
     /**
+     * Get unmodified string. Available as of PHP 7.0.8.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-enc-raw
      */
     const FL_ENC_RAW = 64;
 
     /**
+     * Follow specification strictly. Available as of PHP 7.0.8.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-enc-strict
      */
     const FL_ENC_STRICT = 128;
 
     /**
+     * String is UTF-8 encoded. Available as of PHP 7.0.8.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-enc-utf8
      */
     const FL_ENC_UTF_8 = 2048;
 
     /**
+     * Ignore case on name lookup
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-nocase
      */
     const FL_NOCASE = 1;
 
     /**
+     * Ignore directory component
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-nodir
      */
     const FL_NODIR = 2;
 
     /**
+     * Use original data, ignoring changes.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.fl-unchanged
      */
     const FL_UNCHANGED = 8;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_ACORN_RISC = 13;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_ALTERNATE_MVS = 15;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_AMIGA = 1;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_ATARI_ST = 5;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_BEOS = 16;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_DEFAULT = 3;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_DOS = 0;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_MACINTOSH = 7;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_MVS = 11;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_OPENVMS = 2;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_OS_2 = 6;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_OS_400 = 18;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_OS_X = 19;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_TANDEM = 17;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_UNIX = 3;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_VFAT = 14;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_VM_CMS = 4;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_VSE = 12;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_WINDOWS_NTFS = 10;
 
@@ -378,12 +646,21 @@ class ZipArchive
     const OPSYS_Z_CPM = 9;
 
     /**
+     * Since PHP 5.6.0, PECL zip 1.12.4
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
      */
     const OPSYS_Z_SYSTEM = 8;
 
     /**
+     * Always start a new archive, this mode will overwrite the file if
+     * it already exists.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/zip.constants.php#ziparchive.constants.overwrite
      */
     const OVERWRITE = 8;
 

@@ -19,26 +19,38 @@ class Imagick implements Countable, Iterator
 {
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.align-center
      */
     const ALIGN_CENTER = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.align-left
      */
     const ALIGN_LEFT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.align-right
      */
     const ALIGN_RIGHT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.align-undefined
      */
     const ALIGN_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.8 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-activate
      */
     const ALPHACHANNEL_ACTIVATE = 1;
 
@@ -48,17 +60,29 @@ class Imagick implements Countable, Iterator
     const ALPHACHANNEL_BACKGROUND = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-copy
      */
     const ALPHACHANNEL_COPY = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.8 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-deactivate
      */
     const ALPHACHANNEL_DEACTIVATE = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-extract
      */
     const ALPHACHANNEL_EXTRACT = 5;
 
@@ -68,7 +92,11 @@ class Imagick implements Countable, Iterator
     const ALPHACHANNEL_FLATTEN = 11;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-opaque
      */
     const ALPHACHANNEL_OPAQUE = 6;
 
@@ -78,47 +106,75 @@ class Imagick implements Countable, Iterator
     const ALPHACHANNEL_REMOVE = 12;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.8 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-reset
      */
     const ALPHACHANNEL_RESET = 7;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.8 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-set
      */
     const ALPHACHANNEL_SET = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-shape
      */
     const ALPHACHANNEL_SHAPE = 9;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-transparent
      */
     const ALPHACHANNEL_TRANSPARENT = 10;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-undefined
      */
     const ALPHACHANNEL_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-all
      */
     const CHANNEL_ALL = 134217727;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-alpha
      */
     const CHANNEL_ALPHA = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-black
      */
     const CHANNEL_BLACK = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-blue
      */
     const CHANNEL_BLUE = 4;
 
@@ -129,16 +185,22 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-cyan
      */
     const CHANNEL_CYAN = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-default
      */
     const CHANNEL_DEFAULT = 134217719;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-gray
      */
     const CHANNEL_GRAY = 1;
 
@@ -149,31 +211,43 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-green
      */
     const CHANNEL_GREEN = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-index
      */
     const CHANNEL_INDEX = 32;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-magenta
      */
     const CHANNEL_MAGENTA = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-matte
      */
     const CHANNEL_MATTE = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-opacity
      */
     const CHANNEL_OPACITY = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-red
      */
     const CHANNEL_RED = 1;
 
@@ -199,76 +273,128 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-undefined
      */
     const CHANNEL_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-yellow
      */
     const CHANNEL_YELLOW = 4;
 
     /**
+     * Color's alpha
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-alpha
      */
     const COLOR_ALPHA = 19;
 
     /**
+     * Black color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-black
      */
     const COLOR_BLACK = 11;
 
     /**
+     * Blue color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-blue
      */
     const COLOR_BLUE = 12;
 
     /**
+     * Cyan color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-cyan
      */
     const COLOR_CYAN = 13;
 
     /**
+     * Color's fuzz
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-fuzz
      */
     const COLOR_FUZZ = 20;
 
     /**
+     * Green color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-green
      */
     const COLOR_GREEN = 14;
 
     /**
+     * Magenta color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-magenta
      */
     const COLOR_MAGENTA = 17;
 
     /**
+     * Color's opacity
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-opacity
      */
     const COLOR_OPACITY = 18;
 
     /**
+     * Red color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-red
      */
     const COLOR_RED = 15;
 
     /**
+     * Yellow color
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.color-yellow
      */
     const COLOR_YELLOW = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-cmy
      */
     const COLORSPACE_CMY = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-cmyk
      */
     const COLORSPACE_CMYK = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-gray
      */
     const COLORSPACE_GRAY = 2;
 
@@ -284,6 +410,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-hsb
      */
     const COLORSPACE_HSB = 14;
 
@@ -294,6 +422,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-hsl
      */
     const COLORSPACE_HSL = 15;
 
@@ -304,11 +434,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-hwb
      */
     const COLORSPACE_HWB = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-lab
      */
     const COLORSPACE_LAB = 5;
 
@@ -334,6 +468,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-log
      */
     const COLORSPACE_LOG = 21;
 
@@ -344,11 +480,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-ohta
      */
     const COLORSPACE_OHTA = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-rec601luma
      */
     const COLORSPACE_REC601LUMA = 17;
 
@@ -359,6 +499,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-rec709luma
      */
     const COLORSPACE_REC709LUMA = 19;
 
@@ -369,6 +511,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-rgb
      */
     const COLORSPACE_RGB = 1;
 
@@ -379,31 +523,43 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-srgb
      */
     const COLORSPACE_SRGB = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-transparent
      */
     const COLORSPACE_TRANSPARENT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-undefined
      */
     const COLORSPACE_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-xyz
      */
     const COLORSPACE_XYZ = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-ycbcr
      */
     const COLORSPACE_YCBCR = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-ycc
      */
     const COLORSPACE_YCC = 8;
 
@@ -414,31 +570,49 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-yiq
      */
     const COLORSPACE_YIQ = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-ypbpr
      */
     const COLORSPACE_YPBPR = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-yuv
      */
     const COLORSPACE_YUV = 11;
 
     /**
+     * The result of image + image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-add
      */
     const COMPOSITE_ADD = 2;
 
     /**
+     * The result is the same shape as image, with composite image obscuring image where the image shapes overlap
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-atop
      */
     const COMPOSITE_ATOP = 3;
 
     /**
+     * Blends the image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-blend
      */
     const COMPOSITE_BLEND = 4;
 
@@ -448,7 +622,11 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_BLUR = 57;
 
     /**
+     * The same as COMPOSITE_MULTIPLY, except the source is converted to grayscale first.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-bumpmap
      */
     const COMPOSITE_BUMPMAP = 5;
 
@@ -458,72 +636,128 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_CHANGEMASK = 6;
 
     /**
+     * Makes the target image transparent
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-clear
      */
     const COMPOSITE_CLEAR = 7;
 
     /**
+     * Darkens the destination image to reflect the source image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-colorburn
      */
     const COMPOSITE_COLORBURN = 8;
 
     /**
+     * Brightens the destination image to reflect the source image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-colordodge
      */
     const COMPOSITE_COLORDODGE = 9;
 
     /**
+     * Colorizes the target image using the composite image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-colorize
      */
     const COMPOSITE_COLORIZE = 10;
 
     /**
+     * Copies the source image on the target image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copy
      */
     const COMPOSITE_COPY = 13;
 
     /**
+     * Copies black from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copyblack
      */
     const COMPOSITE_COPYBLACK = 11;
 
     /**
+     * Copies blue from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copyblue
      */
     const COMPOSITE_COPYBLUE = 12;
 
     /**
+     * Copies cyan from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copycyan
      */
     const COMPOSITE_COPYCYAN = 14;
 
     /**
+     * Copies green from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copygreen
      */
     const COMPOSITE_COPYGREEN = 15;
 
     /**
+     * Copies magenta from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copymagenta
      */
     const COMPOSITE_COPYMAGENTA = 16;
 
     /**
+     * Copies opacity from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copyopacity
      */
     const COMPOSITE_COPYOPACITY = 17;
 
     /**
+     * Copies red from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copyred
      */
     const COMPOSITE_COPYRED = 18;
 
     /**
+     * Copies yellow from the source to target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copyyellow
      */
     const COMPOSITE_COPYYELLOW = 19;
 
     /**
+     * Darkens the target image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-darken
      */
     const COMPOSITE_DARKEN = 20;
 
@@ -533,22 +767,38 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_DARKENINTENSITY = 66;
 
     /**
+     * The default composite operator
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-default
      */
     const COMPOSITE_DEFAULT = 40;
 
     /**
+     * Subtracts the darker of the two constituent colors from the lighter
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-difference
      */
     const COMPOSITE_DIFFERENCE = 26;
 
     /**
+     * Shifts target image pixels as defined by the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-displace
      */
     const COMPOSITE_DISPLACE = 27;
 
     /**
+     * Dissolves the source in to the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dissolve
      */
     const COMPOSITE_DISSOLVE = 28;
 
@@ -573,52 +823,92 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_DIVIDESRC = 64;
 
     /**
+     * The target is left untouched
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dst
      */
     const COMPOSITE_DST = 22;
 
     /**
+     * The part of the destination lying inside of the source is composited over the source and replaces the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dstatop
      */
     const COMPOSITE_DSTATOP = 21;
 
     /**
+     * The parts inside the source replace the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dstin
      */
     const COMPOSITE_DSTIN = 23;
 
     /**
+     * The parts outside the source replace the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dstout
      */
     const COMPOSITE_DSTOUT = 24;
 
     /**
+     * Target replaces the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-dstover
      */
     const COMPOSITE_DSTOVER = 25;
 
     /**
+     * Produces an effect similar to that of imagick::COMPOSITE_DIFFERENCE, but appears as lower contrast
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-exclusion
      */
     const COMPOSITE_EXCLUSION = 29;
 
     /**
+     * Multiplies or screens the colors, dependent on the source color value
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-hardlight
      */
     const COMPOSITE_HARDLIGHT = 30;
 
     /**
+     * Modifies the hue of the target as defined by source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-hue
      */
     const COMPOSITE_HUE = 31;
 
     /**
+     * Composites source into the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-in
      */
     const COMPOSITE_IN = 32;
 
     /**
+     * Lightens the target as defined by source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-lighten
      */
     const COMPOSITE_LIGHTEN = 33;
 
@@ -643,7 +933,11 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_LINEARLIGHT = 34;
 
     /**
+     * Luminizes the target as defined by source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-luminize
      */
     const COMPOSITE_LUMINIZE = 35;
 
@@ -653,7 +947,11 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_MATHEMATICS = 63;
 
     /**
+     * Subtracts the source from the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-minus
      */
     const COMPOSITE_MINUS = 36;
 
@@ -668,7 +966,11 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_MINUSSRC = 65;
 
     /**
+     * Modulates the target brightness, saturation and hue as defined by source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-modulate
      */
     const COMPOSITE_MODULATE = 37;
 
@@ -683,27 +985,47 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_MODULUSSUBTRACT = 52;
 
     /**
+     * Multiplies the target to the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-multiply
      */
     const COMPOSITE_MULTIPLY = 38;
 
     /**
+     * No composite operator defined
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-no
      */
     const COMPOSITE_NO = 1;
 
     /**
+     * Composites outer parts of the source on the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-out
      */
     const COMPOSITE_OUT = 39;
 
     /**
+     * Composites source over the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-over
      */
     const COMPOSITE_OVER = 40;
 
     /**
+     * Overlays the source on the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-overlay
      */
     const COMPOSITE_OVERLAY = 41;
 
@@ -718,67 +1040,119 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_PINLIGHT = 60;
 
     /**
+     * Adds the source to the target
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-plus
      */
     const COMPOSITE_PLUS = 42;
 
     /**
+     * Replaces the target with the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-replace
      */
     const COMPOSITE_REPLACE = 43;
 
     /**
+     * Saturates the target as defined by the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-saturate
      */
     const COMPOSITE_SATURATE = 44;
 
     /**
+     * The source and destination are complemented and then multiplied and then replace the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-screen
      */
     const COMPOSITE_SCREEN = 45;
 
     /**
+     * Darkens or lightens the colors, dependent on the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-softlight
      */
     const COMPOSITE_SOFTLIGHT = 46;
 
     /**
+     * The source is copied to the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-src
      */
     const COMPOSITE_SRC = 48;
 
     /**
+     * The part of the source lying inside of the destination is composited onto the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-srcatop
      */
     const COMPOSITE_SRCATOP = 47;
 
     /**
+     * The part of the source lying inside of the destination replaces the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-srcin
      */
     const COMPOSITE_SRCIN = 49;
 
     /**
+     * The part of the source lying outside of the destination replaces the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-srcout
      */
     const COMPOSITE_SRCOUT = 50;
 
     /**
+     * The source replaces the destination
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-srcover
      */
     const COMPOSITE_SRCOVER = 51;
 
     /**
+     * Subtract the colors in the source image from the destination image
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-subtract
      */
     const COMPOSITE_SUBTRACT = 52;
 
     /**
+     * The source is composited on the target as defined by source threshold
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-threshold
      */
     const COMPOSITE_THRESHOLD = 53;
 
     /**
+     * Undefined composite operator
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-undefined
      */
     const COMPOSITE_UNDEFINED = 0;
 
@@ -788,7 +1162,11 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_VIVIDLIGHT = 59;
 
     /**
+     * The part of the source that lies outside of the destination is combined with the part of the destination that lies outside of the source
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-xor
      */
     const COMPOSITE_XOR = 54;
 
@@ -804,31 +1182,49 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-bzip
      */
     const COMPRESSION_BZIP = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-dxt1
      */
     const COMPRESSION_DXT1 = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-dxt3
      */
     const COMPRESSION_DXT3 = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-dxt5
      */
     const COMPRESSION_DXT5 = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-fax
      */
     const COMPRESSION_FAX = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-group4
      */
     const COMPRESSION_GROUP4 = 7;
 
@@ -844,16 +1240,22 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-jpeg
      */
     const COMPRESSION_JPEG = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-jpeg2000
      */
     const COMPRESSION_JPEG2000 = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-losslessjpeg
      */
     const COMPRESSION_LOSSLESSJPEG = 10;
 
@@ -864,11 +1266,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-lzw
      */
     const COMPRESSION_LZW = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-no
      */
     const COMPRESSION_NO = 1;
 
@@ -884,16 +1290,22 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-rle
      */
     const COMPRESSION_RLE = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-undefined
      */
     const COMPRESSION_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.compression-zip
      */
     const COMPRESSION_ZIP = 13;
 
@@ -909,21 +1321,29 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.decoration-linetrough
      */
     const DECORATION_LINETROUGH = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.decoration-no
      */
     const DECORATION_NO = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.decoration-overline
      */
     const DECORATION_OVERLINE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.decoration-underline
      */
     const DECORATION_UNDERLINE = 2;
 
@@ -938,57 +1358,101 @@ class Imagick implements Countable, Iterator
     const DIRECTION_RIGHT_TO_LEFT = 1;
 
     /**
+     * Dispose background
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dispose-background
      */
     const DISPOSE_BACKGROUND = 2;
 
     /**
+     * No dispose type defined
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dispose-none
      */
     const DISPOSE_NONE = 1;
 
     /**
+     * Dispose previous
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dispose-previous
      */
     const DISPOSE_PREVIOUS = 3;
 
     /**
+     * Undefined dispose type
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dispose-undefined
      */
     const DISPOSE_UNDEFINED = 0;
 
     /**
+     * Unrecognized dispose type
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dispose-unrecognized
      */
     const DISPOSE_UNRECOGNIZED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-affine
      */
     const DISTORTION_AFFINE = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-affineprojection
      */
     const DISTORTION_AFFINEPROJECTION = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-arc
      */
     const DISTORTION_ARC = 9;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-barrel
      */
     const DISTORTION_BARREL = 14;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-barrelinverse
      */
     const DISTORTION_BARRELINVERSE = 15;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-bilinear
      */
     const DISTORTION_BILINEAR = 6;
 
@@ -1008,17 +1472,29 @@ class Imagick implements Countable, Iterator
     const DISTORTION_CYLINDER2PLANE = 12;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-depolar
      */
     const DISTORTION_DEPOLAR = 11;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-perspective
      */
     const DISTORTION_PERSPECTIVE = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-perspectiveprojection
      */
     const DISTORTION_PERSPECTIVEPROJECTION = 5;
 
@@ -1028,12 +1504,20 @@ class Imagick implements Countable, Iterator
     const DISTORTION_PLANE2CYLINDER = 13;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-polar
      */
     const DISTORTION_POLAR = 10;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-polynomial
      */
     const DISTORTION_POLYNOMIAL = 8;
 
@@ -1043,42 +1527,74 @@ class Imagick implements Countable, Iterator
     const DISTORTION_RESIZE = 17;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-scalerotatetranslate
      */
     const DISTORTION_SCALEROTATETRANSLATE = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-sentinel
      */
     const DISTORTION_SENTINEL = 18;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-shepards
      */
     const DISTORTION_SHEPARDS = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.distortion-undefined
      */
     const DISTORTION_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dithermethod-floydsteinberg
      */
     const DITHERMETHOD_FLOYDSTEINBERG = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dithermethod-no
      */
     const DITHERMETHOD_NO = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dithermethod-riemersma
      */
     const DITHERMETHOD_RIEMERSMA = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.dithermethod-undefined
      */
     const DITHERMETHOD_UNDEFINED = 0;
 
@@ -1089,26 +1605,40 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-add
      */
     const EVALUATE_ADD = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-addmodulus
      */
     const EVALUATE_ADDMODULUS = 26;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-and
      */
     const EVALUATE_AND = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-cosine
      */
     const EVALUATE_COSINE = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-divide
      */
     const EVALUATE_DIVIDE = 3;
 
@@ -1118,32 +1648,52 @@ class Imagick implements Countable, Iterator
     const EVALUATE_EXPONENTIAL = 29;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-gaussiannoise
      */
     const EVALUATE_GAUSSIANNOISE = 18;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-impulsenoise
      */
     const EVALUATE_IMPULSENOISE = 19;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-laplaciannoise
      */
     const EVALUATE_LAPLACIANNOISE = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-leftshift
      */
     const EVALUATE_LEFTSHIFT = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-log
      */
     const EVALUATE_LOG = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-max
      */
     const EVALUATE_MAX = 5;
 
@@ -1159,51 +1709,79 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-min
      */
     const EVALUATE_MIN = 6;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-multiplicativenoise
      */
     const EVALUATE_MULTIPLICATIVENOISE = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-multiply
      */
     const EVALUATE_MULTIPLY = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-or
      */
     const EVALUATE_OR = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-poissonnoise
      */
     const EVALUATE_POISSONNOISE = 22;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-pow
      */
     const EVALUATE_POW = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-rightshift
      */
     const EVALUATE_RIGHTSHIFT = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-set
      */
     const EVALUATE_SET = 10;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-sine
      */
     const EVALUATE_SINE = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-subtract
      */
     const EVALUATE_SUBTRACT = 11;
 
@@ -1213,47 +1791,73 @@ class Imagick implements Countable, Iterator
     const EVALUATE_SUM = 31;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-threshold
      */
     const EVALUATE_THRESHOLD = 15;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-thresholdblack
      */
     const EVALUATE_THRESHOLDBLACK = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-thresholdwhite
      */
     const EVALUATE_THRESHOLDWHITE = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-undefined
      */
     const EVALUATE_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-uniformnoise
      */
     const EVALUATE_UNIFORMNOISE = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.evaluate-xor
      */
     const EVALUATE_XOR = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.fillrule-evenodd
      */
     const FILLRULE_EVENODD = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.fillrule-nonzero
      */
     const FILLRULE_NONZERO = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.fillrule-undefined
      */
     const FILLRULE_UNDEFINED = 0;
 
@@ -1264,11 +1868,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-bessel
      */
     const FILTER_BESSEL = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-blackman
      */
     const FILTER_BLACKMAN = 7;
 
@@ -1279,11 +1887,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-box
      */
     const FILTER_BOX = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-catrom
      */
     const FILTER_CATROM = 11;
 
@@ -1294,26 +1906,36 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-cubic
      */
     const FILTER_CUBIC = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-gaussian
      */
     const FILTER_GAUSSIAN = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-hamming
      */
     const FILTER_HAMMING = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-hanning
      */
     const FILTER_HANNING = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-hermite
      */
     const FILTER_HERMITE = 4;
 
@@ -1334,6 +1956,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-lanczos
      */
     const FILTER_LANCZOS = 22;
 
@@ -1359,6 +1983,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-mitchell
      */
     const FILTER_MITCHELL = 12;
 
@@ -1369,11 +1995,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-point
      */
     const FILTER_POINT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-quadratic
      */
     const FILTER_QUADRATIC = 9;
 
@@ -1394,6 +2024,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-sinc
      */
     const FILTER_SINC = 14;
 
@@ -1409,11 +2041,15 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-triangle
      */
     const FILTER_TRIANGLE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-undefined
      */
     const FILTER_UNDEFINED = 0;
 
@@ -1433,27 +2069,43 @@ class Imagick implements Countable, Iterator
     const FUNCTION_ARCTAN = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.function-polynomial
      */
     const FUNCTION_POLYNOMIAL = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.function-sinusoid
      */
     const FUNCTION_SINUSOID = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.function-undefined
      */
     const FUNCTION_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-center
      */
     const GRAVITY_CENTER = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-east
      */
     const GRAVITY_EAST = 6;
 
@@ -1464,31 +2116,43 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-north
      */
     const GRAVITY_NORTH = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-northeast
      */
     const GRAVITY_NORTHEAST = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-northwest
      */
     const GRAVITY_NORTHWEST = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-south
      */
     const GRAVITY_SOUTH = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-southeast
      */
     const GRAVITY_SOUTHEAST = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-southwest
      */
     const GRAVITY_SOUTHWEST = 7;
 
@@ -1499,6 +2163,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.gravity-west
      */
     const GRAVITY_WEST = 4;
 
@@ -1514,36 +2180,50 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-bilevel
      */
     const IMGTYPE_BILEVEL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-colorseparation
      */
     const IMGTYPE_COLORSEPARATION = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-colorseparationmatte
      */
     const IMGTYPE_COLORSEPARATIONMATTE = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-grayscale
      */
     const IMGTYPE_GRAYSCALE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-grayscalematte
      */
     const IMGTYPE_GRAYSCALEMATTE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-optimize
      */
     const IMGTYPE_OPTIMIZE = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-palette
      */
     const IMGTYPE_PALETTE = 4;
 
@@ -1554,106 +2234,168 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-palettematte
      */
     const IMGTYPE_PALETTEMATTE = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-truecolor
      */
     const IMGTYPE_TRUECOLOR = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-truecolormatte
      */
     const IMGTYPE_TRUECOLORMATTE = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-undefined
      */
     const IMGTYPE_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-gif
      */
     const INTERLACE_GIF = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-jpeg
      */
     const INTERLACE_JPEG = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-line
      */
     const INTERLACE_LINE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-no
      */
     const INTERLACE_NO = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-partition
      */
     const INTERLACE_PARTITION = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-plane
      */
     const INTERLACE_PLANE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-png
      */
     const INTERLACE_PNG = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interlace-undefined
      */
     const INTERLACE_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-average
      */
     const INTERPOLATE_AVERAGE = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-bicubic
      */
     const INTERPOLATE_BICUBIC = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-bilinear
      */
     const INTERPOLATE_BILINEAR = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-filter
      */
     const INTERPOLATE_FILTER = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-integer
      */
     const INTERPOLATE_INTEGER = 5;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-mesh
      */
     const INTERPOLATE_MESH = 6;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-nearestneighbor
      */
     const INTERPOLATE_NEARESTNEIGHBOR = 7;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.4 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-spline
      */
     const INTERPOLATE_SPLINE = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-undefined
      */
     const INTERPOLATE_UNDEFINED = 0;
 
@@ -1843,77 +2585,137 @@ class Imagick implements Countable, Iterator
     const KERNEL_USER_DEFINED = 36;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-coalesce
      */
     const LAYERMETHOD_COALESCE = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-compareany
      */
     const LAYERMETHOD_COMPAREANY = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-compareclear
      */
     const LAYERMETHOD_COMPARECLEAR = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-compareoverlay
      */
     const LAYERMETHOD_COMPAREOVERLAY = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-composite
      */
     const LAYERMETHOD_COMPOSITE = 12;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-dispose
      */
     const LAYERMETHOD_DISPOSE = 5;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.7 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-flatten
      */
     const LAYERMETHOD_FLATTEN = 14;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.7 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-merge
      */
     const LAYERMETHOD_MERGE = 13;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.7 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-mosaic
      */
     const LAYERMETHOD_MOSAIC = 15;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-optimize
      */
     const LAYERMETHOD_OPTIMIZE = 6;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-optimizeimage
      */
     const LAYERMETHOD_OPTIMIZEIMAGE = 7;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-optimizeplus
      */
     const LAYERMETHOD_OPTIMIZEPLUS = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-optimizetrans
      */
     const LAYERMETHOD_OPTIMIZETRANS = 9;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-removedups
      */
     const LAYERMETHOD_REMOVEDUPS = 10;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-removezero
      */
     const LAYERMETHOD_REMOVEZERO = 11;
 
@@ -1923,47 +2725,67 @@ class Imagick implements Countable, Iterator
     const LAYERMETHOD_TRIMBOUNDS = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.2.9 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.layermethod-undefined
      */
     const LAYERMETHOD_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linecap-butt
      */
     const LINECAP_BUTT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linecap-round
      */
     const LINECAP_ROUND = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linecap-square
      */
     const LINECAP_SQUARE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linecap-undefined
      */
     const LINECAP_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linejoin-bevel
      */
     const LINEJOIN_BEVEL = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linejoin-miter
      */
     const LINEJOIN_MITER = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linejoin-round
      */
     const LINEJOIN_ROUND = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.linejoin-undefined
      */
     const LINEJOIN_UNDEFINED = 0;
 
@@ -1979,6 +2801,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-meanabsoluteerror
      */
     const METRIC_MEANABSOLUTEERROR = 2;
 
@@ -1989,6 +2813,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-meansquareerror
      */
     const METRIC_MEANSQUAREERROR = 4;
 
@@ -1999,36 +2825,50 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-peakabsoluteerror
      */
     const METRIC_PEAKABSOLUTEERROR = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-peaksignaltonoiseratio
      */
     const METRIC_PEAKSIGNALTONOISERATIO = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-rootmeansquarederror
      */
     const METRIC_ROOTMEANSQUAREDERROR = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-undefined
      */
     const METRIC_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.montagemode-concatenate
      */
     const MONTAGEMODE_CONCATENATE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.montagemode-frame
      */
     const MONTAGEMODE_FRAME = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.montagemode-unframe
      */
     const MONTAGEMODE_UNFRAME = 2;
 
@@ -2144,36 +2984,52 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-gaussian
      */
     const NOISE_GAUSSIAN = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-impulse
      */
     const NOISE_IMPULSE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-laplacian
      */
     const NOISE_LAPLACIAN = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-multiplicativegaussian
      */
     const NOISE_MULTIPLICATIVEGAUSSIAN = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-poisson
      */
     const NOISE_POISSON = 6;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-random
      */
     const NOISE_RANDOM = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.noise-uniform
      */
     const NOISE_UNIFORM = 1;
 
@@ -2198,277 +3054,405 @@ class Imagick implements Countable, Iterator
     const NORMALIZE_KERNEL_VALUE = 8192;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-bottomleft
      */
     const ORIENTATION_BOTTOMLEFT = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-bottomright
      */
     const ORIENTATION_BOTTOMRIGHT = 3;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-leftbottom
      */
     const ORIENTATION_LEFTBOTTOM = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-lefttop
      */
     const ORIENTATION_LEFTTOP = 5;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-rightbottom
      */
     const ORIENTATION_RIGHTBOTTOM = 7;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-righttop
      */
     const ORIENTATION_RIGHTTOP = 6;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-topleft
      */
     const ORIENTATION_TOPLEFT = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-topright
      */
     const ORIENTATION_TOPRIGHT = 2;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.3.0 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.orientation-undefined
      */
     const ORIENTATION_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.paint-filltoborder
      */
     const PAINT_FILLTOBORDER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.paint-floodfill
      */
     const PAINT_FLOODFILL = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.paint-point
      */
     const PAINT_POINT = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.paint-replace
      */
     const PAINT_REPLACE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.paint-reset
      */
     const PAINT_RESET = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pathunits-objectboundingbox
      */
     const PATHUNITS_OBJECTBOUNDINGBOX = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pathunits-undefined
      */
     const PATHUNITS_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pathunits-userspace
      */
     const PATHUNITS_USERSPACE = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pathunits-userspaceonuse
      */
     const PATHUNITS_USERSPACEONUSE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-char
      */
     const PIXEL_CHAR = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-double
      */
     const PIXEL_DOUBLE = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-float
      */
     const PIXEL_FLOAT = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-integer
      */
     const PIXEL_INTEGER = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-long
      */
     const PIXEL_LONG = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-quantum
      */
     const PIXEL_QUANTUM = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-short
      */
     const PIXEL_SHORT = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-addnoise
      */
     const PREVIEW_ADDNOISE = 14;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-blur
      */
     const PREVIEW_BLUR = 16;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-brightness
      */
     const PREVIEW_BRIGHTNESS = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-charcoaldrawing
      */
     const PREVIEW_CHARCOALDRAWING = 28;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-despeckle
      */
     const PREVIEW_DESPECKLE = 12;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-dull
      */
     const PREVIEW_DULL = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-edgedetect
      */
     const PREVIEW_EDGEDETECT = 18;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-gamma
      */
     const PREVIEW_GAMMA = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-grayscale
      */
     const PREVIEW_GRAYSCALE = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-hue
      */
     const PREVIEW_HUE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-implode
      */
     const PREVIEW_IMPLODE = 25;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-jpeg
      */
     const PREVIEW_JPEG = 29;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-oilpaint
      */
     const PREVIEW_OILPAINT = 27;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-quantize
      */
     const PREVIEW_QUANTIZE = 11;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-raise
      */
     const PREVIEW_RAISE = 22;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-reducenoise
      */
     const PREVIEW_REDUCENOISE = 13;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-roll
      */
     const PREVIEW_ROLL = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-rotate
      */
     const PREVIEW_ROTATE = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-saturation
      */
     const PREVIEW_SATURATION = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-segment
      */
     const PREVIEW_SEGMENT = 23;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-shade
      */
     const PREVIEW_SHADE = 21;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-sharpen
      */
     const PREVIEW_SHARPEN = 15;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-shear
      */
     const PREVIEW_SHEAR = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-solarize
      */
     const PREVIEW_SOLARIZE = 20;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-spiff
      */
     const PREVIEW_SPIFF = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-spread
      */
     const PREVIEW_SPREAD = 19;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-swirl
      */
     const PREVIEW_SWIRL = 24;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-threshold
      */
     const PREVIEW_THRESHOLD = 17;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-undefined
      */
     const PREVIEW_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.preview-wave
      */
     const PREVIEW_WAVE = 26;
 
@@ -2479,71 +3463,112 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.renderingintent-absolute
      */
     const RENDERINGINTENT_ABSOLUTE = 3;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.renderingintent-perceptual
      */
     const RENDERINGINTENT_PERCEPTUAL = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.renderingintent-relative
      */
     const RENDERINGINTENT_RELATIVE = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.renderingintent-saturation
      */
     const RENDERINGINTENT_SATURATION = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.renderingintent-undefined
      */
     const RENDERINGINTENT_UNDEFINED = 0;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resolution-pixelspercentimeter
      */
     const RESOLUTION_PIXELSPERCENTIMETER = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resolution-pixelsperinch
      */
     const RESOLUTION_PIXELSPERINCH = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resolution-undefined
      */
     const RESOLUTION_UNDEFINED = 0;
 
     /**
+     * Set the maximum width * height of an image that can reside in the pixel cache memory.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-area
      */
     const RESOURCETYPE_AREA = 1;
 
     /**
+     * Set maximum amount of disk space in bytes permitted for use by the pixel cache.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-disk
      */
     const RESOURCETYPE_DISK = 2;
 
     /**
+     * Set maximum number of open pixel cache files.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-file
      */
     const RESOURCETYPE_FILE = 3;
 
     /**
+     * Set maximum amount of memory map in bytes to allocate for the pixel cache.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-map
      */
     const RESOURCETYPE_MAP = 4;
 
     /**
+     * Set maximum amount of memory in bytes to allocate for the pixel cache from the heap.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-memory
      */
     const RESOURCETYPE_MEMORY = 5;
 
     /**
+     * Set maximum parallel threads.
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.7.8 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-thread
      */
     const RESOURCETYPE_THREAD = 6;
 
@@ -2559,16 +3584,26 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.resourcetype-undefined
      */
     const RESOURCETYPE_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-barycentric
      */
     const SPARSECOLORMETHOD_BARYCENTRIC = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-bilinear
      */
     const SPARSECOLORMETHOD_BILINEAR = 7;
 
@@ -2578,22 +3613,38 @@ class Imagick implements Countable, Iterator
     const SPARSECOLORMETHOD_INVERSE = 19;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-polynomial
      */
     const SPARSECOLORMETHOD_POLYNOMIAL = 8;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-spepards
      */
     const SPARSECOLORMETHOD_SPEPARDS = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-undefined
      */
     const SPARSECOLORMETHOD_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.sparsecolormethod-voronoi
      */
     const SPARSECOLORMETHOD_VORONOI = 18;
 
@@ -2639,16 +3690,22 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-any
      */
     const STRETCH_ANY = 10;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-condensed
      */
     const STRETCH_CONDENSED = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-expanded
      */
     const STRETCH_EXPANDED = 7;
 
@@ -2659,51 +3716,71 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-extraexpanded
      */
     const STRETCH_EXTRAEXPANDED = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-normal
      */
     const STRETCH_NORMAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-semicondensed
      */
     const STRETCH_SEMICONDENSED = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-semiexpanded
      */
     const STRETCH_SEMIEXPANDED = 6;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-ultracondensed
      */
     const STRETCH_ULTRACONDENSED = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.stretch-ultraexpanded
      */
     const STRETCH_ULTRAEXPANDED = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.style-any
      */
     const STYLE_ANY = 4;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.style-italic
      */
     const STYLE_ITALIC = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.style-normal
      */
     const STYLE_NORMAL = 1;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.style-oblique
      */
     const STYLE_OBLIQUE = 3;
 
@@ -2714,11 +3791,17 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-background
      */
     const VIRTUALPIXELMETHOD_BACKGROUND = 1;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-black
      */
     const VIRTUALPIXELMETHOD_BLACK = 10;
 
@@ -2729,21 +3812,33 @@ class Imagick implements Countable, Iterator
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-constant
      */
     const VIRTUALPIXELMETHOD_CONSTANT = 2;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-edge
      */
     const VIRTUALPIXELMETHOD_EDGE = 4;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-gray
      */
     const VIRTUALPIXELMETHOD_GRAY = 11;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.3 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-horizontaltile
      */
     const VIRTUALPIXELMETHOD_HORIZONTALTILE = 13;
 
@@ -2753,32 +3848,48 @@ class Imagick implements Countable, Iterator
     const VIRTUALPIXELMETHOD_HORIZONTALTILEEDGE = 15;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-mask
      */
     const VIRTUALPIXELMETHOD_MASK = 9;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-mirror
      */
     const VIRTUALPIXELMETHOD_MIRROR = 5;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-tile
      */
     const VIRTUALPIXELMETHOD_TILE = 7;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-transparent
      */
     const VIRTUALPIXELMETHOD_TRANSPARENT = 8;
 
     /**
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-undefined
      */
     const VIRTUALPIXELMETHOD_UNDEFINED = 0;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.3 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-verticaltile
      */
     const VIRTUALPIXELMETHOD_VERTICALTILE = 14;
 
@@ -2788,7 +3899,11 @@ class Imagick implements Countable, Iterator
     const VIRTUALPIXELMETHOD_VERTICALTILEEDGE = 16;
 
     /**
+     * This constant is available if Imagick has been compiled against ImageMagick version 6.4.2 or higher.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-white
      */
     const VIRTUALPIXELMETHOD_WHITE = 12;
 

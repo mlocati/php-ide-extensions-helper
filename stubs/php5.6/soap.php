@@ -193,7 +193,7 @@ const SOAP_RPC = 1;
 const SOAP_SINGLE_ELEMENT_ARRAYS = 1;
 
 /**
- * 1
+ * Since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/soap.constants.php#constant.soap-ssl-method-sslv2
  *
@@ -202,7 +202,7 @@ const SOAP_SINGLE_ELEMENT_ARRAYS = 1;
 const SOAP_SSL_METHOD_SSLv2 = 1;
 
 /**
- * 3
+ * Since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/soap.constants.php#constant.soap-ssl-method-sslv23
  *
@@ -211,7 +211,7 @@ const SOAP_SSL_METHOD_SSLv2 = 1;
 const SOAP_SSL_METHOD_SSLv23 = 3;
 
 /**
- * 2
+ * Since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/soap.constants.php#constant.soap-ssl-method-sslv3
  *
@@ -220,7 +220,7 @@ const SOAP_SSL_METHOD_SSLv23 = 3;
 const SOAP_SSL_METHOD_SSLv3 = 2;
 
 /**
- * 0
+ * Since PHP 5.5.0.
  *
  * @link http://www.php.net/manual/en/soap.constants.php#constant.soap-ssl-method-tls
  *

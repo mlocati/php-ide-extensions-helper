@@ -1564,6 +1564,8 @@ EOT
      * @param DOMDocument $xmlDocument
      * @param $xmlDocument $xPath
      * @param PHPManualItems $items
+     *
+     * @link http://svn.php.net/viewvc/phpdoc/doc-base/trunk/RFC/skeletons/versions.xml?view=markup
      */
     private function parseVersions($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
@@ -1608,29 +1610,67 @@ EOT
      */
     private function parseConstants($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
-        if (preg_match('/[^a-zA-Z0-9]constants([-.]\w+)?\.xml$/', $xmlFileRelativePath) || substr($xmlFileRelativePath, - strlen('/file-upload.xml')) === '/file-upload.xml' || substr($xmlFileRelativePath, - strlen('/appendices/tokens.xml')) === '/appendices/tokens.xml') {
-            foreach (array(
-                array(
-                    '//ns:term/ns:constant',
-                    '../../ns:listitem'
-                ),
-                array(
-                    '//ns:entry/ns:constant',
-                    '../following-sibling::ns:entry'
-                )
-            ) as $searchPattern) {
-                $xmlConstants = $xPath->query($searchPattern[0]);
-                foreach ($xmlConstants as $xmlConstant) {
-                    $name = $xmlConstant->nodeValue;
-                    $item = $items->getOrCreate($name, PHPManualItem::TYPE_GLOBALCONSTANT, true);
-                    if ($item->url === '') {
-                        $item->url = $this->getManualURL($xmlConstant, $xPath);
-                    }
-                    if ($item->description === '') {
-                        $listItem = $xPath->queryFirstElement($searchPattern[1], $xmlConstant);
-                        if ($listItem !== null) {
-                            $item->description = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($listItem));
+        foreach (array(
+            array(
+                '//ns:term/*[1][name()="constant"]',
+                '../../ns:listitem',
+                true
+            ),
+            array(
+                '//ns:entry/*[1][name()="constant"]',
+                '../../following-sibling::ns:entry',
+                false
+            ),
+            array(
+                '//ns:entry/*[1][name()="constant"]',
+                '../following-sibling::ns:entry',
+                true
+            )
+        ) as $searchPattern) {
+            list ($searchConstant, $searchDescription, $requireDescription) = $searchPattern;
+            $xmlConstants = $xPath->query($searchConstant);
+            foreach ($xmlConstants as $xmlConstant) {
+                $name = ltrim($xmlConstant->nodeValue, '\\');
+                $listItem = $xPath->queryFirstElement($searchDescription, $xmlConstant);
+                if ($listItem !== null || ! $requireDescription) {
+                    $item = $items->getOrCreate($name, strpos($name, '::') === false ? PHPManualItem::TYPE_GLOBALCONSTANT : PHPManualItem::TYPE_CLASSCONSTANT, true);
+                    if ($item->description === '' && $listItem !== null) {
+                        $item->description = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($listItem));
+                        if ($listItem->nodeName === 'entry') {
+                            $tryNextEntry = false;
+                            switch (strtolower($item->description)) {
+                                case '':
+                                case 'array':
+                                case 'boolean':
+                                case 'bool':
+                                case 'double':
+                                case 'float':
+                                case 'integer':
+                                case 'int':
+                                case 'number':
+                                case 'numeric':
+                                case 'string':
+                                    $tryNextEntry = true;
+                                    break;
+                                default:
+                                    if (strip_tags($item->description) === strtoupper(strip_tags($item->description))) {
+                                        $tryNextEntry = true;
+                                    }
+                                    break;
+                            }
+                            if ($tryNextEntry) {
+                                $alternativeListItem = $xPath->queryFirstElement('./following-sibling::ns:entry', $listItem);
+                                if ($alternativeListItem !== null) {
+                                    $alternativeDescription = $this->simplifyPHPDoc($this->innerXmlToPHPDoc($alternativeListItem));
+                                    if ($alternativeDescription !== '') {
+                                        $item->description = $alternativeDescription;
+                                    }
+                                }
+                            }
                         }
+                        $item->url = $this->getManualURL($xmlConstant, $xPath);
+                    } elseif ($item->url === '') {
+                        $item->url = $this->getManualURL($xmlConstant, $xPath);
                     }
                 }
             }
@@ -1647,7 +1687,7 @@ EOT
      */
     private function parseClasses($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
     {
-        if ((strpos($xmlFileRelativePath, '/language/') === 0 || strpos($xmlFileRelativePath, '/reference/') === 0) && $xmlDocument->documentElement->localName !== 'book') {
+        if ($xmlDocument->documentElement->localName !== 'book') {
             foreach ($xPath->query('//ns:titleabbrev') as $titleAbbrevElement) {
                 $className = trim($titleAbbrevElement->textContent);
                 $item = $items->getOrCreate($className, PHPManualItem::TYPE_TRAIT | PHPManualItem::TYPE_INTERFACE | PHPManualItem::TYPE_CLASS, true);

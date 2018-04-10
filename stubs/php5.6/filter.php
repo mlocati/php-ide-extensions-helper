@@ -105,6 +105,10 @@ const FILTER_FLAG_ENCODE_HIGH = 32;
 const FILTER_FLAG_ENCODE_LOW = 16;
 
 /**
+ * Requires the <code>URL</code> to contain a host part.
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.flags
+ *
  * @var int
  */
 const FILTER_FLAG_HOST_REQUIRED = 131072;
@@ -182,11 +186,19 @@ const FILTER_FLAG_PATH_REQUIRED = 262144;
 const FILTER_FLAG_QUERY_REQUIRED = 524288;
 
 /**
+ * Validates value as URL (according to http://www.faqs.org/rfcs/rfc2396), optionally with required components. Beware a valid URL may not specify the HTTP protocol <code>http://</code> so further validation may be required to determine the URL uses an expected protocol, e.g. <code>ssh://</code> or <code>mailto:</code>. Note that the function will only find ASCII URLs to be valid; internationalized domain names (containing non-ASCII characters) will fail.
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.validate
+ *
  * @var int
  */
 const FILTER_FLAG_SCHEME_REQUIRED = 65536;
 
 /**
+ * Strips backtick characters.
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.flags
+ *
  * @var int
  */
 const FILTER_FLAG_STRIP_BACKTICK = 512;
@@ -264,6 +276,10 @@ const FILTER_SANITIZE_EMAIL = 517;
 const FILTER_SANITIZE_ENCODED = 514;
 
 /**
+ * "full_special_chars"
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.sanitize
+ *
  * @var int
  */
 const FILTER_SANITIZE_FULL_SPECIAL_CHARS = 522;

@@ -88,21 +88,41 @@ const CURL_IPRESOLVE_V4 = 1;
 const CURL_IPRESOLVE_V6 = 2;
 
 /**
+ * Added in cURL 7.10.8.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURL_IPRESOLVE_WHATEVER = 0;
 
 /**
+ * Shares cookie data.
+ *
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ *
  * @var int
  */
 const CURL_LOCK_DATA_COOKIE = 2;
 
 /**
+ * Shares DNS cache. Note that when you use cURL multi handles,
+ * all handles added to the same multi handle will share DNS cache
+ * by default.
+ *
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ *
  * @var int
  */
 const CURL_LOCK_DATA_DNS = 3;
 
 /**
+ * Shares SSL session IDs, reducing the time spent on the SSL
+ * handshake when reconnecting to the same server. Note that SSL
+ * session IDs are reused within the same handle by default.
+ *
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ *
  * @var int
  */
 const CURL_LOCK_DATA_SSL_SESSION = 4;
@@ -247,7 +267,7 @@ const CURL_RTSPREQ_SETUP = 4;
 const CURL_RTSPREQ_TEARDOWN = 7;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslversion-default
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1000,6 +1020,10 @@ const CURLFTPAUTH_SSL = 1;
 const CURLFTPAUTH_TLS = 2;
 
 /**
+ * Added in cURL 7.15.1. Available since PHP 5.3.0.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLFTPMETHOD_MULTICWD = 1;
@@ -1099,6 +1123,8 @@ const CURLHEADER_UNIFIED = 0;
 const CURLINFO_APPCONNECT_TIME = 3145761;
 
 /**
+ * @link http://www.php.net/manual/en/function.curl-getinfo.php
+ *
  * @var int
  */
 const CURLINFO_CERTINFO = 4194338;
@@ -1303,6 +1329,8 @@ const CURLINFO_REDIRECT_URL = 1048607;
 const CURLINFO_REQUEST_SIZE = 2097164;
 
 /**
+ * @link http://www.php.net/manual/en/function.curl-getinfo.php
+ *
  * @var int
  */
 const CURLINFO_RESPONSE_CODE = 2097154;
@@ -1539,39 +1567,63 @@ const CURLOPT_APPEND = 50;
 const CURLOPT_AUTOREFERER = 58;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-binarytransfer
+ * <code>TRUE</code> to return the raw output when
+ * <code>CURLOPT_RETURNTRANSFER</code> is used.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_BINARYTRANSFER = 19914;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-buffersize
+ * The size of the buffer to use for each read. There is no guarantee
+ * this request will be fulfilled, however.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_BUFFERSIZE = 98;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-cainfo
+ * The name of a file holding one or more certificates to verify the
+ * peer with. This only makes sense when used in combination with
+ * <code>CURLOPT_SSL_VERIFYPEER</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_CAINFO = 10065;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-capath
+ * A directory that holds multiple CA certificates. Use this option
+ * alongside <code>CURLOPT_SSL_VERIFYPEER</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_CAPATH = 10097;
 
 /**
+ * <code>TRUE</code> to output SSL certification information to <code>STDERR</code>
+ * on secure transfers.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_CERTINFO = 172;
 
 /**
+ * <code>TRUE</code> tells the library to perform all the required proxy authentication
+ * and connection setup, but no data transfer. This option is implemented for
+ * HTTP, SMTP and POP3.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_CONNECT_ONLY = 141;
@@ -1588,35 +1640,58 @@ const CURLOPT_CONNECT_ONLY = 141;
 const CURLOPT_CONNECT_TO = 10243;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-connecttimeout
+ * The number of seconds to wait while trying to connect. Use 0 to
+ * wait indefinitely.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_CONNECTTIMEOUT = 78;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-connecttimeout-ms
+ * The number of milliseconds to wait while trying to connect. Use 0 to
+ * wait indefinitely.
+ * If libcurl is built to use the standard system name resolver, that
+ * portion of the connect will still use full-second resolution for
+ * timeouts with a minimum timeout allowed of one second.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_CONNECTTIMEOUT_MS = 156;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-cookie
+ * The contents of the <code>"Cookie: "</code> header to be
+ * used in the HTTP request.
+ * Note that multiple cookies are separated with a semicolon followed
+ * by a space (e.g., "<code>fruit=apple; colour=red</code>")
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_COOKIE = 10022;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-cookiefile
+ * The name of the file containing the cookie data. The cookie file can
+ * be in Netscape format, or just plain HTTP-style headers dumped into
+ * a file.
+ * If the name is an empty string, no cookies are loaded, but cookie
+ * handling is still enabled.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_COOKIEFILE = 10031;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-cookiejar
+ * The name of a file to save all internal cookies to when the handle is closed,
+ * e.g. after a call to curl_close.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1637,7 +1712,10 @@ const CURLOPT_COOKIELIST = 10135;
 const CURLOPT_COOKIESESSION = 96;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-crlf
+ * <code>TRUE</code> to convert Unix newlines to CRLF newlines
+ * on transfers.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1649,7 +1727,21 @@ const CURLOPT_CRLF = 27;
 const CURLOPT_CRLFILE = 10169;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-customrequest
+ * A custom request method to use instead of
+ * <code>"GET"</code> or <code>"HEAD"</code> when doing
+ * a HTTP request. This is useful for doing
+ * <code>"DELETE"</code> or other, more obscure HTTP requests.
+ * Valid values are things like <code>"GET"</code>,
+ * <code>"POST"</code>, <code>"CONNECT"</code> and so on;
+ * i.e. Do not enter a whole HTTP request line here. For instance,
+ * entering <code>"GET /index.html HTTP/1.0\r\n\r\n"</code>
+ * would be incorrect.
+ * <blockquote>
+ * Don't do this without making sure the server supports the custom
+ * request method first.
+ * </blockquote>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1672,7 +1764,10 @@ const CURLOPT_DEFAULT_PROTOCOL = 10238;
 const CURLOPT_DIRLISTONLY = 48;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-dns-cache-timeout
+ * The number of seconds to keep DNS entries in memory. This
+ * option is set to 120 (2 minutes) by default.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1711,21 +1806,33 @@ const CURLOPT_DNS_LOCAL_IP6 = 10223;
 const CURLOPT_DNS_SERVERS = 10211;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-dns-use-global-cache
+ * <code>TRUE</code> to use a global DNS cache. This option is
+ * not thread-safe and is enabled by default.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_DNS_USE_GLOBAL_CACHE = 91;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-egdsocket
+ * Like <code>CURLOPT_RANDOM_FILE</code>, except a filename
+ * to an Entropy Gathering Daemon socket.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_EGDSOCKET = 10077;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-encoding
+ * The contents of the <code>"Accept-Encoding: "</code> header.
+ * This enables decoding of the response. Supported encodings are
+ * <code>"identity"</code>, <code>"deflate"</code>, and
+ * <code>"gzip"</code>. If an empty string, <code>""</code>,
+ * is set, a header containing all supported encoding types is sent.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1741,21 +1848,33 @@ const CURLOPT_ENCODING = 10102;
 const CURLOPT_EXPECT_100_TIMEOUT_MS = 227;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-failonerror
+ * <code>TRUE</code> to fail verbosely if the HTTP code returned
+ * is greater than or equal to 400. The default behavior is to return
+ * the page normally, ignoring the code.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FAILONERROR = 45;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-file
+ * The file that the transfer should be written to. The default
+ * is <code>STDOUT</code> (the browser window).
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FILE = 10001;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-filetime
+ * <code>TRUE</code> to attempt to retrieve the modification
+ * date of the remote document. This value can be retrieved using
+ * the <code>CURLINFO_FILETIME</code> option with
+ * <code>curl_getinfo</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1777,14 +1896,20 @@ const CURLOPT_FNMATCH_FUNCTION = 20200;
 const CURLOPT_FOLLOWLOCATION = 52;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-forbid-reuse
+ * <code>TRUE</code> to force the connection to explicitly
+ * close when it has finished processing, and not be pooled for reuse.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FORBID_REUSE = 75;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-fresh-connect
+ * <code>TRUE</code> to force the use of a new connection
+ * instead of a cached one.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1801,13 +1926,23 @@ const CURLOPT_FTP_ACCOUNT = 10134;
 const CURLOPT_FTP_ALTERNATIVE_TO_USER = 10147;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftp-create-missing-dirs
+ * <code>TRUE</code> to create missing directories when an FTP operation
+ * encounters a path that currently doesn't exist.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FTP_CREATE_MISSING_DIRS = 110;
 
 /**
+ * Tell curl which method to use to reach a file on a FTP(S) server. Possible values are
+ * <code>CURLFTPMETHOD_MULTICWD</code>,
+ * <code>CURLFTPMETHOD_NOCWD</code> and
+ * <code>CURLFTPMETHOD_SINGLECWD</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_FTP_FILEMETHOD = 138;
@@ -1837,14 +1972,22 @@ const CURLOPT_FTP_SSL = 119;
 const CURLOPT_FTP_SSL_CCC = 154;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftp-use-eprt
+ * <code>TRUE</code> to use EPRT (and LPRT) when doing active
+ * FTP downloads. Use <code>FALSE</code> to disable EPRT and LPRT and use PORT
+ * only.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FTP_USE_EPRT = 106;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftp-use-epsv
+ * <code>TRUE</code> to first try an EPSV command for FTP
+ * transfers before reverting back to PASV. Set to <code>FALSE</code>
+ * to disable EPSV.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1856,21 +1999,34 @@ const CURLOPT_FTP_USE_EPSV = 85;
 const CURLOPT_FTP_USE_PRET = 188;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftpappend
+ * <code>TRUE</code> to append to the remote file instead of
+ * overwriting it.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FTPAPPEND = 50;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftplistonly
+ * <code>TRUE</code> to only list the names of an FTP
+ * directory.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_FTPLISTONLY = 48;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ftpport
+ * The value which will be used to get the IP address to use
+ * for the FTP "PORT" instruction. The "PORT" instruction tells
+ * the remote server to connect to our specified IP address. The
+ * string may be a plain IP address, a hostname, a network
+ * interface name (under Unix), or just a plain '-' to use the
+ * systems default IP address.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1891,14 +2047,22 @@ const CURLOPT_FTPSSLAUTH = 129;
 const CURLOPT_GSSAPI_DELEGATION = 210;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-header
+ * <code>TRUE</code> to include the header in the output.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_HEADER = 42;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-headerfunction
+ * A callback accepting two parameters.
+ * The first is the cURL resource, the second is a
+ * string with the header data to be written. The header data must
+ * be written by this callback. Return the number of
+ * bytes written.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1914,7 +2078,10 @@ const CURLOPT_HEADERFUNCTION = 20079;
 const CURLOPT_HEADEROPT = 229;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-http200aliases
+ * An array of HTTP 200 responses that will be treated as valid
+ * responses and not as errors.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1931,35 +2098,66 @@ const CURLOPT_HTTP_CONTENT_DECODING = 158;
 const CURLOPT_HTTP_TRANSFER_DECODING = 157;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-http-version
+ * <code>CURL_HTTP_VERSION_NONE</code> (default, lets CURL
+ * decide which version to use),
+ * <code>CURL_HTTP_VERSION_1_0</code> (forces HTTP/1.0),
+ * or <code>CURL_HTTP_VERSION_1_1</code> (forces HTTP/1.1).
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_HTTP_VERSION = 84;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-httpauth
+ * The HTTP authentication method(s) to use. The options are:
+ * <code>CURLAUTH_BASIC</code>,
+ * <code>CURLAUTH_DIGEST</code>,
+ * <code>CURLAUTH_GSSNEGOTIATE</code>,
+ * <code>CURLAUTH_NTLM</code>,
+ * <code>CURLAUTH_ANY</code>, and
+ * <code>CURLAUTH_ANYSAFE</code>.
+ * The bitwise <code>|</code> (or) operator can be used to combine
+ * more than one method. If this is done, cURL will poll the server to see
+ * what methods it supports and pick the best one.
+ * <code>CURLAUTH_ANY</code> is an alias for
+ * <code>CURLAUTH_BASIC | CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</code>.
+ * <code>CURLAUTH_ANYSAFE</code> is an alias for
+ * <code>CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_HTTPAUTH = 107;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-httpget
+ * <code>TRUE</code> to reset the HTTP request method to GET.
+ * Since GET is the default, this is only necessary if the request
+ * method has been changed.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_HTTPGET = 80;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-httpheader
+ * An array of HTTP header fields to set, in the format
+ * <code>
+ * array('Content-type: text/plain', 'Content-length: 100')
+ * </code>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_HTTPHEADER = 10023;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-httpproxytunnel
+ * <code>TRUE</code> to tunnel through a given HTTP proxy.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -1971,27 +2169,47 @@ const CURLOPT_HTTPPROXYTUNNEL = 61;
 const CURLOPT_IGNORE_CONTENT_LENGTH = 136;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-infile
+ * The file that the transfer should be read from when uploading.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_INFILE = 10009;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-infilesize
+ * The expected size, in bytes, of the file when uploading a file to
+ * a remote site. Note that using this option will not stop libcurl
+ * from sending more data, as exactly what is sent depends on
+ * <code>CURLOPT_READFUNCTION</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_INFILESIZE = 14;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-interface
+ * The name of the outgoing network interface to use. This can be an
+ * interface name, an IP address or a host name.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_INTERFACE = 10062;
 
 /**
+ * Allows an application to select what kind of IP addresses to use when
+ * resolving host names. This is only interesting when using host names that
+ * resolve addresses using more than one version of IP, possible values are
+ * <code>CURL_IPRESOLVE_WHATEVER</code>,
+ * <code>CURL_IPRESOLVE_V4</code>,
+ * <code>CURL_IPRESOLVE_V6</code>, by default
+ * <code>CURL_IPRESOLVE_WHATEVER</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_IPRESOLVE = 113;
@@ -2002,14 +2220,28 @@ const CURLOPT_IPRESOLVE = 113;
 const CURLOPT_ISSUERCERT = 10170;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-keypasswd
+ * The password required to use the <code>CURLOPT_SSLKEY</code>
+ * or <code>CURLOPT_SSH_PRIVATE_KEYFILE</code> private key.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_KEYPASSWD = 10026;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-krb4level
+ * The KRB4 (Kerberos 4) security level. Any of the following values
+ * (in order from least to most powerful) are valid:
+ * <code>"clear"</code>,
+ * <code>"safe"</code>,
+ * <code>"confidential"</code>,
+ * <code>"private".</code>.
+ * If the string does not match one of these,
+ * <code>"private"</code> is used. Setting this option to <code>NULL</code>
+ * will disable KRB4 security. Currently KRB4 security only works
+ * with FTP transactions.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2040,14 +2272,22 @@ const CURLOPT_LOCALPORTRANGE = 140;
 const CURLOPT_LOGIN_OPTIONS = 10224;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-low-speed-limit
+ * The transfer speed, in bytes per second, that the transfer should be
+ * below during the count of <code>CURLOPT_LOW_SPEED_TIME</code>
+ * seconds before PHP considers the transfer too slow and aborts.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_LOW_SPEED_LIMIT = 19;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-low-speed-time
+ * The number of seconds the transfer speed should be below
+ * <code>CURLOPT_LOW_SPEED_LIMIT</code> before PHP considers
+ * the transfer too slow and aborts.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2087,7 +2327,12 @@ const CURLOPT_MAX_RECV_SPEED_LARGE = 30146;
 const CURLOPT_MAX_SEND_SPEED_LARGE = 30145;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-maxconnects
+ * The maximum amount of persistent connections that are allowed.
+ * When the limit is reached,
+ * <code>CURLOPT_CLOSEPOLICY</code> is used to determine
+ * which connection to close.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2099,14 +2344,21 @@ const CURLOPT_MAXCONNECTS = 71;
 const CURLOPT_MAXFILESIZE = 114;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-maxredirs
+ * The maximum amount of HTTP redirections to follow. Use this option
+ * alongside <code>CURLOPT_FOLLOWLOCATION</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_MAXREDIRS = 68;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-netrc
+ * <code>TRUE</code> to scan the <code>~/.netrc</code>
+ * file to find a username and password for the remote site that
+ * a connection is being established with.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2128,14 +2380,24 @@ const CURLOPT_NEW_DIRECTORY_PERMS = 160;
 const CURLOPT_NEW_FILE_PERMS = 159;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-nobody
+ * <code>TRUE</code> to exclude the body from the output.
+ * Request method is then set to HEAD. Changing this to <code>FALSE</code> does
+ * not change it to GET.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_NOBODY = 44;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-noprogress
+ * <code>TRUE</code> to disable the progress meter for cURL transfers.
+ * <blockquote>
+ * PHP automatically sets this option to <code>TRUE</code>, this should only be
+ * changed for debugging purposes.
+ * </blockquote>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2147,7 +2409,11 @@ const CURLOPT_NOPROGRESS = 43;
 const CURLOPT_NOPROXY = 10177;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-nosignal
+ * <code>TRUE</code> to ignore any cURL function that causes a
+ * signal to be sent to the PHP process. This is turned on by default
+ * in multi-threaded SAPIs so timeout options can still be used.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2192,34 +2458,68 @@ const CURLOPT_PINNEDPUBLICKEY = 10230;
 const CURLOPT_PIPEWAIT = 237;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-port
+ * An alternative port number to connect to.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_PORT = 3;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-post
+ * <code>TRUE</code> to do a regular HTTP POST. This POST is the
+ * normal <code>application/x-www-form-urlencoded</code> kind,
+ * most commonly used by HTML forms.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_POST = 47;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-postfields
+ * The full data to post in a HTTP "POST" operation.
+ * To post a file, prepend a filename with <code>@</code> and
+ * use the full path. The filetype can be explicitly specified by
+ * following the filename with the type in the format
+ * '<code>;type=mimetype</code>'. This parameter can either be
+ * passed as a urlencoded string like '<code>para1=val1&amp;para2=val2&amp;...</code>'
+ * or as an array with the field name as key and field data as value.
+ * If <code>value</code> is an array, the
+ * <code>Content-Type</code> header will be set to
+ * <code>multipart/form-data</code>.
+ * As of PHP 5.2.0, <code>value</code> must be an array if
+ * files are passed to this option with the <code>@</code> prefix.
+ * As of PHP 5.5.0, the <code>@</code> prefix is deprecated and
+ * files can be sent using <code>CURLFile</code>. The
+ * <code>@</code> prefix can be disabled for safe passing of
+ * values beginning with <code>@</code> by setting the
+ * <code>CURLOPT_SAFE_UPLOAD</code> option to <code>TRUE</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_POSTFIELDS = 10015;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-postquote
+ * An array of FTP commands to execute on the server after the FTP
+ * request has been performed.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_POSTQUOTE = 10039;
 
 /**
+ * A bitmask of 1 (301 Moved Permanently), 2 (302 Found)
+ * and 4 (303 See Other) if the HTTP POST method should be maintained
+ * when <code>CURLOPT_FOLLOWLOCATION</code> is set and a
+ * specific type of redirect occurs.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_POSTREDIR = 161;
@@ -2248,12 +2548,37 @@ const CURLOPT_PRIVATE = 10103;
 const CURLOPT_PROGRESSFUNCTION = 20056;
 
 /**
+ * Bitmask of <code>CURLPROTO_*</code> values. If used, this bitmask
+ * limits what protocols libcurl may use in the transfer. This allows you to have
+ * a libcurl built to support a wide range of protocols but still limit specific
+ * transfers to only be allowed to use a subset of them. By default libcurl will
+ * accept all protocols it supports.
+ * See also <code>CURLOPT_REDIR_PROTOCOLS</code>.
+ * Valid protocol options are:
+ * <code>CURLPROTO_HTTP</code>,
+ * <code>CURLPROTO_HTTPS</code>,
+ * <code>CURLPROTO_FTP</code>,
+ * <code>CURLPROTO_FTPS</code>,
+ * <code>CURLPROTO_SCP</code>,
+ * <code>CURLPROTO_SFTP</code>,
+ * <code>CURLPROTO_TELNET</code>,
+ * <code>CURLPROTO_LDAP</code>,
+ * <code>CURLPROTO_LDAPS</code>,
+ * <code>CURLPROTO_DICT</code>,
+ * <code>CURLPROTO_FILE</code>,
+ * <code>CURLPROTO_TFTP</code>,
+ * <code>CURLPROTO_ALL</code>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_PROTOCOLS = 181;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-proxy
+ * The HTTP proxy to tunnel requests through.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2276,7 +2601,13 @@ const CURLOPT_PROXY_SERVICE_NAME = 10235;
 const CURLOPT_PROXY_TRANSFER_MODE = 166;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-proxyauth
+ * The HTTP authentication method(s) to use for the proxy connection.
+ * Use the same bitmasks as described in
+ * <code>CURLOPT_HTTPAUTH</code>. For proxy authentication,
+ * only <code>CURLAUTH_BASIC</code> and
+ * <code>CURLAUTH_NTLM</code> are currently supported.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2297,7 +2628,10 @@ const CURLOPT_PROXYHEADER = 10228;
 const CURLOPT_PROXYPASSWORD = 10176;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-proxyport
+ * The port number of the proxy to connect to. This port number can
+ * also be set in <code>CURLOPT_PROXY</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2318,35 +2652,53 @@ const CURLOPT_PROXYTYPE = 101;
 const CURLOPT_PROXYUSERNAME = 10175;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-proxyuserpwd
+ * A username and password formatted as
+ * <code>"[username]:[password]"</code> to use for the
+ * connection to the proxy.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_PROXYUSERPWD = 10006;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-put
+ * <code>TRUE</code> to HTTP PUT a file. The file to PUT must
+ * be set with <code>CURLOPT_INFILE</code> and
+ * <code>CURLOPT_INFILESIZE</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_PUT = 54;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-quote
+ * An array of FTP commands to execute on the server prior to the FTP
+ * request.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_QUOTE = 10028;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-random-file
+ * A filename to be used to seed the random number generator for SSL.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_RANDOM_FILE = 10076;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-range
+ * Range(s) of data to retrieve in the format
+ * <code>"X-Y"</code> where X or Y are optional. HTTP transfers
+ * also support several intervals, separated with commas in the format
+ * <code>"X-Y,N-M"</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2358,38 +2710,76 @@ const CURLOPT_RANGE = 10007;
 const CURLOPT_READDATA = 10009;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-readfunction
+ * A callback accepting three parameters.
+ * The first is the cURL resource, the second is a
+ * stream resource provided to cURL through the option
+ * <code>CURLOPT_INFILE</code>, and the third is the maximum
+ * amount of data to be read. The callback must return a string
+ * with a length equal or smaller than the amount of data requested,
+ * typically by reading it from the passed stream resource. It should
+ * return an empty string to signal <code>EOF</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_READFUNCTION = 20012;
 
 /**
+ * Bitmask of <code>CURLPROTO_*</code> values. If used, this bitmask
+ * limits what protocols libcurl may use in a transfer that it follows to in
+ * a redirect when <code>CURLOPT_FOLLOWLOCATION</code> is enabled.
+ * This allows you to limit specific transfers to only be allowed to use a subset
+ * of protocols in redirections. By default libcurl will allow all protocols
+ * except for FILE and SCP. This is a difference compared to pre-7.19.4 versions
+ * which unconditionally would follow to all protocols supported.
+ * See also <code>CURLOPT_PROTOCOLS</code> for protocol constant values.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_REDIR_PROTOCOLS = 182;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-referer
+ * The contents of the <code>"Referer: "</code> header to be used
+ * in a HTTP request.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_REFERER = 10016;
 
 /**
+ * Provide a custom address for a specific host and port pair. An array
+ * of hostname, port, and IP address strings, each element separated by
+ * a colon. In the format:
+ * <code>
+ * array("example.com:80:127.0.0.1")
+ * </code>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_RESOLVE = 10203;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-resume-from
+ * The offset, in bytes, to resume a transfer from.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_RESUME_FROM = 21;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-returntransfer
+ * <code>TRUE</code> to return the transfer as a string of the
+ * return value of <code>curl_exec</code> instead of outputting
+ * it out directly.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2426,6 +2816,14 @@ const CURLOPT_RTSP_STREAM_URI = 10191;
 const CURLOPT_RTSP_TRANSPORT = 10192;
 
 /**
+ * <code>TRUE</code> to disable support for the <code>@</code> prefix for
+ * uploading files in <code>CURLOPT_POSTFIELDS</code>, which
+ * means that values starting with <code>@</code> can be safely
+ * passed as fields. <code>CURLFile</code> may be used for
+ * uploads instead.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_SAFE_UPLOAD = -1;
@@ -2451,6 +2849,11 @@ const CURLOPT_SASL_IR = 218;
 const CURLOPT_SERVICE_NAME = 10236;
 
 /**
+ * A result of <code>curl_share_init</code>. Makes the cURL
+ * handle to use the data from the shared handle.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
+ *
  * @var int
  */
 const CURLOPT_SHARE = 10100;
@@ -2466,14 +2869,26 @@ const CURLOPT_SOCKS5_GSSAPI_NEC = 180;
 const CURLOPT_SOCKS5_GSSAPI_SERVICE = 10179;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssh-auth-types
+ * A bitmask consisting of one or more of
+ * <code>CURLSSH_AUTH_PUBLICKEY</code>,
+ * <code>CURLSSH_AUTH_PASSWORD</code>,
+ * <code>CURLSSH_AUTH_HOST</code>,
+ * <code>CURLSSH_AUTH_KEYBOARD</code>. Set to
+ * <code>CURLSSH_AUTH_ANY</code> to let libcurl pick one.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSH_AUTH_TYPES = 151;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssh-host-public-key-md5
+ * A string containing 32 hexadecimal digits. The string should be the
+ * MD5 checksum of the remote host's public key, and libcurl will reject
+ * the connection to the host unless the md5sums match.
+ * This option is only for SCP and SFTP transfers.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2485,21 +2900,35 @@ const CURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = 10162;
 const CURLOPT_SSH_KNOWNHOSTS = 10183;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssh-private-keyfile
+ * The file name for your private key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa if the HOME environment variable is set,
+ * and just "id_dsa" in the current directory if HOME is not set.
+ * If the file is password-protected, set the password with
+ * <code>CURLOPT_KEYPASSWD</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSH_PRIVATE_KEYFILE = 10153;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssh-public-keyfile
+ * The file name for your public key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa.pub if the HOME environment variable is set,
+ * and just "id_dsa.pub" in the current directory if HOME is not set.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSH_PUBLIC_KEYFILE = 10152;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssl-cipher-list
+ * A list of ciphers to use for SSL. For example,
+ * <code>RC4-SHA</code> and <code>TLSv1</code> are valid
+ * cipher lists.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2549,14 +2978,26 @@ const CURLOPT_SSL_OPTIONS = 216;
 const CURLOPT_SSL_SESSIONID_CACHE = 150;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssl-verifyhost
+ * <code>1</code> to check the existence of a common name in the
+ * SSL peer certificate. <code>2</code> to check the existence of
+ * a common name and also verify that it matches the hostname
+ * provided. <code>0</code> to not check the names. In production environments the value of this option
+ * should be kept at <code>2</code> (default value).
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSL_VERIFYHOST = 81;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-ssl-verifypeer
+ * <code>FALSE</code> to stop cURL from verifying the peer's
+ * certificate. Alternate certificates to verify against can be
+ * specified with the <code>CURLOPT_CAINFO</code> option
+ * or a certificate directory can be specified with the
+ * <code>CURLOPT_CAPATH</code> option.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2574,70 +3015,115 @@ const CURLOPT_SSL_VERIFYPEER = 64;
 const CURLOPT_SSL_VERIFYSTATUS = 232;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslcert
+ * The name of a file containing a PEM formatted certificate.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLCERT = 10025;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslcertpasswd
+ * The password required to use the
+ * <code>CURLOPT_SSLCERT</code> certificate.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLCERTPASSWD = 10026;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslcerttype
+ * The format of the certificate. Supported formats are
+ * <code>"PEM"</code> (default), <code>"DER"</code>,
+ * and <code>"ENG"</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLCERTTYPE = 10086;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslengine
+ * The identifier for the crypto engine of the private SSL key
+ * specified in <code>CURLOPT_SSLKEY</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLENGINE = 10089;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslengine-default
+ * The identifier for the crypto engine used for asymmetric crypto
+ * operations.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLENGINE_DEFAULT = 90;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslkey
+ * Added in cURL 7.16.1.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLKEY = 10087;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslkeypasswd
+ * The secret password needed to use the private SSL key specified in
+ * <code>CURLOPT_SSLKEY</code>.
+ * <blockquote>
+ * Since this option contains a sensitive password, remember to keep
+ * the PHP script it is contained within safe.
+ * </blockquote>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLKEYPASSWD = 10026;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslkeytype
+ * The key type of the private SSL key specified in
+ * <code>CURLOPT_SSLKEY</code>. Supported key types are
+ * <code>"PEM"</code> (default), <code>"DER"</code>,
+ * and <code>"ENG"</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLKEYTYPE = 10088;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-sslversion
+ * One of <code>CURL_SSLVERSION_DEFAULT</code> (0),
+ * <code>CURL_SSLVERSION_TLSv1</code> (1),
+ * <code>CURL_SSLVERSION_SSLv2</code> (2),
+ * <code>CURL_SSLVERSION_SSLv3</code> (3),
+ * <code>CURL_SSLVERSION_TLSv1_0</code> (4),
+ * <code>CURL_SSLVERSION_TLSv1_1</code> (5) or
+ * <code>CURL_SSLVERSION_TLSv1_2</code> (6).
+ * <blockquote>
+ * Your best bet is to not set this and let it use the default.
+ * Setting it to 2 or 3 is very dangerous given the known
+ * vulnerabilities in SSLv2 and SSLv3.
+ * </blockquote>
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_SSLVERSION = 32;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-stderr
+ * An alternative location to output errors to instead of
+ * <code>STDERR</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2711,28 +3197,50 @@ const CURLOPT_TFTP_BLKSIZE = 178;
 const CURLOPT_TFTP_NO_OPTIONS = 242;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-timecondition
+ * How <code>CURLOPT_TIMEVALUE</code> is treated.
+ * Use <code>CURL_TIMECOND_IFMODSINCE</code> to return the
+ * page only if it has been modified since the time specified in
+ * <code>CURLOPT_TIMEVALUE</code>. If it hasn't been modified,
+ * a <code>"304 Not Modified"</code> header will be returned
+ * assuming <code>CURLOPT_HEADER</code> is <code>TRUE</code>.
+ * Use <code>CURL_TIMECOND_IFUNMODSINCE</code> for the reverse
+ * effect. <code>CURL_TIMECOND_IFMODSINCE</code> is the
+ * default.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_TIMECONDITION = 33;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-timeout
+ * The maximum number of seconds to allow cURL functions to execute.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_TIMEOUT = 13;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-timeout-ms
+ * The maximum number of milliseconds to allow cURL functions to
+ * execute.
+ * If libcurl is built to use the standard system name resolver, that
+ * portion of the connect will still use full-second resolution for
+ * timeouts with a minimum timeout allowed of one second.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_TIMEOUT_MS = 155;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-timevalue
+ * The time in seconds since January 1st, 1970. The time will be used
+ * by <code>CURLOPT_TIMECONDITION</code>. By default,
+ * <code>CURL_TIMECOND_IFMODSINCE</code> is used.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2759,7 +3267,12 @@ const CURLOPT_TLSAUTH_USERNAME = 10204;
 const CURLOPT_TRANSFER_ENCODING = 207;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-transfertext
+ * <code>TRUE</code> to use ASCII mode for FTP transfers.
+ * For LDAP, it retrieves data in plain text instead of HTML. On
+ * Windows systems, it will not set <code>STDOUT</code> to binary
+ * mode.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2777,21 +3290,31 @@ const CURLOPT_TRANSFERTEXT = 53;
 const CURLOPT_UNIX_SOCKET_PATH = 10231;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-unrestricted-auth
+ * <code>TRUE</code> to keep sending the username and password
+ * when following locations (using
+ * <code>CURLOPT_FOLLOWLOCATION</code>), even when the
+ * hostname has changed.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_UNRESTRICTED_AUTH = 105;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-upload
+ * <code>TRUE</code> to prepare for an upload.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_UPLOAD = 46;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-url
+ * The URL to fetch. This can also be set when initializing a
+ * session with <code>curl_init</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2803,7 +3326,10 @@ const CURLOPT_URL = 10002;
 const CURLOPT_USE_SSL = 119;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-useragent
+ * The contents of the <code>"User-Agent: "</code> header to be
+ * used in a HTTP request.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2819,14 +3345,22 @@ const CURLOPT_USERAGENT = 10018;
 const CURLOPT_USERNAME = 10173;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-userpwd
+ * A username and password formatted as
+ * <code>"[username]:[password]"</code> to use for the
+ * connection.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_USERPWD = 10005;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-verbose
+ * <code>TRUE</code> to output verbose information. Writes
+ * output to <code>STDERR</code>, or the file specified using
+ * <code>CURLOPT_STDERR</code>.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -2838,14 +3372,22 @@ const CURLOPT_VERBOSE = 41;
 const CURLOPT_WILDCARDMATCH = 197;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-writefunction
+ * A callback accepting two parameters.
+ * The first is the cURL resource, and the second is a
+ * string with the data to be written. The data must be saved by
+ * this callback. It must return the exact number of bytes written
+ * or the transfer will be aborted with an error.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
 const CURLOPT_WRITEFUNCTION = 20011;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlopt-writeheader
+ * The file that the header part of the transfer is written to.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */
@@ -3164,11 +3706,19 @@ const CURLPROXY_SOCKS5_HOSTNAME = 7;
 const CURLSHOPT_NONE = 0;
 
 /**
+ * Specifies a type of data that should be shared.
+ *
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ *
  * @var int
  */
 const CURLSHOPT_SHARE = 1;
 
 /**
+ * Specifies a type of data that will be no longer shared.
+ *
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ *
  * @var int
  */
 const CURLSHOPT_UNSHARE = 2;
@@ -3225,7 +3775,9 @@ const CURLSSH_AUTH_NONE = 0;
 const CURLSSH_AUTH_PASSWORD = 2;
 
 /**
- * @link http://www.php.net/manual/en/curl.constants.php#constant.curlssh-auth-publickey
+ * Added in cURL 7.16.1.
+ *
+ * @link http://www.php.net/manual/en/function.curl-setopt.php
  *
  * @var int
  */

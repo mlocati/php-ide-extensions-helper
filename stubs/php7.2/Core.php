@@ -85,11 +85,20 @@ define('__NAMESPACE__', 'Name\\Space');
 define('__TRAIT__', 'Name\\Space\\TraitName');
 
 /**
+ * Don't include the argument information for functions in the stack
+ * trace.
+ *
+ * @link http://www.php.net/manual/en/reflectiongenerator.gettrace.php
+ *
  * @var int
  */
 const DEBUG_BACKTRACE_IGNORE_ARGS = 2;
 
 /**
+ * Default.
+ *
+ * @link http://www.php.net/manual/en/reflectiongenerator.gettrace.php
+ *
  * @var int
  */
 const DEBUG_BACKTRACE_PROVIDE_OBJECT = 1;
@@ -103,7 +112,7 @@ const DEFAULT_INCLUDE_PATH = '.:/usr/local/lib/php';
  * All errors and warnings, as supported, except of level
  * <code>E_STRICT</code> prior to PHP 5.4.0.
  *
- * @link http://www.php.net/manual/en/errorfunc.constants.php#errorfunc.constants.errorlevels.e-strict
+ * @link http://www.php.net/manual/en/errorfunc.constants.php#errorfunc.constants.errorlevels.e-all
  *
  * @var int
  */
@@ -272,14 +281,18 @@ const E_USER_WARNING = 512;
 const E_WARNING = 2;
 
 /**
- * @link http://www.php.net/manual/en/maxdb.constants.php
+ * <code>FALSE</code>
+ *
+ * @link http://www.php.net/manual/en/function.variant-and.php
  *
  * @var bool
  */
 const FALSE = false;
 
 /**
- * @link http://www.php.net/manual/en/function.get-defined-constants.php
+ * <code>NULL</code>
+ *
+ * @link http://www.php.net/manual/en/function.variant-and.php
  *
  * @var null
  */
@@ -738,7 +751,9 @@ const STDIN = 'Resource id #1';
 const STDOUT = 'Resource id #2';
 
 /**
- * @link http://www.php.net/manual/en/maxdb.constants.php
+ * <code>TRUE</code>
+ *
+ * @link http://www.php.net/manual/en/function.variant-and.php
  *
  * @var bool
  */

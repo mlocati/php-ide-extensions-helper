@@ -4,7 +4,7 @@
 // - parsed on Windows with PHP 7.1.15 (extension version 20031129)
 
 /**
- * 3
+ * If any node is inserted somewhere it doesn't belong
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-hierarchy-request-err
  *
@@ -13,7 +13,7 @@
 const DOM_HIERARCHY_REQUEST_ERR = 3;
 
 /**
- * 1
+ * If index or size is negative, or greater than the allowed value.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-index-size-err
  *
@@ -22,7 +22,7 @@ const DOM_HIERARCHY_REQUEST_ERR = 3;
 const DOM_INDEX_SIZE_ERR = 1;
 
 /**
- * 10
+ * If an attempt is made to add an attribute that is already in use elsewhere.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-inuse-attribute-err
  *
@@ -31,7 +31,7 @@ const DOM_INDEX_SIZE_ERR = 1;
 const DOM_INUSE_ATTRIBUTE_ERR = 10;
 
 /**
- * 15
+ * If a parameter or an operation is not supported by the underlying object.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-invalid-access-err
  *
@@ -40,7 +40,7 @@ const DOM_INUSE_ATTRIBUTE_ERR = 10;
 const DOM_INVALID_ACCESS_ERR = 15;
 
 /**
- * 5
+ * If an invalid or illegal character is specified, such as in a name.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-invalid-character-err
  *
@@ -49,7 +49,7 @@ const DOM_INVALID_ACCESS_ERR = 15;
 const DOM_INVALID_CHARACTER_ERR = 5;
 
 /**
- * 13
+ * If an attempt is made to modify the type of the underlying object.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-invalid-modification-err
  *
@@ -58,7 +58,7 @@ const DOM_INVALID_CHARACTER_ERR = 5;
 const DOM_INVALID_MODIFICATION_ERR = 13;
 
 /**
- * 11
+ * If an attempt is made to use an object that is not, or is no longer, usable.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-invalid-state-err
  *
@@ -67,7 +67,8 @@ const DOM_INVALID_MODIFICATION_ERR = 13;
 const DOM_INVALID_STATE_ERR = 11;
 
 /**
- * 14
+ * If an attempt is made to create or change an object in a way which is
+ * incorrect with regard to namespaces.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-namespace-err
  *
@@ -76,7 +77,7 @@ const DOM_INVALID_STATE_ERR = 11;
 const DOM_NAMESPACE_ERR = 14;
 
 /**
- * 6
+ * If data is specified for a node which does not support data.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-no-data-allowed-err
  *
@@ -85,7 +86,7 @@ const DOM_NAMESPACE_ERR = 14;
 const DOM_NO_DATA_ALLOWED_ERR = 6;
 
 /**
- * 7
+ * If an attempt is made to modify an object where modifications are not allowed.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-no-modification-allowed-err
  *
@@ -94,7 +95,7 @@ const DOM_NO_DATA_ALLOWED_ERR = 6;
 const DOM_NO_MODIFICATION_ALLOWED_ERR = 7;
 
 /**
- * 8
+ * If an attempt is made to reference a node in a context where it does not exist.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-not-found-err
  *
@@ -103,7 +104,7 @@ const DOM_NO_MODIFICATION_ALLOWED_ERR = 7;
 const DOM_NOT_FOUND_ERR = 8;
 
 /**
- * 9
+ * If the implementation does not support the requested type of object or operation.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-not-supported-err
  *
@@ -112,7 +113,7 @@ const DOM_NOT_FOUND_ERR = 8;
 const DOM_NOT_SUPPORTED_ERR = 9;
 
 /**
- * 0
+ * Error code not part of the DOM specification. Meant for PHP errors.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-php-err
  *
@@ -121,7 +122,7 @@ const DOM_NOT_SUPPORTED_ERR = 9;
 const DOM_PHP_ERR = 0;
 
 /**
- * 12
+ * If an invalid or illegal string is specified.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-syntax-err
  *
@@ -130,7 +131,9 @@ const DOM_PHP_ERR = 0;
 const DOM_SYNTAX_ERR = 12;
 
 /**
- * 16
+ * If a call to a method such as insertBefore or removeChild would make the Node
+ * invalid with respect to "partial validity", this exception would be raised and
+ * the operation would not be done.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-validation-err
  *
@@ -139,7 +142,7 @@ const DOM_SYNTAX_ERR = 12;
 const DOM_VALIDATION_ERR = 16;
 
 /**
- * 4
+ * If a node is used in a different document than the one that created it.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.dom-wrong-document-err
  *
@@ -148,7 +151,8 @@ const DOM_VALIDATION_ERR = 16;
 const DOM_WRONG_DOCUMENT_ERR = 4;
 
 /**
- * 2
+ * If the specified range of text does not fit into a
+ * <code>DOMString</code>.
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.domstring-size-err
  *
@@ -238,7 +242,7 @@ const XML_ATTRIBUTE_NMTOKEN = 7;
 const XML_ATTRIBUTE_NMTOKENS = 8;
 
 /**
- * 2
+ * Node is a <code>DOMAttr</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-attribute-node
  *
@@ -256,7 +260,7 @@ const XML_ATTRIBUTE_NODE = 2;
 const XML_ATTRIBUTE_NOTATION = 10;
 
 /**
- * 4
+ * Node is a <code>DOMCharacterData</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-cdata-section-node
  *
@@ -265,7 +269,7 @@ const XML_ATTRIBUTE_NOTATION = 10;
 const XML_CDATA_SECTION_NODE = 4;
 
 /**
- * 8
+ * Node is a <code>DOMComment</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-comment-node
  *
@@ -274,7 +278,7 @@ const XML_CDATA_SECTION_NODE = 4;
 const XML_COMMENT_NODE = 8;
 
 /**
- * 11
+ * Node is a <code>DOMDocumentFragment</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-document-frag-node
  *
@@ -283,7 +287,7 @@ const XML_COMMENT_NODE = 8;
 const XML_DOCUMENT_FRAG_NODE = 11;
 
 /**
- * 9
+ * Node is a <code>DOMDocument</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-document-node
  *
@@ -292,7 +296,7 @@ const XML_DOCUMENT_FRAG_NODE = 11;
 const XML_DOCUMENT_NODE = 9;
 
 /**
- * 10
+ * Node is a <code>DOMDocumentType</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-document-type-node
  *
@@ -319,7 +323,7 @@ const XML_DTD_NODE = 14;
 const XML_ELEMENT_DECL_NODE = 15;
 
 /**
- * 1
+ * Node is a <code>DOMElement</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-element-node
  *
@@ -337,7 +341,7 @@ const XML_ELEMENT_NODE = 1;
 const XML_ENTITY_DECL_NODE = 17;
 
 /**
- * 6
+ * Node is a <code>DOMEntity</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-entity-node
  *
@@ -346,7 +350,7 @@ const XML_ENTITY_DECL_NODE = 17;
 const XML_ENTITY_NODE = 6;
 
 /**
- * 5
+ * Node is a <code>DOMEntityReference</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-entity-ref-node
  *
@@ -378,7 +382,7 @@ const XML_LOCAL_NAMESPACE = 18;
 const XML_NAMESPACE_DECL_NODE = 18;
 
 /**
- * 12
+ * Node is a <code>DOMNotation</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-notation-node
  *
@@ -387,7 +391,7 @@ const XML_NAMESPACE_DECL_NODE = 18;
 const XML_NOTATION_NODE = 12;
 
 /**
- * 7
+ * Node is a <code>DOMProcessingInstruction</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-pi-node
  *
@@ -396,7 +400,7 @@ const XML_NOTATION_NODE = 12;
 const XML_PI_NODE = 7;
 
 /**
- * 3
+ * Node is a <code>DOMText</code>
  *
  * @link http://www.php.net/manual/en/dom.constants.php#constant.xml-text-node
  *
