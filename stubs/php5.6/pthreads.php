@@ -323,22 +323,38 @@ class Mutex
 class Pool
 {
     /**
+     * the class of the Worker
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.pool.php#pool.props
      */
     protected $class;
 
     /**
+     * the arguments for constructor of new Workers
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.pool.php#pool.props
      */
     protected $ctor;
 
     /**
+     * offset in workers of the last Worker used
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.pool.php#pool.props
      */
     protected $last = 0;
 
     /**
+     * maximum number of Workers this Pool can use
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.pool.php#pool.props
      */
     protected $size = 1;
 
@@ -348,7 +364,11 @@ class Pool
     protected $work;
 
     /**
+     * references to Workers
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.pool.php#pool.props
      */
     protected $workers;
 

@@ -1047,7 +1047,11 @@ final class Closure
 class ErrorException extends Exception
 {
     /**
+     * The severity of the exception
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#errorexception.props
      */
     protected $severity = 1;
 
@@ -1095,22 +1099,38 @@ class ErrorException extends Exception
 class Exception
 {
     /**
+     * The exception code
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $code = 0;
 
     /**
-     * @var mixed
+     * The filename where the exception was created
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $file;
 
     /**
-     * @var mixed
+     * The line where the exception was created
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $line;
 
     /**
+     * The exception message
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $message = '';
 

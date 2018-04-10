@@ -1670,17 +1670,35 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable
 final class SolrDocumentField
 {
     /**
-     * @var int
+     * The boost value for the field
+     *
+     * @property-read
+     *
+     * @var float
+     *
+     * @link http://www.php.net/manual/en/class.solrdocumentfield.php#solrdocumentfield.props
      */
     public $boost = 0;
 
     /**
+     * The name of the field.
+     *
+     * @property-read
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrdocumentfield.php#solrdocumentfield.props
      */
     public $name = ' ';
 
     /**
-     * @var mixed
+     * An array of values for this field
+     *
+     * @property-read
+     *
+     * @var array
+     *
+     * @link http://www.php.net/manual/en/class.solrdocumentfield.php#solrdocumentfield.props
      */
     public $values;
 
@@ -1717,17 +1735,29 @@ final class SolrDocumentField
 class SolrException extends Exception
 {
     /**
+     * The c-space source file where exception was generated
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrexception.php#solrexception.props
      */
     protected $sourcefile = '/tmp/pear/temp/solr/src/php5/solr_functions_helpers.c';
 
     /**
+     * The line in c-space source file where exception was generated
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrexception.php#solrexception.props
      */
     protected $sourceline = 107;
 
     /**
+     * The c-space function where exception was generated
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrexception.php#solrexception.props
      */
     protected $zif_name = 'solr_exception_register_class_properties';
 
@@ -5517,47 +5547,83 @@ abstract class SolrResponse
     const PARSE_SOLR_OBJ = 0;
 
     /**
+     * The response in PHP serialized format.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_digested_response = ' ';
 
     /**
+     * The raw request sent to the server
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_raw_request = ' ';
 
     /**
+     * A string of raw headers sent during the request.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_raw_request_headers = ' ';
 
     /**
+     * The response message from the server.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_raw_response = ' ';
 
     /**
+     * Response headers from the Solr server.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_raw_response_headers = ' ';
 
     /**
+     * The request URL
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_request_url = ' ';
 
     /**
+     * The http status of the response.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_status = 0;
 
     /**
+     * Detailed message on http status
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $http_status_message = ' ';
 
     /**
+     * Whether to parse the solr documents as SolrObject or SolrDocument instances.
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $parser_mode = 0;
 
@@ -5567,7 +5633,11 @@ abstract class SolrResponse
     protected $response_writer = ' ';
 
     /**
+     * Was there an error during the request
+     *
      * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.solrresponse.php#solrresponse.props
      */
     protected $success = false;
 

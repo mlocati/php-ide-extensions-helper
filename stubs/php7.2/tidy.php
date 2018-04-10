@@ -963,6 +963,15 @@ const TIDY_TAG_XMP = 121;
 class tidy
 {
     /**
+     * Return warnings and errors which occurred parsing the specified document
+     *
+     * @var mixed
+     *
+     * @link http://www.php.net/manual/en/tidy.props.errorbuffer.php
+     */
+    public $errorBuffer;
+
+    /**
      * Constructs a new <code>tidy</code> object
      *
      * @since PHP 5, PHP 7, PECL tidy >= 0.5.2

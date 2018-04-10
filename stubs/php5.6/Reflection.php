@@ -121,7 +121,12 @@ class ReflectionClass implements Reflector
     const IS_IMPLICIT_ABSTRACT = 16;
 
     /**
+     * Name of the class. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.props
      */
     public $name = '';
 
@@ -852,7 +857,13 @@ class ReflectionException extends Exception
 class ReflectionExtension implements Reflector
 {
     /**
+     * Name of the extension, same as calling the
+     * <code>ReflectionExtension::getName</code>
+     * method.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionextension.php#reflectionextension.props
      */
     public $name = '';
 
@@ -1089,7 +1100,12 @@ class ReflectionFunction extends ReflectionFunctionAbstract
     const IS_DEPRECATED = 262144;
 
     /**
+     * Name of the function. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.props
      */
     public $name = '';
 
@@ -1209,7 +1225,12 @@ class ReflectionFunction extends ReflectionFunctionAbstract
 abstract class ReflectionFunctionAbstract implements Reflector
 {
     /**
+     * Name of the function. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionfunctionabstract.php#reflectionfunctionabstract.props
      */
     public $name = '';
 
@@ -1604,12 +1625,20 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     const IS_STATIC = 1;
 
     /**
+     * Class name
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.props
      */
     public $class = '';
 
     /**
+     * Method name
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.props
      */
     public $name = '';
 
@@ -1927,7 +1956,12 @@ class ReflectionObject extends ReflectionClass
 class ReflectionParameter implements Reflector
 {
     /**
+     * Name of the parameter. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionparameter.php#reflectionparameter.props
      */
     public $name = '';
 
@@ -2252,12 +2286,22 @@ class ReflectionProperty implements Reflector
     const IS_STATIC = 1;
 
     /**
+     * Name of the class where the property is defined. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props
      */
     public $class = '';
 
     /**
+     * Name of the property. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props
      */
     public $name = '';
 
@@ -2497,7 +2541,12 @@ class ReflectionProperty implements Reflector
 class ReflectionZendExtension implements Reflector
 {
     /**
+     * Name of the extension. Read-only, throws
+     * <code>ReflectionException</code> in attempt to write.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.reflectionzendextension.php#reflectionzendextension.props
      */
     public $name = '';
 

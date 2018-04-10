@@ -288,6 +288,66 @@ const LIBXML_XINCLUDE = 1024;
  */
 class LibXMLError
 {
+    /**
+     * The error's code.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $code;
+
+    /**
+     * The column where the error occurred.
+     * <blockquote>
+     * This property isn't entirely implemented in libxml and therefore
+     * <code>0</code> is often returned.
+     * </blockquote>
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $column;
+
+    /**
+     * The filename, or empty if the XML was loaded from a string.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $file;
+
+    /**
+     * the severity of the error (one of the following constants:
+     * <code>LIBXML_ERR_WARNING</code>,
+     * <code>LIBXML_ERR_ERROR</code> or
+     * <code>LIBXML_ERR_FATAL</code>)
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $level;
+
+    /**
+     * The line where the error occurred.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $line;
+
+    /**
+     * The error message, if any.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.libxmlerror.php#libxmlerror.props
+     */
+    public $message;
 }
 
 /**

@@ -279,6 +279,126 @@ class SNMP
     const VERSION_3 = 3;
 
     /**
+     * Controls the way enum values are printed
+     * Parameter toggles if walk/get etc. should automatically lookup enum values
+     * in the MIB and return them together with their human readable string.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $enum_print;
+
+    /**
+     * Controls which failures will raise SNMPException instead of
+     * warning. Use bitwise OR'ed <code>SNMP::ERRNO_*</code> constants.
+     * By default all SNMP exceptions are disabled.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $exceptions_enabled;
+
+    /**
+     * Read-only property with remote agent configuration: hostname,
+     * port, default timeout, default retries count
+     *
+     * @var array
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $info;
+
+    /**
+     * Maximum OID per GET/SET/GETBULK request
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $max_oids;
+
+    /**
+     * Controls disabling check for increasing OID while walking OID tree
+     * Some <code>SNMP</code> agents are known for returning OIDs out
+     * of order but can complete the walk anyway. Other agents return OIDs
+     * that are out of order and can cause <code>SNMP::walk</code>
+     * to loop indefinitely until memory limit will be reached.
+     * PHP SNMP library by default performs OID increasing check and stops
+     * walking on OID tree when it detects possible loop with issuing warning
+     * about non-increasing OID faced.
+     * Set <code>oid_increasing_check</code> to <code>FALSE</code> to disable this
+     * check.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $oid_increasing_check;
+
+    /**
+     * Controls OID output format
+     * <table>
+     * <title>OID .1.3.6.1.2.1.1.3.0 representation for various
+     * <code>oid_output_format</code> values</title>
+     * <tbody>
+     * <tr><td><code>SNMP_OID_OUTPUT_FULL</code></td><td>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance</td></tr>
+     * <tr><td><code>SNMP_OID_OUTPUT_NUMERIC</code></td><td>.1.3.6.1.2.1.1.3.0</td> </tr>
+     * <tr><td><code>SNMP_OID_OUTPUT_MODULE</code></td><td>DISMAN-EVENT-MIB::sysUpTimeInstance</td></tr>
+     * <tr><td><code>SNMP_OID_OUTPUT_SUFFIX</code></td><td>sysUpTimeInstance</td></tr>
+     * <tr><td><code>SNMP_OID_OUTPUT_UCD</code></td><td>system.sysUpTime.sysUpTimeInstance</td></tr>
+     * <tr><td><code>SNMP_OID_OUTPUT_NONE</code></td><td>Undefined</td></tr>
+     * </tbody>
+     * </table>
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $oid_output_format;
+
+    /**
+     * Value of <code>quick_print</code> within the NET-<code>SNMP</code> library
+     * Sets the value of <code>quick_print</code> within the NET-<code>SNMP</code> library. When this
+     * is set (1), the <code>SNMP</code> library will return 'quick printed' values. This
+     * means that just the value will be printed. When <code>quick_print</code> is not
+     * enabled (default) the UCD <code>SNMP</code> library prints extra information
+     * including the type of the value (i.e. IpAddress or OID). Additionally,
+     * if quick_print is not enabled, the library prints additional hex values
+     * for all strings of three characters or less.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $quick_print;
+
+    /**
+     * Controls the method how the SNMP values will be returned
+     * <table>
+     * <title/>
+     * <tbody>
+     * <tr><td><code>SNMP_VALUE_LIBRARY</code></td><td>The return values will be as returned by the Net-SNMP library.</td></tr>
+     * <tr><td><code>SNMP_VALUE_PLAIN</code></td><td>The return values will be the plain value without the SNMP type hint.</td></tr>
+     * <tr>
+     * <td><code>SNMP_VALUE_OBJECT</code></td><td>
+     * The return values will be objects with the properties "value" and "type", where the latter
+     * is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The
+     * way "value" is returned is based on which one of <code>SNMP_VALUE_LIBRARY</code>,
+     * <code>SNMP_VALUE_PLAIN</code> is set
+     * </td>
+     * </tr>
+     * </tbody>
+     * </table>
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props
+     */
+    public $valueretrieval;
+
+    /**
      * Creates SNMP instance representing session to remote <code>SNMP</code> agent
      *
      * @param int $version <code>SNMP</code> protocol version:

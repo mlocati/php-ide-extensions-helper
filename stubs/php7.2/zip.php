@@ -709,27 +709,47 @@ class ZipArchive implements Countable
     const OVERWRITE = 8;
 
     /**
-     * @var mixed
+     * Comment for the archive
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.ziparchive.php#ziparchive.props
      */
     public $comment;
 
     /**
-     * @var mixed
+     * File name in the file system
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.ziparchive.php#ziparchive.props
      */
     public $filename;
 
     /**
-     * @var mixed
+     * Number of files in archive
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.ziparchive.php#ziparchive.props
      */
     public $numFiles;
 
     /**
-     * @var mixed
+     * Status of the Zip Archive
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.ziparchive.php#ziparchive.props
      */
     public $status;
 
     /**
-     * @var mixed
+     * System status of the Zip Archive
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.ziparchive.php#ziparchive.props
      */
     public $statusSys;
 

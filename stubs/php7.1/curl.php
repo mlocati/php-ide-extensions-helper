@@ -3841,17 +3841,29 @@ const CURLVERSION_NOW = 3;
 class CURLFile
 {
     /**
+     * MIME type of the file (default is <code>application/octet-stream</code>).
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.curlfile.php#curlfile.props
      */
     public $mime = '';
 
     /**
+     * Name of the file to be uploaded.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.curlfile.php#curlfile.props
      */
     public $name = '';
 
     /**
+     * The name of the file in the upload data (defaults to the <code>name</code> property).
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.curlfile.php#curlfile.props
      */
     public $postname = '';
 

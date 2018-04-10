@@ -419,6 +419,59 @@ const XML_TEXT_NODE = 3;
 class DOMAttr extends DOMNode
 {
     /**
+     * The name of the attribute
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domattr.php#domattr.props
+     */
+    public $name;
+
+    /**
+     * The element which contains the attribute
+     *
+     * @property-read
+     *
+     * @var DOMElement
+     *
+     * @link http://www.php.net/manual/en/class.domattr.php#domattr.props
+     */
+    public $ownerElement;
+
+    /**
+     * Not implemented yet, always is <code>NULL</code>
+     *
+     * @property-read
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domattr.php#domattr.props
+     */
+    public $schemaTypeInfo;
+
+    /**
+     * Not implemented yet, always is <code>NULL</code>
+     *
+     * @property-read
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domattr.php#domattr.props
+     */
+    public $specified;
+
+    /**
+     * The value of the attribute
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domattr.php#domattr.props
+     */
+    public $value;
+
+    /**
      * Creates a new <code>DOMAttr</code> object
      *
      * @param mixed $name
@@ -481,6 +534,26 @@ class DOMCdataSection extends DOMText
  */
 class DOMCharacterData extends DOMNode
 {
+    /**
+     * The contents of the node.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props
+     */
+    public $data;
+
+    /**
+     * The length of the contents.
+     *
+     * @property-read
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props
+     */
+    public $length;
+
     /**
      * Append the string to the end of the character data of the node
      *
@@ -628,6 +701,212 @@ class DOMConfiguration
  */
 class DOMDocument extends DOMNode
 {
+    /**
+     * <code>Deprecated</code>. Actual encoding of the document,
+     * is a readonly equivalent to
+     * <code linkend="domdocument.props.encoding">encoding</code>.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $actualEncoding;
+
+    /**
+     * <code>Deprecated</code>. Configuration used when
+     * <code>DOMDocument::normalizeDocument</code> is
+     * invoked.
+     *
+     * @property-read
+     *
+     * @var DOMConfiguration
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $config;
+
+    /**
+     * The Document Type Declaration associated with this document.
+     *
+     * @property-read
+     *
+     * @var DOMDocumentType
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $doctype;
+
+    /**
+     * This is a convenience attribute that allows direct access to the
+     * child node that is the document element of the document.
+     *
+     * @property-read
+     *
+     * @var DOMElement
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $documentElement;
+
+    /**
+     * The location of the document or <code>NULL</code> if undefined.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $documentURI;
+
+    /**
+     * Encoding of the document, as specified by the XML declaration. This
+     * attribute is not present in the final DOM Level 3 specification, but
+     * is the only way of manipulating XML document encoding in this
+     * implementation.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $encoding;
+
+    /**
+     * Nicely formats output with indentation and extra space.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $formatOutput;
+
+    /**
+     * The <code>DOMImplementation</code> object that handles
+     * this document.
+     *
+     * @property-read
+     *
+     * @var DOMImplementation
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $implementation;
+
+    /**
+     * Do not remove redundant white space. Default to <code>TRUE</code>.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $preserveWhiteSpace;
+
+    /**
+     * <code>Proprietary</code>. Enables recovery mode, i.e. trying
+     * to parse non-well formed documents. This attribute is not part of
+     * the DOM specification and is specific to libxml.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $recover;
+
+    /**
+     * Set it to <code>TRUE</code> to load external entities from a doctype
+     * declaration. This is useful for including character entities in
+     * your XML document.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $resolveExternals;
+
+    /**
+     * <code>Deprecated</code>. Whether or not the document is
+     * standalone, as specified by the XML declaration, corresponds to
+     * <code linkend="domdocument.props.xmlstandalone">xmlStandalone</code>.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $standalone;
+
+    /**
+     * Throws <code>DOMException</code> on errors. Default to <code>TRUE</code>.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $strictErrorChecking;
+
+    /**
+     * <code>Proprietary</code>. Whether or not to substitute
+     * entities. This attribute is not part of
+     * the DOM specification and is specific to libxml.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $substituteEntities;
+
+    /**
+     * Loads and validates against the DTD. Default to <code>FALSE</code>.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $validateOnParse;
+
+    /**
+     * <code>Deprecated</code>. Version of XML, corresponds to
+     * <code linkend="domdocument.props.xmlversion">xmlVersion</code>.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $version;
+
+    /**
+     * An attribute specifying, as part of the XML declaration, the
+     * encoding of this document. This is <code>NULL</code> when unspecified or when it
+     * is not known, such as when the Document was created in memory.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $xmlEncoding;
+
+    /**
+     * An attribute specifying, as part of the XML declaration, whether
+     * this document is standalone. This is <code>FALSE</code> when unspecified.
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $xmlStandalone;
+
+    /**
+     * An attribute specifying, as part of the XML declaration, the
+     * version number of this document. If there is no declaration and if
+     * this document supports the "XML" feature, the value is "1.0".
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocument.php#domdocument.props
+     */
+    public $xmlVersion;
+
     /**
      * Creates a new DOMDocument object
      *
@@ -1186,6 +1465,76 @@ class DOMDocumentFragment extends DOMNode
  */
 class DOMDocumentType extends DOMNode
 {
+    /**
+     * A <code>DOMNamedNodeMap</code> containing the general
+     * entities, both external and internal, declared in the DTD.
+     *
+     * @property-read
+     *
+     * @var DOMNamedNodeMap
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $entities;
+
+    /**
+     * The internal subset as a string, or null if there is none. This
+     * does not contain the delimiting square brackets.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $internalSubset;
+
+    /**
+     * The name of DTD; i.e., the name immediately following the
+     * <code>DOCTYPE</code> keyword.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $name;
+
+    /**
+     * A <code>DOMNamedNodeMap</code> containing the notations
+     * declared in the DTD.
+     *
+     * @property-read
+     *
+     * @var DOMNamedNodeMap
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $notations;
+
+    /**
+     * The public identifier of the external subset.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $publicId;
+
+    /**
+     * The system identifier of the external subset. This may be an
+     * absolute URI or not.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props
+     */
+    public $systemId;
 }
 
 class DOMDomError
@@ -1199,6 +1548,28 @@ class DOMDomError
  */
 class DOMElement extends DOMNode
 {
+    /**
+     * Not implemented yet, always return <code>NULL</code>
+     *
+     * @property-read
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.domelement.php#domelement.props
+     */
+    public $schemaTypeInfo;
+
+    /**
+     * The element name
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domelement.php#domelement.props
+     */
+    public $tagName;
+
     /**
      * Creates a new DOMElement object
      *
@@ -1523,6 +1894,79 @@ class DOMElement extends DOMNode
  */
 class DOMEntity extends DOMNode
 {
+    /**
+     * An attribute specifying the encoding used for this entity at the
+     * time of parsing, when it is an external parsed entity. This is
+     * <code>NULL</code> if it an entity from the internal subset or if it is not
+     * known.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $actualEncoding;
+
+    /**
+     * An attribute specifying, as part of the text declaration, the
+     * encoding of this entity, when it is an external parsed entity. This
+     * is <code>NULL</code> otherwise.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $encoding;
+
+    /**
+     * For unparsed entities, the name of the notation for the entity. For
+     * parsed entities, this is <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $notationName;
+
+    /**
+     * The public identifier associated with the entity if specified, and
+     * <code>NULL</code> otherwise.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $publicId;
+
+    /**
+     * The system identifier associated with the entity if specified, and
+     * <code>NULL</code> otherwise. This may be an absolute URI or not.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $systemId;
+
+    /**
+     * An attribute specifying, as part of the text declaration, the
+     * version number of this entity, when it is an external parsed
+     * entity. This is <code>NULL</code> otherwise.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domentity.php#domentity.props
+     */
+    public $version;
 }
 
 /**
@@ -1567,7 +2011,13 @@ class DOMErrorHandler
 final class DOMException extends Exception
 {
     /**
+     * An integer indicating the type of error generated
+     *
+     * @property-read
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#domexception.props
      */
     public $code = 0;
 }
@@ -1683,6 +2133,18 @@ class DOMLocator
  */
 class DOMNamedNodeMap implements Countable, Traversable
 {
+    /**
+     * The number of nodes in the map. The range of valid child node
+     * indices is <code>0</code> to <code>length - 1</code> inclusive.
+     *
+     * @property-read
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.domnamednodemap.php#domnamednodemap.props
+     */
+    public $length;
+
     public function count()
     {
     }
@@ -1819,6 +2281,187 @@ class DOMNameSpaceNode
  */
 class DOMNode
 {
+    /**
+     * A <code>DOMNamedNodeMap</code> containing the
+     * attributes of this node (if it is a <code>DOMElement</code>)
+     * or <code>NULL</code> otherwise.
+     *
+     * @property-read
+     *
+     * @var DOMNamedNodeMap
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $attributes;
+
+    /**
+     * The absolute base URI of this node or <code>NULL</code> if the implementation
+     * wasn't able to obtain an absolute URI.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $baseURI;
+
+    /**
+     * A <code>DOMNodeList</code> that contains all
+     * children of this node. If there are no children, this is an empty
+     * <code>DOMNodeList</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNodeList
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $childNodes;
+
+    /**
+     * The first child of this node. If there is no such node, this
+     * returns <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNode
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $firstChild;
+
+    /**
+     * The last child of this node. If there is no such node, this returns <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNode
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $lastChild;
+
+    /**
+     * Returns the local part of the qualified name of this node.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $localName;
+
+    /**
+     * The namespace URI of this node, or <code>NULL</code> if it is unspecified.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $namespaceURI;
+
+    /**
+     * The node immediately following this node. If there is no such
+     * node, this returns <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNode
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $nextSibling;
+
+    /**
+     * Returns the most accurate name for the current node type
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $nodeName;
+
+    /**
+     * Gets the type of the node. One of the predefined XML_xxx_NODE constants
+     *
+     * @property-read
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $nodeType;
+
+    /**
+     * The value of this node, depending on its type.
+     * Contrary to the W3C specification, the node value of
+     * <code>DOMElement</code> nodes is equal to DOMNode::textContent instead
+     * of <code>NULL</code>.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $nodeValue;
+
+    /**
+     * The <code>DOMDocument</code> object associated with this node.
+     *
+     * @property-read
+     *
+     * @var DOMDocument
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $ownerDocument;
+
+    /**
+     * The parent of this node. If there is no such node, this returns <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNode
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $parentNode;
+
+    /**
+     * The namespace prefix of this node, or <code>NULL</code> if it is unspecified.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $prefix;
+
+    /**
+     * The node immediately preceding this node. If there is no such
+     * node, this returns <code>NULL</code>.
+     *
+     * @property-read
+     *
+     * @var DOMNode
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $previousSibling;
+
+    /**
+     * The text content of this node and its descendants.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnode.php#domnode.props
+     */
+    public $textContent;
+
     /**
      * Adds new child at the end of the children
      *
@@ -2144,6 +2787,18 @@ class DOMNode
 class DOMNodeList implements Countable, Traversable
 {
     /**
+     * The number of nodes in the list. The range of valid child node
+     * indices is 0 to <code>length - 1</code> inclusive.
+     *
+     * @property-read
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.domnodelist.php#domnodelist.props
+     */
+    public $length;
+
+    /**
      * Get number of nodes in the list
      *
      * @return int Returns number of nodes in the list or <code>FALSE</code> on failure.
@@ -2179,6 +2834,23 @@ class DOMNodeList implements Countable, Traversable
  */
 class DOMNotation extends DOMNode
 {
+    /**
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnotation.php#domnotation.props
+     */
+    public $publicId;
+
+    /**
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domnotation.php#domnotation.props
+     */
+    public $systemId;
 }
 
 /**
@@ -2188,6 +2860,22 @@ class DOMNotation extends DOMNode
  */
 class DOMProcessingInstruction extends DOMNode
 {
+    /**
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props
+     */
+    public $data;
+
+    /**
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props
+     */
+    public $target;
+
     /**
      * Creates a new <code>DOMProcessingInstruction</code> object
      *
@@ -2242,6 +2930,18 @@ class DOMStringList
  */
 class DOMText extends DOMCharacterData
 {
+    /**
+     * Holds all the text of logically-adjacent (not separated by Element,
+     * Comment or Processing Instruction) Text nodes.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.domtext.php#domtext.props
+     */
+    public $wholeText;
+
     /**
      * Creates a new <code>DOMText</code> object
      *
@@ -2326,6 +3026,13 @@ class DOMUserDataHandler
  */
 class DOMXPath
 {
+    /**
+     * @var DOMDocument
+     *
+     * @link http://www.php.net/manual/en/class.domxpath.php#domxpath.props
+     */
+    public $document;
+
     /**
      * Creates a new <code>DOMXPath</code> object
      *

@@ -75,47 +75,83 @@ namespace CommonMark {
     abstract /*final*/ class Node implements \CommonMark\Interfaces\IVisitable, \Traversable
     {
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $endColumn;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $endLine;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var Node|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $firstChild;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var Node|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $lastChild;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var Node|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $next;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var Node|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $parent;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var Node|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $previous;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $startColumn;
 
         /**
-         * @var mixed
+         * @property-read
+         *
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node.php#commonmark-node.synopsis
          */
         public $startLine;
 
@@ -307,6 +343,12 @@ namespace CommonMark\Interfaces {
          *
          * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being entered
          *
+         * @return int|null|\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
+         * Returning <code>CommonMark\Interfaces\IVisitor::Enter</code> will reset the backing iterator at entering the current <code>IVisitable</code>
+         * Returning <code>CommonMark\Interfaces\IVisitor::Leave</code> will reset the backing iterator at exiting the current <code>IVisitable</code>
+         * Returning an <code>IVisitable</code> will reset the backing iterator at entering the given <code>IVisitable</code>
+         * Returning nothing will allow the backing iterator to continue
+         *
          * @since cmark >= 1.0.0
          *
          * @link http://www.php.net/manual/en/commonmark-interfaces-ivisitor.enter.php
@@ -317,6 +359,12 @@ namespace CommonMark\Interfaces {
          * Visitation
          *
          * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being exited
+         *
+         * @return int|null|\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
+         * Returning <code>CommonMark\Interfaces\IVisitor::Enter</code> will reset the backing iterator at entering the current <code>IVisitable</code>
+         * Returning <code>CommonMark\Interfaces\IVisitor::Leave</code> will reset the backing iterator at exiting the current <code>IVisitable</code>
+         * Returning an <code>IVisitable</code> will reset the backing iterator at exiting the given <code>IVisitable</code>
+         * Returning nothing will allow the backing iterator to continue
          *
          * @since cmark >= 1.0.0
          *
@@ -348,17 +396,23 @@ namespace CommonMark\Node {
     final class OrderedList extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-orderedlist.php#commonmark-node-orderedlist.synopsis
          */
         public $delimiter;
 
         /**
-         * @var mixed
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-orderedlist.php#commonmark-node-orderedlist.synopsis
          */
         public $start;
 
         /**
-         * @var mixed
+         * @var bool
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-orderedlist.php#commonmark-node-orderedlist.synopsis
          */
         public $tight;
 
@@ -386,12 +440,16 @@ namespace CommonMark\Node {
     final class BulletList extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-bulletlist.php#commonmark-node-bulletlist.synopsis
          */
         public $delimiter;
 
         /**
-         * @var mixed
+         * @var bool
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-bulletlist.php#commonmark-node-bulletlist.synopsis
          */
         public $tight;
 
@@ -427,7 +485,9 @@ namespace CommonMark\Node {
     final class CodeBlock extends \CommonMark\Node\Text
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-codeblock.php#commonmark-node-codeblock.synopsis
          */
         public $fence;
 
@@ -483,7 +543,9 @@ namespace CommonMark\Node {
     final class Heading extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var int
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-heading.php#commonmark-node-heading.synopsis
          */
         public $level;
 
@@ -577,12 +639,16 @@ namespace CommonMark\Node {
     final class CustomInline extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-custominline.php#commonmark-node-custominline.synopsis
          */
         public $onEnter;
 
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-custominline.php#commonmark-node-custominline.synopsis
          */
         public $onLeave;
 
@@ -599,12 +665,16 @@ namespace CommonMark\Node {
     final class Link extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-link.php#commonmark-node-link.synopsis
          */
         public $title;
 
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-link.php#commonmark-node-link.synopsis
          */
         public $url;
 
@@ -631,12 +701,16 @@ namespace CommonMark\Node {
     final class Image extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-image.php#commonmark-node-image.synopsis
          */
         public $title;
 
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-image.php#commonmark-node-image.synopsis
          */
         public $url;
 
@@ -663,12 +737,16 @@ namespace CommonMark\Node {
     final class CustomBlock extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-customblock.php#commonmark-node-customblock.synopsis
          */
         public $onEnter;
 
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-customblock.php#commonmark-node-customblock.synopsis
          */
         public $onLeave;
 
@@ -697,7 +775,9 @@ namespace CommonMark\Node {
     /*final*/ class Text extends \CommonMark\Node
     {
         /**
-         * @var mixed
+         * @var string|null
+         *
+         * @link http://www.php.net/manual/en/class.commonmark-node-text.php#commonmark-node-text.synopsis
          */
         public $literal;
 

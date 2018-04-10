@@ -1576,7 +1576,12 @@ class PDO
 class PDOException extends RuntimeException
 {
     /**
-     * @var mixed
+     * Corresponds to <code>PDO::errorInfo</code> or
+     * <code>PDOStatement::errorInfo</code>
+     *
+     * @var array
+     *
+     * @link http://www.php.net/manual/en/class.php#pdoexception.props
      */
     public $errorInfo;
 }
@@ -1596,7 +1601,13 @@ final class PDORow
 class PDOStatement implements Traversable
 {
     /**
-     * @var mixed
+     * Used query string.
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.pdostatement.php#pdostatement.props
      */
     public $queryString;
 

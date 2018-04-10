@@ -1762,32 +1762,69 @@ class mysqli
 final class mysqli_driver
 {
     /**
-     * @var mixed
+     * The Client API header version
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $client_info;
 
     /**
-     * @var mixed
+     * The Client version
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $client_version;
 
     /**
-     * @var mixed
+     * The MySQLi Driver version
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $driver_version;
 
     /**
-     * @var mixed
+     * Whether MySQLi Embedded support is enabled
+     *
+     * @property-read
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $embedded;
 
     /**
-     * @var mixed
+     * Allow or prevent reconnect (see the mysqli.reconnect INI directive)
+     *
+     * @var bool
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $reconnect;
 
     /**
-     * @var mixed
+     * Set to <code>MYSQLI_REPORT_OFF</code>,
+     * <code>MYSQLI_REPORT_ALL</code> or any combination of
+     * <code>MYSQLI_REPORT_STRICT</code> (throw Exceptions for errors),
+     * <code>MYSQLI_REPORT_ERROR</code> (report errors) and
+     * <code>MYSQLI_REPORT_INDEX</code> (errors regarding indexes).
+     * See also <code>mysqli_report</code>.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-driver.php#mysqli-driver.props
      */
     public $report_mode;
 }
@@ -2163,7 +2200,11 @@ final class mysqli_sql_exception extends RuntimeException
     protected $code = 0;
 
     /**
+     * The sql state with the error.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-sql-exception.php#mysqli-sql-exception.props
      */
     protected $sqlstate = '00000';
 }
@@ -2533,17 +2574,29 @@ class mysqli_stmt
 final class mysqli_warning
 {
     /**
+     * Error number
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-warning.php#mysqli-warning.props
      */
     public $errno;
 
     /**
+     * Message string
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-warning.php#mysqli-warning.props
      */
     public $message;
 
     /**
+     * SQL state
+     *
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.mysqli-warning.php#mysqli-warning.props
      */
     public $sqlstate;
 

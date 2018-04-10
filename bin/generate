@@ -695,7 +695,7 @@ EOF
                 $header .= '/*final*/ ';
             }
         } elseif ($classElement->getAttribute('final') === 'true') {
-            if ($this->inputXPath->query('//ns:class[@extends="' . $this->escapeXML($fqName) . '"]')->length > 0 || $this->inputXPath->query('//ns:class[@extends="' . $this->escapeXML('\\' . $fqName) . '"]')->length > 0) {
+            if ($this->inputXPath->query('//ns:class[@extends="' . escapeXML($fqName) . '"]')->length > 0 || $this->inputXPath->query('//ns:class[@extends="' . escapeXML('\\' . $fqName) . '"]')->length > 0) {
                 $header .= '/*final*/ ';
             } else {
                 $header .= 'final ';
@@ -773,31 +773,70 @@ EOF
      */
     private function writeClassProperties(DOMElement $extensionElement, DOMElement $classElement, &$firstChildren)
     {
-        $prefix = null;
+        $className = $classElement->getAttribute('name');
+        $namespace = $classElement->getAttribute('namespace');
+        if ($namespace !== '') {
+            $className = $namespace . '\\' . $className;
+        }
+        $prefix = $className . '::$';
+        $mergedProperties = array();
         foreach ($this->inputXPath->query('./ns:property', $classElement) as $propertyElement) {
+            $name = $propertyElement->getAttribute('name');
+            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSPROPERTY);
+            $mergedProperties[] = new PHPManualMergedProperty($this->typeFormatter, $propertyElement, $info);
+        }
+        if (empty($mergedProperties)) {
+            // Hack for classes not reporting properties using Reflection
+            $takeFromPHPManual = false;
+            switch ($className) {
+                case 'DateInterval':
+                case 'LibXMLError':
+                case 'SNMP':
+                case 'Directory':
+                case 'tidy':
+                case 'XMLReader':
+                    $takeFromPHPManual = true;
+                    break;
+                default:
+                    switch ($extensionElement->getAttribute('name')) {
+                        case 'dom':
+                            $takeFromPHPManual = true;
+                            break;
+                    }
+                    break;
+            }
+            if ($takeFromPHPManual) {
+                $items = $this->phpManual->getItemsByPrefix($prefix, PHPManualItem::TYPE_CLASSPROPERTY);
+                usort($items, function (PHPManualItem $a, PHPManualItem $b) {
+                    return strnatcasecmp($a->name, $b->name);
+                });
+                foreach ($items as $info) {
+                    $mergedProperties[] = new PHPManualMergedProperty($this->typeFormatter, null, $info);
+                }
+            }
+        }
+        foreach ($mergedProperties as $mergedProperty) {
             if ($firstChildren) {
                 $firstChildren = false;
             } else {
                 $this->currentWriter->writeln();
             }
-            if ($prefix === null) {
-                $namespace = $classElement->getAttribute('namespace');
-                $className = $classElement->getAttribute('name');
-                $prefix = $namespace === '' ? "{$className}::$" : "{$namespace}\\{$className}::$";
-            }
-            $name = $propertyElement->getAttribute('name');
-            $info = $this->phpManual->getItem($prefix . $name, PHPManualItem::TYPE_CLASSPROPERTY);
-            $value = new ValueData($propertyElement->getAttribute('defaultValue'));
+
             $this->currentWriter->writePHPDocParts(array(
-                $info !== null ? $info->description : '',
-                $this->getOSTagWarning($extensionElement, $propertyElement),
-                $info !== null ? $info->getVersionPHPDoc() : '',
-                '@var ' . ($value->phpDocType === 'null' ? 'mixed' : $value->phpDocType),
-                $info !== null && $info->url !== '' ? '@link ' . $info->url : ''
+                $mergedProperty->description,
+                $mergedProperty->propertyElement === null ? '' : $this->getOSTagWarning($extensionElement, $mergedProperty->propertyElement), // @todo
+                $mergedProperty->manualItem === null ? '' : $mergedProperty->manualItem->getVersionPHPDoc(), // @todo
+                $mergedProperty->readOnly ? '@property-read' : '',
+                '@var ' . $mergedProperty->phpDocType,
+                $mergedProperty->url === '' ? '' : "@link {$mergedProperty->url}"
             ));
-            $line = $propertyElement->getAttribute('visibility') . ' $' . $propertyElement->getAttribute('name');
-            if ($value->phpValue !== 'null') {
-                $line .= ' = ' . $value->phpValue;
+            $line = $mergedProperty->visibility;
+            if ($mergedProperty->static) {
+                $line .= ' static';
+            }
+            $line .= ' $' . $mergedProperty->name;
+            if ($mergedProperty->defaultValue !== '') {
+                $line .= ' = ' . $mergedProperty->defaultValue;
             }
             $line .= ';';
             $this->currentWriter->writeln($line);
@@ -921,25 +960,6 @@ EOF
             $this->currentWriter->writeln('{');
             $this->currentWriter->writeln('}');
         }
-    }
-
-    /**
-     * Escape a string so that in can be safely represented in the XML file.
-     *
-     * @param string $s
-     *            The string to be escaped.
-     *            
-     * @return string
-     */
-    private function escapeXML($s)
-    {
-        return defined('ENT_XML1') ? htmlspecialchars($s, ENT_XML1, 'UTF-8') : strtr($s, array(
-            "&" => "&amp;",
-            '"' => '&quot;',
-            "'" => '&apos;',
-            "<" => "&lt;",
-            ">" => "&gt;"
-        ));
     }
 }
 
@@ -1134,6 +1154,18 @@ class PHPManual
     {
         $items = $this->getPHPManualItems();
         return $items->get($name, $type);
+    }
+
+    /**
+     *
+     * @param string $name
+     * @param int $type
+     *
+     * @return PHPManualItem[]
+     */
+    public function getItemsByPrefix($prefix, $type)
+    {
+        return $this->getPHPManualItems()->getByPrefix($prefix, $type);
     }
 
     private function getDocumentIDMap()
@@ -1549,6 +1581,7 @@ EOT
                     $this->parseVersions($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                     $this->parseConstants($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                     $this->parseClasses($xmlFileRelativePath, $xmlDocument, $xPath, $result);
+                    $this->parseClassProperties($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                     $this->parseFunctions($xmlFileRelativePath, $xmlDocument, $xPath, $result);
                 }
             }
@@ -1699,6 +1732,68 @@ EOT
                         $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($paraElement));
                         if ($item->description !== '') {
                             break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Parse all the class properties defined in the PHP manual.
+     *
+     * @param string $xmlFileRelativePath
+     * @param DOMDocument $xmlDocument
+     * @param $xmlDocument $xPath
+     * @param PHPManualItems $items
+     */
+    private function parseClassProperties($xmlFileRelativePath, DOMDocument $xmlDocument, MyDOMXPath $xPath, PHPManualItems $items)
+    {
+        $titleAbbrev = $xPath->queryFirstElement('//ns:titleabbrev');
+        $className = $titleAbbrev === null ? '' : ltrim(trim($titleAbbrev->textContent), '\\');
+        if ($className !== '') {
+            $propertiesSection = $xPath->queryFirstElement('//ns:section[substring(@xml:id,string-length(@xml:id)-string-length(".props")+1)=".props"]');
+            foreach ($xPath->query('//ns:fieldsynopsis/ns:varname') as $varName) {
+                $propertyName = trim($varName->nodeValue);
+                if (strpos($propertyName, '::') === false && $xPath->queryFirstElement('//ns:term/ns:constant[text()="' . escapeXML($className . '::' . $propertyName) . '"]') === null) {
+                    $name = $className . '::$' . ltrim($propertyName, '$');
+                    $item = $items->getOrCreate($name, PHPManualItem::TYPE_CLASSPROPERTY, true);
+                    if ($item->url === '') {
+                        $item->url = $this->getManualURL($varName, $xPath);
+                    }
+                    if ($item->propertyType === '') {
+                        $varType = $xPath->queryFirstElement('../ns:type', $varName);
+                        if ($varType !== null) {
+                            $item->propertyType = trim($varType->nodeValue);
+                        }
+                    }
+                    foreach ($xPath->query('../ns:modifier', $varName) as $modifier) {
+                        $modifierValue = trim($modifier->nodeValue);
+                        switch ($modifierValue) {
+                            case 'public':
+                            case 'protected':
+                            case 'private':
+                                $item->propertyVisibility = $modifierValue;
+                                break;
+                            case 'static':
+                                $item->propertyStatic = true;
+                                break;
+                            case 'readonly':
+                                $item->propertyReadOnly = true;
+                                break;
+                        }
+                    }
+                    if ($item->description === '' && $propertiesSection !== null) {
+                        $detailedVarName = $xPath->queryFirstElement('//ns:varlistentry/ns:term/ns:varname[text()="' . escapeXML($propertyName) . '"]', $propertiesSection);
+                        if ($detailedVarName !== null) {
+                            $listItem = $xPath->queryFirstElement('../following-sibling::ns:listitem', $detailedVarName);
+                            if ($listItem !== null) {
+                                $item->description = $this->simplifyPHPDoc($this->outerXmlToPHPDoc($listItem));
+                                $newUrl = $this->getManualURL($detailedVarName, $xPath);
+                                if ($newUrl !== '') {
+                                    $item->url = $newUrl;
+                                }
+                            }
                         }
                     }
                 }
@@ -1938,6 +2033,30 @@ class PHPManualItems
     /**
      *
      * @param string $name
+     * @param int $type
+     *
+     * @return PHPManualItem[]
+     */
+    public function getByPrefix($prefix, $type)
+    {
+        $result = array();
+        $keyPrefix = strtolower($prefix);
+        foreach ($this->lookupMap as $mapKey => $itemIndexes) {
+            if (strpos($mapKey, $keyPrefix) === 0) {
+                foreach ($itemIndexes as $itemIndex) {
+                    $item = $this->items[$itemIndex];
+                    if (($item->types && $type) !== 0) {
+                        $result[] = $item;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    /**
+     *
+     * @param string $name
      * @param int $allowedKinds
      * @param bool $refineType
      * @return PHPManualItem
@@ -1961,7 +2080,7 @@ class PHPManualItems
      */
     public function create($name, $types)
     {
-        $item = new PHPManualItem();
+        $item = new PHPManualItem($name);
         $item->types = $types;
         $this->add($name, $item);
         return $item;
@@ -2061,6 +2180,13 @@ class PHPManualItem
     const TYPE_CLASSMETHOD = 0x0100;
 
     /**
+     * The full item name.
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * Possible types of the item.
      *
      * @property-read
@@ -2154,6 +2280,45 @@ class PHPManualItem
      * @var string
      */
     public $functionReturnDescription = '';
+
+    /**
+     * The type of the property.
+     *
+     * @var string
+     */
+    public $propertyType = '';
+
+    /**
+     * The visibility of the property (public/protected/private).
+     *
+     * @var string
+     */
+    public $propertyVisibility = '';
+
+    /**
+     * Is the propery static?
+     *
+     * @var bool
+     */
+    public $propertyStatic = false;
+
+    /**
+     * Is the propery read-only?
+     *
+     * @var bool
+     */
+    public $propertyReadOnly = false;
+
+    /**
+     * Initialize the instance.
+     *
+     * @param string $name
+     *            The full item name
+     */
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
     /**
      * Generate the PHPDoc for since/deprecated data.
@@ -2319,6 +2484,140 @@ class PHPManualMergedFunction
     }
 }
 
+/**
+ * Holds data for class properties merged from XML and PHPManualItem
+ */
+class PHPManualMergedProperty
+{
+
+    /**
+     *
+     * @property-read
+     *
+     * @var DOMElement|null
+     */
+    public $propertyElement;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var PHPManualItem|null
+     */
+    public $manualItem;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $phpDocType;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $defaultValue;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var bool
+     */
+    public $static;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $visibility;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     *
+     * @property-read
+     *
+     * @var string
+     */
+    public $url;
+
+    /**
+     * Initialize the instance.
+     *
+     * @param DOMElement $xmlProperty
+     *            (if available)
+     * @param PHPManualItem $manualItem
+     *            (if available)
+     * @throws Exception
+     */
+    public function __construct(TypeFormatter $typeFormatter, DOMElement $xmlProperty = null, PHPManualItem $manualItem = null)
+    {
+        if ($xmlProperty === null && $manualItem === null) {
+            throw new Exception('Empty class property');
+        }
+        $this->propertyElement = $xmlProperty;
+        $this->manualItem = $manualItem;
+        if ($xmlProperty === null) {
+            $this->name = substr($manualItem->name, strpos($manualItem->name, '::') + 3);
+        } else {
+            $this->name = $xmlProperty->getAttribute('name');
+        }
+        if ($xmlProperty === null) {
+            $defaultValue = new ValueData('null');
+        } else {
+            $defaultValue = new ValueData($xmlProperty->getAttribute('defaultValue'));
+        }
+        if ($manualItem !== null && $manualItem->propertyType !== '') {
+            $this->phpDocType = $typeFormatter->format($manualItem->propertyType, false, '', TypeFormatter::PLACE_DOC);
+        } else {
+            $this->phpDocType = $defaultValue->phpDocType === 'null' ? 'mixed' : $defaultValue->phpDocType;
+        }
+        $this->defaultValue = $defaultValue->phpDocType === 'null' ? '' : $defaultValue->phpValue;
+        if ($xmlProperty !== null) {
+            $this->static = $xmlProperty->getAttribute('static') === 'true';
+            $this->visibility = $xmlProperty->getAttribute('visibility');
+        } else {
+            $this->static = $manualItem->propertyStatic;
+            $this->visibility = $manualItem->propertyVisibility;
+            if ($this->visibility === '') {
+                $this->visibility = 'public';
+            }
+        }
+        $this->readOnly = $manualItem === null ? false : $manualItem->propertyReadOnly;
+        $this->description = $manualItem === null ? '' : $manualItem->description;
+        $this->url = $manualItem === null ? '' : $manualItem->url;
+    }
+}
+
 class PHPManualMergedFunctionParameter
 {
 
@@ -2416,7 +2715,7 @@ class PHPManualMergedFunctionParameter
      */
     public function renderAsPHPDoc($currentNamespace, TypeFormatter $typeFormatter)
     {
-        $type = $typeFormatter->format($this->rawType === '' ? 'mixed' : $this->rawType, $this->defaultValue !== '', $currentNamespace, TypeFormatter::PLACE_DOC_PARAMETER);
+        $type = $typeFormatter->format($this->rawType === '' ? 'mixed' : $this->rawType, $this->defaultValue !== '', $currentNamespace, TypeFormatter::PLACE_DOC);
         $result = '@param ' . ($type === '' ? 'mixed' : $type);
         $result .= ' $' . $this->name;
         if ($this->description !== '') {
@@ -2619,11 +2918,11 @@ class TypeFormatter
 {
 
     /**
-     * Place where the formatted type should be placed: PHPDoc for function/method parameter.
+     * Place where the formatted type should be placed: PHPDoc (not for return types).
      *
      * @var int
      */
-    const PLACE_DOC_PARAMETER = 1;
+    const PLACE_DOC = 1;
 
     /**
      * Place where the formatted type should be placed: PHPDoc for function/method return type.
@@ -2701,8 +3000,8 @@ class TypeFormatter
             $chunks = explode('|', $type);
             if (count($chunks) > 1) {
                 switch ($place) {
-                    case self::PLACE_DOC_PARAMETER:
-                    case self::PLACE_DOC_PARAMETER:
+                    case self::PLACE_DOC:
+                    case self::PLACE_DOC_RETURNTYPE:
                         $parts = array();
                         foreach ($chunks as $chunk) {
                             $parts = array_merge($parts, explode('|', $this->format($chunk, $allowsNull, $currentNamespace, $place)));
@@ -2731,7 +3030,7 @@ class TypeFormatter
                 switch ($type) {
                     case 'resource':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 $result = $allowsNull ? "$type|null" : $type;
                                 break;
@@ -2739,7 +3038,7 @@ class TypeFormatter
                         break;
                     case 'array':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 if ($arrayOf === '') {
                                     $result = $allowsNull ? "$type|null" : $type;
@@ -2770,7 +3069,7 @@ class TypeFormatter
                     case 'int':
                     case 'string':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 $result = $allowsNull ? "$type|null" : $type;
                                 break;
@@ -2795,14 +3094,14 @@ class TypeFormatter
                     case 'callable':
                         if ($this->phpVersionId < 504) {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? 'mixed|null' : 'mixed';
                                     break;
                             }
                         } else {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? "$type|null" : $type;
                                     break;
@@ -2826,14 +3125,14 @@ class TypeFormatter
                     case 'iterable':
                         if ($this->phpVersionId < 701) {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? 'mixed|null' : 'mixed';
                                     break;
                             }
                         } else {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? "$type|null" : $type;
                                     break;
@@ -2849,14 +3148,14 @@ class TypeFormatter
                     case 'object':
                         if ($this->phpVersionId < 702) {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? 'mixed|null' : 'mixed';
                                     break;
                             }
                         } else {
                             switch ($place) {
-                                case self::PLACE_DOC_PARAMETER:
+                                case self::PLACE_DOC:
                                 case self::PLACE_DOC_RETURNTYPE:
                                     $result = $allowsNull ? "$type|null" : $type;
                                     break;
@@ -2871,7 +3170,7 @@ class TypeFormatter
                         break;
                     case 'self':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 $result = $allowsNull ? "$type|null" : $type;
                                 break;
@@ -2893,7 +3192,7 @@ class TypeFormatter
                         break;
                     case 'void':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                                 $result = $allowsNull ? 'mixed|null' : 'mixed';
                                 break;
                             case self::PLACE_DOC_RETURNTYPE:
@@ -2909,7 +3208,7 @@ class TypeFormatter
                     case 'scalar':
                     case 'mixed':
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 $result = $allowsNull ? 'mixed|null' : 'mixed';
                                 break;
@@ -2918,7 +3217,7 @@ class TypeFormatter
                     default:
                         $fqType = $currentNamespace === '' ? $type : "\\$type";
                         switch ($place) {
-                            case self::PLACE_DOC_PARAMETER:
+                            case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
                                 $result = $allowsNull ? "$fqType|null" : $fqType;
                                 break;
@@ -3251,6 +3550,25 @@ class MyDOMXPath
 
         return $result;
     }
+}
+
+/**
+ * Escape a string so that in can be safely represented in the XML file.
+ *
+ * @param string $s
+ *            The string to be escaped.
+ *            
+ * @return string
+ */
+function escapeXML($s)
+{
+    return defined('ENT_XML1') ? htmlspecialchars($s, ENT_XML1, 'UTF-8') : strtr($s, array(
+        "&" => "&amp;",
+        '"' => '&quot;',
+        "'" => '&apos;',
+        "<" => "&lt;",
+        ">" => "&gt;"
+    ));
 }
 
 $error = null;

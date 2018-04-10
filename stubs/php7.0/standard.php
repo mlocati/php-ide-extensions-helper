@@ -3183,6 +3183,26 @@ class AssertionError extends Error
 class Directory
 {
     /**
+     * Can be used with other directory functions such as
+     * <code>readdir</code>, <code>rewinddir</code> and
+     * <code>closedir</code>.
+     *
+     * @var resource
+     *
+     * @link http://www.php.net/manual/en/class.directory.php#directory.props
+     */
+    public $handle;
+
+    /**
+     * The directory that was opened.
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.directory.php#directory.props
+     */
+    public $path;
+
+    /**
      * Close directory handle
      *
      * @param resource $dir_handle
@@ -3239,12 +3259,19 @@ class Directory
 class php_user_filter
 {
     /**
+     * Name of the filter registered by
+     * <code>stream_filter_append</code>.
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php-user-filter.php#php-user-filter.props
      */
     public $filtername = '';
 
     /**
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php-user-filter.php#php-user-filter.props
      */
     public $params = '';
 

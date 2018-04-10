@@ -1288,22 +1288,38 @@ class DivisionByZeroError extends ArithmeticError
 class Error implements Throwable
 {
     /**
+     * The error code
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.error.php#error.props
      */
     protected $code = 0;
 
     /**
-     * @var mixed
+     * The filename where the error happened
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.error.php#error.props
      */
     protected $file;
 
     /**
-     * @var mixed
+     * The line where the error happened
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.error.php#error.props
      */
     protected $line;
 
     /**
+     * The error message
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.error.php#error.props
      */
     protected $message = '';
 
@@ -1450,7 +1466,11 @@ class Error implements Throwable
 class ErrorException extends Exception
 {
     /**
+     * The severity of the exception
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#errorexception.props
      */
     protected $severity = 1;
 
@@ -1498,22 +1518,38 @@ class ErrorException extends Exception
 class Exception implements Throwable
 {
     /**
+     * The exception code
+     *
      * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $code = 0;
 
     /**
-     * @var mixed
+     * The filename where the exception was created
+     *
+     * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $file;
 
     /**
-     * @var mixed
+     * The line where the exception was created
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $line;
 
     /**
+     * The exception message
+     *
      * @var string
+     *
+     * @link http://www.php.net/manual/en/class.php#exception.props
      */
     protected $message = '';
 

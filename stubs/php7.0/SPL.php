@@ -4741,6 +4741,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
     /**
      * Retrieve current line of file
      *
+     * @return string|array Retrieves the current line of the file. If the <code>SplFileObject::READ_CSV</code> flag is set, this method returns an array containing the current line parsed as CSV data.
+     *
      * @since PHP 5 >= 5.1.0, PHP 7
      *
      * @link http://www.php.net/manual/en/splfileobject.current.php

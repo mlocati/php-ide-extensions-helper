@@ -308,6 +308,95 @@ interface DateTimeInterface
 class DateInterval
 {
     /**
+     * Number of days.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $d;
+
+    /**
+     * If the DateInterval object was created by
+     * <code>DateTime::diff</code>, then this is the total number of
+     * days between the start and end dates. Otherwise,
+     * <code>days</code> will be <code>FALSE</code>.
+     * Before PHP 5.4.20/5.5.4 instead of <code>FALSE</code> you will receive -99999 upon
+     * accessing the property.
+     *
+     * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $days;
+
+    /**
+     * Number of microseconds, as a fraction of a second.
+     *
+     * @var float
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $f;
+
+    /**
+     * Number of hours.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $h;
+
+    /**
+     * Number of minutes.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $i;
+
+    /**
+     * Is <code>1</code> if the interval
+     * represents a negative time period and
+     * <code>0</code> otherwise.
+     * See <code>DateInterval::format</code>.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $invert;
+
+    /**
+     * Number of months.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $m;
+
+    /**
+     * Number of seconds.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $s;
+
+    /**
+     * Number of years.
+     *
+     * @var int
+     *
+     * @link http://www.php.net/manual/en/class.dateinterval.php#dateinterval.props
+     */
+    public $y;
+
+    /**
      * Creates a new DateInterval object
      *
      * @param string $interval_spec An interval specification.

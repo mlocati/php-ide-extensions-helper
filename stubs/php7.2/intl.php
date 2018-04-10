@@ -11984,6 +11984,8 @@ class Transliterator
 
     /**
      * @var mixed
+     *
+     * @link http://www.php.net/manual/en/class.transliterator.php#transliterator.props
      */
     public $id;
 
