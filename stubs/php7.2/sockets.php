@@ -1,6 +1,6 @@
 <?php
 // Start of extension: sockets
-// - parsed on POSIX with PHP 7.2.3 (extension version 7.2.3)
+// - parsed on POSIX with PHP 7.2.4 (extension version 7.2.4)
 
 /**
  * IPv4 Internet based protocols. TCP and UDP are common protocols of
@@ -44,27 +44,7 @@ const AI_ALL = 16;
 /**
  * @var int
  */
-const AI_CANONIDN = 128;
-
-/**
- * @var int
- */
 const AI_CANONNAME = 2;
-
-/**
- * @var int
- */
-const AI_IDN = 64;
-
-/**
- * @var int
- */
-const AI_IDN_ALLOW_UNASSIGNED = 256;
-
-/**
- * @var int
- */
-const AI_IDN_USE_STD3_ASCII_RULES = 512;
 
 /**
  * @var int

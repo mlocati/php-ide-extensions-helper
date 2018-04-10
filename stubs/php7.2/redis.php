@@ -1,6 +1,6 @@
 <?php
 // Start of extension: redis
-// - parsed on POSIX with PHP 7.2.3 (extension version 4.0.0)
+// - parsed on POSIX with PHP 7.2.4 (extension version 4.0.0)
 
 class Redis
 {

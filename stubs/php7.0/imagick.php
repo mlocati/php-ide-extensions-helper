@@ -1,7 +1,7 @@
 <?php
 // Start of extension: imagick
-// - parsed on POSIX with PHP 7.0.28 (extension version 3.4.3)
-// - parsed on Windows with PHP 7.0.28 (extension version 3.4.3)
+// - parsed on POSIX with PHP 7.0.29 (extension version 3.4.3)
+// - parsed on Windows with PHP 7.0.29 (extension version 3.4.3)
 
 /**
  * The Imagick class has the ability to hold and operate on multiple

@@ -1,6 +1,6 @@
 <?php
 // Start of extension: Core
-// - parsed on POSIX with PHP 7.2.3 (extension version 7.2.3)
+// - parsed on POSIX with PHP 7.2.4 (extension version 7.2.4)
 // - parsed on Windows with PHP 7.2.4 (extension version 7.2.4)
 
 /**
@@ -571,7 +571,7 @@ const PHP_PREFIX = '/usr/local';
 /**
  * @var int
  */
-const PHP_RELEASE_VERSION = 3;
+const PHP_RELEASE_VERSION = 4;
 
 /**
  * @var string
@@ -591,12 +591,12 @@ const PHP_SYSCONFDIR = '/usr/local/etc';
 /**
  * @var string
  */
-const PHP_VERSION = '7.2.3';
+const PHP_VERSION = '7.2.4';
 
 /**
  * @var int
  */
-const PHP_VERSION_ID = 70203;
+const PHP_VERSION_ID = 70204;
 
 /**
  * This is a domain controller

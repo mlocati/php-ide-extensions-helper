@@ -1,7 +1,7 @@
 <?php
 // Start of extension: session
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
-// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
+// - parsed on Windows with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * Since PHP 5.4.0. Return value of <code>session_status</code> if sessions are enabled,

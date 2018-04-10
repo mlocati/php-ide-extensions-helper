@@ -1,6 +1,6 @@
 <?php
 // Start of extension: exif
-// - parsed on POSIX with PHP 5.6.34 (extension version 1.4 $Id: 1c8772f76be691b7b3f77ca31eb788a2abbcefe5 $)
+// - parsed on POSIX with PHP 5.6.35 (extension version 1.4 $Id: 1c8772f76be691b7b3f77ca31eb788a2abbcefe5 $)
 
 /**
  * This constant have a value of <code>1</code> if the

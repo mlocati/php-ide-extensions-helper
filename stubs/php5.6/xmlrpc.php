@@ -1,6 +1,6 @@
 <?php
 // Start of extension: xmlrpc
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.51)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.51)
 
 /**
  * Decodes XML into native PHP types

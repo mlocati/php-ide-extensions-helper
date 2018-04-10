@@ -1,6 +1,6 @@
 <?php
 // Start of extension: sqlsrv
-// - parsed on POSIX with PHP 7.2.3 (extension version 5.2.0)
+// - parsed on POSIX with PHP 7.2.4 (extension version 5.2.0)
 
 /**
  * @var string

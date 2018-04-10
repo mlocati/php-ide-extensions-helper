@@ -1,7 +1,7 @@
 <?php
 // Start of extension: xmlreader
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.1)
-// - parsed on Windows with PHP 5.6.34 (extension version 0.1)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.1)
+// - parsed on Windows with PHP 5.6.35 (extension version 0.1)
 
 /**
  * The XMLReader extension is an XML Pull parser. The reader acts as a

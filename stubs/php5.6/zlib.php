@@ -1,7 +1,7 @@
 <?php
 // Start of extension: zlib
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.0)
-// - parsed on Windows with PHP 5.6.34 (extension version 2.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.0)
+// - parsed on Windows with PHP 5.6.35 (extension version 2.0)
 
 /**
  * @link http://www.php.net/manual/en/zlib.constants.php#constant.force-deflate

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: standard
-// - parsed on POSIX with PHP 7.0.28 (extension version 7.0.28)
-// - parsed on Windows with PHP 7.0.28 (extension version 7.0.28)
+// - parsed on POSIX with PHP 7.0.29 (extension version 7.0.29)
+// - parsed on Windows with PHP 7.0.29 (extension version 7.0.29)
 
 /**
  * WARNING: this may be available on POSIX but not on Windows

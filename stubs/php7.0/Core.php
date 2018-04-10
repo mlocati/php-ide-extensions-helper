@@ -1,7 +1,7 @@
 <?php
 // Start of extension: Core
-// - parsed on POSIX with PHP 7.0.28 (extension version 7.0.28)
-// - parsed on Windows with PHP 7.0.28 (extension version 7.0.28)
+// - parsed on POSIX with PHP 7.0.29 (extension version 7.0.29)
+// - parsed on Windows with PHP 7.0.29 (extension version 7.0.29)
 
 /**
  * The class name. The class name includes the namespace
@@ -541,7 +541,7 @@ const PHP_PREFIX = '/usr/local';
 /**
  * @var int
  */
-const PHP_RELEASE_VERSION = 28;
+const PHP_RELEASE_VERSION = 29;
 
 /**
  * @var string
@@ -561,12 +561,12 @@ const PHP_SYSCONFDIR = '/usr/local/etc';
 /**
  * @var string
  */
-const PHP_VERSION = '7.0.28';
+const PHP_VERSION = '7.0.29';
 
 /**
  * @var int
  */
-const PHP_VERSION_ID = 70028;
+const PHP_VERSION_ID = 70029;
 
 /**
  * This is a domain controller

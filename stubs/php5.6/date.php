@@ -1,7 +1,7 @@
 <?php
 // Start of extension: date
-// - parsed on POSIX with PHP 5.6.34 (extension version 5.6.34)
-// - parsed on Windows with PHP 5.6.34 (extension version 5.6.34)
+// - parsed on POSIX with PHP 5.6.35 (extension version 5.6.35)
+// - parsed on Windows with PHP 5.6.35 (extension version 5.6.35)
 
 /**
  * Atom (example: 2005-08-15T15:52:01+00:00)

@@ -1,6 +1,6 @@
 <?php
 // Start of extension: apache2handler
-// - parsed on POSIX with PHP 7.1.15
+// - parsed on POSIX with PHP 7.1.16
 
 /**
  * Get a list of loaded Apache modules

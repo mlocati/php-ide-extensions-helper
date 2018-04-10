@@ -1,6 +1,6 @@
 <?php
 // Start of extension: interbase
-// - parsed on POSIX with PHP 7.2.3 (extension version 7.2.3)
+// - parsed on POSIX with PHP 7.2.4 (extension version 7.2.4)
 
 /**
  * Options to <code>ibase_backup</code>

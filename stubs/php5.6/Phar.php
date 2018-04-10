@@ -1,7 +1,7 @@
 <?php
 // Start of extension: Phar
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.0.2)
-// - parsed on Windows with PHP 5.6.34 (extension version 2.0.2)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.0.2)
+// - parsed on Windows with PHP 5.6.35 (extension version 2.0.2)
 
 /**
  * The Phar class provides a high-level interface to accessing and creating

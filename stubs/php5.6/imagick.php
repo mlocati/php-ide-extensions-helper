@@ -1,6 +1,6 @@
 <?php
 // Start of extension: imagick
-// - parsed on POSIX with PHP 5.6.34 (extension version 3.4.3)
+// - parsed on POSIX with PHP 5.6.35 (extension version 3.4.3)
 
 /**
  * The Imagick class has the ability to hold and operate on multiple

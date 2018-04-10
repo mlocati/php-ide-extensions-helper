@@ -1,6 +1,6 @@
 <?php
 // Start of extension: fileinfo
-// - parsed on POSIX with PHP 7.2.3 (extension version 1.0.5)
+// - parsed on POSIX with PHP 7.2.4 (extension version 1.0.5)
 // - parsed on Windows with PHP 7.2.4 (extension version 1.0.5)
 
 /**

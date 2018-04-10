@@ -1,6 +1,6 @@
 <?php
 // Start of extension: uuid
-// - parsed on POSIX with PHP 5.6.34 (extension version 1.0.4)
+// - parsed on POSIX with PHP 5.6.35 (extension version 1.0.4)
 
 /**
  * @var int

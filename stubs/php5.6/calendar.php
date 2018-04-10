@@ -1,7 +1,7 @@
 <?php
 // Start of extension: calendar
-// - parsed on POSIX with PHP 5.6.34
-// - parsed on Windows with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
+// - parsed on Windows with PHP 5.6.35
 
 /**
  * For <code>jddayofweek</code>: the day of the week as

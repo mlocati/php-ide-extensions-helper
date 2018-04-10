@@ -1,6 +1,6 @@
 <?php
 // Start of extension: recode
-// - parsed on POSIX with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
 
 /**
  * Alias of <code>recode_string</code>

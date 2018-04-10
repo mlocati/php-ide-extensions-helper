@@ -1,6 +1,6 @@
 <?php
 // Start of extension: Zend OPcache
-// - parsed on POSIX with PHP 5.6.34 (extension version 7.0.6-devFE)
+// - parsed on POSIX with PHP 5.6.35 (extension version 7.0.6-devFE)
 
 /**
  * Compiles and caches a PHP script without executing it

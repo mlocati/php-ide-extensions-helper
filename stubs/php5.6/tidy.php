@@ -1,6 +1,6 @@
 <?php
 // Start of extension: tidy
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.0)
 
 /**
  * ASP code

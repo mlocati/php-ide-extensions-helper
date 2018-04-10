@@ -1,7 +1,7 @@
 <?php
 // Start of extension: xml
-// - parsed on POSIX with PHP 7.0.28 (extension version 7.0.28)
-// - parsed on Windows with PHP 7.0.28 (extension version 7.0.28)
+// - parsed on POSIX with PHP 7.0.29 (extension version 7.0.29)
+// - parsed on Windows with PHP 7.0.29 (extension version 7.0.29)
 
 /**
  * @link http://www.php.net/manual/en/xml.constants.php#constant.xml-error-async-entity

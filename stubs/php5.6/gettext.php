@@ -1,6 +1,6 @@
 <?php
 // Start of extension: gettext
-// - parsed on POSIX with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
 
 /**
  * @param mixed $msgid

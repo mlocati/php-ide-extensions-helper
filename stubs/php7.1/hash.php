@@ -1,7 +1,7 @@
 <?php
 // Start of extension: hash
-// - parsed on POSIX with PHP 7.1.15 (extension version 1.0)
-// - parsed on Windows with PHP 7.1.15 (extension version 1.0)
+// - parsed on POSIX with PHP 7.1.16 (extension version 1.0)
+// - parsed on Windows with PHP 7.1.16 (extension version 1.0)
 
 /**
  * Optional flag for <code>hash_init</code>.

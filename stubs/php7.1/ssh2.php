@@ -1,6 +1,6 @@
 <?php
 // Start of extension: ssh2
-// - parsed on POSIX with PHP 7.1.15 (extension version 1.1.2)
+// - parsed on POSIX with PHP 7.1.16 (extension version 1.1.2)
 
 /**
  * Default terminal height requested by <code>ssh2_shell</code>.

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: gd
-// - parsed on POSIX with PHP 5.6.34
-// - parsed on Windows with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
+// - parsed on Windows with PHP 5.6.35
 
 /**
  * When the bundled version of GD is used this is 1 otherwise

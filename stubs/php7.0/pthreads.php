@@ -1,6 +1,6 @@
 <?php
 // Start of extension: pthreads
-// - parsed on POSIX with PHP 7.0.28 (extension version 3.1.6)
+// - parsed on POSIX with PHP 7.0.29 (extension version 3.1.6)
 
 /**
  * Allow new Threads to send headers to standard output (normally prohibited)

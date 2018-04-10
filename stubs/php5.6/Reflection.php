@@ -1,7 +1,7 @@
 <?php
 // Start of extension: Reflection
-// - parsed on POSIX with PHP 5.6.34 (extension version $Id: 5f15287237d5f78d75b19c26915aa7bd83dee8b8 $)
-// - parsed on Windows with PHP 5.6.34 (extension version $Id: 5f15287237d5f78d75b19c26915aa7bd83dee8b8 $)
+// - parsed on POSIX with PHP 5.6.35 (extension version $Id: 5f15287237d5f78d75b19c26915aa7bd83dee8b8 $)
+// - parsed on Windows with PHP 5.6.35 (extension version $Id: 5f15287237d5f78d75b19c26915aa7bd83dee8b8 $)
 
 /**
  * <code>Reflector</code> is an interface implemented by all

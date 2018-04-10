@@ -1,7 +1,6 @@
 <?php
 // Start of extension: apcu
-// - parsed on POSIX with PHP 7.1.15 (extension version 5.1.11)
-// - parsed on Windows with PHP 7.1.15 (extension version 5.1.9)
+// - parsed on POSIX with PHP 7.1.16 (extension version 5.1.11)
 
 /**
  * @link http://www.php.net/manual/en/apcu.constants.php#constant.apcu-iter-all

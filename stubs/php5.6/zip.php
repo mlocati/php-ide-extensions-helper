@@ -1,7 +1,7 @@
 <?php
 // Start of extension: zip
-// - parsed on POSIX with PHP 5.6.34 (extension version 1.12.5)
-// - parsed on Windows with PHP 5.6.34 (extension version 1.12.5)
+// - parsed on POSIX with PHP 5.6.35 (extension version 1.12.5)
+// - parsed on Windows with PHP 5.6.35 (extension version 1.12.5)
 
 /**
  * A file archive, compressed with Zip.

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: filter
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.11.0)
-// - parsed on Windows with PHP 5.6.34 (extension version 0.11.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.11.0)
+// - parsed on Windows with PHP 5.6.35 (extension version 0.11.0)
 
 /**
  * ID of "callback" filter.

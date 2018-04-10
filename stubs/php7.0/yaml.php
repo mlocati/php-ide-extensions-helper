@@ -1,6 +1,6 @@
 <?php
 // Start of extension: yaml
-// - parsed on POSIX with PHP 7.0.28 (extension version 2.0.2)
+// - parsed on POSIX with PHP 7.0.29 (extension version 2.0.2)
 
 /**
  * Let emitter choose linebreak character.

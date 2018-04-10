@@ -1,6 +1,6 @@
 <?php
 // Start of extension: pgsql
-// - parsed on POSIX with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
 
 /**
  * Passed to <code>pg_fetch_array</code>. Return an associative array of field

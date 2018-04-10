@@ -1,7 +1,7 @@
 <?php
 // Start of extension: json
-// - parsed on POSIX with PHP 7.0.28 (extension version 1.4.0)
-// - parsed on Windows with PHP 7.0.28 (extension version 1.4.0)
+// - parsed on POSIX with PHP 7.0.29 (extension version 1.4.0)
+// - parsed on Windows with PHP 7.0.29 (extension version 1.4.0)
 
 /**
  * Decodes large integers as their original string value.

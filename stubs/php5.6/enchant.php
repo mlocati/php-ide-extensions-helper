@@ -1,6 +1,6 @@
 <?php
 // Start of extension: enchant
-// - parsed on POSIX with PHP 5.6.34 (extension version 1.1.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 1.1.0)
 
 /**
  * Dictionary type for Ispell. Used with

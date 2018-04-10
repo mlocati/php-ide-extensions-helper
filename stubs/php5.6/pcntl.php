@@ -1,6 +1,6 @@
 <?php
 // Start of extension: pcntl
-// - parsed on POSIX with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
 
 /**
  * Available since PHP 5.3.0.

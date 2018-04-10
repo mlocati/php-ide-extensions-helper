@@ -1,6 +1,6 @@
 <?php
 // Start of extension: standard
-// - parsed on POSIX with PHP 7.2.3 (extension version 7.2.3)
+// - parsed on POSIX with PHP 7.2.4 (extension version 7.2.4)
 // - parsed on Windows with PHP 7.2.4 (extension version 7.2.4)
 
 /**
@@ -7204,7 +7204,7 @@ function getcwd(): string
  *
  * @link http://www.php.net/manual/en/function.getenv.php
  */
-function getenv(string $varname, bool $local_only = false): string
+function getenv(string $varname = null, bool $local_only = false): string
 {
 }
 
@@ -13747,7 +13747,7 @@ function strnatcmp(string $str1, string $str2): int
  *
  * @link http://www.php.net/manual/en/function.strpbrk.php
  */
-function strpbrk(string $haystack, string $char_list = null): string
+function strpbrk(string $haystack, string $char_list): string
 {
 }
 
@@ -13972,7 +13972,7 @@ function strstr(string $haystack, $needle, bool $before_needle = false): string
  *
  * @link http://www.php.net/manual/en/function.strtok.php
  */
-function strtok(string $str, string $token): string
+function strtok(string $str, string $token = null): string
 {
 }
 

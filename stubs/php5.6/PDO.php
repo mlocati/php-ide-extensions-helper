@@ -1,7 +1,7 @@
 <?php
 // Start of extension: PDO
-// - parsed on POSIX with PHP 5.6.34 (extension version 1.0.4dev)
-// - parsed on Windows with PHP 5.6.34 (extension version 1.0.4dev)
+// - parsed on POSIX with PHP 5.6.35 (extension version 1.0.4dev)
+// - parsed on Windows with PHP 5.6.35 (extension version 1.0.4dev)
 
 /**
  * Represents a connection between PHP and a database server.

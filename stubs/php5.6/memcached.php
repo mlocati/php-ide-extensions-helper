@@ -1,6 +1,6 @@
 <?php
 // Start of extension: memcached
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.2.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.2.0)
 
 /**
  * Represents a connection to a set of memcached servers.

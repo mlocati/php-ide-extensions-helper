@@ -1,6 +1,6 @@
 <?php
 // Start of extension: test
-// - parsed on POSIX with PHP 7.2.3 (extension version 0.1.0)
+// - parsed on POSIX with PHP 7.2.4 (extension version 0.1.0)
 
 trait _ZendTestTrait
 {

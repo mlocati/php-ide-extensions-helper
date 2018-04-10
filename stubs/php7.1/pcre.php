@@ -1,7 +1,7 @@
 <?php
 // Start of extension: pcre
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
-// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
+// - parsed on Windows with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * PCRE version and release date (e.g. "<code>7.0 18-Dec-2006</code>").

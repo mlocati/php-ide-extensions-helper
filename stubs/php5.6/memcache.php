@@ -1,6 +1,6 @@
 <?php
 // Start of extension: memcache
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.2.7)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.2.7)
 
 /**
  * Used to turn on-the-fly data compression on with

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: filter
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
-// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
+// - parsed on Windows with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * ID of "callback" filter.
@@ -124,6 +124,16 @@ const FILTER_FLAG_ENCODE_LOW = 16;
 const FILTER_FLAG_HOST_REQUIRED = 131072;
 
 /**
+ * Validates whether the domain name label lengths are valid.
+ * Validates domain names against RFC 1034, RFC 1035, RFC 952,
+ * RFC 1123, RFC 2732, RFC 2181, and RFC 1123. Optional flag
+ * <code>FILTER_FLAG_HOSTNAME</code> adds ability to
+ * specifically validate hostnames (they must start with an
+ * alphanumberic character and contain only alphanumerics or
+ * hyphens).
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.validate
+ *
  * @var int
  */
 const FILTER_FLAG_HOSTNAME = 1048576;
@@ -381,6 +391,10 @@ const FILTER_UNSAFE_RAW = 516;
 const FILTER_VALIDATE_BOOLEAN = 258;
 
 /**
+ * "validate_domain"
+ *
+ * @link http://www.php.net/manual/en/filter.filters.php#filter.filters.validate
+ *
  * @var int
  */
 const FILTER_VALIDATE_DOMAIN = 277;

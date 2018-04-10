@@ -1,7 +1,7 @@
 <?php
 // Start of extension: xmlwriter
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.1)
-// - parsed on Windows with PHP 5.6.34 (extension version 0.1)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.1)
+// - parsed on Windows with PHP 5.6.35 (extension version 0.1)
 
 /**
  * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: dom
-// - parsed on POSIX with PHP 7.1.15 (extension version 20031129)
-// - parsed on Windows with PHP 7.1.15 (extension version 20031129)
+// - parsed on POSIX with PHP 7.1.16 (extension version 20031129)
+// - parsed on Windows with PHP 7.1.16 (extension version 20031129)
 
 /**
  * If any node is inserted somewhere it doesn't belong

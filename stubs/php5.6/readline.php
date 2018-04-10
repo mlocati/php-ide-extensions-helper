@@ -1,6 +1,6 @@
 <?php
 // Start of extension: readline
-// - parsed on POSIX with PHP 5.6.34 (extension version 5.6.34)
+// - parsed on POSIX with PHP 5.6.35 (extension version 5.6.35)
 
 /**
  * @var string

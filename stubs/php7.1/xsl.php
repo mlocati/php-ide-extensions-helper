@@ -1,7 +1,7 @@
 <?php
 // Start of extension: xsl
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
-// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
+// - parsed on Windows with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * libexslt version like 1.1.17. Available as of PHP 5.1.2.

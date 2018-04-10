@@ -1,7 +1,7 @@
 <?php
 // Start of extension: intl
-// - parsed on POSIX with PHP 7.0.28 (extension version 1.1.0)
-// - parsed on Windows with PHP 7.0.28 (extension version 1.1.0)
+// - parsed on POSIX with PHP 7.0.29 (extension version 1.1.0)
+// - parsed on Windows with PHP 7.0.29 (extension version 1.1.0)
 
 /**
  * @var int

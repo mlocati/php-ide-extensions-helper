@@ -1,6 +1,7 @@
 <?php
 // Start of extension: imagick
-// - parsed on POSIX with PHP 7.2.3 (extension version 3.4.3)
+// - parsed on POSIX with PHP 7.2.4 (extension version 3.4.3)
+// - parsed on Windows with PHP 7.2.4 (extension version @PACKAGE_VERSION@)
 
 /**
  * The Imagick class has the ability to hold and operate on multiple
@@ -67,6 +68,8 @@ class Imagick implements Countable, Iterator
     /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.alphachannel-copy
@@ -83,6 +86,13 @@ class Imagick implements Countable, Iterator
     const ALPHACHANNEL_DEACTIVATE = 4;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const ALPHACHANNEL_DISCRETE = 6;
+
+    /**
      * @var int
      */
     const ALPHACHANNEL_DISSOCIATE = 14;
@@ -97,12 +107,30 @@ class Imagick implements Countable, Iterator
     const ALPHACHANNEL_EXTRACT = 5;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      */
     const ALPHACHANNEL_FLATTEN = 11;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const ALPHACHANNEL_OFF = 9;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const ALPHACHANNEL_ON = 10;
+
+    /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.4.6 or higher.
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -117,6 +145,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.3.8 or higher.
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -241,6 +271,8 @@ class Imagick implements Countable, Iterator
     const CHANNEL_MAGENTA = 2;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-matte
@@ -248,11 +280,25 @@ class Imagick implements Countable, Iterator
     const CHANNEL_MATTE = 8;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const CHANNEL_META = 256;
+
+    /**
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-opacity
      */
     const CHANNEL_OPACITY = 8;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const CHANNEL_READ_MASK = 64;
 
     /**
      * @var int
@@ -287,6 +333,13 @@ class Imagick implements Countable, Iterator
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.channel-undefined
      */
     const CHANNEL_UNDEFINED = 0;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const CHANNEL_WRITE_MASK = 128;
 
     /**
      * @var int
@@ -360,6 +413,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Color's opacity
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -450,6 +505,8 @@ class Imagick implements Countable, Iterator
     const COLORSPACE_HWB = 16;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-lab
@@ -496,6 +553,8 @@ class Imagick implements Countable, Iterator
     const COLORSPACE_OHTA = 4;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-rec601luma
@@ -508,6 +567,8 @@ class Imagick implements Countable, Iterator
     const COLORSPACE_REC601YCBCR = 18;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.colorspace-rec709luma
@@ -607,6 +668,8 @@ class Imagick implements Countable, Iterator
     /**
      * The result of image + image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-add
@@ -694,6 +757,13 @@ class Imagick implements Countable, Iterator
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.composite-copy
      */
     const COMPOSITE_COPY = 13;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const COMPOSITE_COPYALPHA = 17;
 
     /**
      * Copies black from the source to target
@@ -823,6 +893,8 @@ class Imagick implements Countable, Iterator
     const COMPOSITE_DISTORT = 56;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      */
     const COMPOSITE_DIVIDE = 55;
@@ -968,6 +1040,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Subtracts the source from the target
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -1151,6 +1225,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Subtract the colors in the source image from the destination image
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -1951,6 +2027,13 @@ class Imagick implements Countable, Iterator
     const FILTER_HAMMING = 6;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const FILTER_HANN = 5;
+
+    /**
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.filter-hanning
@@ -2079,6 +2162,13 @@ class Imagick implements Countable, Iterator
     const FILTER_UNDEFINED = 0;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const FILTER_WELCH = 17;
+
+    /**
      * @var int
      */
     const FILTER_WELSH = 17;
@@ -2182,6 +2272,8 @@ class Imagick implements Countable, Iterator
     const GRAVITY_SOUTHWEST = 7;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      */
     const GRAVITY_STATIC = 10;
@@ -2218,6 +2310,13 @@ class Imagick implements Countable, Iterator
     const IMGTYPE_COLORSEPARATION = 8;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const IMGTYPE_COLORSEPARATIONALPHA = 9;
+
+    /**
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-colorseparationmatte
@@ -2230,6 +2329,13 @@ class Imagick implements Countable, Iterator
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-grayscale
      */
     const IMGTYPE_GRAYSCALE = 2;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const IMGTYPE_GRAYSCALEALPHA = 3;
 
     /**
      * @var int
@@ -2253,6 +2359,20 @@ class Imagick implements Countable, Iterator
     const IMGTYPE_PALETTE = 4;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const IMGTYPE_PALETTEALPHA = 5;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const IMGTYPE_PALETTEBILEVELALPHA = 11;
+
+    /**
      * @var int
      */
     const IMGTYPE_PALETTEBILEVELMATTE = 11;
@@ -2270,6 +2390,13 @@ class Imagick implements Countable, Iterator
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.imgtype-truecolor
      */
     const IMGTYPE_TRUECOLOR = 6;
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const IMGTYPE_TRUECOLORALPHA = 7;
 
     /**
      * @var int
@@ -2370,6 +2497,8 @@ class Imagick implements Countable, Iterator
     /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-bicubic
@@ -2398,6 +2527,8 @@ class Imagick implements Countable, Iterator
     /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.interpolate-filter
@@ -2423,7 +2554,16 @@ class Imagick implements Countable, Iterator
     const INTERPOLATE_MESH = 6;
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @var int
+     */
+    const INTERPOLATE_NEAREST_PIXEL = 10;
+
+    /**
      * This constant is available if Imagick has been compiled against ImageMagick version 6.3.2 or higher.
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @var int
      *
@@ -2900,6 +3040,8 @@ class Imagick implements Countable, Iterator
     const METRIC_ROOTMEANSQUAREDERROR = 7;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.metric-undefined
@@ -3274,6 +3416,8 @@ class Imagick implements Countable, Iterator
     const PIXEL_FLOAT = 3;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.pixel-integer
@@ -3886,6 +4030,8 @@ class Imagick implements Countable, Iterator
     const VIRTUALPIXELMETHOD_CHECKERTILE = 17;
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @var int
      *
      * @link http://www.php.net/manual/en/imagick.constants.php#imagick.constants.virtualpixelmethod-constant
@@ -4197,6 +4343,8 @@ class Imagick implements Countable, Iterator
     /**
      * Average a set of images
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @return Imagick Returns a new Imagick object on success.
      *
      * @since PECL imagick 2.0.0
@@ -4452,6 +4600,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Changes the color value of any pixel that matches target
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $fill ImagickPixel object containing the fill color
      * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at
@@ -5031,6 +5181,8 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
      * @param int|null $channel Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <code>Imagick::CHANNEL_DEFAULT</code>. Refer to this list of channel constants
      *
@@ -5044,6 +5196,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Merges a sequence of images
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @return Imagick Returns <code>TRUE</code> on success.
      *
@@ -5379,6 +5533,8 @@ class Imagick implements Countable, Iterator
     /**
      * Description
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param string $key The key of the attribute to get.
      *
      * @return string
@@ -5494,6 +5650,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the extrema for one or more image channels
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param int $channel Provide any channel constant that is valid for your channel mode. To
      * apply to more than one channel, combine channeltype constants using
      * bitwise operators. Refer to this
@@ -5571,6 +5729,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Gets image clip mask
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @return Imagick Returns an Imagick object containing the clip mask.
      *
@@ -5717,6 +5877,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the extrema for the image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @return array Returns an associative array with the keys "min" and "max".
      *
      * @since PECL imagick 2.0.0
@@ -5834,6 +5996,8 @@ class Imagick implements Countable, Iterator
     /**
      * Gets the index of the current active image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @return int Returns an integer containing the index of the image in the stack.
      *
      * @since PECL imagick 2.0.0
@@ -5901,6 +6065,8 @@ class Imagick implements Countable, Iterator
     /**
      * Return if the image has a matte channel
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @return bool Returns <code>TRUE</code> on success.
      *
      * @since PECL imagick 2.0.0
@@ -5913,6 +6079,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Returns the image matte color
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @return ImagickPixel Returns ImagickPixel object on success.
      *
@@ -6143,6 +6311,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Returns the image length in bytes
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @return int Returns an int containing the current image size.
      *
@@ -6606,6 +6776,13 @@ class Imagick implements Countable, Iterator
     }
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     */
+    public function identifyimagetype()
+    {
+    }
+
+    /**
      * Creates a new image as a copy
      *
      * @param float $radius The radius of the implode
@@ -6765,6 +6942,8 @@ class Imagick implements Countable, Iterator
     /**
      * Replaces the colors of an image with the closest color from a reference image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param Imagick $map
      * @param bool $dither
      *
@@ -6780,6 +6959,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Changes the transparency value of a color
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param float $alpha The level of transparency: 1.0 is fully opaque and 0.0 is fully
      * transparent.
@@ -6801,6 +6982,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Applies a digital filter
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param float $radius The radius of the pixel neighborhood.
      *
@@ -6915,6 +7098,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Forms a mosaic from images
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @return Imagick Returns <code>TRUE</code> on success.
      *
@@ -7084,7 +7269,16 @@ class Imagick implements Countable, Iterator
     }
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     */
+    public function optimizeimagetransparency()
+    {
+    }
+
+    /**
      * Performs an ordered dither
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param string $threshold_map A string containing the name of the threshold dither map to use
      * @param int|null $channel Provide any channel constant that is valid for your channel mode. To
@@ -7104,6 +7298,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Changes the color value of any pixel that matches target
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $fill ImagickPixel object or a string containing the fill color
      * @param float $fuzz The amount of fuzz. For example, set fuzz to 10 and the color red at
@@ -7127,6 +7323,8 @@ class Imagick implements Countable, Iterator
     /**
      * Change any pixel that matches color
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param mixed $target Change this target color to the fill color within the image. An
      * ImagickPixel object or a string representing the target color.
      * @param mixed $fill An ImagickPixel object or a string representing the fill color.
@@ -7149,6 +7347,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Changes any pixel that matches color with the color defined by fill
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param mixed $target Change this target color to specified opacity value within the image.
      * @param float $alpha The level of transparency: 1.0 is fully opaque and 0.0 is fully
@@ -7375,6 +7575,8 @@ class Imagick implements Countable, Iterator
     /**
      * Radial blurs an image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param float $angle
      * @param int|null $channel
      *
@@ -7487,6 +7689,8 @@ class Imagick implements Countable, Iterator
     /**
      * Recolors image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param array $matrix The matrix containing the color values
      *
      * @return bool Returns <code>TRUE</code> on success.
@@ -7499,6 +7703,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Smooths the contours of an image
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param float $radius
      *
@@ -7663,6 +7869,8 @@ class Imagick implements Countable, Iterator
     /**
      * Rounds image corners
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param float $x_rounding x rounding
      * @param float $y_rounding y rounding
      * @param float|null $stroke_width stroke width
@@ -7680,6 +7888,8 @@ class Imagick implements Countable, Iterator
     }
 
     /**
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param mixed $xRounding
      * @param mixed $yRounding
      * @param mixed $strokeWidth
@@ -7938,6 +8148,15 @@ class Imagick implements Countable, Iterator
     }
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @param mixed $alpha
+     */
+    public function setimagealpha($alpha)
+    {
+    }
+
+    /**
      * Sets image alpha channel
      *
      * @param int $mode One of the <code>Imagick::ALPHACHANNEL_*</code> constants
@@ -7966,6 +8185,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Description
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param string $key
      * @param string $value
@@ -7996,6 +8217,8 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image bias for any method that convolves an image
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param float $bias
      *
      * @return bool Returns <code>TRUE</code> on success.
@@ -8010,6 +8233,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Description
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param string $bias
      *
@@ -8069,7 +8294,18 @@ class Imagick implements Countable, Iterator
     }
 
     /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @param mixed $channel
+     */
+    public function setimagechannelmask($channel)
+    {
+    }
+
+    /**
      * Sets image clip mask
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param Imagick $clip_mask The Imagick object containing the clip mask
      *
@@ -8297,6 +8533,8 @@ class Imagick implements Countable, Iterator
     /**
      * Set the iterator position
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param int $index The position to set the iterator to
      *
      * @return bool Returns <code>TRUE</code> on success.
@@ -8326,6 +8564,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Sets the image interpolate pixel method
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param int $method The method is one of the <code>Imagick::INTERPOLATE_*</code> constants
      *
@@ -8373,6 +8613,8 @@ class Imagick implements Countable, Iterator
     /**
      * Sets the image matte color
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param mixed $matte
      *
      * @return bool Returns <code>TRUE</code> on success.
@@ -8387,6 +8629,8 @@ class Imagick implements Countable, Iterator
 
     /**
      * Sets the image opacity level
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param float $opacity The level of transparency: 1.0 is fully opaque and 0.0 is fully
      * transparent.
@@ -9197,6 +9441,8 @@ class Imagick implements Countable, Iterator
     /**
      * Convenience method for setting crop size and the image geometry
      *
+     * WARNING: this may be available on POSIX but not on Windows
+     *
      * @param string $crop A crop geometry string. This geometry defines a subregion of the image to crop.
      * @param string $geometry An image geometry string. This geometry defines the final size of the image.
      *
@@ -9465,6 +9711,17 @@ class ImagickDraw
      * @link http://www.php.net/manual/en/imagickdraw.affine.php
      */
     public function affine(array $affine): bool
+    {
+    }
+
+    /**
+     * WARNING: this may be available on Windows but not on POSIX
+     *
+     * @param mixed $x
+     * @param mixed $y
+     * @param mixed $METHOD
+     */
+    public function alpha($x, $y, $METHOD)
     {
     }
 
@@ -10090,6 +10347,8 @@ class ImagickDraw
 
     /**
      * Paints on the image's opacity channel
+     *
+     * WARNING: this may be available on POSIX but not on Windows
      *
      * @param float $x x coordinate of the matte
      * @param float $y y coordinate of the matte

@@ -1,7 +1,7 @@
 <?php
 // Start of extension: openssl
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
-// - parsed on Windows with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
+// - parsed on Windows with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * @link http://www.php.net/manual/en/openssl.constants.php#openssl.signature-algos
@@ -443,6 +443,7 @@ function openssl_csr_export_to_file($csr, string $outfilename, bool $notext = tr
  * Returns the public key of a CSR
  *
  * @param mixed $csr See CSR parameters for a list of valid values.
+ * @param bool|null $use_shortnames This parameter is ignored
  *
  * @return resource Returns a positive key resource identifier on success, or FALSE on error.
  *
@@ -450,7 +451,7 @@ function openssl_csr_export_to_file($csr, string $outfilename, bool $notext = tr
  *
  * @link http://www.php.net/manual/en/function.openssl-csr-get-public-key.php
  */
-function openssl_csr_get_public_key($csr)
+function openssl_csr_get_public_key($csr, bool $use_shortnames = true)
 {
 }
 
@@ -458,6 +459,10 @@ function openssl_csr_get_public_key($csr)
  * Returns the subject of a CSR
  *
  * @param mixed $csr See CSR parameters for a list of valid values.
+ * @param bool|null $use_shortnames <code>shortnames</code> controls how the data is indexed in the
+ * array - if <code>shortnames</code> is <code>TRUE</code> (the default) then
+ * fields will be indexed with the short name form, otherwise, the long name
+ * form will be used - e.g.: CN is the shortname form of commonName.
  *
  * @return array Returns <code>TRUE</code> on success or <code>FALSE</code> on failure.
  *
@@ -465,7 +470,7 @@ function openssl_csr_get_public_key($csr)
  *
  * @link http://www.php.net/manual/en/function.openssl-csr-get-subject.php
  */
-function openssl_csr_get_subject($csr): array
+function openssl_csr_get_subject($csr, bool $use_shortnames = true): array
 {
 }
 
@@ -851,7 +856,7 @@ function openssl_pbkdf2(string $password, string $salt, int $key_length, int $it
  *
  * @link http://www.php.net/manual/en/function.openssl-pkcs12-export.php
  */
-function openssl_pkcs12_export($x509, string &$out, $priv_key, string $pass, array $args): bool
+function openssl_pkcs12_export($x509, string &$out, $priv_key, string $pass, array $args = null): bool
 {
 }
 

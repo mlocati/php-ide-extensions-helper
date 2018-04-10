@@ -1,6 +1,6 @@
 <?php
 // Start of extension: zip
-// - parsed on POSIX with PHP 7.2.3 (extension version 1.15.2)
+// - parsed on POSIX with PHP 7.2.4 (extension version 1.15.2)
 // - parsed on Windows with PHP 7.2.4 (extension version 1.15.2)
 
 /**

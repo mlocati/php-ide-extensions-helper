@@ -1,6 +1,6 @@
 <?php
 // Start of extension: solr
-// - parsed on POSIX with PHP 5.6.34 (extension version 2.4.0)
+// - parsed on POSIX with PHP 5.6.35 (extension version 2.4.0)
 
 /**
  * @link http://www.php.net/manual/en/solr.constants.php#constant.solr-extension-version

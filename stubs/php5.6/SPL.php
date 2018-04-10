@@ -1,7 +1,7 @@
 <?php
 // Start of extension: SPL
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.2)
-// - parsed on Windows with PHP 5.6.34 (extension version 0.2)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.2)
+// - parsed on Windows with PHP 5.6.35 (extension version 0.2)
 
 /**
  * Classes implementing <code>Countable</code> can be used with the
@@ -6330,13 +6330,18 @@ function class_uses($class, $autoload = true)
 /**
  * Call a function for every element in an iterator
  *
- * @param Traversable $iterator The class to iterate over.
+ * @param Traversable $iterator The iterator object to iterate over.
  * @param callable $function The callback function to call on every element.
+ * This function only receives the given <code>args</code>, so it
+ * is nullary by default. If <code>count($args) === 3</code>, for
+ * instance, the callback function is ternary.
  * <blockquote>
  * The function must return <code>TRUE</code> in order to
  * continue iterating over the <code>iterator</code>.
  * </blockquote>
- * @param array|null $args Arguments to pass to the callback function.
+ * @param array|null $args An <code>array</code> of arguments; each element of
+ * <code>args</code> is passed to the callback
+ * <code>function</code> as separate argument.
  *
  * @return int Returns the iteration count.
  *

@@ -1,6 +1,6 @@
 <?php
 // Start of extension: sockets
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * IPv4 Internet based protocols. TCP and UDP are common protocols of

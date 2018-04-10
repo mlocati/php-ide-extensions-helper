@@ -1,6 +1,6 @@
 <?php
 // Start of extension: snmp
-// - parsed on POSIX with PHP 7.1.15 (extension version 0.1)
+// - parsed on POSIX with PHP 7.1.16 (extension version 0.1)
 
 /**
  * @link http://www.php.net/manual/en/snmp.constants.php#constant.snmp-bit-str

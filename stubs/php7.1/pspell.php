@@ -1,6 +1,6 @@
 <?php
 // Start of extension: pspell
-// - parsed on POSIX with PHP 7.1.15 (extension version 7.1.15)
+// - parsed on POSIX with PHP 7.1.16 (extension version 7.1.16)
 
 /**
  * @link http://www.php.net/manual/en/pspell.constants.php#constant.pspell-bad-spellers

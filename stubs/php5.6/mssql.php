@@ -1,6 +1,6 @@
 <?php
 // Start of extension: mssql
-// - parsed on POSIX with PHP 5.6.34
+// - parsed on POSIX with PHP 5.6.35
 
 /**
  * Return an associative array. Used on

@@ -1,6 +1,6 @@
 <?php
 // Start of extension: sqlite3
-// - parsed on POSIX with PHP 5.6.34 (extension version 0.7-dev)
+// - parsed on POSIX with PHP 5.6.35 (extension version 0.7-dev)
 
 /**
  * Specifies that the <code>Sqlite3Result::fetchArray</code>
