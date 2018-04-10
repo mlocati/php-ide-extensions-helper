@@ -343,7 +343,7 @@ namespace CommonMark\Interfaces {
          *
          * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being entered
          *
-         * @return int|null|\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
+         * @return int|null|\CommonMark\Interfaces\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
          * Returning <code>CommonMark\Interfaces\IVisitor::Enter</code> will reset the backing iterator at entering the current <code>IVisitable</code>
          * Returning <code>CommonMark\Interfaces\IVisitor::Leave</code> will reset the backing iterator at exiting the current <code>IVisitable</code>
          * Returning an <code>IVisitable</code> will reset the backing iterator at entering the given <code>IVisitable</code>
@@ -360,7 +360,7 @@ namespace CommonMark\Interfaces {
          *
          * @param \CommonMark\Interfaces\IVisitable $visitable The current <code>CommonMark\Interfaces\IVisitable</code> being exited
          *
-         * @return int|null|\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
+         * @return int|null|\CommonMark\Interfaces\IVisitable Returning <code>CommonMark\Interfaces\IVisitor::Done</code> will cause the backing iterator to exit.
          * Returning <code>CommonMark\Interfaces\IVisitor::Enter</code> will reset the backing iterator at entering the current <code>IVisitable</code>
          * Returning <code>CommonMark\Interfaces\IVisitor::Leave</code> will reset the backing iterator at exiting the current <code>IVisitable</code>
          * Returning an <code>IVisitable</code> will reset the backing iterator at exiting the given <code>IVisitable</code>

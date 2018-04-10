@@ -3225,7 +3225,12 @@ class TypeFormatter
                         }
                         break;
                     default:
-                        $fqType = $currentNamespace === '' ? $type : "\\$type";
+                        if ($type === 'IVisitable' && $currentNamespace === 'CommonMark\Interfaces') {
+                            // Hack for wrong definition in PHP manual
+                            $fqType = '\\' . $currentNamespace . '\\' . $type;
+                        } else {
+                            $fqType = $currentNamespace === '' ? $type : "\\$type";
+                        }
                         switch ($place) {
                             case self::PLACE_DOC:
                             case self::PLACE_DOC_RETURNTYPE:
