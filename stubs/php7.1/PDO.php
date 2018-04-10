@@ -1571,7 +1571,7 @@ class PDO
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.pdoexception
+ * @link http://www.php.net/manual/en/class.pdoexception.php
  */
 class PDOException extends RuntimeException
 {
@@ -1581,7 +1581,7 @@ class PDOException extends RuntimeException
      *
      * @var array
      *
-     * @link http://www.php.net/manual/en/class.php#pdoexception.props
+     * @link http://www.php.net/manual/en/class.pdoexception.php#pdoexception.props
      */
     public $errorInfo;
 }

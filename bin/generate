@@ -1241,6 +1241,7 @@ class PHPManual
                     }
                 }
             }
+            ksort($result);
             foreach ($xmlFiles as $xmlFile) {
                 if (preg_match_all('/&(' . self::RX_ENTITYNAME . ');/', file_get_contents($xmlFile->getPathname()), $m) > 0) {
                     foreach ($m[1] as $entityId) {
@@ -1949,6 +1950,7 @@ EOT
                 case 'appendix':
                 case 'reference':
                 case 'classref':
+                case 'exceptionref':
                     $rootID = $id;
                     break 2;
                 case 'section':

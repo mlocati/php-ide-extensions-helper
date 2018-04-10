@@ -3188,7 +3188,7 @@ class __PHP_Incomplete_Class
  *
  * @since PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.assertionerror
+ * @link http://www.php.net/manual/en/class.assertionerror.php
  */
 class AssertionError extends Error
 {

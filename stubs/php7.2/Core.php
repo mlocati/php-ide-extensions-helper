@@ -1139,7 +1139,7 @@ interface Traversable
  *
  * @since PHP 7 >= PHP 7.1.0
  *
- * @link http://www.php.net/manual/en/class.php#class.argumentcounterror
+ * @link http://www.php.net/manual/en/class.argumentcounterror.php
  */
 class ArgumentCountError extends TypeError
 {
@@ -1154,7 +1154,7 @@ class ArgumentCountError extends TypeError
  *
  * @since PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.arithmeticerror
+ * @link http://www.php.net/manual/en/class.arithmeticerror.php
  */
 class ArithmeticError extends Error
 {
@@ -1271,7 +1271,7 @@ final class Closure
  *
  * @since PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.divisionbyzeroerror
+ * @link http://www.php.net/manual/en/class.divisionbyzeroerror.php
  */
 class DivisionByZeroError extends ArithmeticError
 {
@@ -1461,7 +1461,7 @@ class Error implements Throwable
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.errorexception
+ * @link http://www.php.net/manual/en/class.errorexception.php
  */
 class ErrorException extends Exception
 {
@@ -1470,7 +1470,7 @@ class ErrorException extends Exception
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#errorexception.props
+     * @link http://www.php.net/manual/en/class.errorexception.php#errorexception.props
      */
     protected $severity = 1;
 
@@ -1513,7 +1513,7 @@ class ErrorException extends Exception
  *
  * @since PHP 5, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.exception
+ * @link http://www.php.net/manual/en/class.exception.php
  */
 class Exception implements Throwable
 {
@@ -1522,7 +1522,7 @@ class Exception implements Throwable
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $code = 0;
 
@@ -1531,7 +1531,7 @@ class Exception implements Throwable
      *
      * @var string
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $file;
 
@@ -1540,7 +1540,7 @@ class Exception implements Throwable
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $line;
 
@@ -1549,7 +1549,7 @@ class Exception implements Throwable
      *
      * @var string
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $message = '';
 
@@ -1848,7 +1848,7 @@ final class Generator implements Iterator
  *
  * @since PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.parseerror
+ * @link http://www.php.net/manual/en/class.parseerror.php
  */
 class ParseError extends Error
 {
@@ -1869,7 +1869,7 @@ class stdClass
  *
  * @since PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.typeerror
+ * @link http://www.php.net/manual/en/class.typeerror.php
  */
 class TypeError extends Error
 {

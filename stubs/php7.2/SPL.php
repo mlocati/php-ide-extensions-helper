@@ -1019,7 +1019,7 @@ class ArrayObject implements ArrayAccess, Countable, IteratorAggregate, Serializ
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.badfunctioncallexception
+ * @link http://www.php.net/manual/en/class.badfunctioncallexception.php
  */
 class BadFunctionCallException extends LogicException
 {
@@ -1031,7 +1031,7 @@ class BadFunctionCallException extends LogicException
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.badmethodcallexception
+ * @link http://www.php.net/manual/en/class.badmethodcallexception.php
  */
 class BadMethodCallException extends BadFunctionCallException
 {
@@ -1556,7 +1556,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.domainexception
+ * @link http://www.php.net/manual/en/class.domainexception.php
  */
 class DomainException extends LogicException
 {
@@ -2046,7 +2046,7 @@ class InfiniteIterator extends IteratorIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.invalidargumentexception
+ * @link http://www.php.net/manual/en/class.invalidargumentexception.php
  */
 class InvalidArgumentException extends LogicException
 {
@@ -2163,7 +2163,7 @@ class IteratorIterator implements OuterIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.lengthexception
+ * @link http://www.php.net/manual/en/class.lengthexception.php
  */
 class LengthException extends LogicException
 {
@@ -2307,7 +2307,7 @@ class LimitIterator extends IteratorIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.logicexception
+ * @link http://www.php.net/manual/en/class.logicexception.php
  */
 class LogicException extends Exception
 {
@@ -2645,7 +2645,7 @@ class NoRewindIterator extends IteratorIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.outofboundsexception
+ * @link http://www.php.net/manual/en/class.outofboundsexception.php
  */
 class OutOfBoundsException extends RuntimeException
 {
@@ -2657,7 +2657,7 @@ class OutOfBoundsException extends RuntimeException
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.outofrangeexception
+ * @link http://www.php.net/manual/en/class.outofrangeexception.php
  */
 class OutOfRangeException extends LogicException
 {
@@ -2668,7 +2668,7 @@ class OutOfRangeException extends LogicException
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.overflowexception
+ * @link http://www.php.net/manual/en/class.overflowexception.php
  */
 class OverflowException extends RuntimeException
 {
@@ -2720,7 +2720,7 @@ class ParentIterator extends RecursiveFilterIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.rangeexception
+ * @link http://www.php.net/manual/en/class.rangeexception.php
  */
 class RangeException extends RuntimeException
 {
@@ -3870,7 +3870,7 @@ class RegexIterator extends FilterIterator
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.runtimeexception
+ * @link http://www.php.net/manual/en/class.runtimeexception.php
  */
 class RuntimeException extends Exception
 {
@@ -6275,7 +6275,7 @@ class SplTempFileObject extends SplFileObject
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.underflowexception
+ * @link http://www.php.net/manual/en/class.underflowexception.php
  */
 class UnderflowException extends RuntimeException
 {
@@ -6289,7 +6289,7 @@ class UnderflowException extends RuntimeException
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.unexpectedvalueexception
+ * @link http://www.php.net/manual/en/class.unexpectedvalueexception.php
  */
 class UnexpectedValueException extends RuntimeException
 {

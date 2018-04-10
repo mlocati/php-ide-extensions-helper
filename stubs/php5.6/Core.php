@@ -1042,7 +1042,7 @@ final class Closure
  *
  * @since PHP 5 >= 5.1.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.errorexception
+ * @link http://www.php.net/manual/en/class.errorexception.php
  */
 class ErrorException extends Exception
 {
@@ -1051,7 +1051,7 @@ class ErrorException extends Exception
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#errorexception.props
+     * @link http://www.php.net/manual/en/class.errorexception.php#errorexception.props
      */
     protected $severity = 1;
 
@@ -1094,7 +1094,7 @@ class ErrorException extends Exception
  *
  * @since PHP 5, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.exception
+ * @link http://www.php.net/manual/en/class.exception.php
  */
 class Exception
 {
@@ -1103,7 +1103,7 @@ class Exception
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $code = 0;
 
@@ -1112,7 +1112,7 @@ class Exception
      *
      * @var string
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $file;
 
@@ -1121,7 +1121,7 @@ class Exception
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $line;
 
@@ -1130,7 +1130,7 @@ class Exception
      *
      * @var string
      *
-     * @link http://www.php.net/manual/en/class.php#exception.props
+     * @link http://www.php.net/manual/en/class.exception.php#exception.props
      */
     protected $message = '';
 

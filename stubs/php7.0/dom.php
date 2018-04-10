@@ -2006,7 +2006,7 @@ class DOMErrorHandler
  *
  * @since PHP 5, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.domexception
+ * @link http://www.php.net/manual/en/class.domexception.php
  */
 final class DOMException extends Exception
 {
@@ -2017,7 +2017,7 @@ final class DOMException extends Exception
      *
      * @var int
      *
-     * @link http://www.php.net/manual/en/class.php#domexception.props
+     * @link http://www.php.net/manual/en/class.domexception.php#domexception.props
      */
     public $code = 0;
 }

@@ -1686,7 +1686,7 @@ class PharData extends RecursiveDirectoryIterator implements ArrayAccess, Counta
  *
  * @since Unknown
  *
- * @link http://www.php.net/manual/en/class.php#class.pharexception
+ * @link http://www.php.net/manual/en/class.pharexception.php
  */
 class PharException extends Exception
 {

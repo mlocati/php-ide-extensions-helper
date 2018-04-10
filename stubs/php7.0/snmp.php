@@ -587,7 +587,7 @@ class SNMP
  *
  * @since PHP 5 >= 5.4.0, PHP 7
  *
- * @link http://www.php.net/manual/en/class.php#class.snmpexception
+ * @link http://www.php.net/manual/en/class.snmpexception.php
  */
 class SNMPException extends RuntimeException
 {
