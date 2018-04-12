@@ -33,7 +33,7 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 #     pdo_oci
 #  Conflicting with other extensions:
 #     sybase_ct [implemented in 5.6a]
-RUN chmod uga+x /usr/local/bin/install-php-extensions && install-php-extensions \
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && install-php-extensions \
 #		Core extensions
 		bcmath \
 		bz2 \

@@ -31,7 +31,7 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 #  Depending on Oracle Instant Client, which requires an Oracle account:
 #     oci8
 #     pdo_oci
-RUN chmod uga+x /usr/local/bin/install-php-extensions && install-php-extensions \
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && install-php-extensions \
 #		Core extensions
 		bcmath \
 		bz2 \
