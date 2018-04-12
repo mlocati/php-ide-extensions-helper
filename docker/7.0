@@ -1,6 +1,6 @@
 FROM php:7.0-cli
 
-COPY install-php-extensions /usr/local/bin/
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
 # Install all extensions listed by docker-php-ext-install (listed with `docker run -ti --rm php:7.0-cli docker-php-ext-install`), except:
 #   Already installed extensions:
@@ -31,7 +31,7 @@ COPY install-php-extensions /usr/local/bin/
 #  Depending on Oracle Instant Client, which requires an Oracle account:
 #     oci8
 #     pdo_oci
-RUN install-php-extensions \
+RUN chmod uga+x /usr/local/bin/install-php-extensions && install-php-extensions \
 #		Core extensions
 		bcmath \
 		bz2 \

@@ -170,13 +170,7 @@ function getDockerImages($dockerDir)
                 break;
             }
             if (is_file($dockerDir . '/' . $item)) {
-                switch ($item) {
-                    case 'install-php-extensions':
-                        break;
-                    default:
-                        $result[] = $item;
-                        break;
-                }
+                $result[] = $item;
             }
         }
         closedir($hDir);
