@@ -788,7 +788,7 @@ EOF
         } else {
             $type = 'class';
         }
-        $search = $this->searchExtensionChildElement($extensionElement, $type, $reflectionClass->getName(), $reflectionClass->getNamespaceName());
+        $search = $this->searchExtensionChildElement($extensionElement, $type, $reflectionClass->getShortName(), $reflectionClass->getNamespaceName());
         if ($search->found === null) {
             $new = $this->createOSTypeElement($extensionElement, $type, $search->addBefore);
             $new->setAttribute('name', $reflectionClass->getShortName());
@@ -821,9 +821,6 @@ EOF
                     $interfaces = $this->getActualInterfaces($reflectionClass);
                     if ($parentClass) {
                         $parentClassName = $parentClass->getName();
-                        if ($parentClass->getNamespaceName() !== $reflectionClass->getNamespaceName()) {
-                            $parentClassName = '\\' . ltrim($parentClassName, '\\');
-                        }
                         $parentInterfaces = $parentClass->getInterfaceNames();
                         $interfaces = array_filter($interfaces, function ($interface) use ($parentInterfaces) {
                             return in_array($interface, $parentInterfaces) === false;
@@ -873,7 +870,7 @@ EOF
      */
     private function saveReflectionFunction(DOMElement $extensionElement, ReflectionFunction $reflectionFunction)
     {
-        $search = $this->searchExtensionChildElement($extensionElement, 'function', $reflectionFunction->getName(), $reflectionFunction->getNamespaceName());
+        $search = $this->searchExtensionChildElement($extensionElement, 'function', $reflectionFunction->getShortName(), $reflectionFunction->getNamespaceName());
         if ($search->found === null) {
             $new = $this->createReflectionFunctionAbstract($reflectionFunction, $extensionElement, 'function', $search->addBefore);
             if ((string) $reflectionFunction->getNamespaceName() !== '') {
